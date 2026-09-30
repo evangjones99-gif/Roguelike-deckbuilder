@@ -3,6 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {gunzipSync} from 'node:zlib';
 import { execFileSync } from 'node:child_process';
+import { sha256File } from './sha256-file.mjs';
 
 const version = process.argv[2];
 if (!version || !/^\d+\.\d+\.\d+(?:-[a-z0-9.]+)?$/.test(version)) throw new Error('Usage: npm run release -- 0.1.0');
@@ -29,7 +30,12 @@ fs.mkdirSync(dest); // Exclusive creation: never merge with a raced existing rel
 try {
   fs.cpSync('dist', path.join(dest, 'web'), { recursive: true });
   run('zip', ['-qr', path.join(dest, `${pkg.name}-${version}-web.zip`), 'dist']);
-  run('git', ['archive', '--format=zip', `--output=${path.join(dest, `${pkg.name}-${version}-source.zip`)}`, sourceCommit]);
+  // Retain old milestones in place. The current source needs its canonical
+  // reviews/assets, rather than recursively bundling prior release copies.
+  const sourceRoots = execFileSync('git', ['ls-tree', '-z', '--name-only', sourceCommit], {encoding: 'utf8'})
+    .split('\0').filter(entry => entry && entry !== 'releases');
+  if (!sourceRoots.length) throw new Error('Source archive has no included tracked roots');
+  run('git', ['archive', '--format=zip', `--output=${path.join(dest, `${pkg.name}-${version}-source.zip`)}`, sourceCommit, '--', ...sourceRoots]);
   const desktops = [];
   const freshProvenance = JSON.parse(fs.readFileSync('dist/build-provenance.json','utf8'));
   for (const [dir, platform] of [['linux-unpacked', 'linux-x64'], ['win-unpacked', 'windows-x64']]) {
@@ -56,9 +62,9 @@ try {
     return true;
   } });
   const archives = fs.readdirSync(dest).filter(f => /\.(zip|tar\.gz)$/.test(f));
-  const digests = Object.fromEntries(archives.map(f => [f, crypto.createHash('sha256').update(fs.readFileSync(path.join(dest, f))).digest('hex')]));
+  const digests = Object.fromEntries(await Promise.all(archives.map(async f => [f, await sha256File(path.join(dest, f))])));
   fs.writeFileSync(path.join(dest, 'SHA256SUMS'), Object.entries(digests).map(([f, h]) => `${h}  ${f}\n`).join(''));
-  fs.writeFileSync(path.join(dest, 'manifest.json'), JSON.stringify({ version, status: 'development-prerelease', sourceCommit, runtimeSourceDigest:freshProvenance.sourceDigest, createdAt: new Date().toISOString(), platforms: ['web', ...desktops], artifacts: digests, steamPublished: false, reviews: 'See reviews/ for independent findings and promotion decisions; this manifest does not certify commercial quality.' }, null, 2) + '\n');
+  fs.writeFileSync(path.join(dest, 'manifest.json'), JSON.stringify({ version, status: 'development-prerelease', sourceCommit, runtimeSourceDigest:freshProvenance.sourceDigest, sourceArchiveScope: 'All tracked top-level entries except releases/. Canonical reviews, art inputs, datasets and game/build sources are included. Prior milestones remain unchanged at their original paths and commits.', createdAt: new Date().toISOString(), platforms: ['web', ...desktops], artifacts: digests, steamPublished: false, reviews: 'See canonical reviews/ in the source commit/archive and the complete local release reviews/ copy. This manifest does not certify commercial quality.' }, null, 2) + '\n');
   console.log(`Archived ${version} at ${dest}`);
 } catch (error) {
   // Preserve partial evidence rather than silently deleting a version directory.
