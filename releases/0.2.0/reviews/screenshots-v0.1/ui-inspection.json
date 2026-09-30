@@ -1,0 +1,596 @@
+{
+  "errors": [],
+  "seed": 117,
+  "startingHand": [
+    "mossling",
+    "mend",
+    "spark",
+    "ward",
+    "cinderfox"
+  ],
+  "playedSummonIndex": "0",
+  "alliesAfterSummon": [
+    {
+      "uid": "a3",
+      "cardId": "mossling",
+      "name": "Mossling",
+      "species": "moss",
+      "hp": 8,
+      "maxHp": 8,
+      "attack": 3,
+      "block": 0,
+      "acted": false,
+      "color": "#91b978"
+    }
+  ],
+  "ambientMotionOffFramesIdentical": false,
+  "focus": [
+    {
+      "tag": "BUTTON",
+      "txt": "End turn Enemies act · draw 5 · refill energy",
+      "outline": "rgb(32, 60, 48) none 3px"
+    },
+    {
+      "tag": "BUTTON",
+      "txt": "Fullscreen",
+      "outline": "rgb(240, 210, 149) solid 3px"
+    },
+    {
+      "tag": "BODY",
+      "txt": "\n    \n      LANTERNBOUNDA WOODLAND DECKBUILDING ADVENTUREDeck 12?How to play\n      The lantern keeper 65 / 653BlockWOODLAND CONTRACTClearing 1 / 10Turn 165Gold4Energy\n      \n        \n        Play a card. Then command each ready companion by selecting it and an enemy.Battle journal THE WOODS PUSH BACK2 / 6 enemiesBriar Imp 10/1344 damage → youHollow Wisp 10/1044 damage → you · ignores block+Quiet woods+Quiet woods+Quiet woods+Quiet woodsTHE HOLLOW WOODSA little courage. A little magic.YOUR COMPANIONS1 / 6 companions · One free command each turnMossling 8/83 Command used+Summon here+Summon here+Summon here+Summon here+Summon here\n      \n      YOUR HAND 4Draw 7Discard 01Dew MendSPELL · CHOOSE TARGETHeal a companion 5 HP and give it 2 block.1Lantern SparkSPELL · CHOOSE TARGETDeal 6 damage to an enemy.1Woven WardSPELLGain 7 hunter block.2Cinder FoxCOMPANIONOn summon: deal 2 damage to every enemy. 5 Attack  7 Health4energy leftEnd turn Enemies act · draw 5 · refill energyE End turn · Esc Cancel\n      v0.1.0 · Playable prototypeSeed 117 · Trail saved locallyFullscreen\n    \n    \n    Make yourself comfortableSound effectsSoft, synthesized notes for your actions.Volume25%Ambient motionCreature idles, lantern glow, and fireflies.Your preferences are stored on this device. The arena is decorative; all game information is available in the companion and enemy panels.Back to the woods\n    \n  \n\n",
+      "outline": "rgb(243, 237, 220) none 3px"
+    },
+    {
+      "tag": "BUTTON",
+      "txt": "LANTERNBOUNDA WOODLAND DECKBUILDING ADVENTURE",
+      "outline": "rgb(240, 210, 149) solid 3px"
+    },
+    {
+      "tag": "BUTTON",
+      "txt": "Deck 12",
+      "outline": "rgb(240, 210, 149) solid 3px"
+    },
+    {
+      "tag": "BUTTON",
+      "txt": "?How to play",
+      "outline": "rgb(240, 210, 149) solid 3px"
+    }
+  ],
+  "layout1280": {
+    "viewport": 1280,
+    "documentWidth": 1280,
+    "documentHeight": 720,
+    "buttons": [
+      {
+        "txt": "LANTERNBOUNDA WOODLAND DECKBUILDING ADVENTURE",
+        "label": "Lanternbound main menu",
+        "font": "19px",
+        "bounds": {
+          "x": 36,
+          "y": 10,
+          "w": 266.640625,
+          "h": 36
+        }
+      },
+      {
+        "txt": "Deck 12",
+        "label": null,
+        "font": "12px",
+        "bounds": {
+          "x": 1003.25,
+          "y": 10,
+          "w": 69.046875,
+          "h": 36
+        }
+      },
+      {
+        "txt": "?How to play",
+        "label": null,
+        "font": "12px",
+        "bounds": {
+          "x": 1093.296875,
+          "y": 11.5,
+          "w": 87.703125,
+          "h": 33
+        }
+      },
+      {
+        "txt": "",
+        "label": "Settings",
+        "font": "16px",
+        "bounds": {
+          "x": 1202,
+          "y": 7,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "txt": "",
+        "label": "Hunter: 65 of 65 health",
+        "font": "16px",
+        "bounds": {
+          "x": 36,
+          "y": 66.5,
+          "w": 37,
+          "h": 42
+        }
+      },
+      {
+        "txt": "Battle journal ",
+        "label": null,
+        "font": "10px",
+        "bounds": {
+          "x": 1165.625,
+          "y": 121,
+          "w": 79.375,
+          "h": 23
+        }
+      },
+      {
+        "txt": "Briar Imp 10/1344 damage → you",
+        "label": "Briar Imp. 10 of 13 health, 4 attack. 4 damage → you",
+        "font": "16px",
+        "bounds": {
+          "x": 30,
+          "y": 169,
+          "w": 195.828125,
+          "h": 80
+        }
+      },
+      {
+        "txt": "Hollow Wisp 10/1044 damage → you · ignores block",
+        "label": "Hollow Wisp. 10 of 10 health, 4 attack. 4 damage → you · ignores block",
+        "font": "16px",
+        "bounds": {
+          "x": 234.828125,
+          "y": 169,
+          "w": 195.828125,
+          "h": 80
+        }
+      },
+      {
+        "txt": "Mossling 8/83 Command used",
+        "label": "Mossling. 8 of 8 health, 3 attack. Already commanded this turn.",
+        "font": "16px",
+        "bounds": {
+          "x": 30,
+          "y": 422,
+          "w": 195.828125,
+          "h": 71
+        }
+      },
+      {
+        "txt": "Draw 7",
+        "label": null,
+        "font": "10px",
+        "bounds": {
+          "x": 925.1875,
+          "y": 513,
+          "w": 36.625,
+          "h": 12
+        }
+      },
+      {
+        "txt": "Discard 0",
+        "label": null,
+        "font": "10px",
+        "bounds": {
+          "x": 976.8125,
+          "y": 513,
+          "w": 47.1875,
+          "h": 12
+        }
+      },
+      {
+        "txt": "1Dew MendSPELL · CHOOSE TARGETHeal a companion 5 HP and give it 2 block.",
+        "label": "Dew Mend, 1 energy. Heal a companion 5 HP and give it 2 block.",
+        "font": "16px",
+        "bounds": {
+          "x": 165.5,
+          "y": 530,
+          "w": 174,
+          "h": 146
+        }
+      },
+      {
+        "txt": "1Lantern SparkSPELL · CHOOSE TARGETDeal 6 damage to an enemy.",
+        "label": "Lantern Spark, 1 energy. Deal 6 damage to an enemy.",
+        "font": "16px",
+        "bounds": {
+          "x": 348.5,
+          "y": 530,
+          "w": 174,
+          "h": 146
+        }
+      },
+      {
+        "txt": "1Woven WardSPELLGain 7 hunter block.",
+        "label": "Woven Ward, 1 energy. Gain 7 hunter block.",
+        "font": "16px",
+        "bounds": {
+          "x": 531.5,
+          "y": 530,
+          "w": 174,
+          "h": 146
+        }
+      },
+      {
+        "txt": "2Cinder FoxCOMPANIONOn summon: deal 2 damage to every enemy. 5 Attack  7 Health",
+        "label": "Cinder Fox, 2 energy. On summon: deal 2 damage to every enemy.",
+        "font": "16px",
+        "bounds": {
+          "x": 714.5,
+          "y": 530,
+          "w": 174,
+          "h": 146
+        }
+      },
+      {
+        "txt": "End turn Enemies act · draw 5 · refill energy",
+        "label": null,
+        "font": "13px",
+        "bounds": {
+          "x": 1046,
+          "y": 579,
+          "w": 204,
+          "h": 61
+        }
+      },
+      {
+        "txt": "Fullscreen",
+        "label": null,
+        "font": "9px",
+        "bounds": {
+          "x": 1202.484375,
+          "y": 695.5,
+          "w": 41.515625,
+          "h": 20
+        }
+      },
+      {
+        "txt": "",
+        "label": "Close dialog",
+        "font": "16px",
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        }
+      },
+      {
+        "txt": "Back to the woods",
+        "label": null,
+        "font": "13px",
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        }
+      }
+    ],
+    "fonts": [
+      {
+        "txt": "Play a card. Then command each ready companion by selecting it and an enemy.Battle journal ",
+        "font": "11px"
+      },
+      {
+        "txt": "Briar Imp",
+        "font": "12px"
+      },
+      {
+        "txt": "4 damage → you",
+        "font": "8px"
+      },
+      {
+        "txt": "Hollow Wisp",
+        "font": "12px"
+      },
+      {
+        "txt": "4 damage → you · ignores block",
+        "font": "8px"
+      },
+      {
+        "txt": "Mossling",
+        "font": "12px"
+      },
+      {
+        "txt": " Command used",
+        "font": "8px"
+      },
+      {
+        "txt": "Heal a companion 5 HP and give it 2 block.",
+        "font": "9px"
+      },
+      {
+        "txt": "Deal 6 damage to an enemy.",
+        "font": "9px"
+      },
+      {
+        "txt": "Gain 7 hunter block.",
+        "font": "9px"
+      },
+      {
+        "txt": "On summon: deal 2 damage to every enemy.",
+        "font": "9px"
+      }
+    ]
+  },
+  "layout390": {
+    "viewport": 390,
+    "documentWidth": 390,
+    "documentHeight": 885,
+    "buttons": [
+      {
+        "txt": "LANTERNBOUNDA WOODLAND DECKBUILDING ADVENTURE",
+        "label": "Lanternbound main menu",
+        "font": "14px",
+        "bounds": {
+          "x": 15,
+          "y": 15,
+          "w": 175.109375,
+          "h": 29
+        }
+      },
+      {
+        "txt": "Deck 12",
+        "label": null,
+        "font": "12px",
+        "bounds": {
+          "x": 250,
+          "y": 10.5,
+          "w": 36,
+          "h": 38
+        }
+      },
+      {
+        "txt": "?How to play",
+        "label": null,
+        "font": "12px",
+        "bounds": {
+          "x": 292,
+          "y": 12,
+          "w": 35,
+          "h": 35
+        }
+      },
+      {
+        "txt": "",
+        "label": "Settings",
+        "font": "16px",
+        "bounds": {
+          "x": 333,
+          "y": 8.5,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "txt": "",
+        "label": "Hunter: 65 of 65 health",
+        "font": "16px",
+        "bounds": {
+          "x": 15,
+          "y": 77,
+          "w": 30,
+          "h": 35
+        }
+      },
+      {
+        "txt": "Battle journal ",
+        "label": null,
+        "font": "8px",
+        "bounds": {
+          "x": 328.296875,
+          "y": 140,
+          "w": 46.703125,
+          "h": 19
+        }
+      },
+      {
+        "txt": "Briar Imp 10/1344 damage → you",
+        "label": "Briar Imp. 10 of 13 health, 4 attack. 4 damage → you",
+        "font": "16px",
+        "bounds": {
+          "x": 10,
+          "y": 191,
+          "w": 120.65625,
+          "h": 71
+        }
+      },
+      {
+        "txt": "Hollow Wisp 10/1044 damage → you · ignores block",
+        "label": "Hollow Wisp. 10 of 10 health, 4 attack. 4 damage → you · ignores block",
+        "font": "16px",
+        "bounds": {
+          "x": 134.65625,
+          "y": 191,
+          "w": 120.671875,
+          "h": 71
+        }
+      },
+      {
+        "txt": "Mossling 8/83 Command used",
+        "label": "Mossling. 8 of 8 health, 3 attack. Already commanded this turn.",
+        "font": "16px",
+        "bounds": {
+          "x": 10,
+          "y": 427,
+          "w": 120.65625,
+          "h": 67
+        }
+      },
+      {
+        "txt": "Draw 7",
+        "label": null,
+        "font": "10px",
+        "bounds": {
+          "x": 281.1875,
+          "y": 589,
+          "w": 36.625,
+          "h": 12
+        }
+      },
+      {
+        "txt": "Discard 0",
+        "label": null,
+        "font": "10px",
+        "bounds": {
+          "x": 332.8125,
+          "y": 589,
+          "w": 47.1875,
+          "h": 12
+        }
+      },
+      {
+        "txt": "1Dew MendSPELL · CHOOSE TARGETHeal a companion 5 HP and give it 2 block.",
+        "label": "Dew Mend, 1 energy. Heal a companion 5 HP and give it 2 block.",
+        "font": "16px",
+        "bounds": {
+          "x": 10,
+          "y": 620,
+          "w": 110,
+          "h": 148
+        }
+      },
+      {
+        "txt": "1Lantern SparkSPELL · CHOOSE TARGETDeal 6 damage to an enemy.",
+        "label": "Lantern Spark, 1 energy. Deal 6 damage to an enemy.",
+        "font": "16px",
+        "bounds": {
+          "x": 126,
+          "y": 620,
+          "w": 110,
+          "h": 148
+        }
+      },
+      {
+        "txt": "1Woven WardSPELLGain 7 hunter block.",
+        "label": "Woven Ward, 1 energy. Gain 7 hunter block.",
+        "font": "16px",
+        "bounds": {
+          "x": 242,
+          "y": 620,
+          "w": 110,
+          "h": 148
+        }
+      },
+      {
+        "txt": "2Cinder FoxCOMPANIONOn summon: deal 2 damage to every enemy. 5 Attack  7 Health",
+        "label": "Cinder Fox, 2 energy. On summon: deal 2 damage to every enemy.",
+        "font": "16px",
+        "bounds": {
+          "x": 358,
+          "y": 620,
+          "w": 110,
+          "h": 148
+        }
+      },
+      {
+        "txt": "End turn Enemies act · draw 5 · refill energy",
+        "label": null,
+        "font": "12px",
+        "bounds": {
+          "x": 180,
+          "y": 787,
+          "w": 200,
+          "h": 55
+        }
+      },
+      {
+        "txt": "Fullscreen",
+        "label": null,
+        "font": "7px",
+        "bounds": {
+          "x": 345.703125,
+          "y": 862,
+          "w": 32.296875,
+          "h": 17
+        }
+      },
+      {
+        "txt": "",
+        "label": "Close dialog",
+        "font": "16px",
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        }
+      },
+      {
+        "txt": "Back to the woods",
+        "label": null,
+        "font": "13px",
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        }
+      }
+    ],
+    "fonts": [
+      {
+        "txt": "Play a card. Then command each ready companion by selecting it and an enemy.Battle journal ",
+        "font": "10px"
+      },
+      {
+        "txt": "Briar Imp",
+        "font": "10px"
+      },
+      {
+        "txt": "4 damage → you",
+        "font": "7px"
+      },
+      {
+        "txt": "Hollow Wisp",
+        "font": "10px"
+      },
+      {
+        "txt": "4 damage → you · ignores block",
+        "font": "7px"
+      },
+      {
+        "txt": "Mossling",
+        "font": "10px"
+      },
+      {
+        "txt": " Command used",
+        "font": "7px"
+      },
+      {
+        "txt": "Heal a companion 5 HP and give it 2 block.",
+        "font": "9px"
+      },
+      {
+        "txt": "Deal 6 damage to an enemy.",
+        "font": "9px"
+      },
+      {
+        "txt": "Gain 7 hunter block.",
+        "font": "9px"
+      },
+      {
+        "txt": "On summon: deal 2 damage to every enemy.",
+        "font": "9px"
+      }
+    ]
+  },
+  "dialogFocus": {
+    "tag": "INPUT",
+    "id": "mute",
+    "dialog": true
+  },
+  "dialogEscClosed": true,
+  "gpuFallback": {
+    "canvasHidden": true,
+    "text": "The lanterns still burn. Battlefield graphics are unavailable; all cards and commands remain playable below.",
+    "hand": 5,
+    "roster": 2,
+    "turnAfterKeyboardEnd": 2
+  }
+}

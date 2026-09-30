@@ -1,0 +1,35 @@
+{
+  "kind": "linear-transition-policy",
+  "method": "seeded evolutionary search",
+  "features": [
+    "enemyHpReduction",
+    "hunterHpChange",
+    "companionAttackChange",
+    "companionHpChange",
+    "effectiveHunterBlockChange",
+    "energyChange",
+    "endTurn",
+    "terminalProgress"
+  ],
+  "weights": [
+    2.5165567453516022,
+    5.808998963435491,
+    2.648837604081879,
+    2.2380101475057503,
+    2.867760284431279,
+    1.1054313849906128,
+    -2.0532734275795517,
+    3.672856232666721
+  ],
+  "trainingSeeds": [
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207
+  ],
+  "randomSeed": 38291
+}
