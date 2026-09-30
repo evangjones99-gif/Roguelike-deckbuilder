@@ -1,0 +1,173 @@
+{
+  "status": "verified-development-preservation",
+  "version": "0.6.1",
+  "sourceCommit": "ac877b3e2bacdf5f15bf847b5ddd1d41ec94c476",
+  "runtimeSourceDigest": "8720a38701aa78ccae894ba4ca7cb8656cc3072d5b023cdd9cc3d9d2b3d4c22d",
+  "artifacts": [
+    {
+      "file": "hollowpact-0.6.1-linux-x64.tar.gz",
+      "bytes": 143875083,
+      "sha256": "20233e8fc4b7b238072cd63178e87c3af971675a1dc1238687382965913b1d51"
+    },
+    {
+      "file": "hollowpact-0.6.1-source.zip",
+      "bytes": 1549339735,
+      "sha256": "a52f59439d1e5961fe799bc223580e32c57a7db9f813c52ba96437381254128c"
+    },
+    {
+      "file": "hollowpact-0.6.1-web.zip",
+      "bytes": 18606714,
+      "sha256": "aaea72818e3f31efef17abde6a0f6c67239003ee7fc40d1eafeece1797dfe943"
+    },
+    {
+      "file": "hollowpact-0.6.1-windows-x64.zip",
+      "bytes": 179127896,
+      "sha256": "6fb16fa7a0df8ae5a61d8654f8aa4cb4023c530818495ecdc34f042da12b9e37"
+    },
+    {
+      "file": "hollowpact-0.6.1-windows-native-x64.zip",
+      "bytes": 183597187,
+      "sha256": "06e48cce30ccd2a8fcfcc7a829ec79d3fa6b628541a19effa368852df0bce90b"
+    },
+    {
+      "file": "hollowpact-0.6.1-native-evidence-36791619534-1.zip",
+      "bytes": 9545515,
+      "sha256": "1741107cb452d08eb9c2f33a02f8ff1c64076776892b512cd075747adff6f047"
+    }
+  ],
+  "sourceArchive": {
+    "scope": "every committed blob except releases/; exactGitblobSHA1 verifies allbytes inclCRLF; all27runtimeSHA256 match",
+    "files": 3184,
+    "allBlobBytesExact": true,
+    "runtimeInputs": [
+      {
+        "file": "THIRD-PARTY.md",
+        "sha256": "e8562cda5387e7bf560e460d86119ea9ea48e08243fef16fe3da12623b1bcf8d"
+      },
+      {
+        "file": "desktop/icon.png",
+        "sha256": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82"
+      },
+      {
+        "file": "desktop/main.cjs",
+        "sha256": "1e54b1170ff4169285ff1757c0e768db2f144f7be919b4911a47394426cb75ae"
+      },
+      {
+        "file": "index.html",
+        "sha256": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8"
+      },
+      {
+        "file": "package-lock.json",
+        "sha256": "d32c87584ff51e26ee10c9e6e21c507d22c1a4aea1e63aabb609c8b5e7acb92e"
+      },
+      {
+        "file": "package.json",
+        "sha256": "608114e2b6b6225b26f5560ada51f7bf5025b30181f605cb117aca3348f8bad7"
+      },
+      {
+        "file": "public/art/PROVENANCE.json",
+        "sha256": "5ba821b8b5f6d7b316389e72f7b8afd97304645789f3b0add7719dea6bf85ce5"
+      },
+      {
+        "file": "public/art/abbey-courtyard.png",
+        "sha256": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3"
+      },
+      {
+        "file": "public/art/adversaries-atlas.png",
+        "sha256": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5"
+      },
+      {
+        "file": "public/art/companions-atlas.png",
+        "sha256": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5"
+      },
+      {
+        "file": "public/art/hound-poses.png",
+        "sha256": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968"
+      },
+      {
+        "file": "public/art/hunter-portrait.png",
+        "sha256": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988"
+      },
+      {
+        "file": "public/art/pact-seal.png",
+        "sha256": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82"
+      },
+      {
+        "file": "public/art/tool-vignettes.png",
+        "sha256": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4"
+      },
+      {
+        "file": "public/art/warleader-poses.png",
+        "sha256": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b"
+      },
+      {
+        "file": "scripts/build.mjs",
+        "sha256": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1"
+      },
+      {
+        "file": "src/arena.ts",
+        "sha256": "4cfa90a38f10b270867683940400cfb1ca954a3aaf773b6c469e5cca1bab13e1"
+      },
+      {
+        "file": "src/art.ts",
+        "sha256": "26b515016ecf52996acf91ae704da608224d2d1475a883f9675aa0079abbfb1c"
+      },
+      {
+        "file": "src/content.ts",
+        "sha256": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234"
+      },
+      {
+        "file": "src/engine.ts",
+        "sha256": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b"
+      },
+      {
+        "file": "src/input.ts",
+        "sha256": "b69d87d1a5a71a15d3b29cdfcdbb3f0b33e739f3aa5d8ba82d9cfb470bbdb415"
+      },
+      {
+        "file": "src/main.ts",
+        "sha256": "75f4dad531b0eef0d990607695f5a1b87645b92beac7f2e2d7eea6b79b754d44"
+      },
+      {
+        "file": "src/style.css",
+        "sha256": "7489c4689cd3c3f6da9c79fdd62d2df788d67e420eacc8395709e9d5d3753483"
+      },
+      {
+        "file": "src/tool-art.ts",
+        "sha256": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3"
+      },
+      {
+        "file": "src/world-rng.ts",
+        "sha256": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da"
+      },
+      {
+        "file": "tsconfig.json",
+        "sha256": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c"
+      },
+      {
+        "file": "vite.config.ts",
+        "sha256": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75"
+      }
+    ],
+    "nativeCI_CRLF_Exact": true
+  },
+  "windowsOriginalRepack": {
+    "files": 72,
+    "allMemberBytesEqual": true
+  },
+  "webProvenanceExact": true,
+  "originalEvidenceNativeMetadataExact": true,
+  "failed0.6.0FourArtifactsStillExact": true,
+  "mandatoryGate": {
+    "rulesPassed": 81,
+    "rulesFailed": 0,
+    "duration_ms": 6905.934199,
+    "strictBuild": "passed8720",
+    "log": "reviews/root-v0.6.1-preservation-final/release.log.txt"
+  },
+  "limits": [
+    "Developmentprerelease,notAAA/commercialhumanfun certification",
+    "Sixfullarchives local; expiringCI isnotdurablefullremotemirror",
+    "Native unsignedWindows directory/qualifiedLinuxXvfb; consumerinstalls,physicalcontroller,Deck,audio andSteamgatesopen"
+  ]
+}
