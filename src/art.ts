@@ -36,6 +36,8 @@ export interface CreaturePoseFrame {
   row: number;
   /** A pose may contain several painted frames; single-frame poses hold. */
   holdMs?: number;
+  /** Authored contact landmark in fractions of the whole source cell. */
+  contactTip?: { x: number; y: number };
   anchorX?: number;
   anchorY?: number;
   scale?: number;
@@ -73,7 +75,7 @@ export const HOUND_POSES: CreatureAnimationAtlas = {
   poses: {
     idle: [{ column: 0, row: 0, anchorY: (446 - 96) / 384, scale: 1.1, crop: { x: 32 / 512, y: 96 / 512, width: 448 / 512, height: 384 / 512 } }],
     anticipation: [{ column: 1, row: 0, anchorY: (440 - 96) / 384, scale: 1.1, crop: { x: 32 / 512, y: 96 / 512, width: 448 / 512, height: 384 / 512 } }],
-    attack: [{ column: 2, row: 0, ground: { altitude: 28 / 384 * 1.1, footprint: 1.12, contact: .68 }, anchorY: (446 - 96) / 384, scale: 1.1, crop: { x: 32 / 512, y: 96 / 512, width: 448 / 512, height: 384 / 512 } }],
+    attack: [{ column: 2, row: 0, contactTip: { x: 432 / 512, y: 255 / 512 }, ground: { altitude: 28 / 384 * 1.1, footprint: 1.12, contact: .68 }, anchorY: (446 - 96) / 384, scale: 1.1, crop: { x: 32 / 512, y: 96 / 512, width: 448 / 512, height: 384 / 512 } }],
     recovery: [{ column: 0, row: 1, anchorY: (400 - 96) / 384, scale: 1.1, crop: { x: 32 / 512, y: 96 / 512, width: 448 / 512, height: 384 / 512 } }],
     reaction: [{ column: 1, row: 1, anchorY: (394 - 96) / 384, scale: 1.1, crop: { x: 32 / 512, y: 96 / 512, width: 448 / 512, height: 384 / 512 } }],
     death: [{ column: 2, row: 1, anchorY: (397 - 96) / 384, scale: 1.1, crop: { x: 32 / 512, y: 96 / 512, width: 448 / 512, height: 384 / 512 } }],

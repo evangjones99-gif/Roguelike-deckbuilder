@@ -266,7 +266,41 @@ export function createArena(canvas: HTMLCanvasElement) {
     else if (age < impactTime) amount = Math.sin((age - .14) / (impactTime - .14) * Math.PI * .5) * .74;
     else if (age < .32) amount = .74 - (age - impactTime) / (.32 - impactTime) * .09;
     else amount = Math.max(0, 1 - (age - .32) / .26) * .65;
-    return { x: (strike.to.x - strike.from.x) * amount, y: (strike.to.y - strike.from.y) * amount };
+    const movement = { x: (strike.to.x - strike.from.x) * amount, y: (strike.to.y - strike.from.y) * amount };
+    // Only authored, loaded attack cells opt into anatomical reach. Keep the
+    // ordinary curve for other species, missing pose art and anticipation.
+    const atlas = figure.animation, frame = atlas?.poses.attack?.[0];
+    const tip = frame?.contactTip, image = atlas && imageFor(atlas.url);
+    if (!atlas || !frame || !tip || !image || !loaded(image) || age < .14) return movement;
+    const size = figureSize(figure), point = position(figure);
+    const cellWidth = image.naturalWidth / atlas.columns, cellHeight = image.naturalHeight / atlas.rows;
+    const crop = frame.crop ?? { x: 0, y: 0, width: 1, height: 1 };
+    const h = size * (frame.scale ?? 1), w = h * cellWidth * crop.width / (cellHeight * crop.height);
+    const anchorX = frame.anchorX ?? atlas.anchorX, anchorY = frame.anchorY ?? atlas.anchorY;
+    const dx = strike.to.x - strike.from.x, neutral = Math.max(4, size * .04);
+    const facing = Math.abs(dx) > neutral ? (dx > 0 ? 1 : -1) : figure.facing;
+    const breath = 1 + Math.sin(sampleTime * 1.35 + figure.phase) * .006;
+    const tipX = ((tip.x - crop.x) / crop.width - anchorX) * w * facing;
+    const tipY = ((tip.y - crop.y) / crop.height - anchorY) * h * breath;
+    // Bound the entire sampled attack quad rather than hiding clipped anatomy.
+    // Near an edge a few pixels of residual reach are preferable to crop loss.
+    const margin = 2, left = w * anchorX + margin, right = width - w * (1 - anchorX) - margin;
+    const top = h * anchorY * breath + margin, bottom = height - h * (1 - anchorY) * breath - margin;
+    const rootX = clamp(strike.to.x - tipX, Math.min(left, right), Math.max(left, right));
+    const rootY = clamp(strike.to.y - tipY, Math.min(top, bottom), Math.max(top, bottom));
+    const correction = {
+      x: rootX - point.x - (strike.to.x - strike.from.x) * .74,
+      y: rootY - point.y - (strike.to.y - strike.from.y) * .74,
+    };
+    // Preserve already convincing short-range contact exactly. Ramp in only
+    // when the authored nose would miss by more than its small visual margin.
+    const peakGap = Math.hypot(point.x + (strike.to.x - strike.from.x) * .74 + tipX - strike.to.x,
+      point.y + (strike.to.y - strike.from.y) * .74 + tipY - strike.to.y);
+    const marginOfError = Math.max(3, size * .03);
+    const blend = clamp((peakGap - marginOfError) / marginOfError, 0, 1);
+    const strength = blend * blend * (3 - 2 * blend);
+    const weight = amount / .74 * strength;
+    return { x: movement.x + correction.x * weight, y: movement.y + correction.y * weight };
   }
 
   function prepareFigure(figure: Figure) {

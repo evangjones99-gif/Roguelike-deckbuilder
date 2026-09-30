@@ -101,3 +101,19 @@ textarea:focus-visible,select:focus-visible{outline:3px solid #cfb47e;outline-of
 .card-art.tool-painted canvas{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;opacity:0}
 .card-art.tool-painted.illustration-ready canvas{opacity:1}
 .card-art.tool-painted.illustration-ready>.icon,.card-art.tool-painted.illustration-ready>.card-art-ring{visibility:hidden}
+
+/* Wide displays still need compact framing when vertical space is limited. */
+@media(min-width:1600px) and (max-height:800px){
+.phase-battle #topbar{height:58px}
+.phase-battle #hud{height:64px}
+.phase-battle #dock{height:255px;padding-top:9px;padding-bottom:13px}
+.phase-battle .battle-ui{grid-template-rows:38px minmax(0,1fr)}
+.phase-battle #arena-wrap{top:39px}
+.phase-battle .hand-heading{margin-bottom:7px}
+.phase-battle .hand-cards{height:209px}
+.phase-battle .hand-cards .game-card{height:201px}
+.phase-battle .hand-cards .card-art{height:46px}
+.phase-battle .hand-cards .card-description{line-height:1.25}
+}
+
+@media(min-width:761px){.keyboard-hint{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;line-height:1.25}}

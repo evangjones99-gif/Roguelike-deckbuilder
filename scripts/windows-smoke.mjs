@@ -6,6 +6,8 @@ import os from 'node:os';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
+import {pathToFileURL} from 'node:url';
+import {tsImport} from 'tsx/esm/api';
 
 const version = JSON.parse(fs.readFileSync('package.json', 'utf8')).version;
 const run = `run-${process.env.GITHUB_RUN_ID ?? 'local'}-${process.env.GITHUB_RUN_ATTEMPT ?? Date.now()}`;
@@ -23,7 +25,8 @@ const evidence = {
     'One native Windows hosted-runner x64 configuration; no broad hardware or performance qualification',
     'Test-only main-process download save-path hook bypasses the native chooser',
     'Unsigned directory package; no installer, SmartScreen, Steam depot, update or Steam Deck test',
-    'No controller, audio listening, accessibility or full-campaign acceptance test'],
+    'CDP trusted-key dispatch is automated input, not a physical keyboard/controller test',
+    'No physical controller, audio listening, broad accessibility or full-campaign acceptance test'],
 };
 let app;
 let page;
@@ -86,6 +89,15 @@ try {
   assert.equal(runtime.sourceDigest, expected.sourceDigest);
   assert.deepEqual(runtime.hashes, expected.hashes);
   evidence.runtimeSourceDigest = runtime.sourceDigest;
+  // Canonical expected results must use the exact packaged rules, not an unrelated checkout.
+  const engineDependencies = ['src/engine.ts', 'src/content.ts', 'src/world-rng.ts'];
+  evidence.canonicalEngineSource = {};
+  for (const file of engineDependencies) {
+    const sha256 = hash(fs.readFileSync(file));
+    assert.equal(sha256, runtime.hashes[file], `Canonical engine dependency differs from packaged runtime: ${file}`);
+    evidence.canonicalEngineSource[file] = sha256;
+  }
+  const {applyAction, legalActions} = await tsImport(pathToFileURL(path.resolve('src/engine.ts')).href, import.meta.url);
   evidence.packageFiles = Object.fromEntries(files(packageDir).sort().map(file =>
     [path.relative(packageDir, file).replaceAll('\\', '/'), hash(fs.readFileSync(file))]));
   evidence.executableSHA256 = evidence.packageFiles[path.basename(executablePath)];
@@ -129,8 +141,101 @@ try {
   await page.locator('[data-ui="learned"]').click();
   await page.locator('[data-action="travel"]').first().click();
   await page.locator('[data-ui="play-card"][data-card="cairnhound"]').first().click();
-  await page.locator('.ally.ready').first().click();
-  await page.locator('.enemy.valid-target').first().click();
+  mark('verify packaged regional keyboard and nested modal focus');
+  const uncommandedSave = await readSave();
+  const uncommanded = JSON.parse(uncommandedSave);
+  const sourceUnit = uncommanded.allies.find(unit => !unit.acted);
+  assert.ok(sourceUnit, 'Actual starter binding must have an unspent command');
+  const sourceControl = page.locator(`[data-unit="${sourceUnit.uid}"]`);
+  evidence.keyboard = {method: 'Playwright CDP trusted renderer-key dispatch into sandboxed packaged executable',
+    physicalKeyboard: false, physicalController: false, beforeSaveSHA256: hash(uncommandedSave), held: []};
+  await page.evaluate(() => {
+    window.__nativeKeyboardTrace = [];
+    window.__nativeKeyboardHandler = event => {
+      if (['Enter', ' '].includes(event.key) && window.__nativeKeyboardTrace.length < 64)
+        window.__nativeKeyboardTrace.push({key: event.key, type: event.type, trusted: event.isTrusted,
+          repeat: event.repeat, prevented: event.defaultPrevented});
+    };
+    document.addEventListener('keydown', window.__nativeKeyboardHandler, true);
+  });
+  await page.keyboard.press('h');
+  assert.equal(await page.evaluate(() => document.activeElement.matches('.hand-cards button')), true);
+  const handFocus = await page.evaluate(() => document.activeElement.dataset.focus);
+  assert.ok(uncommanded.hand.length > 1, 'Actual starter hand must offer more than one remaining card');
+  await page.keyboard.press('ArrowRight');
+  const nextHandFocus = await page.evaluate(() => document.activeElement.dataset.focus);
+  assert.notEqual(nextHandFocus, handFocus, 'Right arrow did not navigate the actual hand');
+  await page.keyboard.press('b');
+  await expect(sourceControl).toBeFocused();
+  await page.keyboard.press('t');
+  assert.equal(await page.evaluate(() => document.activeElement.matches('.enemy')), true);
+  const hostileFocus = await page.evaluate(() => document.activeElement.dataset.unit);
+  await page.keyboard.press('b');
+  await expect(sourceControl).toBeFocused();
+  assert.equal(await readSave(), uncommandedSave, 'Focus navigation changed the canonical save');
+  evidence.keyboard.regional = {handFocus, nextHandFocus, binding: sourceUnit.uid, hostileFocus, saveUnchanged: true};
+
+  await page.keyboard.press('i');
+  await expect(page.locator('#dialog-title')).toContainText(sourceUnit.name);
+  await expect(page.locator('#dialog-title')).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(sourceControl).toBeFocused();
+  const deckOpener = page.locator('#topbar [data-ui="deck"]');
+  await deckOpener.focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#dialog-title')).toBeFocused();
+  await page.keyboard.press('Tab');
+  assert.equal(await page.evaluate(() => document.querySelector('#dialog').contains(document.activeElement)), true);
+  await page.locator('#dialog .game-card[data-card="scour"]').first().focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#dialog-title')).toHaveText('Scour');
+  await expect(page.locator('#dialog-title')).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(deckOpener).toBeFocused();
+  assert.equal(await readSave(), uncommandedSave, 'Inspection/modal replacement changed the canonical save');
+  evidence.keyboard.modal = {unitOriginRestored: true, nestedDossierTitleFocused: true, deckOriginRestored: true,
+    oneNativeTabInsideDialog: true, saveUnchanged: true};
+
+  mark('verify held Enter and Space cannot follow selection into a command');
+  for (const activation of ['Enter', 'Space']) {
+    await sourceControl.focus();
+    try {
+      // Repeated down calls use Playwright's pressed-key tracking to dispatch autoRepeat=true.
+      await page.keyboard.down(activation);
+      await page.keyboard.down(activation);
+      await page.keyboard.down(activation);
+      assert.equal(await readSave(), uncommandedSave, `Held ${activation} committed a command before release`);
+    } finally { await page.keyboard.up(activation); }
+    await expect(sourceControl).toHaveAttribute('aria-pressed', 'true');
+    assert.equal(await page.evaluate(() => document.activeElement.matches('.enemy.valid-target')), true);
+    assert.equal(await readSave(), uncommandedSave, `Held ${activation} followed target focus into a command`);
+    const selectedTarget = await page.evaluate(() => document.activeElement.dataset.unit);
+    await page.keyboard.press('Escape');
+    await expect(sourceControl).toBeFocused();
+    await expect(sourceControl).toHaveAttribute('aria-pressed', 'false');
+    assert.equal(await readSave(), uncommandedSave, `Cancel after ${activation} changed the save`);
+    evidence.keyboard.held.push({activation, selectedTarget, saveUnchangedUntilFreshActivation: true,
+      cancelRestoresSource: true});
+  }
+  mark('verify deliberate fresh keyboard command matches packaged rules');
+  await sourceControl.focus();
+  await page.keyboard.press('Enter');
+  const targetUid = await page.evaluate(() => document.activeElement.dataset.unit);
+  const command = {type: 'attack', unit: sourceUnit.uid, target: targetUid};
+  assert.ok(legalActions(uncommanded).some(action => JSON.stringify(action) === JSON.stringify(command)),
+    'Keyboard-selected target is not a legal canonical command');
+  const expectedCommand = applyAction(uncommanded, command);
+  await page.keyboard.press('Enter');
+  assert.deepEqual(JSON.parse(await readSave()), expectedCommand, 'Fresh keyboard command differs from packaged canonical rules');
+  evidence.keyboard.trace = await page.evaluate(() => {
+    document.removeEventListener('keydown', window.__nativeKeyboardHandler, true);
+    return window.__nativeKeyboardTrace;
+  });
+  assert.ok(evidence.keyboard.trace.every(event => event.trusted), 'Keyboard probe used untrusted DOM key dispatch');
+  for (const key of ['Enter', ' ']) assert.ok(evidence.keyboard.trace.some(event =>
+    event.key === key && event.repeat && event.prevented), `Missing prevented trusted repeat for ${key}`);
+  evidence.keyboard.command = {...command, exactCanonicalState: true, afterSaveSHA256: hash(await readSave())};
+  await page.screenshot({path: path.join(outputDir, 'keyboard-command.png')});
   const saved = await readSave();
   const state = JSON.parse(saved);
   assert.equal(state.seed, 121);
@@ -201,11 +306,15 @@ try {
   await page.screenshot({path: path.join(outputDir, 'relaunch-resumed.png')});
   assert.deepEqual(evidence.errors, []);
   evidence.status = 'passed';
-  console.log('Native Windows packaged launch, branding resources, portrait, tutorial/combat, persistence and negative-feedback download passed.');
+  console.log('Native Windows packaged launch, branding resources, keyboard focus/repeat guards, portrait, tutorial/combat, persistence and negative-feedback download passed.');
 } catch (error) {
   evidence.status = 'failed'; evidence.failedPhase = phase;
   evidence.failure = error.stack ?? String(error);
-  if (page && !page.isClosed()) await page.screenshot({path: path.join(outputDir, 'failure.png')}).catch(() => {});
+  if (page && !page.isClosed()) {
+    if (evidence.keyboard && !evidence.keyboard.trace)
+      evidence.keyboard.trace = await page.evaluate(() => window.__nativeKeyboardTrace ?? []).catch(() => []);
+    await page.screenshot({path: path.join(outputDir, 'failure.png')}).catch(() => {});
+  }
   console.error(evidence.failure);
   process.exitCode = 1;
 } finally {

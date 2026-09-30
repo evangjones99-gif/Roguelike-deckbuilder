@@ -5,6 +5,7 @@ import { createArena } from './arena';
 import { portraitFor, toolArtFor } from './art';
 import { createToolIllustrations } from './tool-art';
 import { ENEMIES, RELICS, SHOP_PRICES, EVENT_CHOICES, bossForSeed } from './content';
+import { createInputAdapter, type InputMode } from './input';
 
 const SAVE_KEY = 'hollowpact.run.v2';
 const SAVE_BACKUP_KEY = `${SAVE_KEY}.backup.silence`;
@@ -45,6 +46,10 @@ const toolIllustrations = createToolIllustrations();
 document.documentElement.style.setProperty('--courtyard-art', `url("${ART_BASE}abbey-courtyard.png")`);
 document.documentElement.style.setProperty('--hunter-art', `url("${ART_BASE}hunter-portrait.png")`);
 let selected: Selection = null;
+let selectionOrigin: string | null = null;
+let dialogOrigin: string | null = null;
+let renderedScreen: string | null = null;
+let inputMode: InputMode = 'keyboard';
 let savedRun: GameState | null = null;
 let saveNotice = '';
 let toastTimeout: ReturnType<typeof setTimeout>;
@@ -205,6 +210,50 @@ function save() {
 }
 function actions(): Action[] { return legalActions(state); }
 function can(action: Action): boolean { return actions().some(a => JSON.stringify(a) === JSON.stringify(action)); }
+// Store semantic identities, never detached controls or translated display names.
+function focusReference(element: Element | null = document.activeElement): string | null {
+  if (!(element instanceof HTMLElement) || element === document.body) return null;
+  if (element.id) return `#${CSS.escape(element.id)}`;
+  const scope = element.closest('#dialog,#topbar,#hud,#dock,#scene-ui,#footer');
+  const prefix = scope?.id ? `#${CSS.escape(scope.id)} ` : '';
+  if (element.dataset.focus) return `${prefix}[data-focus="${CSS.escape(element.dataset.focus)}"]`;
+  for (const attribute of ['data-unit', 'data-ui', 'data-action']) {
+    const value = element.getAttribute(attribute);
+    if (value === null) continue;
+    const qualifiers = ['data-uid','data-card','data-index','data-choice'].flatMap(key => {
+      const extra = element.getAttribute(key);
+      return extra === null ? [] : [`[${key}="${CSS.escape(extra)}"]`];
+    }).join('');
+    return `${prefix}[${attribute}="${CSS.escape(value)}"]${qualifiers}`;
+  }
+  return element.matches('#scene-ui h1') ? '#scene-ui h1' : null;
+}
+function focusElement(element: HTMLElement | null): boolean {
+  if (!element?.isConnected || !element.getClientRects().length || element.closest('[hidden],[inert]') || element.matches(':disabled')) return false;
+  if (!element.matches('button,input,select,textarea,a,[tabindex]')) element.tabIndex = -1;
+  element.focus({ preventScroll: true });
+  element.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'auto' });
+  return document.activeElement === element;
+}
+function restoreFocus(reference: string | null): boolean {
+  return !!reference && focusElement(document.querySelector<HTMLElement>(reference));
+}
+function focusScene() {
+  if ($<HTMLDialogElement>('dialog').open) return;
+  if (!title && state.phase === 'battle') {
+    focusElement(document.querySelector<HTMLElement>('.ally.ready, .hand-cards button, [data-action="endTurn"]'));
+  } else focusElement(document.querySelector<HTMLElement>('#scene-ui h1, #scene-ui button'));
+}
+function cancelSelection() {
+  const origin = selectionOrigin;
+  selectionOrigin = null; selected = null; render();
+  if (!restoreFocus(origin)) focusScene();
+}
+function goBack() {
+  if ($<HTMLDialogElement>('dialog').open) closeDialog();
+  else if (selected) cancelSelection();
+  else if (!title) openPause();
+}
 function mayAnimateCombat(): boolean {
   return settings.motion && !document.hidden && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
@@ -228,10 +277,6 @@ function finishPresentation(epoch: number) {
   $('scene-ui').removeAttribute('aria-busy');
   render();
   announceOutcome();
-  if (!$<HTMLDialogElement>('dialog').open) {
-    const heading = document.querySelector<HTMLElement>('#scene-ui .page-intro h1');
-    if (heading) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); }
-  }
 }
 function holdFinalStrike(): boolean {
   if (!mayAnimateCombat() || !arena) return false;
@@ -271,6 +316,7 @@ function dispatch(action: Action) {
   // Persist the canonical result before optional animation/audio runs.
   state = next;
   selected = null;
+  selectionOrigin = null;
   save();
   let effectFailed = false;
   try { arena?.playAction?.(action, previous, next, events); } catch { effectFailed = true; }
@@ -290,7 +336,7 @@ function start(seed: number, difficulty: number) {
   cancelPresentation();
   clearToast();
   state = createGame(seed, difficulty);
-  title = false; selected = null; save(); render(); sound('summon');
+  title = false; selected = null; selectionOrigin = null; save(); render(); sound('summon');
   try { if (!localStorage.getItem(TUTORIAL_KEY)) openTutorial(); } catch { openTutorial(); }
 }
 function parseSeed(input: string): number {
@@ -310,7 +356,10 @@ function renderHud() {
 }
 function render() {
   if (settlingCombat) return;
-  const focusKey = document.activeElement instanceof HTMLElement ? document.activeElement.dataset.focus : undefined;
+  const reference = focusReference();
+  const screen = title ? 'title' : state.phase;
+  const changedScreen = screen !== renderedScreen;
+  renderedScreen = screen;
   setMotion();
   $('app').className = title ? 'on-title' : `phase-${state.phase}${state.phase === 'battle' && Math.max(state.allies.length, state.enemies.length) >= 3 ? ' dense-battle' : ''}`;
   renderHeader(); renderHud();
@@ -326,7 +375,7 @@ function render() {
   else renderOutcome();
   $('footer').innerHTML = `<span>v${VERSION} <span class="footer-dot">·</span> Playable prototype</span><span>${title ? 'Original dark fantasy · Working title' : `Seed ${state.seed} <span class="footer-dot">·</span> Contract saved locally`}</span><button data-ui="fullscreen" class="text-button">Fullscreen</button>`;
   try { arena?.setSelected(selected?.kind === 'attack' ? selected.uid : null); arena?.render(state); } catch { $('arena-wrap').classList.add('arena-fallback'); }
-  if (focusKey) document.querySelector<HTMLElement>(`[data-focus="${CSS.escape(focusKey)}"]`)?.focus({ preventScroll: true });
+  if (!$<HTMLDialogElement>('dialog').open && (changedScreen || !restoreFocus(reference))) focusScene();
   toolIllustrations.refresh();
 }
 
@@ -502,7 +551,15 @@ function renderBattle() {
   const selectionText = selectionGuidance();
   $('scene-ui').innerHTML = `<div class="battle-ui"><div class="battle-guidance ${selected ? 'targeting' : ''}"><span id="consequence-preview" role="status" aria-live="polite" aria-atomic="true">${escape(selectionText)}</span>${selected ? '<button class="text-button" data-ui="cancel">Cancel <kbd>Esc</kbd></button>' : `<button class="text-button" data-ui="log">Combat record ${icon('book')}</button>`}</div>${roster('allies')}<div class="arena-caption" aria-hidden="true"><span>THE BLACK MARCH</span><small>${selected ? 'TARGET ACQUIRED · GIVE THE ORDER' : 'READ THE THREAT. BREAK THE LINE.'}</small></div>${roster('enemies')}</div>`;
   const playable = actions().filter(a => a.type === 'play');
-  $('dock').innerHTML = `<div class="hand-area"><div class="hand-heading"><span class="eyebrow">AVAILABLE CARDS <span>${state.hand.length}</span></span><div class="pile-buttons"><button data-ui="draw">Draw <strong>${state.draw.length}</strong></button><button data-ui="discard">Discard <strong>${state.discard.length}</strong></button></div></div><div class="hand-cards">${state.hand.map((id, index) => renderCard(CARDS[id], { handIndex: index, disabled: !playable.some(a => a.type === 'play' && a.index === index), selected: selected?.kind === 'card' && selected.index === index })).join('')}${!state.hand.length ? '<div class="empty-hand">No cards in hand.<br>Use remaining commands, then end your turn.</div>' : ''}</div></div><div class="turn-controls"><div class="energy-orb">${icon('energy')}<strong>${state.energy}</strong><span>energy</span></div><button class="button end-turn" data-action="endTurn" data-focus="end-turn">End turn ${icon('arrow')}<small>Enemy intents resolve · draw 5 · refill energy</small></button><span class="keyboard-hint"><kbd>E</kbd> End turn <span>·</span> <kbd>Esc</kbd> Cancel</span></div>`;
+  $('dock').innerHTML = `<div class="hand-area"><div class="hand-heading"><span class="eyebrow">AVAILABLE CARDS <span>${state.hand.length}</span></span><div class="pile-buttons"><button data-ui="draw">Draw <strong>${state.draw.length}</strong></button><button data-ui="discard">Discard <strong>${state.discard.length}</strong></button></div></div><div class="hand-cards">${state.hand.map((id, index) => renderCard(CARDS[id], { handIndex: index, disabled: !playable.some(a => a.type === 'play' && a.index === index), selected: selected?.kind === 'card' && selected.index === index })).join('')}${!state.hand.length ? '<div class="empty-hand">No cards in hand.<br>Use remaining commands, then end your turn.</div>' : ''}</div></div><div class="turn-controls"><div class="energy-orb">${icon('energy')}<strong>${state.energy}</strong><span>energy</span></div><button class="button end-turn" data-action="endTurn" data-focus="end-turn">End turn ${icon('arrow')}<small>Enemy intents resolve · draw 5 · refill energy</small></button><span class="keyboard-hint" aria-label="${inputMode === 'controller' ? 'Controller' : 'Keyboard'} controls">${inputHints()}</span></div>`;
+}
+function inputHints(): string {
+  if (selected) return inputMode === 'controller'
+    ? '<span><kbd>A</kbd> Choose · <kbd>B</kbd> Back</span><span><kbd>X</kbd> Inspect · <kbd>Y</kbd> End turn</span><span>D-pad Move · Start Pause</span>'
+    : '<span><kbd>Enter</kbd> Choose · <kbd>Esc</kbd> Cancel</span><span><kbd>T</kbd> Targets · Arrows Move</span><span><kbd>I</kbd> Inspect · <kbd>E</kbd> End turn</span>';
+  return inputMode === 'controller'
+    ? '<span><kbd>A</kbd> Choose · <kbd>B</kbd> Back</span><span><kbd>X</kbd> Inspect · <kbd>Y</kbd> End turn</span><span>D-pad Move · LB/RB Regions · Start Pause</span>'
+    : '<span><kbd>E</kbd> End turn · <kbd>Esc</kbd> Back</span><span><kbd>H</kbd> Hand · <kbd>B</kbd> Bindings · <kbd>T</kbd> Hostiles</span><span><kbd>I</kbd> Inspect · Arrows Move</span>';
 }
 
 function renderCard(card: CardDef, opts: { handIndex?: number; disabled?: boolean; selected?: boolean; reward?: boolean; shop?: boolean; inspect?: boolean } = {}): string {
@@ -547,12 +604,23 @@ function renderOutcome() {
 
 function openDialog(name: string, content: string, wide = false) {
   const dialog = $<HTMLDialogElement>('dialog');
+  if (!dialog.open) dialogOrigin = focusReference();
   dialog.className = wide ? 'wide-dialog' : '';
   dialog.innerHTML = `<div class="dialog-head"><h2 id="dialog-title">${escape(name)}</h2><button class="icon-button" data-ui="close" aria-label="Close dialog">${icon('close')}</button></div><div class="dialog-body">${content}</div>`;
   if (!dialog.open) dialog.showModal();
+  // Replacing an open dossier must also move focus off its removed contents.
+  focusElement(dialog.querySelector<HTMLElement>('#seed, #feedback-confusion, #dialog-title'));
   toolIllustrations.refresh();
 }
-function closeDialog() { $<HTMLDialogElement>('dialog').close(); }
+function restoreDialogOrigin() {
+  const reference = dialogOrigin; dialogOrigin = null;
+  if (!restoreFocus(reference)) focusScene();
+}
+function closeDialog() {
+  const dialog = $<HTMLDialogElement>('dialog');
+  if (!dialog.open) return;
+  dialog.close(); restoreDialogOrigin();
+}
 function openNew() {
   if (settlingCombat) { cancelPresentation(); render(); }
   openDialog('A new campaign', `<p class="dialog-copy">The seed fixes the campaign. Reuse it to test a different deck and method.</p><form id="new-game-form"><label class="field-label" for="seed">Campaign seed <small>Any number or words</small></label><input id="seed" name="seed" type="text" maxlength="64" value="${Math.floor(Math.random() * 9999999)}" autocomplete="off"/><fieldset class="difficulty-options"><legend>Contract difficulty</legend><label><input type="radio" name="difficulty" value="0" checked/><span><strong>Initiate</strong><small>Lower pressure. Learn command timing and target priorities.</small></span></label><label><input type="radio" name="difficulty" value="1"/><span><strong>Hunter</strong><small>Stronger opposition. Less room for wasted orders.</small></span></label><label><input type="radio" name="difficulty" value="2"/><span><strong>Veteran</strong><small>Highest enemy pressure. Every binding must earn its place.</small></span></label></fieldset>${!title && !['victory','defeat'].includes(state.phase) || savedRun && !['victory','defeat'].includes(savedRun.phase) ? '<p class="abandon-notice">Beginning a new campaign replaces your current campaign.</p>' : ''}<button class="button primary full-width" type="submit">Accept the warrant ${icon('arrow')}</button></form>`);
@@ -622,6 +690,7 @@ function openSettings() {
   openDialog('Make yourself comfortable', `<div class="setting-row"><label for="mute"><strong>Sound effects</strong><small>Impacts, iron, binding chains, and field signals.</small></label><input type="checkbox" id="mute" ${!settings.mute ? 'checked' : ''}/></div><div class="setting-row"><label for="volume"><strong>Volume</strong><small id="volume-value">${Math.round(settings.volume * 100)}%</small></label><input type="range" id="volume" min="0" max="100" value="${settings.volume * 100}"/></div><div class="setting-row"><label for="motion"><strong>Ambient motion</strong><small>Fog, creature motion, and combat effects.</small></label><input type="checkbox" id="motion" ${settings.motion ? 'checked' : ''}/></div><p class="settings-note">Preferences are stored on this device. Exact targets, intents, and traits are available in the binding and enemy panels.</p><button class="button secondary full-width" data-ui="close">Return</button>`);
 }
 function openPause() {
+  if (settlingCombat) { cancelPresentation(); render(); announceOutcome(); }
   openDialog('Campaign paused', `<p class="dialog-copy">Your campaign saves after every accepted action. Resume whenever you need.</p><div class="pause-buttons"><button class="button primary" data-ui="close">Continue ${icon('arrow')}</button><button class="button secondary" data-ui="menu">Return to title</button><button class="text-button" data-ui="new">Start a new campaign</button></div>`);
 }
 
@@ -629,14 +698,14 @@ function selectCard(index: number) {
   const id = state.hand[index];
   const card = CARDS[id];
   if (!card) return;
-  if (selected?.kind === 'card' && selected.index === index) { selected = null; render(); return; }
+  if (selected?.kind === 'card' && selected.index === index) { cancelSelection(); return; }
   const available = actions().filter((a): a is Extract<Action, { type: 'play' }> => a.type === 'play' && a.index === index);
   if (!available.length) {
     notify(state.energy < card.cost ? `You need ${card.cost} energy to play ${card.name}.` : card.type === 'summon' && state.allies.length >= 6 ? 'All six binding slots are full.' : 'This card needs a valid target.');
     return;
   }
   if (cardTarget(id) === 'none') dispatch({ type: 'play', index });
-  else { selected = { kind: 'card', index }; sound(); render(); document.querySelector<HTMLElement>('.unit.valid-target, .hunter-hud.valid-target button')?.focus(); }
+  else { selectionOrigin = focusReference(); selected = { kind: 'card', index }; sound(); render(); focusElement(document.querySelector<HTMLElement>('.unit.valid-target, .hunter-hud.valid-target button')); }
 }
 function selectUnit(uid: string) {
   if (selected && isTarget(uid)) {
@@ -645,12 +714,12 @@ function selectUnit(uid: string) {
     return;
   }
   if (selected?.kind === 'card') { notify('Choose a highlighted target, or press Escape to cancel.'); return; }
-  if (selected?.kind === 'attack' && selected.uid === uid) { selected = null; render(); return; }
+  if (selected?.kind === 'attack' && selected.uid === uid) { cancelSelection(); return; }
   const ally = state.allies.find(u => u.uid === uid);
   if (ally) {
     if (ally.acted) { notify(`${unitLabel(ally)} has already been commanded this turn.`); return; }
     if (!actions().some(a => a.type === 'attack' && a.unit === uid)) { notify('No enemy is available to attack.'); return; }
-    selected = { kind: 'attack', uid }; sound(); render(); document.querySelector<HTMLElement>('.enemy.valid-target')?.focus();
+    selectionOrigin = focusReference(); selected = { kind: 'attack', uid }; sound(); render(); focusElement(document.querySelector<HTMLElement>('.enemy.valid-target'));
   } else if (uid !== 'hunter') {
     const enemy = state.enemies.find(u => u.uid === uid);
     if (enemy) notify(`${unitLabel(enemy)} plans ${enemy.intent?.damage || 0} damage to ${targetName(enemy.intent?.target || 'hunter')}. Select a ready companion or a targeted spell to attack.`);
@@ -660,6 +729,8 @@ function selectUnit(uid: string) {
 function handleClick(event: MouseEvent) {
   const button = (event.target as HTMLElement).closest<HTMLElement>('button');
   if (!button || button.hasAttribute('disabled')) return;
+  const dialog = $<HTMLDialogElement>('dialog');
+  if (dialog.open && !dialog.contains(button)) return;
   if (settlingCombat && (button.dataset.unit || button.dataset.action || ['play-card','cancel','train','remove','inspect-unit','inspect-quarry','inspect','draw','discard','deck','log'].includes(button.dataset.ui || ''))) return;
   if (button.dataset.unit) { selectUnit(button.dataset.unit); return; }
   if (button.dataset.action) {
@@ -702,7 +773,7 @@ function handleClick(event: MouseEvent) {
     case 'inspect-quarry': { const boss = ENEMIES[bossForSeed(state.seed)]; openDialog(boss.name, `<div class="unit-dossier">${creature(boss.species, boss.color)}<div><span class="eyebrow">FINAL QUARRY · FIXED BY SEED</span><h3>${escape(boss.name)}</h3></div></div><div class="dossier-rule"><h3>Known trait</h3><p>${escape(boss.passive || '')}</p></div><button class="button secondary full-width" data-ui="close">Return to field chart</button>`); break; }
     case 'inspect-unit': { const unit = [...state.allies, ...state.enemies].find(u => u.uid === button.dataset.uid); if (unit) openUnit(unit); break; }
     case 'play-card': selectCard(Number(button.dataset.index)); break;
-    case 'cancel': selected = null; render(); break;
+    case 'cancel': cancelSelection(); break;
     case 'confirm-end': closeDialog(); dispatch({ type: 'endTurn' }); break;
     case 'inspect': {
       const card = CARDS[button.dataset.card!];
@@ -742,10 +813,20 @@ document.addEventListener('input', event => {
   if (input.id !== 'motion') sound();
 });
 document.addEventListener('keydown', event => {
+  if (event.ctrlKey || event.metaKey || event.altKey || event.isComposing) return;
+  const element = event.target instanceof HTMLElement ? event.target : null;
+  // A held key must not follow focus from a binding to a target or a new screen.
+  // Textarea/contenteditable repetition and modified browser chords stay native.
+  if (event.repeat && (event.key === 'Enter' && !!element?.closest('button,input') || event.key === ' ' && !!element?.closest('button,input[type="checkbox"],input[type="radio"]'))) {
+    event.preventDefault(); return;
+  }
+  if (element?.isContentEditable || element?.closest('input,textarea,select')) return;
+  if (event.key === 'Escape' && !event.repeat) { event.preventDefault(); goBack(); return; }
   if ($<HTMLDialogElement>('dialog').open) return;
-  if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement || event.target instanceof HTMLSelectElement) return;
-  if (event.key === 'Escape') { event.preventDefault(); if (selected) { selected = null; render(); } else if (!title) openPause(); }
   if (event.key.toLowerCase() === 'e' && !settlingCombat && !event.repeat && !title && state.phase === 'battle') { event.preventDefault(); document.querySelector<HTMLButtonElement>('[data-action="endTurn"]')?.click(); }
+}, true);
+$<HTMLDialogElement>('dialog').addEventListener('close', () => {
+  if (dialogOrigin !== null && !$<HTMLDialogElement>('dialog').open) restoreDialogOrigin();
 });
 $<HTMLDialogElement>('dialog').addEventListener('click', event => {
   const dialog = $<HTMLDialogElement>('dialog');
@@ -753,5 +834,31 @@ $<HTMLDialogElement>('dialog').addEventListener('click', event => {
 });
 document.addEventListener('visibilitychange', () => { if (settlingCombat) finishPresentation(presentationEpoch); });
 window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', event => { if (event.matches && settlingCombat) finishPresentation(presentationEpoch); });
-window.addEventListener('beforeunload', () => { disposed = true; cancelPresentation(); sceneObserver.disconnect(); toolIllustrations.dispose(); arena?.dispose(); });
+const inputAdapter = createInputAdapter({
+  getContext: () => ({ phase: title || state.phase === 'menu' ? 'title' : state.phase, settling: settlingCombat, dialog: $<HTMLDialogElement>('dialog').open ? $('dialog') : null, targeting: !!selected }),
+  activate: element => {
+    const dialog = $<HTMLDialogElement>('dialog');
+    if (element.isConnected && !element.matches(':disabled') && (!dialog.open || dialog.contains(element))) element.click();
+  },
+  back: goBack,
+  inspect: element => {
+    if (settlingCombat) return;
+    const uid = element.dataset.unit || element.dataset.uid;
+    const unit = [...state.allies, ...state.enemies].find(candidate => candidate.uid === uid);
+    if (unit) { openUnit(unit); return; }
+    const card = CARDS[element.dataset.card || ''];
+    if (card) openDialog(card.name, `<div class="inspect-card">${renderCard(card)}</div><p class="dialog-copy">${escape(cardRules(card))}</p><button class="button secondary full-width" data-ui="close">Return</button>`);
+    else if (element.dataset.ui === 'hunter') openHunter();
+  },
+  endTurn: () => {
+    if (!title && !settlingCombat && state.phase === 'battle' && !$<HTMLDialogElement>('dialog').open) document.querySelector<HTMLButtonElement>('[data-action="endTurn"]')?.click();
+  },
+  pause: () => { if (!title && !$<HTMLDialogElement>('dialog').open) openPause(); },
+  onInputMode: mode => {
+    inputMode = mode;
+    const hint = document.querySelector<HTMLElement>('.keyboard-hint');
+    if (hint) { hint.innerHTML = inputHints(); hint.setAttribute('aria-label', `${mode === 'controller' ? 'Controller' : 'Keyboard'} controls`); }
+  },
+});
+window.addEventListener('beforeunload', () => { disposed = true; inputAdapter.dispose(); cancelPresentation(); sceneObserver.disconnect(); toolIllustrations.dispose(); arena?.dispose(); });
 render();
