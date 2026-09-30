@@ -1,0 +1,11 @@
+# v0.1.0 preserved prototype decision
+
+Archive as an early **development prototype**, not a commercial-quality or Steam-approved release. The owner rejected its cute woodland direction and requested a gritty realistic contract hunter plus AAA craft as the review target. v0.2 changes that direction; this artifact remains intact as requested.
+
+Independent gameplay review: 864 seeded complete runs. Tactical targeting matters, but unchanged starter decks solve all sampled difficulties; meaningful progression and replay breadth are insufficient. Independent visual review accepts prototype readability/interaction after repairs, rejects commercial quality and identifies card/model identity and attack/death feedback gaps. Independent technical review and preserved recheck close five initial defects, including save reachability, stale build provenance, release locking and license notices.
+
+Final verification: 23 engine tests pass; strict TypeScript/build pass; three Playwright production tests pass. Tests cover tutorial, summon-command interaction, reload/resume, settings, corrupt save, and a complete seed121 run through real controls. The complete-run test forces GPU fallback while graphical interactions were separately inspected by visual reviewers and Linux desktop smoke. Earlier full-run software-GPU verification timed out; no full accelerated graphics soak or frame-time qualification is claimed.
+
+Linux packaged launch/settings/start/summon/command smoke passes on Xvfb+SwiftShader, using --no-sandbox for this cloud test. Sandbox-on clean-machine Linux launch remains unverified. Windows x64 package builds but launch has not been tested on Windows. Steam account/AppID/depot/install/review publication and human enjoyment are unverified. No claim of AAA quality, human approval or Steam readiness.
+
+ML experiment: small reproducible evolutionary search on eight training seeds and 32 disjoint held-out seeds at difficulty1. Heuristic and learned both win32/32, learned takes more turns. Preserve data and policies; no gameplay improvement or fun claim follows from that result. Final reproducible source snapshots are in ml-policy-v0.1-release; earlier pilot evidence remains labelled.

@@ -1,0 +1,28 @@
+import {chromium} from '@playwright/test';
+import fs from 'node:fs/promises';
+const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'});
+const errors=[]; page.on('pageerror',e=>errors.push(e.message));
+await page.goto('http://127.0.0.1:5173/src/arena.ts');
+await page.setContent('<html><body style="margin:0;background:#101f21"><canvas style="display:block;width:100%;height:680px"></canvas></body></html>');
+await page.evaluate(async()=>{
+ const {createArena}=await import('/src/arena.ts'); const {createGame}=await import('/src/engine.ts');
+ const names=['Mossling','Fox','Stag','Moth','Owl','Drake','Goblin','Spider','Golem','Witch','Wraith','Turtle'];
+ const units=names.map((name,i)=>({uid:`review-${i}`,cardId:'mossling',name,species:name.toLowerCase(),hp:10,maxHp:10,attack:3,block:0,acted:false,color:['#83a46d','#bb7650','#739998','#9d719c','#b39b64','#58977f'][i%6]}));
+ const s=createGame(117);s.phase='battle';s.allies=units.slice(0,6);s.enemies=units.slice(6);
+ window.reviewArena=createArena(document.querySelector('canvas')); window.reviewState=s; window.reviewArena.render(s);
+});
+await page.screenshot({path:'reviews/screenshots-v0.1/arena-independent-1440.png'});
+await page.evaluate(()=>window.reviewArena.setSelected('review-3'));
+await page.screenshot({path:'reviews/screenshots-v0.1/arena-selected-1440.png'});
+const a=await page.screenshot(); await page.waitForTimeout(250);const b=await page.screenshot();
+await page.setViewportSize({width:390,height:844});await page.evaluate(()=>document.querySelector('canvas').style.height='300px');await page.waitForTimeout(120);
+await page.screenshot({path:'reviews/screenshots-v0.1/arena-independent-390.png'});
+const result={pageErrors:errors,reducedMotionFramesIdentical:a.equals(b),canvas:await page.locator('canvas').evaluate(el=>({label:el.getAttribute('aria-label'),bounds:{width:el.clientWidth,height:el.clientHeight}}))};
+await page.evaluate(()=>window.reviewArena.dispose());
+const fallback=await browser.newPage({viewport:{width:1280,height:720}});
+await fallback.goto('http://127.0.0.1:5173/src/arena.ts');await fallback.setContent('<html><body style="background:#101f21"><canvas></canvas></body></html>');
+await fallback.evaluate(async()=>{const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){return /^webgl/.test(type)?null:original.call(this,type,...args)};const{createArena}=await import('/src/arena.ts');window.reviewArena=createArena(document.querySelector('canvas'))});
+result.fallback={status:await fallback.locator('[role=status]').innerText(),canvasHidden:await fallback.locator('canvas').evaluate(el=>el.hidden)};
+await fallback.screenshot({path:'reviews/screenshots-v0.1/arena-fallback-1280.png'});
+await fs.writeFile('reviews/screenshots-v0.1/arena-inspection.json',JSON.stringify(result,null,2));console.log(result);await browser.close();
