@@ -1,0 +1,1462 @@
+{
+  "scope": "Constructed validated legal fixture previews; state identity/RNG checked through selection/focus/hover/resize/cancel and actual commit.",
+  "build": "7a82589ed2ccb2891921ec4a36556998f6bf7714ff3332419b5f4165aee8c57c",
+  "sourceHashes": {
+    "src/main.ts": "7b9162ee1005c3a016daa814d99d35b48ed7fa2eb0938f495337c5348c2458da",
+    "src/style.css": "527ca163bd46ca9edd11d8c1a543f170a59e389671fa83e83c34c0c0f2836a12",
+    "src/arena.ts": "55ca21caebd76cd078213cd3686d167c7600088bae94bbf7411f423858dfc299",
+    "src/art.ts": "0c6b04e531cb6a9afb5b27305835f61a11157720f5fbff8c56a4af6eb928c5ba",
+    "src/engine.ts": "ee85f1400a9d02142aee1dd66f82722453f35930bbf2c0c229ad38e38a818d0d"
+  },
+  "results": [
+    {
+      "id": "mutual-lethal",
+      "action": {
+        "type": "attack",
+        "unit": "a10",
+        "target": "e30"
+      },
+      "errors": [],
+      "layouts": {
+        "390": {
+          "text": "Cairn Hound · binding 1 → hostile 1: 2 health damage (lethal), 3 blocked · binding 1 takes 2 retaliation (lethal) · contract cleared",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 20,
+            "y": 134.5,
+            "width": 277.734375,
+            "height": 48,
+            "top": 134.5,
+            "right": 297.734375,
+            "bottom": 182.5,
+            "left": 20
+          },
+          "guidance": {
+            "x": 10,
+            "y": 127,
+            "width": 370,
+            "height": 64,
+            "top": 127,
+            "right": 380,
+            "bottom": 191,
+            "left": 10
+          },
+          "inside": true,
+          "scrollHeight": 48,
+          "clientHeight": 48,
+          "scrollWidth": 278,
+          "clientWidth": 278,
+          "danger": true,
+          "rosters": [
+            {
+              "height": 195,
+              "scroll": 198,
+              "inside": true
+            },
+            {
+              "height": 195,
+              "scroll": 198,
+              "inside": true
+            }
+          ]
+        },
+        "1024": {
+          "text": "Cairn Hound · binding 1 → hostile 1: 2 health damage (lethal), 3 blocked · binding 1 takes 2 retaliation (lethal) · contract cleared",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 25,
+            "y": 132.5,
+            "width": 897.734375,
+            "height": 16,
+            "top": 132.5,
+            "right": 922.734375,
+            "bottom": 148.5,
+            "left": 25
+          },
+          "guidance": {
+            "x": 15,
+            "y": 122,
+            "width": 994,
+            "height": 38,
+            "top": 122,
+            "right": 1009,
+            "bottom": 160,
+            "left": 15
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 898,
+          "clientWidth": 898,
+          "danger": true,
+          "rosters": [
+            {
+              "height": 278,
+              "scroll": 331,
+              "inside": true
+            },
+            {
+              "height": 278,
+              "scroll": 350,
+              "inside": true
+            }
+          ]
+        },
+        "1280": {
+          "text": "Cairn Hound · binding 1 → hostile 1: 2 health damage (lethal), 3 blocked · binding 1 takes 2 retaliation (lethal) · contract cleared",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 32,
+            "y": 132.5,
+            "width": 1139.734375,
+            "height": 16,
+            "top": 132.5,
+            "right": 1171.734375,
+            "bottom": 148.5,
+            "left": 32
+          },
+          "guidance": {
+            "x": 22,
+            "y": 122,
+            "width": 1236,
+            "height": 38,
+            "top": 122,
+            "right": 1258,
+            "bottom": 160,
+            "left": 22
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 1140,
+          "clientWidth": 1140,
+          "danger": true,
+          "rosters": [
+            {
+              "height": 278,
+              "scroll": 331,
+              "inside": true
+            },
+            {
+              "height": 278,
+              "scroll": 346,
+              "inside": true
+            }
+          ]
+        },
+        "1440": {
+          "text": "Cairn Hound · binding 1 → hostile 1: 2 health damage (lethal), 3 blocked · binding 1 takes 2 retaliation (lethal) · contract cleared",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 32,
+            "y": 132.5,
+            "width": 1299.734375,
+            "height": 16,
+            "top": 132.5,
+            "right": 1331.734375,
+            "bottom": 148.5,
+            "left": 32
+          },
+          "guidance": {
+            "x": 22,
+            "y": 122,
+            "width": 1396,
+            "height": 38,
+            "top": 122,
+            "right": 1418,
+            "bottom": 160,
+            "left": 22
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 1300,
+          "clientWidth": 1300,
+          "danger": true,
+          "rosters": [
+            {
+              "height": 458,
+              "scroll": 458,
+              "inside": true
+            },
+            {
+              "height": 458,
+              "scroll": 458,
+              "inside": true
+            }
+          ]
+        },
+        "1920": {
+          "text": "Cairn Hound · binding 1 → hostile 1: 2 health damage (lethal), 3 blocked · binding 1 takes 2 retaliation (lethal) · contract cleared",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 40,
+            "y": 161,
+            "width": 1763.734375,
+            "height": 16,
+            "top": 161,
+            "right": 1803.734375,
+            "bottom": 177,
+            "left": 40
+          },
+          "guidance": {
+            "x": 30,
+            "y": 147,
+            "width": 1860,
+            "height": 45,
+            "top": 147,
+            "right": 1890,
+            "bottom": 192,
+            "left": 30
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 1764,
+          "clientWidth": 1764,
+          "danger": true,
+          "rosters": [
+            {
+              "height": 571,
+              "scroll": 571,
+              "inside": true
+            },
+            {
+              "height": 571,
+              "scroll": 571,
+              "inside": true
+            }
+          ]
+        }
+      },
+      "previewLeavesSaveUnchanged": true,
+      "allPreviewInteractionsLeaveSaveUnchanged": true,
+      "cancelText": "Deploy a binding or play a tool. Select a ready creature, then its target.",
+      "cancelLeavesSaveUnchanged": true,
+      "committedMatchesPureCanonical": true,
+      "committedPhase": "reward"
+    },
+    {
+      "id": "heal-binding",
+      "action": {
+        "type": "play",
+        "index": 2,
+        "target": "a10"
+      },
+      "errors": [],
+      "layouts": {
+        "390": {
+          "text": "Blood Sutures → binding 1: restores 6 health · gains 2 block",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 20,
+            "y": 142.5,
+            "width": 277.734375,
+            "height": 32,
+            "top": 142.5,
+            "right": 297.734375,
+            "bottom": 174.5,
+            "left": 20
+          },
+          "guidance": {
+            "x": 10,
+            "y": 127,
+            "width": 370,
+            "height": 64,
+            "top": 127,
+            "right": 380,
+            "bottom": 191,
+            "left": 10
+          },
+          "inside": true,
+          "scrollHeight": 32,
+          "clientHeight": 32,
+          "scrollWidth": 278,
+          "clientWidth": 278,
+          "danger": false,
+          "rosters": [
+            {
+              "height": 195,
+              "scroll": 198,
+              "inside": true
+            },
+            {
+              "height": 195,
+              "scroll": 198,
+              "inside": true
+            }
+          ]
+        },
+        "1024": {
+          "text": "Blood Sutures → binding 1: restores 6 health · gains 2 block",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 25,
+            "y": 132.5,
+            "width": 897.734375,
+            "height": 16,
+            "top": 132.5,
+            "right": 922.734375,
+            "bottom": 148.5,
+            "left": 25
+          },
+          "guidance": {
+            "x": 15,
+            "y": 122,
+            "width": 994,
+            "height": 38,
+            "top": 122,
+            "right": 1009,
+            "bottom": 160,
+            "left": 15
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 898,
+          "clientWidth": 898,
+          "danger": false,
+          "rosters": [
+            {
+              "height": 278,
+              "scroll": 331,
+              "inside": true
+            },
+            {
+              "height": 278,
+              "scroll": 346,
+              "inside": true
+            }
+          ]
+        },
+        "1280": {
+          "text": "Blood Sutures → binding 1: restores 6 health · gains 2 block",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 32,
+            "y": 132.5,
+            "width": 1139.734375,
+            "height": 16,
+            "top": 132.5,
+            "right": 1171.734375,
+            "bottom": 148.5,
+            "left": 32
+          },
+          "guidance": {
+            "x": 22,
+            "y": 122,
+            "width": 1236,
+            "height": 38,
+            "top": 122,
+            "right": 1258,
+            "bottom": 160,
+            "left": 22
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 1140,
+          "clientWidth": 1140,
+          "danger": false,
+          "rosters": [
+            {
+              "height": 278,
+              "scroll": 331,
+              "inside": true
+            },
+            {
+              "height": 278,
+              "scroll": 346,
+              "inside": true
+            }
+          ]
+        },
+        "1440": {
+          "text": "Blood Sutures → binding 1: restores 6 health · gains 2 block",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 32,
+            "y": 132.5,
+            "width": 1299.734375,
+            "height": 16,
+            "top": 132.5,
+            "right": 1331.734375,
+            "bottom": 148.5,
+            "left": 32
+          },
+          "guidance": {
+            "x": 22,
+            "y": 122,
+            "width": 1396,
+            "height": 38,
+            "top": 122,
+            "right": 1418,
+            "bottom": 160,
+            "left": 22
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 1300,
+          "clientWidth": 1300,
+          "danger": false,
+          "rosters": [
+            {
+              "height": 458,
+              "scroll": 458,
+              "inside": true
+            },
+            {
+              "height": 458,
+              "scroll": 458,
+              "inside": true
+            }
+          ]
+        },
+        "1920": {
+          "text": "Blood Sutures → binding 1: restores 6 health · gains 2 block",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 40,
+            "y": 161,
+            "width": 1763.734375,
+            "height": 16,
+            "top": 161,
+            "right": 1803.734375,
+            "bottom": 177,
+            "left": 40
+          },
+          "guidance": {
+            "x": 30,
+            "y": 147,
+            "width": 1860,
+            "height": 45,
+            "top": 147,
+            "right": 1890,
+            "bottom": 192,
+            "left": 30
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 1764,
+          "clientWidth": 1764,
+          "danger": false,
+          "rosters": [
+            {
+              "height": 571,
+              "scroll": 571,
+              "inside": true
+            },
+            {
+              "height": 571,
+              "scroll": 571,
+              "inside": true
+            }
+          ]
+        }
+      },
+      "previewLeavesSaveUnchanged": true,
+      "allPreviewInteractionsLeaveSaveUnchanged": true,
+      "cancelText": "Deploy a binding or play a tool. Select a ready creature, then its target.",
+      "cancelLeavesSaveUnchanged": true,
+      "committedMatchesPureCanonical": true,
+      "committedPhase": "battle"
+    },
+    {
+      "id": "silence-enemy",
+      "action": {
+        "type": "play",
+        "index": 1,
+        "target": "e30"
+      },
+      "errors": [],
+      "layouts": {
+        "390": {
+          "text": "Silence the Dead → hostile 1: Silenced · damage and reinforcements canceled",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 20,
+            "y": 142.5,
+            "width": 277.734375,
+            "height": 32,
+            "top": 142.5,
+            "right": 297.734375,
+            "bottom": 174.5,
+            "left": 20
+          },
+          "guidance": {
+            "x": 10,
+            "y": 127,
+            "width": 370,
+            "height": 64,
+            "top": 127,
+            "right": 380,
+            "bottom": 191,
+            "left": 10
+          },
+          "inside": true,
+          "scrollHeight": 32,
+          "clientHeight": 32,
+          "scrollWidth": 278,
+          "clientWidth": 278,
+          "danger": false,
+          "rosters": [
+            {
+              "height": 195,
+              "scroll": 198,
+              "inside": true
+            },
+            {
+              "height": 195,
+              "scroll": 198,
+              "inside": true
+            }
+          ]
+        },
+        "1024": {
+          "text": "Silence the Dead → hostile 1: Silenced · damage and reinforcements canceled",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 25,
+            "y": 132.5,
+            "width": 897.734375,
+            "height": 16,
+            "top": 132.5,
+            "right": 922.734375,
+            "bottom": 148.5,
+            "left": 25
+          },
+          "guidance": {
+            "x": 15,
+            "y": 122,
+            "width": 994,
+            "height": 38,
+            "top": 122,
+            "right": 1009,
+            "bottom": 160,
+            "left": 15
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 898,
+          "clientWidth": 898,
+          "danger": false,
+          "rosters": [
+            {
+              "height": 278,
+              "scroll": 331,
+              "inside": true
+            },
+            {
+              "height": 278,
+              "scroll": 346,
+              "inside": true
+            }
+          ]
+        },
+        "1280": {
+          "text": "Silence the Dead → hostile 1: Silenced · damage and reinforcements canceled",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 32,
+            "y": 132.5,
+            "width": 1139.734375,
+            "height": 16,
+            "top": 132.5,
+            "right": 1171.734375,
+            "bottom": 148.5,
+            "left": 32
+          },
+          "guidance": {
+            "x": 22,
+            "y": 122,
+            "width": 1236,
+            "height": 38,
+            "top": 122,
+            "right": 1258,
+            "bottom": 160,
+            "left": 22
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 1140,
+          "clientWidth": 1140,
+          "danger": false,
+          "rosters": [
+            {
+              "height": 278,
+              "scroll": 331,
+              "inside": true
+            },
+            {
+              "height": 278,
+              "scroll": 346,
+              "inside": true
+            }
+          ]
+        },
+        "1440": {
+          "text": "Silence the Dead → hostile 1: Silenced · damage and reinforcements canceled",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 32,
+            "y": 132.5,
+            "width": 1299.734375,
+            "height": 16,
+            "top": 132.5,
+            "right": 1331.734375,
+            "bottom": 148.5,
+            "left": 32
+          },
+          "guidance": {
+            "x": 22,
+            "y": 122,
+            "width": 1396,
+            "height": 38,
+            "top": 122,
+            "right": 1418,
+            "bottom": 160,
+            "left": 22
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 1300,
+          "clientWidth": 1300,
+          "danger": false,
+          "rosters": [
+            {
+              "height": 458,
+              "scroll": 458,
+              "inside": true
+            },
+            {
+              "height": 458,
+              "scroll": 458,
+              "inside": true
+            }
+          ]
+        },
+        "1920": {
+          "text": "Silence the Dead → hostile 1: Silenced · damage and reinforcements canceled",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 40,
+            "y": 161,
+            "width": 1763.734375,
+            "height": 16,
+            "top": 161,
+            "right": 1803.734375,
+            "bottom": 177,
+            "left": 40
+          },
+          "guidance": {
+            "x": 30,
+            "y": 147,
+            "width": 1860,
+            "height": 45,
+            "top": 147,
+            "right": 1890,
+            "bottom": 192,
+            "left": 30
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 1764,
+          "clientWidth": 1764,
+          "danger": false,
+          "rosters": [
+            {
+              "height": 571,
+              "scroll": 571,
+              "inside": true
+            },
+            {
+              "height": 571,
+              "scroll": 571,
+              "inside": true
+            }
+          ]
+        }
+      },
+      "previewLeavesSaveUnchanged": true,
+      "allPreviewInteractionsLeaveSaveUnchanged": true,
+      "cancelText": "Deploy a binding or play a tool. Select a ready creature, then its target.",
+      "cancelLeavesSaveUnchanged": true,
+      "committedMatchesPureCanonical": true,
+      "committedPhase": "battle"
+    },
+    {
+      "id": "self-lethal",
+      "action": {
+        "type": "play",
+        "index": 4
+      },
+      "errors": [],
+      "layouts": {
+        "390": {
+          "text": "Blood Price: gains 1 energy · hunter loses 1 health · HUNTER DIES · campaign ends",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 13,
+            "y": 142.5,
+            "width": 281.234375,
+            "height": 32,
+            "top": 142.5,
+            "right": 294.234375,
+            "bottom": 174.5,
+            "left": 13
+          },
+          "guidance": {
+            "x": 10,
+            "y": 127,
+            "width": 370,
+            "height": 64,
+            "top": 127,
+            "right": 380,
+            "bottom": 191,
+            "left": 10
+          },
+          "inside": true,
+          "scrollHeight": 32,
+          "clientHeight": 32,
+          "scrollWidth": 281,
+          "clientWidth": 281,
+          "danger": true,
+          "rosters": [
+            {
+              "height": 195,
+              "scroll": 198,
+              "inside": true
+            },
+            {
+              "height": 195,
+              "scroll": 198,
+              "inside": true
+            }
+          ]
+        },
+        "1024": {
+          "text": "Blood Price: gains 1 energy · hunter loses 1 health · HUNTER DIES · campaign ends",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 18,
+            "y": 132.5,
+            "width": 884.234375,
+            "height": 16,
+            "top": 132.5,
+            "right": 902.234375,
+            "bottom": 148.5,
+            "left": 18
+          },
+          "guidance": {
+            "x": 15,
+            "y": 122,
+            "width": 994,
+            "height": 38,
+            "top": 122,
+            "right": 1009,
+            "bottom": 160,
+            "left": 15
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 884,
+          "clientWidth": 884,
+          "danger": true,
+          "rosters": [
+            {
+              "height": 278,
+              "scroll": 331,
+              "inside": true
+            },
+            {
+              "height": 278,
+              "scroll": 346,
+              "inside": true
+            }
+          ]
+        },
+        "1280": {
+          "text": "Blood Price: gains 1 energy · hunter loses 1 health · HUNTER DIES · campaign ends",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 25,
+            "y": 132.5,
+            "width": 1126.234375,
+            "height": 16,
+            "top": 132.5,
+            "right": 1151.234375,
+            "bottom": 148.5,
+            "left": 25
+          },
+          "guidance": {
+            "x": 22,
+            "y": 122,
+            "width": 1236,
+            "height": 38,
+            "top": 122,
+            "right": 1258,
+            "bottom": 160,
+            "left": 22
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 1126,
+          "clientWidth": 1126,
+          "danger": true,
+          "rosters": [
+            {
+              "height": 278,
+              "scroll": 331,
+              "inside": true
+            },
+            {
+              "height": 278,
+              "scroll": 346,
+              "inside": true
+            }
+          ]
+        },
+        "1440": {
+          "text": "Blood Price: gains 1 energy · hunter loses 1 health · HUNTER DIES · campaign ends",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 25,
+            "y": 132.5,
+            "width": 1286.234375,
+            "height": 16,
+            "top": 132.5,
+            "right": 1311.234375,
+            "bottom": 148.5,
+            "left": 25
+          },
+          "guidance": {
+            "x": 22,
+            "y": 122,
+            "width": 1396,
+            "height": 38,
+            "top": 122,
+            "right": 1418,
+            "bottom": 160,
+            "left": 22
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 1286,
+          "clientWidth": 1286,
+          "danger": true,
+          "rosters": [
+            {
+              "height": 458,
+              "scroll": 458,
+              "inside": true
+            },
+            {
+              "height": 458,
+              "scroll": 458,
+              "inside": true
+            }
+          ]
+        },
+        "1920": {
+          "text": "Blood Price: gains 1 energy · hunter loses 1 health · HUNTER DIES · campaign ends",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 33,
+            "y": 161,
+            "width": 1750.234375,
+            "height": 16,
+            "top": 161,
+            "right": 1783.234375,
+            "bottom": 177,
+            "left": 33
+          },
+          "guidance": {
+            "x": 30,
+            "y": 147,
+            "width": 1860,
+            "height": 45,
+            "top": 147,
+            "right": 1890,
+            "bottom": 192,
+            "left": 30
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 1750,
+          "clientWidth": 1750,
+          "danger": true,
+          "rosters": [
+            {
+              "height": 571,
+              "scroll": 571,
+              "inside": true
+            },
+            {
+              "height": 571,
+              "scroll": 571,
+              "inside": true
+            }
+          ]
+        }
+      },
+      "previewLeavesSaveUnchanged": true,
+      "allPreviewInteractionsLeaveSaveUnchanged": true,
+      "committedMatchesPureCanonical": true,
+      "committedPhase": "defeat"
+    },
+    {
+      "id": "siphon-heal",
+      "action": {
+        "type": "play",
+        "index": 3,
+        "target": "e30"
+      },
+      "errors": [],
+      "layouts": {
+        "390": {
+          "text": "Grave Tithe → hostile 1: 7 health damage · hunter: restores 3 health",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 20,
+            "y": 142.5,
+            "width": 277.734375,
+            "height": 32,
+            "top": 142.5,
+            "right": 297.734375,
+            "bottom": 174.5,
+            "left": 20
+          },
+          "guidance": {
+            "x": 10,
+            "y": 127,
+            "width": 370,
+            "height": 64,
+            "top": 127,
+            "right": 380,
+            "bottom": 191,
+            "left": 10
+          },
+          "inside": true,
+          "scrollHeight": 32,
+          "clientHeight": 32,
+          "scrollWidth": 278,
+          "clientWidth": 278,
+          "danger": false,
+          "rosters": [
+            {
+              "height": 195,
+              "scroll": 198,
+              "inside": true
+            },
+            {
+              "height": 195,
+              "scroll": 198,
+              "inside": true
+            }
+          ]
+        },
+        "1024": {
+          "text": "Grave Tithe → hostile 1: 7 health damage · hunter: restores 3 health",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 25,
+            "y": 132.5,
+            "width": 897.734375,
+            "height": 16,
+            "top": 132.5,
+            "right": 922.734375,
+            "bottom": 148.5,
+            "left": 25
+          },
+          "guidance": {
+            "x": 15,
+            "y": 122,
+            "width": 994,
+            "height": 38,
+            "top": 122,
+            "right": 1009,
+            "bottom": 160,
+            "left": 15
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 898,
+          "clientWidth": 898,
+          "danger": false,
+          "rosters": [
+            {
+              "height": 278,
+              "scroll": 331,
+              "inside": true
+            },
+            {
+              "height": 278,
+              "scroll": 346,
+              "inside": true
+            }
+          ]
+        },
+        "1280": {
+          "text": "Grave Tithe → hostile 1: 7 health damage · hunter: restores 3 health",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 32,
+            "y": 132.5,
+            "width": 1139.734375,
+            "height": 16,
+            "top": 132.5,
+            "right": 1171.734375,
+            "bottom": 148.5,
+            "left": 32
+          },
+          "guidance": {
+            "x": 22,
+            "y": 122,
+            "width": 1236,
+            "height": 38,
+            "top": 122,
+            "right": 1258,
+            "bottom": 160,
+            "left": 22
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 1140,
+          "clientWidth": 1140,
+          "danger": false,
+          "rosters": [
+            {
+              "height": 278,
+              "scroll": 331,
+              "inside": true
+            },
+            {
+              "height": 278,
+              "scroll": 346,
+              "inside": true
+            }
+          ]
+        },
+        "1440": {
+          "text": "Grave Tithe → hostile 1: 7 health damage · hunter: restores 3 health",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 32,
+            "y": 132.5,
+            "width": 1299.734375,
+            "height": 16,
+            "top": 132.5,
+            "right": 1331.734375,
+            "bottom": 148.5,
+            "left": 32
+          },
+          "guidance": {
+            "x": 22,
+            "y": 122,
+            "width": 1396,
+            "height": 38,
+            "top": 122,
+            "right": 1418,
+            "bottom": 160,
+            "left": 22
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 1300,
+          "clientWidth": 1300,
+          "danger": false,
+          "rosters": [
+            {
+              "height": 458,
+              "scroll": 458,
+              "inside": true
+            },
+            {
+              "height": 458,
+              "scroll": 458,
+              "inside": true
+            }
+          ]
+        },
+        "1920": {
+          "text": "Grave Tithe → hostile 1: 7 health damage · hunter: restores 3 health",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 40,
+            "y": 161,
+            "width": 1763.734375,
+            "height": 16,
+            "top": 161,
+            "right": 1803.734375,
+            "bottom": 177,
+            "left": 40
+          },
+          "guidance": {
+            "x": 30,
+            "y": 147,
+            "width": 1860,
+            "height": 45,
+            "top": 147,
+            "right": 1890,
+            "bottom": 192,
+            "left": 30
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 1764,
+          "clientWidth": 1764,
+          "danger": false,
+          "rosters": [
+            {
+              "height": 571,
+              "scroll": 571,
+              "inside": true
+            },
+            {
+              "height": 571,
+              "scroll": 571,
+              "inside": true
+            }
+          ]
+        }
+      },
+      "previewLeavesSaveUnchanged": true,
+      "allPreviewInteractionsLeaveSaveUnchanged": true,
+      "cancelText": "Deploy a binding or play a tool. Select a ready creature, then its target.",
+      "cancelLeavesSaveUnchanged": true,
+      "committedMatchesPureCanonical": true,
+      "committedPhase": "battle"
+    },
+    {
+      "id": "full-roster-counter",
+      "action": {
+        "type": "attack",
+        "unit": "a10",
+        "target": "e30"
+      },
+      "errors": [],
+      "layouts": {
+        "390": {
+          "text": "Cairn Hound · binding 1 → hostile 1: 2 health damage (lethal), 3 blocked · binding 1 takes 2 retaliation (lethal)",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 20,
+            "y": 134.5,
+            "width": 277.734375,
+            "height": 48,
+            "top": 134.5,
+            "right": 297.734375,
+            "bottom": 182.5,
+            "left": 20
+          },
+          "guidance": {
+            "x": 10,
+            "y": 127,
+            "width": 370,
+            "height": 64,
+            "top": 127,
+            "right": 380,
+            "bottom": 191,
+            "left": 10
+          },
+          "inside": true,
+          "scrollHeight": 48,
+          "clientHeight": 48,
+          "scrollWidth": 278,
+          "clientWidth": 278,
+          "danger": true,
+          "rosters": [
+            {
+              "height": 195,
+              "scroll": 198,
+              "inside": false
+            },
+            {
+              "height": 195,
+              "scroll": 206,
+              "inside": false
+            }
+          ]
+        },
+        "1024": {
+          "text": "Cairn Hound · binding 1 → hostile 1: 2 health damage (lethal), 3 blocked · binding 1 takes 2 retaliation (lethal)",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 26,
+            "y": 132.5,
+            "width": 895.734375,
+            "height": 16,
+            "top": 132.5,
+            "right": 921.734375,
+            "bottom": 148.5,
+            "left": 26
+          },
+          "guidance": {
+            "x": 16,
+            "y": 122,
+            "width": 992,
+            "height": 38,
+            "top": 122,
+            "right": 1008,
+            "bottom": 160,
+            "left": 16
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 896,
+          "clientWidth": 896,
+          "danger": true,
+          "rosters": [
+            {
+              "height": 278,
+              "scroll": 278,
+              "inside": true
+            },
+            {
+              "height": 278,
+              "scroll": 278,
+              "inside": true
+            }
+          ]
+        },
+        "1280": {
+          "text": "Cairn Hound · binding 1 → hostile 1: 2 health damage (lethal), 3 blocked · binding 1 takes 2 retaliation (lethal)",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 26,
+            "y": 132.5,
+            "width": 1151.734375,
+            "height": 16,
+            "top": 132.5,
+            "right": 1177.734375,
+            "bottom": 148.5,
+            "left": 26
+          },
+          "guidance": {
+            "x": 16,
+            "y": 122,
+            "width": 1248,
+            "height": 38,
+            "top": 122,
+            "right": 1264,
+            "bottom": 160,
+            "left": 16
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 1152,
+          "clientWidth": 1152,
+          "danger": true,
+          "rosters": [
+            {
+              "height": 278,
+              "scroll": 278,
+              "inside": true
+            },
+            {
+              "height": 278,
+              "scroll": 278,
+              "inside": true
+            }
+          ]
+        },
+        "1440": {
+          "text": "Cairn Hound · binding 1 → hostile 1: 2 health damage (lethal), 3 blocked · binding 1 takes 2 retaliation (lethal)",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 26,
+            "y": 132.5,
+            "width": 1311.734375,
+            "height": 16,
+            "top": 132.5,
+            "right": 1337.734375,
+            "bottom": 148.5,
+            "left": 26
+          },
+          "guidance": {
+            "x": 16,
+            "y": 122,
+            "width": 1408,
+            "height": 38,
+            "top": 122,
+            "right": 1424,
+            "bottom": 160,
+            "left": 16
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 1312,
+          "clientWidth": 1312,
+          "danger": true,
+          "rosters": [
+            {
+              "height": 458,
+              "scroll": 458,
+              "inside": true
+            },
+            {
+              "height": 458,
+              "scroll": 458,
+              "inside": true
+            }
+          ]
+        },
+        "1920": {
+          "text": "Cairn Hound · binding 1 → hostile 1: 2 health damage (lethal), 3 blocked · binding 1 takes 2 retaliation (lethal)",
+          "type": "consequence",
+          "role": "status",
+          "font": "12px",
+          "lineHeight": "16px",
+          "rect": {
+            "x": 26,
+            "y": 161,
+            "width": 1791.734375,
+            "height": 16,
+            "top": 161,
+            "right": 1817.734375,
+            "bottom": 177,
+            "left": 26
+          },
+          "guidance": {
+            "x": 16,
+            "y": 147,
+            "width": 1888,
+            "height": 45,
+            "top": 147,
+            "right": 1904,
+            "bottom": 192,
+            "left": 16
+          },
+          "inside": true,
+          "scrollHeight": 16,
+          "clientHeight": 16,
+          "scrollWidth": 1792,
+          "clientWidth": 1792,
+          "danger": true,
+          "rosters": [
+            {
+              "height": 571,
+              "scroll": 571,
+              "inside": true
+            },
+            {
+              "height": 571,
+              "scroll": 571,
+              "inside": true
+            }
+          ]
+        }
+      },
+      "previewLeavesSaveUnchanged": true,
+      "allPreviewInteractionsLeaveSaveUnchanged": true,
+      "cancelText": "Deploy a binding or play a tool. Select a ready creature, then its target.",
+      "cancelLeavesSaveUnchanged": true,
+      "committedMatchesPureCanonical": true,
+      "committedPhase": "battle"
+    }
+  ]
+}

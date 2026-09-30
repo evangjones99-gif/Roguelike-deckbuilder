@@ -1,0 +1,765 @@
+﻿2026-09-30T20:25:31.4298453Z Current runner version: '2.337.0'
+2026-09-30T20:25:31.4323046Z ##[group]Runner Image Provisioner
+2026-09-30T20:25:31.4323839Z Hosted Compute Agent
+2026-09-30T20:25:31.4324353Z Version: 20260828.587
+2026-09-30T20:25:31.4324934Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-30T20:25:31.4325643Z Build Date: 2026-08-28T16:44:25Z
+2026-09-30T20:25:31.4326255Z Worker ID: {ec10406c-4b43-421e-85ee-0bf91e7b6844}
+2026-09-30T20:25:31.4326938Z Azure Region: northcentralus
+2026-09-30T20:25:31.4327482Z ##[endgroup]
+2026-09-30T20:25:31.4328659Z ##[group]Operating System
+2026-09-30T20:25:31.4329250Z Microsoft Windows Server 2022
+2026-09-30T20:25:31.4329791Z 10.0.20348
+2026-09-30T20:25:31.4330244Z Datacenter
+2026-09-30T20:25:31.4330696Z ##[endgroup]
+2026-09-30T20:25:31.4331151Z ##[group]Runner Image
+2026-09-30T20:25:31.4331712Z Image: windows-2022
+2026-09-30T20:25:31.4332195Z Version: 20260920.314.1
+2026-09-30T20:25:31.4333563Z Included Software: https://github.com/actions/runner-images/blob/win22/20260920.314/images/windows/Windows2022-Readme.md
+2026-09-30T20:25:31.4334992Z Image Release: https://github.com/actions/runner-images/releases/tag/win22%2F20260920.314
+2026-09-30T20:25:31.4335888Z ##[endgroup]
+2026-09-30T20:25:31.4336842Z ##[group]GITHUB_TOKEN Permissions
+2026-09-30T20:25:31.4338628Z Contents: read
+2026-09-30T20:25:31.4339156Z Metadata: read
+2026-09-30T20:25:31.4339659Z ##[endgroup]
+2026-09-30T20:25:31.4341580Z Secret source: Actions
+2026-09-30T20:25:31.4342400Z Cache mode: write
+2026-09-30T20:25:31.4343072Z Prepare workflow directory
+2026-09-30T20:25:31.4759646Z Prepare all required actions
+2026-09-30T20:25:31.4813829Z Getting action download info
+2026-09-30T20:25:31.7028717Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-09-30T20:25:31.8119094Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-09-30T20:25:31.9524674Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-09-30T20:25:32.2734401Z Complete job name: windows-x64
+2026-09-30T20:25:32.4412475Z ##[group]Run actions/checkout@v4
+2026-09-30T20:25:32.4413487Z with:
+2026-09-30T20:25:32.4413879Z   persist-credentials: false
+2026-09-30T20:25:32.4414429Z   repository: evangjones99-gif/Roguelike-deckbuilder
+2026-09-30T20:25:32.4418441Z   token: ***
+2026-09-30T20:25:32.4418820Z   ssh-strict: true
+2026-09-30T20:25:32.4419202Z   ssh-user: git
+2026-09-30T20:25:32.4419563Z   clean: true
+2026-09-30T20:25:32.4419946Z   sparse-checkout-cone-mode: true
+2026-09-30T20:25:32.4420403Z   fetch-depth: 1
+2026-09-30T20:25:32.4420777Z   fetch-tags: false
+2026-09-30T20:25:32.4421168Z   show-progress: true
+2026-09-30T20:25:32.4421551Z   lfs: false
+2026-09-30T20:25:32.4421902Z   submodules: false
+2026-09-30T20:25:32.4422292Z   set-safe-directory: true
+2026-09-30T20:25:32.4422733Z   allow-unsafe-pr-checkout: false
+2026-09-30T20:25:32.4423372Z env:
+2026-09-30T20:25:32.4423737Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:25:32.4424350Z ##[endgroup]
+2026-09-30T20:25:32.5898016Z Syncing repository: evangjones99-gif/Roguelike-deckbuilder
+2026-09-30T20:25:32.5900682Z ##[group]Getting Git version info
+2026-09-30T20:25:32.5901873Z Working directory is 'D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder'
+2026-09-30T20:25:32.6667820Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-09-30T20:25:33.0033996Z git version 2.55.0.windows.5
+2026-09-30T20:25:33.0066309Z ##[endgroup]
+2026-09-30T20:25:33.0084114Z Temporarily overriding HOME='D:\a\_temp\bdd62c27-893e-4383-9fb9-1b0e8265e432' before making global git config changes
+2026-09-30T20:25:33.0085829Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-30T20:25:33.0095064Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder
+2026-09-30T20:25:33.0582473Z Deleting the contents of 'D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder'
+2026-09-30T20:25:33.0587411Z ##[group]Initializing the repository
+2026-09-30T20:25:33.0596119Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder
+2026-09-30T20:25:33.1297052Z Initialized empty Git repository in D:/a/Roguelike-deckbuilder/Roguelike-deckbuilder/.git/
+2026-09-30T20:25:33.1329127Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/evangjones99-gif/Roguelike-deckbuilder
+2026-09-30T20:25:33.1824403Z ##[endgroup]
+2026-09-30T20:25:33.1825796Z ##[group]Disabling automatic garbage collection
+2026-09-30T20:25:33.1833537Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-09-30T20:25:33.2045669Z ##[endgroup]
+2026-09-30T20:25:33.2047144Z ##[group]Setting up auth
+2026-09-30T20:25:33.2056154Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-09-30T20:25:33.2269879Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-09-30T20:25:34.4665826Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-30T20:25:34.4896680Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-09-30T20:25:34.9191805Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-30T20:25:34.9414648Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-09-30T20:25:35.3441012Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-09-30T20:25:35.3705996Z ##[endgroup]
+2026-09-30T20:25:35.3708428Z ##[group]Fetching the repository
+2026-09-30T20:25:35.3723892Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +d48500ece67b35221d21519f6171f4ac7bdb0813:refs/remotes/pull/1/merge
+2026-09-30T20:25:39.1479437Z From https://github.com/evangjones99-gif/Roguelike-deckbuilder
+2026-09-30T20:25:39.1505464Z  * [new ref]         d48500ece67b35221d21519f6171f4ac7bdb0813 -> pull/1/merge
+2026-09-30T20:25:39.1507088Z ##[endgroup]
+2026-09-30T20:25:39.1507644Z ##[group]Determining the checkout info
+2026-09-30T20:25:39.1509183Z ##[endgroup]
+2026-09-30T20:25:39.1518576Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-09-30T20:25:39.1889876Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-09-30T20:25:39.2104221Z ##[group]Checking out the ref
+2026-09-30T20:25:39.2112069Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force refs/remotes/pull/1/merge
+2026-09-30T20:25:40.2464327Z Updating files:  59% (634/1071)
+2026-09-30T20:25:40.2573036Z Updating files:  60% (643/1071)
+2026-09-30T20:25:40.2726103Z Updating files:  61% (654/1071)
+2026-09-30T20:25:40.2791534Z Updating files:  62% (665/1071)
+2026-09-30T20:25:40.2863635Z Updating files:  63% (675/1071)
+2026-09-30T20:25:40.2941341Z Updating files:  64% (686/1071)
+2026-09-30T20:25:40.3058219Z Updating files:  65% (697/1071)
+2026-09-30T20:25:40.3206629Z Updating files:  66% (707/1071)
+2026-09-30T20:25:40.3283354Z Updating files:  67% (718/1071)
+2026-09-30T20:25:40.3404019Z Updating files:  68% (729/1071)
+2026-09-30T20:25:40.3554533Z Updating files:  69% (739/1071)
+2026-09-30T20:25:40.3725664Z Updating files:  70% (750/1071)
+2026-09-30T20:25:40.3985641Z Updating files:  71% (761/1071)
+2026-09-30T20:25:40.4235776Z Updating files:  72% (772/1071)
+2026-09-30T20:25:40.4383349Z Updating files:  73% (782/1071)
+2026-09-30T20:25:40.4437293Z Updating files:  74% (793/1071)
+2026-09-30T20:25:40.4452254Z Updating files:  75% (804/1071)
+2026-09-30T20:25:40.4476270Z Updating files:  76% (814/1071)
+2026-09-30T20:25:40.4571096Z Updating files:  77% (825/1071)
+2026-09-30T20:25:40.4647582Z Updating files:  78% (836/1071)
+2026-09-30T20:25:40.4838143Z Updating files:  79% (847/1071)
+2026-09-30T20:25:40.5008040Z Updating files:  80% (857/1071)
+2026-09-30T20:25:40.5206491Z Updating files:  81% (868/1071)
+2026-09-30T20:25:40.5288482Z Updating files:  82% (879/1071)
+2026-09-30T20:25:40.5419691Z Updating files:  83% (889/1071)
+2026-09-30T20:25:40.5539965Z Updating files:  84% (900/1071)
+2026-09-30T20:25:40.5722683Z Updating files:  85% (911/1071)
+2026-09-30T20:25:40.5873207Z Updating files:  86% (922/1071)
+2026-09-30T20:25:40.6008719Z Updating files:  87% (932/1071)
+2026-09-30T20:25:40.6164624Z Updating files:  88% (943/1071)
+2026-09-30T20:25:40.6311199Z Updating files:  89% (954/1071)
+2026-09-30T20:25:40.6510243Z Updating files:  90% (964/1071)
+2026-09-30T20:25:40.6641243Z Updating files:  91% (975/1071)
+2026-09-30T20:25:40.6755431Z Updating files:  92% (986/1071)
+2026-09-30T20:25:40.6838097Z Updating files:  93% (997/1071)
+2026-09-30T20:25:40.6922511Z Updating files:  94% (1007/1071)
+2026-09-30T20:25:40.6975190Z Updating files:  95% (1018/1071)
+2026-09-30T20:25:40.7041521Z Updating files:  96% (1029/1071)
+2026-09-30T20:25:40.7073630Z Updating files:  97% (1039/1071)
+2026-09-30T20:25:40.7095052Z Updating files:  98% (1050/1071)
+2026-09-30T20:25:40.7118285Z Updating files:  99% (1061/1071)
+2026-09-30T20:25:40.7121181Z Updating files: 100% (1071/1071)
+2026-09-30T20:25:40.7121596Z Updating files: 100% (1071/1071), done.
+2026-09-30T20:25:40.7205683Z Note: switching to 'refs/remotes/pull/1/merge'.
+2026-09-30T20:25:40.7206123Z 
+2026-09-30T20:25:40.7206469Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-09-30T20:25:40.7207220Z changes and commit them, and you can discard any commits you make in this
+2026-09-30T20:25:40.7210637Z state without impacting any branches by switching back to a branch.
+2026-09-30T20:25:40.7211149Z 
+2026-09-30T20:25:40.7211343Z If you want to create a new branch to retain commits you create, you may
+2026-09-30T20:25:40.7211768Z do so (now or later) by using -c with the switch command. Example:
+2026-09-30T20:25:40.7212038Z 
+2026-09-30T20:25:40.7212173Z   git switch -c <new-branch-name>
+2026-09-30T20:25:40.7212347Z 
+2026-09-30T20:25:40.7212449Z Or undo this operation with:
+2026-09-30T20:25:40.7212596Z 
+2026-09-30T20:25:40.7212676Z   git switch -
+2026-09-30T20:25:40.7212786Z 
+2026-09-30T20:25:40.7212997Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-09-30T20:25:40.7213283Z 
+2026-09-30T20:25:40.7213613Z HEAD is now at d48500e Merge be87d9a20c3ce9da97f132d49d5d05a1b04ee739 into 98660a7ef214c8a875b25482f64475c8d70e5efc
+2026-09-30T20:25:40.7501330Z ##[endgroup]
+2026-09-30T20:25:40.7795140Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-09-30T20:25:40.8000447Z d48500ece67b35221d21519f6171f4ac7bdb0813
+2026-09-30T20:25:40.8028345Z ##[group]Removing auth
+2026-09-30T20:25:40.8035995Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-09-30T20:25:40.8247866Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-09-30T20:25:41.2306005Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-30T20:25:41.2493973Z http.https://github.com/.extraheader
+2026-09-30T20:25:41.2521990Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2026-09-30T20:25:41.2746422Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-09-30T20:25:41.6853956Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-30T20:25:41.7069922Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-09-30T20:25:42.1395978Z ##[endgroup]
+2026-09-30T20:25:42.1784459Z ##[group]Run actions/setup-node@v4
+2026-09-30T20:25:42.1784812Z with:
+2026-09-30T20:25:42.1785020Z   node-version: 24.19.0
+2026-09-30T20:25:42.1785299Z   cache: npm
+2026-09-30T20:25:42.1814800Z   always-auth: false
+2026-09-30T20:25:42.1815124Z   check-latest: false
+2026-09-30T20:25:42.1819985Z   token: ***
+2026-09-30T20:25:42.1820303Z env:
+2026-09-30T20:25:42.1820595Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:25:42.1821008Z ##[endgroup]
+2026-09-30T20:25:42.3417508Z Attempting to download 24.19.0...
+2026-09-30T20:25:42.3577843Z (node:8084) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-30T20:25:42.3579095Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-30T20:25:43.0330887Z Acquiring 24.19.0 - x64 from https://github.com/actions/node-versions/releases/download/24.19.0-30872449280/node-24.19.0-win32-x64.7z
+2026-09-30T20:25:43.3519853Z Extracting ...
+2026-09-30T20:25:45.1311406Z Adding to the cache ...
+2026-09-30T20:25:56.5514458Z ##[group]Environment details
+2026-09-30T20:25:58.1467290Z node: v24.19.0
+2026-09-30T20:25:58.1467553Z npm: 11.17.0
+2026-09-30T20:25:58.1467744Z yarn: 1.22.22
+2026-09-30T20:25:58.1468225Z ##[endgroup]
+2026-09-30T20:25:58.2015063Z [command]C:\Windows\system32\cmd.exe /D /S /C "C:\hostedtoolcache\windows\node\24.19.0\x64\npm.cmd config get cache"
+2026-09-30T20:25:58.4637448Z C:\npm\cache
+2026-09-30T20:25:58.7456973Z Cache hit for: node-cache-Windows-x64-npm-48b533b691141f0dcca9201ed51d18c84aba8d385f93dfe2fd9e48985e57c434
+2026-09-30T20:25:58.7576117Z (node:8084) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-30T20:25:59.4026329Z Received 56985959 of 56985959 (100.0%), 102.5 MBs/sec
+2026-09-30T20:25:59.4029419Z Cache Size: ~54 MB (56985959 B)
+2026-09-30T20:25:59.4150816Z [command]"C:\Program Files\Git\usr\bin\tar.exe" -xf D:/a/_temp/71b8ad7d-6658-48fe-b140-b9dbd63203c6/cache.tzst -P -C D:/a/Roguelike-deckbuilder/Roguelike-deckbuilder --force-local --use-compress-program "zstd -d"
+2026-09-30T20:26:02.0287535Z Cache restored successfully
+2026-09-30T20:26:02.0328863Z Cache restored from key: node-cache-Windows-x64-npm-48b533b691141f0dcca9201ed51d18c84aba8d385f93dfe2fd9e48985e57c434
+2026-09-30T20:26:02.0597313Z ##[group]Run node -e "const fs=require('node:fs'); const p=require('./package.json'); fs.appendFileSync(process.env.GITHUB_OUTPUT, 'version='+p.version+'\n');"
+2026-09-30T20:26:02.0598601Z [36;1mnode -e "const fs=require('node:fs'); const p=require('./package.json'); fs.appendFileSync(process.env.GITHUB_OUTPUT, 'version='+p.version+'\n');"[0m
+2026-09-30T20:26:02.0705482Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-09-30T20:26:02.0705858Z env:
+2026-09-30T20:26:02.0706067Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:26:02.0706347Z ##[endgroup]
+2026-09-30T20:26:02.5388716Z ##[group]Run npm ci
+2026-09-30T20:26:02.5389067Z [36;1mnpm ci[0m
+2026-09-30T20:26:02.5431827Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-09-30T20:26:02.5432177Z env:
+2026-09-30T20:26:02.5432376Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:26:02.5432652Z ##[endgroup]
+2026-09-30T20:26:05.4073182Z npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+2026-09-30T20:26:05.4675501Z npm warn deprecated rimraf@2.6.3: Rimraf versions prior to v4 are no longer supported
+2026-09-30T20:26:05.5150946Z npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+2026-09-30T20:26:05.8768096Z npm warn deprecated boolean@3.2.0: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+2026-09-30T20:26:08.0455545Z 
+2026-09-30T20:26:08.0456467Z added 314 packages, and audited 315 packages in 5s
+2026-09-30T20:26:08.0456954Z 
+2026-09-30T20:26:08.0458489Z 56 packages are looking for funding
+2026-09-30T20:26:08.0461061Z   run `npm fund` for details
+2026-09-30T20:26:08.0473914Z 
+2026-09-30T20:26:08.0474310Z found 0 vulnerabilities
+2026-09-30T20:26:08.0494515Z npm warn allow-scripts 2 packages have install scripts not yet covered by allowScripts:
+2026-09-30T20:26:08.0495433Z npm warn allow-scripts   electron-winstaller@5.4.0 (install: node ./script/select-7z-arch.js)
+2026-09-30T20:26:08.0496316Z npm warn allow-scripts   esbuild@0.28.2 (postinstall: node install.js)
+2026-09-30T20:26:08.0496940Z npm warn allow-scripts
+2026-09-30T20:26:08.0498018Z npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+2026-09-30T20:26:09.3808292Z ##[group]Run node node_modules/electron/install.js
+2026-09-30T20:26:09.3809158Z [36;1mnode node_modules/electron/install.js[0m
+2026-09-30T20:26:09.3847838Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-09-30T20:26:09.3848201Z env:
+2026-09-30T20:26:09.3848427Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:26:09.3848705Z ##[endgroup]
+2026-09-30T20:26:12.8686817Z ##[group]Run npm test
+2026-09-30T20:26:12.8687139Z [36;1mnpm test[0m
+2026-09-30T20:26:12.8723478Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-09-30T20:26:12.8723840Z env:
+2026-09-30T20:26:12.8724056Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:26:12.8724316Z ##[endgroup]
+2026-09-30T20:26:13.5892274Z 
+2026-09-30T20:26:13.5892836Z > hollowpact@0.4.0 test
+2026-09-30T20:26:13.5893189Z > tsx --test tests/*.test.ts
+2026-09-30T20:26:13.5893377Z 
+2026-09-30T20:26:15.7757617Z ✔ 24 original cards, four creature families and enhancement texts are complete (3.2965ms)
+2026-09-30T20:26:15.7768332Z ✔ schema 2 saves reject historical schema, presentation menu and malformed inputs (1.1273ms)
+2026-09-30T20:26:15.7770262Z ✔ serialized action replay is exact, pure, and deterministic through terminal state (86.5747ms)
+2026-09-30T20:26:15.7774024Z ✔ invalid indices, targets, phase, budget and board size return original object (0.5957ms)
+2026-09-30T20:26:15.7775518Z ✔ living creatures own one card copy outside piles; dead creatures rejoin discard (1.0964ms)
+2026-09-30T20:26:15.7777829Z ✔ two identical source copies remain separate when one dies (0.5259ms)
+2026-09-30T20:26:15.7779691Z ✔ Cairn Hound executes exposed targets but does not receive bonus against armor (0.475ms)
+2026-09-30T20:26:15.7784553Z ✔ Fen Stalker heals only when its command deals health damage (0.5512ms)
+2026-09-30T20:26:15.7785814Z ✔ Briar Colossus grants hunter block after every command, even into armor (0.3651ms)
+2026-09-30T20:26:15.7787114Z ✔ Ash Widow amplifies targeted damage, relic combines, Revenant resists it (0.6257ms)
+2026-09-30T20:26:15.7788487Z ✔ Grave Resonance supports a spell-only opening and loses solo bonus after binding (0.3903ms)
+2026-09-30T20:26:15.7811875Z ✔ ready permits a second command while ordinary commands are once per turn (0.3992ms)
+2026-09-30T20:26:15.7815084Z ✔ Ironjaw armor retaliates through creature block; Sundering Hex prevents retaliation (0.5057ms)
+2026-09-30T20:26:15.7838230Z ✔ retaliation deaths return exactly one source card and no duplicate draws (0.4032ms)
+2026-09-30T20:26:15.7842144Z ✔ announced targets stay stable across bindings and commands; missing creature falls back to hunter (0.5335ms)
+2026-09-30T20:26:15.7847227Z ✔ Revenant strikes ignore hunter armor and have explicit visible text (0.2849ms)
+2026-09-30T20:26:15.7865394Z ✔ Cantor raises announced thralls after enemy resolution; no hidden immediate attacks (0.4969ms)
+2026-09-30T20:26:15.7866923Z ✔ reinforcements respect six slots and cannot carry an unannounced extra enemy (0.3987ms)
+2026-09-30T20:26:15.7873948Z ✔ Silence cancels necromancy; canceled attacks do not become armor; guard remains guard (0.7989ms)
+2026-09-30T20:26:15.7875412Z ✔ killing the raising source before ending the turn prevents its reinforcements (0.3878ms)
+2026-09-30T20:26:15.7876765Z ✔ Cindermaw guard/breath/strike cycle has readable damage windows and expires armor (0.3662ms)
+2026-09-30T20:26:15.7878113Z ✔ boss is forecastable from run seed independently of earlier RNG consumption (1.2216ms)
+2026-09-30T20:26:15.7879447Z ✔ elite formations offer four distinct questions and never guarantee all six relics (32.8783ms)
+2026-09-30T20:26:15.7880722Z ✔ targeted camp upgrade changes precisely the selected duplicate entry (0.5997ms)
+2026-09-30T20:26:15.7881994Z ✔ relic effects support summon endurance, command attack, solo economy and recovery (0.6338ms)
+2026-09-30T20:26:15.7883210Z ✔ rewards, real shop costs and removals cannot be collected twice (0.9984ms)
+2026-09-30T20:26:15.7906640Z ✔ crypt events provide paid recovery, card purge or bounded relic oath (0.4528ms)
+2026-09-30T20:26:15.7915768Z ✔ temporary attack bonuses reset between contracts while permanent deck and HP persist (0.7204ms)
+2026-09-30T20:26:15.7920199Z ✔ hunter self-damage defeat is immediate and terminal; terminal turn is counted (0.3056ms)
+2026-09-30T20:26:15.7934876Z ✔ all three boss contracts can finish in a valid terminal collection state (60.2012ms)
+2026-09-30T20:26:15.7936655Z ✔ save validation rejects prototype identities, forged passives and illegal reinforcement fields (1.4243ms)
+2026-09-30T20:26:15.7938220Z ✔ every encounter must match its actual node; final combat allows only boss (9.5399ms)
+2026-09-30T20:26:15.7940201Z ✔ 300 seeded legal-random runs validate every intermediate state across difficulties (1479.4467ms)
+2026-09-30T20:26:18.0076820Z ✔ events and ordinary reducer remain byte equivalent to archived v0.2 across seeded legal runs (3535.6024ms)
+2026-09-30T20:26:18.0078225Z ✔ invalid actions produce no observations and preserve object identity (0.368ms)
+2026-09-30T20:26:18.0080354Z ✔ first lethal hunter strike suppresses every later enemy strike (0.5937ms)
+2026-09-30T20:26:18.0082955Z ✔ a later strike resolves to hunter after its announced creature target dies (0.6786ms)
+2026-09-30T20:26:18.0087359Z ✔ one executed area attack finishes its real targets even if hunter dies, then skips later enemies (0.663ms)
+2026-09-30T20:26:18.0091245Z ✔ fully blocked attacks are observed with zero health loss and real absorbed damage (0.365ms)
+2026-09-30T20:26:18.0093711Z ✔ piercing and self damage report zero block absorption despite existing wards (0.5524ms)
+2026-09-30T20:26:18.0097811Z ✔ stalker recovery and retaliation remain distinct despite zero net creature HP change (0.3145ms)
+2026-09-30T20:26:18.0100132Z ✔ retaliation death follows command hit and returns exactly one real card copy (0.3403ms)
+2026-09-30T20:26:18.0102414Z ✔ spell area damage records resolved roster targets and each death in order (0.3884ms)
+2026-09-30T20:26:18.0106212Z ✔ binding snapshots survive on-bind victory cleanup and cannot mutate returned state (0.3277ms)
+2026-09-30T20:26:18.0107636Z ✔ necromancy emits summons from actual raising source without immediate enemy hits (0.4489ms)
+2026-09-30T20:26:18.0109949Z ✔ healing and wards emit actual gains only, with guard source resolved explicitly (0.355ms)
+2026-09-30T20:26:18.0119303Z ✔ random legal replays preserve archived states across rewards, crypt, shop and control branches (369.1679ms)
+2026-09-30T20:26:18.0124623Z ✔ Silence reports a truthful noninjury control event and redundant silence emits no second cue (0.421ms)
+2026-09-30T20:26:18.0125517Z ✔ Edict reports each real attack increase in roster order without invented injuries (0.5639ms)
+2026-09-30T20:26:18.0296769Z ✔ all 119 reachable campaign actions remain valid with unchanged mechanics and payments (82.8953ms)
+2026-09-30T20:26:18.0297649Z ✔ guard armor, fresh intentions and serialized continuation match legacy mechanics (94.4579ms)
+2026-09-30T20:26:18.0298460Z ✔ exact inherited overflow recovery is valid, detached and preserves the original bytes (1.045ms)
+2026-09-30T20:26:18.0299165Z ✔ normal valid saves and unrelated corruption never enter recovery (1.6542ms)
+2026-09-30T20:26:18.0299972Z ✔ a valid legacy double suffix becomes canonical on the next paid Silence (0.319ms)
+2026-09-30T20:26:18.0300774Z ℹ tests 54
+2026-09-30T20:26:18.0301108Z ℹ suites 0
+2026-09-30T20:26:18.0301422Z ℹ pass 54
+2026-09-30T20:26:18.0301725Z ℹ fail 0
+2026-09-30T20:26:18.0302616Z ℹ cancelled 0
+2026-09-30T20:26:18.0302999Z ℹ skipped 0
+2026-09-30T20:26:18.0303341Z ℹ todo 0
+2026-09-30T20:26:18.0303720Z ℹ duration_ms 4279.1623
+2026-09-30T20:26:18.1161827Z ##[group]Run npm run build
+2026-09-30T20:26:18.1162172Z [36;1mnpm run build[0m
+2026-09-30T20:26:18.1198857Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-09-30T20:26:18.1199213Z env:
+2026-09-30T20:26:18.1199418Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:26:18.1199674Z ##[endgroup]
+2026-09-30T20:26:18.7270122Z 
+2026-09-30T20:26:18.7270771Z > hollowpact@0.4.0 build
+2026-09-30T20:26:18.7271287Z > node scripts/build.mjs
+2026-09-30T20:26:18.7271541Z 
+2026-09-30T20:26:19.4535778Z [36mvite v8.3.1 [32mbuilding client environment for production...[36m[39m
+2026-09-30T20:26:19.4648692Z transforming...
+2026-09-30T20:26:19.5005458Z ✓ 10 modules transformed.
+2026-09-30T20:26:19.5279391Z rendering chunks...
+2026-09-30T20:26:19.5413761Z computing gzip size...
+2026-09-30T20:26:19.5436110Z dist/index.html                  1.65 kB │ gzip:  0.80 kB
+2026-09-30T20:26:19.5437001Z dist/assets/index-CCUApkFh.css  48.02 kB │ gzip: 11.27 kB
+2026-09-30T20:26:19.5437905Z dist/assets/index-BZC_e2O3.js   93.77 kB │ gzip: 33.24 kB
+2026-09-30T20:26:19.5438296Z 
+2026-09-30T20:26:19.5440886Z [32m✓ built in 89ms[39m
+2026-09-30T20:26:19.7151809Z Runtime source digest: da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425
+2026-09-30T20:26:19.7843939Z ##[group]Run node -e "const fs=require('node:fs'); const {build}=require('./package.json'); const config={...build,win:{...build.win,signAndEditExecutable:true,signExecutable:false},forceCodeSigning:false}; fs.mkdirSync('build-desktop',{recursive:true}); fs.writeFileSync('build-desktop/windows-native-config.json',JSON.stringify(config,null,2)+'\n');"
+2026-09-30T20:26:19.7846542Z [36;1mnode -e "const fs=require('node:fs'); const {build}=require('./package.json'); const config={...build,win:{...build.win,signAndEditExecutable:true,signExecutable:false},forceCodeSigning:false}; fs.mkdirSync('build-desktop',{recursive:true}); fs.writeFileSync('build-desktop/windows-native-config.json',JSON.stringify(config,null,2)+'\n');"[0m
+2026-09-30T20:26:19.7848109Z [36;1mnpx --no-install electron-builder --win dir --x64 --config build-desktop/windows-native-config.json[0m
+2026-09-30T20:26:19.7885388Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-09-30T20:26:19.7885773Z env:
+2026-09-30T20:26:19.7885978Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:26:19.7886235Z ##[endgroup]
+2026-09-30T20:26:21.3266846Z   • electron-builder  version=26.15.3 os=10.0.20348
+2026-09-30T20:26:21.3271866Z   • publishing will be skipped  reason=current build is a part of pull request solution=set env PUBLISH_FOR_PULL_REQUEST to true to force code signing
+2026-09-30T20:26:21.3273118Z There are serious security concerns with PUBLISH_FOR_PULL_REQUEST=true (see the  CircleCI documentation (https://circleci.com/docs/1.0/fork-pr-builds/) for details)
+2026-09-30T20:26:21.3274703Z If you have SSH keys, sensitive env vars or AWS credentials stored in your project settings and untrusted forks can make pull requests against your repo, then this option isn't for you.
+2026-09-30T20:26:21.3358866Z   • loaded configuration  file=D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder\build-desktop\windows-native-config.json
+2026-09-30T20:26:22.1399984Z   • executing @electron/rebuild  electronVersion=44.5.1 arch=x64 buildFromSource=false workspaceRoot=D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder projectDir=./ appDir=./
+2026-09-30T20:26:22.1401135Z   • installing native dependencies  arch=x64
+2026-09-30T20:26:22.3052969Z   • completed installing native dependencies
+2026-09-30T20:26:22.3105675Z   • packaging       platform=win32 arch=x64 electron=44.5.1 appOutDir=build-desktop\win-unpacked
+2026-09-30T20:26:22.4157944Z   • downloaded      label=electron progress=100%
+2026-09-30T20:26:25.9458571Z   • downloaded electron zip extracted successfully  output=D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder\build-desktop\win-unpacked
+2026-09-30T20:26:25.9600806Z   • searching for node modules  pm=npm searchDir=D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder
+2026-09-30T20:26:30.0152408Z   • searching for node modules  pm=traversal searchDir=D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder
+2026-09-30T20:26:30.0153564Z   • using manual traversal of node_modules to build dependency tree
+2026-09-30T20:26:30.0170842Z   • no node modules returned while searching directories  searchDirectories=[""]
+2026-09-30T20:26:30.4219555Z   • updating asar integrity executable resource  executablePath=build-desktop\win-unpacked\Hollowpact.exe
+2026-09-30T20:26:30.5952019Z   • downloaded      label=icons-bundle.tar.gz progress=100%
+2026-09-30T20:26:32.9257909Z   • file signing skipped via signExecutable configuration  file=build-desktop\win-unpacked\Hollowpact.exe
+2026-09-30T20:26:33.0290983Z ##[group]Run node scripts/windows-smoke.mjs build-desktop/win-unpacked/Hollowpact.exe
+2026-09-30T20:26:33.0291699Z [36;1mnode scripts/windows-smoke.mjs build-desktop/win-unpacked/Hollowpact.exe[0m
+2026-09-30T20:26:33.0329025Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-09-30T20:26:33.0329391Z env:
+2026-09-30T20:26:33.0329593Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:26:33.0329856Z ##[endgroup]
+2026-09-30T20:26:38.3542050Z Native Windows packaged launch, branding resources, portrait, tutorial/combat, persistence and negative-feedback download passed.
+2026-09-30T20:26:38.5667896Z ##[group]Run $version = '0.4.0'
+2026-09-30T20:26:38.5668453Z [36;1m$version = '0.4.0'[0m
+2026-09-30T20:26:38.5669200Z [36;1m$review = "reviews/windows-native/$version/run-$env:GITHUB_RUN_ID-$env:GITHUB_RUN_ATTEMPT"[0m
+2026-09-30T20:26:38.5670162Z [36;1mNew-Item -ItemType Directory -Force $review | Out-Null[0m
+2026-09-30T20:26:38.5670910Z [36;1m$exe = Resolve-Path 'build-desktop/win-unpacked/Hollowpact.exe'[0m
+2026-09-30T20:26:38.5671597Z [36;1m$info = (Get-Item $exe).VersionInfo[0m
+2026-09-30T20:26:38.5672135Z [36;1m$signature = Get-AuthenticodeSignature $exe[0m
+2026-09-30T20:26:38.5673117Z [36;1mif ($signature.Status -ne 'NotSigned') { throw "Expected unsigned candidate; actual status $($signature.Status)" }[0m
+2026-09-30T20:26:38.5674098Z [36;1mAdd-Type -AssemblyName System.Drawing[0m
+2026-09-30T20:26:38.5674737Z [36;1m$icon = [System.Drawing.Icon]::ExtractAssociatedIcon($exe.Path)[0m
+2026-09-30T20:26:38.5675528Z [36;1mif ($null -eq $icon) { throw 'Native icon extraction failed' }[0m
+2026-09-30T20:26:38.5676120Z [36;1m$bitmap = $icon.ToBitmap()[0m
+2026-09-30T20:26:38.5677024Z [36;1m$bitmap.Save((Join-Path (Resolve-Path $review) 'executable-icon.png'), [System.Drawing.Imaging.ImageFormat]::Png)[0m
+2026-09-30T20:26:38.5677968Z [36;1m$bitmap.Dispose()[0m
+2026-09-30T20:26:38.5678336Z [36;1m$icon.Dispose()[0m
+2026-09-30T20:26:38.5678891Z [36;1m$zip = "build-desktop/hollowpact-$version-windows-native-x64.zip"[0m
+2026-09-30T20:26:38.5679997Z [36;1mCompress-Archive -Path 'build-desktop/win-unpacked/*' -DestinationPath $zip[0m
+2026-09-30T20:26:38.5680697Z [36;1m@{[0m
+2026-09-30T20:26:38.5681029Z [36;1m  productName = $info.ProductName[0m
+2026-09-30T20:26:38.5681501Z [36;1m  fileVersion = $info.FileVersion[0m
+2026-09-30T20:26:38.5681998Z [36;1m  productVersion = $info.ProductVersion[0m
+2026-09-30T20:26:38.5682588Z [36;1m  signatureStatus = $signature.Status.ToString()[0m
+2026-09-30T20:26:38.5683342Z [36;1m  executableSHA256 = (Get-FileHash $exe -Algorithm SHA256).Hash.ToLower()[0m
+2026-09-30T20:26:38.5684010Z [36;1m  archive = $zip[0m
+2026-09-30T20:26:38.5684571Z [36;1m  archiveSHA256 = (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()[0m
+2026-09-30T20:26:38.5685220Z [36;1m  commit = $env:GITHUB_SHA[0m
+2026-09-30T20:26:38.5685637Z [36;1m  runId = $env:GITHUB_RUN_ID[0m
+2026-09-30T20:26:38.5686082Z [36;1m  attempt = $env:GITHUB_RUN_ATTEMPT[0m
+2026-09-30T20:26:38.5686846Z [36;1m} | ConvertTo-Json -Depth 5 | Set-Content -Encoding utf8 "$review/native-package.json"[0m
+2026-09-30T20:26:38.5734680Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-09-30T20:26:38.5735027Z env:
+2026-09-30T20:26:38.5735216Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:26:38.5735524Z ##[endgroup]
+2026-09-30T20:26:52.5128003Z ##[group]Run @'
+2026-09-30T20:26:52.5128472Z [36;1m@'[0m
+2026-09-30T20:26:52.5128787Z [36;1mimport fs from 'node:fs';[0m
+2026-09-30T20:26:52.5129221Z [36;1mimport path from 'node:path';[0m
+2026-09-30T20:26:52.5129688Z [36;1mimport crypto from 'node:crypto';[0m
+2026-09-30T20:26:52.5130344Z [36;1mconst {version} = JSON.parse(fs.readFileSync('package.json', 'utf8'));[0m
+2026-09-30T20:26:52.5131266Z [36;1mconst archive = `build-desktop/hollowpact-${version}-windows-native-x64.zip`;[0m
+2026-09-30T20:26:52.5132109Z [36;1mconst directory = 'build-desktop/windows-transfer';[0m
+2026-09-30T20:26:52.5132705Z [36;1mconst partBytes = 24 * 1024 * 1024;[0m
+2026-09-30T20:26:52.5133207Z [36;1mconst bytes = fs.statSync(archive).size;[0m
+2026-09-30T20:26:52.5134457Z [36;1mif (bytes <= 0 || bytes > partBytes * 8) throw new Error(`Native ZIP ${bytes} bytes exceeds the eight-part transfer capacity or is empty; extend upload slots explicitly`);[0m
+2026-09-30T20:26:52.5135754Z [36;1mfs.mkdirSync(directory, {recursive: true});[0m
+2026-09-30T20:26:52.5136355Z [36;1mconst buffer = Buffer.allocUnsafe(partBytes);[0m
+2026-09-30T20:26:52.5136920Z [36;1mconst source = fs.openSync(archive, 'r');[0m
+2026-09-30T20:26:52.5137485Z [36;1mconst wholeHash = crypto.createHash('sha256');[0m
+2026-09-30T20:26:52.5137999Z [36;1mconst parts = [];[0m
+2026-09-30T20:26:52.5138359Z [36;1mtry {[0m
+2026-09-30T20:26:52.5138883Z [36;1m  for (let offset = 0, index = 1; offset < bytes; offset += partBytes, index++) {[0m
+2026-09-30T20:26:52.5139639Z [36;1m    const length = Math.min(partBytes, bytes - offset);[0m
+2026-09-30T20:26:52.5140190Z [36;1m    let filled = 0;[0m
+2026-09-30T20:26:52.5140567Z [36;1m    while (filled < length) {[0m
+2026-09-30T20:26:52.5141264Z [36;1m      const read = fs.readSync(source, buffer, filled, length - filled, offset + filled);[0m
+2026-09-30T20:26:52.5142118Z [36;1m      if (!read) throw new Error('Unexpected native ZIP EOF');[0m
+2026-09-30T20:26:52.5142706Z [36;1m      filled += read;[0m
+2026-09-30T20:26:52.5143068Z [36;1m    }[0m
+2026-09-30T20:26:52.5143430Z [36;1m    const data = buffer.subarray(0, length);[0m
+2026-09-30T20:26:52.5144071Z [36;1m    const filename = `part-${String(index).padStart(2, '0')}.bin`;[0m
+2026-09-30T20:26:52.5144886Z [36;1m    fs.writeFileSync(path.join(directory, filename), data, {flag: 'wx'});[0m
+2026-09-30T20:26:52.5145558Z [36;1m    wholeHash.update(data);[0m
+2026-09-30T20:26:52.5146421Z [36;1m    parts.push({index, filename, bytes: length, sha256: crypto.createHash('sha256').update(data).digest('hex')});[0m
+2026-09-30T20:26:52.5148286Z [36;1m  }[0m
+2026-09-30T20:26:52.5148716Z [36;1m} finally { fs.closeSync(source); }[0m
+2026-09-30T20:26:52.5149469Z [36;1mconst runtime = JSON.parse(fs.readFileSync('dist/build-provenance.json', 'utf8'));[0m
+2026-09-30T20:26:52.5150614Z [36;1mconst manifest = {schema: 1, version, sourceDigest: runtime.sourceDigest, commit: process.env.GITHUB_SHA,[0m
+2026-09-30T20:26:52.5151715Z [36;1m  runId: process.env.GITHUB_RUN_ID, attempt: process.env.GITHUB_RUN_ATTEMPT,[0m
+2026-09-30T20:26:52.5152690Z [36;1m  archive: path.basename(archive), bytes, sha256: wholeHash.digest('hex'), partBytes, parts,[0m
+2026-09-30T20:26:52.5154290Z [36;1m  reconstruction: 'Extract each artifact; concatenate part files in numeric index order, verify each size/SHA256 and the whole ZIP size/SHA256 before unpacking. Parts alone are not runnable packages.'};[0m
+2026-09-30T20:26:52.5156003Z [36;1mfs.writeFileSync(path.join(directory, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');[0m
+2026-09-30T20:26:52.5157201Z [36;1mconsole.log(`Prepared ${parts.length} independently downloadable parts, each at most ${partBytes} bytes.`);[0m
+2026-09-30T20:26:52.5158089Z [36;1m'@ | node --input-type=module[0m
+2026-09-30T20:26:52.5210277Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-09-30T20:26:52.5210621Z env:
+2026-09-30T20:26:52.5212433Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:26:52.5212760Z ##[endgroup]
+2026-09-30T20:26:53.1995990Z Prepared 8 independently downloadable parts, each at most 25165824 bytes.
+2026-09-30T20:26:53.2788688Z ##[group]Run actions/upload-artifact@v4
+2026-09-30T20:26:53.2789031Z with:
+2026-09-30T20:26:53.2789303Z   name: hollowpact-0.4.0-windows-evidence-36772521612-1
+2026-09-30T20:26:53.2790229Z   path: reviews/windows-native/
+build-desktop/windows-transfer/manifest.json
+build-desktop/builder-effective-config.yaml
+build-desktop/windows-native-config.json
+dist/build-provenance.json
+
+2026-09-30T20:26:53.2791052Z   if-no-files-found: warn
+2026-09-30T20:26:53.2791294Z   retention-days: 30
+2026-09-30T20:26:53.2791506Z   compression-level: 6
+2026-09-30T20:26:53.2791719Z   overwrite: false
+2026-09-30T20:26:53.2791918Z   include-hidden-files: false
+2026-09-30T20:26:53.2792143Z env:
+2026-09-30T20:26:53.2792329Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:26:53.2792572Z ##[endgroup]
+2026-09-30T20:26:53.4653424Z (node:1564) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-30T20:26:53.4654304Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-30T20:26:53.4793593Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-09-30T20:26:53.4797387Z The least common ancestor is D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder. This will be the root directory of the artifact
+2026-09-30T20:26:53.4798405Z With the provided path, there will be 14 files uploaded
+2026-09-30T20:26:53.4803252Z Artifact name is valid!
+2026-09-30T20:26:53.4805112Z Root directory input is valid!
+2026-09-30T20:26:53.7770758Z Beginning upload of artifact content to blob storage
+2026-09-30T20:26:53.8792599Z (node:1564) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-30T20:26:54.1645300Z Uploaded bytes 1993027
+2026-09-30T20:26:54.1974403Z Finished uploading artifact content to blob storage!
+2026-09-30T20:26:54.1975762Z SHA256 digest of uploaded artifact zip is 55f967466653acda8fe52545892590de663629f8ed28c8e697d7b0c9f07dcd3a
+2026-09-30T20:26:54.1978078Z Finalizing artifact upload
+2026-09-30T20:26:54.4153111Z Artifact hollowpact-0.4.0-windows-evidence-36772521612-1.zip successfully finalized. Artifact ID 11123858254
+2026-09-30T20:26:54.4154561Z Artifact hollowpact-0.4.0-windows-evidence-36772521612-1 has been successfully uploaded! Final size is 1993027 bytes. Artifact ID is 11123858254
+2026-09-30T20:26:54.4162803Z Artifact download URL: https://github.com/evangjones99-gif/Roguelike-deckbuilder/actions/runs/36772521612/artifacts/11123858254
+2026-09-30T20:26:54.6038430Z ##[group]Run actions/upload-artifact@v4
+2026-09-30T20:26:54.6038783Z with:
+2026-09-30T20:26:54.6039049Z   name: hollowpact-0.4.0-windows-part-01-36772521612-1
+2026-09-30T20:26:54.6039429Z   path: build-desktop/windows-transfer/part-01.bin
+2026-09-30T20:26:54.6039734Z   compression-level: 0
+2026-09-30T20:26:54.6039962Z   if-no-files-found: error
+2026-09-30T20:26:54.6040187Z   retention-days: 30
+2026-09-30T20:26:54.6040394Z   overwrite: false
+2026-09-30T20:26:54.6040597Z   include-hidden-files: false
+2026-09-30T20:26:54.6040823Z env:
+2026-09-30T20:26:54.6041014Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:26:54.6041266Z ##[endgroup]
+2026-09-30T20:26:54.7838192Z (node:3896) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-30T20:26:54.7839551Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-30T20:26:54.7889505Z With the provided path, there will be 1 file uploaded
+2026-09-30T20:26:54.7894696Z Artifact name is valid!
+2026-09-30T20:26:54.7897456Z Root directory input is valid!
+2026-09-30T20:26:55.0805440Z Beginning upload of artifact content to blob storage
+2026-09-30T20:26:55.1335539Z (node:3896) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-30T20:26:55.6282938Z Uploaded bytes 8388608
+2026-09-30T20:26:55.6925437Z Uploaded bytes 16777216
+2026-09-30T20:26:55.7042163Z Uploaded bytes 25165824
+2026-09-30T20:26:55.7340664Z Uploaded bytes 25165960
+2026-09-30T20:26:55.7676637Z Finished uploading artifact content to blob storage!
+2026-09-30T20:26:55.7677956Z SHA256 digest of uploaded artifact zip is fcc42c1554995f6ca60a07e327c65e48188f41564021f692ebb66d5134abc044
+2026-09-30T20:26:55.7680429Z Finalizing artifact upload
+2026-09-30T20:26:55.9914129Z Artifact hollowpact-0.4.0-windows-part-01-36772521612-1.zip successfully finalized. Artifact ID 11124058056
+2026-09-30T20:26:55.9915366Z Artifact hollowpact-0.4.0-windows-part-01-36772521612-1 has been successfully uploaded! Final size is 25165960 bytes. Artifact ID is 11124058056
+2026-09-30T20:26:55.9923836Z Artifact download URL: https://github.com/evangjones99-gif/Roguelike-deckbuilder/actions/runs/36772521612/artifacts/11124058056
+2026-09-30T20:26:56.1717634Z ##[group]Run actions/upload-artifact@v4
+2026-09-30T20:26:56.1718179Z with:
+2026-09-30T20:26:56.1718613Z   name: hollowpact-0.4.0-windows-part-02-36772521612-1
+2026-09-30T20:26:56.1719233Z   path: build-desktop/windows-transfer/part-02.bin
+2026-09-30T20:26:56.1719728Z   compression-level: 0
+2026-09-30T20:26:56.1720069Z   if-no-files-found: error
+2026-09-30T20:26:56.1720433Z   retention-days: 30
+2026-09-30T20:26:56.1720771Z   overwrite: false
+2026-09-30T20:26:56.1721108Z   include-hidden-files: false
+2026-09-30T20:26:56.1721476Z env:
+2026-09-30T20:26:56.1721768Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:26:56.1722164Z ##[endgroup]
+2026-09-30T20:26:56.3583493Z (node:5836) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-30T20:26:56.3585032Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-30T20:26:56.3645816Z With the provided path, there will be 1 file uploaded
+2026-09-30T20:26:56.3653498Z Artifact name is valid!
+2026-09-30T20:26:56.3656069Z Root directory input is valid!
+2026-09-30T20:26:56.6284580Z Beginning upload of artifact content to blob storage
+2026-09-30T20:26:56.6797349Z (node:5836) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-30T20:26:57.1904659Z Uploaded bytes 8388608
+2026-09-30T20:26:57.2186433Z Uploaded bytes 16777216
+2026-09-30T20:26:57.2470585Z Uploaded bytes 25165824
+2026-09-30T20:26:57.2781483Z Uploaded bytes 25165960
+2026-09-30T20:26:57.3135864Z Finished uploading artifact content to blob storage!
+2026-09-30T20:26:57.3137077Z SHA256 digest of uploaded artifact zip is 571afecc2afefe64e8035d87952b39e8c51eebf3b69314cb9cc8547bd74b95a1
+2026-09-30T20:26:57.3139642Z Finalizing artifact upload
+2026-09-30T20:26:57.5441445Z Artifact hollowpact-0.4.0-windows-part-02-36772521612-1.zip successfully finalized. Artifact ID 11124098271
+2026-09-30T20:26:57.5443304Z Artifact hollowpact-0.4.0-windows-part-02-36772521612-1 has been successfully uploaded! Final size is 25165960 bytes. Artifact ID is 11124098271
+2026-09-30T20:26:57.5452186Z Artifact download URL: https://github.com/evangjones99-gif/Roguelike-deckbuilder/actions/runs/36772521612/artifacts/11124098271
+2026-09-30T20:26:57.7491650Z ##[group]Run actions/upload-artifact@v4
+2026-09-30T20:26:57.7492225Z with:
+2026-09-30T20:26:57.7492635Z   name: hollowpact-0.4.0-windows-part-03-36772521612-1
+2026-09-30T20:26:57.7493276Z   path: build-desktop/windows-transfer/part-03.bin
+2026-09-30T20:26:57.7493805Z   compression-level: 0
+2026-09-30T20:26:57.7494159Z   if-no-files-found: error
+2026-09-30T20:26:57.7494527Z   retention-days: 30
+2026-09-30T20:26:57.7494861Z   overwrite: false
+2026-09-30T20:26:57.7495182Z   include-hidden-files: false
+2026-09-30T20:26:57.7495555Z env:
+2026-09-30T20:26:57.7495856Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:26:57.7496265Z ##[endgroup]
+2026-09-30T20:26:57.9661156Z (node:3840) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-30T20:26:57.9662537Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-30T20:26:57.9717769Z With the provided path, there will be 1 file uploaded
+2026-09-30T20:26:57.9724011Z Artifact name is valid!
+2026-09-30T20:26:57.9726168Z Root directory input is valid!
+2026-09-30T20:26:58.2525953Z Beginning upload of artifact content to blob storage
+2026-09-30T20:26:58.3161888Z (node:3840) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-30T20:26:58.7864469Z Uploaded bytes 8388608
+2026-09-30T20:26:58.8274152Z Uploaded bytes 16777216
+2026-09-30T20:26:58.8742120Z Uploaded bytes 25165824
+2026-09-30T20:26:58.9006818Z Uploaded bytes 25165960
+2026-09-30T20:26:58.9350154Z Finished uploading artifact content to blob storage!
+2026-09-30T20:26:58.9351945Z SHA256 digest of uploaded artifact zip is fff23edadd1b574f741e41f60f7bf481f8c1ea8b3dbd07c8c5384a798577142c
+2026-09-30T20:26:58.9354715Z Finalizing artifact upload
+2026-09-30T20:26:59.1472282Z Artifact hollowpact-0.4.0-windows-part-03-36772521612-1.zip successfully finalized. Artifact ID 11123953183
+2026-09-30T20:26:59.1474012Z Artifact hollowpact-0.4.0-windows-part-03-36772521612-1 has been successfully uploaded! Final size is 25165960 bytes. Artifact ID is 11123953183
+2026-09-30T20:26:59.1483160Z Artifact download URL: https://github.com/evangjones99-gif/Roguelike-deckbuilder/actions/runs/36772521612/artifacts/11123953183
+2026-09-30T20:26:59.3439867Z ##[group]Run actions/upload-artifact@v4
+2026-09-30T20:26:59.3440247Z with:
+2026-09-30T20:26:59.3440535Z   name: hollowpact-0.4.0-windows-part-04-36772521612-1
+2026-09-30T20:26:59.3440935Z   path: build-desktop/windows-transfer/part-04.bin
+2026-09-30T20:26:59.3441260Z   compression-level: 0
+2026-09-30T20:26:59.3441497Z   if-no-files-found: error
+2026-09-30T20:26:59.3441729Z   retention-days: 30
+2026-09-30T20:26:59.3441949Z   overwrite: false
+2026-09-30T20:26:59.3442169Z   include-hidden-files: false
+2026-09-30T20:26:59.3442413Z env:
+2026-09-30T20:26:59.3442614Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:26:59.3442877Z ##[endgroup]
+2026-09-30T20:26:59.5601882Z (node:4492) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-30T20:26:59.5603287Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-30T20:26:59.5655166Z With the provided path, there will be 1 file uploaded
+2026-09-30T20:26:59.5660185Z Artifact name is valid!
+2026-09-30T20:26:59.5662566Z Root directory input is valid!
+2026-09-30T20:26:59.8139329Z Beginning upload of artifact content to blob storage
+2026-09-30T20:26:59.8719725Z (node:4492) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-30T20:27:00.3355536Z Uploaded bytes 8388608
+2026-09-30T20:27:00.3942043Z Uploaded bytes 16777216
+2026-09-30T20:27:00.5317410Z Uploaded bytes 25165824
+2026-09-30T20:27:00.5675351Z Uploaded bytes 25165960
+2026-09-30T20:27:00.6150100Z Finished uploading artifact content to blob storage!
+2026-09-30T20:27:00.6151705Z SHA256 digest of uploaded artifact zip is f8c516021ca54bd127ddb9760f973336a62650a5f693f2a2eb5c6dc2ca53578c
+2026-09-30T20:27:00.6153985Z Finalizing artifact upload
+2026-09-30T20:27:00.8328919Z Artifact hollowpact-0.4.0-windows-part-04-36772521612-1.zip successfully finalized. Artifact ID 11124462788
+2026-09-30T20:27:00.8330096Z Artifact hollowpact-0.4.0-windows-part-04-36772521612-1 has been successfully uploaded! Final size is 25165960 bytes. Artifact ID is 11124462788
+2026-09-30T20:27:00.8338984Z Artifact download URL: https://github.com/evangjones99-gif/Roguelike-deckbuilder/actions/runs/36772521612/artifacts/11124462788
+2026-09-30T20:27:01.0096552Z ##[group]Run actions/upload-artifact@v4
+2026-09-30T20:27:01.0096952Z with:
+2026-09-30T20:27:01.0097248Z   name: hollowpact-0.4.0-windows-part-05-36772521612-1
+2026-09-30T20:27:01.0097648Z   path: build-desktop/windows-transfer/part-05.bin
+2026-09-30T20:27:01.0097993Z   compression-level: 0
+2026-09-30T20:27:01.0098238Z   if-no-files-found: error
+2026-09-30T20:27:01.0098487Z   retention-days: 30
+2026-09-30T20:27:01.0098717Z   overwrite: false
+2026-09-30T20:27:01.0098947Z   include-hidden-files: false
+2026-09-30T20:27:01.0099202Z env:
+2026-09-30T20:27:01.0099406Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:27:01.0099681Z ##[endgroup]
+2026-09-30T20:27:01.1900748Z (node:2392) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-30T20:27:01.1901576Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-30T20:27:01.1950525Z With the provided path, there will be 1 file uploaded
+2026-09-30T20:27:01.1955111Z Artifact name is valid!
+2026-09-30T20:27:01.1957488Z Root directory input is valid!
+2026-09-30T20:27:01.4492744Z Beginning upload of artifact content to blob storage
+2026-09-30T20:27:01.5002121Z (node:2392) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-30T20:27:01.9673730Z Uploaded bytes 8388608
+2026-09-30T20:27:02.0449383Z Uploaded bytes 16777216
+2026-09-30T20:27:02.0947356Z Uploaded bytes 25165824
+2026-09-30T20:27:02.1286651Z Uploaded bytes 25165960
+2026-09-30T20:27:02.1676496Z Finished uploading artifact content to blob storage!
+2026-09-30T20:27:02.1678074Z SHA256 digest of uploaded artifact zip is 6ee43790f87c9dae83464639e34de69bed3a276746d1115886bbb35d78985c7e
+2026-09-30T20:27:02.1680323Z Finalizing artifact upload
+2026-09-30T20:27:02.3926560Z Artifact hollowpact-0.4.0-windows-part-05-36772521612-1.zip successfully finalized. Artifact ID 11123963283
+2026-09-30T20:27:02.3928198Z Artifact hollowpact-0.4.0-windows-part-05-36772521612-1 has been successfully uploaded! Final size is 25165960 bytes. Artifact ID is 11123963283
+2026-09-30T20:27:02.3936140Z Artifact download URL: https://github.com/evangjones99-gif/Roguelike-deckbuilder/actions/runs/36772521612/artifacts/11123963283
+2026-09-30T20:27:02.5675221Z ##[group]Run actions/upload-artifact@v4
+2026-09-30T20:27:02.5675598Z with:
+2026-09-30T20:27:02.5675889Z   name: hollowpact-0.4.0-windows-part-06-36772521612-1
+2026-09-30T20:27:02.5676289Z   path: build-desktop/windows-transfer/part-06.bin
+2026-09-30T20:27:02.5676617Z   compression-level: 0
+2026-09-30T20:27:02.5676923Z   if-no-files-found: error
+2026-09-30T20:27:02.5677177Z   retention-days: 30
+2026-09-30T20:27:02.5677415Z   overwrite: false
+2026-09-30T20:27:02.5677651Z   include-hidden-files: false
+2026-09-30T20:27:02.5677918Z env:
+2026-09-30T20:27:02.5678130Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:27:02.5678416Z ##[endgroup]
+2026-09-30T20:27:02.7433162Z (node:6712) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-30T20:27:02.7434008Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-30T20:27:02.7480295Z With the provided path, there will be 1 file uploaded
+2026-09-30T20:27:02.7485030Z Artifact name is valid!
+2026-09-30T20:27:02.7487141Z Root directory input is valid!
+2026-09-30T20:27:03.0211693Z Beginning upload of artifact content to blob storage
+2026-09-30T20:27:03.0728443Z (node:6712) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-30T20:27:03.5745321Z Uploaded bytes 8388608
+2026-09-30T20:27:03.5935667Z Uploaded bytes 16777216
+2026-09-30T20:27:03.6750910Z Uploaded bytes 25165824
+2026-09-30T20:27:03.7045470Z Uploaded bytes 25165960
+2026-09-30T20:27:03.7378323Z Finished uploading artifact content to blob storage!
+2026-09-30T20:27:03.7379783Z SHA256 digest of uploaded artifact zip is 45af8051c70917a8ce01156b840171e4468702e6e7fe2364a61c42d78902317b
+2026-09-30T20:27:03.7382122Z Finalizing artifact upload
+2026-09-30T20:27:03.9857065Z Artifact hollowpact-0.4.0-windows-part-06-36772521612-1.zip successfully finalized. Artifact ID 11124018112
+2026-09-30T20:27:03.9858330Z Artifact hollowpact-0.4.0-windows-part-06-36772521612-1 has been successfully uploaded! Final size is 25165960 bytes. Artifact ID is 11124018112
+2026-09-30T20:27:03.9867519Z Artifact download URL: https://github.com/evangjones99-gif/Roguelike-deckbuilder/actions/runs/36772521612/artifacts/11124018112
+2026-09-30T20:27:04.1610055Z ##[group]Run actions/upload-artifact@v4
+2026-09-30T20:27:04.1610459Z with:
+2026-09-30T20:27:04.1610755Z   name: hollowpact-0.4.0-windows-part-07-36772521612-1
+2026-09-30T20:27:04.1611160Z   path: build-desktop/windows-transfer/part-07.bin
+2026-09-30T20:27:04.1611500Z   compression-level: 0
+2026-09-30T20:27:04.1611754Z   if-no-files-found: error
+2026-09-30T20:27:04.1612010Z   retention-days: 30
+2026-09-30T20:27:04.1612245Z   overwrite: false
+2026-09-30T20:27:04.1612485Z   include-hidden-files: false
+2026-09-30T20:27:04.1612772Z env:
+2026-09-30T20:27:04.1612981Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:27:04.1613265Z ##[endgroup]
+2026-09-30T20:27:04.3409297Z (node:7764) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-30T20:27:04.3410140Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-30T20:27:04.3457268Z With the provided path, there will be 1 file uploaded
+2026-09-30T20:27:04.3461614Z Artifact name is valid!
+2026-09-30T20:27:04.3463936Z Root directory input is valid!
+2026-09-30T20:27:04.5885363Z Beginning upload of artifact content to blob storage
+2026-09-30T20:27:04.6395706Z (node:7764) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-30T20:27:05.1832655Z Uploaded bytes 8388608
+2026-09-30T20:27:05.1839885Z Uploaded bytes 16777216
+2026-09-30T20:27:05.1846035Z Uploaded bytes 25165824
+2026-09-30T20:27:05.2248890Z Uploaded bytes 25165960
+2026-09-30T20:27:05.2594887Z Finished uploading artifact content to blob storage!
+2026-09-30T20:27:05.2596270Z SHA256 digest of uploaded artifact zip is 0dbb66367bf4213d83e46ebf4c39fd71dc85bc011bfb3086854fd4dbe4f81128
+2026-09-30T20:27:05.2599001Z Finalizing artifact upload
+2026-09-30T20:27:05.4799846Z Artifact hollowpact-0.4.0-windows-part-07-36772521612-1.zip successfully finalized. Artifact ID 11123988217
+2026-09-30T20:27:05.4801913Z Artifact hollowpact-0.4.0-windows-part-07-36772521612-1 has been successfully uploaded! Final size is 25165960 bytes. Artifact ID is 11123988217
+2026-09-30T20:27:05.4810532Z Artifact download URL: https://github.com/evangjones99-gif/Roguelike-deckbuilder/actions/runs/36772521612/artifacts/11123988217
+2026-09-30T20:27:05.6086402Z ##[group]Run actions/upload-artifact@v4
+2026-09-30T20:27:05.6086810Z with:
+2026-09-30T20:27:05.6087150Z   name: hollowpact-0.4.0-windows-part-08-36772521612-1
+2026-09-30T20:27:05.6087559Z   path: build-desktop/windows-transfer/part-08.bin
+2026-09-30T20:27:05.6087901Z   compression-level: 0
+2026-09-30T20:27:05.6088167Z   if-no-files-found: error
+2026-09-30T20:27:05.6088429Z   retention-days: 30
+2026-09-30T20:27:05.6088676Z   overwrite: false
+2026-09-30T20:27:05.6088925Z   include-hidden-files: false
+2026-09-30T20:27:05.6089198Z env:
+2026-09-30T20:27:05.6089424Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:27:05.6089726Z ##[endgroup]
+2026-09-30T20:27:05.7901120Z (node:5244) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-30T20:27:05.7901987Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-30T20:27:05.7949687Z With the provided path, there will be 1 file uploaded
+2026-09-30T20:27:05.7954093Z Artifact name is valid!
+2026-09-30T20:27:05.7956396Z Root directory input is valid!
+2026-09-30T20:27:06.0425472Z Beginning upload of artifact content to blob storage
+2026-09-30T20:27:06.0747629Z (node:5244) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-30T20:27:06.4292976Z Uploaded bytes 2320874
+2026-09-30T20:27:06.4655022Z Finished uploading artifact content to blob storage!
+2026-09-30T20:27:06.4656185Z SHA256 digest of uploaded artifact zip is 7265556e7606716a462f95240944f5a00a1ae730aa7511739462d0cd19715218
+2026-09-30T20:27:06.4658544Z Finalizing artifact upload
+2026-09-30T20:27:06.6789538Z Artifact hollowpact-0.4.0-windows-part-08-36772521612-1.zip successfully finalized. Artifact ID 11124193024
+2026-09-30T20:27:06.6791116Z Artifact hollowpact-0.4.0-windows-part-08-36772521612-1 has been successfully uploaded! Final size is 2320874 bytes. Artifact ID is 11124193024
+2026-09-30T20:27:06.6799652Z Artifact download URL: https://github.com/evangjones99-gif/Roguelike-deckbuilder/actions/runs/36772521612/artifacts/11124193024
+2026-09-30T20:27:06.7055071Z ##[group]Run actions/upload-artifact@v4
+2026-09-30T20:27:06.7055613Z with:
+2026-09-30T20:27:06.7056061Z   name: hollowpact-0.4.0-windows-x64-36772521612-1
+2026-09-30T20:27:06.7057201Z   path: reviews/windows-native/
+build-desktop/hollowpact-*-windows-native-x64.zip
+build-desktop/builder-effective-config.yaml
+build-desktop/windows-native-config.json
+dist/build-provenance.json
+
+2026-09-30T20:27:06.7058284Z   if-no-files-found: warn
+2026-09-30T20:27:06.7058685Z   retention-days: 30
+2026-09-30T20:27:06.7059027Z   compression-level: 6
+2026-09-30T20:27:06.7059413Z   overwrite: false
+2026-09-30T20:27:06.7059761Z   include-hidden-files: false
+2026-09-30T20:27:06.7060230Z env:
+2026-09-30T20:27:06.7060560Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:27:06.7061023Z ##[endgroup]
+2026-09-30T20:27:06.8862732Z (node:5816) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-30T20:27:06.8863972Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-30T20:27:06.9005394Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-09-30T20:27:06.9008569Z The least common ancestor is D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder. This will be the root directory of the artifact
+2026-09-30T20:27:06.9009671Z With the provided path, there will be 14 files uploaded
+2026-09-30T20:27:06.9014326Z Artifact name is valid!
+2026-09-30T20:27:06.9016014Z Root directory input is valid!
+2026-09-30T20:27:07.1739991Z Beginning upload of artifact content to blob storage
+2026-09-30T20:27:07.4743520Z (node:5816) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-30T20:27:07.9044555Z Uploaded bytes 8388608
+2026-09-30T20:27:08.2048531Z Uploaded bytes 16777216
+2026-09-30T20:27:08.2075465Z Uploaded bytes 25165824
+2026-09-30T20:27:08.5637593Z Uploaded bytes 33554432
+2026-09-30T20:27:08.7642805Z Uploaded bytes 41943040
+2026-09-30T20:27:09.0664349Z Uploaded bytes 50331648
+2026-09-30T20:27:09.2866283Z Uploaded bytes 58720256
+2026-09-30T20:27:09.5471748Z Uploaded bytes 67108864
+2026-09-30T20:27:09.8460937Z Uploaded bytes 75497472
+2026-09-30T20:27:10.0719505Z Uploaded bytes 83886080
+2026-09-30T20:27:10.3297046Z Uploaded bytes 92274688
+2026-09-30T20:27:10.5498754Z Uploaded bytes 100663296
+2026-09-30T20:27:10.9157461Z Uploaded bytes 109051904
+2026-09-30T20:27:11.0721445Z Uploaded bytes 117440512
+2026-09-30T20:27:11.3752068Z Uploaded bytes 125829120
+2026-09-30T20:27:11.6049719Z Uploaded bytes 134217728
+2026-09-30T20:27:11.8861085Z Uploaded bytes 142606336
+2026-09-30T20:27:12.1938813Z Uploaded bytes 150994944
+2026-09-30T20:27:12.4143403Z Uploaded bytes 159383552
+2026-09-30T20:27:12.7510251Z Uploaded bytes 167772160
+2026-09-30T20:27:13.0163142Z Uploaded bytes 176160768
+2026-09-30T20:27:13.1514828Z Uploaded bytes 180306034
+2026-09-30T20:27:13.1847980Z Finished uploading artifact content to blob storage!
+2026-09-30T20:27:13.1852027Z SHA256 digest of uploaded artifact zip is d3fac04b38713ad006ae33d4fc710fc0b51df28b850b74ef8511a6e8bc818cea
+2026-09-30T20:27:13.1854173Z Finalizing artifact upload
+2026-09-30T20:27:13.4586581Z Artifact hollowpact-0.4.0-windows-x64-36772521612-1.zip successfully finalized. Artifact ID 11123973383
+2026-09-30T20:27:13.4587675Z Artifact hollowpact-0.4.0-windows-x64-36772521612-1 has been successfully uploaded! Final size is 180306034 bytes. Artifact ID is 11123973383
+2026-09-30T20:27:13.4598351Z Artifact download URL: https://github.com/evangjones99-gif/Roguelike-deckbuilder/actions/runs/36772521612/artifacts/11123973383
+2026-09-30T20:27:13.4907225Z Post job cleanup.
+2026-09-30T20:27:13.6300785Z (node:1256) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-30T20:27:13.6301685Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-30T20:27:13.6306694Z Cache hit occurred on the primary key node-cache-Windows-x64-npm-48b533b691141f0dcca9201ed51d18c84aba8d385f93dfe2fd9e48985e57c434, not saving cache.
+2026-09-30T20:27:13.6528233Z Post job cleanup.
+2026-09-30T20:27:13.8159074Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-09-30T20:27:13.8366854Z git version 2.55.0.windows.5
+2026-09-30T20:27:13.8416129Z Temporarily overriding HOME='D:\a\_temp\0413bdc3-69da-4086-bbe5-97ab8b3bcd96' before making global git config changes
+2026-09-30T20:27:13.8417013Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-30T20:27:13.8426526Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder
+2026-09-30T20:27:13.8646277Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-09-30T20:27:13.8864657Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-09-30T20:27:14.2975329Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-30T20:27:14.3197254Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-09-30T20:27:14.7395832Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-30T20:27:14.7615944Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-09-30T20:27:15.2194404Z Cleaning up orphan processes
+2026-09-30T20:27:15.2511650Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

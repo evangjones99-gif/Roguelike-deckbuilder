@@ -1,0 +1,1348 @@
+{
+  "sourceBefore": {
+    "src/main.ts": "9fe8938578533af5896ccfcabef86dff5986a44e8ea6f949417a596d4aa39a7d",
+    "src/style.css": "ee165e5cbaf5a8022f271fd61782b026d4d5610d964a965480ac882802d08716",
+    "src/arena.ts": "bff20f7b8e91ae17316142ac9185bfebe9c9de2b994a102570726e5a4734046b",
+    "src/art.ts": "3127ed46b8ec4aecbcc8218c8a78ded3e3f57c922d04b330c7f8fe0c51be1e85",
+    "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+    "src/engine.ts": "21bafb33832ec2d3ee1ca4ead9486825510bd380b62e143a8736465f1ad4110b",
+    "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8"
+  },
+  "buildBefore": {
+    "dist/index.html": "0570a856abe24dd2255ea89ad3d3334e42ec7471d799f65445911d27c1ec2c6c",
+    "dist/assets/index-C4TLZn37.js": "43b79a82e7b14f93cb670f1e9a8aaa6a5bb0973ab69bac0302e1b2e81c3e4260",
+    "dist/assets/index-D74h-cbs.css": "5a1672d8a51273e8fcb1239b954899b1e3189ab300661ccb9e425ac0b62fbb89"
+  },
+  "errors": [],
+  "perf": {
+    "sampleMs": 4000,
+    "draws": 236,
+    "fps": 58.99482853843588,
+    "medianGap": 16.700000000186265,
+    "p95Gap": 32.60000000009313,
+    "maxGap": 39.3000000002794
+  },
+  "layouts": {
+    "390": [
+      {
+        "name": "Bound creatures",
+        "bounds": {
+          "x": 10,
+          "y": 177,
+          "width": 370,
+          "height": 195,
+          "top": 177,
+          "right": 380,
+          "bottom": 372,
+          "left": 10
+        },
+        "frames": [
+          {
+            "name": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "11px",
+            "intentHeight": 16,
+            "intentScrollHeight": 16,
+            "intentWidth": 106,
+            "intentScrollWidth": 106,
+            "rect": {
+              "x": 10,
+              "y": 200,
+              "width": 120,
+              "height": 85,
+              "top": 200,
+              "right": 130,
+              "bottom": 285,
+              "left": 10
+            }
+          },
+          {
+            "name": "Grave Hound · binding 2. 11 of 11 health, 4 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "11px",
+            "intentHeight": 16,
+            "intentScrollHeight": 16,
+            "intentWidth": 106,
+            "intentScrollWidth": 106,
+            "rect": {
+              "x": 135,
+              "y": 200,
+              "width": 120,
+              "height": 85,
+              "top": 200,
+              "right": 255,
+              "bottom": 285,
+              "left": 135
+            }
+          },
+          {
+            "name": "Fen Stalker · binding 3. 10 of 10 health, 4 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "11px",
+            "intentHeight": 16,
+            "intentScrollHeight": 16,
+            "intentWidth": 106,
+            "intentScrollWidth": 106,
+            "rect": {
+              "x": 260,
+              "y": 200,
+              "width": 120,
+              "height": 85,
+              "top": 200,
+              "right": 380,
+              "bottom": 285,
+              "left": 260
+            }
+          },
+          {
+            "name": "Fen Raker · binding 4. 14 of 14 health, 6 attack. Ready; select, then choose an enemy.",
+            "inside": false,
+            "intentFont": "11px",
+            "intentHeight": 16,
+            "intentScrollHeight": 16,
+            "intentWidth": 106,
+            "intentScrollWidth": 106,
+            "rect": {
+              "x": 10,
+              "y": 290,
+              "width": 120,
+              "height": 85,
+              "top": 290,
+              "right": 130,
+              "bottom": 375,
+              "left": 10
+            }
+          },
+          {
+            "name": "Briar Colossus · binding 5. 18 of 18 health, 4 attack. Ready; select, then choose an enemy.",
+            "inside": false,
+            "intentFont": "11px",
+            "intentHeight": 16,
+            "intentScrollHeight": 16,
+            "intentWidth": 106,
+            "intentScrollWidth": 106,
+            "rect": {
+              "x": 135,
+              "y": 290,
+              "width": 120,
+              "height": 85,
+              "top": 290,
+              "right": 255,
+              "bottom": 375,
+              "left": 135
+            }
+          },
+          {
+            "name": "Ossuary Colossus · binding 6. 24 of 24 health, 6 attack. Ready; select, then choose an enemy.",
+            "inside": false,
+            "intentFont": "11px",
+            "intentHeight": 16,
+            "intentScrollHeight": 16,
+            "intentWidth": 106,
+            "intentScrollWidth": 106,
+            "rect": {
+              "x": 260,
+              "y": 290,
+              "width": 120,
+              "height": 85,
+              "top": 290,
+              "right": 380,
+              "bottom": 375,
+              "left": 260
+            }
+          }
+        ]
+      },
+      {
+        "name": "Enemies",
+        "bounds": {
+          "x": 10,
+          "y": 608,
+          "width": 370,
+          "height": 195,
+          "top": 608,
+          "right": 380,
+          "bottom": 803,
+          "left": 10
+        },
+        "frames": [
+          {
+            "name": "Ironjaw Reaver · hostile 1. 16 of 16 health, 4 attack. 4 damage → hunter",
+            "inside": true,
+            "intentFont": "11px",
+            "intentHeight": 28,
+            "intentScrollHeight": 28,
+            "intentWidth": 106,
+            "intentScrollWidth": 106,
+            "rect": {
+              "x": 10,
+              "y": 631,
+              "width": 120,
+              "height": 85,
+              "top": 631,
+              "right": 130,
+              "bottom": 716,
+              "left": 10
+            }
+          },
+          {
+            "name": "Gloam Revenant · hostile 2. 15 of 15 health, 5 attack. 5 damage → hunter",
+            "inside": true,
+            "intentFont": "11px",
+            "intentHeight": 28,
+            "intentScrollHeight": 28,
+            "intentWidth": 106,
+            "intentScrollWidth": 106,
+            "rect": {
+              "x": 135,
+              "y": 631,
+              "width": 120,
+              "height": 85,
+              "top": 631,
+              "right": 255,
+              "bottom": 716,
+              "left": 135
+            }
+          },
+          {
+            "name": "Hollow Acolyte · hostile 3. 24 of 24 health, 5 attack. 5 damage → hunter",
+            "inside": true,
+            "intentFont": "11px",
+            "intentHeight": 28,
+            "intentScrollHeight": 28,
+            "intentWidth": 106,
+            "intentScrollWidth": 106,
+            "rect": {
+              "x": 260,
+              "y": 631,
+              "width": 120,
+              "height": 85,
+              "top": 631,
+              "right": 380,
+              "bottom": 716,
+              "left": 260
+            }
+          },
+          {
+            "name": "Cindermaw Brood · hostile 4. 28 of 28 health, 6 attack. 6 damage → hunter",
+            "inside": false,
+            "intentFont": "11px",
+            "intentHeight": 28,
+            "intentScrollHeight": 28,
+            "intentWidth": 106,
+            "intentScrollWidth": 106,
+            "rect": {
+              "x": 10,
+              "y": 721,
+              "width": 120,
+              "height": 85,
+              "top": 721,
+              "right": 130,
+              "bottom": 806,
+              "left": 10
+            }
+          },
+          {
+            "name": "Bone Thrall · hostile 5. 7 of 7 health, 3 attack. 3 damage → hunter",
+            "inside": false,
+            "intentFont": "11px",
+            "intentHeight": 28,
+            "intentScrollHeight": 28,
+            "intentWidth": 106,
+            "intentScrollWidth": 106,
+            "rect": {
+              "x": 135,
+              "y": 721,
+              "width": 120,
+              "height": 85,
+              "top": 721,
+              "right": 255,
+              "bottom": 806,
+              "left": 135
+            }
+          },
+          {
+            "name": "Ironjaw Warlord · hostile 6. 112 of 112 health, 9 attack. 9 damage → hunter",
+            "inside": false,
+            "intentFont": "11px",
+            "intentHeight": 28,
+            "intentScrollHeight": 28,
+            "intentWidth": 106,
+            "intentScrollWidth": 106,
+            "rect": {
+              "x": 260,
+              "y": 721,
+              "width": 120,
+              "height": 85,
+              "top": 721,
+              "right": 380,
+              "bottom": 806,
+              "left": 260
+            }
+          }
+        ]
+      }
+    ],
+    "1024": [
+      {
+        "name": "Bound creatures",
+        "bounds": {
+          "x": 16,
+          "y": 160,
+          "width": 244,
+          "height": 278,
+          "top": 160,
+          "right": 260,
+          "bottom": 438,
+          "left": 16
+        },
+        "frames": [
+          {
+            "name": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 184,
+              "width": 244,
+              "height": 37,
+              "top": 184,
+              "right": 260,
+              "bottom": 221,
+              "left": 16
+            }
+          },
+          {
+            "name": "Grave Hound · binding 2. 11 of 11 health, 4 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 224,
+              "width": 244,
+              "height": 37,
+              "top": 224,
+              "right": 260,
+              "bottom": 261,
+              "left": 16
+            }
+          },
+          {
+            "name": "Fen Stalker · binding 3. 10 of 10 health, 4 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 264,
+              "width": 244,
+              "height": 37,
+              "top": 264,
+              "right": 260,
+              "bottom": 301,
+              "left": 16
+            }
+          },
+          {
+            "name": "Fen Raker · binding 4. 14 of 14 health, 6 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 304,
+              "width": 244,
+              "height": 37,
+              "top": 304,
+              "right": 260,
+              "bottom": 341,
+              "left": 16
+            }
+          },
+          {
+            "name": "Briar Colossus · binding 5. 18 of 18 health, 4 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 344,
+              "width": 244,
+              "height": 37,
+              "top": 344,
+              "right": 260,
+              "bottom": 381,
+              "left": 16
+            }
+          },
+          {
+            "name": "Ossuary Colossus · binding 6. 24 of 24 health, 6 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 384,
+              "width": 244,
+              "height": 37,
+              "top": 384,
+              "right": 260,
+              "bottom": 421,
+              "left": 16
+            }
+          }
+        ]
+      },
+      {
+        "name": "Enemies",
+        "bounds": {
+          "x": 764,
+          "y": 160,
+          "width": 244,
+          "height": 278,
+          "top": 160,
+          "right": 1008,
+          "bottom": 438,
+          "left": 764
+        },
+        "frames": [
+          {
+            "name": "Ironjaw Reaver · hostile 1. 16 of 16 health, 4 attack. 4 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 764,
+              "y": 184,
+              "width": 244,
+              "height": 37,
+              "top": 184,
+              "right": 1008,
+              "bottom": 221,
+              "left": 764
+            }
+          },
+          {
+            "name": "Gloam Revenant · hostile 2. 15 of 15 health, 5 attack. 5 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 764,
+              "y": 224,
+              "width": 244,
+              "height": 37,
+              "top": 224,
+              "right": 1008,
+              "bottom": 261,
+              "left": 764
+            }
+          },
+          {
+            "name": "Hollow Acolyte · hostile 3. 24 of 24 health, 5 attack. 5 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 764,
+              "y": 264,
+              "width": 244,
+              "height": 37,
+              "top": 264,
+              "right": 1008,
+              "bottom": 301,
+              "left": 764
+            }
+          },
+          {
+            "name": "Cindermaw Brood · hostile 4. 28 of 28 health, 6 attack. 6 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 764,
+              "y": 304,
+              "width": 244,
+              "height": 37,
+              "top": 304,
+              "right": 1008,
+              "bottom": 341,
+              "left": 764
+            }
+          },
+          {
+            "name": "Bone Thrall · hostile 5. 7 of 7 health, 3 attack. 3 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 764,
+              "y": 344,
+              "width": 244,
+              "height": 37,
+              "top": 344,
+              "right": 1008,
+              "bottom": 381,
+              "left": 764
+            }
+          },
+          {
+            "name": "Ironjaw Warlord · hostile 6. 112 of 112 health, 9 attack. 9 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 764,
+              "y": 384,
+              "width": 244,
+              "height": 37,
+              "top": 384,
+              "right": 1008,
+              "bottom": 421,
+              "left": 764
+            }
+          }
+        ]
+      }
+    ],
+    "1280": [
+      {
+        "name": "Bound creatures",
+        "bounds": {
+          "x": 16,
+          "y": 160,
+          "width": 244,
+          "height": 278,
+          "top": 160,
+          "right": 260,
+          "bottom": 438,
+          "left": 16
+        },
+        "frames": [
+          {
+            "name": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 184,
+              "width": 244,
+              "height": 37,
+              "top": 184,
+              "right": 260,
+              "bottom": 221,
+              "left": 16
+            }
+          },
+          {
+            "name": "Grave Hound · binding 2. 11 of 11 health, 4 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 224,
+              "width": 244,
+              "height": 37,
+              "top": 224,
+              "right": 260,
+              "bottom": 261,
+              "left": 16
+            }
+          },
+          {
+            "name": "Fen Stalker · binding 3. 10 of 10 health, 4 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 264,
+              "width": 244,
+              "height": 37,
+              "top": 264,
+              "right": 260,
+              "bottom": 301,
+              "left": 16
+            }
+          },
+          {
+            "name": "Fen Raker · binding 4. 14 of 14 health, 6 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 304,
+              "width": 244,
+              "height": 37,
+              "top": 304,
+              "right": 260,
+              "bottom": 341,
+              "left": 16
+            }
+          },
+          {
+            "name": "Briar Colossus · binding 5. 18 of 18 health, 4 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 344,
+              "width": 244,
+              "height": 37,
+              "top": 344,
+              "right": 260,
+              "bottom": 381,
+              "left": 16
+            }
+          },
+          {
+            "name": "Ossuary Colossus · binding 6. 24 of 24 health, 6 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 384,
+              "width": 244,
+              "height": 37,
+              "top": 384,
+              "right": 260,
+              "bottom": 421,
+              "left": 16
+            }
+          }
+        ]
+      },
+      {
+        "name": "Enemies",
+        "bounds": {
+          "x": 1020,
+          "y": 160,
+          "width": 244,
+          "height": 278,
+          "top": 160,
+          "right": 1264,
+          "bottom": 438,
+          "left": 1020
+        },
+        "frames": [
+          {
+            "name": "Ironjaw Reaver · hostile 1. 16 of 16 health, 4 attack. 4 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 1020,
+              "y": 184,
+              "width": 244,
+              "height": 37,
+              "top": 184,
+              "right": 1264,
+              "bottom": 221,
+              "left": 1020
+            }
+          },
+          {
+            "name": "Gloam Revenant · hostile 2. 15 of 15 health, 5 attack. 5 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 1020,
+              "y": 224,
+              "width": 244,
+              "height": 37,
+              "top": 224,
+              "right": 1264,
+              "bottom": 261,
+              "left": 1020
+            }
+          },
+          {
+            "name": "Hollow Acolyte · hostile 3. 24 of 24 health, 5 attack. 5 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 1020,
+              "y": 264,
+              "width": 244,
+              "height": 37,
+              "top": 264,
+              "right": 1264,
+              "bottom": 301,
+              "left": 1020
+            }
+          },
+          {
+            "name": "Cindermaw Brood · hostile 4. 28 of 28 health, 6 attack. 6 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 1020,
+              "y": 304,
+              "width": 244,
+              "height": 37,
+              "top": 304,
+              "right": 1264,
+              "bottom": 341,
+              "left": 1020
+            }
+          },
+          {
+            "name": "Bone Thrall · hostile 5. 7 of 7 health, 3 attack. 3 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 1020,
+              "y": 344,
+              "width": 244,
+              "height": 37,
+              "top": 344,
+              "right": 1264,
+              "bottom": 381,
+              "left": 1020
+            }
+          },
+          {
+            "name": "Ironjaw Warlord · hostile 6. 112 of 112 health, 9 attack. 9 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 1020,
+              "y": 384,
+              "width": 244,
+              "height": 37,
+              "top": 384,
+              "right": 1264,
+              "bottom": 421,
+              "left": 1020
+            }
+          }
+        ]
+      }
+    ],
+    "1440": [
+      {
+        "name": "Bound creatures",
+        "bounds": {
+          "x": 16,
+          "y": 160,
+          "width": 244,
+          "height": 458,
+          "top": 160,
+          "right": 260,
+          "bottom": 618,
+          "left": 16
+        },
+        "frames": [
+          {
+            "name": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 184,
+              "width": 244,
+              "height": 37,
+              "top": 184,
+              "right": 260,
+              "bottom": 221,
+              "left": 16
+            }
+          },
+          {
+            "name": "Grave Hound · binding 2. 11 of 11 health, 4 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 224,
+              "width": 244,
+              "height": 37,
+              "top": 224,
+              "right": 260,
+              "bottom": 261,
+              "left": 16
+            }
+          },
+          {
+            "name": "Fen Stalker · binding 3. 10 of 10 health, 4 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 264,
+              "width": 244,
+              "height": 37,
+              "top": 264,
+              "right": 260,
+              "bottom": 301,
+              "left": 16
+            }
+          },
+          {
+            "name": "Fen Raker · binding 4. 14 of 14 health, 6 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 304,
+              "width": 244,
+              "height": 37,
+              "top": 304,
+              "right": 260,
+              "bottom": 341,
+              "left": 16
+            }
+          },
+          {
+            "name": "Briar Colossus · binding 5. 18 of 18 health, 4 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 344,
+              "width": 244,
+              "height": 37,
+              "top": 344,
+              "right": 260,
+              "bottom": 381,
+              "left": 16
+            }
+          },
+          {
+            "name": "Ossuary Colossus · binding 6. 24 of 24 health, 6 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 384,
+              "width": 244,
+              "height": 37,
+              "top": 384,
+              "right": 260,
+              "bottom": 421,
+              "left": 16
+            }
+          }
+        ]
+      },
+      {
+        "name": "Enemies",
+        "bounds": {
+          "x": 1180,
+          "y": 160,
+          "width": 244,
+          "height": 458,
+          "top": 160,
+          "right": 1424,
+          "bottom": 618,
+          "left": 1180
+        },
+        "frames": [
+          {
+            "name": "Ironjaw Reaver · hostile 1. 16 of 16 health, 4 attack. 4 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 1180,
+              "y": 184,
+              "width": 244,
+              "height": 37,
+              "top": 184,
+              "right": 1424,
+              "bottom": 221,
+              "left": 1180
+            }
+          },
+          {
+            "name": "Gloam Revenant · hostile 2. 15 of 15 health, 5 attack. 5 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 1180,
+              "y": 224,
+              "width": 244,
+              "height": 37,
+              "top": 224,
+              "right": 1424,
+              "bottom": 261,
+              "left": 1180
+            }
+          },
+          {
+            "name": "Hollow Acolyte · hostile 3. 24 of 24 health, 5 attack. 5 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 1180,
+              "y": 264,
+              "width": 244,
+              "height": 37,
+              "top": 264,
+              "right": 1424,
+              "bottom": 301,
+              "left": 1180
+            }
+          },
+          {
+            "name": "Cindermaw Brood · hostile 4. 28 of 28 health, 6 attack. 6 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 1180,
+              "y": 304,
+              "width": 244,
+              "height": 37,
+              "top": 304,
+              "right": 1424,
+              "bottom": 341,
+              "left": 1180
+            }
+          },
+          {
+            "name": "Bone Thrall · hostile 5. 7 of 7 health, 3 attack. 3 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 1180,
+              "y": 344,
+              "width": 244,
+              "height": 37,
+              "top": 344,
+              "right": 1424,
+              "bottom": 381,
+              "left": 1180
+            }
+          },
+          {
+            "name": "Ironjaw Warlord · hostile 6. 112 of 112 health, 9 attack. 9 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 1180,
+              "y": 384,
+              "width": 244,
+              "height": 37,
+              "top": 384,
+              "right": 1424,
+              "bottom": 421,
+              "left": 1180
+            }
+          }
+        ]
+      }
+    ],
+    "1920": [
+      {
+        "name": "Bound creatures",
+        "bounds": {
+          "x": 16,
+          "y": 192,
+          "width": 244,
+          "height": 571,
+          "top": 192,
+          "right": 260,
+          "bottom": 763,
+          "left": 16
+        },
+        "frames": [
+          {
+            "name": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 216,
+              "width": 244,
+              "height": 37,
+              "top": 216,
+              "right": 260,
+              "bottom": 253,
+              "left": 16
+            }
+          },
+          {
+            "name": "Grave Hound · binding 2. 11 of 11 health, 4 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 256,
+              "width": 244,
+              "height": 37,
+              "top": 256,
+              "right": 260,
+              "bottom": 293,
+              "left": 16
+            }
+          },
+          {
+            "name": "Fen Stalker · binding 3. 10 of 10 health, 4 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 296,
+              "width": 244,
+              "height": 37,
+              "top": 296,
+              "right": 260,
+              "bottom": 333,
+              "left": 16
+            }
+          },
+          {
+            "name": "Fen Raker · binding 4. 14 of 14 health, 6 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 336,
+              "width": 244,
+              "height": 37,
+              "top": 336,
+              "right": 260,
+              "bottom": 373,
+              "left": 16
+            }
+          },
+          {
+            "name": "Briar Colossus · binding 5. 18 of 18 health, 4 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 376,
+              "width": 244,
+              "height": 37,
+              "top": 376,
+              "right": 260,
+              "bottom": 413,
+              "left": 16
+            }
+          },
+          {
+            "name": "Ossuary Colossus · binding 6. 24 of 24 health, 6 attack. Ready; select, then choose an enemy.",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 16,
+              "y": 416,
+              "width": 244,
+              "height": 37,
+              "top": 416,
+              "right": 260,
+              "bottom": 453,
+              "left": 16
+            }
+          }
+        ]
+      },
+      {
+        "name": "Enemies",
+        "bounds": {
+          "x": 1660,
+          "y": 192,
+          "width": 244,
+          "height": 571,
+          "top": 192,
+          "right": 1904,
+          "bottom": 763,
+          "left": 1660
+        },
+        "frames": [
+          {
+            "name": "Ironjaw Reaver · hostile 1. 16 of 16 health, 4 attack. 4 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 1660,
+              "y": 216,
+              "width": 244,
+              "height": 37,
+              "top": 216,
+              "right": 1904,
+              "bottom": 253,
+              "left": 1660
+            }
+          },
+          {
+            "name": "Gloam Revenant · hostile 2. 15 of 15 health, 5 attack. 5 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 1660,
+              "y": 256,
+              "width": 244,
+              "height": 37,
+              "top": 256,
+              "right": 1904,
+              "bottom": 293,
+              "left": 1660
+            }
+          },
+          {
+            "name": "Hollow Acolyte · hostile 3. 24 of 24 health, 5 attack. 5 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 1660,
+              "y": 296,
+              "width": 244,
+              "height": 37,
+              "top": 296,
+              "right": 1904,
+              "bottom": 333,
+              "left": 1660
+            }
+          },
+          {
+            "name": "Cindermaw Brood · hostile 4. 28 of 28 health, 6 attack. 6 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 1660,
+              "y": 336,
+              "width": 244,
+              "height": 37,
+              "top": 336,
+              "right": 1904,
+              "bottom": 373,
+              "left": 1660
+            }
+          },
+          {
+            "name": "Bone Thrall · hostile 5. 7 of 7 health, 3 attack. 3 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 1660,
+              "y": 376,
+              "width": 244,
+              "height": 37,
+              "top": 376,
+              "right": 1904,
+              "bottom": 413,
+              "left": 1660
+            }
+          },
+          {
+            "name": "Ironjaw Warlord · hostile 6. 112 of 112 health, 9 attack. 9 damage → hunter",
+            "inside": true,
+            "intentFont": "12px",
+            "intentHeight": 14,
+            "intentScrollHeight": 14,
+            "intentWidth": 232,
+            "intentScrollWidth": 232,
+            "rect": {
+              "x": 1660,
+              "y": 416,
+              "width": 244,
+              "height": 37,
+              "top": 416,
+              "right": 1904,
+              "bottom": 453,
+              "left": 1660
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "motionOffFramesIdentical": true,
+  "lastAllyValidEnemies": 6,
+  "lastAllyFocus": "Ironjaw Reaver · hostile 1. 16 of 16 health, 4 attack. 4 damage → hunter Select as target.",
+  "lastAllyActed": true,
+  "lastEnemyDossier": "Ironjaw Warlord · hostile 6",
+  "sourceAfter": {
+    "src/main.ts": "9fe8938578533af5896ccfcabef86dff5986a44e8ea6f949417a596d4aa39a7d",
+    "src/style.css": "ee165e5cbaf5a8022f271fd61782b026d4d5610d964a965480ac882802d08716",
+    "src/arena.ts": "bff20f7b8e91ae17316142ac9185bfebe9c9de2b994a102570726e5a4734046b",
+    "src/art.ts": "3127ed46b8ec4aecbcc8218c8a78ded3e3f57c922d04b330c7f8fe0c51be1e85",
+    "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+    "src/engine.ts": "21bafb33832ec2d3ee1ca4ead9486825510bd380b62e143a8736465f1ad4110b",
+    "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8"
+  },
+  "sourceStable": true,
+  "buildAfter": {
+    "dist/index.html": "0570a856abe24dd2255ea89ad3d3334e42ec7471d799f65445911d27c1ec2c6c",
+    "dist/assets/index-C4TLZn37.js": "43b79a82e7b14f93cb670f1e9a8aaa6a5bb0973ab69bac0302e1b2e81c3e4260",
+    "dist/assets/index-D74h-cbs.css": "5a1672d8a51273e8fcb1239b954899b1e3189ab300661ccb9e425ac0b62fbb89"
+  },
+  "buildStable": true
+}

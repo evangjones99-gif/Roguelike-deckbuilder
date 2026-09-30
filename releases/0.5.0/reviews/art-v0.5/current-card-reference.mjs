@@ -1,0 +1,9 @@
+import {chromium} from '@playwright/test';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+const ROOT='/workspace/Roguelike-deckbuilder';const OUT=path.join(ROOT,'reviews/art-v0.5');
+const fixture=JSON.parse(await fs.readFile(path.join(ROOT,'reviews/screenshots-v0.2/full-fixture.json'),'utf8'));
+const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});
+try{const context=await browser.newContext({viewport:{width:1280,height:720}});await context.addInitScript(s=>{localStorage.setItem('hollowpact.run.v2',JSON.stringify(s));localStorage.setItem('hollowpact.settings.v2',JSON.stringify({motion:false,mute:true,volume:0}));},fixture);const page=await context.newPage();await page.goto('http://127.0.0.1:4173/');await page.locator('[data-ui=resume]').click();await page.locator('[data-ui=deck]').click();const records=[];
+for(const id of ['scour','ironward','sutures','edict']){const c=page.locator(`dialog [data-card="${id}"]`).first();await c.scrollIntoViewIfNeeded();await c.screenshot({path:path.join(OUT,`current-${id}.png`)});records.push(await c.evaluate(e=>({id:e.dataset.card,label:e.getAttribute('aria-label'),geometry:e.getBoundingClientRect().toJSON(),banner:e.querySelector('.card-art').getBoundingClientRect().toJSON(),rulesFont:getComputedStyle(e.querySelector('.card-description')).fontSize})));}
+const provenance=await page.evaluate(async()=>{const r=await fetch('/build-provenance.json');return r.ok?await r.json():null});await fs.writeFile(path.join(OUT,'current-reference.json'),JSON.stringify({scope:'Actual unchanged v0.4 UI viewed in isolated browser context using preserved validated full-deck fixture; not naturally reached playtest state',records,provenance},null,2)+'\n');console.log(records.map(r=>({id:r.id,label:r.label})));}finally{await browser.close();}

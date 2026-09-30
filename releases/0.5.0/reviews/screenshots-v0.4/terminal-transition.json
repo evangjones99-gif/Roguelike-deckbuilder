@@ -1,0 +1,2330 @@
+{
+  "baseURL": "http://127.0.0.1:4173",
+  "fixture": {
+    "schema": 2,
+    "seed": 121,
+    "rng": 3709142840,
+    "phase": "battle",
+    "hp": 65,
+    "maxHp": 65,
+    "block": 0,
+    "energy": 5,
+    "gold": 65,
+    "floor": 1,
+    "turn": 1,
+    "deck": [
+      "cairnhound",
+      "ironward",
+      "ironward",
+      "scour",
+      "survey"
+    ],
+    "draw": [
+      "ironward",
+      "scour",
+      "survey"
+    ],
+    "discard": [],
+    "hand": [
+      "ironward"
+    ],
+    "allies": [
+      {
+        "uid": "a10",
+        "cardId": "cairnhound",
+        "name": "Cairn Hound",
+        "species": "hound",
+        "hp": 7,
+        "maxHp": 7,
+        "attack": 3,
+        "block": 0,
+        "acted": false,
+        "color": "#c4c6b5",
+        "passive": "Commands deal 2 extra damage to enemies with no block."
+      }
+    ],
+    "enemies": [
+      {
+        "uid": "e30",
+        "cardId": "raider",
+        "name": "Ironjaw Reaver",
+        "species": "warlord",
+        "hp": 1,
+        "attack": 4,
+        "color": "#a6a59c",
+        "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation.",
+        "maxHp": 16,
+        "block": 0,
+        "acted": false,
+        "intent": {
+          "target": "hunter",
+          "damage": 4,
+          "label": "Review fixture attack"
+        }
+      }
+    ],
+    "rewards": [],
+    "relics": [],
+    "route": [
+      "battle"
+    ],
+    "log": [
+      "A scarred hunter. One final contract. No pact is harmless.",
+      "The keep has teeth."
+    ],
+    "nextUid": 100,
+    "difficulty": 0,
+    "stats": {
+      "cardsPlayed": 0,
+      "damageDealt": 0,
+      "turns": 1,
+      "battles": 1
+    }
+  },
+  "results": [
+    {
+      "mode": "animated",
+      "fixture": "Validated constructed one-hit terminal visual fixture; not natural-play pacing evidence.",
+      "errors": [],
+      "canonicalPhaseImmediately": "reward",
+      "inputsLeftSaveUnchanged": true,
+      "lastBattleMs": 1143.4999999996276,
+      "firstRewardMs": 1160.1999999996274,
+      "trace": [
+        {
+          "t": 1895.9,
+          "phase": "battle",
+          "app": "phase-battle",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": ""
+        },
+        {
+          "t": 1912.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1929.3,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1946,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1962.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1979.3,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1996,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2012.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2029.3,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2045.9,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2062.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2079.3,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2096,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2112.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2129.3,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2145.9,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2162.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2179.3,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2196,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2212.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2229.3,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2246,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2262.7,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2279.3,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2295.9,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2312.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2329.3,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2346,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2362.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2379.3,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2395.9,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2412.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2429.3,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2445.9,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2462.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2479.3,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2495.9,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2512.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2529.2,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2545.9,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2562.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2579.3,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2595.9,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2612.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2629.3,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2646,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2662.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2679.3,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2695.9,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2712.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2729.3,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2746,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2762.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2779.3,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2796,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2812.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2829.2,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2845.9,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2862.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2879.2,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2895.9,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2912.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2929.3,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2945.9,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2962.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2979.3,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2996,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 3012.6,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 3029.2,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 3045.9,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 3062.6,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3079.2,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3096,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3112.6,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3129.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3145.9,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3162.6,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3179.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3195.9,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3212.6,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3229.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3245.9,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3262.6,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3279.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3295.9,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3312.5,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3329.2,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3345.9,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3362.6,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3379.2,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3395.9,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3412.5,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3429.2,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 3445.9,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        }
+      ],
+      "storedPhase": "reward",
+      "phaseAfterSkippingReward": "map"
+    },
+    {
+      "mode": "motion-off",
+      "fixture": "Validated constructed one-hit terminal visual fixture; not natural-play pacing evidence.",
+      "errors": [],
+      "canonicalPhaseImmediately": "reward",
+      "inputsLeftSaveUnchanged": true,
+      "lastBattleMs": null,
+      "firstRewardMs": 6.6000000003725745,
+      "trace": [
+        {
+          "t": 1244.7,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1261.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1278,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1294.7,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1311.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1328,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1344.7,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1361.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1378,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1394.6,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1411.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1428,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1444.7,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1461.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1478,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1494.6,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1511.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1528,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1544.7,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1561.4,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1578,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1594.6,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1611.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1628,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1644.6,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1661.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1678,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1694.7,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1711.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1728,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1744.7,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1761.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1778,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1794.6,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1811.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1828,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1844.6,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1861.4,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1878,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1894.7,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1911.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1928,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1944.6,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1961.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1978,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 1994.7,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2011.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2028,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2044.6,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2061.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2078,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2094.7,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2111.4,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2128,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2144.7,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2161.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2178,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2194.6,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2211.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2228,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2244.7,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2261.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2277.9,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2294.6,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2311.4,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2328,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2344.7,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2361.3,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2378,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2394.6,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        }
+      ],
+      "storedPhase": "reward",
+      "phaseAfterSkippingReward": "map"
+    },
+    {
+      "mode": "pause",
+      "fixture": "Validated constructed one-hit terminal visual fixture; not natural-play pacing evidence.",
+      "errors": [],
+      "canonicalPhaseImmediately": "reward",
+      "inputsLeftSaveUnchanged": true,
+      "lastBattleMs": 1135.3000000003726,
+      "firstRewardMs": 1151.9000000003725,
+      "trace": [
+        {
+          "t": 915.1,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 931.8,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 948.5,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 965.1,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 981.8,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 998.4,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1015.1,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1031.8,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1048.5,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1065.1,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1081.7,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1098.5,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1115.1,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1131.8,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1148.4,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1165.1,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1181.8,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1198.4,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1215.1,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1248.5,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1298.4,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1331.8,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1365.1,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1398.4,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1415.1,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1448.4,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1481.7,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1498.5,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1531.7,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1548.4,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1565.1,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1581.8,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1598.4,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1615.1,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1631.7,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1648.4,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1665,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1681.7,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1698.4,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1715.1,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1731.7,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1748.4,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1765.1,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1781.8,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1798.4,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1815.1,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1831.7,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1848.4,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1865.1,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1881.7,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1898.4,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1915,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1931.8,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1948.4,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1965,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1981.7,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 1998.4,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2015.1,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2031.7,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2048.4,
+          "phase": "reward",
+          "app": "phase-battle settling-combat",
+          "battle": true,
+          "reward": false,
+          "toast": "",
+          "announcer": "Contract cleared."
+        },
+        {
+          "t": 2065,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2081.8,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2098.4,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2115.1,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2131.7,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2148.4,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2165.1,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2181.7,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2198.4,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2215,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2231.7,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2248.4,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2265,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2281.7,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2298.4,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2315.1,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2331.7,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2348.4,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2365.1,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2381.7,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        },
+        {
+          "t": 2398.4,
+          "phase": "reward",
+          "app": "phase-reward",
+          "battle": false,
+          "reward": true,
+          "toast": "",
+          "announcer": "Contract cleared. Salvage ready. Choose one card or leave the salvage."
+        }
+      ],
+      "storedPhase": "reward",
+      "phaseAfterSkippingReward": "map"
+    }
+  ]
+}

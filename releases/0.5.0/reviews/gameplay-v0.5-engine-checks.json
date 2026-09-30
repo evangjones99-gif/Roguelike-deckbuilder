@@ -1,0 +1,2408 @@
+{
+  "hashes": {
+    "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+    "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+    "src/world-rng.ts": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+    "scripts/review-world-v0.5.ts": "4f2e189f69c53fa804b0f2e04ff7ff3bf172f50b0c57b445151e8788f0ccfd07",
+    "scripts/solo-investigation-v0.3.ts": "d6ae4f7fe6f41195ddad5c84ecbe983cf146ad6f32cfac181dfc5785b71f4747",
+    "scripts/simulate.ts": "3f9922453359b70dfe9c74fddf8414c864602de810a36bd78ee8cef76917e81b",
+    "reviews/gameplay-v0.5-engine-plan.json": "fe640a1c43a045fce09c9809fea7b68ceb48edfbe12c8b5e027a0bbe86686f60"
+  },
+  "archive": "releases/0.4.0/hollowpact-0.4.0-source.zip",
+  "archiveHash": "12bb1a6dbe521ea9f89b08dcc171891a2052431582e6954333a7a004a9c1845c",
+  "archiveHashes": {
+    "engine": "ee85f1400a9d02142aee1dd66f82722453f35930bbf2c0c229ad38e38a818d0d",
+    "content": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234"
+  },
+  "legacy": [
+    {
+      "seed": 7101,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 136,
+      "phase": "victory",
+      "stateHash": "4c8f4215e95282960a1b38dab107dae42b30aba8a39f92600df72956a5d54694"
+    },
+    {
+      "seed": 7101,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 146,
+      "phase": "victory",
+      "stateHash": "5eadb0e687539ba229f32f9081864774d56d4df948b0f56a30b29a7ac43f5972"
+    },
+    {
+      "seed": 7101,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 166,
+      "phase": "victory",
+      "stateHash": "b23c9c1bb79a9f6ea4f697c03e72f7ea1101f1cd8c849262a2b309688dab542f"
+    },
+    {
+      "seed": 7102,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 150,
+      "phase": "victory",
+      "stateHash": "5d17c0d72b9e85f0f1451c14fa492e096bef41934441029ff4c4c7b9f1598e3f"
+    },
+    {
+      "seed": 7102,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 165,
+      "phase": "victory",
+      "stateHash": "5930e5eb41168549c41d897a67ce64506a644703515ba029222dee3ac7c93ea9"
+    },
+    {
+      "seed": 7102,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 179,
+      "phase": "victory",
+      "stateHash": "00141586469f68f421cacbd9831e79839d237d92bb08e8dc0573c278a98a6d80"
+    },
+    {
+      "seed": 7103,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 157,
+      "phase": "victory",
+      "stateHash": "068ce988b65473d7d9a700d9520c71f39d0f334817ef226408eaf3fe5cda9e39"
+    },
+    {
+      "seed": 7103,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 172,
+      "phase": "victory",
+      "stateHash": "f1f595067687519d028165acfc72301827540dd9f9edaf043fdb20b9605a37da"
+    },
+    {
+      "seed": 7103,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 187,
+      "phase": "victory",
+      "stateHash": "b56452b1c2978c62183808c777e8080a53f531fff8dc815495a8503a064a8b92"
+    },
+    {
+      "seed": 7104,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 144,
+      "phase": "victory",
+      "stateHash": "2c30624eed6b3b3d3e2d8ab77be4de20c3a1214431dd82faf21496af7f2dbdc0"
+    },
+    {
+      "seed": 7104,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 159,
+      "phase": "victory",
+      "stateHash": "bfa4d24aa21e9b11f4a1da336ad6a473a54f56e3b80adf9fb77c55ef21a41b77"
+    },
+    {
+      "seed": 7104,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 173,
+      "phase": "victory",
+      "stateHash": "177b4d3d32e2231cd87915af0a409ddf5e5ebc42ccfaf4fc59b6eb51f59b9635"
+    },
+    {
+      "seed": 7105,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 154,
+      "phase": "victory",
+      "stateHash": "beb693a609af9c639e31b3629d991c41c5d85d8c8d747c9248a1b5fba1785bc2"
+    },
+    {
+      "seed": 7105,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 168,
+      "phase": "victory",
+      "stateHash": "7444fd908ca8c9282db5075ae8de85cf1415a38c711e86f76bedfdc493dd930b"
+    },
+    {
+      "seed": 7105,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 174,
+      "phase": "victory",
+      "stateHash": "cd7d013f634543d2751442dbb0f9b302d13803402a4c5c426c0acdfc2d8cf876"
+    },
+    {
+      "seed": 7106,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 184,
+      "phase": "victory",
+      "stateHash": "b3a1ea07b3085a959d36ed55806b88070414c355a7f5163f15feacd3f5449078"
+    },
+    {
+      "seed": 7106,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 159,
+      "phase": "victory",
+      "stateHash": "7438ab075ef7a3e99fb9691b701a28b97e73141f3953596d1b5bb4c29986efc9"
+    },
+    {
+      "seed": 7106,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 188,
+      "phase": "victory",
+      "stateHash": "c2f2ae2949bf803973ffde042d72293c809a25eefb1d584f9ab204021bbf8fbe"
+    },
+    {
+      "seed": 7107,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 151,
+      "phase": "victory",
+      "stateHash": "42c455a01ed40e82bfae626f3f5e392324df92afd9f653f954da3d4540079320"
+    },
+    {
+      "seed": 7107,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 152,
+      "phase": "victory",
+      "stateHash": "1b2f8bdf9658a334ab386c3f161fc0e2552df9d81a8a4abba676f0d5fb539f76"
+    },
+    {
+      "seed": 7107,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 165,
+      "phase": "victory",
+      "stateHash": "ec054a2eb9c1faa176bae613269dc5015e21be1e73b30a4b8012b0ff0e25e411"
+    },
+    {
+      "seed": 7108,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 165,
+      "phase": "victory",
+      "stateHash": "3646c06fe368221eca6cd5d13fccdd77903707ed6239db1d0a618fe3f9883a89"
+    },
+    {
+      "seed": 7108,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 174,
+      "phase": "victory",
+      "stateHash": "8d3397bed2548efabb546ac9304f1f0cd99bd11e674299396e0a9ab615bed610"
+    },
+    {
+      "seed": 7108,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 191,
+      "phase": "victory",
+      "stateHash": "e9780177b6939832f1ccadb76f29cf9bd12c57b0538bb33a506c1b0a99955381"
+    },
+    {
+      "seed": 7109,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 169,
+      "phase": "victory",
+      "stateHash": "70c6b8b70b2aa5b5fb46f9ddd1a38b1d7433a03f280cb19819b0153c78dc6fcd"
+    },
+    {
+      "seed": 7109,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 159,
+      "phase": "victory",
+      "stateHash": "c0a173570814389078ad70eda27027d32b3e107597ea11784f6216a828b7cca1"
+    },
+    {
+      "seed": 7109,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 175,
+      "phase": "victory",
+      "stateHash": "f601cd0c7a928824f38a298f675ace386ae55858203f1fe3b5f200456ad2e210"
+    },
+    {
+      "seed": 7110,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 153,
+      "phase": "victory",
+      "stateHash": "04780a30c54bf23e8c493f0c4c46eb44c32b007d3407f2b491b370fba1ec6bee"
+    },
+    {
+      "seed": 7110,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 147,
+      "phase": "victory",
+      "stateHash": "83ffdd7bd610b42aa69841f35d7a28c301d9664ff21ef815702f2f27f3158019"
+    },
+    {
+      "seed": 7110,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 152,
+      "phase": "victory",
+      "stateHash": "94823e32ceaef139ac1316634eda405ba739e4894eb39fc2e3e5c27087b115da"
+    },
+    {
+      "seed": 7111,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 135,
+      "phase": "victory",
+      "stateHash": "b17481c049df5f8bf439cb52842d1ba23c591fa3f970fadfb11563733a527b66"
+    },
+    {
+      "seed": 7111,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 168,
+      "phase": "victory",
+      "stateHash": "73d010c191e756da6d1ac1cc6b0052bdeb97f32c3ad1e0bb4e8f40c7204943c2"
+    },
+    {
+      "seed": 7111,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 190,
+      "phase": "victory",
+      "stateHash": "6225d80be62b7e2eb2e463765fdfe9934f87044f55fef02360ea4c188cf0aabf"
+    },
+    {
+      "seed": 7112,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 154,
+      "phase": "victory",
+      "stateHash": "c5c330469bcd0b58a92c4691834ef45560c162654f3b103a9f7ec3f853c79e52"
+    },
+    {
+      "seed": 7112,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 182,
+      "phase": "victory",
+      "stateHash": "093ed87aed10045ca04c8e7dab0eaa8173f236dbca5353a1e95ae802a000fc6d"
+    },
+    {
+      "seed": 7112,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 189,
+      "phase": "victory",
+      "stateHash": "c988f27f631858a3d9eb85b83e7ee0ca7a7be981c2dd0e7a18aa1070f8bdbfee"
+    },
+    {
+      "seed": 7113,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 146,
+      "phase": "victory",
+      "stateHash": "d8e3739a38f000aa3e21b693e038ae452e041e4989b5815106f0b8a18beadaa4"
+    },
+    {
+      "seed": 7113,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 163,
+      "phase": "victory",
+      "stateHash": "739bc8f54a80ff36d595a662bfbec5d3c8e2a23dd7d85f2dca4d287594dd0c32"
+    },
+    {
+      "seed": 7113,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 170,
+      "phase": "victory",
+      "stateHash": "17502fbf8c63ac6c4a625fd039b4c53f426f761d2f6870b4beffe21691625df0"
+    },
+    {
+      "seed": 7114,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 150,
+      "phase": "victory",
+      "stateHash": "6ee5dfd7d2a3543b4c78b0f60c3be6df0bcdfcba04f3edb4d19202413d0d6bda"
+    },
+    {
+      "seed": 7114,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 211,
+      "phase": "victory",
+      "stateHash": "db6a1a334fefd50faf191de4f11df273049faf608ec7d8dd9f3c0f9850fe0a34"
+    },
+    {
+      "seed": 7114,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 204,
+      "phase": "victory",
+      "stateHash": "fcb4f847661613e60cfd10f54919956cc036332eb84a286020da9c7e31bb9110"
+    },
+    {
+      "seed": 7115,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 170,
+      "phase": "victory",
+      "stateHash": "1a4a7172f826b87138d813b2d14a41a6d58cb852b878253470170c7263fb9ca3"
+    },
+    {
+      "seed": 7115,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 161,
+      "phase": "victory",
+      "stateHash": "cb8b12d6a439777f7eb427f97d481b9b091560211312f18d6c6d59cfa9cd7ead"
+    },
+    {
+      "seed": 7115,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 176,
+      "phase": "victory",
+      "stateHash": "b06d1f65b67c8cdea9ab957bdddf59f82a7f852a66fe078dfcae4bd8b6f29c43"
+    },
+    {
+      "seed": 7116,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 161,
+      "phase": "victory",
+      "stateHash": "417f84b5dafd4de7af68872d26dd5ee688962b15f1026e010511f316dc538898"
+    },
+    {
+      "seed": 7116,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 176,
+      "phase": "victory",
+      "stateHash": "e3ac43fa75d19e34b24ede968c9a1a315910c9a1c7cc859a511ad30320d7dbc2"
+    },
+    {
+      "seed": 7116,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 184,
+      "phase": "victory",
+      "stateHash": "d2aebefbca59be9a3be6768d6040fdb5e9de29dde76a666a9554a6b19a630942"
+    },
+    {
+      "seed": 7117,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 156,
+      "phase": "victory",
+      "stateHash": "c72699dbbeae59ca0aba4b576649e3e3f93f580e87dd27c4554b2c1ae0a05fc4"
+    },
+    {
+      "seed": 7117,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 182,
+      "phase": "victory",
+      "stateHash": "1b016201d1771768ad59196e608d6e77819a5f66182c21ffe4a53ce77dbd1357"
+    },
+    {
+      "seed": 7117,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 198,
+      "phase": "victory",
+      "stateHash": "6883cf862483ed1fb34bc3c67ae54eba5c22808ad7f0cc0e68eda92707a6c0dd"
+    },
+    {
+      "seed": 7118,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 151,
+      "phase": "victory",
+      "stateHash": "e83e6a3b2898b01bbcc01c83791f9663c22723531e21750cc0967b155b41adb4"
+    },
+    {
+      "seed": 7118,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 162,
+      "phase": "victory",
+      "stateHash": "032e687900ad260f44be6e4466bcc337b0dcdffd5b856629040b0ef20778c0d5"
+    },
+    {
+      "seed": 7118,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 172,
+      "phase": "victory",
+      "stateHash": "8b1ae5c4f76d203771984526bfee83e6c9d29bfadacf847f9fbfc2df32429e14"
+    },
+    {
+      "seed": 7119,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 159,
+      "phase": "victory",
+      "stateHash": "b1aebea49343af0fa69c497bb85f819caf6e10ea4604d5401552c6695c11f196"
+    },
+    {
+      "seed": 7119,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 172,
+      "phase": "victory",
+      "stateHash": "33a79594184923877b5998ca9545b8269326181cdec9d461a87121ed12ab8c57"
+    },
+    {
+      "seed": 7119,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 180,
+      "phase": "victory",
+      "stateHash": "5d6191ffc012cfa18f49cb52fbec53827b0e6594586dca6fba69d933788846c0"
+    },
+    {
+      "seed": 7120,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 140,
+      "phase": "victory",
+      "stateHash": "bdab44dc52706288d4a01bff37c9dead6c40d6ac4b4d3b0ece2f1665c3e3b593"
+    },
+    {
+      "seed": 7120,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 169,
+      "phase": "victory",
+      "stateHash": "ab1cbf7c9b1a9ba132834d08a39e2ce4f1fcbadc165a0f32e894e7f90b787b41"
+    },
+    {
+      "seed": 7120,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 180,
+      "phase": "victory",
+      "stateHash": "ca1b4b67ed049184fdccc03fa9d1054865a2b63ecd9d79fe889984ee5fb4a455"
+    },
+    {
+      "seed": 7121,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 153,
+      "phase": "victory",
+      "stateHash": "ae3c86d47dac326dd90777e45891865c6545cdd1f7bbb9c85bf90ee4f002547d"
+    },
+    {
+      "seed": 7121,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 163,
+      "phase": "victory",
+      "stateHash": "e64b9712c1dce527e2a93a292ec1ce1ff238fbcb8dbf8a49cf650a03f52f0168"
+    },
+    {
+      "seed": 7121,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 171,
+      "phase": "victory",
+      "stateHash": "6873cb4957a5b08eff219c1de3f602c2a5c8d2e5045962cf697d0b29acc09cff"
+    },
+    {
+      "seed": 7122,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 160,
+      "phase": "victory",
+      "stateHash": "1a9b1f3fee703f06793f76c75076dae181c326a3d814a58be25a2684d3f58647"
+    },
+    {
+      "seed": 7122,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 162,
+      "phase": "victory",
+      "stateHash": "3334334496b309f09f3dd260b63fc58e6216157976215d9dab5d1296ac760c9c"
+    },
+    {
+      "seed": 7122,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 172,
+      "phase": "victory",
+      "stateHash": "575d6169796fee8a2cdba3465e803aa4a788fd881f6c90bc6595162af882020f"
+    },
+    {
+      "seed": 7123,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 145,
+      "phase": "victory",
+      "stateHash": "e4c735d286431fe838c8d46e07c9a70a6a5f8dba6e001fbbfdebb6b05a9f4036"
+    },
+    {
+      "seed": 7123,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 175,
+      "phase": "victory",
+      "stateHash": "6e8ac1fcbef294cdb56d1e1c09b0586a29172d68568bf2a180f68d2533d70448"
+    },
+    {
+      "seed": 7123,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 190,
+      "phase": "victory",
+      "stateHash": "fcb73e26e83a57a28e4784aec850341ce99d2bdc0d938d93d218946660074382"
+    },
+    {
+      "seed": 7124,
+      "difficulty": 0,
+      "policy": "informed",
+      "steps": 186,
+      "phase": "victory",
+      "stateHash": "5ec53eca01c6a7e227ea6807376d0575d3add17bdec1558fa810878839c0000b"
+    },
+    {
+      "seed": 7124,
+      "difficulty": 1,
+      "policy": "informed",
+      "steps": 187,
+      "phase": "victory",
+      "stateHash": "f6d8c69bb1768c02e93a4033e727da893662bb17b1a23dd66430c143c4fe82de"
+    },
+    {
+      "seed": 7124,
+      "difficulty": 2,
+      "policy": "informed",
+      "steps": 169,
+      "phase": "victory",
+      "stateHash": "0d02f9ab7bc83069ac094fbafe62274d634e7a8723950da267ef638124b66308"
+    },
+    {
+      "seed": 7901,
+      "difficulty": 2,
+      "policy": "legal-random",
+      "steps": 73,
+      "phase": "defeat",
+      "stateHash": "8f791837e86f9e224c1a6fe818eb621dc9722469a3ad185e107259025da60ca1"
+    },
+    {
+      "seed": 7902,
+      "difficulty": 0,
+      "policy": "legal-random",
+      "steps": 85,
+      "phase": "defeat",
+      "stateHash": "c323c81a9cca2e90fd3904ae4b82ddb5aef618eb76799f9f652368efa9103f55"
+    },
+    {
+      "seed": 7903,
+      "difficulty": 1,
+      "policy": "legal-random",
+      "steps": 50,
+      "phase": "defeat",
+      "stateHash": "7df228103885c3d946ddefc506428bc6c49ef28adde074b6078a1d313e4b39e3"
+    },
+    {
+      "seed": 7904,
+      "difficulty": 2,
+      "policy": "legal-random",
+      "steps": 37,
+      "phase": "defeat",
+      "stateHash": "26619c82cff48a2bb466c65985a8b4ca2492d4e2f305f22821be9608c2a8fd06"
+    },
+    {
+      "seed": 7905,
+      "difficulty": 0,
+      "policy": "legal-random",
+      "steps": 111,
+      "phase": "defeat",
+      "stateHash": "fa9a9c039456caf719cbff5a8c2c013befaf68a2567a3033036d1efc2a9fa93a"
+    },
+    {
+      "seed": 7906,
+      "difficulty": 1,
+      "policy": "legal-random",
+      "steps": 93,
+      "phase": "defeat",
+      "stateHash": "be463d65bc061fe14ac945309969b581f2a7c3834023fdeb326ef59e5100641d"
+    },
+    {
+      "seed": 7907,
+      "difficulty": 2,
+      "policy": "legal-random",
+      "steps": 36,
+      "phase": "defeat",
+      "stateHash": "7f4275fe276c10b73c30a5bd065ceb53c208c6060af795927d36f8ddf290e1f2"
+    },
+    {
+      "seed": 7908,
+      "difficulty": 0,
+      "policy": "legal-random",
+      "steps": 141,
+      "phase": "defeat",
+      "stateHash": "6bcf02ed021be1764f6208139c18bca90718e8e2e77a631bdb6be2db03255207"
+    },
+    {
+      "seed": 7909,
+      "difficulty": 1,
+      "policy": "legal-random",
+      "steps": 115,
+      "phase": "defeat",
+      "stateHash": "aea8e51e4946bb994aafe5a3a0edd7b7631e0f9a035f0bcb47ff5885c3777814"
+    },
+    {
+      "seed": 7910,
+      "difficulty": 2,
+      "policy": "legal-random",
+      "steps": 91,
+      "phase": "defeat",
+      "stateHash": "5e322397e872eea567f12b956b7e885b1f4af9b29dc7f166eee57abdb7fbc7a9"
+    },
+    {
+      "seed": 7911,
+      "difficulty": 0,
+      "policy": "legal-random",
+      "steps": 68,
+      "phase": "defeat",
+      "stateHash": "64692e534ae4981d2388fcc586c00518d780b7a9ac3432fb898f01eb425c75fd"
+    },
+    {
+      "seed": 7912,
+      "difficulty": 1,
+      "policy": "legal-random",
+      "steps": 65,
+      "phase": "defeat",
+      "stateHash": "cfddb7a604279e765f5d20d670a7eb8558779e48a2bd078e5cd525480cf07e52"
+    },
+    {
+      "seed": 7913,
+      "difficulty": 2,
+      "policy": "legal-random",
+      "steps": 44,
+      "phase": "defeat",
+      "stateHash": "d18c0509e11a083b689085897c2d60c6502d32e2883763f9397e2bb86f40894a"
+    },
+    {
+      "seed": 7914,
+      "difficulty": 0,
+      "policy": "legal-random",
+      "steps": 122,
+      "phase": "defeat",
+      "stateHash": "a867cd04d8e674d865332ad6c822e562a00f3e389b05a96325b503c628b2da2a"
+    },
+    {
+      "seed": 7915,
+      "difficulty": 1,
+      "policy": "legal-random",
+      "steps": 62,
+      "phase": "defeat",
+      "stateHash": "76c7ebb1779931c19901a22729607f95be42e2824307e8fa5886b61ea5a54b3b"
+    },
+    {
+      "seed": 7916,
+      "difficulty": 2,
+      "policy": "legal-random",
+      "steps": 40,
+      "phase": "defeat",
+      "stateHash": "9e45cb672c69adbd2675275184155984903a88ac6da3db364c363739d0216cca"
+    },
+    {
+      "seed": 7917,
+      "difficulty": 0,
+      "policy": "legal-random",
+      "steps": 78,
+      "phase": "defeat",
+      "stateHash": "903e2ae74d0c2f3a3d45d8fd00d1032a39d8cb53711a56cd240c75763252ac49"
+    },
+    {
+      "seed": 7918,
+      "difficulty": 1,
+      "policy": "legal-random",
+      "steps": 62,
+      "phase": "defeat",
+      "stateHash": "3cd677a0984a591e478716f5bc7e2a267048817867482e4e5f9a1c8aa0aea35a"
+    },
+    {
+      "seed": 7919,
+      "difficulty": 2,
+      "policy": "legal-random",
+      "steps": 53,
+      "phase": "defeat",
+      "stateHash": "ba3b73b3d570e1f0e8947c9cde6b903adaa39015c51d760eb59f4a3de49945fc"
+    },
+    {
+      "seed": 7920,
+      "difficulty": 0,
+      "policy": "legal-random",
+      "steps": 106,
+      "phase": "defeat",
+      "stateHash": "ef882b5353ef3155b282867deac584466b32d7f206ba587ac1773fa30e1a312b"
+    },
+    {
+      "seed": 7921,
+      "difficulty": 1,
+      "policy": "legal-random",
+      "steps": 95,
+      "phase": "defeat",
+      "stateHash": "6ac0d1d5bb0d66efb2a6c824acfa6a8bf009b73845c99df6a0ffcc986155ce3c"
+    },
+    {
+      "seed": 7922,
+      "difficulty": 2,
+      "policy": "legal-random",
+      "steps": 66,
+      "phase": "defeat",
+      "stateHash": "2e0415ee14e9df72a5e0b39b8550b54271453bbd14889d3efab233480fa4d136"
+    },
+    {
+      "seed": 7923,
+      "difficulty": 0,
+      "policy": "legal-random",
+      "steps": 81,
+      "phase": "defeat",
+      "stateHash": "6b57ad647f2da225b088759d507ca2e17d763672346e5c335259c511ac5e0fcb"
+    },
+    {
+      "seed": 7924,
+      "difficulty": 1,
+      "policy": "legal-random",
+      "steps": 86,
+      "phase": "defeat",
+      "stateHash": "89343cef94f0bbc2320efe5088a83629f31bc21bb2aca3dd16a012118d8dec5c"
+    },
+    {
+      "seed": 7925,
+      "difficulty": 2,
+      "policy": "legal-random",
+      "steps": 74,
+      "phase": "defeat",
+      "stateHash": "41b3e40f8400205aecc641060d7a8a50fa4443a6f9f4ab76849c8d2b4c8a5c4d"
+    },
+    {
+      "seed": 7926,
+      "difficulty": 0,
+      "policy": "legal-random",
+      "steps": 75,
+      "phase": "defeat",
+      "stateHash": "9e9f622b75f493ef0292f9b0fcbe705dc47fb6ca8338ee7a0d31a30915299ff2"
+    },
+    {
+      "seed": 7927,
+      "difficulty": 1,
+      "policy": "legal-random",
+      "steps": 77,
+      "phase": "defeat",
+      "stateHash": "c2cd99798fb47ed19f76465322a1379ac8c7d692eb051857ff2223934bcbe6b6"
+    },
+    {
+      "seed": 7928,
+      "difficulty": 2,
+      "policy": "legal-random",
+      "steps": 110,
+      "phase": "defeat",
+      "stateHash": "41adffc0a0bf39ae8dcc2d38cc77667d2e4367e1c85ac2bedae32e2d5874d37e"
+    },
+    {
+      "seed": 7929,
+      "difficulty": 0,
+      "policy": "legal-random",
+      "steps": 89,
+      "phase": "defeat",
+      "stateHash": "00439f1ed2c5fcb4bc030536d24b38beb966be0a60e4dfa9edb1593fc66ff697"
+    },
+    {
+      "seed": 7930,
+      "difficulty": 1,
+      "policy": "legal-random",
+      "steps": 98,
+      "phase": "defeat",
+      "stateHash": "ffe00fcfeea2dcf21370a7ac14b5d7526874e9b7086ff860c490c50accf81725"
+    },
+    {
+      "seed": 7931,
+      "difficulty": 2,
+      "policy": "legal-random",
+      "steps": 58,
+      "phase": "defeat",
+      "stateHash": "6a1b9be16d02d657db6bbee3db35fba01f6f4edb1dc6341e83c2b5240ca65778"
+    },
+    {
+      "seed": 7932,
+      "difficulty": 0,
+      "policy": "legal-random",
+      "steps": 194,
+      "phase": "victory",
+      "stateHash": "0641a0275c29e7bde4967b18b4ada64ffa98e4e1384508b0c032afe1797f0ee1"
+    },
+    {
+      "seed": 7933,
+      "difficulty": 1,
+      "policy": "legal-random",
+      "steps": 112,
+      "phase": "defeat",
+      "stateHash": "8da2e444ffccaffd62dc8f15f370ed9c0442cde2608368a2b57f27e08086cf20"
+    },
+    {
+      "seed": 7934,
+      "difficulty": 2,
+      "policy": "legal-random",
+      "steps": 54,
+      "phase": "defeat",
+      "stateHash": "2880df1f60f4c190bc4ac3a3a706fab4b8aeaedce21362a6869734fddaf94174"
+    },
+    {
+      "seed": 7935,
+      "difficulty": 0,
+      "policy": "legal-random",
+      "steps": 38,
+      "phase": "defeat",
+      "stateHash": "e77ff1885f15762e3608aba331184b3f8233ffc820c1e18e3934539de299c6d0"
+    },
+    {
+      "seed": 7936,
+      "difficulty": 1,
+      "policy": "legal-random",
+      "steps": 71,
+      "phase": "defeat",
+      "stateHash": "1e86e99c78acd810b6fd5b367ae95754bdbbce78aafc997d3f4f7725e1b94591"
+    },
+    {
+      "seed": 7937,
+      "difficulty": 2,
+      "policy": "legal-random",
+      "steps": 68,
+      "phase": "defeat",
+      "stateHash": "208da052f723ccc454d8805298f14512782f4cc3c4e5e1434c0d83798a4630e6"
+    },
+    {
+      "seed": 7938,
+      "difficulty": 0,
+      "policy": "legal-random",
+      "steps": 87,
+      "phase": "defeat",
+      "stateHash": "898690d0f34caecc88967756e9847ae1cdb2d6f99260f0b64e277b7908683acc"
+    },
+    {
+      "seed": 7939,
+      "difficulty": 1,
+      "policy": "legal-random",
+      "steps": 86,
+      "phase": "defeat",
+      "stateHash": "63855b0bca914d28c31e1b1432e1343128319263639b5685a91eb7bb6aaed3b5"
+    },
+    {
+      "seed": 7940,
+      "difficulty": 2,
+      "policy": "legal-random",
+      "steps": 57,
+      "phase": "defeat",
+      "stateHash": "588fdaffe8cb506e6b2a5b38b367302153658c5bfc1045abb39fef93ccff9f5e"
+    },
+    {
+      "seed": 7941,
+      "difficulty": 0,
+      "policy": "legal-random",
+      "steps": 67,
+      "phase": "defeat",
+      "stateHash": "84344c9d87469d50024f60167b4078c4b8365ff41c487b87f9d7873801ed32d0"
+    },
+    {
+      "seed": 7942,
+      "difficulty": 1,
+      "policy": "legal-random",
+      "steps": 48,
+      "phase": "defeat",
+      "stateHash": "cb39a764eef487b234f72eeb824d43df591617a390ba346c333fd18b936d8387"
+    },
+    {
+      "seed": 7943,
+      "difficulty": 2,
+      "policy": "legal-random",
+      "steps": 60,
+      "phase": "defeat",
+      "stateHash": "de6800ccd23df93fb9b487d20ed9522ff1271a976167e82e7440418b197eafc9"
+    },
+    {
+      "seed": 7944,
+      "difficulty": 0,
+      "policy": "legal-random",
+      "steps": 55,
+      "phase": "defeat",
+      "stateHash": "45183d5fd1a2fc4ccd5ea655e427848198d46cf3e1835081c6526db048605ee4"
+    },
+    {
+      "seed": 7945,
+      "difficulty": 1,
+      "policy": "legal-random",
+      "steps": 72,
+      "phase": "defeat",
+      "stateHash": "4f9a9aa5ebd735938afa623d37910c63c2df69f204474d69c28d7977587f6c80"
+    },
+    {
+      "seed": 7946,
+      "difficulty": 2,
+      "policy": "legal-random",
+      "steps": 97,
+      "phase": "defeat",
+      "stateHash": "7dbe025fffed7562420cad17c4ab4319fa4bd5b27e0b300535233b16d4d4d21c"
+    },
+    {
+      "seed": 7947,
+      "difficulty": 0,
+      "policy": "legal-random",
+      "steps": 92,
+      "phase": "defeat",
+      "stateHash": "2b6600c90ed2b4541e49fefa73b40208d89667a39870ed8005c9ed14d80a14f6"
+    },
+    {
+      "seed": 7948,
+      "difficulty": 1,
+      "policy": "legal-random",
+      "steps": 94,
+      "phase": "defeat",
+      "stateHash": "c0e5f6c7292d2f9c7ee6fd6f2aa5efd3cc6a062937bda590994f6bebc46e702d"
+    }
+  ],
+  "branches": [
+    {
+      "seed": 6501,
+      "kind": "earned-acquisition-and-shop-sculpture",
+      "arms": 4,
+      "initialRng": [
+        2108538913,
+        2108538913,
+        2108538913,
+        48557963
+      ],
+      "postBattleRng": [
+        2108538913,
+        2108538913,
+        2108538913,
+        48557963
+      ],
+      "commonFormation": [
+        {
+          "id": "raider",
+          "hp": 19,
+          "maxHp": 19,
+          "attack": 4,
+          "block": 0,
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation."
+        },
+        {
+          "id": "raider",
+          "hp": 19,
+          "maxHp": 19,
+          "attack": 4,
+          "block": 0,
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        }
+      ],
+      "commonOffers": [
+        "sunder",
+        "edict",
+        "ossuarycolossus"
+      ],
+      "commonRelic": [
+        "brass-bell"
+      ]
+    },
+    {
+      "seed": 6502,
+      "kind": "earned-acquisition-and-shop-sculpture",
+      "arms": 4,
+      "initialRng": [
+        3758394672,
+        3758394672,
+        3758394672,
+        2318166188
+      ],
+      "postBattleRng": [
+        3665082558,
+        3665082558,
+        3665082558,
+        2318166188
+      ],
+      "commonFormation": [
+        {
+          "id": "brood",
+          "hp": 31,
+          "maxHp": 31,
+          "attack": 6,
+          "block": 0,
+          "passive": "Alternates a bite at the front creature and a breath attack against all targets."
+        },
+        {
+          "id": "acolyte",
+          "hp": 27,
+          "maxHp": 27,
+          "attack": 5,
+          "block": 0,
+          "passive": "Alternates raising one Bone Thrall and cursing the hunter. Six enemy slots limit reinforcements."
+        }
+      ],
+      "commonOffers": [
+        "edict",
+        "bloodprice",
+        "gravehound"
+      ],
+      "commonRelic": [
+        "brass-bell"
+      ]
+    },
+    {
+      "seed": 6503,
+      "kind": "earned-acquisition-and-shop-sculpture",
+      "arms": 4,
+      "initialRng": [
+        3290949252,
+        3290949252,
+        3290949252,
+        3091701797
+      ],
+      "postBattleRng": [
+        1590551694,
+        1590551694,
+        1590551694,
+        3991801287
+      ],
+      "commonFormation": [
+        {
+          "id": "raider",
+          "hp": 19,
+          "maxHp": 19,
+          "attack": 4,
+          "block": 0,
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        },
+        {
+          "id": "acolyte",
+          "hp": 27,
+          "maxHp": 27,
+          "attack": 5,
+          "block": 0,
+          "passive": "Alternates raising one Bone Thrall and cursing the hunter. Six enemy slots limit reinforcements."
+        }
+      ],
+      "commonOffers": [
+        "gravetithe",
+        "resonance",
+        "covenant"
+      ],
+      "commonRelic": [
+        "war-brand"
+      ]
+    },
+    {
+      "seed": 6504,
+      "kind": "earned-acquisition-and-shop-sculpture",
+      "arms": 4,
+      "initialRng": [
+        111989211,
+        111989211,
+        111989211,
+        1372165933
+      ],
+      "postBattleRng": [
+        3984345457,
+        111989211,
+        111989211,
+        3994628184
+      ],
+      "commonFormation": [
+        {
+          "id": "acolyte",
+          "hp": 27,
+          "maxHp": 27,
+          "attack": 5,
+          "block": 0,
+          "passive": "Alternates raising one Bone Thrall and cursing the hunter. Six enemy slots limit reinforcements."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        }
+      ],
+      "commonOffers": [
+        "sutures",
+        "harpoon",
+        "witchfire"
+      ],
+      "commonRelic": [
+        "blood-vial"
+      ]
+    },
+    {
+      "seed": 6505,
+      "kind": "earned-acquisition-and-shop-sculpture",
+      "arms": 4,
+      "initialRng": [
+        1448404473,
+        1448404473,
+        1448404473,
+        854267584
+      ],
+      "postBattleRng": [
+        1005579042,
+        1448404473,
+        1005579042,
+        3665864152
+      ],
+      "commonFormation": [
+        {
+          "id": "raider",
+          "hp": 19,
+          "maxHp": 19,
+          "attack": 4,
+          "block": 0,
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        },
+        {
+          "id": "acolyte",
+          "hp": 27,
+          "maxHp": 27,
+          "attack": 5,
+          "block": 0,
+          "passive": "Alternates raising one Bone Thrall and cursing the hunter. Six enemy slots limit reinforcements."
+        }
+      ],
+      "commonOffers": [
+        "harpoon",
+        "ashwidow",
+        "bloodprice"
+      ],
+      "commonRelic": [
+        "brass-bell"
+      ]
+    },
+    {
+      "seed": 6506,
+      "kind": "earned-acquisition-and-shop-sculpture",
+      "arms": 4,
+      "initialRng": [
+        736048977,
+        736048977,
+        736048977,
+        3715623263
+      ],
+      "postBattleRng": [
+        736048977,
+        736048977,
+        3750610862,
+        3750610862
+      ],
+      "commonFormation": [
+        {
+          "id": "raider",
+          "hp": 19,
+          "maxHp": 19,
+          "attack": 4,
+          "block": 0,
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation."
+        },
+        {
+          "id": "raider",
+          "hp": 19,
+          "maxHp": 19,
+          "attack": 4,
+          "block": 0,
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        }
+      ],
+      "commonOffers": [
+        "briarcolossus",
+        "fenstalker",
+        "cairnhound"
+      ],
+      "commonRelic": [
+        "war-brand"
+      ]
+    },
+    {
+      "seed": 6507,
+      "kind": "earned-acquisition-and-shop-sculpture",
+      "arms": 4,
+      "initialRng": [
+        3315499311,
+        3315499311,
+        3315499311,
+        456579289
+      ],
+      "postBattleRng": [
+        1728255396,
+        1728255396,
+        3007674527,
+        3007674527
+      ],
+      "commonFormation": [
+        {
+          "id": "raider",
+          "hp": 19,
+          "maxHp": 19,
+          "attack": 4,
+          "block": 0,
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        },
+        {
+          "id": "acolyte",
+          "hp": 27,
+          "maxHp": 27,
+          "attack": 5,
+          "block": 0,
+          "passive": "Alternates raising one Bone Thrall and cursing the hunter. Six enemy slots limit reinforcements."
+        }
+      ],
+      "commonOffers": [
+        "harpoon",
+        "draught",
+        "ossuarycolossus"
+      ],
+      "commonRelic": [
+        "ember-seed"
+      ]
+    },
+    {
+      "seed": 6508,
+      "kind": "earned-acquisition-and-shop-sculpture",
+      "arms": 4,
+      "initialRng": [
+        1980107208,
+        1980107208,
+        1980107208,
+        116720522
+      ],
+      "postBattleRng": [
+        1980107208,
+        1980107208,
+        1980107208,
+        116720522
+      ],
+      "commonFormation": [
+        {
+          "id": "raider",
+          "hp": 19,
+          "maxHp": 19,
+          "attack": 4,
+          "block": 0,
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation."
+        },
+        {
+          "id": "raider",
+          "hp": 19,
+          "maxHp": 19,
+          "attack": 4,
+          "block": 0,
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        }
+      ],
+      "commonOffers": [
+        "draught",
+        "gravetithe",
+        "cairnhound"
+      ],
+      "commonRelic": [
+        "war-brand"
+      ]
+    },
+    {
+      "seed": 6509,
+      "kind": "earned-acquisition-and-shop-sculpture",
+      "arms": 4,
+      "initialRng": [
+        603888686,
+        603888686,
+        603888686,
+        1107147451
+      ],
+      "postBattleRng": [
+        445679477,
+        445679477,
+        445679477,
+        1107147451
+      ],
+      "commonFormation": [
+        {
+          "id": "raider",
+          "hp": 19,
+          "maxHp": 19,
+          "attack": 4,
+          "block": 0,
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation."
+        },
+        {
+          "id": "raider",
+          "hp": 19,
+          "maxHp": 19,
+          "attack": 4,
+          "block": 0,
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        }
+      ],
+      "commonOffers": [
+        "cairnhound",
+        "covenant",
+        "fenstalker"
+      ],
+      "commonRelic": [
+        "war-brand"
+      ]
+    },
+    {
+      "seed": 6510,
+      "kind": "earned-acquisition-and-shop-sculpture",
+      "arms": 4,
+      "initialRng": [
+        1364790961,
+        1364790961,
+        1364790961,
+        1452815508
+      ],
+      "postBattleRng": [
+        2033392846,
+        1341186811,
+        1341186811,
+        652172252
+      ],
+      "commonFormation": [
+        {
+          "id": "acolyte",
+          "hp": 27,
+          "maxHp": 27,
+          "attack": 5,
+          "block": 0,
+          "passive": "Alternates raising one Bone Thrall and cursing the hunter. Six enemy slots limit reinforcements."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        }
+      ],
+      "commonOffers": [
+        "ashwidow",
+        "sunder",
+        "killcommand"
+      ],
+      "commonRelic": [
+        "war-brand"
+      ]
+    },
+    {
+      "seed": 6511,
+      "kind": "earned-acquisition-and-shop-sculpture",
+      "arms": 4,
+      "initialRng": [
+        4077750760,
+        4077750760,
+        4077750760,
+        2996626335
+      ],
+      "postBattleRng": [
+        1268909008,
+        1963052203,
+        4077750760,
+        2996626335
+      ],
+      "commonFormation": [
+        {
+          "id": "raider",
+          "hp": 19,
+          "maxHp": 19,
+          "attack": 4,
+          "block": 0,
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        },
+        {
+          "id": "acolyte",
+          "hp": 27,
+          "maxHp": 27,
+          "attack": 5,
+          "block": 0,
+          "passive": "Alternates raising one Bone Thrall and cursing the hunter. Six enemy slots limit reinforcements."
+        }
+      ],
+      "commonOffers": [
+        "fenstalker",
+        "scour",
+        "briarcolossus"
+      ],
+      "commonRelic": [
+        "war-brand"
+      ]
+    },
+    {
+      "seed": 6512,
+      "kind": "earned-acquisition-and-shop-sculpture",
+      "arms": 4,
+      "initialRng": [
+        2916626049,
+        2916626049,
+        2916626049,
+        3234881338
+      ],
+      "postBattleRng": [
+        2916626049,
+        2916626049,
+        2916626049,
+        3234881338
+      ],
+      "commonFormation": [
+        {
+          "id": "acolyte",
+          "hp": 27,
+          "maxHp": 27,
+          "attack": 5,
+          "block": 0,
+          "passive": "Alternates raising one Bone Thrall and cursing the hunter. Six enemy slots limit reinforcements."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        }
+      ],
+      "commonOffers": [
+        "fenstalker",
+        "draught",
+        "edict"
+      ],
+      "commonRelic": [
+        "war-brand"
+      ]
+    },
+    {
+      "seed": 6701,
+      "kind": "earned-extra-draw-and-route",
+      "firstCombatRng": [
+        3178085688,
+        3474879040
+      ],
+      "differingDrawPosition": true,
+      "shopRng": [
+        1063732181,
+        3474879040
+      ],
+      "commonShop": [
+        "covenant",
+        "ironward",
+        "survey",
+        "fenraker",
+        "scour"
+      ],
+      "commonElite": [
+        {
+          "id": "raider",
+          "hp": 19,
+          "maxHp": 19,
+          "attack": 4,
+          "block": 0,
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation."
+        },
+        {
+          "id": "raider",
+          "hp": 19,
+          "maxHp": 19,
+          "attack": 4,
+          "block": 0,
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        }
+      ]
+    },
+    {
+      "seed": 6702,
+      "kind": "earned-extra-draw-and-route",
+      "firstCombatRng": [
+        1998957704,
+        2904197060
+      ],
+      "differingDrawPosition": true,
+      "shopRng": [
+        1843420642,
+        2904197060
+      ],
+      "commonShop": [
+        "covenant",
+        "draught",
+        "witchfire",
+        "scour",
+        "ashwidow"
+      ],
+      "commonElite": [
+        {
+          "id": "acolyte",
+          "hp": 27,
+          "maxHp": 27,
+          "attack": 5,
+          "block": 0,
+          "passive": "Alternates raising one Bone Thrall and cursing the hunter. Six enemy slots limit reinforcements."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        }
+      ]
+    },
+    {
+      "seed": 6703,
+      "kind": "earned-extra-draw-and-route",
+      "firstCombatRng": [
+        896515386,
+        3117939610
+      ],
+      "differingDrawPosition": true,
+      "shopRng": [
+        3031266184,
+        3117939610
+      ],
+      "commonShop": [
+        "resonance",
+        "ashwidow",
+        "killcommand",
+        "cairnhound",
+        "scour"
+      ],
+      "commonElite": [
+        {
+          "id": "acolyte",
+          "hp": 27,
+          "maxHp": 27,
+          "attack": 5,
+          "block": 0,
+          "passive": "Alternates raising one Bone Thrall and cursing the hunter. Six enemy slots limit reinforcements."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        }
+      ]
+    },
+    {
+      "seed": 6704,
+      "kind": "earned-extra-draw-and-route",
+      "firstCombatRng": [
+        2464209111,
+        1947507246
+      ],
+      "differingDrawPosition": true,
+      "shopRng": [
+        4018312905,
+        1947507246
+      ],
+      "commonShop": [
+        "killcommand",
+        "harpoon",
+        "witchfire",
+        "fenraker",
+        "aegis"
+      ],
+      "commonElite": [
+        {
+          "id": "brood",
+          "hp": 31,
+          "maxHp": 31,
+          "attack": 6,
+          "block": 0,
+          "passive": "Alternates a bite at the front creature and a breath attack against all targets."
+        },
+        {
+          "id": "acolyte",
+          "hp": 27,
+          "maxHp": 27,
+          "attack": 5,
+          "block": 0,
+          "passive": "Alternates raising one Bone Thrall and cursing the hunter. Six enemy slots limit reinforcements."
+        }
+      ]
+    },
+    {
+      "seed": 6705,
+      "kind": "earned-extra-draw-and-route",
+      "firstCombatRng": [
+        909687424,
+        1183378057
+      ],
+      "differingDrawPosition": true,
+      "shopRng": [
+        3538334364,
+        1183378057
+      ],
+      "commonShop": [
+        "scour",
+        "ossuarycolossus",
+        "resonance",
+        "fenstalker",
+        "edict"
+      ],
+      "commonElite": [
+        {
+          "id": "raider",
+          "hp": 19,
+          "maxHp": 19,
+          "attack": 4,
+          "block": 0,
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        },
+        {
+          "id": "acolyte",
+          "hp": 27,
+          "maxHp": 27,
+          "attack": 5,
+          "block": 0,
+          "passive": "Alternates raising one Bone Thrall and cursing the hunter. Six enemy slots limit reinforcements."
+        }
+      ]
+    },
+    {
+      "seed": 6706,
+      "kind": "earned-extra-draw-and-route",
+      "firstCombatRng": [
+        482737492,
+        2909302689
+      ],
+      "differingDrawPosition": true,
+      "shopRng": [
+        814663568,
+        2909302689
+      ],
+      "commonShop": [
+        "fenraker",
+        "bloodprice",
+        "harpoon",
+        "ironward",
+        "briarcolossus"
+      ],
+      "commonElite": [
+        {
+          "id": "brood",
+          "hp": 31,
+          "maxHp": 31,
+          "attack": 6,
+          "block": 0,
+          "passive": "Alternates a bite at the front creature and a breath attack against all targets."
+        },
+        {
+          "id": "acolyte",
+          "hp": 27,
+          "maxHp": 27,
+          "attack": 5,
+          "block": 0,
+          "passive": "Alternates raising one Bone Thrall and cursing the hunter. Six enemy slots limit reinforcements."
+        }
+      ]
+    },
+    {
+      "seed": 6707,
+      "kind": "earned-extra-draw-and-route",
+      "firstCombatRng": [
+        2373138853,
+        3146861924
+      ],
+      "differingDrawPosition": true,
+      "shopRng": [
+        1119358301,
+        3146861924
+      ],
+      "commonShop": [
+        "emberwidow",
+        "survey",
+        "harpoon",
+        "sunder",
+        "fenraker"
+      ],
+      "commonElite": [
+        {
+          "id": "acolyte",
+          "hp": 27,
+          "maxHp": 27,
+          "attack": 5,
+          "block": 0,
+          "passive": "Alternates raising one Bone Thrall and cursing the hunter. Six enemy slots limit reinforcements."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        }
+      ]
+    },
+    {
+      "seed": 6708,
+      "kind": "earned-extra-draw-and-route",
+      "firstCombatRng": [
+        1532283582,
+        2050632478
+      ],
+      "differingDrawPosition": true,
+      "shopRng": [
+        1555546074,
+        2050632478
+      ],
+      "commonShop": [
+        "witchfire",
+        "edict",
+        "resonance",
+        "cairnhound",
+        "gravetithe"
+      ],
+      "commonElite": [
+        {
+          "id": "raider",
+          "hp": 19,
+          "maxHp": 19,
+          "attack": 4,
+          "block": 0,
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation."
+        },
+        {
+          "id": "raider",
+          "hp": 19,
+          "maxHp": 19,
+          "attack": 4,
+          "block": 0,
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        }
+      ]
+    },
+    {
+      "seed": 6709,
+      "kind": "earned-extra-draw-and-route",
+      "firstCombatRng": [
+        463551847,
+        1760945626
+      ],
+      "differingDrawPosition": true,
+      "shopRng": [
+        3380473534,
+        1760945626
+      ],
+      "commonShop": [
+        "scour",
+        "survey",
+        "sutures",
+        "sunder",
+        "edict"
+      ],
+      "commonElite": [
+        {
+          "id": "acolyte",
+          "hp": 27,
+          "maxHp": 27,
+          "attack": 5,
+          "block": 0,
+          "passive": "Alternates raising one Bone Thrall and cursing the hunter. Six enemy slots limit reinforcements."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        }
+      ]
+    },
+    {
+      "seed": 6710,
+      "kind": "earned-extra-draw-and-route",
+      "firstCombatRng": [
+        3381031005,
+        3721041649
+      ],
+      "differingDrawPosition": true,
+      "shopRng": [
+        688009013,
+        3721041649
+      ],
+      "commonShop": [
+        "aegis",
+        "silence",
+        "edict",
+        "ironward",
+        "harpoon"
+      ],
+      "commonElite": [
+        {
+          "id": "brood",
+          "hp": 31,
+          "maxHp": 31,
+          "attack": 6,
+          "block": 0,
+          "passive": "Alternates a bite at the front creature and a breath attack against all targets."
+        },
+        {
+          "id": "acolyte",
+          "hp": 27,
+          "maxHp": 27,
+          "attack": 5,
+          "block": 0,
+          "passive": "Alternates raising one Bone Thrall and cursing the hunter. Six enemy slots limit reinforcements."
+        }
+      ]
+    },
+    {
+      "seed": 6711,
+      "kind": "earned-extra-draw-and-route",
+      "firstCombatRng": [
+        3355277866,
+        2146925944
+      ],
+      "differingDrawPosition": true,
+      "shopRng": [
+        4277103627,
+        2146925944
+      ],
+      "commonShop": [
+        "gravetithe",
+        "resonance",
+        "emberwidow",
+        "witchfire",
+        "cairnhound"
+      ],
+      "commonElite": [
+        {
+          "id": "acolyte",
+          "hp": 27,
+          "maxHp": 27,
+          "attack": 5,
+          "block": 0,
+          "passive": "Alternates raising one Bone Thrall and cursing the hunter. Six enemy slots limit reinforcements."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        }
+      ]
+    },
+    {
+      "seed": 6712,
+      "kind": "earned-extra-draw-and-route",
+      "firstCombatRng": [
+        2932170886,
+        139947989
+      ],
+      "differingDrawPosition": true,
+      "shopRng": [
+        2841039270,
+        139947989
+      ],
+      "commonShop": [
+        "harpoon",
+        "gravetithe",
+        "cairnhound",
+        "fenstalker",
+        "fenraker"
+      ],
+      "commonElite": [
+        {
+          "id": "raider",
+          "hp": 19,
+          "maxHp": 19,
+          "attack": 4,
+          "block": 0,
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation."
+        },
+        {
+          "id": "raider",
+          "hp": 19,
+          "maxHp": 19,
+          "attack": 4,
+          "block": 0,
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation."
+        },
+        {
+          "id": "revenant",
+          "hp": 18,
+          "maxHp": 18,
+          "attack": 5,
+          "block": 0,
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy."
+        }
+      ]
+    }
+  ],
+  "classification": [
+    {
+      "schema": 0,
+      "marker": "absent",
+      "accepted": false
+    },
+    {
+      "schema": 0,
+      "marker": "undefined",
+      "accepted": false
+    },
+    {
+      "schema": 0,
+      "marker": "0",
+      "accepted": false
+    },
+    {
+      "schema": 0,
+      "marker": "1",
+      "accepted": false
+    },
+    {
+      "schema": 0,
+      "marker": "2",
+      "accepted": false
+    },
+    {
+      "schema": 0,
+      "marker": "3",
+      "accepted": false
+    },
+    {
+      "schema": 0,
+      "marker": "2",
+      "accepted": false
+    },
+    {
+      "schema": 0,
+      "marker": "null",
+      "accepted": false
+    },
+    {
+      "schema": 1,
+      "marker": "absent",
+      "accepted": false
+    },
+    {
+      "schema": 1,
+      "marker": "undefined",
+      "accepted": false
+    },
+    {
+      "schema": 1,
+      "marker": "0",
+      "accepted": false
+    },
+    {
+      "schema": 1,
+      "marker": "1",
+      "accepted": false
+    },
+    {
+      "schema": 1,
+      "marker": "2",
+      "accepted": false
+    },
+    {
+      "schema": 1,
+      "marker": "3",
+      "accepted": false
+    },
+    {
+      "schema": 1,
+      "marker": "2",
+      "accepted": false
+    },
+    {
+      "schema": 1,
+      "marker": "null",
+      "accepted": false
+    },
+    {
+      "schema": 2,
+      "marker": "absent",
+      "accepted": true
+    },
+    {
+      "schema": 2,
+      "marker": "undefined",
+      "accepted": false
+    },
+    {
+      "schema": 2,
+      "marker": "0",
+      "accepted": false
+    },
+    {
+      "schema": 2,
+      "marker": "1",
+      "accepted": false
+    },
+    {
+      "schema": 2,
+      "marker": "2",
+      "accepted": false
+    },
+    {
+      "schema": 2,
+      "marker": "3",
+      "accepted": false
+    },
+    {
+      "schema": 2,
+      "marker": "2",
+      "accepted": false
+    },
+    {
+      "schema": 2,
+      "marker": "null",
+      "accepted": false
+    },
+    {
+      "schema": 3,
+      "marker": "absent",
+      "accepted": false
+    },
+    {
+      "schema": 3,
+      "marker": "undefined",
+      "accepted": false
+    },
+    {
+      "schema": 3,
+      "marker": "0",
+      "accepted": false
+    },
+    {
+      "schema": 3,
+      "marker": "1",
+      "accepted": false
+    },
+    {
+      "schema": 3,
+      "marker": "2",
+      "accepted": true
+    },
+    {
+      "schema": 3,
+      "marker": "3",
+      "accepted": false
+    },
+    {
+      "schema": 3,
+      "marker": "2",
+      "accepted": false
+    },
+    {
+      "schema": 3,
+      "marker": "null",
+      "accepted": false
+    },
+    {
+      "schema": 4,
+      "marker": "absent",
+      "accepted": false
+    },
+    {
+      "schema": 4,
+      "marker": "undefined",
+      "accepted": false
+    },
+    {
+      "schema": 4,
+      "marker": "0",
+      "accepted": false
+    },
+    {
+      "schema": 4,
+      "marker": "1",
+      "accepted": false
+    },
+    {
+      "schema": 4,
+      "marker": "2",
+      "accepted": false
+    },
+    {
+      "schema": 4,
+      "marker": "3",
+      "accepted": false
+    },
+    {
+      "schema": 4,
+      "marker": "2",
+      "accepted": false
+    },
+    {
+      "schema": 4,
+      "marker": "null",
+      "accepted": false
+    },
+    {
+      "schema": "3",
+      "marker": "absent",
+      "accepted": false
+    },
+    {
+      "schema": "3",
+      "marker": "undefined",
+      "accepted": false
+    },
+    {
+      "schema": "3",
+      "marker": "0",
+      "accepted": false
+    },
+    {
+      "schema": "3",
+      "marker": "1",
+      "accepted": false
+    },
+    {
+      "schema": "3",
+      "marker": "2",
+      "accepted": false
+    },
+    {
+      "schema": "3",
+      "marker": "3",
+      "accepted": false
+    },
+    {
+      "schema": "3",
+      "marker": "2",
+      "accepted": false
+    },
+    {
+      "schema": "3",
+      "marker": "null",
+      "accepted": false
+    },
+    {
+      "schema": null,
+      "marker": "absent",
+      "accepted": false
+    },
+    {
+      "schema": null,
+      "marker": "undefined",
+      "accepted": false
+    },
+    {
+      "schema": null,
+      "marker": "0",
+      "accepted": false
+    },
+    {
+      "schema": null,
+      "marker": "1",
+      "accepted": false
+    },
+    {
+      "schema": null,
+      "marker": "2",
+      "accepted": false
+    },
+    {
+      "schema": null,
+      "marker": "3",
+      "accepted": false
+    },
+    {
+      "schema": null,
+      "marker": "2",
+      "accepted": false
+    },
+    {
+      "schema": null,
+      "marker": "null",
+      "accepted": false
+    }
+  ],
+  "pureQueries": 2849,
+  "silence": {
+    "actions": 119,
+    "stateHash": "e6c2d1b7b5efc7eaad5cd6f841cafe7762bb12f2c89031b6ded072ed5d904eb9",
+    "exactArchivedEventsAndStates": true,
+    "exactRecovery": true,
+    "cyclicAndBigIntRejected": true
+  },
+  "golden": {
+    "count": 7,
+    "hash": "92a51ef9ec6eb0174f64e19bac2d89ecba6b578b949eed22888ac9897bdc15aa",
+    "qualified": "Existing independently generated research Node/Chromium vectors, rechecked against actual runtime; not new browser execution."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "revision": 1,
+  "harnessSHA256": "4f2e189f69c53fa804b0f2e04ff7ff3bf172f50b0c57b445151e8788f0ccfd07",
+  "failure": "Missing bossForSeed import in copied policy evaluator; diagnostic checks completed before first heldout reward decision. No complete holdout records produced.",
+  "repair": "Add missing import; preserve old harness/checks; new r2 outputs and same prespecified policies/arms/seeds, no outcome-based tuning."
+}

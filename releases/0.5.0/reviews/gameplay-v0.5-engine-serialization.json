@@ -1,0 +1,501 @@
+{
+  "sourceHashes": {
+    "engine": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+    "world": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+    "harness": "47003e36b07c79a2800202ac19d6836eecae7df050b948bddbf753bc17b10e3a"
+  },
+  "qualified": "48 deterministic replays from declared holdout endpoints, not additional independent heldout seeds",
+  "totalAccepted": 7003,
+  "drawBoundaries": 461,
+  "phases": [
+    "map",
+    "battle",
+    "reward",
+    "camp",
+    "shop",
+    "event"
+  ],
+  "evidence": [
+    {
+      "seed": 44101,
+      "difficulty": 0,
+      "policy": "pack",
+      "arm": "procure",
+      "steps": 157,
+      "phase": "victory",
+      "hp": 58,
+      "actionHash": "27bd80d9927701346b10d3868f568312a1b1c9153332999b658c40074e809b2c"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 0,
+      "policy": "pack",
+      "arm": "skip-acquisition",
+      "steps": 154,
+      "phase": "victory",
+      "hp": 46,
+      "actionHash": "7dea4b75c16094fd2d5c993af05eb6cf72d51515b0a638a444871164d381d4d8"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 0,
+      "policy": "strictsolo",
+      "arm": "procure",
+      "steps": 110,
+      "phase": "victory",
+      "hp": 39,
+      "actionHash": "7a3ea78ccd73011e4f613e2231bb6b95d54e6e643bc56c2d8c0a12d9c1d4a73f"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 0,
+      "policy": "strictsolo",
+      "arm": "skip-acquisition",
+      "steps": 95,
+      "phase": "defeat",
+      "hp": 0,
+      "actionHash": "af01f40f324e2bb88b8bf64a94365c0bca11efcd7b41602855b2e6ea58cb59fc"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 0,
+      "policy": "spellhybrid",
+      "arm": "procure",
+      "steps": 141,
+      "phase": "victory",
+      "hp": 20,
+      "actionHash": "f01c0617c7e977dde2b11a6457748b40c01ac761438b082d6a33d3fca3b6e9c7"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 0,
+      "policy": "spellhybrid",
+      "arm": "skip-acquisition",
+      "steps": 163,
+      "phase": "victory",
+      "hp": 34,
+      "actionHash": "671f3e4b86ec0ab7da3790e7b588ddd4612e0c16c2a311b1a88e4d9c5757822d"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 0,
+      "policy": "lean",
+      "arm": "procure",
+      "steps": 163,
+      "phase": "victory",
+      "hp": 58,
+      "actionHash": "3080e001a9942b17f58ea908caba66584077c9f71790a99b3850e158506b135d"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 0,
+      "policy": "lean",
+      "arm": "skip-acquisition",
+      "steps": 159,
+      "phase": "victory",
+      "hp": 43,
+      "actionHash": "2e9599d57e230e153935029a38e45494fb267a673b8268126d898fe9cc8d7dde"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 1,
+      "policy": "pack",
+      "arm": "procure",
+      "steps": 173,
+      "phase": "victory",
+      "hp": 45,
+      "actionHash": "26329494ea084ca572887123751ddf92060ac468bbcdd396454b462654d39ce2"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 1,
+      "policy": "pack",
+      "arm": "skip-acquisition",
+      "steps": 169,
+      "phase": "victory",
+      "hp": 31,
+      "actionHash": "14cc37c6b9bae389bc9d1fcdc16a9156ab0a58d0568fc0834ac55bd1a0bc9c9a"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 1,
+      "policy": "strictsolo",
+      "arm": "procure",
+      "steps": 79,
+      "phase": "defeat",
+      "hp": 0,
+      "actionHash": "18df26856b6e0c0a0d289c9d9f7f82091996ea23c93412d5a04d8db65a6311ac"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 1,
+      "policy": "strictsolo",
+      "arm": "skip-acquisition",
+      "steps": 86,
+      "phase": "defeat",
+      "hp": 0,
+      "actionHash": "f6acd07abf599f8b78ef0f11c4f786ded48ee3586da39e4948e1b34cc778349e"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 1,
+      "policy": "spellhybrid",
+      "arm": "procure",
+      "steps": 159,
+      "phase": "victory",
+      "hp": 12,
+      "actionHash": "ba18e688b65416967f31f907e79e6ed6e4043e9d05a23e0b679cae09137a0cb1"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 1,
+      "policy": "spellhybrid",
+      "arm": "skip-acquisition",
+      "steps": 173,
+      "phase": "defeat",
+      "hp": 0,
+      "actionHash": "2a609439f907795b21db99ea7cd73df3866b039fb44fc0053383f021780ab8eb"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 1,
+      "policy": "lean",
+      "arm": "procure",
+      "steps": 173,
+      "phase": "victory",
+      "hp": 38,
+      "actionHash": "1d4f8fd3041fc64356afba581c410e9af47895e2dcf39f5a53b83494c00b131f"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 1,
+      "policy": "lean",
+      "arm": "skip-acquisition",
+      "steps": 169,
+      "phase": "victory",
+      "hp": 47,
+      "actionHash": "0c5f364b404841de76502a9451591efe125d077dfa8786867a27f1527904102f"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 2,
+      "policy": "pack",
+      "arm": "procure",
+      "steps": 101,
+      "phase": "defeat",
+      "hp": 0,
+      "actionHash": "53d852200be2116e6a506c8c8b66a92d58fbac116d4f6d37bdd19825ab14b907"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 2,
+      "policy": "pack",
+      "arm": "skip-acquisition",
+      "steps": 93,
+      "phase": "defeat",
+      "hp": 0,
+      "actionHash": "7c77d535175a9ad2232d6c404213e52cdec9c5ad42178686f381b74a7a8abeff"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 2,
+      "policy": "strictsolo",
+      "arm": "procure",
+      "steps": 68,
+      "phase": "defeat",
+      "hp": 0,
+      "actionHash": "bfd08e812ba540c3958773c6fb1d56383b9ba1988af48915d7e29aa40a089a95"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 2,
+      "policy": "strictsolo",
+      "arm": "skip-acquisition",
+      "steps": 68,
+      "phase": "defeat",
+      "hp": 0,
+      "actionHash": "ec938ff1ce23b2a60cd3b745f91850e5218b4ce81b3829f17183c6f44ebb989a"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 2,
+      "policy": "spellhybrid",
+      "arm": "procure",
+      "steps": 91,
+      "phase": "defeat",
+      "hp": 0,
+      "actionHash": "0ee3b0e0b391c3b1bea656d074e22fae61212e2adb9eecd4ddfc2f354de2670f"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 2,
+      "policy": "spellhybrid",
+      "arm": "skip-acquisition",
+      "steps": 94,
+      "phase": "defeat",
+      "hp": 0,
+      "actionHash": "c5c3f880880727a3e4cdcdbc9acdedae2bdd48a5488a2e37eef7efe3b8927be2"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 2,
+      "policy": "lean",
+      "arm": "procure",
+      "steps": 99,
+      "phase": "defeat",
+      "hp": 0,
+      "actionHash": "17916354bad9b582ed1c1d4c9b40a7816e8966e412163463e12d5b1878af52e8"
+    },
+    {
+      "seed": 44101,
+      "difficulty": 2,
+      "policy": "lean",
+      "arm": "skip-acquisition",
+      "steps": 95,
+      "phase": "defeat",
+      "hp": 0,
+      "actionHash": "68007ea756b08753342372b7d6d058e01b29fc3d6a30971fa3412d0cbfc31572"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 0,
+      "policy": "pack",
+      "arm": "procure",
+      "steps": 167,
+      "phase": "victory",
+      "hp": 34,
+      "actionHash": "5bf456c2090e8c12357bf4e5acbac893a84f72d91e3ace07162fbf2774f33f0d"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 0,
+      "policy": "pack",
+      "arm": "skip-acquisition",
+      "steps": 151,
+      "phase": "victory",
+      "hp": 46,
+      "actionHash": "d9976604b1875c668f523b7b02e329bd2414dc710d23fbb01b04512228411a1d"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 0,
+      "policy": "strictsolo",
+      "arm": "procure",
+      "steps": 162,
+      "phase": "victory",
+      "hp": 65,
+      "actionHash": "4a57a4081de02c680a9aa4cb9a1fcf429b38bf353f26a8cf017527f89113e063"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 0,
+      "policy": "strictsolo",
+      "arm": "skip-acquisition",
+      "steps": 127,
+      "phase": "victory",
+      "hp": 31,
+      "actionHash": "2802902033d1b2db45629e46f585d91e468f962bb0bbdcf06cf27fafbf1b4628"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 0,
+      "policy": "spellhybrid",
+      "arm": "procure",
+      "steps": 151,
+      "phase": "victory",
+      "hp": 46,
+      "actionHash": "ccf5d9f9da729037f46b1ec7d1121852187ac05be88f751caf5afe2e2a73f054"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 0,
+      "policy": "spellhybrid",
+      "arm": "skip-acquisition",
+      "steps": 151,
+      "phase": "victory",
+      "hp": 30,
+      "actionHash": "e7b2b237f7f820bc6d683fdfa032b2bb4da7ee6c04e87ad32191647ac0554213"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 0,
+      "policy": "lean",
+      "arm": "procure",
+      "steps": 162,
+      "phase": "victory",
+      "hp": 20,
+      "actionHash": "839b6d40f024eb30564fe14206c3c37b7f73d78af92ed3c6fc583e94cb932251"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 0,
+      "policy": "lean",
+      "arm": "skip-acquisition",
+      "steps": 159,
+      "phase": "victory",
+      "hp": 43,
+      "actionHash": "785f373c8f4b8d7ea314b461773fa734c2dbdb6d7dc2503e210bc58391f2496a"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 1,
+      "policy": "pack",
+      "arm": "procure",
+      "steps": 183,
+      "phase": "victory",
+      "hp": 23,
+      "actionHash": "21a7cf42ea6ca011dba11c7269a54562198c4024d0f145077ff99ca59f6fd21c"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 1,
+      "policy": "pack",
+      "arm": "skip-acquisition",
+      "steps": 168,
+      "phase": "victory",
+      "hp": 24,
+      "actionHash": "286a24cc99d564e34cc212e3ca597c671a5926aa79d55a294608f9c9383112c5"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 1,
+      "policy": "strictsolo",
+      "arm": "procure",
+      "steps": 170,
+      "phase": "victory",
+      "hp": 64,
+      "actionHash": "79bd6c8325568a20f21723c1604085411db3c969443ed2af3b3279a31837d41f"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 1,
+      "policy": "strictsolo",
+      "arm": "skip-acquisition",
+      "steps": 134,
+      "phase": "victory",
+      "hp": 15,
+      "actionHash": "fb3f88794ac67891469bba414cbf152712f9a070498f647e76ba9af95176a0bf"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 1,
+      "policy": "spellhybrid",
+      "arm": "procure",
+      "steps": 163,
+      "phase": "victory",
+      "hp": 27,
+      "actionHash": "68f5691f008587795fff2c250b9cc1a46efb344045fe1144cd7334a0e4ec840e"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 1,
+      "policy": "spellhybrid",
+      "arm": "skip-acquisition",
+      "steps": 169,
+      "phase": "victory",
+      "hp": 15,
+      "actionHash": "415f6bd0708b48408239e35637a8bdf27407329401c7086f265a0d2d7a3e8ab1"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 1,
+      "policy": "lean",
+      "arm": "procure",
+      "steps": 186,
+      "phase": "victory",
+      "hp": 36,
+      "actionHash": "47dc3c80ca597c45c6e8a04caf3aaca4f07f6aa39669be93f55a632ef1feb1b9"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 1,
+      "policy": "lean",
+      "arm": "skip-acquisition",
+      "steps": 168,
+      "phase": "victory",
+      "hp": 35,
+      "actionHash": "06a69b8db960ef5f628f945c702ce8f82897aa3ccd221ed8398acc632addc626"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 2,
+      "policy": "pack",
+      "arm": "procure",
+      "steps": 201,
+      "phase": "victory",
+      "hp": 10,
+      "actionHash": "0b39140984f51f3522f564046a23cc4de50c502886fc71a9773c46ad443eb650"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 2,
+      "policy": "pack",
+      "arm": "skip-acquisition",
+      "steps": 186,
+      "phase": "victory",
+      "hp": 30,
+      "actionHash": "86a117be41d5af06a3a07a5a147e76c017dc86a7f34f8d7724a39c2b266edeff"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 2,
+      "policy": "strictsolo",
+      "arm": "procure",
+      "steps": 182,
+      "phase": "victory",
+      "hp": 39,
+      "actionHash": "058a8b050be469edb455167923d3dcea31a23bf7c9b99f7d1a9dc096742a368f"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 2,
+      "policy": "strictsolo",
+      "arm": "skip-acquisition",
+      "steps": 123,
+      "phase": "defeat",
+      "hp": 0,
+      "actionHash": "a8dc674b9c79dd0014616aea173a29d89bb7d5de7c5d4deafac03625072d4c80"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 2,
+      "policy": "spellhybrid",
+      "arm": "procure",
+      "steps": 178,
+      "phase": "victory",
+      "hp": 12,
+      "actionHash": "894c49ae0f9ffba1adb65f89b934da3539424c3ec31a2737ec0e404e336844b4"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 2,
+      "policy": "spellhybrid",
+      "arm": "skip-acquisition",
+      "steps": 130,
+      "phase": "defeat",
+      "hp": 0,
+      "actionHash": "d281981104cc78c4ca438ccbec9cb79ee083741167cfc8a047270931d050e5d0"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 2,
+      "policy": "lean",
+      "arm": "procure",
+      "steps": 212,
+      "phase": "victory",
+      "hp": 21,
+      "actionHash": "c191c31dd2b5f152234d012d6291a1df92202c1ff03704619d88d6e09c4918ec"
+    },
+    {
+      "seed": 44196,
+      "difficulty": 2,
+      "policy": "lean",
+      "arm": "skip-acquisition",
+      "steps": 188,
+      "phase": "victory",
+      "hp": 16,
+      "actionHash": "29a257a19967abf1b550bb2cabec08ba89905f0755a8a98ecf70fc3eb2b1026f"
+    }
+  ],
+  "probeSource": "/** Independent v0.5 audit. No runtime mutation, no virtual prices/world sampler. */\nimport assert from 'node:assert/strict';\nimport {createHash} from 'node:crypto';\nimport {readFileSync,writeFileSync,mkdtempSync,existsSync} from 'node:fs';\nimport {execFileSync} from 'node:child_process';\nimport {tmpdir} from 'node:os';\nimport {join} from 'node:path';\nimport {pathToFileURL} from 'node:url';\nimport {gzipSync,gunzipSync} from 'node:zlib';\nimport * as engine from '/workspace/Roguelike-deckbuilder/src/engine';\nimport {applyAction,createGame,legalActions,validateState,CARDS,type GameState,type Action,type Unit} from '/workspace/Roguelike-deckbuilder/src/engine';\nimport {BASE_CARD_IDS,RELICS,SHOP_PRICES,bossForSeed} from '/workspace/Roguelike-deckbuilder/src/content';\nimport {worldOrder,worldRank,worldFormation} from '/workspace/Roguelike-deckbuilder/src/world-rng';\nimport {chooseHeuristic} from '/workspace/Roguelike-deckbuilder/scripts/simulate.ts';\ntype Mode='solo'|'pack'|'widow-hybrid'|'lean-pack';\ntype Progression='legal-remove-first'|'legal-buy-first';\nconst base=(id:string)=>id.replace('+','');\n// Copied evaluator only; original investigation's counterfactual wrappers excluded.\nfunction threat(s: GameState, e: Unit) {\n  const i = e.intent!;\n  const target = s.allies.find((u) => u.uid === i.target);\n  return (\n    (i.target === \"hunter\" ||\n    i.target === \"all\" ||\n    (!target && i.target !== e.uid)\n      ? i.damage\n      : 0) *\n      5 +\n    (i.summon?.length ?? 0) * 22 +\n    (i.target === \"all\"\n      ? s.allies.length * i.damage\n      : target\n        ? Math.min(target.hp, i.damage)\n        : 0) *\n      2\n  );\n}\nfunction anticipated(s: GameState) {\n  let block = s.block,\n    total = 0;\n  const alive = new Set(s.allies.map((u) => u.uid));\n  for (const e of s.enemies) {\n    const i = e.intent!;\n    if (\n      i.target === \"all\" ||\n      i.target === \"hunter\" ||\n      (i.target !== e.uid && !alive.has(i.target))\n    ) {\n      if (e.cardId === \"revenant\") total += i.damage;\n      else {\n        total += Math.max(0, i.damage - block);\n        block = Math.max(0, block - i.damage);\n      }\n    }\n  }\n  return total;\n}\nconst soloValues: Record<string, number> = {\n  resonance: 120,\n  gravetithe: 110,\n  silence: 100,\n  survey: 95,\n  draught: 100,\n  witchfire: 90,\n  sunder: 75,\n  ironward: 72,\n  scour: 65,\n  bloodprice: 35,\n};\nconst packValues: Record<string, number> = {\n  edict: 110,\n  silence: 105,\n  survey: 100,\n  killcommand: 90,\n  harpoon: 95,\n  covenant: 90,\n  aegis: 85,\n  gravetithe: 85,\n  gravehound: 85,\n  fenraker: 85,\n  ossuarycolossus: 80,\n  emberwidow: 80,\n  cairnhound: 70,\n  ashwidow: 65,\n  fenstalker: 60,\n  briarcolossus: 55,\n  sunder: 75,\n  draught: 60,\n  witchfire: 50,\n};\nfunction value(s: GameState, id: string, mode: Mode) {\n  const c = CARDS[id];\n  if (mode === \"solo\" && c.type === \"summon\") return -100;\n  if (mode === \"widow-hybrid\" && c.type === \"summon\" && c.species !== \"spider\")\n    return -100;\n  if (mode === \"lean-pack\" && c.species === \"spider\") return -100;\n  let v =\n    (mode === \"solo\" || mode === \"widow-hybrid\" ? soloValues : packValues)[\n      base(id)\n    ] ?? 20;\n  if (mode === \"widow-hybrid\" && c.species === \"spider\") v = 110;\n  if (\n    bossForSeed(s.seed) === \"cantor\" &&\n    [\"silence\", \"witchfire\"].includes(base(id))\n  )\n    v += 12;\n  return v;\n}\nfunction combatScore(s: GameState, a: Action, mode: Mode) {\n  if (a.type === \"endTurn\") return 0;\n  if (a.type !== \"play\" && a.type !== \"attack\") return -1000;\n  const c = a.type === \"play\" ? CARDS[s.hand[a.index]] : undefined;\n  if (c?.type === \"summon\")\n    return mode === \"solo\" ? -1000 : 125 + (c.attack ?? 0) * 3 - c.cost * 4;\n  const next = applyAction(s, a);\n  if (next.phase === \"victory\" || next.phase === \"reward\") return 10000;\n  if (next.phase === \"defeat\") return -10000;\n  const dealt = s.enemies.reduce(\n    (sum, e) =>\n      sum +\n      Math.max(0, e.hp - (next.enemies.find((u) => u.uid === e.uid)?.hp ?? 0)),\n    0,\n  );\n  const killed = s.enemies.filter(\n    (e) => !next.enemies.some((u) => u.uid === e.uid),\n  );\n  let score =\n    dealt * 5 +\n    killed.reduce((n, e) => n + 80 + threat(s, e), 0) +\n    (next.hp - s.hp) * 8;\n  score +=\n    (anticipated(s) - anticipated(next)) * (anticipated(s) >= s.hp ? 25 : 7);\n  if (a.type === \"attack\") {\n    const u = s.allies.find((u) => u.uid === a.unit)!;\n    const after = next.allies.find((a) => a.uid === u.uid);\n    score += 10 + (after ? after.hp - u.hp : -u.hp - 8) * 8;\n    return score;\n  }\n  const effect = c!.effect,\n    v = c!.value ?? 0;\n  if (effect === \"draw\")\n    return s.energy > c!.cost\n      ? 80 + (next.hand.length - s.hand.length) * 4\n      : -1;\n  if (effect === \"energy\")\n    return s.hp > 12 &&\n      s.hand.some((id) => CARDS[id].cost > s.energy) &&\n      s.energy < 3\n      ? 90\n      : -1;\n  if (effect === \"rally\")\n    score += s.allies.filter((u) => !u.acted).length * v * 13;\n  if (effect === \"ready\") {\n    const u = s.allies.find((u) => u.uid === a.target);\n    score += u?.acted ? 80 + u.attack * 5 : -50;\n  }\n  if (effect === \"heal\") {\n    const u = s.allies.find((u) => u.uid === a.target),\n      after = next.allies.find((u) => u.uid === a.target);\n    if (u && after) score += (after.hp - u.hp) * 8;\n  }\n  if (effect === \"shelter\")\n    score += s.allies.reduce(\n      (n, u) =>\n        n +\n        Math.min(\n          v,\n          s.enemies\n            .filter(\n              (e) => e.intent!.target === u.uid || e.intent!.target === \"all\",\n            )\n            .reduce((d, e) => d + e.intent!.damage, 0),\n        ) *\n          4,\n      0,\n    );\n  if (effect === \"control\") {\n    const e = s.enemies.find((e) => e.uid === a.target)!;\n    score += (e.intent!.summon?.length ?? 0) * 35;\n  }\n  if (effect === \"shred\") {\n    const e = s.enemies.find((e) => e.uid === a.target)!;\n    score += e.block * 4;\n  }\n  return score > 0 ? score + 4 : -1;\n}\nfunction progressionScore(s: GameState, a: Action, mode: Mode, p: Progression) {\n  switch (a.type) {\n    case \"travel\":\n      return mode === \"solo\"\n        ? (\n            {\n              battle: 70,\n              elite: 0,\n              event: 80,\n              shop: 100,\n              camp: 10,\n              boss: 100,\n            } as Record<string, number>\n          )[a.choice]\n        : (\n            {\n              battle: 50,\n              elite: 90,\n              camp: 90,\n              shop: s.floor === 4 ? 100 : 10,\n              event: 5,\n              boss: 100,\n            } as Record<string, number>\n          )[a.choice];\n    case \"reward\":\n      return a.card ? value(s, a.card, mode) : 40;\n    case \"buy\":\n      return s.deck.length < 19 && value(s, a.card, mode) >= 65\n        ? value(s, a.card, mode)\n        : 0;\n    case \"remove\": {\n      const c = CARDS[s.deck[a.index]];\n      if (mode === \"widow-hybrid\")\n        return c.type === \"summon\" && c.species !== \"spider\" ? 180 + c.cost : 0;\n      if (mode === \"lean-pack\")\n        return c.species === \"spider\" ? 180 : c.effect === \"heal\" ? 50 : 0;\n      return mode === \"solo\"\n        ? c.type === \"summon\"\n          ? (p === \"legal-buy-first\" ? 95 : 180) + c.cost\n          : c.effect === \"heal\"\n            ? 80\n            : 0\n        : c.effect === \"heal\"\n          ? 50\n          : 0;\n    }\n    case \"camp\":\n      return a.choice === \"rest\"\n        ? s.hp < 42\n          ? 180\n          : 0\n        : 50 +\n            (base(s.deck[a.index!]) === \"silence\"\n              ? 80\n              : base(s.deck[a.index!]) === \"survey\"\n                ? 65\n                : base(s.deck[a.index!]) === \"edict\"\n                  ? 50\n                  : 10);\n    case \"event\":\n      return a.choice === \"bargain\" && s.hp < 52\n        ? 150\n        : a.choice === \"offering\" && s.hp > 35\n          ? 100\n          : a.choice === \"forage\"\n            ? 80\n            : 0;\n    case \"leave\":\n      return 1;\n    default:\n      return combatScore(s, a, mode);\n  }\n}\n\nconst output='/workspace/Roguelike-deckbuilder/reviews/gameplay-v0.5-engine-serialization.json';\nassert.equal(existsSync(output),false);\nconst modes:Record<string,Mode>={pack:'pack',strictsolo:'solo',spellhybrid:'widow-hybrid',lean:'lean-pack'};\nconst evidence:any[]=[];let total=0,drawBoundaries=0;const phases=new Set<string>();\nfor(const seed of [44101,44196])for(const difficulty of [0,1,2])for(const policy of Object.keys(modes))for(const arm of ['procure','skip-acquisition']){\n let s=createGame(seed,difficulty),steps=0;const actionsHash=createHash('sha256');\n for(;steps<1500&&legalActions(s).length;steps++){\n  phases.add(s.phase);const actions=legalActions(s).filter(a=>arm==='procure'||a.type!=='buy'&&(a.type!=='reward'||a.card===null));\n  const a=actions.reduce((best,a)=>progressionScore(s,a,modes[policy],'legal-remove-first')>progressionScore(s,best,modes[policy],'legal-remove-first')?a:best,actions[0]);\n  actionsHash.update(JSON.stringify(a)+'\\n');const raw=JSON.stringify(s),parsed=JSON.parse(raw);\n  assert.ok(validateState(parsed));const first=engine.applyActionWithEvents(s,a),second=engine.applyActionWithEvents(parsed,a);\n  assert.equal(JSON.stringify(s),raw);assert.deepEqual(first,second);assert.deepEqual(applyAction(parsed,a),second.state);\n  if(a.type==='endTurn'&&s.draw.length<5&&first.state.phase==='battle')drawBoundaries++;\n  s=first.state;assert.ok(validateState(s));total++;\n }\n assert.ok(['victory','defeat'].includes(s.phase));assert.equal(legalActions(s).length,0);\n assert.deepEqual(engine.applyActionWithEvents(s,{type:'endTurn'}),{state:s,events:[]});\n evidence.push({seed,difficulty,policy,arm,steps,phase:s.phase,hp:s.hp,actionHash:actionsHash.digest('hex')});\n}\nconst hash=(f:string)=>createHash('sha256').update(readFileSync(f)).digest('hex');\nwriteFileSync(output,JSON.stringify({sourceHashes:{engine:hash('/workspace/Roguelike-deckbuilder/src/engine.ts'),world:hash('/workspace/Roguelike-deckbuilder/src/world-rng.ts'),harness:hash('/workspace/Roguelike-deckbuilder/scripts/review-world-v0.5.ts')},qualified:'48 deterministic replays from declared holdout endpoints, not additional independent heldout seeds',totalAccepted:total,drawBoundaries,phases:[...phases],evidence,probeSource:readFileSync(import.meta.filename,'utf8')},null,2)+'\\n');\nconsole.log(JSON.stringify({output,campaigns:evidence.length,total,drawBoundaries,phases:[...phases]}));\n"
+}

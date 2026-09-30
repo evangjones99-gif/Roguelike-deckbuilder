@@ -1,0 +1,26 @@
+{
+  "method": "Measure actual descendant bounding boxes against fixed card bottom; scrollHeight alone misses overflow hidden descendants.",
+  "build": "936821d5bf112eea14d4b4c526f6b054eb3c6ed93752f9ad1eb0a254c5222f74",
+  "results": [
+    {
+      "card": "emberwidow",
+      "element": "card-stats",
+      "text": " 3 Attack  11 Health",
+      "cardBottom": 578.09375,
+      "bottom": 585,
+      "overflow": 6.90625,
+      "height": 254,
+      "scrollHeight": 262
+    },
+    {
+      "card": "emberwidow+",
+      "element": "card-stats",
+      "text": " 4 Attack  14 Health",
+      "cardBottom": 578.09375,
+      "bottom": 585,
+      "overflow": 6.90625,
+      "height": 254,
+      "scrollHeight": 262
+    }
+  ]
+}

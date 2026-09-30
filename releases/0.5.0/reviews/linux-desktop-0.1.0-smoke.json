@@ -1,0 +1,29 @@
+{
+  "version": "0.1.0",
+  "executablePath": "./build-desktop/linux-unpacked/lanternbound",
+  "display": "Xvfb",
+  "rendering": "SwiftShader software GPU",
+  "sandboxDisabledForTest": true,
+  "steps": [
+    "launch offline packaged binary",
+    "settings motion off",
+    "seed117 start",
+    "tutorial/map",
+    "summon Mossling",
+    "command against enemy"
+  ],
+  "state": {
+    "phase": "battle",
+    "allies": 1,
+    "enemies": 2,
+    "hp": 65
+  },
+  "errors": [],
+  "limitations": [
+    "Linux host only, virtual display/software GPU",
+    "Test launches with --no-sandbox due cloud constraints; normal sandboxed clean-machine launch unverified",
+    "Windows binary packaging verified separately; Windows launch not tested",
+    "No Steam depot/install test"
+  ],
+  "runtimeSourceDigest": "753e245a12f27e9b8772032b5885a515cff62a948183d603d8c43b543589e4f5"
+}

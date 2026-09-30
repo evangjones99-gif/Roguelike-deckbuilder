@@ -1,0 +1,81 @@
+{
+  "syntheticBrowserQA": true,
+  "adapterShipped": false,
+  "hostContextBorrowed": true,
+  "physicalController": false,
+  "checks": [
+    {
+      "name": "map-menu-regions-and-direction",
+      "canonicalUnchanged": true,
+      "regionFocusRestored": true
+    },
+    {
+      "name": "camp-menu-regions-and-direction",
+      "canonicalUnchanged": true,
+      "regionFocusRestored": true
+    },
+    {
+      "name": "camp-activation-exact-reducer",
+      "heldDoesNotRepeat": true,
+      "canonicalEqualsReducer": true
+    },
+    {
+      "name": "shop-menu-regions-and-direction",
+      "canonicalUnchanged": true,
+      "regionFocusRestored": true
+    },
+    {
+      "name": "shop-activation-exact-reducer",
+      "heldDoesNotRepeat": true,
+      "canonicalEqualsReducer": true
+    },
+    {
+      "name": "event-menu-regions-and-direction",
+      "canonicalUnchanged": true,
+      "regionFocusRestored": true
+    },
+    {
+      "name": "event-activation-exact-reducer",
+      "heldDoesNotRepeat": true,
+      "canonicalEqualsReducer": true
+    },
+    {
+      "name": "reward-menu-regions-and-direction",
+      "canonicalUnchanged": true,
+      "regionFocusRestored": true
+    },
+    {
+      "name": "reward-activation-exact-reducer",
+      "heldDoesNotRepeat": true,
+      "canonicalEqualsReducer": true
+    }
+  ],
+  "errors": [],
+  "beforeRuntimeHashes": {
+    "src/main.ts": "7847bbac18cba3009ea993e68384e2bb1a8399eea4544424fb4823e025dd5526",
+    "src/style.css": "357345b6276e4a26515cb19964c416056c00efe64215241cdcb50883d1be49a2",
+    "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+    "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+    "src/arena.ts": "2e2a5d65a58db91d09ef0e8746a98264fca129520a988ccbb3b5233569f32b79"
+  },
+  "unexercisedTerminalPhases": {
+    "phases": [
+      "victory",
+      "defeat"
+    ],
+    "reason": "Current title intentionally hides Resume for terminal saved phases; the first harness attempt timed out at victory. Main integration tests must reach an outcome normally."
+  },
+  "build": {
+    "version": "0.5.0",
+    "digest": "d6221bf764bad593b04981e87bead7ba6868b72cf361d70671af5c91aac39416"
+  },
+  "afterRuntimeHashes": {
+    "src/main.ts": "7847bbac18cba3009ea993e68384e2bb1a8399eea4544424fb4823e025dd5526",
+    "src/style.css": "357345b6276e4a26515cb19964c416056c00efe64215241cdcb50883d1be49a2",
+    "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+    "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+    "src/arena.ts": "2e2a5d65a58db91d09ef0e8746a98264fca129520a988ccbb3b5233569f32b79"
+  },
+  "runtimeUnchanged": true,
+  "passed": 9
+}

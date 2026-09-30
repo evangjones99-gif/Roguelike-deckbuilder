@@ -1,0 +1,18 @@
+{
+  "runId": 36770754936,
+  "jobId": 110076242346,
+  "headCommit": "1e4838dd73d64c1f1a32ef9d92b4b8436911a0ab",
+  "platform": "native Windows Server2022 x64",
+  "node": "24.19.0",
+  "rules": {
+    "passed": 54,
+    "failed": 0
+  },
+  "build": "passed",
+  "runtimeDigest": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+  "crossPlatformSourceIdentity": "Matches actual Linux build",
+  "packaging": "passed with resources enabled and signing disabled",
+  "launch": "not reached",
+  "reason": "Read-only resource comparison needs stock Electron; npm install left no node_modules/electron/dist/electron.exe",
+  "repair": "Execute the locked Electron installation script explicitly in CI before resource comparison"
+}

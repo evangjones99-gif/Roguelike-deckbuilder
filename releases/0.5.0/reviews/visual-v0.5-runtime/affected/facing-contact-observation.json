@@ -1,0 +1,49 @@
+{
+  "method": "Manual painted cleaver landmark near local(450,430) projected through actual source crop/destination/canvas transform, compared with actual gold slash target center. Anatomical landmark approximation, not skeletal hitbox. Same frozen candidatecdf.",
+  "cases": [
+    {
+      "name": "warleader-melee-left",
+      "targetUid": "a10",
+      "closestAttackFrame": {
+        "elapsed": 285.5,
+        "mirror": -1,
+        "bodyGround": [
+          186.77255249023438,
+          231.8787384033203
+        ],
+        "bladeLandmark": [
+          130.0357801688058,
+          218.49732704311847
+        ],
+        "target": [
+          108.28571428571429,
+          212.00217142857144
+        ],
+        "distance": 22.699172063667927
+      },
+      "attackImpactSamples": 4
+    },
+    {
+      "name": "warleader-melee-right",
+      "targetUid": "a15",
+      "closestAttackFrame": {
+        "elapsed": 252.09999999962747,
+        "mirror": -1,
+        "bodyGround": [
+          576.2830200195312,
+          231.71221923828125
+        ],
+        "bladeLandmark": [
+          519.5462476981027,
+          218.33452932989277
+        ],
+        "target": [
+          649.7142857142857,
+          209.00352342857147
+        ],
+        "distance": 130.5020528271987
+      },
+      "attackImpactSamples": 5
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "method": "Manual painted cleaver(450,430)/houndnose(432,255) source landmarks projected through actual crop/destination/native canvas transform, compared with actual voluntary gold-slash center during attack cel. Approximate anatomical observation, not a skeleton/hitbox.",
+  "cases": [
+    {
+      "name": "warleader-melee-left",
+      "digest": "d6221bf764bad593b04981e87bead7ba6868b72cf361d70671af5c91aac39416",
+      "sourceLandmark": [
+        450,
+        430
+      ],
+      "targetUid": "a10",
+      "samples": 5,
+      "closestAttackImpactFrame": {
+        "elapsed": 241.7000000011176,
+        "mirror": -1,
+        "bodyGround": [
+          181.7169647216797,
+          233.89749145507812
+        ],
+        "landmark": [
+          124.9801924002511,
+          220.52500885289
+        ],
+        "target": [
+          108.28571428571429,
+          212.00217142857144
+        ],
+        "distance": 18.744181958093385
+      }
+    },
+    {
+      "name": "warleader-melee-right",
+      "digest": "d6221bf764bad593b04981e87bead7ba6868b72cf361d70671af5c91aac39416",
+      "sourceLandmark": [
+        450,
+        430
+      ],
+      "targetUid": "a15",
+      "samples": 5,
+      "closestAttackImpactFrame": {
+        "elapsed": 245.09999999962747,
+        "mirror": 1,
+        "bodyGround": [
+          576.2830200195312,
+          231.71221923828125
+        ],
+        "landmark": [
+          633.0197923409598,
+          218.3398553119967
+        ],
+        "target": [
+          649.7142857142857,
+          209.00352342857144
+        ],
+        "distance": 19.12781226459218
+      }
+    },
+    {
+      "name": "warleader-vertical",
+      "digest": "d6221bf764bad593b04981e87bead7ba6868b72cf361d70671af5c91aac39416",
+      "sourceLandmark": [
+        450,
+        430
+      ],
+      "targetUid": "a10",
+      "samples": 5,
+      "closestAttackImpactFrame": {
+        "elapsed": 234.69999999925494,
+        "mirror": -1,
+        "bodyGround": [
+          330.7148132324219,
+          233.59657287597656
+        ],
+        "landmark": [
+          262.10290251813615,
+          217.23205640511853
+        ],
+        "target": [
+          234.32,
+          185.3961
+        ],
+        "distance": 42.254204436492046
+      }
+    },
+    {
+      "name": "hound-leftward",
+      "digest": "d6221bf764bad593b04981e87bead7ba6868b72cf361d70671af5c91aac39416",
+      "sourceLandmark": [
+        432,
+        255
+      ],
+      "targetUid": "e30",
+      "samples": 4,
+      "closestAttackImpactFrame": {
+        "elapsed": 244.69999999925494,
+        "mirror": -1,
+        "bodyGround": [
+          255.14820861816406,
+          182.16905212402344
+        ],
+        "landmark": [
+          204.92168480864024,
+          127.3722663342981
+        ],
+        "target": [
+          108.28571428571429,
+          112.28217142857143
+        ],
+        "distance": 97.80706397378285
+      }
+    },
+    {
+      "name": "hound-rightward",
+      "digest": "d6221bf764bad593b04981e87bead7ba6868b72cf361d70671af5c91aac39416",
+      "sourceLandmark": [
+        432,
+        255
+      ],
+      "targetUid": "e35",
+      "samples": 5,
+      "closestAttackImpactFrame": {
+        "elapsed": 232.09999999962747,
+        "mirror": 1,
+        "bodyGround": [
+          502.8517761230469,
+          182.16905212402344
+        ],
+        "landmark": [
+          553.0782999325708,
+          127.47957040580468
+        ],
+        "target": [
+          649.7142857142857,
+          112.28217142857144
+        ],
+        "distance": 97.82369183217844
+      }
+    }
+  ]
+}
