@@ -1,0 +1,16 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {createGame,validateState,applyAction,type GameState,type Action} from '/workspace/Roguelike-deckbuilder/src/engine.ts';
+const root='/workspace/scratch/controller-v06-production-input/';
+const base=createGame(121);base.gold=100;base.hp=40;
+const campMap=structuredClone(base);campMap.floor=2;campMap.route=['camp','shop'];
+const eventMap=structuredClone(base);eventMap.floor=1;eventMap.route=['battle','event'];
+const camp=applyAction(campMap,{type:'travel',choice:'camp'});
+const shop=applyAction(campMap,{type:'travel',choice:'shop'});
+const event=applyAction(eventMap,{type:'travel',choice:'event'});
+const reward=structuredClone(base);reward.phase='reward';reward.floor=1;reward.route=['battle'];reward.rewards=['scour','sutures','cairnhound'];
+const victory=structuredClone(base);victory.phase='victory';victory.floor=10;victory.route=[];
+const defeat=JSON.parse(readFileSync(root+'probe-fixtures.json','utf8')).full as GameState;defeat.phase='defeat';defeat.hp=0;
+const states={map:campMap,camp,shop,event,reward,victory,defeat};for(const [name,state]of Object.entries(states))if(!validateState(state))throw Error('Invalid synthetic '+name);
+const actions:Record<string,Action>={camp:{type:'camp',choice:'rest'},shop:{type:'buy',card:shop.rewards[0]},event:{type:'event',choice:'forage'},reward:{type:'reward',card:null}};
+const expected=Object.fromEntries(Object.entries(actions).map(([name,action])=>[name,applyAction(states[name as keyof typeof states],action)]));
+writeFileSync(root+'menu-fixtures.json',JSON.stringify({syntheticFixtures:true,states,actions,expected},null,2)+'\n');console.log('Seven synthetic menu states validate; four exact reducer expectations ready.');

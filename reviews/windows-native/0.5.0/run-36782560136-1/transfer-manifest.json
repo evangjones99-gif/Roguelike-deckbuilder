@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "version": "0.5.0",
+  "sourceDigest": "d6221bf764bad593b04981e87bead7ba6868b72cf361d70671af5c91aac39416",
+  "commit": "eee00c2d2f30d5eae24d7d73566ab43f3a9f8d4f",
+  "runId": "36782560136",
+  "attempt": "1",
+  "archive": "hollowpact-0.5.0-windows-native-x64.zip",
+  "bytes": 183592465,
+  "sha256": "2343c5f16239c3f10c1248c44f279322e0bb579047098b379fc438cdb168e769",
+  "partBytes": 25165824,
+  "parts": [
+    {
+      "index": 1,
+      "filename": "part-01.bin",
+      "bytes": 25165824,
+      "sha256": "fa3b1c88dd86cb60f3e8afbe53cf6c84e0b6debdb1410098b1f8d91852922e7b"
+    },
+    {
+      "index": 2,
+      "filename": "part-02.bin",
+      "bytes": 25165824,
+      "sha256": "a2673acf88be7d03ee1d9131f7c96da852638aef96e449f5f34976370a388550"
+    },
+    {
+      "index": 3,
+      "filename": "part-03.bin",
+      "bytes": 25165824,
+      "sha256": "2e254269930d5251daac916a4df85bd31ce18bb3184d10cff2a7c8cd9b9567ed"
+    },
+    {
+      "index": 4,
+      "filename": "part-04.bin",
+      "bytes": 25165824,
+      "sha256": "af7ddec77a42e2333d4d7ef11ebb621ac7f27206e47861ddcc34537074f78ee2"
+    },
+    {
+      "index": 5,
+      "filename": "part-05.bin",
+      "bytes": 25165824,
+      "sha256": "953f2920b7fc43d31815579d1e0cdcf3eb41a934b44143946f431a6a924f9241"
+    },
+    {
+      "index": 6,
+      "filename": "part-06.bin",
+      "bytes": 25165824,
+      "sha256": "01ff4fd21885a9f6b9651f472f37611cdf6a520876fc163005dfd3a8b709749e"
+    },
+    {
+      "index": 7,
+      "filename": "part-07.bin",
+      "bytes": 25165824,
+      "sha256": "3f4e3468259214ac4a429b9f764e7676534a7c1ee32900b90396a81e90574db7"
+    },
+    {
+      "index": 8,
+      "filename": "part-08.bin",
+      "bytes": 7431697,
+      "sha256": "e9adfc6b61cf9ed3cd4819c9e3f9a91d476b25e01e7ca6bdc75d0864ff21b111"
+    }
+  ],
+  "reconstruction": "Extract each artifact; concatenate part files in numeric index order, verify each size/SHA256 and the whole ZIP size/SHA256 before unpacking. Parts alone are not runnable packages."
+}

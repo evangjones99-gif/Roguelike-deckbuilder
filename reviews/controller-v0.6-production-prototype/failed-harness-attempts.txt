@@ -1,0 +1,18 @@
+Recorded from actual unsuccessful probe tool output before correction. No runtime edits resulted.
+
+Lifecycle attempt1:
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+1 !== 0
+ at lifecycle-probe.mjs:11:70
+Cause: bringing another tab forward did not hide the first in this headless Chromium. A was still a valid foreground press. Passing evidence marks visibility as explicitly emulated.
+
+Lifecycle attempt2:
+page.evaluate: SyntaxError: Failed to set the contentEditable property on HTMLElement: The value provided ('') is not one of true, false, plaintext-only, or inherit.
+ at lifecycle-probe.mjs:17:12
+Cause: harness assigned an invalid empty IDL property. It now sets the valid empty contenteditable HTML attribute; native hbti typing passes.
+
+Menu attempt1:
+locator.click: Timeout30000ms exceeded waiting for [data-ui="resume"]
+ at load menus-probe.mjs:18:700
+ at menus-probe.mjs:29:14
+Cause: title intentionally excludes Resume for terminal saves. The corrected harness excludes victory/defeat and records them as unexercised, rather than bypassing that behavior. Exact attempt disclosure JSON also retained.

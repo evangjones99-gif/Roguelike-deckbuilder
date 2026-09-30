@@ -1,0 +1,2255 @@
+{
+  "method": "Actual collection card and descendant horizontal bounds against each grid entry and scroll container; adjacent card overlap reveals rule occlusion invisible to vertical-only tests",
+  "results": [
+    {
+      "name": "v4",
+      "url": "http://127.0.0.1:5184",
+      "provenance": {
+        "version": "0.4.0",
+        "sourceDigest": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+        "hashes": {
+          "THIRD-PARTY.md": "9f7ac1d4b03f8bf928ea0d73d5654207e9abc154b4f5365c5e30eb36eef8f329",
+          "desktop/icon.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+          "desktop/main.cjs": "1e54b1170ff4169285ff1757c0e768db2f144f7be919b4911a47394426cb75ae",
+          "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+          "package-lock.json": "5cad0ba16737bdf37068338f6747c0eeb6f2e204fa1afe63b8f4f3463e5c32c8",
+          "package.json": "0b4177c7ed775b00a85ac89456334e1a9200e232bdead9e592b8e5c49c91b8ea",
+          "public/art/PROVENANCE.json": "641fd7d91902b655782a3dde91a3039e894a1ffc84be43465e90e2cd0beed70a",
+          "public/art/abbey-courtyard.png": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+          "public/art/adversaries-atlas.png": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5",
+          "public/art/companions-atlas.png": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+          "public/art/hound-poses.png": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+          "public/art/hunter-portrait.png": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+          "public/art/pact-seal.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+          "scripts/build.mjs": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1",
+          "src/arena.ts": "55ca21caebd76cd078213cd3686d167c7600088bae94bbf7411f423858dfc299",
+          "src/art.ts": "0c6b04e531cb6a9afb5b27305835f61a11157720f5fbff8c56a4af6eb928c5ba",
+          "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+          "src/engine.ts": "ee85f1400a9d02142aee1dd66f82722453f35930bbf2c0c229ad38e38a818d0d",
+          "src/main.ts": "7b9162ee1005c3a016daa814d99d35b48ed7fa2eb0938f495337c5348c2458da",
+          "src/style.css": "527ca163bd46ca9edd11d8c1a543f170a59e389671fa83e83c34c0c0f2836a12",
+          "tsconfig.json": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c",
+          "vite.config.ts": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75"
+        },
+        "node": "v24.19.0"
+      },
+      "cards": [
+        {
+          "id": "cairnhound",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Cairn Hound",
+              "right": 709.0625,
+              "overEntry": -31.9375
+            },
+            {
+              "text": "On binding: gain 2 hunter block. Commands deal 2 extra damage to enemies with no block.",
+              "right": 766,
+              "overEntry": 25
+            },
+            {
+              "text": " 3 Attack  7 Health",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "gravehound",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Grave Hound",
+              "right": 921.390625,
+              "overEntry": -30.609375
+            },
+            {
+              "text": "On binding: draw 1 card. Commands deal 2 extra damage to enemies with no block.",
+              "right": 977,
+              "overEntry": 25
+            },
+            {
+              "text": " 4 Attack  11 Health",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "fenstalker",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Fen Stalker",
+              "right": 1125.265625,
+              "overEntry": -37.734375
+            },
+            {
+              "text": "After a command deals damage, heal this creature 2 HP.",
+              "right": 1188,
+              "overEntry": 25
+            },
+            {
+              "text": " 4 Attack  10 Health",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "fenraker",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Fen Raker",
+              "right": 1332.71875,
+              "overEntry": -41.28125
+            },
+            {
+              "text": "On binding: heal the hunter 2 HP. After a command deals damage, heal this creature 2 HP.",
+              "right": 1399,
+              "overEntry": 25
+            },
+            {
+              "text": " 6 Attack  14 Health",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "briarcolossus",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Briar Colossus",
+              "right": 713.796875,
+              "overEntry": -27.203125
+            },
+            {
+              "text": "After commanding this creature, gain 2 hunter block.",
+              "right": 766,
+              "overEntry": 25
+            },
+            {
+              "text": " 4 Attack  18 Health",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "ossuarycolossus",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Ossuary Colossus",
+              "right": 934.734375,
+              "overEntry": -17.265625
+            },
+            {
+              "text": "On binding: all creatures gain 3 block. After commanding this creature, gain 2 hunter block.",
+              "right": 977,
+              "overEntry": 25
+            },
+            {
+              "text": " 6 Attack  24 Health",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "cairnhound+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Cairn Hound +",
+              "right": 1137.625,
+              "overEntry": -25.375
+            },
+            {
+              "text": "On binding: gain 2 hunter block. Commands deal 2 extra damage to enemies with no block.",
+              "right": 1188,
+              "overEntry": 25
+            },
+            {
+              "text": " 4 Attack  10 Health",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "gravehound+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Grave Hound +",
+              "right": 1349.953125,
+              "overEntry": -24.046875
+            },
+            {
+              "text": "On binding: draw 1 card. Commands deal 2 extra damage to enemies with no block.",
+              "right": 1399,
+              "overEntry": 25
+            },
+            {
+              "text": " 5 Attack  14 Health",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "fenstalker+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Fen Stalker +",
+              "right": 709.6875,
+              "overEntry": -31.3125
+            },
+            {
+              "text": "After a command deals damage, heal this creature 2 HP.",
+              "right": 766,
+              "overEntry": 25
+            },
+            {
+              "text": " 5 Attack  13 Health",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "fenraker+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Fen Raker +",
+              "right": 917.125,
+              "overEntry": -34.875
+            },
+            {
+              "text": "On binding: heal the hunter 2 HP. After a command deals damage, heal this creature 2 HP.",
+              "right": 977,
+              "overEntry": 25
+            },
+            {
+              "text": " 7 Attack  17 Health",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "briarcolossus+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Briar Colossus +",
+              "right": 1142.359375,
+              "overEntry": -20.640625
+            },
+            {
+              "text": "After commanding this creature, gain 2 hunter block.",
+              "right": 1188,
+              "overEntry": 25
+            },
+            {
+              "text": " 5 Attack  21 Health",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "ossuarycolossus+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Ossuary Colossus +",
+              "right": 1363.296875,
+              "overEntry": -10.703125
+            },
+            {
+              "text": "On binding: all creatures gain 3 block. After commanding this creature, gain 2 hunter block.",
+              "right": 1399,
+              "overEntry": 25
+            },
+            {
+              "text": " 7 Attack  27 Health",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "ashwidow",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Ash Widow",
+              "right": 703,
+              "overEntry": -38
+            },
+            {
+              "text": "Your targeted damaging spells deal 2 extra damage while this creature lives.",
+              "right": 766,
+              "overEntry": 25
+            },
+            {
+              "text": " 2 Attack  7 Health",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "ashwidow+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Ash Widow +",
+              "right": 920.5625,
+              "overEntry": -31.4375
+            },
+            {
+              "text": "Your targeted damaging spells deal 2 extra damage while this creature lives.",
+              "right": 977,
+              "overEntry": 25
+            },
+            {
+              "text": " 3 Attack  10 Health",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "emberwidow",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Ember Widow",
+              "right": 1135.0625,
+              "overEntry": -27.9375
+            },
+            {
+              "text": "On binding: deal 2 damage to every enemy. Your targeted damaging spells deal 2 extra damage while this creature lives.",
+              "right": 1188,
+              "overEntry": 25
+            },
+            {
+              "text": " 3 Attack  11 Health",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "emberwidow+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Ember Widow +",
+              "right": 1352.625,
+              "overEntry": -21.375
+            },
+            {
+              "text": "On binding: deal 2 damage to every enemy. Your targeted damaging spells deal 2 extra damage while this creature lives.",
+              "right": 1399,
+              "overEntry": 25
+            },
+            {
+              "text": " 4 Attack  14 Health",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "scour",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Scour",
+              "right": 683.5,
+              "overEntry": -57.5
+            },
+            {
+              "text": "Deal 6 damage to an enemy.",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "scour+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Scour +",
+              "right": 900.90625,
+              "overEntry": -51.09375
+            },
+            {
+              "text": "Deal 8 damage to an enemy.",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "ironward",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Iron Ward",
+              "right": 1121.875,
+              "overEntry": -41.125
+            },
+            {
+              "text": "Gain 7 hunter block.",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "ironward+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Iron Ward +",
+              "right": 1339.4375,
+              "overEntry": -34.5625
+            },
+            {
+              "text": "Gain 9 hunter block.",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "sutures",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Blood Sutures",
+              "right": 711.59375,
+              "overEntry": -29.40625
+            },
+            {
+              "text": "Heal a creature 6 HP and give it 2 block.",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "sutures+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Blood Sutures +",
+              "right": 929.140625,
+              "overEntry": -22.859375
+            },
+            {
+              "text": "Heal a creature 8 HP and give it 2 block.",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "edict",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Pack Edict",
+              "right": 1122.609375,
+              "overEntry": -40.390625
+            },
+            {
+              "text": "All bound creatures gain 2 attack this battle.",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "edict+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Pack Edict +",
+              "right": 1340.171875,
+              "overEntry": -33.828125
+            },
+            {
+              "text": "All bound creatures gain 4 attack this battle.",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "witchfire",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Witchfire",
+              "right": 696.078125,
+              "overEntry": -44.921875
+            },
+            {
+              "text": "Deal 4 damage to every enemy.",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "witchfire+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Witchfire +",
+              "right": 913.640625,
+              "overEntry": -38.359375
+            },
+            {
+              "text": "Deal 6 damage to every enemy.",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "killcommand",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Kill Command",
+              "right": 1136.390625,
+              "overEntry": -26.609375
+            },
+            {
+              "text": "Ready a creature to command again; give it 2 block.",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "killcommand+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Kill Command +",
+              "right": 1353.953125,
+              "overEntry": -20.046875
+            },
+            {
+              "text": "Ready a creature to command again; give it 4 block.",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "gravetithe",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Grave Tithe",
+              "right": 704.75,
+              "overEntry": -36.25
+            },
+            {
+              "text": "Deal 7 damage to an enemy. Heal the hunter 3 HP.",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "gravetithe+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Grave Tithe +",
+              "right": 922.3125,
+              "overEntry": -29.6875
+            },
+            {
+              "text": "Deal 9 damage to an enemy. Heal the hunter 3 HP.",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "survey",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Forbidden Survey",
+              "right": 1147.5,
+              "overEntry": -15.5
+            },
+            {
+              "text": "Draw 2 cards.",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "survey+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Forbidden Survey +",
+              "right": 1365.0625,
+              "overEntry": -8.9375
+            },
+            {
+              "text": "Draw 4 cards.",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "bloodprice",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Blood Price",
+              "right": 703.265625,
+              "overEntry": -37.734375
+            },
+            {
+              "text": "Gain 1 energy. Lose 3 hunter HP.",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "bloodprice+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Blood Price +",
+              "right": 920.828125,
+              "overEntry": -31.171875
+            },
+            {
+              "text": "Gain 3 energy. Lose 3 hunter HP.",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "aegis",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Black Aegis",
+              "right": 1125.28125,
+              "overEntry": -37.71875
+            },
+            {
+              "text": "Hunter and all bound creatures gain 5 block.",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "aegis+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Black Aegis +",
+              "right": 1342.84375,
+              "overEntry": -31.15625
+            },
+            {
+              "text": "Hunter and all bound creatures gain 7 block.",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "harpoon",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Chain Harpoon",
+              "right": 717.0625,
+              "overEntry": -23.9375
+            },
+            {
+              "text": "Deal 4 damage plus 2 per bound creature to an enemy.",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "harpoon+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Chain Harpoon +",
+              "right": 934.625,
+              "overEntry": -17.375
+            },
+            {
+              "text": "Deal 6 damage plus 2 per bound creature to an enemy.",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "covenant",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Flesh Covenant",
+              "right": 1138.609375,
+              "overEntry": -24.390625
+            },
+            {
+              "text": "Heal the hunter 2 HP per bound creature.",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "covenant+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Flesh Covenant +",
+              "right": 1356.171875,
+              "overEntry": -17.828125
+            },
+            {
+              "text": "Heal the hunter 4 HP per bound creature.",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "sunder",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Sundering Hex",
+              "right": 714.84375,
+              "overEntry": -26.15625
+            },
+            {
+              "text": "Remove all block from an enemy, then deal 3 damage.",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "sunder+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Sundering Hex +",
+              "right": 932.40625,
+              "overEntry": -19.59375
+            },
+            {
+              "text": "Remove all block from an enemy, then deal 5 damage.",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "silence",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Silence the Dead",
+              "right": 1141.9375,
+              "overEntry": -21.0625
+            },
+            {
+              "text": "Cancel an enemy's announced damage and reinforcements this turn. Armor still resolves.",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "silence+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Silence the Dead +",
+              "right": 1359.5,
+              "overEntry": -14.5
+            },
+            {
+              "text": "Cancel an enemy's announced damage and reinforcements this turn. Armor still resolves.",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "resonance",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Grave Resonance",
+              "right": 723.265625,
+              "overEntry": -17.734375
+            },
+            {
+              "text": "Deal 10 damage to an enemy. Deal 4 extra if you have no bound creatures.",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "resonance+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Grave Resonance +",
+              "right": 940.828125,
+              "overEntry": -11.171875
+            },
+            {
+              "text": "Deal 12 damage to an enemy. Deal 4 extra if you have no bound creatures.",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "draught",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Bleak Draught",
+              "right": 1135.953125,
+              "overEntry": -27.046875
+            },
+            {
+              "text": "Heal the hunter 7 HP.",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "draught+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Bleak Draught +",
+              "right": 1353.5,
+              "overEntry": -20.5
+            },
+            {
+              "text": "Heal the hunter 9 HP.",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "v5-original",
+      "url": "http://127.0.0.1:4173",
+      "provenance": {
+        "version": "0.5.0",
+        "sourceDigest": "9f80af0d0053b992c7f0f39d6de106a8f318619ea92e94c00354933e07ebcf04",
+        "hashes": {
+          "THIRD-PARTY.md": "9f7ac1d4b03f8bf928ea0d73d5654207e9abc154b4f5365c5e30eb36eef8f329",
+          "desktop/icon.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+          "desktop/main.cjs": "1e54b1170ff4169285ff1757c0e768db2f144f7be919b4911a47394426cb75ae",
+          "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+          "package-lock.json": "e745e73679de5717b06c52797d3cee13f92ea39344f584e82e88e0aeaf6d8028",
+          "package.json": "c89fdd158dc0e6c1529712b71f4202a745ce8cf6061d70660f004bc4734ba0d0",
+          "public/art/PROVENANCE.json": "5ba821b8b5f6d7b316389e72f7b8afd97304645789f3b0add7719dea6bf85ce5",
+          "public/art/abbey-courtyard.png": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+          "public/art/adversaries-atlas.png": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5",
+          "public/art/companions-atlas.png": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+          "public/art/hound-poses.png": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+          "public/art/hunter-portrait.png": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+          "public/art/pact-seal.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+          "public/art/tool-vignettes.png": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+          "public/art/warleader-poses.png": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b",
+          "scripts/build.mjs": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1",
+          "src/arena.ts": "01bd60015273988470a378e092398938f71f1ac07c4754e04d09e00efbbfcd94",
+          "src/art.ts": "379e6b60f78cafd20170bcbcc4168a490cd2663388131957ad9766df852430b7",
+          "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+          "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+          "src/main.ts": "4e22fcc7464ed94d47fb57af7d4d2ed3de918cacf0cd425915fb8235597c08bc",
+          "src/style.css": "7cee5e6176fc58bf266572a4ae50d649decd35e2dce3f567f2afe34b3317fd4c",
+          "src/tool-art.ts": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3",
+          "src/world-rng.ts": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+          "tsconfig.json": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c",
+          "vite.config.ts": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75"
+        },
+        "node": "v24.19.0"
+      },
+      "cards": [
+        {
+          "id": "cairnhound",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Cairn Hound",
+              "right": 709.0625,
+              "overEntry": -31.9375
+            },
+            {
+              "text": "On binding: gain 2 hunter block. Commands deal 2 extra damage to enemies with no block.",
+              "right": 766,
+              "overEntry": 25
+            },
+            {
+              "text": " 3 Attack  7 Health",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "gravehound",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Grave Hound",
+              "right": 921.390625,
+              "overEntry": -30.609375
+            },
+            {
+              "text": "On binding: draw 1 card. Commands deal 2 extra damage to enemies with no block.",
+              "right": 977,
+              "overEntry": 25
+            },
+            {
+              "text": " 4 Attack  11 Health",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "fenstalker",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Fen Stalker",
+              "right": 1125.265625,
+              "overEntry": -37.734375
+            },
+            {
+              "text": "After a command deals damage, heal this creature 2 HP.",
+              "right": 1188,
+              "overEntry": 25
+            },
+            {
+              "text": " 4 Attack  10 Health",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "fenraker",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Fen Raker",
+              "right": 1332.71875,
+              "overEntry": -41.28125
+            },
+            {
+              "text": "On binding: heal the hunter 2 HP. After a command deals damage, heal this creature 2 HP.",
+              "right": 1399,
+              "overEntry": 25
+            },
+            {
+              "text": " 6 Attack  14 Health",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "briarcolossus",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Briar Colossus",
+              "right": 713.796875,
+              "overEntry": -27.203125
+            },
+            {
+              "text": "After commanding this creature, gain 2 hunter block.",
+              "right": 766,
+              "overEntry": 25
+            },
+            {
+              "text": " 4 Attack  18 Health",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "ossuarycolossus",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Ossuary Colossus",
+              "right": 934.734375,
+              "overEntry": -17.265625
+            },
+            {
+              "text": "On binding: all creatures gain 3 block. After commanding this creature, gain 2 hunter block.",
+              "right": 977,
+              "overEntry": 25
+            },
+            {
+              "text": " 6 Attack  24 Health",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "cairnhound+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Cairn Hound +",
+              "right": 1137.625,
+              "overEntry": -25.375
+            },
+            {
+              "text": "On binding: gain 2 hunter block. Commands deal 2 extra damage to enemies with no block.",
+              "right": 1188,
+              "overEntry": 25
+            },
+            {
+              "text": " 4 Attack  10 Health",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "gravehound+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Grave Hound +",
+              "right": 1349.953125,
+              "overEntry": -24.046875
+            },
+            {
+              "text": "On binding: draw 1 card. Commands deal 2 extra damage to enemies with no block.",
+              "right": 1399,
+              "overEntry": 25
+            },
+            {
+              "text": " 5 Attack  14 Health",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "fenstalker+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Fen Stalker +",
+              "right": 709.6875,
+              "overEntry": -31.3125
+            },
+            {
+              "text": "After a command deals damage, heal this creature 2 HP.",
+              "right": 766,
+              "overEntry": 25
+            },
+            {
+              "text": " 5 Attack  13 Health",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "fenraker+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Fen Raker +",
+              "right": 917.125,
+              "overEntry": -34.875
+            },
+            {
+              "text": "On binding: heal the hunter 2 HP. After a command deals damage, heal this creature 2 HP.",
+              "right": 977,
+              "overEntry": 25
+            },
+            {
+              "text": " 7 Attack  17 Health",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "briarcolossus+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Briar Colossus +",
+              "right": 1142.359375,
+              "overEntry": -20.640625
+            },
+            {
+              "text": "After commanding this creature, gain 2 hunter block.",
+              "right": 1188,
+              "overEntry": 25
+            },
+            {
+              "text": " 5 Attack  21 Health",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "ossuarycolossus+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Ossuary Colossus +",
+              "right": 1363.296875,
+              "overEntry": -10.703125
+            },
+            {
+              "text": "On binding: all creatures gain 3 block. After commanding this creature, gain 2 hunter block.",
+              "right": 1399,
+              "overEntry": 25
+            },
+            {
+              "text": " 7 Attack  27 Health",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "ashwidow",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Ash Widow",
+              "right": 703,
+              "overEntry": -38
+            },
+            {
+              "text": "Your targeted damaging spells deal 2 extra damage while this creature lives.",
+              "right": 766,
+              "overEntry": 25
+            },
+            {
+              "text": " 2 Attack  7 Health",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "ashwidow+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Ash Widow +",
+              "right": 920.5625,
+              "overEntry": -31.4375
+            },
+            {
+              "text": "Your targeted damaging spells deal 2 extra damage while this creature lives.",
+              "right": 977,
+              "overEntry": 25
+            },
+            {
+              "text": " 3 Attack  10 Health",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "emberwidow",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Ember Widow",
+              "right": 1135.0625,
+              "overEntry": -27.9375
+            },
+            {
+              "text": "On binding: deal 2 damage to every enemy. Your targeted damaging spells deal 2 extra damage while this creature lives.",
+              "right": 1188,
+              "overEntry": 25
+            },
+            {
+              "text": " 3 Attack  11 Health",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "emberwidow+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Ember Widow +",
+              "right": 1352.625,
+              "overEntry": -21.375
+            },
+            {
+              "text": "On binding: deal 2 damage to every enemy. Your targeted damaging spells deal 2 extra damage while this creature lives.",
+              "right": 1399,
+              "overEntry": 25
+            },
+            {
+              "text": " 4 Attack  14 Health",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "scour",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Scour",
+              "right": 683.5,
+              "overEntry": -57.5
+            },
+            {
+              "text": "Deal 6 damage to an enemy.",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "scour+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Scour +",
+              "right": 900.90625,
+              "overEntry": -51.09375
+            },
+            {
+              "text": "Deal 8 damage to an enemy.",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "ironward",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Iron Ward",
+              "right": 1121.875,
+              "overEntry": -41.125
+            },
+            {
+              "text": "Gain 7 hunter block.",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "ironward+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Iron Ward +",
+              "right": 1339.4375,
+              "overEntry": -34.5625
+            },
+            {
+              "text": "Gain 9 hunter block.",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "sutures",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Blood Sutures",
+              "right": 711.59375,
+              "overEntry": -29.40625
+            },
+            {
+              "text": "Heal a creature 6 HP and give it 2 block.",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "sutures+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Blood Sutures +",
+              "right": 929.140625,
+              "overEntry": -22.859375
+            },
+            {
+              "text": "Heal a creature 8 HP and give it 2 block.",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "edict",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Pack Edict",
+              "right": 1122.609375,
+              "overEntry": -40.390625
+            },
+            {
+              "text": "All bound creatures gain 2 attack this battle.",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "edict+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Pack Edict +",
+              "right": 1340.171875,
+              "overEntry": -33.828125
+            },
+            {
+              "text": "All bound creatures gain 4 attack this battle.",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "witchfire",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Witchfire",
+              "right": 696.078125,
+              "overEntry": -44.921875
+            },
+            {
+              "text": "Deal 4 damage to every enemy.",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "witchfire+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Witchfire +",
+              "right": 913.640625,
+              "overEntry": -38.359375
+            },
+            {
+              "text": "Deal 6 damage to every enemy.",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "killcommand",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Kill Command",
+              "right": 1136.390625,
+              "overEntry": -26.609375
+            },
+            {
+              "text": "Ready a creature to command again; give it 2 block.",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "killcommand+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Kill Command +",
+              "right": 1353.953125,
+              "overEntry": -20.046875
+            },
+            {
+              "text": "Ready a creature to command again; give it 4 block.",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "gravetithe",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Grave Tithe",
+              "right": 704.75,
+              "overEntry": -36.25
+            },
+            {
+              "text": "Deal 7 damage to an enemy. Heal the hunter 3 HP.",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "gravetithe+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Grave Tithe +",
+              "right": 922.3125,
+              "overEntry": -29.6875
+            },
+            {
+              "text": "Deal 9 damage to an enemy. Heal the hunter 3 HP.",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "survey",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Forbidden Survey",
+              "right": 1147.5,
+              "overEntry": -15.5
+            },
+            {
+              "text": "Draw 2 cards.",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "survey+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Forbidden Survey +",
+              "right": 1365.0625,
+              "overEntry": -8.9375
+            },
+            {
+              "text": "Draw 4 cards.",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "bloodprice",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Blood Price",
+              "right": 703.265625,
+              "overEntry": -37.734375
+            },
+            {
+              "text": "Gain 1 energy. Lose 3 hunter HP.",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "bloodprice+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Blood Price +",
+              "right": 920.828125,
+              "overEntry": -31.171875
+            },
+            {
+              "text": "Gain 3 energy. Lose 3 hunter HP.",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "aegis",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Black Aegis",
+              "right": 1125.28125,
+              "overEntry": -37.71875
+            },
+            {
+              "text": "Hunter and all bound creatures gain 5 block.",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "aegis+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Black Aegis +",
+              "right": 1342.84375,
+              "overEntry": -31.15625
+            },
+            {
+              "text": "Hunter and all bound creatures gain 7 block.",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "harpoon",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Chain Harpoon",
+              "right": 717.0625,
+              "overEntry": -23.9375
+            },
+            {
+              "text": "Deal 4 damage plus 2 per bound creature to an enemy.",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "harpoon+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Chain Harpoon +",
+              "right": 934.625,
+              "overEntry": -17.375
+            },
+            {
+              "text": "Deal 6 damage plus 2 per bound creature to an enemy.",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "covenant",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Flesh Covenant",
+              "right": 1138.609375,
+              "overEntry": -24.390625
+            },
+            {
+              "text": "Heal the hunter 2 HP per bound creature.",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "covenant+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Flesh Covenant +",
+              "right": 1356.171875,
+              "overEntry": -17.828125
+            },
+            {
+              "text": "Heal the hunter 4 HP per bound creature.",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "sunder",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Sundering Hex",
+              "right": 714.84375,
+              "overEntry": -26.15625
+            },
+            {
+              "text": "Remove all block from an enemy, then deal 3 damage.",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "sunder+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Sundering Hex +",
+              "right": 932.40625,
+              "overEntry": -19.59375
+            },
+            {
+              "text": "Remove all block from an enemy, then deal 5 damage.",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "silence",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Silence the Dead",
+              "right": 1141.9375,
+              "overEntry": -21.0625
+            },
+            {
+              "text": "Cancel an enemy's announced damage and reinforcements this turn. Armor still resolves.",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "silence+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Silence the Dead +",
+              "right": 1359.5,
+              "overEntry": -14.5
+            },
+            {
+              "text": "Cancel an enemy's announced damage and reinforcements this turn. Armor still resolves.",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "resonance",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 781,
+          "entryRight": 741,
+          "overEntry": 40,
+          "overGrid": -593,
+          "descendants": [
+            {
+              "text": "Grave Resonance",
+              "right": 723.265625,
+              "overEntry": -17.734375
+            },
+            {
+              "text": "Deal 10 damage to an enemy. Deal 4 extra if you have no bound creatures.",
+              "right": 766,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "resonance+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 992,
+          "entryRight": 952,
+          "overEntry": 40,
+          "overGrid": -382,
+          "descendants": [
+            {
+              "text": "Grave Resonance +",
+              "right": 940.828125,
+              "overEntry": -11.171875
+            },
+            {
+              "text": "Deal 12 damage to an enemy. Deal 4 extra if you have no bound creatures.",
+              "right": 977,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "draught",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1203,
+          "entryRight": 1163,
+          "overEntry": 40,
+          "overGrid": -171,
+          "descendants": [
+            {
+              "text": "Bleak Draught",
+              "right": 1135.953125,
+              "overEntry": -27.046875
+            },
+            {
+              "text": "Heal the hunter 7 HP.",
+              "right": 1188,
+              "overEntry": 25
+            }
+          ]
+        },
+        {
+          "id": "draught+",
+          "width": 235,
+          "entryWidth": 195,
+          "cardRight": 1414,
+          "entryRight": 1374,
+          "overEntry": 40,
+          "overGrid": 40,
+          "descendants": [
+            {
+              "text": "Bleak Draught +",
+              "right": 1353.5,
+              "overEntry": -20.5
+            },
+            {
+              "text": "Heal the hunter 9 HP.",
+              "right": 1399,
+              "overEntry": 25
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

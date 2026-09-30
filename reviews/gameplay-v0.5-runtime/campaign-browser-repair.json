@@ -1,0 +1,6 @@
+{
+  "originalSHA256": "dec0f19f010a9b86aff2011951e977e43d2d648846b76a65381d2299942661ed",
+  "failure": "Legacy fixture init script re-injected initialshop state on page.reload, breaking exact continuation assertion. Both fresh campaigns completed with401matched controls and unchanged source.",
+  "repair": "Initialize resumed fixture only if no primary save exists; run only legacy suffix into separate results file, preserve verified fresh results.",
+  "engineDefect": false
+}

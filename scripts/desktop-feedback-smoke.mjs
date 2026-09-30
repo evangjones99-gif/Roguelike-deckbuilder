@@ -7,6 +7,7 @@ import {extractFile} from '@electron/asar';
 const executablePath='./build-desktop/linux-unpacked/hollowpact';
 const expected=JSON.parse(fs.readFileSync('dist/build-provenance.json','utf8'));
 const packed=JSON.parse(extractFile('build-desktop/linux-unpacked/resources/app.asar','dist/build-provenance.json').toString());
+const captureId = `${packed.sourceDigest.slice(0,12)}-${process.pid}-${Date.now()}`;
 if(packed.sourceDigest!==expected.sourceDigest||packed.version!==expected.version)throw new Error('Packaged provenance mismatch');
 const profile=fs.mkdtempSync(path.join(os.tmpdir(),'hollowpact-feedback-'));
 const output=path.join(profile,'field-report.json');
@@ -48,6 +49,6 @@ try {
   if(report.context.build.sourceDigest!==packed.sourceDigest||report.context.build.version!==packed.version||report.context.run.seed!==121||report.responses.replayIntent!=='no')throw new Error('Native feedback context mismatch');
   if(JSON.stringify(await page.evaluate(()=>({...localStorage})))!==JSON.stringify(before)||errors.length)throw new Error('Feedback mutated storage or caused page errors');
   const evidence={version:packed.version,runtimeSourceDigest:packed.sourceDigest,platform:'packaged Linux under Xvfb',sandboxDisabledForTest:true,portrait,download:download.state,context:report.context,responses:report.responses,storageUnchanged:true,errors,limits:['Test-only native save-path selection','No native Windows or Steam installation test','Synthetic QA; not human feedback']};
-  fs.writeFileSync(`reviews/linux-feedback-${packed.version}-smoke.json`,JSON.stringify(evidence,null,2)+'\n');
+  fs.writeFileSync(`reviews/linux-feedback-${packed.version}-${captureId}-smoke.json`,JSON.stringify(evidence,null,2)+'\n');
   console.log('Packaged portrait and actual offline negative-feedback download passed.');
 } finally {await app.close();}
