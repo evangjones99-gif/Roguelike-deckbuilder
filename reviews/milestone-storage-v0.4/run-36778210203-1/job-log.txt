@@ -1,0 +1,232 @@
+﻿2026-09-30T21:15:15.0363271Z Current runner version: '2.337.0'
+2026-09-30T21:15:15.0385963Z ##[group]Runner Image Provisioner
+2026-09-30T21:15:15.0386694Z Hosted Compute Agent
+2026-09-30T21:15:15.0387294Z Version: 20260828.587
+2026-09-30T21:15:15.0387822Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-30T21:15:15.0388451Z Build Date: 2026-08-28T16:44:25Z
+2026-09-30T21:15:15.0389062Z Worker ID: {1d559a8f-a1ff-4a2f-b858-59d8db60ed0f}
+2026-09-30T21:15:15.0389648Z Azure Region: westus3
+2026-09-30T21:15:15.0390176Z ##[endgroup]
+2026-09-30T21:15:15.0391260Z ##[group]Operating System
+2026-09-30T21:15:15.0391752Z Ubuntu
+2026-09-30T21:15:15.0392290Z 24.04.5
+2026-09-30T21:15:15.0392722Z LTS
+2026-09-30T21:15:15.0394100Z ##[endgroup]
+2026-09-30T21:15:15.0394571Z ##[group]Runner Image
+2026-09-30T21:15:15.0395088Z Image: ubuntu-24.04
+2026-09-30T21:15:15.0395614Z Version: 20260920.314.1
+2026-09-30T21:15:15.0396664Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260920.314/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-30T21:15:15.0397956Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260920.314
+2026-09-30T21:15:15.0398742Z ##[endgroup]
+2026-09-30T21:15:15.0399759Z ##[group]GITHUB_TOKEN Permissions
+2026-09-30T21:15:15.0401374Z Actions: read
+2026-09-30T21:15:15.0401955Z Contents: write
+2026-09-30T21:15:15.0402422Z Metadata: read
+2026-09-30T21:15:15.0403166Z ##[endgroup]
+2026-09-30T21:15:15.0405262Z Secret source: Actions
+2026-09-30T21:15:15.0406105Z Cache mode: write
+2026-09-30T21:15:15.0406718Z Prepare workflow directory
+2026-09-30T21:15:15.0712374Z Prepare all required actions
+2026-09-30T21:15:15.0757897Z Getting action download info
+2026-09-30T21:15:15.3882046Z Download action repository 'actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b' (SHA:f28e40c7f34bde8b3046d885e986cb6290c5673b)
+2026-09-30T21:15:16.2581906Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-09-30T21:15:17.2955850Z Complete job name: preserve-v040
+2026-09-30T21:15:17.3525271Z ##[group]Run actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b
+2026-09-30T21:15:17.3525882Z with:
+2026-09-30T21:15:17.3563773Z   script: const fs = require('node:fs');
+const path = require('node:path');
+const crypto = require('node:crypto');
+const {execFileSync} = require('node:child_process');
+const owner = 'evangjones99-gif', repo = 'Roguelike-deckbuilder';
+const version = '0.4.0', tag = 'v0.4.0';
+const tagObject = '33b8325452622f7be745fa88d69818896cc8b34a';
+const tagCommit = 'dae9758ea40f849b36d9891c859b7bf6df09d242';
+const manifestSHA = '59b252300f50244d06ea0d40e6d4e2318a02806bcfa5d719a2ca7186217fbb67';
+const sumsSHA = '0b227baad42e6529cff939598903533171a24b078e792536cfcebbaadb38c0b4';
+const sourceDigest = 'da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425';
+const nativeRun = 36772521612;
+const nativeName = 'hollowpact-0.4.0-windows-native-tested-x64.zip';
+const evidenceName = 'hollowpact-0.4.0-windows-native-evidence.zip';
+const directory = path.resolve('preservation');
+fs.mkdirSync(directory, {recursive: true});
+const report = {version, tag, tagObject, tagCommit, manifestSHA, nativeRun,
+  status: 'running', coverage: 'partial-native-windows-and-original-evidence', assets: []};
+const check = (condition, message) => { if (!condition) throw new Error(message); };
+const hash = data => crypto.createHash('sha256').update(data).digest('hex');
+const token = core.getInput('github-token', {required: true});
+async function boundedBody(response, limit) {
+  check(Number.isSafeInteger(limit) && limit > 0 && limit <= 200 * 1024 * 1024, 'Invalid download byte bound');
+  const declared = response.headers.get('content-length');
+  if (declared) check(Number(declared) <= limit, 'Download Content-Length exceeds expected bytes');
+  check(response.body, 'Missing download body');
+  const reader = response.body.getReader();
+  const chunks = []; let bytes = 0;
+  try {
+    for (;;) {
+      const {done, value} = await reader.read();
+      if (done) break;
+      bytes += value.length;
+      if (bytes > limit) { await reader.cancel(); throw new Error('Download exceeded expected byte bound'); }
+      chunks.push(Buffer.from(value));
+    }
+  } finally { reader.releaseLock(); }
+  return Buffer.concat(chunks, bytes);
+}
+// Tokens go only to api.github.com. Signed redirects are followed without credentials.
+async function download(endpoint, bytes) {
+  const response = await fetch(`https://api.github.com${endpoint}`, {
+    redirect: 'manual', headers: {Authorization: `***
+      Accept: 'application/octet-stream', 'X-GitHub-Api-Version': '2022-11-28'},
+    signal: AbortSignal.timeout(180000),
+  });
+  if (response.status === 200) return boundedBody(response, bytes);
+  check(response.status === 302, `Download API status ${response.status}`);
+  const location = new URL(response.headers.get('location'));
+  const allowed = ['.blob.core.windows.net', '.githubusercontent.com', '.github.com'];
+  check(location.protocol === 'https:' && allowed.some(suffix => location.hostname.endsWith(suffix)), 'Unexpected download redirect host');
+  const redirected = await fetch(location, {signal: AbortSignal.timeout(180000)});
+  check(redirected.ok, `Signed download status ${redirected.status}`);
+  return boundedBody(redirected, bytes);
+}
+async function pinnedFile(filename, expectedHash) {
+  const response = await github.rest.repos.getContent({owner, repo, path: `releases/${version}/${filename}`, ref: tagCommit});
+  check(response.data.type === 'file' && response.data.encoding === 'base64', `Unexpected pinned file ${filename}`);
+  const data = Buffer.from(response.data.content, 'base64');
+  check(hash(data) === expectedHash, `Pinned ${filename} hash mismatch`);
+  fs.writeFileSync(path.join(directory, filename), data);
+  return data;
+}
+async function artifact(id, name, bytes, expectedHash) {
+  const response = await github.rest.actions.getArtifact({owner, repo, artifact_id: id});
+  const data = response.data;
+  check(data.name === name && data.size_in_bytes === bytes && !data.expired && data.workflow_run?.id === nativeRun, `Artifact ${id} identity/expiry mismatch`);
+  if (data.digest) check(data.digest === `sha256:${expectedHash}`, `Artifact ${id} digest mismatch`);
+  const archive = await download(`/repos/${owner}/${repo}/actions/artifacts/${id}/zip`, bytes);
+  check(archive.length === bytes && hash(archive) === expectedHash, `Artifact ${id} downloaded bytes mismatch`);
+  return archive;
+}
+try {
+  check(context.repo.owner === owner && context.repo.repo === repo, 'Repository mismatch');
+  const storage = fs.statfsSync(directory);
+  check(storage.bavail * storage.bsize >= 500 * 1024 * 1024, 'Insufficient bounded preservation disk capacity');
+  const reference = await github.rest.git.getRef({owner, repo, ref: `tags/${tag}`});
+  check(reference.data.object.type === 'tag' && reference.data.object.sha === tagObject, 'Existing annotated tag changed');
+  const annotated = await github.rest.git.getTag({owner, repo, tag_sha: tagObject});
+  check(annotated.data.object.type === 'commit' && annotated.data.object.sha === tagCommit, 'Tag target changed');
+  const manifestData = await pinnedFile('manifest.json', manifestSHA);
+  const sumsData = await pinnedFile('SHA256SUMS', sumsSHA);
+  const manifest = JSON.parse(manifestData.toString('utf8'));
+  check(manifest.version === version && manifest.runtimeSourceDigest === sourceDigest && manifest.nativeWindows.runId === nativeRun && manifest.steamPublished === false, 'Manifest identity mismatch');
+  const nativeSHA = 'ec5203567cf15bcae28c6b1b4e908469fd075197bba6b67cfab2185f2b9d8927';
+  const evidenceSHA = '55f967466653acda8fe52545892590de663629f8ed28c8e697d7b0c9f07dcd3a';
+  check(manifest.artifacts[nativeName] === nativeSHA && manifest.artifacts[evidenceName] === evidenceSHA, 'Official asset hashes differ');
+  for (const [filename, digest] of Object.entries(manifest.artifacts)) check(sumsData.toString('utf8').includes(`${digest}  ${filename}\n`), `Checksums missing ${filename}`);
+  const workflow = await github.rest.actions.getWorkflowRun({owner, repo, run_id: nativeRun});
+  check(workflow.data.conclusion === 'success' && workflow.data.run_attempt === 1 && workflow.data.path === '.github/workflows/windows-validation.yml' && workflow.data.head_repository.full_name === `${owner}/${repo}`, 'Native run identity/success mismatch');
+  const wrapper = await artifact(11123973383, 'hollowpact-0.4.0-windows-x64-36772521612-1', 180306034,
+    'd3fac04b38713ad006ae33d4fc710fc0b51df28b850b74ef8511a6e8bc818cea');
+  const wrapperPath = path.join(directory, 'native-artifact-wrapper.zip');
+  fs.writeFileSync(wrapperPath, wrapper);
+  // Extract just the exact candidate member. No scripts, executables or paths are run.
+  execFileSync('python3', ['-c', [
+    'import sys, zipfile, shutil',
+    'from pathlib import PurePosixPath',
+    'with zipfile.ZipFile(sys.argv[1]) as archive:',
+    ' entries = archive.infolist()',
+    ' assert all(not PurePosixPath(e.filename).is_absolute() and ".." not in PurePosixPath(e.filename).parts for e in entries)',
+    ' selected = [e for e in entries if PurePosixPath(e.filename).name == "hollowpact-0.4.0-windows-native-x64.zip"]',
+    ' assert len(selected) == 1 and not selected[0].is_dir() and selected[0].file_size == 178481506',
+    ' with archive.open(selected[0]) as source, open(sys.argv[2], "wb") as output:',
+    '  shutil.copyfileobj(source, output, 1024 * 1024)',
+  ].join('\n'), wrapperPath, path.join(directory, nativeName)], {timeout: 120000});
+  check(hash(fs.readFileSync(path.join(directory, nativeName))) === nativeSHA, 'Extracted exact native ZIP hash mismatch');
+  const evidence = await artifact(11123858254, 'hollowpact-0.4.0-windows-evidence-36772521612-1', 1993027, evidenceSHA);
+  fs.writeFileSync(path.join(directory, evidenceName), evidence);
+  const missing = Object.keys(manifest.artifacts).filter(name => ![nativeName, evidenceName].includes(name));
+  const coverage = {version, tag, manifestSHA, runtimeSourceDigest: sourceDigest, nativeRun,
+    preservedArchiveNames: [nativeName, evidenceName], notUploadedArchiveNames: missing,
+    reason: 'These exact native artifacts are available from the successful Windows run. Linux/source/web/repacked Windows bytes remain in the workspace; this workflow does not recreate or invent them.',
+    draft: true, developmentOnly: true, commercialQualityAccepted: false, steamPublished: false};
+  fs.writeFileSync(path.join(directory, 'preservation-coverage.json'), JSON.stringify(coverage, null, 2) + '\n');
+  const marker = `Preservation manifest SHA256: ${manifestSHA}`;
+  const body = [`Preserved development milestone ${tag}; known presentation defects remain.`,
+    'Independent reviewers accepted development evidence only; public/commercial/AAA quality remains rejected. No Steam publication.',
+    'Partial binary coverage: exact native-tested Windows ZIP and original native evidence only. Linux, source, web and repacked Windows archives listed in the manifest are not uploaded by this workflow.',
+    'See preservation-coverage.json and verify assets against manifest.json / SHA256SUMS.', marker].join('\n\n');
+  const releases = await github.paginate(github.rest.repos.listReleases, {owner, repo, per_page: 100});
+  const matches = releases.filter(release => release.tag_name === tag);
+  check(matches.length <= 1, 'Multiple releases use the pinned tag');
+  let release = matches[0];
+  if (release) {
+    check(release.draft && release.prerelease && release.body?.includes(marker), 'Existing release is not the matching draft; refuse mutation');
+  } else {
+    release = (await github.rest.repos.createRelease({owner, repo, tag_name: tag, target_commitish: tagCommit,
+      name: 'Hollowpact v0.4.0 — preserved development candidate', body, draft: true, prerelease: true, generate_release_notes: false, make_latest: 'false'})).data;
+  }
+  check(release.draft && release.prerelease && release.tag_name === tag, 'Create/read response is not the pinned draft prerelease');
+  report.releaseId = release.id; report.releaseURL = release.html_url;
+  const assets = await github.paginate(github.rest.repos.listReleaseAssets, {owner, repo, release_id: release.id, per_page: 100});
+  for (const filename of [nativeName, evidenceName, 'manifest.json', 'SHA256SUMS', 'preservation-coverage.json']) {
+    const data = fs.readFileSync(path.join(directory, filename));
+    const expectedHash = hash(data);
+    const existing = assets.filter(asset => asset.name === filename);
+    check(existing.length <= 1, `Duplicate release asset ${filename}`);
+    let asset = existing[0];
+    if (!asset) {
+      const current = await github.rest.repos.getRelease({owner, repo, release_id: release.id});
+      check(current.data.draft && current.data.prerelease && current.data.tag_name === tag, 'Draft state changed; refuse further upload');
+      asset = (await github.rest.repos.uploadReleaseAsset({owner, repo, release_id: release.id, name: filename,
+        data, headers: {'content-type': filename.endsWith('.zip') ? 'application/zip' : 'application/octet-stream', 'content-length': data.length}})).data;
+    }
+    check(asset.size === data.length, `Stored ${filename} size mismatch; no overwrite attempted`);
+    const stored = await download(`/repos/${owner}/${repo}/releases/assets/${asset.id}`, data.length);
+    check(stored.length === data.length && hash(stored) === expectedHash, `Stored ${filename} read-back hash mismatch; no overwrite attempted`);
+    report.assets.push({name: filename, assetId: asset.id, bytes: data.length, sha256: expectedHash, readBackVerified: true});
+  }
+  // A draft must stay a draft; this workflow never publishes or replaces it.
+  const final = await github.rest.repos.getRelease({owner, repo, release_id: release.id});
+  check(final.data.draft && final.data.prerelease, 'Draft state changed during preservation');
+  report.status = 'passed-draft-partial-preservation';
+  core.notice(`Verified draft development preservation ${tag}; partial native asset coverage only.`);
+} catch (error) {
+  report.status = 'failed'; report.error = error.message;
+  core.setFailed(error.message);
+} finally {
+  fs.writeFileSync(path.join(directory, 'report.json'), JSON.stringify(report, null, 2) + '\n');
+}
+
+2026-09-30T21:15:17.3596710Z   github-token: ***
+2026-09-30T21:15:17.3596954Z   debug: false
+2026-09-30T21:15:17.3597186Z   user-agent: actions/github-script
+2026-09-30T21:15:17.3597456Z   result-encoding: json
+2026-09-30T21:15:17.3597679Z   retries: 0
+2026-09-30T21:15:17.3597934Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-09-30T21:15:17.3598590Z ##[endgroup]
+2026-09-30T21:15:19.2756597Z ##[error]Download API status 415
+2026-09-30T21:15:19.2923293Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-09-30T21:15:19.2923680Z with:
+2026-09-30T21:15:19.2923914Z   name: milestone-preservation-v0.4.0-36778210203-1
+2026-09-30T21:15:19.2924208Z   path: preservation/report.json
+2026-09-30T21:15:19.2924428Z   if-no-files-found: warn
+2026-09-30T21:15:19.2924631Z   retention-days: 30
+2026-09-30T21:15:19.2924825Z   compression-level: 6
+2026-09-30T21:15:19.2925013Z   overwrite: false
+2026-09-30T21:15:19.2925192Z   include-hidden-files: false
+2026-09-30T21:15:19.2925409Z ##[endgroup]
+2026-09-30T21:15:19.4311960Z (node:1928) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-30T21:15:19.4312599Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-30T21:15:19.4351263Z With the provided path, there will be 1 file uploaded
+2026-09-30T21:15:19.4356116Z Artifact name is valid!
+2026-09-30T21:15:19.4356985Z Root directory input is valid!
+2026-09-30T21:15:19.7953645Z Beginning upload of artifact content to blob storage
+2026-09-30T21:15:19.8104993Z (node:1928) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-30T21:15:20.0594071Z Uploaded bytes 414
+2026-09-30T21:15:20.1224741Z Finished uploading artifact content to blob storage!
+2026-09-30T21:15:20.1225572Z SHA256 digest of uploaded artifact zip is 4a7623e89f58b45c4567cc93d3dee3017c0afb502c105b8a2fe8da39c84e7b72
+2026-09-30T21:15:20.1226654Z Finalizing artifact upload
+2026-09-30T21:15:20.3944127Z Artifact milestone-preservation-v0.4.0-36778210203-1.zip successfully finalized. Artifact ID 11126486434
+2026-09-30T21:15:20.3945764Z Artifact milestone-preservation-v0.4.0-36778210203-1 has been successfully uploaded! Final size is 414 bytes. Artifact ID is 11126486434
+2026-09-30T21:15:20.3947375Z Artifact download URL: https://github.com/evangjones99-gif/Roguelike-deckbuilder/actions/runs/36778210203/artifacts/11126486434
+2026-09-30T21:15:20.4089506Z Cleaning up orphan processes
+2026-09-30T21:15:20.4319620Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+
