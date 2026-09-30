@@ -1,11 +1,11 @@
 {
   "project": "Hollowpact",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "createdDate": "2026-09-30",
   "AIContent": true,
-  "presentation": "Illustrated2.5D cutouts, not rigged3D characters",
+  "presentation": "Illustrated 2.5D creature artwork with pose transitions where supplied; not rigged 3D runtime characters",
   "inputsPreserved": true,
-  "sourceRecords": "Exact generation and padding-repair requests are preserved in the originating Codex chat; briefs below summarize them. All original generated images and repair inputs are also retained in assets/art-sources/v0.2 in source archives.",
+  "sourceRecords": "Generation requests are preserved in the originating Codex chat; stored briefs are summaries. Original generated images and repair inputs are retained in assets/art-sources/v0.2 and assets/art-sources/v0.3 in source archives.",
   "images": [
     {
       "file": "abbey-courtyard.png",
@@ -17,7 +17,8 @@
       "rightsReview": "pending before commercial distribution",
       "generatedOriginal": "/workspace/generated_images/exec-11e04212-dde5-46ec-af6e-372f1cd930d7.png",
       "brief": "Original realistic rain-soaked ruined abbey combat floor; cool moonlight and warm braziers; clear center space; no characters, text, logos or franchise assets.",
-      "preservedSource": "assets/art-sources/v0.2/environment-original.png"
+      "preservedSource": "assets/art-sources/v0.2/environment-original.png",
+      "firstIntroducedVersion": "0.2.0"
     },
     {
       "file": "adversaries-atlas.png",
@@ -46,7 +47,8 @@
       "brief": "Four original full-body transparent2x2 dark fantasy foes: plated goblin warlord, funeral-robed necromancer, spectral ruined knight, ember-throated dark dragon. Subsequent edit repairs quadrant clipping.",
       "preservedSource": "assets/art-sources/v0.2/adversaries-padded.png",
       "preservedReferenceInput": "assets/art-sources/v0.2/adversaries-initial.png",
-      "referenceInputSha256": "bfd3fc7bf50e9d7b7fe0cbbd4bc8698def3fd3f44d72c00e3cb53e52c5b90468"
+      "referenceInputSha256": "bfd3fc7bf50e9d7b7fe0cbbd4bc8698def3fd3f44d72c00e3cb53e52c5b90468",
+      "firstIntroducedVersion": "0.2.0"
     },
     {
       "file": "companions-atlas.png",
@@ -75,7 +77,8 @@
       "brief": "Four original photorealistic grim bound beasts, full body, transparent2x2atlas: spectral bone-plated hound, amphibious ghoul stalker, bark/bone/stone colossus, obsidian giant spider. Subsequent edit preserves design and resizes for exact quadrant containment.",
       "preservedSource": "assets/art-sources/v0.2/companions-padded.png",
       "preservedReferenceInput": "assets/art-sources/v0.2/companions-initial.png",
-      "referenceInputSha256": "55b3e5cd1d2d094b26f52303aa91ed77ebbed3f003c03794461df5d1014a4b65"
+      "referenceInputSha256": "55b3e5cd1d2d094b26f52303aa91ed77ebbed3f003c03794461df5d1014a4b65",
+      "firstIntroducedVersion": "0.2.0"
     },
     {
       "file": "pact-seal.png",
@@ -87,7 +90,66 @@
       "rightsReview": "pending before commercial distribution",
       "generatedOriginal": "/workspace/generated_images/exec-8d56522e-b665-4693-9b1e-b4c65be7d267.png",
       "brief": "Original weathered iron broken pact ring around ivory fang with ember grooves on dark slate; no letters or franchise marks; desktop and interface insignia.",
-      "preservedSource": "assets/art-sources/v0.2/pact-seal-original.png"
+      "preservedSource": "assets/art-sources/v0.2/pact-seal-original.png",
+      "firstIntroducedVersion": "0.2.0"
+    },
+    {
+      "file": "hunter-portrait.png",
+      "firstIntroducedVersion": "0.3.0",
+      "sha256": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+      "width": 1199,
+      "height": 1312,
+      "mode": "RGBA",
+      "creatorTool": "image_gen.imagegen",
+      "rightsReview": "pending before commercial distribution",
+      "generatedOriginal": "/workspace/generated_images/exec-ef08732d-5630-4083-8de1-c033312048be.png",
+      "preservedSource": "assets/art-sources/v0.3/hunter-portrait-original.png",
+      "brief": "Original scarred dark-haired human contract hunter, rain-worn dark wool/leather and iron equipment, natural grey-blue eyes, ivory fang and broken-circle oath emblem; transparent waist-up cinematic portrait, no franchise costume/white hair/cat eyes."
+    },
+    {
+      "file": "hound-poses.png",
+      "firstIntroducedVersion": "0.3.0",
+      "sha256": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "creatorTool": "image_gen.imagegen",
+      "rightsReview": "pending before commercial distribution",
+      "generatedOriginal": "/workspace/generated_images/exec-fa220d9c-530e-4848-89c1-a7bdf740cdbf.png",
+      "preservedSource": "assets/art-sources/v0.3/hound-poses-padded.png",
+      "preservedReferenceInput": "assets/art-sources/v0.3/hound-poses-repair2.png",
+      "brief": "Original Cairn Hound six-pose transparent atlas. Two preceding packing attempts rejected; third repair preserves full figures inside cells. Illustrated pose crossfades, not skeletal animation.",
+      "layout": {
+        "columns": 3,
+        "rows": 2,
+        "cells": [
+          "idle",
+          "crouch",
+          "attack",
+          "recovery",
+          "recoil",
+          "death"
+        ],
+        "cameraCropWithinCell": [
+          32,
+          96,
+          448,
+          384
+        ],
+        "groundAnchorsWithinCell": [
+          446,
+          440,
+          446,
+          400,
+          394,
+          397
+        ],
+        "dividerAlphaMaximum": [
+          0,
+          1,
+          1
+        ]
+      }
     }
   ]
 }

@@ -3,11 +3,18 @@ import {readFileSync} from 'node:fs';
 import { createGame, applyAction, legalActions, validateState, CARDS, type Action, type GameState } from '../../src/engine';
 
 const key = 'hollowpact.run.v2';
+const version=JSON.parse(readFileSync('package.json','utf8')).version;
 test('first-time tutorial, summon/command, save/resume and settings', async ({page}) => {
   test.setTimeout(90000);
   await page.addInitScript(()=>localStorage.setItem('hollowpact.settings.v2',JSON.stringify({mute:true,volume:0,motion:false})));
   const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto('/');
+  const portrait=await page.locator('.title-hunter').evaluate(async element=>{
+    const url=getComputedStyle(element).backgroundImage.slice(5,-2);
+    const image=new Image();image.src=url;await image.decode();
+    return {path:new URL(url).pathname,width:image.naturalWidth,height:image.naturalHeight};
+  });
+  expect(portrait).toEqual({path:'/art/hunter-portrait.png',width:1199,height:1312});
   await page.getByRole('button',{name:/Begin a new contract/}).click();
   await page.locator('#seed').fill('121');
   await page.getByRole('button',{name:/Accept the warrant/}).click();
@@ -29,7 +36,7 @@ test('first-time tutorial, summon/command, save/resume and settings', async ({pa
   await page.locator('#motion').uncheck();
   await expect(page.locator('html')).toHaveAttribute('data-reduced-motion','true');
   await page.getByRole('button',{name:'Close dialog',exact:true}).click();
-  await page.screenshot({path:'reviews/browser-v0.2-battle.png'});
+  await page.screenshot({path:`reviews/browser-${version}-battle.png`});
   expect(errors).toEqual([]);
 });
 
@@ -93,6 +100,59 @@ test('full rosters expose every intent and identify duplicate binding targets',a
   expect(hidden).toEqual([]);
   const intents=await page.locator('.enemy .unit-status').allTextContents();
   expect(intents[0]).toMatch(/binding\s*1/i);expect(intents[1]).toMatch(/binding\s*2/i);
+});
+
+function terminalFixture():GameState {
+  const s=applyAction(createGame(121),{type:'travel',choice:'battle'});
+  s.enemies=s.enemies.slice(0,1);s.enemies[0].hp=1;s.enemies[0].block=0;
+  const pile=[...s.hand,...s.draw,...s.discard];const scour=pile.indexOf('scour');
+  if(scour<0)throw new Error('Starter deck must contain Scour');
+  s.hand=[pile.splice(scour,1)[0]];s.draw=pile;s.discard=[];
+  if(!validateState(s))throw new Error('Terminal presentation fixture must be valid');
+  return s;
+}
+async function loadFixture(page:import('@playwright/test').Page,s:GameState,motion:boolean){
+  await page.addInitScript(({s,motion})=>{if(!localStorage.getItem('hollowpact.run.v2'))localStorage.setItem('hollowpact.run.v2',JSON.stringify(s));localStorage.setItem('hollowpact.settings.v2',JSON.stringify({motion,mute:true,volume:0}));localStorage.setItem('hollowpact.tutorial.v2','yes');},{s,motion});
+  await page.goto('/');await page.locator('[data-ui="resume"]').click();
+  await expect(page.locator('.enemy')).toHaveCount(s.enemies.length);
+}
+test('final strike saves outcome immediately, blocks stale commands and resumes canonical result',async({page})=>{
+  await loadFixture(page,terminalFixture(),true);
+  await page.locator('[data-ui="play-card"]').click();await page.locator('.enemy.valid-target').click();
+  const saved=await page.evaluate(k=>localStorage.getItem(k),key);
+  expect(JSON.parse(saved!).phase).toBe('reward');
+  await expect(page.locator('#app')).toHaveClass(/settling-combat/);
+  await expect(page.locator('[data-action="reward"]')).toHaveCount(0);
+  await expect(page.locator('[data-action="endTurn"]')).toBeDisabled();
+  await page.keyboard.press('e');expect(await page.evaluate(k=>localStorage.getItem(k),key)).toBe(saved);
+  await page.reload();await page.locator('[data-ui="resume"]').click();
+  await expect(page.locator('[data-action="reward"]').first()).toBeVisible();
+  await expect(page.locator('#app')).not.toHaveClass(/settling-combat/);
+  expect(await page.evaluate(k=>localStorage.getItem(k),key)).toBe(saved);
+});
+test('reduced motion reaches salvage without a presentation hold',async({page})=>{
+  await loadFixture(page,terminalFixture(),false);
+  await page.locator('[data-ui="play-card"]').click();await page.locator('.enemy.valid-target').click();
+  await expect(page.locator('[data-action="reward"]').first()).toBeVisible();
+  await expect(page.locator('#app')).not.toHaveClass(/settling-combat/);
+});
+test('voluntary field report exports exact build context and negative feedback locally without changing save',async({page})=>{
+  const external:string[]=[];page.on('request',r=>{if(/^https?:/.test(r.url())&&!r.url().startsWith('http://127.0.0.1:4173/'))external.push(r.url());});
+  await loadFixture(page,terminalFixture(),false);
+  const before=await page.evaluate(()=>({...localStorage}));
+  await page.locator('[data-ui="feedback"]').click();
+  await page.locator('#feedback-confusion').fill('[Automated QA, not human feedback] <script>window.qa=1</script> Target unclear.');
+  await page.locator('#feedback-choice').fill('None in this synthetic fixture.');
+  await page.locator('#feedback-replay').selectOption('no');
+  const [download]=await Promise.all([page.waitForEvent('download'),page.locator('#feedback-form button[type="submit"]').click()]);
+  const file=await download.path();expect(file).toBeTruthy();const report=JSON.parse(readFileSync(file!,'utf8'));
+  expect(report.kind).toBe('voluntary-player-feedback');expect(report.source).toBe('local-export');
+  expect(report.responses.replayIntent).toBe('no');expect(report.responses.confusion).toContain('<script>');
+  expect(report.context.build.version).toBe(version);
+  expect(report.context.build.sourceDigest).toBe(JSON.parse(readFileSync('dist/build-provenance.json','utf8')).sourceDigest);
+  expect(report.context.run.seed).toBe(121);expect(report.context.run.phase).toBe('battle');
+  expect(await page.evaluate(()=>({...localStorage}))).toEqual(before);
+  await expect(page.locator('#dialog script')).toHaveCount(0);expect(external).toEqual([]);
 });
 
 async function clickAction(page:import('@playwright/test').Page,a:Action) {

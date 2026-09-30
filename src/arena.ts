@@ -1,5 +1,5 @@
-import type { Action, GameState } from './engine';
-import { ARENA_ART, portraitFor, type PortraitArt } from './art';
+import type { Action, GameState, TransitionEvent } from './engine';
+import { ARENA_ART, HOUND_POSES, portraitFor, animationFor, CREATURE_ATTACK_SEQUENCE, CREATURE_IMPACT_MS, CREATURE_REACTION_MS, CREATURE_DEATH_MS, type PortraitArt, type CreaturePose, type CreaturePoseFrame, type CreatureAnimationAtlas } from './art';
 
 type Unit = GameState['allies'][number];
 type Side = 'ally' | 'enemy';
@@ -8,6 +8,10 @@ type Figure = {
   uid: string;
   unit: Unit;
   art: PortraitArt | null;
+  animation: CreatureAnimationAtlas | null;
+  pose: CreaturePose;
+  priorPose: CreaturePose | null;
+  poseChanged: number;
   side: Side;
   slot: number;
   count: number;
@@ -15,8 +19,14 @@ type Figure = {
   hit: number;
   dead: number | null;
   departing: boolean;
+  deathAnchored: boolean;
   phase: number;
   lastPoint: Point;
+  layoutFrom: Point;
+  layoutTarget: Point;
+  layoutStarted: number;
+  sizeFrom: number;
+  sizeTarget: number;
 };
 type Strike = {
   source: string | null;
@@ -24,7 +34,7 @@ type Strike = {
   from: Point;
   to: Point;
   born: number;
-  kind: 'physical' | 'magic' | 'heal' | 'ward';
+  kind: 'physical' | 'magic' | 'heal' | 'ward' | 'counter' | 'control' | 'buff';
 };
 
 /** Illustrated 2.5D battlefield: original painted cutouts, never advertised as rigs. */
@@ -35,7 +45,7 @@ export function createArena(canvas: HTMLCanvasElement) {
     notice.className = 'arena-fallback'; notice.setAttribute('role', 'status');
     notice.textContent = 'Battlefield illustration unavailable. All cards, companions and enemy commands remain available in the panels.';
     canvas.hidden = true; canvas.insertAdjacentElement('afterend', notice);
-    return { render(_state: GameState) {}, playAction(_action: Action, _before: GameState, _after: GameState) {}, setSelected(_uid: string | null) {}, resize() {}, dispose() { notice.remove(); canvas.hidden = false; } };
+    return { render(_state: GameState) {}, playAction(_action: Action, _before: GameState, _after: GameState, _events?: readonly TransitionEvent[]) {}, busyMs() { return 0; }, getPresentationBusyMs() { return 0; }, waitForPresentation() { return Promise.resolve(); }, cancelPresentation() {}, setSelected(_uid: string | null) {}, resize() {}, dispose() { notice.remove(); canvas.hidden = false; } };
   }
   const ctx = context;
   canvas.setAttribute('aria-label', 'An illustrated ruined abbey courtyard. Bound monsters face the forces of the hollow. All combat controls are in the companion and enemy panels.');
@@ -52,6 +62,10 @@ export function createArena(canvas: HTMLCanvasElement) {
   let previous: GameState | null = null;
   const figures = new Map<string, Figure>();
   let strikes: Strike[] = [];
+  const presentationWaiters = new Set<() => void>();
+  const attackDuration = CREATURE_ATTACK_SEQUENCE.reduce((total, step) => total + step.durationMs, 0) / 1000;
+  const impactTime = CREATURE_IMPACT_MS / 1000;
+  const deathDuration = CREATURE_DEATH_MS / 1000;
   const images = new Map<string, HTMLImageElement>();
   const backplate = document.createElement('canvas');
   const back = backplate.getContext('2d');
@@ -70,7 +84,7 @@ export function createArena(canvas: HTMLCanvasElement) {
     if (!image) {
       image = new Image(); images.set(url, image);
       image.onload = () => { if (!disposed) { missing.delete(url); updateStatus(); backDirty = true; draw(); } };
-      image.onerror = () => { if (!disposed) { missing.add(url); updateStatus(); draw(); } };
+      image.onerror = () => { if (!disposed) { if (url !== HOUND_POSES.url) missing.add(url); updateStatus(); draw(); } };
       image.src = url;
     }
     return image;
@@ -79,6 +93,7 @@ export function createArena(canvas: HTMLCanvasElement) {
     status.textContent = missing.size ? 'Some battlefield artwork could not load. Combat controls remain available.' : '';
   }
   for (const url of Object.values(ARENA_ART)) imageFor(url);
+  imageFor(HOUND_POSES.url);
   const loaded = (image: HTMLImageElement) => image.complete && image.naturalWidth > 0;
   const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
 
@@ -99,7 +114,7 @@ export function createArena(canvas: HTMLCanvasElement) {
       // Atmospheric local fallback while imagery loads; never a broken image icon.
       back.fillStyle = '#151b20';
       for (let i = 0; i < 7; i++) {
-        const x = width * (.06 + i * .148);
+        const x = width * (.06 + i * .058);
         back.fillRect(x, height * .12, width * .028, height * .58);
         back.beginPath(); back.moveTo(x - width * .03, height * .19); back.lineTo(x + width * .014, height * .08); back.lineTo(x + width * .06, height * .19); back.closePath(); back.fill();
       }
@@ -114,7 +129,7 @@ export function createArena(canvas: HTMLCanvasElement) {
     back.fillStyle = edge; back.fillRect(0, 0, width, height);
   }
 
-  function position(figure: Figure): Point {
+  function targetPosition(figure: Figure): Point {
     if (figure.dead !== null) return figure.lastPoint;
     const count = figure.count;
     if (rowFormation) return { x: width * (figure.slot + 1) / (count + 1), y: height * (figure.side === 'ally' ? .92 : .56) };
@@ -130,7 +145,7 @@ export function createArena(canvas: HTMLCanvasElement) {
     const y = baseY + offset * .065 - (count > 3 && !row ? .16 : 0);
     return { x: width * x, y: height * y };
   }
-  function figureSize(figure: Figure) {
+  function targetSize(figure: Figure) {
     const boss = /dragon|crown/.test(figure.unit.species);
     const bulky = /colossus|golem/.test(figure.unit.species);
     const backRow = figure.count > 3 && figure.slot < 3;
@@ -139,6 +154,26 @@ export function createArena(canvas: HTMLCanvasElement) {
       : Math.min(height * (figure.side === 'ally' ? .49 : .54), width * .235);
     return Math.min(max * (boss ? 1.3 : bulky ? 1.07 : 1) * (!rowFormation && backRow ? .86 : 1), height * .52);
   }
+  function layoutBlend(figure: Figure) {
+    if (reduced) return 1;
+    const progress = clamp((time - figure.layoutStarted) / .32, 0, 1);
+    return progress * progress * (3 - 2 * progress);
+  }
+  function position(figure: Figure): Point {
+    if (figure.dead !== null) return figure.lastPoint;
+    const blend = layoutBlend(figure);
+    return { x: figure.layoutFrom.x + (figure.layoutTarget.x - figure.layoutFrom.x) * blend, y: figure.layoutFrom.y + (figure.layoutTarget.y - figure.layoutFrom.y) * blend };
+  }
+  function figureSize(figure: Figure) {
+    return figure.sizeFrom + (figure.sizeTarget - figure.sizeFrom) * layoutBlend(figure);
+  }
+  function reconcileStrikeEndpoints() {
+    for (const strike of strikes) {
+      strike.from = strike.source ? combatPoint(strike.source) : { x: width * .34, y: height * .82 };
+      strike.to = combatPoint(strike.target);
+    }
+  }
+
   function pointFor(uid: string): Point {
     const figure = figures.get(uid);
     return figure ? position(figure) : { x: width * .42, y: height * .92 };
@@ -166,33 +201,98 @@ export function createArena(canvas: HTMLCanvasElement) {
     }
     ctx.restore();
   }
+  function sequencePose(age: number): CreaturePose {
+    let remaining = age * 1000;
+    for (const step of CREATURE_ATTACK_SEQUENCE) {
+      if (remaining < step.durationMs) return step.pose;
+      remaining -= step.durationMs;
+    }
+    return 'idle';
+  }
+  function figurePose(figure: Figure): CreaturePose {
+    if (reduced) return 'idle';
+    if (figure.dead !== null && time >= figure.dead) return 'death';
+    const hitAge = time - figure.hit;
+    if (hitAge >= 0 && hitAge < CREATURE_REACTION_MS / 1000) return 'reaction';
+    const command = strikes.filter(strike => strike.source === figure.uid && (strike.kind === 'physical' || strike.kind === 'magic') && time >= strike.born && time - strike.born < attackDuration).at(-1);
+    return command ? sequencePose(time - command.born) : 'idle';
+  }
+  function poseFrame(atlas: CreatureAnimationAtlas, pose: CreaturePose, age: number): CreaturePoseFrame | null {
+    const frames = atlas.poses[pose] ?? atlas.poses.idle;
+    if (!frames?.length) return null;
+    const total = frames.reduce((sum, frame) => sum + (frame.holdMs ?? 100), 0);
+    let remaining = ((Math.max(0, age) * 1000) % total);
+    for (const frame of frames) { if (remaining < (frame.holdMs ?? 100)) return frame; remaining -= frame.holdMs ?? 100; }
+    return frames[frames.length - 1];
+  }
+  function drawPose(image: HTMLImageElement, atlas: CreatureAnimationAtlas, frame: CreaturePoseFrame, size: number, alpha: number) {
+    const cellWidth = image.naturalWidth / atlas.columns, cellHeight = image.naturalHeight / atlas.rows;
+    const crop = frame.crop ?? { x: 0, y: 0, width: 1, height: 1 };
+    const sw = cellWidth * crop.width, sh = cellHeight * crop.height;
+    const sx = frame.column * cellWidth + cellWidth * crop.x, sy = frame.row * cellHeight + cellHeight * crop.y;
+    // Cell aspect follows the actual source image; anatomy is never stretched
+    // merely to force an image-generator output into the preferred 3:2 sheet.
+    const h = size * (frame.scale ?? 1), w = h * sw / sh;
+    ctx.save(); ctx.globalAlpha *= alpha;
+    ctx.drawImage(image, sx, sy, sw, sh, -w * (frame.anchorX ?? atlas.anchorX), -h * (frame.anchorY ?? atlas.anchorY), w, h);
+    ctx.restore();
+  }
+
+  function motionFor(figure: Figure, sampleTime = time): Point {
+    if (reduced || (figure.dead !== null && sampleTime >= figure.dead)) return { x: 0, y: 0 };
+    let x = 0, y = 0;
+    for (const strike of strikes) if (strike.source === figure.uid && strike.kind === 'physical') {
+      const age = sampleTime - strike.born;
+      if (age >= 0 && age < attackDuration) {
+        let amount = 0;
+        if (age < .14) amount = -Math.sin(age / .14 * Math.PI) * .035;
+        // Reach the victim with the painted jaw/claws on the impact frame,
+        // then withdraw through the attack hold and recovery pose.
+        else if (age < impactTime) amount = Math.sin((age - .14) / (impactTime - .14) * Math.PI * .5) * .74;
+        else if (age < .32) amount = .74 - (age - impactTime) / (.32 - impactTime) * .09;
+        else amount = Math.max(0, 1 - (age - .32) / .26) * .65;
+        x += (strike.to.x - strike.from.x) * amount;
+        y += (strike.to.y - strike.from.y) * amount;
+      }
+    }
+    return { x, y };
+  }
+
   function paintFigure(figure: Figure) {
+    if (figure.dead !== null && time >= figure.dead && !figure.deathAnchored) {
+      const atContact = motionFor(figure, figure.dead - .00001);
+      figure.lastPoint = { x: figure.lastPoint.x + atContact.x, y: figure.lastPoint.y + atContact.y };
+      figure.deathAnchored = true;
+    }
     const point = position(figure); figure.lastPoint = point;
     const size = figureSize(figure);
     const deathAge = figure.dead === null ? -1 : time - figure.dead;
     const summonAge = time - figure.born;
-    const alpha = deathAge >= 0 ? clamp(1 - deathAge / .65, 0, 1) : reduced ? 1 : clamp(summonAge / .32, 0, 1);
-    shadow(point, size, alpha);
+    const alpha = deathAge >= 0 ? clamp(1 - Math.max(0, deathAge - .3) / (deathDuration - .3), 0, 1) : reduced ? 1 : clamp(summonAge / .32, 0, 1);
+    const movement = motionFor(figure);
+    shadow({ x: point.x + movement.x, y: point.y + movement.y }, size, alpha);
     if (selected === figure.uid && deathAge < 0) sigil(point, size * 1.05, '#ecd099', .86);
     else if (!reduced && summonAge < .75 && deathAge < 0) sigil(point, size, '#c7c493', (1 - summonAge / .75) * .75);
-    let lungeX = 0, lungeY = 0;
-    if (!reduced) for (const strike of strikes) if (strike.source === figure.uid && strike.kind === 'physical') {
-      const age = time - strike.born;
-      if (age > 0 && age < .5) {
-        const amount = Math.sin(age / .5 * Math.PI) * .18;
-        lungeX += (strike.to.x - strike.from.x) * amount;
-        lungeY += (strike.to.y - strike.from.y) * amount;
-      }
-    }
     const hitAge = time - figure.hit;
-    const recoil = !reduced && hitAge > 0 && hitAge < .28 ? Math.sin(hitAge * 55) * (1 - hitAge / .28) * size * .025 : 0;
+    const recoil = !reduced && hitAge > 0 && hitAge < CREATURE_REACTION_MS / 1000 ? Math.sin(hitAge * 45) * (1 - hitAge / (CREATURE_REACTION_MS / 1000)) * size * .025 : 0;
     const breath = !reduced && deathAge < 0 ? 1 + Math.sin(time * 1.35 + figure.phase) * .006 : 1;
     const image = figure.art && imageFor(figure.art.url);
+    const atlasImage = figure.animation && imageFor(figure.animation.url);
+    const currentPose = figurePose(figure);
+    if (currentPose !== figure.pose) {
+      figure.priorPose = figure.pose; figure.pose = currentPose; figure.poseChanged = time;
+    }
+    const blend = reduced ? 1 : clamp((time - figure.poseChanged) / .07, 0, 1);
     ctx.save(); ctx.globalAlpha = alpha;
-    ctx.translate(point.x + lungeX + recoil, point.y + lungeY - (deathAge > 0 ? deathAge * size * .08 : 0));
+    ctx.translate(point.x + movement.x + recoil, point.y + movement.y);
     // Enemies face the bound party; the assets retain their painted anatomy.
     ctx.scale(figure.side === 'enemy' ? -1 : 1, breath);
-    if (image && loaded(image) && figure.art) {
+    if (atlasImage && loaded(atlasImage) && figure.animation) {
+      const current = poseFrame(figure.animation, figure.pose, time - figure.poseChanged);
+      const prior = figure.priorPose && blend < 1 ? poseFrame(figure.animation, figure.priorPose, 0) : null;
+      if (prior) drawPose(atlasImage, figure.animation, prior, size, 1 - blend);
+      if (current) drawPose(atlasImage, figure.animation, current, size, prior ? blend : 1);
+    } else if (image && loaded(image) && figure.art) {
       const columns = figure.art.columns, rows = figure.art.rows;
       const sw = image.naturalWidth / columns, sh = image.naturalHeight / rows;
       ctx.drawImage(image, figure.art.column * sw, figure.art.row * sh, sw, sh, -size / 2, -size * .94, size, size);
@@ -203,8 +303,8 @@ export function createArena(canvas: HTMLCanvasElement) {
       ctx.fillStyle = '#bfac8b'; ctx.font = `500 ${Math.max(14, size * .15)}px Georgia, serif`; ctx.textAlign = 'center'; ctx.fillText('✦', 0, -size * .43);
     }
     ctx.restore();
-    if (!reduced && deathAge >= 0 && deathAge < .9) {
-      ctx.save(); ctx.globalAlpha = (1 - deathAge / .9) * .8;
+    if (!reduced && deathAge >= 0 && deathAge < deathDuration) {
+      ctx.save(); ctx.globalAlpha = (1 - deathAge / deathDuration) * .8;
       for (let i = 0; i < 18; i++) {
         const phase = figure.phase + i * 2.399;
         const travel = deathAge * (20 + (i % 7) * 8);
@@ -215,18 +315,26 @@ export function createArena(canvas: HTMLCanvasElement) {
     }
   }
 
+  function visibleCombatPoint(uid: string): Point {
+    const point = combatPoint(uid), figure = figures.get(uid);
+    if (!figure) return point;
+    const movement = motionFor(figure);
+    return { x: point.x + movement.x, y: point.y + movement.y };
+  }
+
   function paintStrikes() {
     if (reduced) return;
     for (const strike of strikes) {
       const age = time - strike.born;
       if (age < 0 || age > .72) continue;
-      const color = strike.kind === 'heal' ? '#a4cbb6' : strike.kind === 'ward' ? '#b9c6da' : strike.kind === 'magic' ? '#ddbe80' : '#f3d3a4';
-      const impact = .23;
+      const to = visibleCombatPoint(strike.target);
+      const color = strike.kind === 'control' ? '#aca4da' : strike.kind === 'buff' ? '#d7bc77' : strike.kind === 'counter' ? '#c7d0d6' : strike.kind === 'heal' ? '#a4cbb6' : strike.kind === 'ward' ? '#b9c6da' : strike.kind === 'magic' ? '#ddbe80' : '#f3d3a4';
+      const impact = impactTime;
       ctx.save(); ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineCap = 'round';
       if (age < impact) {
         const progress = age / impact;
-        const endX = strike.from.x + (strike.to.x - strike.from.x) * progress;
-        const endY = strike.from.y + (strike.to.y - strike.from.y) * progress - Math.sin(progress * Math.PI) * height * .07;
+        const endX = strike.from.x + (to.x - strike.from.x) * progress;
+        const endY = strike.from.y + (to.y - strike.from.y) * progress - Math.sin(progress * Math.PI) * height * .07;
         ctx.globalAlpha = Math.sin(progress * Math.PI) * .85; ctx.lineWidth = strike.kind === 'physical' ? 2 : 3;
         ctx.beginPath(); ctx.moveTo(strike.from.x, strike.from.y); ctx.quadraticCurveTo((strike.from.x + endX) / 2, Math.min(strike.from.y, endY) - height * .03, endX, endY); ctx.stroke();
         ctx.beginPath(); ctx.arc(endX, endY, 3, 0, Math.PI * 2); ctx.fill();
@@ -234,12 +342,12 @@ export function createArena(canvas: HTMLCanvasElement) {
         const fade = 1 - (age - impact) / .49;
         const radius = 9 + (1 - fade) * 24;
         ctx.globalAlpha = fade * .9; ctx.lineWidth = 1.5;
-        if (strike.kind === 'physical') {
-          ctx.beginPath(); ctx.moveTo(strike.to.x - radius * .7, strike.to.y + radius); ctx.quadraticCurveTo(strike.to.x - radius, strike.to.y - radius, strike.to.x + radius * .7, strike.to.y - radius); ctx.stroke();
-        } else { ctx.beginPath(); ctx.arc(strike.to.x, strike.to.y, radius, 0, Math.PI * 2); ctx.stroke(); }
+        if (strike.kind === 'physical' || strike.kind === 'counter') {
+          ctx.beginPath(); ctx.moveTo(to.x - radius * .7, to.y + radius); ctx.quadraticCurveTo(to.x - radius, to.y - radius, to.x + radius * .7, to.y - radius); ctx.stroke();
+        } else { ctx.beginPath(); ctx.arc(to.x, to.y, radius, 0, Math.PI * 2); ctx.stroke(); }
         for (let i = 0; i < 10; i++) {
           const a = i * 2.399, r = radius * (1 + (i % 3) * .4);
-          ctx.fillRect(strike.to.x + Math.cos(a) * r, strike.to.y + Math.sin(a) * r - (1 - fade) * 12, 2, 2);
+          ctx.fillRect(to.x + Math.cos(a) * r, to.y + Math.sin(a) * r - (1 - fade) * 12, 2, 2);
         }
       }
       ctx.restore();
@@ -247,10 +355,11 @@ export function createArena(canvas: HTMLCanvasElement) {
   }
   function draw() {
     if (disposed || document.hidden) return;
+    reconcileStrikeEndpoints();
     paintBackdrop(); ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
     if (back) ctx.drawImage(backplate, 0, 0, width, height);
     else { ctx.fillStyle = '#151a20'; ctx.fillRect(0, 0, width, height); }
-    [...figures.values()].sort((a, b) => position(a).y - position(b).y).forEach(paintFigure);
+    [...figures.values()].sort((a, b) => position(a).y + motionFor(a).y - position(b).y - motionFor(b).y).forEach(paintFigure);
     paintStrikes();
     if (!reduced) {
       ctx.save();
@@ -267,8 +376,9 @@ export function createArena(canvas: HTMLCanvasElement) {
     strikes = [];
     for (const [uid, figure] of figures) {
       if (figure.dead !== null) figures.delete(uid);
-      else { figure.born = time - 2; figure.hit = -10; }
+      else { figure.born = time - 2; figure.hit = -10; figure.pose = 'idle'; figure.priorPose = null; figure.poseChanged = time - 2; figure.layoutFrom = { ...figure.layoutTarget }; figure.sizeFrom = figure.sizeTarget; figure.layoutStarted = time - 2; }
     }
+    resolvePresentationWaiters();
   }
   function tick(timestamp: number) {
     frame = 0;
@@ -278,14 +388,15 @@ export function createArena(canvas: HTMLCanvasElement) {
     // Bound the simulation step so a stalled tab cannot jump effects forward.
     const dt = lastTimestamp ? clamp((timestamp - lastTimestamp) / 1000, 0, .05) : 0;
     lastTimestamp = timestamp; time += dt;
-    strikes = strikes.filter(strike => time - strike.born < .8);
-    for (const [uid, figure] of figures) if (figure.dead !== null && time - figure.dead > .9) figures.delete(uid);
-    draw();
+    strikes = strikes.filter(strike => time - strike.born < .78);
+    for (const [uid, figure] of figures) if (figure.dead !== null && time - figure.dead >= deathDuration) figures.delete(uid);
+    draw(); resolvePresentationWaiters();
     frame = requestAnimationFrame(tick);
   }
   function resume() {
     cancelAnimationFrame(frame); frame = 0; lastTimestamp = 0;
     if (disposed) return;
+    if (document.hidden) settle();
     if (!document.hidden && !reduced) frame = requestAnimationFrame(tick);
     else draw();
   }
@@ -293,14 +404,24 @@ export function createArena(canvas: HTMLCanvasElement) {
     const next = motionOff(); if (next === reduced) return;
     reduced = next; if (reduced) settle(); resume();
   }
+  function createFigure(unit: Unit, side: Side, slot: number, count: number): Figure {
+    const figure: Figure = { uid: unit.uid, unit, art: portraitFor(unit.species), animation: animationFor(unit.species), pose: 'idle', priorPose: null, poseChanged: time - 2, side, slot, count, born: reduced ? time - 2 : time, hit: -10, dead: null, departing: false, deathAnchored: false, phase: random() * 6.28, lastPoint: { x: 0, y: 0 }, layoutFrom: { x: 0, y: 0 }, layoutTarget: { x: 0, y: 0 }, layoutStarted: time - 2, sizeFrom: 0, sizeTarget: 0 };
+    const target = targetPosition(figure), size = targetSize(figure);
+    figure.layoutFrom = target; figure.layoutTarget = target;
+    figure.sizeFrom = size; figure.sizeTarget = size; figure.lastPoint = target;
+    return figure;
+  }
+
   function render(state: GameState) {
     if (disposed) return;
     active = state.phase === 'battle';
     if (active && (!previous || previous.phase !== 'battle')) {
-      figures.clear(); strikes = []; rowFormation = false;
+      figures.clear(); strikes = []; resolvePresentationWaiters(); rowFormation = false;
       formationCounts.ally = 0; formationCounts.enemy = 0;
     }
-    if (Math.max(state.allies.length, state.enemies.length) >= 4) rowFormation = true;
+    const oldPositions = new Map([...figures].map(([uid, figure]) => [uid, position(figure)]));
+    const oldSizes = new Map([...figures].map(([uid, figure]) => [uid, figureSize(figure)]));
+    if (Math.max(state.allies.length, state.enemies.length, formationCounts.ally, formationCounts.enemy) >= 4) rowFormation = true;
     const seen = new Set<string>();
     for (const side of ['ally', 'enemy'] as const) {
       const units = side === 'ally' ? state.allies : state.enemies;
@@ -313,42 +434,103 @@ export function createArena(canvas: HTMLCanvasElement) {
           const slot = [0, 1, 2, 3, 4, 5].find(candidate => !occupied.has(candidate)) ?? index;
           occupied.add(slot);
           formationCounts[side] = Math.max(formationCounts[side], slot + 1);
-          figure = { uid: unit.uid, unit, art: portraitFor(unit.species), side, slot, count: formationCounts[side], born: reduced ? time - 2 : time, hit: -10, dead: null, departing: false, phase: random() * 6.28, lastPoint: { x: 0, y: 0 } };
+          figure = createFigure(unit, side, slot, formationCounts[side]);
           figures.set(unit.uid, figure);
         } else {
-          if (unit.hp < figure.unit.hp) figure.hit = Math.max(figure.hit, time + .2);
+          if (unit.hp < figure.unit.hp) figure.hit = Math.max(figure.hit, time + impactTime);
           figure.unit = unit; figure.side = side; figure.count = formationCounts[side]; figure.dead = null;
         }
-        figure.lastPoint = position(figure);
       });
       // Death leaves a temporary visual gap; survivors do not slide over the
       // disappearing body or move the attacker's origin halfway through a hit.
       for (const figure of figures.values()) if (figure.side === side && figure.dead === null) {
-        figure.count = formationCounts[side]; figure.lastPoint = position(figure);
+        figure.count = formationCounts[side];
       }
     }
+    for (const [uid, figure] of figures) if ((seen.has(uid) || (figure.side === 'ally' && (state.phase === 'reward' || state.phase === 'victory'))) && figure.dead === null) {
+      const target = targetPosition(figure), size = targetSize(figure);
+      if (!oldPositions.has(uid)) {
+        figure.layoutFrom = target; figure.layoutTarget = target;
+        figure.sizeFrom = size; figure.sizeTarget = size; figure.layoutStarted = time - 2;
+      } else if (Math.abs(target.x - figure.layoutTarget.x) > .1 || Math.abs(target.y - figure.layoutTarget.y) > .1 || Math.abs(size - figure.sizeTarget) > .1) {
+        figure.layoutFrom = oldPositions.get(uid)!; figure.layoutTarget = target;
+        figure.sizeFrom = oldSizes.get(uid)!; figure.sizeTarget = size;
+        figure.layoutStarted = reduced ? time - 2 : time;
+      }
+      figure.lastPoint = position(figure);
+    }
     for (const [uid, figure] of figures) if (!seen.has(uid) && figure.dead === null) {
+      // Winning rule state deliberately releases the party. Keep its surviving
+      // painted figures while the last enemy falls; victory is not their death.
+      if (figure.side === 'ally' && (state.phase === 'reward' || state.phase === 'victory')) {
+        figure.departing = true; continue;
+      }
       if (reduced || (previous && previous.phase !== 'battle')) figures.delete(uid);
-      else { figure.dead = time + .18; figure.departing = figure.side === 'ally' && !active; }
+      else {
+        const incoming = strikes.filter(strike => strike.target === uid && strike.kind !== 'heal' && strike.kind !== 'ward').at(-1);
+        figure.dead = incoming ? Math.max(time, incoming.born + impactTime) : time + .12;
+        figure.deathAnchored = false;
+        figure.departing = figure.side === 'ally' && !active;
+      }
     }
     // A newly filled formation can move both parties while an earlier strike
     // is still in flight. Resolve presentation endpoints by UID again after
     // layout reconciliation, including retained death figures.
-    for (const strike of strikes) {
-      strike.from = strike.source ? combatPoint(strike.source) : { x: width * .34, y: height * .82 };
-      strike.to = combatPoint(strike.target);
-    }
-    previous = state; draw();
+    reconcileStrikeEndpoints();
+    previous = state; draw(); resolvePresentationWaiters();
   }
   function queueStrike(source: string | null, target: string, kind: Strike['kind'], delay = 0) {
     const from = source ? combatPoint(source) : { x: width * .34, y: height * .82 };
     const to = combatPoint(target);
-    strikes.push({ source, target, from, to, born: time + delay, kind });
-    const targetFigure = figures.get(target); if (targetFigure && kind !== 'heal' && kind !== 'ward') targetFigure.hit = time + delay + .23;
+    const strike: Strike = { source, target, from, to, born: time + delay, kind };
+    strikes.push(strike);
+    const targetFigure = figures.get(target); if (targetFigure && (kind === 'physical' || kind === 'magic' || kind === 'counter')) targetFigure.hit = time + delay + impactTime;
+    return strike;
   }
   /** Observe an accepted rule action. This only schedules presentation effects. */
-  function playAction(action: Action, before: GameState, after: GameState) {
-    if (disposed || reduced || before.phase !== 'battle') return;
+  function playAction(action: Action, before: GameState, after: GameState, events?: readonly TransitionEvent[]) {
+    if (disposed) return;
+    if (reduced || before.phase !== 'battle') { render(after); return; }
+    if (events) {
+      const actorDelays = new Map<string, number>();
+      const lastHits = new Map<string, Strike>();
+      const terminal = after.phase !== 'battle';
+      const delayFor = (source: string, retaliation = false) => {
+        if (retaliation) return .04;
+        if (action.type !== 'endTurn' || !before.enemies.some(unit => unit.uid === source)) return 0;
+        if (!actorDelays.has(source)) actorDelays.set(source, actorDelays.size * (terminal ? .009 : .05));
+        return actorDelays.get(source)!;
+      };
+      for (const event of events) {
+        const source = event.source === 'hunter' || event.source === 'world' ? null : event.source;
+        if (event.type === 'summon') {
+          if (!figures.has(event.target)) {
+            const occupied = new Set([...figures.values()].filter(figure => figure.side === event.side && figure.dead === null).map(figure => figure.slot));
+            const slot = [0, 1, 2, 3, 4, 5].find(candidate => !occupied.has(candidate)) ?? 0;
+            formationCounts[event.side] = Math.max(formationCounts[event.side], slot + 1);
+            figures.set(event.target, createFigure(event.unit, event.side, slot, formationCounts[event.side]));
+          }
+          queueStrike(source, event.target, 'ward', delayFor(event.source));
+        } else if (event.type === 'hit') {
+          const kind = event.kind === 'retaliation' ? 'counter' : event.kind === 'command' || (event.kind === 'enemy' && !/wraith|necromancer/.test(figures.get(event.source)?.unit.species ?? '')) ? 'physical' : 'magic';
+          const strike = queueStrike(source, event.target, kind, delayFor(event.source, event.kind === 'retaliation'));
+          lastHits.set(event.target, strike);
+        } else if (event.type === 'control' || event.type === 'buff') {
+          // Intent cancellation and attack rallies are real resolved effects,
+          // but do not create fabricated damage, recoil or attack movement.
+          queueStrike(source, event.target, event.type, delayFor(event.source));
+        } else if (event.type === 'heal' || event.type === 'ward') {
+          queueStrike(source, event.target, event.type === 'heal' ? 'heal' : 'ward', delayFor(event.source));
+        } else if (event.type === 'death' && event.target !== 'hunter') {
+          const figure = figures.get(event.target), hit = lastHits.get(event.target);
+          if (figure) {
+            figure.dead = hit ? hit.born + impactTime : time + .12;
+            figure.deathAnchored = false; figure.departing = false;
+          }
+        }
+      }
+      render(after); return;
+    }
     if (action.type === 'attack') queueStrike(action.unit, action.target, 'physical');
     else if (action.type === 'play') {
       const summoned = after.allies.some(unit => !before.allies.some(old => old.uid === unit.uid));
@@ -366,16 +548,32 @@ export function createArena(canvas: HTMLCanvasElement) {
         });
         else if ('target' in action && action.target) queueStrike(null, action.target, 'magic');
       }
-    } else if (action.type === 'endTurn') {
-      before.enemies.forEach((enemy, i) => {
-        if (!enemy.intent || enemy.intent.damage <= 0) return;
-        const target = enemy.intent.target;
-        if (target === 'all') [...before.allies.map(unit => unit.uid), 'hunter'].forEach(uid => queueStrike(enemy.uid, uid, 'magic', i * .14));
-        else queueStrike(enemy.uid, target, /wraith|necromancer|wisp|witch/.test(enemy.species) ? 'magic' : 'physical', i * .14);
-      });
     }
-    draw();
+    // Callers without a canonical trace still show state changes. They do not
+    // manufacture enemy attacks from intents that may never have executed.
+    render(after);
   }
+  function busyMs() {
+    if (disposed || reduced || document.hidden) return 0;
+    let end = time;
+    for (const strike of strikes) end = Math.max(end, strike.born + .73);
+    for (const figure of figures.values()) {
+      if (figure.dead !== null) end = Math.max(end, figure.dead + deathDuration);
+      else if (!figure.departing) end = Math.max(end, figure.born + .38, figure.hit + CREATURE_REACTION_MS / 1000, figure.layoutStarted + .32);
+    }
+    return Math.max(0, Math.ceil((end - time) * 1000));
+  }
+  function resolvePresentationWaiters() {
+    if (busyMs() !== 0) return;
+    const pending = [...presentationWaiters]; presentationWaiters.clear();
+    pending.forEach(resolve => resolve());
+  }
+  function waitForPresentation(): Promise<void> {
+    if (!busyMs()) return Promise.resolve();
+    return new Promise(resolve => presentationWaiters.add(resolve));
+  }
+  function cancelPresentation() { settle(); draw(); }
+
   function resize() {
     if (disposed) return;
     const bounds = canvas.getBoundingClientRect(); width = Math.max(1, bounds.width || 900); height = Math.max(1, bounds.height || 400);
@@ -387,7 +585,12 @@ export function createArena(canvas: HTMLCanvasElement) {
     backDirty = true;
     // Action endpoints use CSS pixels; settle on layout changes instead of
     // drawing effects aimed at a previous screen location.
-    strikes = []; draw();
+    for (const figure of figures.values()) if (figure.dead === null) {
+      const target = targetPosition(figure), size = targetSize(figure);
+      figure.layoutFrom = target; figure.layoutTarget = target;
+      figure.sizeFrom = size; figure.sizeTarget = size; figure.lastPoint = target;
+    }
+    settle(); draw();
   }
   const resizeObserver = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(resize) : null;
   resizeObserver?.observe(canvas);
@@ -397,11 +600,11 @@ export function createArena(canvas: HTMLCanvasElement) {
   document.addEventListener('visibilitychange', resume); window.addEventListener('resize', resize);
   resize(); resume();
   return {
-    render, playAction,
+    render, playAction, busyMs, getPresentationBusyMs: busyMs, waitForPresentation, cancelPresentation,
     setSelected(uid: string | null) { selected = uid; draw(); },
     resize,
     dispose() {
-      if (disposed) return; disposed = true; cancelAnimationFrame(frame);
+      if (disposed) return; disposed = true; cancelAnimationFrame(frame); resolvePresentationWaiters();
       resizeObserver?.disconnect(); motionObserver.disconnect();
       motionQuery.removeEventListener('change', updateMotion);
       document.removeEventListener('visibilitychange', resume); window.removeEventListener('resize', resize);

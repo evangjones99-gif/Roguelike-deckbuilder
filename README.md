@@ -2,7 +2,7 @@
 
 A grim monster-binding roguelike deckbuilder. Play a contract hunter, deploy dangerous creatures, and defeat an armored warlord, a necromancer or an ember dragon. Working title; name clearance remains pending.
 
-**v0.2 development candidate.** This milestone replaces the rejected woodland presentation with original detailed creature illustrations and a rain-soaked abbey. It adds distinct creature roles, directed combat effects, boss counters, targeted training and expanded relics/events. AAA studio craft is the production target; current cutout animation and synthetic playtesting do not establish AAA quality or human enjoyment.
+**v0.3 reviewed development checkpoint.** The grim monster hunter now has an original portrait, the hound has six illustrated combat poses, and final strikes retain visible impact/death feedback before showing the outcome. Resolved combat events keep effects faithful to the rules. A newly reproduced inherited defect lets repeated Silence against a guard invalidate a save; its repair is the immediate next cycle. This version is preserved development evidence and is not commercially ready. AAA studio craft is the production target; pose transitions and synthetic playtesting do not establish AAA quality or human enjoyment.
 
 ## Run
 
@@ -16,7 +16,7 @@ Five energy and five fresh cards each turn. Play a creature, select its ready bi
 
 Cairn Hounds punish exposed enemies. Fen Stalkers recover through damaging commands. Briar Colossi protect the hunter. Ash Widows strengthen targeted damage tools. Build around these roles, inspect the final quarry's traits, and select upgrades deliberately. Armored retaliation, delayed reinforcements and dragon breath require different answers.
 
-Rewards can be skipped. Rest or choose a specific deck entry to train, buy or remove cards, and judge shrine bargains before accepting them. Saves and settings stay on the device; no telemetry is sent. v0.2 uses separate storage keys and preserves v0.1 saves.
+Rewards can be skipped. Rest or choose a specific deck entry to train, buy or remove cards, and judge shrine bargains before accepting them. Saves and settings stay on the device; no telemetry is sent. The optional Field report downloads feedback locally. v0.3 retains schema-2 storage keys and preserves v0.1 saves.
 
 ## Production and evidence
 

@@ -88,6 +88,75 @@ export type Action =
   | { type: "remove"; index: number }
   | { type: "leave" }
   | { type: "event"; choice: string };
+/** Ordered observations of actual resolution. Never saved or used for game rules. */
+export type ResolvedHitKind =
+  "command" | "spell" | "enemy" | "retaliation" | "summon" | "self";
+export type ResolvedEvent =
+  | {
+      type: "hit";
+      source: string;
+      target: string;
+      kind: ResolvedHitKind;
+      damage: number;
+      blocked: number;
+      hpLost: number;
+      beforeHp: number;
+      afterHp: number;
+      cardId?: string;
+    }
+  | {
+      type: "heal";
+      source: string;
+      target: string;
+      amount: number;
+      beforeHp: number;
+      afterHp: number;
+    }
+  | { type: "ward"; source: string; target: string; amount: number }
+  | {
+      type: "control";
+      source: string;
+      target: string;
+      cardId: string;
+      before: NonNullable<Unit["intent"]>;
+      after: NonNullable<Unit["intent"]>;
+    }
+  | {
+      type: "buff";
+      source: string;
+      target: string;
+      cardId: string;
+      stat: "attack";
+      before: number;
+      after: number;
+      amount: number;
+    }
+  | {
+      type: "summon";
+      source: string;
+      target: string;
+      cardId: string;
+      unit: Unit;
+      side: "ally" | "enemy";
+    }
+  | { type: "death"; source: string; target: string; cardId?: string };
+export type TransitionEvent = ResolvedEvent;
+interface ResolutionTrace {
+  events: ResolvedEvent[];
+  source: string;
+  kind: ResolvedHitKind;
+  cardId?: string;
+}
+function trace(
+  events: ResolvedEvent[] | undefined,
+  source: string,
+  kind: ResolvedHitKind,
+  cardId?: string,
+): ResolutionTrace | undefined {
+  return events
+    ? { events, source, kind, ...(cardId ? { cardId } : {}) }
+    : undefined;
+}
 const ROUTES = [
   ["battle"],
   ["battle", "event"],
@@ -285,7 +354,7 @@ function intentions(s: GameState) {
     e.intent = { target, damage, label, ...(summon ? { summon } : {}) };
   }
 }
-function beginBattle(s: GameState, kind: string) {
+function beginBattle(s: GameState, kind: string, events?: ResolvedEvent[]) {
   s.phase = "battle";
   s.route = [kind];
   s.block = 0;
@@ -325,6 +394,15 @@ function beginBattle(s: GameState, kind: string) {
   s.enemies = sets[Math.floor(random(s) * sets.length)].map((id) =>
     enemy(s, id),
   );
+  for (const e of s.enemies)
+    events?.push({
+      type: "summon",
+      source: "world",
+      target: e.uid,
+      cardId: e.cardId,
+      unit: structuredClone(e),
+      side: "enemy",
+    });
   draw(s, 5);
   intentions(s);
   note(
@@ -342,19 +420,118 @@ function hitUnit(
   damage: number,
   source: boolean,
   pierce = false,
+  resolution?: ResolutionTrace,
 ) {
+  const beforeHp = u.hp,
+    blocked = pierce ? 0 : Math.min(u.block, damage);
   const dealt = Math.min(u.hp, Math.max(0, damage - (pierce ? 0 : u.block)));
   if (!pierce) u.block = Math.max(0, u.block - damage);
   u.hp -= dealt;
   if (source) s.stats.damageDealt += dealt;
+  if (resolution) {
+    const { events, ...from } = resolution;
+    events.push({
+      type: "hit",
+      ...from,
+      target: u.uid,
+      damage,
+      blocked,
+      hpLost: dealt,
+      beforeHp,
+      afterHp: u.hp,
+    });
+    if (beforeHp > 0 && u.hp <= 0)
+      events.push({
+        type: "death",
+        source: resolution.source,
+        target: u.uid,
+        cardId: u.cardId,
+      });
+  }
 }
-function hitHunter(s: GameState, damage: number, pierce = false) {
+function hitHunter(
+  s: GameState,
+  damage: number,
+  pierce = false,
+  resolution?: ResolutionTrace,
+) {
+  const beforeHp = s.hp,
+    blocked = pierce ? 0 : Math.min(s.block, damage);
   const dealt = Math.max(0, damage - (pierce ? 0 : s.block));
   if (!pierce) s.block = Math.max(0, s.block - damage);
   s.hp = Math.max(0, s.hp - dealt);
+  if (resolution) {
+    const { events, ...from } = resolution;
+    events.push({
+      type: "hit",
+      ...from,
+      target: "hunter",
+      damage,
+      blocked,
+      hpLost: beforeHp - s.hp,
+      beforeHp,
+      afterHp: s.hp,
+    });
+    if (beforeHp > 0 && s.hp <= 0)
+      events.push({
+        type: "death",
+        source: resolution.source,
+        target: "hunter",
+      });
+  }
 }
-function heal(s: GameState, n: number) {
+function heal(
+  s: GameState,
+  n: number,
+  events?: ResolvedEvent[],
+  source = "hunter",
+) {
+  const beforeHp = s.hp;
   s.hp = Math.min(s.maxHp, s.hp + n);
+  if (s.hp > beforeHp)
+    events?.push({
+      type: "heal",
+      source,
+      target: "hunter",
+      amount: s.hp - beforeHp,
+      beforeHp,
+      afterHp: s.hp,
+    });
+}
+function healUnit(
+  u: Unit,
+  n: number,
+  events?: ResolvedEvent[],
+  source = "hunter",
+) {
+  const beforeHp = u.hp;
+  u.hp = Math.min(u.maxHp, u.hp + n);
+  if (u.hp > beforeHp)
+    events?.push({
+      type: "heal",
+      source,
+      target: u.uid,
+      amount: u.hp - beforeHp,
+      beforeHp,
+      afterHp: u.hp,
+    });
+}
+function ward(
+  s: GameState,
+  u: Unit | undefined,
+  n: number,
+  events?: ResolvedEvent[],
+  source = "hunter",
+) {
+  if (u) u.block += n;
+  else s.block += n;
+  if (n > 0)
+    events?.push({
+      type: "ward",
+      source,
+      target: u?.uid ?? "hunter",
+      amount: n,
+    });
 }
 function clean(s: GameState) {
   for (const a of s.allies)
@@ -365,7 +542,7 @@ function clean(s: GameState) {
   s.allies = s.allies.filter((a) => a.hp > 0);
   s.enemies = s.enemies.filter((e) => e.hp > 0);
 }
-function finish(s: GameState) {
+function finish(s: GameState, events?: ResolvedEvent[]) {
   clean(s);
   if (s.hp <= 0) {
     s.phase = "defeat";
@@ -384,6 +561,7 @@ function finish(s: GameState) {
   heal(
     s,
     (kind === "elite" ? 3 : 2) + (s.relics.includes("blood-vial") ? 2 : 0),
+    events,
   );
   if (kind === "boss") {
     s.phase = "victory";
@@ -408,13 +586,29 @@ function finish(s: GameState) {
     note(s, "Contract complete. Choose one new card or travel light.");
   }
 }
-function targetedSpell(s: GameState, target: Unit, damage: number) {
+function targetedSpell(
+  s: GameState,
+  target: Unit,
+  damage: number,
+  resolution?: ResolutionTrace,
+) {
   const widow = s.allies.filter((u) => u.species === "spider").length * 2;
   const relic = s.relics.includes("moon-charm") ? 1 : 0;
   const resistance = target.cardId === "revenant" ? 2 : 0;
-  hitUnit(s, target, Math.max(0, damage + widow + relic - resistance), true);
+  hitUnit(
+    s,
+    target,
+    Math.max(0, damage + widow + relic - resistance),
+    true,
+    false,
+    resolution,
+  );
 }
-function play(s: GameState, a: Extract<Action, { type: "play" }>) {
+function play(
+  s: GameState,
+  a: Extract<Action, { type: "play" }>,
+  events?: ResolvedEvent[],
+) {
   const id = s.hand.splice(a.index, 1)[0],
     c = CARDS[id];
   s.energy -= c.cost;
@@ -435,21 +629,30 @@ function play(s: GameState, a: Extract<Action, { type: "play" }>) {
       passive: c.passive,
     };
     s.allies.push(u);
+    events?.push({
+      type: "summon",
+      source: "hunter",
+      target: u.uid,
+      cardId: id,
+      unit: structuredClone(u),
+      side: "ally",
+    });
     switch (c.effect) {
       case "hunter-ward":
-        s.block += 2;
+        ward(s, undefined, 2, events, u.uid);
         break;
       case "draw":
         draw(s, 1);
         break;
       case "hunter-heal":
-        heal(s, 2);
+        heal(s, 2, events, u.uid);
         break;
       case "pack-ward":
-        for (const a of s.allies) a.block += 3;
+        for (const a of s.allies) ward(s, a, 3, events, u.uid);
         break;
       case "enemy-burn":
-        for (const e of s.enemies) hitUnit(s, e, 2, true);
+        for (const e of s.enemies)
+          hitUnit(s, e, 2, true, false, trace(events, u.uid, "summon", id));
         break;
     }
     note(s, "Bound " + c.name + ".");
@@ -457,54 +660,77 @@ function play(s: GameState, a: Extract<Action, { type: "play" }>) {
     const v = c.value ?? 0,
       target = s.enemies.find((e) => e.uid === a.target),
       ally = s.allies.find((u) => u.uid === a.target);
+    const spellTrace = trace(events, "hunter", "spell", id);
     switch (c.effect) {
       case "damage":
-        targetedSpell(s, target!, v);
+        targetedSpell(s, target!, v, spellTrace);
         break;
       case "block":
-        s.block += v;
+        ward(s, undefined, v, events);
         break;
       case "heal":
-        ally!.hp = Math.min(ally!.maxHp, ally!.hp + v);
-        ally!.block += 2;
+        healUnit(ally!, v, events);
+        ward(s, ally!, 2, events);
         break;
       case "rally":
-        for (const u of s.allies) u.attack += v;
+        for (const u of s.allies) {
+          const before = u.attack;
+          u.attack += v;
+          if (u.attack !== before)
+            events?.push({
+              type: "buff",
+              source: "hunter",
+              target: u.uid,
+              cardId: id,
+              stat: "attack",
+              before,
+              after: u.attack,
+              amount: u.attack - before,
+            });
+        }
         break;
       case "aoe":
         for (const e of s.enemies)
-          hitUnit(s, e, v + (s.relics.includes("moon-charm") ? 1 : 0), true);
+          hitUnit(
+            s,
+            e,
+            v + (s.relics.includes("moon-charm") ? 1 : 0),
+            true,
+            false,
+            spellTrace,
+          );
         break;
       case "ready":
         ally!.acted = false;
-        ally!.block += v;
+        ward(s, ally!, v, events);
         break;
       case "siphon":
-        targetedSpell(s, target!, v);
-        heal(s, 3);
+        targetedSpell(s, target!, v, spellTrace);
+        heal(s, 3, events);
         break;
       case "draw":
         draw(s, v);
         break;
       case "energy":
         s.energy += v;
-        s.hp = Math.max(0, s.hp - 3);
+        hitHunter(s, 3, true, trace(events, "hunter", "self", id));
         break;
       case "shelter":
-        s.block += v;
-        for (const u of s.allies) u.block += v;
+        ward(s, undefined, v, events);
+        for (const u of s.allies) ward(s, u, v, events);
         break;
       case "pack":
-        targetedSpell(s, target!, v + s.allies.length * 2);
+        targetedSpell(s, target!, v + s.allies.length * 2, spellTrace);
         break;
       case "communion":
-        heal(s, v * s.allies.length);
+        heal(s, v * s.allies.length, events);
         break;
       case "shred":
         target!.block = 0;
-        targetedSpell(s, target!, v);
+        targetedSpell(s, target!, v, spellTrace);
         break;
       case "control":
+        const beforeIntent = structuredClone(target!.intent!);
         target!.intent = {
           ...target!.intent!,
           damage: 0,
@@ -513,53 +739,82 @@ function play(s: GameState, a: Extract<Action, { type: "play" }>) {
             : "Silenced · damage and reinforcements canceled",
           summon: [],
         };
+        if (JSON.stringify(beforeIntent) !== JSON.stringify(target!.intent))
+          events?.push({
+            type: "control",
+            source: "hunter",
+            target: target!.uid,
+            cardId: id,
+            before: beforeIntent,
+            after: structuredClone(target!.intent),
+          });
         break;
       case "solo":
-        targetedSpell(s, target!, v + (s.allies.length === 0 ? 4 : 0));
+        targetedSpell(
+          s,
+          target!,
+          v + (s.allies.length === 0 ? 4 : 0),
+          spellTrace,
+        );
         break;
       case "hunterheal":
-        heal(s, v);
+        heal(s, v, events);
         break;
     }
     s.discard.push(id);
     note(s, "Cast " + c.name + ".");
   }
-  finish(s);
+  finish(s, events);
 }
-function endTurn(s: GameState) {
+function endTurn(s: GameState, events?: ResolvedEvent[]) {
   // A fixed roster snapshot prevents newly raised thralls acting before their
   // first visible intent. Reinforcements appear only after this enemy phase.
   for (const e of s.enemies) e.block = 0;
-  const reinforcements: string[] = [];
+  const reinforcements: { id: string; source: string }[] = [];
   for (const e of s.enemies.slice()) {
     const i = e.intent!;
-    if (i.summon?.length) reinforcements.push(...i.summon);
+    if (i.summon?.length)
+      reinforcements.push(...i.summon.map((id) => ({ id, source: e.uid })));
+    const enemyTrace = trace(events, e.uid, "enemy", e.cardId);
     if (i.damage === 0) {
       // Only an actual guard phase grants armor. A canceled attack cannot
       // become an accidental guard, and canceling a guard preserves armor.
-      if (e.cardId === "ironjaw" && s.turn % 2 === 1) e.block += 14;
-      else if (e.cardId === "cindermaw" && s.turn % 3 === 1) e.block += 10;
-      else if (e.cardId === "raider" && s.turn % 2 === 1) e.block += 4;
+      if (e.cardId === "ironjaw" && s.turn % 2 === 1)
+        ward(s, e, 14, events, e.uid);
+      else if (e.cardId === "cindermaw" && s.turn % 3 === 1)
+        ward(s, e, 10, events, e.uid);
+      else if (e.cardId === "raider" && s.turn % 2 === 1)
+        ward(s, e, 4, events, e.uid);
     } else if (i.target === "all") {
-      hitHunter(s, i.damage);
-      for (const u of s.allies) hitUnit(s, u, i.damage, false);
+      hitHunter(s, i.damage, false, enemyTrace);
+      for (const u of s.allies)
+        hitUnit(s, u, i.damage, false, false, enemyTrace);
     } else {
       const u = s.allies.find((u) => u.uid === i.target && u.hp > 0);
-      if (u) hitUnit(s, u, i.damage, false, e.cardId === "revenant");
-      else hitHunter(s, i.damage, e.cardId === "revenant");
+      if (u)
+        hitUnit(s, u, i.damage, false, e.cardId === "revenant", enemyTrace);
+      else hitHunter(s, i.damage, e.cardId === "revenant", enemyTrace);
     }
     note(s, e.name + ": " + i.label + ".");
     clean(s);
     if (s.hp <= 0) break;
   }
   if (s.hp > 0)
-    for (const id of reinforcements)
+    for (const raisedPlan of reinforcements)
       if (s.enemies.length < 6) {
-        const raised = enemy(s, id);
+        const raised = enemy(s, raisedPlan.id);
         s.enemies.push(raised);
+        events?.push({
+          type: "summon",
+          source: raisedPlan.source,
+          target: raised.uid,
+          cardId: raised.cardId,
+          unit: structuredClone(raised),
+          side: "enemy",
+        });
         note(s, raised.name + " rises. It will act next turn.");
       }
-  finish(s);
+  finish(s, events);
   if (s.phase !== "battle") return;
   s.discard.push(...s.hand);
   s.hand = [];
@@ -663,7 +918,11 @@ function matches(a: Action, b: Action): boolean {
       return true;
   }
 }
-export function applyAction(state: GameState, action: Action): GameState {
+function reduceAction(
+  state: GameState,
+  action: Action,
+  events?: ResolvedEvent[],
+): GameState {
   if (action?.type === "start") {
     if (!Number.isFinite(action.seed)) return state;
     return createGame(action.seed, action.difficulty);
@@ -674,7 +933,7 @@ export function applyAction(state: GameState, action: Action): GameState {
     case "travel":
       s.floor++;
       if (["battle", "elite", "boss"].includes(action.choice))
-        beginBattle(s, action.choice);
+        beginBattle(s, action.choice, events);
       else {
         s.phase = action.choice as "camp" | "shop" | "event";
         s.route = [action.choice];
@@ -684,7 +943,7 @@ export function applyAction(state: GameState, action: Action): GameState {
       }
       break;
     case "play":
-      play(s, action);
+      play(s, action, events);
       break;
     case "attack": {
       const u = s.allies.find((u) => u.uid === action.unit)!,
@@ -697,20 +956,28 @@ export function applyAction(state: GameState, action: Action): GameState {
         e,
         u.attack + (u.species === "hound" && !wasArmored ? 2 : 0),
         true,
+        false,
+        trace(events, u.uid, "command", u.cardId),
       );
-      if (u.species === "stalker" && e.hp < hp)
-        u.hp = Math.min(u.maxHp, u.hp + 2);
-      if (u.species === "colossus") s.block += 2;
+      if (u.species === "stalker" && e.hp < hp) healUnit(u, 2, events, u.uid);
+      if (u.species === "colossus") ward(s, undefined, 2, events, u.uid);
       if (wasArmored && (e.cardId === "raider" || e.cardId === "ironjaw")) {
-        hitUnit(s, u, e.cardId === "ironjaw" ? 2 : 1, false, true);
+        hitUnit(
+          s,
+          u,
+          e.cardId === "ironjaw" ? 2 : 1,
+          false,
+          true,
+          trace(events, e.uid, "retaliation", e.cardId),
+        );
         note(s, e.name + " retaliates against " + u.name + ".");
       }
       note(s, u.name + " strikes " + e.name + ".");
-      finish(s);
+      finish(s, events);
       break;
     }
     case "endTurn":
-      endTurn(s);
+      endTurn(s, events);
       break;
     case "reward":
       if (action.card) s.deck.push(action.card);
@@ -718,7 +985,7 @@ export function applyAction(state: GameState, action: Action): GameState {
       break;
     case "camp":
       if (action.choice === "rest") {
-        heal(s, 18);
+        heal(s, 18, events);
         note(s, "Restored 18 HP beside the contract fire.");
       } else {
         const id = s.deck[action.index!];
@@ -743,16 +1010,16 @@ export function applyAction(state: GameState, action: Action): GameState {
       break;
     case "event":
       if (action.choice === "offering") {
-        s.hp -= 8;
+        hitHunter(s, 8, true, trace(events, "hunter", "self"));
         s.relics.push("moon-charm");
         note(s, "The wraithglass oath is sealed in blood.");
       } else if (action.choice === "purge") {
-        s.hp -= 4;
+        hitHunter(s, 4, true, trace(events, "hunter", "self"));
         s.deck.splice(s.deck.indexOf("scour"), 1);
         note(s, "An old Scour contract burns.");
       } else if (action.choice === "bargain") {
         s.gold -= 30;
-        heal(s, 16);
+        heal(s, 16, events);
         note(s, "The surgeon closes your wounds.");
       } else if (action.choice === "forage") {
         s.gold += 25;
@@ -762,6 +1029,18 @@ export function applyAction(state: GameState, action: Action): GameState {
       break;
   }
   return s;
+}
+/** Existing reducer API: same state and random sequence as the archived rules. */
+export function applyAction(state: GameState, action: Action): GameState {
+  return reduceAction(state, action);
+}
+/** Resolution observations are transient and independent of returned saved state. */
+export function applyActionWithEvents(
+  state: GameState,
+  action: Action,
+): { state: GameState; events: ResolvedEvent[] } {
+  const events: ResolvedEvent[] = [];
+  return { state: reduceAction(state, action, events), events };
 }
 /** Validate untrusted JSON without executing reducer code. Bounds prevent pathological saves. */
 export function validateState(value: unknown): value is GameState {

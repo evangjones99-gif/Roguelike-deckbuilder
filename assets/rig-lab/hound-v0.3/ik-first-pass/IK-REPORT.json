@@ -1,0 +1,109 @@
+{
+  "bones": 32,
+  "deformingBones": 28,
+  "method": "Two-segment IK wrist/hock targets and world-space pad orientation; four nondeforming target controls keyed in each rig action; exported sampled transforms",
+  "maximumTargetDistanceByAction": {
+    "Anticipation_Crouch": 0.07624244057705386,
+    "Death_Collapse": 0,
+    "Hit_Recoil": 0.03234124504155679,
+    "Idle_BreathAndWatch": 0.017974373933443023,
+    "Lunge_CommandStrike": 0.09980379617912645
+  },
+  "digitHeadXYZRangesByAction": {
+    "Anticipation_Crouch": {
+      "ik.fore.L": [
+        0.02218526601791382,
+        0.04120558500289917,
+        0.060189440846443176
+      ],
+      "ik.fore.R": [
+        0.022185325622558594,
+        0.04120561480522156,
+        0.06018957495689392
+      ],
+      "ik.hind.L": [
+        0.009167671203613281,
+        0.013852506875991821,
+        0.011544346809387207
+      ],
+      "ik.hind.R": [
+        0.009167611598968506,
+        0.013852566480636597,
+        0.011544138193130493
+      ]
+    },
+    "Death_Collapse": {},
+    "Hit_Recoil": {
+      "ik.fore.L": [
+        0.007972359657287598,
+        0.014609217643737793,
+        0.025184154510498047
+      ],
+      "ik.fore.R": [
+        0.004999279975891113,
+        0.010289013385772705,
+        0.01868659257888794
+      ],
+      "ik.hind.L": [
+        0.015861988067626953,
+        0.021936267614364624,
+        0.01788383722305298
+      ],
+      "ik.hind.R": [
+        0.015862107276916504,
+        0.021936118602752686,
+        0.017883777618408203
+      ]
+    },
+    "Idle_BreathAndWatch": {
+      "ik.fore.L": [
+        0.006979465484619141,
+        0.012637019157409668,
+        0.02527831494808197
+      ],
+      "ik.fore.R": [
+        0.008360207080841064,
+        0.01574498414993286,
+        0.031449079513549805
+      ],
+      "ik.hind.L": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "ik.hind.R": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "Lunge_CommandStrike": {
+      "ik.fore.L": [
+        0.3721410632133484,
+        0.045679569244384766,
+        0.14080196619033813
+      ],
+      "ik.fore.R": [
+        0.3721410036087036,
+        0.04567959904670715,
+        0.14080189168453217
+      ],
+      "ik.hind.L": [
+        0.03466677665710449,
+        0.09290897846221924,
+        0.025825917720794678
+      ],
+      "ik.hind.R": [
+        0.03466677665710449,
+        0.09290897846221924,
+        0.02582573890686035
+      ]
+    }
+  },
+  "limitations": [
+    "Solver/pivot/deformation quality require independent motion review.",
+    "Death uses the preserved non-IK folded variant.",
+    "Creature sculpt/material silhouette still below production realism.",
+    "No runtime integration or acceptance."
+  ]
+}

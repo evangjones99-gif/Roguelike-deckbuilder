@@ -1,0 +1,9 @@
+# Painted contact-shadow prototype checkpoint
+
+Six paired static Canvas captures use the actual hound pose sheet and courtyard: idle, attack, recovery and death alone, plus attack with two and six companions. The baseline and candidate preserve identical actor geometry and poses. Browser capture reported no page errors. These are actual draws, not a runtime integration, animation test, FPS measurement or independent approval.
+
+The candidate creates its radial gradient in local coordinates after the shadow transform, draws the floor shadows before bodies, and reduces opacity while enlarging the shadow for apparent airborne height. The existing baseline creates the gradient in absolute coordinates before translating and scaling an ellipse centered at local zero. That coordinate mismatch can make the existing shadow effectively invisible; root arena investigation separately confirmed that failure in the runtime renderer. This fixture includes the local-coordinate repair.
+
+Author inspected `attack-single.png`, `idle-single.png` and `attack-full.png`. The visible differences are subtle on the detailed dark floor; no claim of a large visual improvement or production acceptance is supported. At the fixture single-actor size of 225.6 px, the attack frame has an apparent 18.095 px gap derived from significant-alpha bounds rather than authored foot markers. The candidate changes shadow opacity 0.85 to approximately 0.555 and radius 112.8 to approximately 126.204. The composite comparison does not isolate gradient repair, height response and floor-pass ordering; attribution requires separate ablations.
+
+Runtime integration belongs to the arena owner. Preserve this fixture and captures as evidence; obtain independent visual review and production performance evidence before promotion. Rejected Blender variants remain preserved and are not runtime assets.

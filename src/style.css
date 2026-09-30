@@ -52,3 +52,40 @@
 .dense-roster .empty-slot{min-height:15px;height:15px;padding-block:0}
 .dense-roster .rail-note{display:none}
 }
+
+/* The hunter is a person on the field, rather than a resource icon. */
+.hunter-photo{background-image:var(--hunter-art);background-repeat:no-repeat;background-position:center 22%;background-size:cover;background-color:#121c20}
+.hunter-icon.hunter-photo{width:38px;height:43px;flex-shrink:0;border-color:#a88e685f}
+.hunter-intro{display:flex;align-items:center;gap:17px;margin-bottom:24px}
+.title-hunter{width:78px;height:90px;flex-shrink:0;border:1px solid #b19b765f;box-shadow:0 3px 15px #0003}
+.hunter-intro .eyebrow{color:#c4b38f;font-size:10px;letter-spacing:1px}
+.hunter-intro p{font:13px/1.6 Georgia,serif;color:#b5c3c2;margin-top:9px}
+.hunter-dossier{display:flex;gap:25px;margin-bottom:24px;align-items:center}
+.dossier-hunter{width:140px;height:174px;flex-shrink:0;border:1px solid #b59b7657}
+.hunter-dossier h3{font:28px Georgia,serif;margin:13px 0}
+.hunter-dossier p{font:13px/1.7 Arial,sans-serif;color:#bacbc5;margin-bottom:10px}
+.hunter-dossier .eyebrow{font-size:9px;letter-spacing:1px}
+.settling-combat .battle-guidance{color:#ddc38f;background:#75603b29}
+.settling-combat .unit:disabled,.settling-combat .game-card:disabled,.settling-combat .end-turn:disabled{opacity:1;filter:none}
+.settling-combat .unit-inspect:disabled{opacity:.6}
+.settling-combat .end-turn{cursor:wait;background:#6c7165;border-color:#8b9587;color:#d0d6c8}
+.feedback-fields{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:22px}
+.feedback-fields .field-label{font-size:12px;gap:10px}
+.feedback-fields .field-label small{font-size:11px}
+textarea,select{width:100%;border:1px solid #8ea0a66b;background:#102029a0;color:#e1d7bf;font:13px/1.6 Arial,sans-serif;padding:11px 13px}
+textarea{resize:vertical;min-height:105px;max-height:260px}
+textarea::placeholder{color:#819895;font-size:12px}
+select{min-height:44px;cursor:pointer}
+.feedback-context{font:12px/1.7 Arial,sans-serif;color:#adbfbb;margin:18px 0 22px}
+.feedback-saved{font:12px/1.6 Arial,sans-serif;color:#cbb68d;margin-top:15px}
+@media(min-width:1600px){.hunter-icon.hunter-photo{width:45px;height:53px}.title-hunter{width:92px;height:106px}.hunter-intro{margin-bottom:28px}.hunter-intro p{font-size:15px}}
+@media(max-height:760px) and (min-width:1101px){.hunter-intro{margin-bottom:20px}.title-hunter{width:68px;height:78px}.title-contract{padding-top:22px}.title-contract h2{font-size:23px;margin-block:10px 14px}.title-contract .title-actions{margin-top:22px}}
+@media(max-width:760px){.hunter-icon.hunter-photo{width:31px;height:38px}.hunter-intro{gap:15px;margin-bottom:23px}.title-hunter{width:68px;height:80px}.hunter-intro p{font-size:13px}.hunter-intro .eyebrow{font-size:9px}.hunter-dossier{gap:17px;align-items:flex-start}.dossier-hunter{width:100px;height:142px}.hunter-dossier h3{font-size:24px}.hunter-dossier p{font-size:12px}.hunter-dossier .eyebrow{font-size:8px}.feedback-fields{grid-template-columns:1fr;gap:19px}nav{gap:1px}.nav-button{padding:7px}}
+
+textarea:focus-visible,select:focus-visible{outline:3px solid #cfb47e;outline-offset:3px}
+.hunter-icon.hunter-photo,.title-hunter{background-size:230% auto;background-position:43% 0%}
+
+/* Collection rules can wrap differently at each grid width; retain all printed stats. */
+.deck-grid .game-card.large-card{height:auto;min-height:256px}
+.dossier-hunter{background-size:contain;background-position:center center}
+#toast{visibility:hidden}#toast.visible{visibility:visible}#toast:empty{visibility:hidden}

@@ -1,6 +1,6 @@
 import './style.css';
 import packageInfo from '../package.json';
-import { applyAction, createGame, CARDS, legalActions, validateState, cardTarget, type GameState, type Action, type Unit, type CardDef } from './engine';
+import { applyActionWithEvents, createGame, CARDS, legalActions, validateState, cardTarget, type GameState, type Action, type Unit, type CardDef } from './engine';
 import { createArena } from './arena';
 import { portraitFor } from './art';
 import { ENEMIES, RELICS, SHOP_PRICES, EVENT_CHOICES, bossForSeed } from './content';
@@ -9,14 +9,23 @@ const SAVE_KEY = 'hollowpact.run.v2';
 const SETTINGS_KEY = 'hollowpact.settings.v2';
 const TUTORIAL_KEY = 'hollowpact.tutorial.v2';
 const VERSION = packageInfo.version;
+const BUILD_ID = import.meta.env.VITE_BUILD_ID || 'development';
+const HUNTER_NAME = 'Marek Voss';
+type ArenaPresentation = ReturnType<typeof createArena> & { busyMs?: () => number; waitForPresentation?: () => Promise<void>; cancelPresentation?: () => void };
+let settlingCombat = false;
+let presentationEpoch = 0;
+let presentationDeadline: ReturnType<typeof setTimeout> | null = null;
+let disposed = false;
 type Selection = { kind: 'attack'; uid: string } | { kind: 'card'; index: number } | null;
 type Settings = { mute: boolean; volume: number; motion: boolean };
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const escape = (s: string | number) => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 let state = createGame(Date.now() >>> 0);
 let title = true;
-const ART_BASE = `${import.meta.env.BASE_URL}art/`;
+// CSS custom-property URLs resolve at their consuming stylesheet; use a document-based absolute URL.
+const ART_BASE = new URL(`${import.meta.env.BASE_URL}art/`, document.baseURI).href;
 document.documentElement.style.setProperty('--courtyard-art', `url("${ART_BASE}abbey-courtyard.png")`);
+document.documentElement.style.setProperty('--hunter-art', `url("${ART_BASE}hunter-portrait.png")`);
 let selected: Selection = null;
 let savedRun: GameState | null = null;
 let saveNotice = '';
@@ -159,24 +168,89 @@ function save() {
 }
 function actions(): Action[] { return legalActions(state); }
 function can(action: Action): boolean { return actions().some(a => JSON.stringify(a) === JSON.stringify(action)); }
+function mayAnimateCombat(): boolean {
+  return settings.motion && !document.hidden && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+function cancelPresentation() {
+  presentationEpoch++;
+  settlingCombat = false;
+  if (presentationDeadline !== null) clearTimeout(presentationDeadline);
+  presentationDeadline = null;
+  $('app').classList.remove('settling-combat');
+  $('scene-ui').removeAttribute('aria-busy');
+  try { (arena as ArenaPresentation | null)?.cancelPresentation?.(); } catch { /* Presentation cannot alter a saved result. */ }
+}
+function announceOutcome() {
+  $('announcer').textContent = state.phase === 'reward' ? 'Contract cleared. Salvage ready. Choose one card or leave the salvage.' : state.phase === 'victory' ? 'Final contract cleared. Campaign complete. Your contract report is ready.' : state.phase === 'defeat' ? 'The hunter has fallen. Your contract report is ready.' : state.log[state.log.length - 1] || 'Choice made.';
+}
+function finishPresentation(epoch: number) {
+  if (disposed || !settlingCombat || epoch !== presentationEpoch) return;
+  settlingCombat = false;
+  if (presentationDeadline !== null) clearTimeout(presentationDeadline);
+  presentationDeadline = null;
+  $('scene-ui').removeAttribute('aria-busy');
+  render();
+  announceOutcome();
+  if (!$<HTMLDialogElement>('dialog').open) {
+    const heading = document.querySelector<HTMLElement>('#scene-ui .page-intro h1');
+    if (heading) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); }
+  }
+}
+function holdFinalStrike(): boolean {
+  if (!mayAnimateCombat() || !arena) return false;
+  let busy = 0;
+  try { busy = Math.max(0, Math.min(1200, Number((arena as ArenaPresentation).busyMs?.() || 0))); } catch { return false; }
+  if (!Number.isFinite(busy) || busy <= 0) return false;
+  const epoch = ++presentationEpoch;
+  settlingCombat = true;
+  $('app').classList.add('settling-combat');
+  $('scene-ui').setAttribute('aria-busy', 'true');
+  // Rules and saves already reflect the result. The old field exists only for the final impact.
+  document.querySelectorAll<HTMLButtonElement>('#scene-ui button, #dock button').forEach(button => { button.disabled = true; });
+  const guidance = document.querySelector<HTMLElement>('.battle-guidance>span');
+  if (guidance) guidance.textContent = state.phase === 'defeat' ? 'The pact breaks. The final impact is resolving.' : 'Contract cleared. Final strike resolving.';
+  const cancel = document.querySelector<HTMLElement>('.battle-guidance>button');
+  if (cancel) cancel.hidden = true;
+  document.querySelectorAll<HTMLElement>('.unit .unit-status').forEach(status => { status.textContent = state.phase === 'defeat' ? 'Contract failed' : status.closest('.enemy') ? 'Quarry down' : 'Order complete'; });
+  const caption = document.querySelector<HTMLElement>('.arena-caption>small');
+  if (caption) caption.textContent = state.phase === 'defeat' ? 'PACT BROKEN' : 'WARRANT CLOSED';
+  const endButton = document.querySelector<HTMLElement>('[data-action="endTurn"]');
+  if (endButton) endButton.textContent = state.phase === 'defeat' ? 'Contract failed' : 'Contract cleared';
+  document.querySelectorAll('.unit.selected, .unit.valid-target').forEach(unit => unit.classList.remove('selected', 'valid-target'));
+  $('announcer').textContent = state.phase === 'defeat' ? 'The hunter has fallen.' : 'Contract cleared.';
+  presentationDeadline = setTimeout(() => finishPresentation(epoch), Math.min(1200, Math.ceil(busy) + 30));
+  try {
+    const waiting = (arena as ArenaPresentation).waitForPresentation?.();
+    if (waiting) void waiting.then(() => finishPresentation(epoch), () => finishPresentation(epoch));
+  } catch { finishPresentation(epoch); }
+  return true;
+}
 function dispatch(action: Action) {
+  if (settlingCombat || disposed) return;
   const previous = state;
-  const next = applyAction(state, action);
+  const { state: next, events } = applyActionWithEvents(state, action);
   if (JSON.stringify(next) === JSON.stringify(previous)) { notify('That action is not available right now.'); return; }
   if (next.phase !== previous.phase || action.type === 'travel') clearToast();
-  (arena as (ReturnType<typeof createArena> & { playAction?: (action: Action, before: GameState, after: GameState) => void }) | null)?.playAction?.(action, previous, next);
+  // Persist the canonical result before optional animation/audio runs.
   state = next;
   selected = null;
+  save();
+  let effectFailed = false;
+  try { arena?.playAction?.(action, previous, next, events); } catch { effectFailed = true; }
   if (action.type === 'play') sound(CARDS[previous.hand[action.index]]?.type === 'summon' ? 'summon' : 'attack');
   else if (action.type === 'attack') sound('attack');
   else if (action.type === 'reward' || action.type === 'buy') sound('reward');
   else if (action.type === 'endTurn') sound('end');
   else sound();
-  save(); render();
-  $('announcer').textContent = `${state.log[state.log.length - 1] || 'Choice made.'} ${state.phase === 'battle' ? `${state.energy} energy left. Hunter health ${state.hp} of ${state.maxHp}.` : ''}`;
-  if (previous.phase === 'battle' && state.phase === 'reward') notify('Contract cleared. Claim one card, or keep your deck focused.');
+  const terminalCombat = previous.phase === 'battle' && ['reward', 'victory', 'defeat'].includes(state.phase);
+  if (terminalCombat && !effectFailed && holdFinalStrike()) return;
+  render();
+  if (terminalCombat) announceOutcome();
+  else $('announcer').textContent = `${state.log[state.log.length - 1] || 'Choice made.'} ${state.phase === 'battle' ? `${state.energy} energy left. Hunter health ${state.hp} of ${state.maxHp}.` : ''}`;
 }
+
 function start(seed: number, difficulty: number) {
+  cancelPresentation();
   clearToast();
   state = createGame(seed, difficulty);
   title = false; selected = null; save(); render(); sound('summon');
@@ -190,14 +264,15 @@ function parseSeed(input: string): number {
 }
 
 function renderHeader() {
-  $('topbar').innerHTML = `<button class="wordmark" data-ui="home" aria-label="Hollowpact main menu">${icon('shield')}<span>HOLLOWPACT<small>CONTRACTS · CREATURES · CONSEQUENCES</small></span></button><nav aria-label="Game tools"><button class="nav-button" data-ui="deck" aria-label="Deck">${icon('book')}<span>Deck${title ? '' : ` <span class="subtle">${state.deck.length}</span>`}</span></button><button class="nav-button" data-ui="help" aria-label="How to play"><span class="help-symbol">?</span><span>How to play</span></button><button class="icon-button" data-ui="settings" aria-label="Settings">${icon('settings')}</button></nav>`;
+  $('topbar').innerHTML = `<button class="wordmark" data-ui="home" aria-label="Hollowpact main menu">${icon('shield')}<span>HOLLOWPACT<small>CONTRACTS · CREATURES · CONSEQUENCES</small></span></button><nav aria-label="Game tools"><button class="nav-button" data-ui="deck" aria-label="Deck">${icon('book')}<span>Deck${title ? '' : ` <span class="subtle">${state.deck.length}</span>`}</span></button><button class="nav-button" data-ui="help" aria-label="How to play"><span class="help-symbol">?</span><span>How to play</span></button><button class="nav-button" data-ui="feedback" aria-label="Field report">${icon('event')}<span>Field report</span></button><button class="icon-button" data-ui="settings" aria-label="Settings">${icon('settings')}</button></nav>`;
 }
 function renderHud() {
   $('hud').hidden = title;
   if (title) { $('hud').innerHTML = ''; return; }
-  $('hud').innerHTML = `<div class="hunter-hud ${isTarget('hunter') ? 'valid-target' : ''}"><button class="hunter-icon" data-unit="hunter" aria-label="Hunter: ${state.hp} of ${state.maxHp} health${isTarget('hunter') ? ', select as target' : ''}">${icon('lantern')}</button><div class="hunter-health"><div><strong>Contract hunter</strong><span>${icon('heart')} ${state.hp}<small> / ${state.maxHp}</small></span></div><div class="health-track"><i style="width:${state.hp / state.maxHp * 100}%"></i></div></div>${state.block > 0 ? `<span class="block-count">${icon('shield')}${state.block}<small>Block</small></span>` : ''}</div><div class="journey-hud"><span class="eyebrow">${state.phase === 'battle' ? 'ACTIVE CONTRACT' : 'THE CAMPAIGN'}</span><strong>Contract ${(state.phase === 'map' ? state.floor + 1 : state.floor)} <span class="subtle">/ 10</span>${state.phase === 'battle' ? `<span class="turn-label">Turn ${state.turn}</span>` : ''}</strong></div><div class="resources"><span class="resource gold">${icon('gold')}<strong>${state.gold}</strong><small>Gold</small></span>${state.phase === 'battle' ? `<span class="resource energy">${icon('energy')}<strong>${state.energy}</strong><small>Energy</small></span>` : `<span class="resource relic">${icon('moon')}<strong>${state.relics.length}</strong><small>Relics</small></span>`}</div>`;
+  $('hud').innerHTML = `<div class="hunter-hud ${isTarget('hunter') ? 'valid-target' : ''}"><button class="hunter-icon hunter-photo" data-ui="hunter" aria-label="Inspect Marek Voss. Hunter: ${state.hp} of ${state.maxHp} health${isTarget('hunter') ? ', select as target' : ''}"></button><div class="hunter-health"><div><strong>${HUNTER_NAME}</strong><span>${icon('heart')} ${state.hp}<small> / ${state.maxHp}</small></span></div><div class="health-track"><i style="width:${state.hp / state.maxHp * 100}%"></i></div></div>${state.block > 0 ? `<span class="block-count">${icon('shield')}${state.block}<small>Block</small></span>` : ''}</div><div class="journey-hud"><span class="eyebrow">${state.phase === 'battle' ? 'ACTIVE CONTRACT' : 'THE CAMPAIGN'}</span><strong>Contract ${(state.phase === 'map' ? state.floor + 1 : state.floor)} <span class="subtle">/ 10</span>${state.phase === 'battle' ? `<span class="turn-label">Turn ${state.turn}</span>` : ''}</strong></div><div class="resources"><span class="resource gold">${icon('gold')}<strong>${state.gold}</strong><small>Gold</small></span>${state.phase === 'battle' ? `<span class="resource energy">${icon('energy')}<strong>${state.energy}</strong><small>Energy</small></span>` : `<span class="resource relic">${icon('moon')}<strong>${state.relics.length}</strong><small>Relics</small></span>`}</div>`;
 }
 function render() {
+  if (settlingCombat) return;
   const focusKey = document.activeElement instanceof HTMLElement ? document.activeElement.dataset.focus : undefined;
   setMotion();
   $('app').className = title ? 'on-title' : `phase-${state.phase}${state.phase === 'battle' && Math.max(state.allies.length, state.enemies.length) >= 3 ? ' dense-battle' : ''}`;
@@ -213,14 +288,13 @@ function render() {
   else if (state.phase === 'event') renderEvent();
   else renderOutcome();
   $('footer').innerHTML = `<span>v${VERSION} <span class="footer-dot">·</span> Playable prototype</span><span>${title ? 'Original dark fantasy · Working title' : `Seed ${state.seed} <span class="footer-dot">·</span> Contract saved locally`}</span><button data-ui="fullscreen" class="text-button">Fullscreen</button>`;
-  arena?.setSelected(selected?.kind === 'attack' ? selected.uid : null);
-  arena?.render(state);
+  try { arena?.setSelected(selected?.kind === 'attack' ? selected.uid : null); arena?.render(state); } catch { $('arena-wrap').classList.add('arena-fallback'); }
   if (focusKey) document.querySelector<HTMLElement>(`[data-focus="${CSS.escape(focusKey)}"]`)?.focus({ preventScroll: true });
 
 }
 
 function renderTitle() {
-  $('scene-ui').innerHTML = `<div class="title-scene"><div class="title-copy"><div class="eyebrow line-eyebrow">A DARK FANTASY DECKBUILDING CAMPAIGN</div><h1>HOLLOW<span>PACT</span></h1><div class="title-rule"></div><p>The dead do not honour treaties.<br>Bind what you can. Hunt what you must.</p><div class="title-details"><span>Command bound monsters</span><i></i><span>Read the enemy</span><i></i><span>Survive ten contracts</span></div></div><section class="title-contract"><span class="contract-stamp">${icon('shield')}</span><span class="eyebrow">FIELD ORDERS · THE BLACK MARCH</span><h2>Your next contract awaits.</h2><p>Build a deck of dangerous creatures and practical tools. Choose your targets. Make each command count.</p><div class="title-actions">${savedRun && !['victory','defeat'].includes(savedRun.phase) ? `<button data-ui="resume" class="button primary">Resume contract ${icon('arrow')}<small>Contract ${savedRun.phase === 'map' ? savedRun.floor + 1 : savedRun.floor} · ${savedRun.hp} health</small></button>` : ''}<button data-ui="new" class="button ${savedRun && !['victory','defeat'].includes(savedRun.phase) ? 'secondary' : 'primary'}">Begin a new contract ${icon('arrow')}</button></div>${saveNotice ? `<p class="save-notice" role="status">${escape(saveNotice)}</p>` : ''}<div class="contract-note">ONE HUNTER. SIX BINDINGS. NO WASTED ORDERS.</div></section></div>`;
+  $('scene-ui').innerHTML = `<div class="title-scene"><div class="title-copy"><div class="eyebrow line-eyebrow">A DARK FANTASY DECKBUILDING CAMPAIGN</div><h1>HOLLOW<span>PACT</span></h1><div class="title-rule"></div><p>The dead do not honour treaties.<br>Bind what you can. Hunt what you must.</p><div class="title-details"><span>Command bound monsters</span><i></i><span>Read the enemy</span><i></i><span>Survive ten contracts</span></div></div><section class="title-contract"><div class="hunter-intro"><button class="hunter-photo title-hunter" data-ui="hunter" aria-label="Inspect Marek Voss"></button><div><span class="eyebrow">MAREK VOSS · PACT HUNTER</span><p>Scarred hands. Iron seals.<br>A name the dead remember.</p></div></div><span class="eyebrow">FIELD ORDERS · THE BLACK MARCH</span><h2>Your next contract awaits.</h2><p>Build a deck of dangerous creatures and practical tools. Choose your targets. Make each command count.</p><div class="title-actions">${savedRun && !['victory','defeat'].includes(savedRun.phase) ? `<button data-ui="resume" class="button primary">Resume contract ${icon('arrow')}<small>Contract ${savedRun.phase === 'map' ? savedRun.floor + 1 : savedRun.floor} · ${savedRun.hp} health</small></button>` : ''}<button data-ui="new" class="button ${savedRun && !['victory','defeat'].includes(savedRun.phase) ? 'secondary' : 'primary'}">Begin a new contract ${icon('arrow')}</button></div>${saveNotice ? `<p class="save-notice" role="status">${escape(saveNotice)}</p>` : ''}<div class="contract-note">ONE HUNTER. SIX BINDINGS. NO WASTED ORDERS.</div></section></div>`;
 }
 
 const routes: Record<string, { name: string; tag: string; description: string }> = {
@@ -337,6 +411,7 @@ function openDialog(name: string, content: string, wide = false) {
 }
 function closeDialog() { $<HTMLDialogElement>('dialog').close(); }
 function openNew() {
+  if (settlingCombat) { cancelPresentation(); render(); }
   openDialog('A new campaign', `<p class="dialog-copy">The seed fixes the campaign. Reuse it to test a different deck and method.</p><form id="new-game-form"><label class="field-label" for="seed">Campaign seed <small>Any number or words</small></label><input id="seed" name="seed" type="text" maxlength="64" value="${Math.floor(Math.random() * 9999999)}" autocomplete="off"/><fieldset class="difficulty-options"><legend>Contract difficulty</legend><label><input type="radio" name="difficulty" value="0" checked/><span><strong>Initiate</strong><small>Lower pressure. Learn command timing and target priorities.</small></span></label><label><input type="radio" name="difficulty" value="1"/><span><strong>Hunter</strong><small>Stronger opposition. Less room for wasted orders.</small></span></label><label><input type="radio" name="difficulty" value="2"/><span><strong>Veteran</strong><small>Highest enemy pressure. Every binding must earn its place.</small></span></label></fieldset>${!title && !['victory','defeat'].includes(state.phase) || savedRun && !['victory','defeat'].includes(savedRun.phase) ? '<p class="abandon-notice">Beginning a new campaign replaces the current v0.2 save.</p>' : ''}<button class="button primary full-width" type="submit">Accept the warrant ${icon('arrow')}</button></form>`);
 }
 function openTutorial() {
@@ -355,8 +430,49 @@ function openDeck(pile: 'deck' | 'draw' | 'discard' = 'deck', removing = false) 
   ids.forEach(id => counts.set(id, (counts.get(id) || 0) + 1));
   openDialog(removing ? 'Lighten your deck · 35 gold' : `${pile === 'deck' ? 'Campaign deck' : pile === 'draw' ? 'Draw pile' : 'Discard pile'} · ${ids.length} cards`, `${removing ? '<p class="dialog-copy">Choose one card to remove permanently. This costs 35 gold.</p>' : `<p class="dialog-copy">${pile === 'draw' ? 'Grouped by card, without revealing draw order.' : pile === 'discard' ? 'These cards return when your draw pile reshuffles.' : 'Bindings and tools for this campaign. Living bindings stay out of the draw pile until they fall.'}</p>`}<div class="deck-grid">${Array.from(counts).map(([id, count]) => `<div class="deck-entry">${removing ? `<button class="remove-card" data-action="remove" data-index="${state.deck.indexOf(id)}">${creature(CARDS[id].species, CARDS[id].color)}<span><strong>${escape(CARDS[id].name)}</strong><small>${count} in deck · ${CARDS[id].cost} energy</small><p>${escape(CARDS[id].text)}</p></span>${icon('close')}</button>` : `${renderCard(CARDS[id], { inspect: true })}<span class="copy-count">${count} ${count === 1 ? 'copy' : 'copies'}</span>`}</div>`).join('') || '<p class="empty-pile">This pile is empty.</p>'}</div>${pile === 'deck' && !removing && state.relics.length ? `<h3 class="charms-heading">Recovered relics</h3><div class="charm-list">${state.relics.map(r => `<p>${icon('moon')}<span><strong>${escape(relicInfo[r]?.name || r)}</strong><small>${escape(relicInfo[r]?.text || '')}</small></span></p>`).join('')}</div>` : ''}`, true);
 }
+function openHunter() {
+  openDialog(HUNTER_NAME, `<div class="hunter-dossier"><div class="hunter-photo dossier-hunter" aria-hidden="true"></div><section><span class="eyebrow">THE IRON WITNESS · CONTRACT HUNTER</span><h3>${HUNTER_NAME}</h3><p>A field knife. A heavy seal gauntlet. Scars that never quite closed.</p><p>Voss binds what others bury, and answers every warrant in person.</p></section></div><div class="dossier-rule"><h3>Your part in the pact</h3><p>Keep the hunter alive. Tools spend energy; bound creatures take your commands. Hunter health persists between contracts.</p><strong>${title && !savedRun ? 'A fresh campaign begins with 65 health.' : `${state.hp}/${state.maxHp} hunter health · ${state.block} block.`}</strong></div><button class="button secondary full-width" data-ui="close">Return</button>`);
+}
+type FeedbackContext = {
+  build: { version: string; sourceDigest: string | null; channel: 'development' | 'packaged' };
+  screen: string;
+  run: { seed: number; difficulty: number; phase: GameState['phase']; contract: number; hunterHealth: number; maximumHealth: number; deck: string[]; relics: string[]; stats: GameState['stats'] } | null;
+};
+let feedbackContext: FeedbackContext | null = null;
+function openFeedback() {
+  feedbackContext = {
+    build: { version: VERSION, sourceDigest: BUILD_ID === 'development' ? null : BUILD_ID, channel: BUILD_ID === 'development' ? 'development' : 'packaged' },
+    screen: title ? 'title' : state.phase,
+    run: title && !savedRun ? null : {
+      seed: state.seed, difficulty: state.difficulty, phase: state.phase, contract: state.floor, hunterHealth: state.hp, maximumHealth: state.maxHp,
+      deck: state.deck.slice(), relics: state.relics.slice(),
+      stats: { cardsPlayed: state.stats.cardsPlayed, damageDealt: state.stats.damageDealt, turns: state.stats.turns, battles: state.stats.battles },
+    },
+  };
+  openDialog('Your field report', `<p class="dialog-copy">Optional notes from your campaign. Nothing is sent. Save a report to your device, then share it only if you choose.</p><form id="feedback-form"><div class="feedback-fields"><div><label class="field-label" for="feedback-confusion">What was unclear? <small>Optional</small></label><textarea id="feedback-confusion" name="confusion" maxlength="1000" rows="3" placeholder="A rule, target, or moment that was hard to read…"></textarea></div><div><label class="field-label" for="feedback-choice">Which choices felt meaningful or pointless, if any? <small>Optional</small></label><textarea id="feedback-choice" name="interestingChoice" maxlength="1000" rows="3" placeholder="A meaningful choice, a pointless choice, or none…"></textarea></div></div><label class="field-label" for="feedback-replay">Would you take another campaign? <small>Optional</small></label><select id="feedback-replay" name="replayIntent"><option value="unanswered">Prefer not to answer</option><option value="yes">Yes</option><option value="maybe">Maybe</option><option value="no">No</option></select><p class="feedback-context">The saved report includes game version${feedbackContext.run ? `, campaign seed ${state.seed}, deck, and contract progress` : ''} so your notes have context.</p><button class="button primary full-width" type="submit">Save field report ${icon('arrow')}</button></form>`, true);
+}
+function exportFeedback(form: HTMLFormElement) {
+  if (!feedbackContext) return;
+  const data = new FormData(form);
+  const text = (name: string) => String(data.get(name) || '').trim().slice(0, 1000);
+  const replay = String(data.get('replayIntent') || 'unanswered');
+  const report = {
+    schema: 1, kind: 'voluntary-player-feedback', source: 'local-export', createdAt: new Date().toISOString(),
+    context: feedbackContext,
+    responses: { confusion: text('confusion'), interestingChoice: text('interestingChoice'), replayIntent: ['yes','maybe','no','unanswered'].includes(replay) ? replay : 'unanswered' },
+  };
+  const blob = new Blob([JSON.stringify(report, null, 2) + '\n'], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `hollowpact-field-report-v${VERSION}${feedbackContext.run ? `-seed-${feedbackContext.run.seed}` : ''}.json`;
+  document.body.append(link); link.click(); link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1500);
+  const status = document.createElement('p'); status.className = 'feedback-saved'; status.setAttribute('role', 'status'); status.textContent = 'Report prepared. Your browser will save the file; nothing was sent.';
+  form.querySelector('.feedback-saved')?.remove(); form.append(status);
+}
 function openSettings() {
-  openDialog('Make yourself comfortable', `<div class="setting-row"><label for="mute"><strong>Sound effects</strong><small>Soft, synthesized notes for your actions.</small></label><input type="checkbox" id="mute" ${!settings.mute ? 'checked' : ''}/></div><div class="setting-row"><label for="volume"><strong>Volume</strong><small id="volume-value">${Math.round(settings.volume * 100)}%</small></label><input type="range" id="volume" min="0" max="100" value="${settings.volume * 100}"/></div><div class="setting-row"><label for="motion"><strong>Ambient motion</strong><small>Fog, creature motion, and combat effects.</small></label><input type="checkbox" id="motion" ${settings.motion ? 'checked' : ''}/></div><p class="settings-note">Preferences are stored on this device. Exact targets, intents, and traits are available in the binding and enemy panels.</p><button class="button secondary full-width" data-ui="close">Return</button>`);
+  openDialog('Make yourself comfortable', `<div class="setting-row"><label for="mute"><strong>Sound effects</strong><small>Impacts, iron, binding chains, and field signals.</small></label><input type="checkbox" id="mute" ${!settings.mute ? 'checked' : ''}/></div><div class="setting-row"><label for="volume"><strong>Volume</strong><small id="volume-value">${Math.round(settings.volume * 100)}%</small></label><input type="range" id="volume" min="0" max="100" value="${settings.volume * 100}"/></div><div class="setting-row"><label for="motion"><strong>Ambient motion</strong><small>Fog, creature motion, and combat effects.</small></label><input type="checkbox" id="motion" ${settings.motion ? 'checked' : ''}/></div><p class="settings-note">Preferences are stored on this device. Exact targets, intents, and traits are available in the binding and enemy panels.</p><button class="button secondary full-width" data-ui="close">Return</button>`);
 }
 function openPause() {
   openDialog('Campaign paused', `<p class="dialog-copy">Your campaign saves after every accepted action. Resume whenever you need.</p><div class="pause-buttons"><button class="button primary" data-ui="close">Continue ${icon('arrow')}</button><button class="button secondary" data-ui="menu">Return to title</button><button class="text-button" data-ui="new">Start a new campaign</button></div>`);
@@ -397,6 +513,7 @@ function selectUnit(uid: string) {
 function handleClick(event: MouseEvent) {
   const button = (event.target as HTMLElement).closest<HTMLElement>('button');
   if (!button || button.hasAttribute('disabled')) return;
+  if (settlingCombat && (button.dataset.unit || button.dataset.action || ['play-card','cancel','train','remove','inspect-unit','inspect-quarry','inspect','draw','discard','deck','log'].includes(button.dataset.ui || ''))) return;
   if (button.dataset.unit) { selectUnit(button.dataset.unit); return; }
   if (button.dataset.action) {
     const type = button.dataset.action;
@@ -420,11 +537,13 @@ function handleClick(event: MouseEvent) {
   }
   switch (button.dataset.ui) {
     case 'new': openNew(); break;
-    case 'resume': if (savedRun) { clearToast(); state = savedRun; title = false; selected = null; render(); sound(); } break;
+    case 'resume': if (savedRun) { cancelPresentation(); clearToast(); state = savedRun; title = false; selected = null; render(); sound(); } break;
     case 'retry': closeDialog(); start(state.seed, state.difficulty); break;
     case 'home': if (!title) openPause(); break;
-    case 'menu': closeDialog(); clearToast(); title = true; selected = null; render(); break;
+    case 'menu': closeDialog(); cancelPresentation(); clearToast(); title = true; selected = null; render(); break;
     case 'settings': openSettings(); break;
+    case 'hunter': openHunter(); break;
+    case 'feedback': openFeedback(); break;
     case 'help': openTutorial(); break;
     case 'learned': try { localStorage.setItem(TUTORIAL_KEY, 'yes'); } catch { /* Optional preference. */ } closeDialog(); break;
     case 'close': closeDialog(); break;
@@ -449,6 +568,7 @@ function handleClick(event: MouseEvent) {
 }
 document.addEventListener('click', handleClick);
 document.addEventListener('submit', event => {
+  if ((event.target as HTMLElement).id === 'feedback-form') { event.preventDefault(); exportFeedback(event.target as HTMLFormElement); return; }
   if ((event.target as HTMLElement).id !== 'new-game-form') return;
   event.preventDefault();
   const form = event.target as HTMLFormElement;
@@ -462,18 +582,21 @@ document.addEventListener('input', event => {
   if (input.id === 'motion') settings.motion = input.checked;
   if (input.id === 'volume') { settings.volume = Number(input.value) / 100; $('volume-value').textContent = `${input.value}%`; }
   setMotion();
+  if (settlingCombat && !mayAnimateCombat()) finishPresentation(presentationEpoch);
   try { localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)); } catch { /* Game is usable without persistent settings. */ }
   if (input.id !== 'motion') sound();
 });
 document.addEventListener('keydown', event => {
   if ($<HTMLDialogElement>('dialog').open) return;
-  if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) return;
+  if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement || event.target instanceof HTMLSelectElement) return;
   if (event.key === 'Escape') { event.preventDefault(); if (selected) { selected = null; render(); } else if (!title) openPause(); }
-  if (event.key.toLowerCase() === 'e' && !event.repeat && !title && state.phase === 'battle') { event.preventDefault(); document.querySelector<HTMLButtonElement>('[data-action="endTurn"]')?.click(); }
+  if (event.key.toLowerCase() === 'e' && !settlingCombat && !event.repeat && !title && state.phase === 'battle') { event.preventDefault(); document.querySelector<HTMLButtonElement>('[data-action="endTurn"]')?.click(); }
 });
 $<HTMLDialogElement>('dialog').addEventListener('click', event => {
   const dialog = $<HTMLDialogElement>('dialog');
   if (event.target === dialog) { const r = dialog.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) closeDialog(); }
 });
-window.addEventListener('beforeunload', () => { sceneObserver.disconnect(); arena?.dispose(); });
+document.addEventListener('visibilitychange', () => { if (settlingCombat) finishPresentation(presentationEpoch); });
+window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', event => { if (event.matches && settlingCombat) finishPresentation(presentationEpoch); });
+window.addEventListener('beforeunload', () => { disposed = true; cancelPresentation(); sceneObserver.disconnect(); arena?.dispose(); });
 render();

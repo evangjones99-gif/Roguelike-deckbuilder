@@ -1,0 +1,69 @@
+{
+  "acceptance": "atlas containment only; independent rendered quality review pending",
+  "thresholdOpaque": 64,
+  "dividerAlphaMaximum": [
+    0,
+    1,
+    1
+  ],
+  "cells": [
+    {
+      "pose": "idle",
+      "bounds": [
+        82,
+        200,
+        441,
+        446
+      ]
+    },
+    {
+      "pose": "crouch",
+      "bounds": [
+        76,
+        242,
+        439,
+        440
+      ]
+    },
+    {
+      "pose": "attack",
+      "bounds": [
+        78,
+        191,
+        442,
+        417
+      ]
+    },
+    {
+      "pose": "recovery",
+      "bounds": [
+        99,
+        164,
+        441,
+        400
+      ]
+    },
+    {
+      "pose": "recoil",
+      "bounds": [
+        101,
+        144,
+        420,
+        394
+      ]
+    },
+    {
+      "pose": "death",
+      "bounds": [
+        66,
+        255,
+        438,
+        397
+      ]
+    }
+  ],
+  "rejectedInputs": [
+    "hound-poses-initial.png",
+    "hound-poses-repair2.png"
+  ]
+}
