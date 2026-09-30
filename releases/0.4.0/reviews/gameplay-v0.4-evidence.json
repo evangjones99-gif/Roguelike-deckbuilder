@@ -1,0 +1,1137 @@
+{
+  "status": "Independent production review complete; development milestone approved after matching release checks",
+  "reviewer": "Independent gameplay agent",
+  "version": "0.4.0",
+  "humanPlaytests": 0,
+  "baseline": {
+    "version": "0.3.0",
+    "sourceDigest": "1ef47ce481c3f8722e624fe6df1540d2957462c20c8ba7213c77ed4583a7f258",
+    "knownDefect": "119th legal seed1989 Initiate campaign action creates guard label116 and an invalid save"
+  },
+  "productionBrowserReviewed": true,
+  "saveRepairAudit": {
+    "method": "Independent archived-v0.3 differential replay of119 genuinely legal campaign actions plus strict recovery mutations and explicitly unearned three-family guard fixtures. No production browser visited.",
+    "sourceHashes": {
+      "src/engine.ts": "ee85f1400a9d02142aee1dd66f82722453f35930bbf2c0c229ad38e38a818d0d",
+      "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+      "scripts/review-playtest-v0.4.ts": "978f6e48cc08e13a2efe9645a7c9b37a5fc081765d1aa07eec8471a2e001de89"
+    },
+    "archivedHashes": {
+      "engine": "4b24a1bd90a05326ec76db361001bf034af6f6ed0e5f86bcab295e9ae0a5f5af",
+      "content": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234"
+    },
+    "archiveSHA": "cfa79a8b7029b893f3d0a6410a027528bf7ff84a34a4311a2d2f5369bf424766",
+    "actions": 119,
+    "everyIntermediateValid": true,
+    "mechanicsIdenticalExceptCanonicalGuardStatus": true,
+    "casts": [
+      {
+        "actionNumber": 117,
+        "action": {
+          "type": "play",
+          "index": 2,
+          "target": "e34"
+        },
+        "energy": 5,
+        "label": "Raise plated shield \u00b7 gain 14 block \u00b7 silenced (armor remains)",
+        "controlEvents": 1
+      },
+      {
+        "actionNumber": 118,
+        "action": {
+          "type": "play",
+          "index": 0,
+          "target": "e34"
+        },
+        "energy": 3,
+        "label": "Raise plated shield \u00b7 gain 14 block \u00b7 silenced (armor remains)",
+        "controlEvents": 0
+      },
+      {
+        "actionNumber": 119,
+        "action": {
+          "type": "play",
+          "index": 2,
+          "target": "e34"
+        },
+        "energy": 1,
+        "label": "Raise plated shield \u00b7 gain 14 block \u00b7 silenced (armor remains)",
+        "controlEvents": 0
+      }
+    ],
+    "continuation": {
+      "turn": 4,
+      "armor": 14,
+      "intent": {
+        "target": "hunter",
+        "damage": 14,
+        "label": "Iron cleaver"
+      }
+    },
+    "recovery": {
+      "inputUnchanged": true,
+      "matchesRepairedCampaign": true,
+      "serializedValid": true,
+      "validSaveNormalLoader": true,
+      "defeatVariantValid": true,
+      "rejectedMutations": [
+        "negativeHP",
+        "zeroBattleHP",
+        "missingDeckCopy",
+        "duplicateUID",
+        "unallocatedUID",
+        "forgedPassive",
+        "unknownEnemy",
+        "wrongGuardTurn",
+        "wrongTarget",
+        "nonzeroDamage",
+        "missingEmptySummon",
+        "reinforcement",
+        "modifiedGuardPrefix",
+        "modifiedSuffix",
+        "trailingText",
+        "hugeLabel",
+        "wrongSchema",
+        "incompatiblePhase",
+        "wrongRoute",
+        "invalidRng",
+        "forgedCard"
+      ]
+    },
+    "guardFixtures": [
+      {
+        "id": "raider",
+        "fixtureKind": "Structurally valid unearned diagnostic roster",
+        "labels": [
+          "Raise shield \u00b7 gain 4 block \u00b7 silenced (armor remains)",
+          "Raise shield \u00b7 gain 4 block \u00b7 silenced (armor remains)",
+          "Raise shield \u00b7 gain 4 block \u00b7 silenced (armor remains)"
+        ],
+        "controls": [
+          1,
+          0,
+          0
+        ],
+        "armorAfterEnd": 4,
+        "newTurnIntent": {
+          "target": "hunter",
+          "damage": 5,
+          "label": "Iron cleaver"
+        },
+        "recoveryMatchesCanonical": true
+      },
+      {
+        "id": "ironjaw",
+        "fixtureKind": "Structurally valid unearned diagnostic roster",
+        "labels": [
+          "Raise plated shield \u00b7 gain 14 block \u00b7 silenced (armor remains)",
+          "Raise plated shield \u00b7 gain 14 block \u00b7 silenced (armor remains)",
+          "Raise plated shield \u00b7 gain 14 block \u00b7 silenced (armor remains)"
+        ],
+        "controls": [
+          1,
+          0,
+          0
+        ],
+        "armorAfterEnd": 14,
+        "newTurnIntent": {
+          "target": "hunter",
+          "damage": 12,
+          "label": "Iron cleaver"
+        },
+        "recoveryMatchesCanonical": true
+      },
+      {
+        "id": "cindermaw",
+        "fixtureKind": "Structurally valid unearned diagnostic roster",
+        "labels": [
+          "Fold armored wings \u00b7 gain 10 block \u00b7 silenced (armor remains)",
+          "Fold armored wings \u00b7 gain 10 block \u00b7 silenced (armor remains)",
+          "Fold armored wings \u00b7 gain 10 block \u00b7 silenced (armor remains)"
+        ],
+        "controls": [
+          1,
+          0,
+          0
+        ],
+        "armorAfterEnd": 10,
+        "newTurnIntent": {
+          "target": "all",
+          "damage": 7,
+          "label": "Ashen breath \u00b7 all targets"
+        },
+        "recoveryMatchesCanonical": true
+      }
+    ]
+  },
+  "previewBrowser": [
+    {
+      "name": "blocked-lethal-retaliation",
+      "servedBuild": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+      "preview": "Cairn Hound \u00b7 binding 1 \u2192 hostile 1: 0 health damage, 3 blocked \u00b7 binding 1 takes 1 retaliation (lethal)",
+      "storageUnchanged": true,
+      "canonicalStateAndRngUnchanged": true,
+      "actualResultMatchesExpected": true,
+      "aria": {
+        "role": "status",
+        "live": "polite"
+      },
+      "errors": [],
+      "method": "Production controls on disclosed structurally valid unearned fixture. Literal expected outcomes asserted independently in fixture generator. Preview, Escape cancel and actual saved resolution compared."
+    },
+    {
+      "name": "mutual-death-contract-cleared",
+      "servedBuild": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+      "preview": "Cairn Hound \u00b7 binding 1 \u2192 hostile 1: 2 health damage (lethal), 1 blocked \u00b7 binding 1 takes 2 retaliation (lethal) \u00b7 contract cleared",
+      "storageUnchanged": true,
+      "canonicalStateAndRngUnchanged": true,
+      "actualResultMatchesExpected": true,
+      "aria": {
+        "role": "status",
+        "live": "polite"
+      },
+      "errors": [],
+      "method": "Production controls on disclosed structurally valid unearned fixture. Literal expected outcomes asserted independently in fixture generator. Preview, Escape cancel and actual saved resolution compared."
+    },
+    {
+      "name": "recovery-before-retaliation",
+      "servedBuild": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+      "preview": "Fen Stalker \u00b7 binding 1 \u2192 hostile 1: 3 health damage, 1 blocked \u00b7 binding 1: restores 2 health \u00b7 binding 1 takes 2 retaliation",
+      "storageUnchanged": true,
+      "canonicalStateAndRngUnchanged": true,
+      "actualResultMatchesExpected": true,
+      "aria": {
+        "role": "status",
+        "live": "polite"
+      },
+      "errors": [],
+      "method": "Production controls on disclosed structurally valid unearned fixture. Literal expected outcomes asserted independently in fixture generator. Preview, Escape cancel and actual saved resolution compared."
+    },
+    {
+      "name": "spell-resistance-and-block",
+      "servedBuild": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+      "preview": "Scour \u2192 hostile 1: 0 health damage, 4 blocked",
+      "storageUnchanged": true,
+      "canonicalStateAndRngUnchanged": true,
+      "actualResultMatchesExpected": true,
+      "aria": {
+        "role": "status",
+        "live": "polite"
+      },
+      "errors": [],
+      "method": "Production controls on disclosed structurally valid unearned fixture. Literal expected outcomes asserted independently in fixture generator. Preview, Escape cancel and actual saved resolution compared."
+    },
+    {
+      "name": "bloodprice-terminal-no-draw-leak",
+      "servedBuild": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+      "preview": "Blood Price: gains 1 energy \u00b7 hunter loses 3 health \u00b7 HUNTER DIES \u00b7 campaign ends",
+      "storageUnchanged": true,
+      "canonicalStateAndRngUnchanged": true,
+      "actualResultMatchesExpected": true,
+      "aria": {
+        "role": "status",
+        "live": "polite"
+      },
+      "errors": [],
+      "method": "Production controls on disclosed structurally valid unearned fixture. Literal expected outcomes asserted independently in fixture generator. Preview, Escape cancel and actual saved resolution compared."
+    },
+    {
+      "name": "silence-cancels-current-intent",
+      "servedBuild": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+      "preview": "Silence the Dead \u2192 hostile 1: Silenced \u00b7 damage and reinforcements canceled",
+      "storageUnchanged": true,
+      "canonicalStateAndRngUnchanged": true,
+      "actualResultMatchesExpected": true,
+      "aria": {
+        "role": "status",
+        "live": "polite"
+      },
+      "errors": [],
+      "method": "Production controls on disclosed structurally valid unearned fixture. Literal expected outcomes asserted independently in fixture generator. Preview, Escape cancel and actual saved resolution compared."
+    }
+  ],
+  "motionRuns": [
+    {
+      "seed": 6503,
+      "difficulty": 2,
+      "policy": "pack",
+      "motion": true,
+      "audioMuted": true,
+      "acceptedActions": 189,
+      "phase": "victory",
+      "hp": 41,
+      "browserElapsedMs": 32618.814099000003,
+      "errors": [],
+      "settling": [
+        {
+          "step": 16,
+          "phase": "reward",
+          "hp": 64,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "observedHoldMs": 1127.8222880000003
+        },
+        {
+          "step": 35,
+          "phase": "reward",
+          "hp": 65,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "observedHoldMs": 1118.4847220000001
+        },
+        {
+          "step": 68,
+          "phase": "reward",
+          "hp": 61,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "observedHoldMs": 1130.8634589999983
+        },
+        {
+          "step": 111,
+          "phase": "reward",
+          "hp": 59,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "observedHoldMs": 1144.673623999999
+        },
+        {
+          "step": 143,
+          "phase": "reward",
+          "hp": 51,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "observedHoldMs": 1140.4939019999983
+        },
+        {
+          "step": 189,
+          "phase": "victory",
+          "hp": 41,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "lateKeyUnchanged": true,
+          "observedHoldMs": 1141.460627999997
+        }
+      ],
+      "reportTests": [
+        {
+          "qaOnly": true,
+          "negative": false,
+          "disclosure": "Optional notes from your campaign. Nothing is sent. Save a report to your device, then share it only if you choose.",
+          "questions": [
+            "What was unclear? Optional",
+            "Which choices felt meaningful or pointless, if any? Optional",
+            "Would you take another campaign? Optional"
+          ],
+          "filename": "hollowpact-field-report-v0.4.0-seed-6503.json",
+          "storageUnchanged": true,
+          "newHttpRequests": [],
+          "feedback": {
+            "schema": 1,
+            "kind": "voluntary-player-feedback",
+            "source": "local-export",
+            "createdAt": "2026-09-30T20:10:51.794Z",
+            "context": {
+              "build": {
+                "version": "0.4.0",
+                "sourceDigest": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+                "channel": "packaged"
+              },
+              "screen": "victory",
+              "run": {
+                "seed": 6503,
+                "difficulty": 2,
+                "phase": "victory",
+                "contract": 10,
+                "hunterHealth": 41,
+                "maximumHealth": 65,
+                "deck": [
+                  "cairnhound+",
+                  "cairnhound+",
+                  "fenstalker",
+                  "ashwidow",
+                  "briarcolossus",
+                  "scour",
+                  "scour",
+                  "ironward",
+                  "ironward",
+                  "sutures",
+                  "sunder",
+                  "survey+",
+                  "draught",
+                  "harpoon",
+                  "fenraker",
+                  "fenraker",
+                  "killcommand",
+                  "emberwidow",
+                  "fenraker",
+                  "gravehound"
+                ],
+                "relics": [
+                  "ember-seed",
+                  "war-brand",
+                  "brass-bell"
+                ],
+                "stats": {
+                  "cardsPlayed": 65,
+                  "damageDealt": 496,
+                  "turns": 25,
+                  "battles": 6
+                }
+              }
+            },
+            "responses": {
+              "confusion": "",
+              "interestingChoice": "",
+              "replayIntent": "unanswered"
+            }
+          }
+        },
+        {
+          "qaOnly": true,
+          "negative": true,
+          "disclosure": "Optional notes from your campaign. Nothing is sent. Save a report to your device, then share it only if you choose.",
+          "questions": [
+            "What was unclear? Optional",
+            "Which choices felt meaningful or pointless, if any? Optional",
+            "Would you take another campaign? Optional"
+          ],
+          "filename": "hollowpact-field-report-v0.4.0-seed-6503.json",
+          "storageUnchanged": true,
+          "newHttpRequests": [],
+          "feedback": {
+            "schema": 1,
+            "kind": "voluntary-player-feedback",
+            "source": "local-export",
+            "createdAt": "2026-09-30T20:10:51.988Z",
+            "context": {
+              "build": {
+                "version": "0.4.0",
+                "sourceDigest": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+                "channel": "packaged"
+              },
+              "screen": "victory",
+              "run": {
+                "seed": 6503,
+                "difficulty": 2,
+                "phase": "victory",
+                "contract": 10,
+                "hunterHealth": 41,
+                "maximumHealth": 65,
+                "deck": [
+                  "cairnhound+",
+                  "cairnhound+",
+                  "fenstalker",
+                  "ashwidow",
+                  "briarcolossus",
+                  "scour",
+                  "scour",
+                  "ironward",
+                  "ironward",
+                  "sutures",
+                  "sunder",
+                  "survey+",
+                  "draught",
+                  "harpoon",
+                  "fenraker",
+                  "fenraker",
+                  "killcommand",
+                  "emberwidow",
+                  "fenraker",
+                  "gravehound"
+                ],
+                "relics": [
+                  "ember-seed",
+                  "war-brand",
+                  "brass-bell"
+                ],
+                "stats": {
+                  "cardsPlayed": 65,
+                  "damageDealt": 496,
+                  "turns": 25,
+                  "battles": 6
+                }
+              }
+            },
+            "responses": {
+              "confusion": "AUTOMATED AGENT QA SAMPLE, NOT HUMAN PLAYTEST DATA: testing a negative response and local-only export.",
+              "interestingChoice": "AUTOMATED QA: none of the choices felt meaningful in this synthetic response.",
+              "replayIntent": "no"
+            }
+          }
+        }
+      ],
+      "campaignReload": null,
+      "retry": {
+        "phase": "map",
+        "floor": 0,
+        "hp": 65,
+        "seed": 6503
+      },
+      "actionClickTimingMs": {
+        "mean": 117.25248340211644,
+        "max": 479.63282400000026
+      },
+      "method": "Complete actual rendered-control replay of preserved independent legal actions; every pre-action browser state matches reference. Timing is automation latency, not human pace."
+    },
+    {
+      "seed": 6501,
+      "difficulty": 2,
+      "policy": "front-focused",
+      "motion": true,
+      "audioMuted": true,
+      "acceptedActions": 99,
+      "phase": "defeat",
+      "hp": 0,
+      "browserElapsedMs": 14693.002471,
+      "errors": [],
+      "settling": [
+        {
+          "step": 18,
+          "phase": "reward",
+          "hp": 53,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "observedHoldMs": 1140.0201469999956
+        },
+        {
+          "step": 34,
+          "phase": "reward",
+          "hp": 52,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "observedHoldMs": 1134.7390550000055
+        },
+        {
+          "step": 72,
+          "phase": "reward",
+          "hp": 27,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "observedHoldMs": 1139.3966230000005
+        },
+        {
+          "step": 99,
+          "phase": "defeat",
+          "hp": 0,
+          "busy": "true",
+          "guidance": "The pact breaks. The final impact is resolving.",
+          "lateKeyUnchanged": true,
+          "observedHoldMs": 739.3746630000023
+        }
+      ],
+      "reportTests": [
+        {
+          "qaOnly": true,
+          "negative": false,
+          "disclosure": "Optional notes from your campaign. Nothing is sent. Save a report to your device, then share it only if you choose.",
+          "questions": [
+            "What was unclear? Optional",
+            "Which choices felt meaningful or pointless, if any? Optional",
+            "Would you take another campaign? Optional"
+          ],
+          "filename": "hollowpact-field-report-v0.4.0-seed-6501.json",
+          "storageUnchanged": true,
+          "newHttpRequests": [],
+          "feedback": {
+            "schema": 1,
+            "kind": "voluntary-player-feedback",
+            "source": "local-export",
+            "createdAt": "2026-09-30T20:11:07.016Z",
+            "context": {
+              "build": {
+                "version": "0.4.0",
+                "sourceDigest": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+                "channel": "packaged"
+              },
+              "screen": "defeat",
+              "run": {
+                "seed": 6501,
+                "difficulty": 2,
+                "phase": "defeat",
+                "contract": 6,
+                "hunterHealth": 0,
+                "maximumHealth": 65,
+                "deck": [
+                  "cairnhound",
+                  "cairnhound",
+                  "fenstalker",
+                  "ashwidow",
+                  "briarcolossus",
+                  "scour",
+                  "scour",
+                  "ironward",
+                  "ironward",
+                  "sutures",
+                  "sunder",
+                  "survey",
+                  "silence+",
+                  "survey",
+                  "edict",
+                  "covenant",
+                  "edict",
+                  "ossuarycolossus"
+                ],
+                "relics": [
+                  "ember-seed"
+                ],
+                "stats": {
+                  "cardsPlayed": 38,
+                  "damageDealt": 196,
+                  "turns": 13,
+                  "battles": 4
+                }
+              }
+            },
+            "responses": {
+              "confusion": "",
+              "interestingChoice": "",
+              "replayIntent": "unanswered"
+            }
+          }
+        },
+        {
+          "qaOnly": true,
+          "negative": true,
+          "disclosure": "Optional notes from your campaign. Nothing is sent. Save a report to your device, then share it only if you choose.",
+          "questions": [
+            "What was unclear? Optional",
+            "Which choices felt meaningful or pointless, if any? Optional",
+            "Would you take another campaign? Optional"
+          ],
+          "filename": "hollowpact-field-report-v0.4.0-seed-6501.json",
+          "storageUnchanged": true,
+          "newHttpRequests": [],
+          "feedback": {
+            "schema": 1,
+            "kind": "voluntary-player-feedback",
+            "source": "local-export",
+            "createdAt": "2026-09-30T20:11:07.263Z",
+            "context": {
+              "build": {
+                "version": "0.4.0",
+                "sourceDigest": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+                "channel": "packaged"
+              },
+              "screen": "defeat",
+              "run": {
+                "seed": 6501,
+                "difficulty": 2,
+                "phase": "defeat",
+                "contract": 6,
+                "hunterHealth": 0,
+                "maximumHealth": 65,
+                "deck": [
+                  "cairnhound",
+                  "cairnhound",
+                  "fenstalker",
+                  "ashwidow",
+                  "briarcolossus",
+                  "scour",
+                  "scour",
+                  "ironward",
+                  "ironward",
+                  "sutures",
+                  "sunder",
+                  "survey",
+                  "silence+",
+                  "survey",
+                  "edict",
+                  "covenant",
+                  "edict",
+                  "ossuarycolossus"
+                ],
+                "relics": [
+                  "ember-seed"
+                ],
+                "stats": {
+                  "cardsPlayed": 38,
+                  "damageDealt": 196,
+                  "turns": 13,
+                  "battles": 4
+                }
+              }
+            },
+            "responses": {
+              "confusion": "AUTOMATED AGENT QA SAMPLE, NOT HUMAN PLAYTEST DATA: testing a negative response and local-only export.",
+              "interestingChoice": "AUTOMATED QA: none of the choices felt meaningful in this synthetic response.",
+              "replayIntent": "no"
+            }
+          }
+        }
+      ],
+      "campaignReload": null,
+      "retry": {
+        "phase": "map",
+        "floor": 0,
+        "hp": 65,
+        "seed": 6501
+      },
+      "actionClickTimingMs": {
+        "mean": 86.77587372727275,
+        "max": 159.71520699999382
+      },
+      "method": "Complete actual rendered-control replay of preserved independent legal actions; every pre-action browser state matches reference. Timing is automation latency, not human pace."
+    },
+    {
+      "seed": 1989,
+      "difficulty": 0,
+      "policy": "Known legal save-defect campaign",
+      "motion": true,
+      "audioMuted": true,
+      "acceptedActions": 119,
+      "phase": "battle",
+      "hp": 25,
+      "browserElapsedMs": 16674.471379000002,
+      "errors": [],
+      "settling": [
+        {
+          "step": 14,
+          "phase": "reward",
+          "hp": 65,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "observedHoldMs": 1139.437192999998
+        },
+        {
+          "step": 43,
+          "phase": "reward",
+          "hp": 58,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "observedHoldMs": 1139.3398489999963
+        },
+        {
+          "step": 73,
+          "phase": "reward",
+          "hp": 56,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "observedHoldMs": 1120.9414909999978
+        },
+        {
+          "step": 108,
+          "phase": "reward",
+          "hp": 39,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "observedHoldMs": 1141.3798449999958
+        }
+      ],
+      "reportTests": [
+        {
+          "qaOnly": true,
+          "negative": false,
+          "disclosure": "Optional notes from your campaign. Nothing is sent. Save a report to your device, then share it only if you choose.",
+          "questions": [
+            "What was unclear? Optional",
+            "Which choices felt meaningful or pointless, if any? Optional",
+            "Would you take another campaign? Optional"
+          ],
+          "filename": "hollowpact-field-report-v0.4.0-seed-1989.json",
+          "storageUnchanged": true,
+          "newHttpRequests": [],
+          "feedback": {
+            "schema": 1,
+            "kind": "voluntary-player-feedback",
+            "source": "local-export",
+            "createdAt": "2026-09-30T20:11:24.315Z",
+            "context": {
+              "build": {
+                "version": "0.4.0",
+                "sourceDigest": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+                "channel": "packaged"
+              },
+              "screen": "battle",
+              "run": {
+                "seed": 1989,
+                "difficulty": 0,
+                "phase": "battle",
+                "contract": 10,
+                "hunterHealth": 25,
+                "maximumHealth": 65,
+                "deck": [
+                  "cairnhound",
+                  "cairnhound",
+                  "fenstalker",
+                  "ashwidow",
+                  "briarcolossus",
+                  "ironward",
+                  "ironward",
+                  "sutures",
+                  "sunder",
+                  "survey",
+                  "silence+",
+                  "silence",
+                  "harpoon",
+                  "briarcolossus",
+                  "ossuarycolossus",
+                  "silence"
+                ],
+                "relics": [
+                  "moon-charm",
+                  "grave-coin",
+                  "ember-seed",
+                  "brass-bell"
+                ],
+                "stats": {
+                  "cardsPlayed": 45,
+                  "damageDealt": 245,
+                  "turns": 17,
+                  "battles": 5
+                }
+              }
+            },
+            "responses": {
+              "confusion": "",
+              "interestingChoice": "",
+              "replayIntent": "unanswered"
+            }
+          }
+        },
+        {
+          "qaOnly": true,
+          "negative": true,
+          "disclosure": "Optional notes from your campaign. Nothing is sent. Save a report to your device, then share it only if you choose.",
+          "questions": [
+            "What was unclear? Optional",
+            "Which choices felt meaningful or pointless, if any? Optional",
+            "Would you take another campaign? Optional"
+          ],
+          "filename": "hollowpact-field-report-v0.4.0-seed-1989.json",
+          "storageUnchanged": true,
+          "newHttpRequests": [],
+          "feedback": {
+            "schema": 1,
+            "kind": "voluntary-player-feedback",
+            "source": "local-export",
+            "createdAt": "2026-09-30T20:11:24.561Z",
+            "context": {
+              "build": {
+                "version": "0.4.0",
+                "sourceDigest": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+                "channel": "packaged"
+              },
+              "screen": "battle",
+              "run": {
+                "seed": 1989,
+                "difficulty": 0,
+                "phase": "battle",
+                "contract": 10,
+                "hunterHealth": 25,
+                "maximumHealth": 65,
+                "deck": [
+                  "cairnhound",
+                  "cairnhound",
+                  "fenstalker",
+                  "ashwidow",
+                  "briarcolossus",
+                  "ironward",
+                  "ironward",
+                  "sutures",
+                  "sunder",
+                  "survey",
+                  "silence+",
+                  "silence",
+                  "harpoon",
+                  "briarcolossus",
+                  "ossuarycolossus",
+                  "silence"
+                ],
+                "relics": [
+                  "moon-charm",
+                  "grave-coin",
+                  "ember-seed",
+                  "brass-bell"
+                ],
+                "stats": {
+                  "cardsPlayed": 45,
+                  "damageDealt": 245,
+                  "turns": 17,
+                  "battles": 5
+                }
+              }
+            },
+            "responses": {
+              "confusion": "AUTOMATED AGENT QA SAMPLE, NOT HUMAN PLAYTEST DATA: testing a negative response and local-only export.",
+              "interestingChoice": "AUTOMATED QA: none of the choices felt meaningful in this synthetic response.",
+              "replayIntent": "no"
+            }
+          }
+        }
+      ],
+      "campaignReload": {
+        "continuedTurn": 4,
+        "armor": 14,
+        "unchangedAcrossReload": true
+      },
+      "retry": null,
+      "actionClickTimingMs": {
+        "mean": 86.39581653781487,
+        "max": 263.1879840000038
+      },
+      "method": "Complete actual rendered-control replay of preserved independent legal actions; every pre-action browser state matches reference. Timing is automation latency, not human pace."
+    }
+  ],
+  "servedBuild": {
+    "version": "0.4.0",
+    "sourceDigest": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+    "hashes": {
+      "THIRD-PARTY.md": "9f7ac1d4b03f8bf928ea0d73d5654207e9abc154b4f5365c5e30eb36eef8f329",
+      "desktop/icon.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+      "desktop/main.cjs": "1e54b1170ff4169285ff1757c0e768db2f144f7be919b4911a47394426cb75ae",
+      "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+      "package-lock.json": "5cad0ba16737bdf37068338f6747c0eeb6f2e204fa1afe63b8f4f3463e5c32c8",
+      "package.json": "0b4177c7ed775b00a85ac89456334e1a9200e232bdead9e592b8e5c49c91b8ea",
+      "public/art/PROVENANCE.json": "641fd7d91902b655782a3dde91a3039e894a1ffc84be43465e90e2cd0beed70a",
+      "public/art/abbey-courtyard.png": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+      "public/art/adversaries-atlas.png": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5",
+      "public/art/companions-atlas.png": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+      "public/art/hound-poses.png": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+      "public/art/hunter-portrait.png": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+      "public/art/pact-seal.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+      "scripts/build.mjs": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1",
+      "src/arena.ts": "55ca21caebd76cd078213cd3686d167c7600088bae94bbf7411f423858dfc299",
+      "src/art.ts": "0c6b04e531cb6a9afb5b27305835f61a11157720f5fbff8c56a4af6eb928c5ba",
+      "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+      "src/engine.ts": "ee85f1400a9d02142aee1dd66f82722453f35930bbf2c0c229ad38e38a818d0d",
+      "src/main.ts": "7b9162ee1005c3a016daa814d99d35b48ed7fa2eb0938f495337c5348c2458da",
+      "src/style.css": "527ca163bd46ca9edd11d8c1a543f170a59e389671fa83e83c34c0c0f2836a12",
+      "tsconfig.json": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c",
+      "vite.config.ts": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75"
+    },
+    "node": "v24.19.0"
+  },
+  "recoveryBrowser": [
+    {
+      "mode": "recover",
+      "servedBuild": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+      "notice": "Recovered a repeated Silence status label. Your run is preserved.",
+      "recovered": true,
+      "reloaded": true,
+      "backupOriginal": true,
+      "backupKeys": [
+        "hollowpact.run.v2.backup.silence"
+      ],
+      "originalRawSHA": "940831815a7ce1ec4a4f9de3ab8e5c46a1e803b2b80dabe8d9ec3efaed3d8f2f",
+      "errors": [],
+      "method": "Targeted finalproduction loader on a previously independently replayed legacy save. Original/canonical/continued bytes compared, existing backup collision preserved, unrelated card-copy corruption rejected. Separate from fresh full119-action browser replay."
+    },
+    {
+      "mode": "backup-collision",
+      "servedBuild": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+      "notice": "Recovered a repeated Silence status label. Your run is preserved.",
+      "recovered": true,
+      "reloaded": true,
+      "backupOriginal": true,
+      "backupKeys": [
+        "hollowpact.run.v2.backup.silence.1790799211373",
+        "hollowpact.run.v2.backup.silence"
+      ],
+      "originalRawSHA": "940831815a7ce1ec4a4f9de3ab8e5c46a1e803b2b80dabe8d9ec3efaed3d8f2f",
+      "errors": [],
+      "method": "Targeted finalproduction loader on a previously independently replayed legacy save. Original/canonical/continued bytes compared, existing backup collision preserved, unrelated card-copy corruption rejected. Separate from fresh full119-action browser replay."
+    },
+    {
+      "mode": "reject-corrupt",
+      "servedBuild": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+      "notice": "An incompatible save was found. Start a new campaign to continue.",
+      "recovered": false,
+      "reloaded": false,
+      "backupOriginal": false,
+      "backupKeys": [],
+      "originalRawSHA": "670a259df856accadaa9385122651f45af369944ac859a3fa289f152ee5a3c02",
+      "errors": [],
+      "method": "Targeted finalproduction loader on a previously independently replayed legacy save. Original/canonical/continued bytes compared, existing backup collision preserved, unrelated card-copy corruption rejected. Separate from fresh full119-action browser replay."
+    }
+  ],
+  "previousPreviewBatches": [
+    {
+      "method": "Passed during7a825\u2192da553 tooling-only rebuild; unrecorded per-context digest, repeating on finalstablebuild below. Runtime source identical.",
+      "cases": [
+        {
+          "name": "blocked-lethal-retaliation",
+          "preview": "Cairn Hound \u00b7 binding 1 \u2192 hostile 1: 0 health damage, 3 blocked \u00b7 binding 1 takes 1 retaliation (lethal)",
+          "storageUnchanged": true,
+          "canonicalStateAndRngUnchanged": true,
+          "actualResultMatchesExpected": true,
+          "aria": {
+            "role": "status",
+            "live": "polite"
+          },
+          "errors": [],
+          "method": "Production controls on disclosed structurally valid unearned fixture. Literal expected outcomes asserted independently in fixture generator. Preview, Escape cancel and actual saved resolution compared."
+        },
+        {
+          "name": "mutual-death-contract-cleared",
+          "preview": "Cairn Hound \u00b7 binding 1 \u2192 hostile 1: 2 health damage (lethal), 1 blocked \u00b7 binding 1 takes 2 retaliation (lethal) \u00b7 contract cleared",
+          "storageUnchanged": true,
+          "canonicalStateAndRngUnchanged": true,
+          "actualResultMatchesExpected": true,
+          "aria": {
+            "role": "status",
+            "live": "polite"
+          },
+          "errors": [],
+          "method": "Production controls on disclosed structurally valid unearned fixture. Literal expected outcomes asserted independently in fixture generator. Preview, Escape cancel and actual saved resolution compared."
+        },
+        {
+          "name": "recovery-before-retaliation",
+          "preview": "Fen Stalker \u00b7 binding 1 \u2192 hostile 1: 3 health damage, 1 blocked \u00b7 binding 1: restores 2 health \u00b7 binding 1 takes 2 retaliation",
+          "storageUnchanged": true,
+          "canonicalStateAndRngUnchanged": true,
+          "actualResultMatchesExpected": true,
+          "aria": {
+            "role": "status",
+            "live": "polite"
+          },
+          "errors": [],
+          "method": "Production controls on disclosed structurally valid unearned fixture. Literal expected outcomes asserted independently in fixture generator. Preview, Escape cancel and actual saved resolution compared."
+        },
+        {
+          "name": "spell-resistance-and-block",
+          "preview": "Scour \u2192 hostile 1: 0 health damage, 4 blocked",
+          "storageUnchanged": true,
+          "canonicalStateAndRngUnchanged": true,
+          "actualResultMatchesExpected": true,
+          "aria": {
+            "role": "status",
+            "live": "polite"
+          },
+          "errors": [],
+          "method": "Production controls on disclosed structurally valid unearned fixture. Literal expected outcomes asserted independently in fixture generator. Preview, Escape cancel and actual saved resolution compared."
+        },
+        {
+          "name": "bloodprice-terminal-no-draw-leak",
+          "preview": "Blood Price: gains 1 energy \u00b7 hunter loses 3 health \u00b7 HUNTER DIES \u00b7 campaign ends",
+          "storageUnchanged": true,
+          "canonicalStateAndRngUnchanged": true,
+          "actualResultMatchesExpected": true,
+          "aria": {
+            "role": "status",
+            "live": "polite"
+          },
+          "errors": [],
+          "method": "Production controls on disclosed structurally valid unearned fixture. Literal expected outcomes asserted independently in fixture generator. Preview, Escape cancel and actual saved resolution compared."
+        },
+        {
+          "name": "silence-cancels-current-intent",
+          "preview": "Silence the Dead \u2192 hostile 1: Silenced \u00b7 damage and reinforcements canceled",
+          "storageUnchanged": true,
+          "canonicalStateAndRngUnchanged": true,
+          "actualResultMatchesExpected": true,
+          "aria": {
+            "role": "status",
+            "live": "polite"
+          },
+          "errors": [],
+          "method": "Production controls on disclosed structurally valid unearned fixture. Literal expected outcomes asserted independently in fixture generator. Preview, Escape cancel and actual saved resolution compared."
+        }
+      ]
+    }
+  ],
+  "previewPrivacy": [
+    {
+      "name": "hidden-draw-order",
+      "texts": [
+        "Forbidden Survey: Draw 2 cards.",
+        "Forbidden Survey: Draw 2 cards."
+      ],
+      "builds": [
+        "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+        "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425"
+      ],
+      "hiddenFuturesDiffer": true,
+      "storageUnchanged": true,
+      "errors": [],
+      "method": "Matched public inputs differ only private draw order/RNG. Independently computed future hands/rewards differ, while production previews must remain identical. Diagnostic saved fixtures, no actual card/reward leak to the player."
+    },
+    {
+      "name": "hidden-reward-sampling",
+      "texts": [
+        "Cairn Hound \u00b7 binding 1 \u2192 hostile 1: 2 health damage (lethal), 1 blocked \u00b7 binding 1 takes 2 retaliation (lethal) \u00b7 contract cleared",
+        "Cairn Hound \u00b7 binding 1 \u2192 hostile 1: 2 health damage (lethal), 1 blocked \u00b7 binding 1 takes 2 retaliation (lethal) \u00b7 contract cleared"
+      ],
+      "builds": [
+        "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+        "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425"
+      ],
+      "hiddenFuturesDiffer": true,
+      "storageUnchanged": true,
+      "errors": [],
+      "method": "Matched public inputs differ only private draw order/RNG. Independently computed future hands/rewards differ, while production previews must remain identical. Diagnostic saved fixtures, no actual card/reward leak to the player."
+    }
+  ],
+  "finalFeedbackIdentity": {
+    "qaOnly": true,
+    "filename": "hollowpact-field-report-v0.4.0.json",
+    "feedback": {
+      "schema": 1,
+      "kind": "voluntary-player-feedback",
+      "source": "local-export",
+      "createdAt": "2026-09-30T20:16:49.802Z",
+      "context": {
+        "build": {
+          "version": "0.4.0",
+          "sourceDigest": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+          "channel": "packaged"
+        },
+        "screen": "title",
+        "run": null
+      },
+      "responses": {
+        "confusion": "AUTOMATED AGENT QA SAMPLE, NOT HUMAN PLAYTEST DATA: final build identity verification.",
+        "interestingChoice": "",
+        "replayIntent": "unanswered"
+      }
+    }
+  },
+  "targetChoice": {
+    "method": "Disclosed two-enemy diagnostic roster; firstlegalfocus, keyboard alternatefocus, hoverreturn and chosen alternateactual action. Tests consequential targetchoice and pure query state.",
+    "firstFocused": "e3",
+    "first": "Cairn Hound \u00b7 binding 1 \u2192 hostile 1: 0 health damage, 3 blocked \u00b7 binding 1 takes 1 retaliation (lethal)",
+    "alternate": "Cairn Hound \u00b7 binding 1 \u2192 hostile 2: 5 health damage",
+    "hovered": "Cairn Hound \u00b7 binding 1 \u2192 hostile 1: 0 health damage, 3 blocked \u00b7 binding 1 takes 1 retaliation (lethal)",
+    "storageUnchanged": true,
+    "actualAlternativeMatches": true,
+    "errors": []
+  },
+  "temporaryChoiceHarnessSource": "import{chromium}from'/workspace/Roguelike-deckbuilder/node_modules/playwright/index.mjs';import{readFileSync,writeFileSync}from'node:fs';const root='/workspace/Roguelike-deckbuilder',f=JSON.parse(readFileSync(root+'/reviews/gameplay-v0.4-preview-fixtures.json','utf8')).targetChoice,b=await chromium.launch({headless:true,executablePath:'/usr/bin/chromium',args:['--no-sandbox']});try{const c=await b.newContext({viewport:{width:1440,height:900}}),p=await c.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));await p.addInitScript(s=>{localStorage.setItem('hollowpact.run.v2',JSON.stringify(s));localStorage.setItem('hollowpact.settings.v2',JSON.stringify({mute:true,volume:0,motion:false}));localStorage.setItem('hollowpact.tutorial.v2','yes');},f.state);await p.goto('http://127.0.0.1:4173');await p.locator('[data-ui=\"resume\"]').click();const before=await p.evaluate(()=>JSON.stringify(Object.entries(localStorage)));await p.locator(`[data-unit=\"${f.state.allies[0].uid}\"]`).click();const focused=await p.evaluate(()=>document.activeElement.dataset.unit),first=await p.locator('#consequence-preview').innerText();if(focused!==f.firstTarget||!first.includes('retaliation (lethal)'))throw Error('First legal focus/preview incorrect');await p.locator(`[data-unit=\"${f.alternativeTarget}\"]`).focus();const alternate=await p.locator('#consequence-preview').innerText();if(!alternate.includes('5 health damage')||alternate.includes('retaliation'))throw Error('Alternate previewincorrect');await p.locator(`[data-unit=\"${f.firstTarget}\"]`).hover();const hovered=await p.locator('#consequence-preview').innerText();if(hovered!==first)throw Error('Hovertargetdoesnotupdate');if(before!==await p.evaluate(()=>JSON.stringify(Object.entries(localStorage))))throw Error('Switchtargetmutates state');await p.locator(`[data-unit=\"${f.alternativeTarget}\"]`).click();const after=await p.evaluate(()=>JSON.parse(localStorage.getItem('hollowpact.run.v2')));if(JSON.stringify(after)!==JSON.stringify(f.alternativeAfter))throw Error('Chosen alternate outcome mismatch');const path=root+'/reviews/gameplay-v0.4-evidence.json',e=JSON.parse(readFileSync(path,'utf8'));e.targetChoice={method:'Disclosed two-enemy diagnostic roster; firstlegalfocus, keyboard alternatefocus, hoverreturn and chosen alternateactual action. Tests consequential targetchoice and pure query state.',firstFocused:focused,first,alternate,hovered,storageUnchanged:true,actualAlternativeMatches:true,errors};e.temporaryChoiceHarnessSource=readFileSync('/tmp/review-v04-choice.mjs','utf8');writeFileSync(path,JSON.stringify(e,null,2)+'\\n');console.log(JSON.stringify(e.targetChoice));}finally{await b.close();}\n",
+  "apiBoundaryProbe": {
+    "method": "Direct unknown-input API probe with cyclic unknown extra field, outside actual JSON.parse localStorage input path. Independently reproduces engine-owner observation without altering source.",
+    "accepted": true,
+    "passesValidator": true,
+    "serializes": false,
+    "actualJsonInputPossible": false,
+    "scope": "API boundary follow-up; standard browser save recovery passes and has no cyclic JSON input."
+  },
+  "reviewStatus": {
+    "verdict": "Approve preserved development milestone; real JSON Silence save blocker repaired. AAA/human-fun/commercial promotion unproven.",
+    "sourceDigest": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+    "completeTraceMatchedBrowserActions": 407,
+    "additionalKnownCampaignContinuationActions": 1,
+    "motionOn": true,
+    "audioMuted": true,
+    "browserPageErrors": 0,
+    "humanPlaytests": 0,
+    "diagnosticPreviewCases": 6,
+    "privateFuturePairs": 2,
+    "recoveryBrowserContexts": 3,
+    "qaFeedbackReports": 7,
+    "stateInjection": "Only explicitly disclosed diagnostic/saved-state fixtures; complete407-action campaigns begin through normal new-run controls.",
+    "apiBoundaryLimitation": "Cyclic unknown extra on direct unknown-input API may be unserializable; impossible via actual JSON.parse save input."
+  },
+  "newHarnessHashes": {
+    "scripts/review-recovery-browser-v0.4.mjs": "99cefd6f388474db6a9c9fe1625990029fdc43e37ecbad48d7b0bc00cc238794",
+    "scripts/review-playtest-v0.4.ts": "978f6e48cc08e13a2efe9645a7c9b37a5fc081765d1aa07eec8471a2e001de89",
+    "scripts/review-preview-fixtures-v0.4.ts": "feb5bac05dfbfebf59522c4d026a5065ff872990632460ac32dd1f1584fdeea5",
+    "scripts/review-preview-privacy-v0.4.mjs": "cdd936b4a6e97bd6e14b9951976e67f16ac11a4b90085303b47dbfee68ed2bef",
+    "scripts/review-browser-inputs-v0.4.ts": "fa2191991d50cd98cb237ee68eda95bc46b319a3ef6a6333daa991662bf15087",
+    "scripts/review-browser-v0.4.mjs": "11cd0da73838b6181d8325cdcd3e7f3d797a9a8900d6a1f31de314280756e383",
+    "scripts/review-preview-browser-v0.4.mjs": "75872a953cc9b00f71262c555e7e14a414e8480129318df8f787f1344cd7ed14"
+  },
+  "reviewedArtifactHashes": {
+    "reviews/gameplay-v0.4-preview-fixtures.json": "c48f1d9d3ab8a0baf6451e5f9e4c150f19d20f21e4dcbe5f51db561d1f517565",
+    "reviews/gameplay-v0.4-browser-inputs.json.gz": "116797c512ac3bd2718c64fd4ef45df12c556a4713e0778841b28ebafc411175"
+  }
+}

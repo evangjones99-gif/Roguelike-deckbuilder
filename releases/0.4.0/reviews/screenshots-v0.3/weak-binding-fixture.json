@@ -1,0 +1,99 @@
+{
+  "schema": 2,
+  "seed": 121,
+  "rng": 3709142840,
+  "phase": "battle",
+  "hp": 65,
+  "maxHp": 65,
+  "block": 0,
+  "energy": 5,
+  "gold": 65,
+  "floor": 1,
+  "turn": 1,
+  "deck": [
+    "cairnhound",
+    "ironward",
+    "ironward",
+    "scour",
+    "survey"
+  ],
+  "draw": [
+    "ironward",
+    "scour",
+    "survey"
+  ],
+  "discard": [],
+  "hand": [
+    "ironward"
+  ],
+  "allies": [
+    {
+      "uid": "a10",
+      "cardId": "cairnhound",
+      "name": "Cairn Hound",
+      "species": "hound",
+      "hp": 1,
+      "maxHp": 7,
+      "attack": 3,
+      "block": 0,
+      "acted": true,
+      "color": "#c4c6b5",
+      "passive": "Commands deal 2 extra damage to enemies with no block."
+    }
+  ],
+  "enemies": [
+    {
+      "uid": "e30",
+      "cardId": "thrall",
+      "name": "Bone Thrall",
+      "species": "thrall",
+      "hp": 7,
+      "attack": 3,
+      "color": "#b2ac95",
+      "passive": "Attacks the weakest bound creature, or the hunter if none remain.",
+      "maxHp": 7,
+      "block": 0,
+      "acted": false,
+      "intent": {
+        "damage": 3,
+        "target": "a10",
+        "label": "Attack weak binding"
+      }
+    },
+    {
+      "uid": "e31",
+      "cardId": "thrall",
+      "name": "Bone Thrall",
+      "species": "thrall",
+      "hp": 7,
+      "attack": 3,
+      "color": "#b2ac95",
+      "passive": "Attacks the weakest bound creature, or the hunter if none remain.",
+      "maxHp": 7,
+      "block": 0,
+      "acted": false,
+      "intent": {
+        "damage": 3,
+        "target": "a10",
+        "label": "Attack weak binding"
+      }
+    }
+  ],
+  "rewards": [],
+  "relics": [],
+  "route": [
+    "battle"
+  ],
+  "log": [
+    "A scarred hunter. One final contract. No pact is harmless.",
+    "The keep has teeth."
+  ],
+  "nextUid": 100,
+  "difficulty": 0,
+  "stats": {
+    "cardsPlayed": 0,
+    "damageDealt": 0,
+    "turns": 1,
+    "battles": 1
+  }
+}

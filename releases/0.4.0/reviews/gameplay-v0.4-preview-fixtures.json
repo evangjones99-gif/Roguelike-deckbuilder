@@ -1,0 +1,1655 @@
+{
+  "method": "Independent literal public-consequence assertions against fixed, structurally valid unearned rosters. States are diagnostic fixtures, not complete legally earned campaigns. Future production browser checks will resume these disclosed saves and compare visible previews/actions.",
+  "engineSHA": "ee85f1400a9d02142aee1dd66f82722453f35930bbf2c0c229ad38e38a818d0d",
+  "fixtures": [
+    {
+      "name": "blocked-lethal-retaliation",
+      "state": {
+        "schema": 2,
+        "seed": 45001,
+        "rng": 2121585239,
+        "phase": "battle",
+        "hp": 65,
+        "maxHp": 65,
+        "block": 2,
+        "energy": 11,
+        "gold": 65,
+        "floor": 1,
+        "turn": 1,
+        "deck": [
+          "cairnhound",
+          "scour",
+          "silence",
+          "ironward",
+          "survey"
+        ],
+        "draw": [],
+        "discard": [],
+        "hand": [
+          "scour",
+          "silence",
+          "ironward",
+          "survey"
+        ],
+        "allies": [
+          {
+            "uid": "a4",
+            "cardId": "cairnhound",
+            "name": "Cairn Hound",
+            "species": "hound",
+            "hp": 1,
+            "maxHp": 7,
+            "attack": 3,
+            "block": 0,
+            "acted": false,
+            "color": "#c4c6b5",
+            "passive": "Commands deal 2 extra damage to enemies with no block."
+          }
+        ],
+        "enemies": [
+          {
+            "name": "Ironjaw Reaver",
+            "species": "warlord",
+            "hp": 20,
+            "attack": 4,
+            "color": "#a6a59c",
+            "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation.",
+            "uid": "e3",
+            "cardId": "raider",
+            "maxHp": 20,
+            "block": 8,
+            "acted": false,
+            "intent": {
+              "target": "hunter",
+              "damage": 4,
+              "label": "Strike"
+            }
+          }
+        ],
+        "rewards": [],
+        "relics": [],
+        "route": [
+          "battle"
+        ],
+        "log": [
+          "A scarred hunter. One final contract. No pact is harmless.",
+          "The keep has teeth.",
+          "Bound Cairn Hound."
+        ],
+        "nextUid": 5,
+        "difficulty": 1,
+        "stats": {
+          "cardsPlayed": 1,
+          "damageDealt": 0,
+          "turns": 1,
+          "battles": 1
+        }
+      },
+      "action": {
+        "type": "attack",
+        "unit": "a4",
+        "target": "e3"
+      },
+      "expected": [
+        "0 health damage",
+        "3 blocked",
+        "binding 1 takes 1 retaliation (lethal)"
+      ],
+      "after": {
+        "schema": 2,
+        "seed": 45001,
+        "rng": 2121585239,
+        "phase": "battle",
+        "hp": 65,
+        "maxHp": 65,
+        "block": 2,
+        "energy": 11,
+        "gold": 65,
+        "floor": 1,
+        "turn": 1,
+        "deck": [
+          "cairnhound",
+          "scour",
+          "silence",
+          "ironward",
+          "survey"
+        ],
+        "draw": [],
+        "discard": [
+          "cairnhound"
+        ],
+        "hand": [
+          "scour",
+          "silence",
+          "ironward",
+          "survey"
+        ],
+        "allies": [],
+        "enemies": [
+          {
+            "name": "Ironjaw Reaver",
+            "species": "warlord",
+            "hp": 20,
+            "attack": 4,
+            "color": "#a6a59c",
+            "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation.",
+            "uid": "e3",
+            "cardId": "raider",
+            "maxHp": 20,
+            "block": 5,
+            "acted": false,
+            "intent": {
+              "target": "hunter",
+              "damage": 4,
+              "label": "Strike"
+            }
+          }
+        ],
+        "rewards": [],
+        "relics": [],
+        "route": [
+          "battle"
+        ],
+        "log": [
+          "A scarred hunter. One final contract. No pact is harmless.",
+          "The keep has teeth.",
+          "Bound Cairn Hound.",
+          "Ironjaw Reaver retaliates against Cairn Hound.",
+          "Cairn Hound strikes Ironjaw Reaver.",
+          "Cairn Hound returns to the deck."
+        ],
+        "nextUid": 5,
+        "difficulty": 1,
+        "stats": {
+          "cardsPlayed": 1,
+          "damageDealt": 0,
+          "turns": 1,
+          "battles": 1
+        }
+      },
+      "events": [
+        {
+          "type": "hit",
+          "source": "a4",
+          "kind": "command",
+          "cardId": "cairnhound",
+          "target": "e3",
+          "damage": 3,
+          "blocked": 3,
+          "hpLost": 0,
+          "beforeHp": 20,
+          "afterHp": 20
+        },
+        {
+          "type": "hit",
+          "source": "e3",
+          "kind": "retaliation",
+          "cardId": "raider",
+          "target": "a4",
+          "damage": 1,
+          "blocked": 0,
+          "hpLost": 1,
+          "beforeHp": 1,
+          "afterHp": 0
+        },
+        {
+          "type": "death",
+          "source": "e3",
+          "target": "a4",
+          "cardId": "cairnhound"
+        }
+      ]
+    },
+    {
+      "name": "mutual-death-contract-cleared",
+      "state": {
+        "schema": 2,
+        "seed": 45001,
+        "rng": 2121585239,
+        "phase": "battle",
+        "hp": 65,
+        "maxHp": 65,
+        "block": 2,
+        "energy": 11,
+        "gold": 65,
+        "floor": 1,
+        "turn": 1,
+        "deck": [
+          "cairnhound",
+          "scour",
+          "silence",
+          "ironward",
+          "survey"
+        ],
+        "draw": [],
+        "discard": [],
+        "hand": [
+          "scour",
+          "silence",
+          "ironward",
+          "survey"
+        ],
+        "allies": [
+          {
+            "uid": "a4",
+            "cardId": "cairnhound",
+            "name": "Cairn Hound",
+            "species": "hound",
+            "hp": 2,
+            "maxHp": 7,
+            "attack": 3,
+            "block": 0,
+            "acted": false,
+            "color": "#c4c6b5",
+            "passive": "Commands deal 2 extra damage to enemies with no block."
+          }
+        ],
+        "enemies": [
+          {
+            "name": "Ironjaw Warlord",
+            "species": "warlord",
+            "hp": 2,
+            "attack": 9,
+            "color": "#a6a59c",
+            "passive": "While armored, commands reflect 2 damage through creature block. Use Sundering Hex or spells to break armor safely.",
+            "uid": "e3",
+            "cardId": "ironjaw",
+            "maxHp": 112,
+            "block": 1,
+            "acted": false,
+            "intent": {
+              "target": "hunter",
+              "damage": 9,
+              "label": "Strike"
+            }
+          }
+        ],
+        "rewards": [],
+        "relics": [],
+        "route": [
+          "battle"
+        ],
+        "log": [
+          "A scarred hunter. One final contract. No pact is harmless.",
+          "The keep has teeth.",
+          "Bound Cairn Hound."
+        ],
+        "nextUid": 5,
+        "difficulty": 1,
+        "stats": {
+          "cardsPlayed": 1,
+          "damageDealt": 0,
+          "turns": 1,
+          "battles": 1
+        }
+      },
+      "action": {
+        "type": "attack",
+        "unit": "a4",
+        "target": "e3"
+      },
+      "expected": [
+        "2 health damage (lethal)",
+        "1 blocked",
+        "binding 1 takes 2 retaliation (lethal)",
+        "contract cleared"
+      ],
+      "after": {
+        "schema": 2,
+        "seed": 45001,
+        "rng": 515227303,
+        "phase": "reward",
+        "hp": 65,
+        "maxHp": 65,
+        "block": 0,
+        "energy": 0,
+        "gold": 90,
+        "floor": 1,
+        "turn": 1,
+        "deck": [
+          "cairnhound",
+          "scour",
+          "silence",
+          "ironward",
+          "survey"
+        ],
+        "draw": [],
+        "discard": [],
+        "hand": [],
+        "allies": [],
+        "enemies": [],
+        "rewards": [
+          "bloodprice",
+          "resonance",
+          "gravehound"
+        ],
+        "relics": [],
+        "route": [
+          "battle"
+        ],
+        "log": [
+          "A scarred hunter. One final contract. No pact is harmless.",
+          "The keep has teeth.",
+          "Bound Cairn Hound.",
+          "Ironjaw Warlord retaliates against Cairn Hound.",
+          "Cairn Hound strikes Ironjaw Warlord.",
+          "Cairn Hound returns to the deck.",
+          "Contract complete. Choose one new card or travel light."
+        ],
+        "nextUid": 5,
+        "difficulty": 1,
+        "stats": {
+          "cardsPlayed": 1,
+          "damageDealt": 2,
+          "turns": 1,
+          "battles": 1
+        }
+      },
+      "events": [
+        {
+          "type": "hit",
+          "source": "a4",
+          "kind": "command",
+          "cardId": "cairnhound",
+          "target": "e3",
+          "damage": 3,
+          "blocked": 1,
+          "hpLost": 2,
+          "beforeHp": 2,
+          "afterHp": 0
+        },
+        {
+          "type": "death",
+          "source": "a4",
+          "target": "e3",
+          "cardId": "ironjaw"
+        },
+        {
+          "type": "hit",
+          "source": "e3",
+          "kind": "retaliation",
+          "cardId": "ironjaw",
+          "target": "a4",
+          "damage": 2,
+          "blocked": 0,
+          "hpLost": 2,
+          "beforeHp": 2,
+          "afterHp": 0
+        },
+        {
+          "type": "death",
+          "source": "e3",
+          "target": "a4",
+          "cardId": "cairnhound"
+        }
+      ]
+    },
+    {
+      "name": "recovery-before-retaliation",
+      "state": {
+        "schema": 2,
+        "seed": 45001,
+        "rng": 2121585239,
+        "phase": "battle",
+        "hp": 65,
+        "maxHp": 65,
+        "block": 0,
+        "energy": 10,
+        "gold": 65,
+        "floor": 1,
+        "turn": 1,
+        "deck": [
+          "fenstalker",
+          "scour",
+          "silence",
+          "ironward",
+          "survey"
+        ],
+        "draw": [],
+        "discard": [],
+        "hand": [
+          "scour",
+          "silence",
+          "ironward",
+          "survey"
+        ],
+        "allies": [
+          {
+            "uid": "a4",
+            "cardId": "fenstalker",
+            "name": "Fen Stalker",
+            "species": "stalker",
+            "hp": 1,
+            "maxHp": 10,
+            "attack": 4,
+            "block": 0,
+            "acted": false,
+            "color": "#7f9386",
+            "passive": "After a command deals damage, heal this creature 2 HP."
+          }
+        ],
+        "enemies": [
+          {
+            "name": "Ironjaw Warlord",
+            "species": "warlord",
+            "hp": 20,
+            "attack": 9,
+            "color": "#a6a59c",
+            "passive": "While armored, commands reflect 2 damage through creature block. Use Sundering Hex or spells to break armor safely.",
+            "uid": "e3",
+            "cardId": "ironjaw",
+            "maxHp": 112,
+            "block": 1,
+            "acted": false,
+            "intent": {
+              "target": "hunter",
+              "damage": 9,
+              "label": "Strike"
+            }
+          }
+        ],
+        "rewards": [],
+        "relics": [],
+        "route": [
+          "battle"
+        ],
+        "log": [
+          "A scarred hunter. One final contract. No pact is harmless.",
+          "The keep has teeth.",
+          "Bound Fen Stalker."
+        ],
+        "nextUid": 5,
+        "difficulty": 1,
+        "stats": {
+          "cardsPlayed": 1,
+          "damageDealt": 0,
+          "turns": 1,
+          "battles": 1
+        }
+      },
+      "action": {
+        "type": "attack",
+        "unit": "a4",
+        "target": "e3"
+      },
+      "expected": [
+        "3 health damage",
+        "1 blocked",
+        "binding 1: restores 2 health",
+        "binding 1 takes 2 retaliation"
+      ],
+      "after": {
+        "schema": 2,
+        "seed": 45001,
+        "rng": 2121585239,
+        "phase": "battle",
+        "hp": 65,
+        "maxHp": 65,
+        "block": 0,
+        "energy": 10,
+        "gold": 65,
+        "floor": 1,
+        "turn": 1,
+        "deck": [
+          "fenstalker",
+          "scour",
+          "silence",
+          "ironward",
+          "survey"
+        ],
+        "draw": [],
+        "discard": [],
+        "hand": [
+          "scour",
+          "silence",
+          "ironward",
+          "survey"
+        ],
+        "allies": [
+          {
+            "uid": "a4",
+            "cardId": "fenstalker",
+            "name": "Fen Stalker",
+            "species": "stalker",
+            "hp": 1,
+            "maxHp": 10,
+            "attack": 4,
+            "block": 0,
+            "acted": true,
+            "color": "#7f9386",
+            "passive": "After a command deals damage, heal this creature 2 HP."
+          }
+        ],
+        "enemies": [
+          {
+            "name": "Ironjaw Warlord",
+            "species": "warlord",
+            "hp": 17,
+            "attack": 9,
+            "color": "#a6a59c",
+            "passive": "While armored, commands reflect 2 damage through creature block. Use Sundering Hex or spells to break armor safely.",
+            "uid": "e3",
+            "cardId": "ironjaw",
+            "maxHp": 112,
+            "block": 0,
+            "acted": false,
+            "intent": {
+              "target": "hunter",
+              "damage": 9,
+              "label": "Strike"
+            }
+          }
+        ],
+        "rewards": [],
+        "relics": [],
+        "route": [
+          "battle"
+        ],
+        "log": [
+          "A scarred hunter. One final contract. No pact is harmless.",
+          "The keep has teeth.",
+          "Bound Fen Stalker.",
+          "Ironjaw Warlord retaliates against Fen Stalker.",
+          "Fen Stalker strikes Ironjaw Warlord."
+        ],
+        "nextUid": 5,
+        "difficulty": 1,
+        "stats": {
+          "cardsPlayed": 1,
+          "damageDealt": 3,
+          "turns": 1,
+          "battles": 1
+        }
+      },
+      "events": [
+        {
+          "type": "hit",
+          "source": "a4",
+          "kind": "command",
+          "cardId": "fenstalker",
+          "target": "e3",
+          "damage": 4,
+          "blocked": 1,
+          "hpLost": 3,
+          "beforeHp": 20,
+          "afterHp": 17
+        },
+        {
+          "type": "heal",
+          "source": "a4",
+          "target": "a4",
+          "amount": 2,
+          "beforeHp": 1,
+          "afterHp": 3
+        },
+        {
+          "type": "hit",
+          "source": "e3",
+          "kind": "retaliation",
+          "cardId": "ironjaw",
+          "target": "a4",
+          "damage": 2,
+          "blocked": 0,
+          "hpLost": 2,
+          "beforeHp": 3,
+          "afterHp": 1
+        }
+      ]
+    },
+    {
+      "name": "spell-resistance-and-block",
+      "state": {
+        "schema": 2,
+        "seed": 45001,
+        "rng": 2121585239,
+        "phase": "battle",
+        "hp": 65,
+        "maxHp": 65,
+        "block": 0,
+        "energy": 12,
+        "gold": 65,
+        "floor": 1,
+        "turn": 1,
+        "deck": [
+          "scour",
+          "silence",
+          "ironward",
+          "survey",
+          "bloodprice"
+        ],
+        "draw": [],
+        "discard": [],
+        "hand": [
+          "scour",
+          "silence",
+          "ironward",
+          "survey",
+          "bloodprice"
+        ],
+        "allies": [],
+        "enemies": [
+          {
+            "name": "Gloam Revenant",
+            "species": "wraith",
+            "hp": 15,
+            "attack": 5,
+            "color": "#8f9aab",
+            "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy.",
+            "uid": "e3",
+            "cardId": "revenant",
+            "maxHp": 15,
+            "block": 4,
+            "acted": false,
+            "intent": {
+              "target": "hunter",
+              "damage": 5,
+              "label": "Strike"
+            }
+          }
+        ],
+        "rewards": [],
+        "relics": [],
+        "route": [
+          "battle"
+        ],
+        "log": [
+          "A scarred hunter. One final contract. No pact is harmless.",
+          "The keep has teeth."
+        ],
+        "nextUid": 4,
+        "difficulty": 1,
+        "stats": {
+          "cardsPlayed": 0,
+          "damageDealt": 0,
+          "turns": 1,
+          "battles": 1
+        }
+      },
+      "action": {
+        "type": "play",
+        "index": 0,
+        "target": "e3"
+      },
+      "expected": [
+        "0 health damage",
+        "4 blocked"
+      ],
+      "after": {
+        "schema": 2,
+        "seed": 45001,
+        "rng": 2121585239,
+        "phase": "battle",
+        "hp": 65,
+        "maxHp": 65,
+        "block": 0,
+        "energy": 11,
+        "gold": 65,
+        "floor": 1,
+        "turn": 1,
+        "deck": [
+          "scour",
+          "silence",
+          "ironward",
+          "survey",
+          "bloodprice"
+        ],
+        "draw": [],
+        "discard": [
+          "scour"
+        ],
+        "hand": [
+          "silence",
+          "ironward",
+          "survey",
+          "bloodprice"
+        ],
+        "allies": [],
+        "enemies": [
+          {
+            "name": "Gloam Revenant",
+            "species": "wraith",
+            "hp": 15,
+            "attack": 5,
+            "color": "#8f9aab",
+            "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy.",
+            "uid": "e3",
+            "cardId": "revenant",
+            "maxHp": 15,
+            "block": 0,
+            "acted": false,
+            "intent": {
+              "target": "hunter",
+              "damage": 5,
+              "label": "Strike"
+            }
+          }
+        ],
+        "rewards": [],
+        "relics": [],
+        "route": [
+          "battle"
+        ],
+        "log": [
+          "A scarred hunter. One final contract. No pact is harmless.",
+          "The keep has teeth.",
+          "Cast Scour."
+        ],
+        "nextUid": 4,
+        "difficulty": 1,
+        "stats": {
+          "cardsPlayed": 1,
+          "damageDealt": 0,
+          "turns": 1,
+          "battles": 1
+        }
+      },
+      "events": [
+        {
+          "type": "hit",
+          "source": "hunter",
+          "kind": "spell",
+          "cardId": "scour",
+          "target": "e3",
+          "damage": 4,
+          "blocked": 4,
+          "hpLost": 0,
+          "beforeHp": 15,
+          "afterHp": 15
+        }
+      ]
+    },
+    {
+      "name": "bloodprice-terminal-no-draw-leak",
+      "state": {
+        "schema": 2,
+        "seed": 45001,
+        "rng": 2121585239,
+        "phase": "battle",
+        "hp": 3,
+        "maxHp": 65,
+        "block": 0,
+        "energy": 12,
+        "gold": 65,
+        "floor": 1,
+        "turn": 1,
+        "deck": [
+          "scour",
+          "silence",
+          "ironward",
+          "survey",
+          "bloodprice"
+        ],
+        "draw": [],
+        "discard": [],
+        "hand": [
+          "scour",
+          "silence",
+          "ironward",
+          "survey",
+          "bloodprice"
+        ],
+        "allies": [],
+        "enemies": [
+          {
+            "name": "Gloam Revenant",
+            "species": "wraith",
+            "hp": 15,
+            "attack": 5,
+            "color": "#8f9aab",
+            "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy.",
+            "uid": "e3",
+            "cardId": "revenant",
+            "maxHp": 15,
+            "block": 4,
+            "acted": false,
+            "intent": {
+              "target": "hunter",
+              "damage": 5,
+              "label": "Strike"
+            }
+          }
+        ],
+        "rewards": [],
+        "relics": [],
+        "route": [
+          "battle"
+        ],
+        "log": [
+          "A scarred hunter. One final contract. No pact is harmless.",
+          "The keep has teeth."
+        ],
+        "nextUid": 4,
+        "difficulty": 1,
+        "stats": {
+          "cardsPlayed": 0,
+          "damageDealt": 0,
+          "turns": 1,
+          "battles": 1
+        }
+      },
+      "action": {
+        "type": "play",
+        "index": 4
+      },
+      "expected": [
+        "hunter loses 3 health",
+        "HUNTER DIES · campaign ends"
+      ],
+      "after": {
+        "schema": 2,
+        "seed": 45001,
+        "rng": 2121585239,
+        "phase": "defeat",
+        "hp": 0,
+        "maxHp": 65,
+        "block": 0,
+        "energy": 13,
+        "gold": 65,
+        "floor": 1,
+        "turn": 1,
+        "deck": [
+          "scour",
+          "silence",
+          "ironward",
+          "survey",
+          "bloodprice"
+        ],
+        "draw": [],
+        "discard": [
+          "bloodprice"
+        ],
+        "hand": [
+          "scour",
+          "silence",
+          "ironward",
+          "survey"
+        ],
+        "allies": [],
+        "enemies": [
+          {
+            "name": "Gloam Revenant",
+            "species": "wraith",
+            "hp": 15,
+            "attack": 5,
+            "color": "#8f9aab",
+            "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy.",
+            "uid": "e3",
+            "cardId": "revenant",
+            "maxHp": 15,
+            "block": 4,
+            "acted": false,
+            "intent": {
+              "target": "hunter",
+              "damage": 5,
+              "label": "Strike"
+            }
+          }
+        ],
+        "rewards": [],
+        "relics": [],
+        "route": [
+          "battle"
+        ],
+        "log": [
+          "A scarred hunter. One final contract. No pact is harmless.",
+          "The keep has teeth.",
+          "Cast Blood Price.",
+          "The pact breaks. The ruins keep another name."
+        ],
+        "nextUid": 4,
+        "difficulty": 1,
+        "stats": {
+          "cardsPlayed": 1,
+          "damageDealt": 0,
+          "turns": 1,
+          "battles": 1
+        }
+      },
+      "events": [
+        {
+          "type": "hit",
+          "source": "hunter",
+          "kind": "self",
+          "cardId": "bloodprice",
+          "target": "hunter",
+          "damage": 3,
+          "blocked": 0,
+          "hpLost": 3,
+          "beforeHp": 3,
+          "afterHp": 0
+        },
+        {
+          "type": "death",
+          "source": "hunter",
+          "target": "hunter"
+        }
+      ]
+    },
+    {
+      "name": "silence-cancels-current-intent",
+      "state": {
+        "schema": 2,
+        "seed": 45001,
+        "rng": 2121585239,
+        "phase": "battle",
+        "hp": 65,
+        "maxHp": 65,
+        "block": 0,
+        "energy": 12,
+        "gold": 65,
+        "floor": 1,
+        "turn": 1,
+        "deck": [
+          "silence",
+          "scour",
+          "ironward",
+          "survey",
+          "bloodprice"
+        ],
+        "draw": [],
+        "discard": [],
+        "hand": [
+          "silence",
+          "scour",
+          "ironward",
+          "survey",
+          "bloodprice"
+        ],
+        "allies": [],
+        "enemies": [
+          {
+            "name": "Hollow Acolyte",
+            "species": "necromancer",
+            "hp": 22,
+            "attack": 5,
+            "color": "#929085",
+            "passive": "Alternates raising one Bone Thrall and cursing the hunter. Six enemy slots limit reinforcements.",
+            "uid": "e3",
+            "cardId": "acolyte",
+            "maxHp": 24,
+            "block": 0,
+            "acted": false,
+            "intent": {
+              "target": "hunter",
+              "damage": 0,
+              "label": "Raise 1 Bone Thrall",
+              "summon": [
+                "thrall"
+              ]
+            }
+          }
+        ],
+        "rewards": [],
+        "relics": [],
+        "route": [
+          "battle"
+        ],
+        "log": [
+          "A scarred hunter. One final contract. No pact is harmless.",
+          "The keep has teeth."
+        ],
+        "nextUid": 4,
+        "difficulty": 1,
+        "stats": {
+          "cardsPlayed": 0,
+          "damageDealt": 0,
+          "turns": 1,
+          "battles": 1
+        }
+      },
+      "action": {
+        "type": "play",
+        "index": 0,
+        "target": "e3"
+      },
+      "expected": [
+        "Silenced · damage and reinforcements canceled"
+      ],
+      "after": {
+        "schema": 2,
+        "seed": 45001,
+        "rng": 2121585239,
+        "phase": "battle",
+        "hp": 65,
+        "maxHp": 65,
+        "block": 0,
+        "energy": 10,
+        "gold": 65,
+        "floor": 1,
+        "turn": 1,
+        "deck": [
+          "silence",
+          "scour",
+          "ironward",
+          "survey",
+          "bloodprice"
+        ],
+        "draw": [],
+        "discard": [
+          "silence"
+        ],
+        "hand": [
+          "scour",
+          "ironward",
+          "survey",
+          "bloodprice"
+        ],
+        "allies": [],
+        "enemies": [
+          {
+            "name": "Hollow Acolyte",
+            "species": "necromancer",
+            "hp": 22,
+            "attack": 5,
+            "color": "#929085",
+            "passive": "Alternates raising one Bone Thrall and cursing the hunter. Six enemy slots limit reinforcements.",
+            "uid": "e3",
+            "cardId": "acolyte",
+            "maxHp": 24,
+            "block": 0,
+            "acted": false,
+            "intent": {
+              "target": "hunter",
+              "damage": 0,
+              "label": "Silenced · damage and reinforcements canceled",
+              "summon": []
+            }
+          }
+        ],
+        "rewards": [],
+        "relics": [],
+        "route": [
+          "battle"
+        ],
+        "log": [
+          "A scarred hunter. One final contract. No pact is harmless.",
+          "The keep has teeth.",
+          "Cast Silence the Dead."
+        ],
+        "nextUid": 4,
+        "difficulty": 1,
+        "stats": {
+          "cardsPlayed": 1,
+          "damageDealt": 0,
+          "turns": 1,
+          "battles": 1
+        }
+      },
+      "events": [
+        {
+          "type": "control",
+          "source": "hunter",
+          "target": "e3",
+          "cardId": "silence",
+          "before": {
+            "target": "hunter",
+            "damage": 0,
+            "label": "Raise 1 Bone Thrall",
+            "summon": [
+              "thrall"
+            ]
+          },
+          "after": {
+            "target": "hunter",
+            "damage": 0,
+            "label": "Silenced · damage and reinforcements canceled",
+            "summon": []
+          }
+        }
+      ]
+    }
+  ],
+  "privacyPairs": [
+    {
+      "name": "hidden-draw-order",
+      "action": {
+        "type": "play",
+        "index": 0
+      },
+      "states": [
+        {
+          "schema": 2,
+          "seed": 45001,
+          "rng": 1,
+          "phase": "battle",
+          "hp": 15,
+          "maxHp": 65,
+          "block": 0,
+          "energy": 12,
+          "gold": 65,
+          "floor": 1,
+          "turn": 1,
+          "deck": [
+            "scour",
+            "silence",
+            "ironward",
+            "survey",
+            "bloodprice"
+          ],
+          "draw": [
+            "ironward",
+            "silence",
+            "bloodprice"
+          ],
+          "discard": [],
+          "hand": [
+            "survey",
+            "scour"
+          ],
+          "allies": [],
+          "enemies": [
+            {
+              "name": "Gloam Revenant",
+              "species": "wraith",
+              "hp": 15,
+              "attack": 5,
+              "color": "#8f9aab",
+              "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy.",
+              "uid": "e3",
+              "cardId": "revenant",
+              "maxHp": 15,
+              "block": 4,
+              "acted": false,
+              "intent": {
+                "target": "hunter",
+                "damage": 5,
+                "label": "Strike"
+              }
+            }
+          ],
+          "rewards": [],
+          "relics": [],
+          "route": [
+            "battle"
+          ],
+          "log": [
+            "A scarred hunter. One final contract. No pact is harmless.",
+            "The keep has teeth."
+          ],
+          "nextUid": 4,
+          "difficulty": 1,
+          "stats": {
+            "cardsPlayed": 0,
+            "damageDealt": 0,
+            "turns": 1,
+            "battles": 1
+          }
+        },
+        {
+          "schema": 2,
+          "seed": 45001,
+          "rng": 999,
+          "phase": "battle",
+          "hp": 15,
+          "maxHp": 65,
+          "block": 0,
+          "energy": 12,
+          "gold": 65,
+          "floor": 1,
+          "turn": 1,
+          "deck": [
+            "scour",
+            "silence",
+            "ironward",
+            "survey",
+            "bloodprice"
+          ],
+          "draw": [
+            "bloodprice",
+            "silence",
+            "ironward"
+          ],
+          "discard": [],
+          "hand": [
+            "survey",
+            "scour"
+          ],
+          "allies": [],
+          "enemies": [
+            {
+              "name": "Gloam Revenant",
+              "species": "wraith",
+              "hp": 15,
+              "attack": 5,
+              "color": "#8f9aab",
+              "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy.",
+              "uid": "e3",
+              "cardId": "revenant",
+              "maxHp": 15,
+              "block": 4,
+              "acted": false,
+              "intent": {
+                "target": "hunter",
+                "damage": 5,
+                "label": "Strike"
+              }
+            }
+          ],
+          "rewards": [],
+          "relics": [],
+          "route": [
+            "battle"
+          ],
+          "log": [
+            "A scarred hunter. One final contract. No pact is harmless.",
+            "The keep has teeth."
+          ],
+          "nextUid": 4,
+          "difficulty": 1,
+          "stats": {
+            "cardsPlayed": 0,
+            "damageDealt": 0,
+            "turns": 1,
+            "battles": 1
+          }
+        }
+      ],
+      "futureField": "hand",
+      "future": [
+        [
+          "scour",
+          "bloodprice",
+          "silence"
+        ],
+        [
+          "scour",
+          "ironward",
+          "silence"
+        ]
+      ]
+    },
+    {
+      "name": "hidden-reward-sampling",
+      "action": {
+        "type": "attack",
+        "unit": "a4",
+        "target": "e3"
+      },
+      "states": [
+        {
+          "schema": 2,
+          "seed": 45001,
+          "rng": 1,
+          "phase": "battle",
+          "hp": 65,
+          "maxHp": 65,
+          "block": 2,
+          "energy": 11,
+          "gold": 65,
+          "floor": 1,
+          "turn": 1,
+          "deck": [
+            "cairnhound",
+            "scour",
+            "silence",
+            "ironward",
+            "survey"
+          ],
+          "draw": [],
+          "discard": [],
+          "hand": [
+            "scour",
+            "silence",
+            "ironward",
+            "survey"
+          ],
+          "allies": [
+            {
+              "uid": "a4",
+              "cardId": "cairnhound",
+              "name": "Cairn Hound",
+              "species": "hound",
+              "hp": 2,
+              "maxHp": 7,
+              "attack": 3,
+              "block": 0,
+              "acted": false,
+              "color": "#c4c6b5",
+              "passive": "Commands deal 2 extra damage to enemies with no block."
+            }
+          ],
+          "enemies": [
+            {
+              "name": "Ironjaw Warlord",
+              "species": "warlord",
+              "hp": 2,
+              "attack": 9,
+              "color": "#a6a59c",
+              "passive": "While armored, commands reflect 2 damage through creature block. Use Sundering Hex or spells to break armor safely.",
+              "uid": "e3",
+              "cardId": "ironjaw",
+              "maxHp": 112,
+              "block": 1,
+              "acted": false,
+              "intent": {
+                "target": "hunter",
+                "damage": 9,
+                "label": "Strike"
+              }
+            }
+          ],
+          "rewards": [],
+          "relics": [],
+          "route": [
+            "battle"
+          ],
+          "log": [
+            "A scarred hunter. One final contract. No pact is harmless.",
+            "The keep has teeth.",
+            "Bound Cairn Hound."
+          ],
+          "nextUid": 5,
+          "difficulty": 1,
+          "stats": {
+            "cardsPlayed": 1,
+            "damageDealt": 0,
+            "turns": 1,
+            "battles": 1
+          }
+        },
+        {
+          "schema": 2,
+          "seed": 45001,
+          "rng": 999,
+          "phase": "battle",
+          "hp": 65,
+          "maxHp": 65,
+          "block": 2,
+          "energy": 11,
+          "gold": 65,
+          "floor": 1,
+          "turn": 1,
+          "deck": [
+            "cairnhound",
+            "scour",
+            "silence",
+            "ironward",
+            "survey"
+          ],
+          "draw": [],
+          "discard": [],
+          "hand": [
+            "scour",
+            "silence",
+            "ironward",
+            "survey"
+          ],
+          "allies": [
+            {
+              "uid": "a4",
+              "cardId": "cairnhound",
+              "name": "Cairn Hound",
+              "species": "hound",
+              "hp": 2,
+              "maxHp": 7,
+              "attack": 3,
+              "block": 0,
+              "acted": false,
+              "color": "#c4c6b5",
+              "passive": "Commands deal 2 extra damage to enemies with no block."
+            }
+          ],
+          "enemies": [
+            {
+              "name": "Ironjaw Warlord",
+              "species": "warlord",
+              "hp": 2,
+              "attack": 9,
+              "color": "#a6a59c",
+              "passive": "While armored, commands reflect 2 damage through creature block. Use Sundering Hex or spells to break armor safely.",
+              "uid": "e3",
+              "cardId": "ironjaw",
+              "maxHp": 112,
+              "block": 1,
+              "acted": false,
+              "intent": {
+                "target": "hunter",
+                "damage": 9,
+                "label": "Strike"
+              }
+            }
+          ],
+          "rewards": [],
+          "relics": [],
+          "route": [
+            "battle"
+          ],
+          "log": [
+            "A scarred hunter. One final contract. No pact is harmless.",
+            "The keep has teeth.",
+            "Bound Cairn Hound."
+          ],
+          "nextUid": 5,
+          "difficulty": 1,
+          "stats": {
+            "cardsPlayed": 1,
+            "damageDealt": 0,
+            "turns": 1,
+            "battles": 1
+          }
+        }
+      ],
+      "futureField": "rewards",
+      "future": [
+        [
+          "covenant",
+          "ashwidow",
+          "harpoon"
+        ],
+        [
+          "aegis",
+          "silence",
+          "witchfire"
+        ]
+      ]
+    }
+  ],
+  "targetChoice": {
+    "state": {
+      "schema": 2,
+      "seed": 45001,
+      "rng": 2121585239,
+      "phase": "battle",
+      "hp": 65,
+      "maxHp": 65,
+      "block": 2,
+      "energy": 11,
+      "gold": 65,
+      "floor": 1,
+      "turn": 1,
+      "deck": [
+        "cairnhound",
+        "scour",
+        "silence",
+        "ironward",
+        "survey"
+      ],
+      "draw": [],
+      "discard": [],
+      "hand": [
+        "scour",
+        "silence",
+        "ironward",
+        "survey"
+      ],
+      "allies": [
+        {
+          "uid": "a4",
+          "cardId": "cairnhound",
+          "name": "Cairn Hound",
+          "species": "hound",
+          "hp": 1,
+          "maxHp": 7,
+          "attack": 3,
+          "block": 0,
+          "acted": false,
+          "color": "#c4c6b5",
+          "passive": "Commands deal 2 extra damage to enemies with no block."
+        }
+      ],
+      "enemies": [
+        {
+          "name": "Ironjaw Reaver",
+          "species": "warlord",
+          "hp": 20,
+          "attack": 4,
+          "color": "#a6a59c",
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation.",
+          "uid": "e3",
+          "cardId": "raider",
+          "maxHp": 20,
+          "block": 8,
+          "acted": false,
+          "intent": {
+            "target": "hunter",
+            "damage": 4,
+            "label": "Strike"
+          }
+        },
+        {
+          "name": "Gloam Revenant",
+          "species": "wraith",
+          "hp": 15,
+          "attack": 5,
+          "color": "#8f9aab",
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy.",
+          "uid": "e5",
+          "cardId": "revenant",
+          "maxHp": 15,
+          "block": 0,
+          "acted": false,
+          "intent": {
+            "target": "hunter",
+            "damage": 5,
+            "label": "Strike"
+          }
+        }
+      ],
+      "rewards": [],
+      "relics": [],
+      "route": [
+        "battle"
+      ],
+      "log": [
+        "A scarred hunter. One final contract. No pact is harmless.",
+        "The keep has teeth.",
+        "Bound Cairn Hound."
+      ],
+      "nextUid": 6,
+      "difficulty": 1,
+      "stats": {
+        "cardsPlayed": 1,
+        "damageDealt": 0,
+        "turns": 1,
+        "battles": 1
+      }
+    },
+    "firstTarget": "e3",
+    "alternativeTarget": "e5",
+    "alternativeAction": {
+      "type": "attack",
+      "unit": "a4",
+      "target": "e5"
+    },
+    "alternativeAfter": {
+      "schema": 2,
+      "seed": 45001,
+      "rng": 2121585239,
+      "phase": "battle",
+      "hp": 65,
+      "maxHp": 65,
+      "block": 2,
+      "energy": 11,
+      "gold": 65,
+      "floor": 1,
+      "turn": 1,
+      "deck": [
+        "cairnhound",
+        "scour",
+        "silence",
+        "ironward",
+        "survey"
+      ],
+      "draw": [],
+      "discard": [],
+      "hand": [
+        "scour",
+        "silence",
+        "ironward",
+        "survey"
+      ],
+      "allies": [
+        {
+          "uid": "a4",
+          "cardId": "cairnhound",
+          "name": "Cairn Hound",
+          "species": "hound",
+          "hp": 1,
+          "maxHp": 7,
+          "attack": 3,
+          "block": 0,
+          "acted": true,
+          "color": "#c4c6b5",
+          "passive": "Commands deal 2 extra damage to enemies with no block."
+        }
+      ],
+      "enemies": [
+        {
+          "name": "Ironjaw Reaver",
+          "species": "warlord",
+          "hp": 20,
+          "attack": 4,
+          "color": "#a6a59c",
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation.",
+          "uid": "e3",
+          "cardId": "raider",
+          "maxHp": 20,
+          "block": 8,
+          "acted": false,
+          "intent": {
+            "target": "hunter",
+            "damage": 4,
+            "label": "Strike"
+          }
+        },
+        {
+          "name": "Gloam Revenant",
+          "species": "wraith",
+          "hp": 10,
+          "attack": 5,
+          "color": "#8f9aab",
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy.",
+          "uid": "e5",
+          "cardId": "revenant",
+          "maxHp": 15,
+          "block": 0,
+          "acted": false,
+          "intent": {
+            "target": "hunter",
+            "damage": 5,
+            "label": "Strike"
+          }
+        }
+      ],
+      "rewards": [],
+      "relics": [],
+      "route": [
+        "battle"
+      ],
+      "log": [
+        "A scarred hunter. One final contract. No pact is harmless.",
+        "The keep has teeth.",
+        "Bound Cairn Hound.",
+        "Cairn Hound strikes Gloam Revenant."
+      ],
+      "nextUid": 6,
+      "difficulty": 1,
+      "stats": {
+        "cardsPlayed": 1,
+        "damageDealt": 5,
+        "turns": 1,
+        "battles": 1
+      }
+    }
+  }
+}

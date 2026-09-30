@@ -1,0 +1,120 @@
+{
+  "scope": "Read-only PNG capture of roughly halfway painted-pose blends. Not used for cadence measurement.",
+  "metadata": [
+    {
+      "t": 1117.6000000005588,
+      "key": "32-96",
+      "alpha": 0.525714285714284,
+      "path": "reviews/screenshots-v0.3/blend-0.png"
+    },
+    {
+      "t": 1117.6000000005588,
+      "key": "544-96",
+      "alpha": 0.4742857142857159,
+      "path": "reviews/screenshots-v0.3/blend-1.png"
+    },
+    {
+      "t": 1267.4000000003725,
+      "key": "1056-96",
+      "alpha": 0.47571428571428404,
+      "path": "reviews/screenshots-v0.3/blend-2.png"
+    },
+    {
+      "t": 1450.7999999998137,
+      "key": "32-608",
+      "alpha": 0.47571428571428404,
+      "path": "reviews/screenshots-v0.3/blend-3.png"
+    },
+    {
+      "t": 2117.4000000003725,
+      "key": "544-608",
+      "alpha": 0.47571428571429036,
+      "path": "reviews/screenshots-v0.3/blend-4.png"
+    }
+  ],
+  "finalState": {
+    "schema": 2,
+    "seed": 121,
+    "rng": 2001346456,
+    "phase": "battle",
+    "hp": 60,
+    "maxHp": 65,
+    "block": 0,
+    "energy": 5,
+    "gold": 65,
+    "floor": 1,
+    "turn": 3,
+    "deck": [
+      "cairnhound",
+      "ironward",
+      "scour",
+      "survey",
+      "silence"
+    ],
+    "draw": [],
+    "discard": [],
+    "hand": [
+      "ironward",
+      "silence",
+      "scour",
+      "survey"
+    ],
+    "allies": [
+      {
+        "uid": "a10",
+        "cardId": "cairnhound",
+        "name": "Cairn Hound",
+        "species": "hound",
+        "hp": 3,
+        "maxHp": 7,
+        "attack": 3,
+        "block": 0,
+        "acted": false,
+        "color": "#c4c6b5",
+        "passive": "Commands deal 2 extra damage to enemies with no block."
+      }
+    ],
+    "enemies": [
+      {
+        "uid": "e30",
+        "cardId": "raider",
+        "name": "Ironjaw Reaver",
+        "species": "warlord",
+        "hp": 11,
+        "attack": 4,
+        "color": "#a6a59c",
+        "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation.",
+        "maxHp": 16,
+        "block": 0,
+        "acted": false,
+        "intent": {
+          "target": "e30",
+          "damage": 0,
+          "label": "Raise shield · gain 4 block"
+        }
+      }
+    ],
+    "rewards": [],
+    "relics": [],
+    "route": [
+      "battle"
+    ],
+    "log": [
+      "A scarred hunter. One final contract. No pact is harmless.",
+      "The keep has teeth.",
+      "Cairn Hound strikes Ironjaw Reaver.",
+      "Ironjaw Reaver: Strike binding.",
+      "Turn 2.",
+      "Ironjaw Reaver: Iron cleaver.",
+      "Turn 3."
+    ],
+    "nextUid": 100,
+    "difficulty": 0,
+    "stats": {
+      "cardsPlayed": 0,
+      "damageDealt": 5,
+      "turns": 3,
+      "battles": 1
+    }
+  }
+}
