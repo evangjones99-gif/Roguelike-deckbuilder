@@ -1,0 +1,103 @@
+{
+  "method": "Reviewer independently hashes9API-pinned wrappers,8innerparts,whole ZIP; CRC/every72file byte; original current8evidence and3available metadata copies. No binary execution.",
+  "run": {
+    "id": 36791619534,
+    "head_sha": "9e6e7d7e76a2ce606acae24d2f6a27c903b54a5f",
+    "head_branch": "codex/lanternbound-production",
+    "event": "pull_request",
+    "status": "completed",
+    "conclusion": "success",
+    "run_attempt": 1,
+    "html_url": "https://github.com/evangjones99-gif/Roguelike-deckbuilder/actions/runs/36791619534"
+  },
+  "wrappersVerified": 9,
+  "parts": [
+    {
+      "part": 1,
+      "artifactId": 11132202881,
+      "wrapperSHA": "8445819857f82acb7933392b7718b09f77e8d47e9f466d4f003ec1388c8884f0",
+      "wrapperBytes": 25165960,
+      "innerSHA": "8598c27c089a6c5f521f99a1e91f2d08adf3043ee3d8a3589dd2450f8bd68c9a",
+      "innerBytes": 25165824
+    },
+    {
+      "part": 2,
+      "artifactId": 11132163119,
+      "wrapperSHA": "532f5276e8c3e3849ff80239cce46c23f4a537480296e0f16030f3799d4a5717",
+      "wrapperBytes": 25165960,
+      "innerSHA": "4fc7aadce72086dba6b571b52441a05d580b0816ff4a2122be8b6f27c9846102",
+      "innerBytes": 25165824
+    },
+    {
+      "part": 3,
+      "artifactId": 11131864303,
+      "wrapperSHA": "8bdec2bff1b249aa9be8da57e12bec5eab6b007c032138742ff6f1fb0d6859c8",
+      "wrapperBytes": 25165960,
+      "innerSHA": "94b2d29be4636991a5eb6fefaa8fd27f0206e2178f47f85ae97d156f0520bace",
+      "innerBytes": 25165824
+    },
+    {
+      "part": 4,
+      "artifactId": 11131824532,
+      "wrapperSHA": "b8875f4c0247c679cc43fddc27e805a1efd6ee9828f197739d2f31d5e7c731c0",
+      "wrapperBytes": 25165960,
+      "innerSHA": "de2783b4ec39d5305454f42d0f7f4bf459eee46a024742421d83e88476f54f54",
+      "innerBytes": 25165824
+    },
+    {
+      "part": 5,
+      "artifactId": 11131819429,
+      "wrapperSHA": "d3e25682f372a8810ff915fd59093030f21da23cfd76cc167bef853ce32bab51",
+      "wrapperBytes": 25165960,
+      "innerSHA": "1c4e55a66091a34eab6998db3396d44fd56e646e0a9848e6cbf2f5a95c074a38",
+      "innerBytes": 25165824
+    },
+    {
+      "part": 6,
+      "artifactId": 11131839434,
+      "wrapperSHA": "7498ca399ed166cdf492985d713a44a14d0c4e628a91cb6915098f96b91703e8",
+      "wrapperBytes": 25165960,
+      "innerSHA": "6f776373ee3be86a7e5dca3767274d6c4f925b0ef77c391a7f25fc800508a946",
+      "innerBytes": 25165824
+    },
+    {
+      "part": 7,
+      "artifactId": 11132183097,
+      "wrapperSHA": "0b86af2fda1ed838fc117fc406c047413bba638e675152e4c08a8e2a95fdb497",
+      "wrapperBytes": 25165960,
+      "innerSHA": "a78654b0730687a4122e31c34a9cbaeb8a2d5062211a48b5d3b6bae5dbc2f23b",
+      "innerBytes": 25165824
+    },
+    {
+      "part": 8,
+      "artifactId": 11132183102,
+      "wrapperSHA": "158491cc36a544a4772ed28f54ae9cd9d4cbe552d4a3440c3953c1780ca91448",
+      "wrapperBytes": 7436555,
+      "innerSHA": "c05d28489829997855275fe1d69d6be505d09381b84638627942cbb90f97efdc",
+      "innerBytes": 7436419
+    }
+  ],
+  "zipFilesMatched": 72,
+  "archiveSHA256": "06e48cce30ccd2a8fcfcc7a829ec79d3fa6b628541a19effa368852df0bce90b",
+  "archiveBytes": 183597187,
+  "currentEvidenceRawFilesByteExact": [
+    "reviews/windows-native/0.6.1/run-36791619534-1/battle.png",
+    "reviews/windows-native/0.6.1/run-36791619534-1/executable-icon.png",
+    "reviews/windows-native/0.6.1/run-36791619534-1/keyboard-command.png",
+    "reviews/windows-native/0.6.1/run-36791619534-1/relaunch-resumed.png",
+    "reviews/windows-native/0.6.1/run-36791619534-1/native-package.json",
+    "reviews/windows-native/0.6.1/run-36791619534-1/smoke.json",
+    "reviews/windows-native/0.6.1/run-36791619534-1/synthetic-negative-feedback.json",
+    "reviews/windows-native/0.6.1/run-36791619534-1/title.png"
+  ],
+  "currentAvailableMetadataCopiesByteExact": {
+    "ci-build-provenance.json": "dist/build-provenance.json",
+    "ci-builder-config.json": "build-desktop/windows-native-config.json",
+    "transfer-manifest.json": "build-desktop/windows-transfer/manifest.json"
+  },
+  "smallEvidenceArtifactId": 11131988966,
+  "smallEvidenceSHA256": "1741107cb452d08eb9c2f33a02f8ff1c64076776892b512cd075747adff6f047",
+  "smallEvidenceBytes": 9545515,
+  "downloadErrors": [],
+  "optionalBuilderEffectiveYAMLNotClaimed": true
+}

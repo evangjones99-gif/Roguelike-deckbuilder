@@ -1,0 +1,15 @@
+{
+  "fixture": "/workspace/scratch/release-audit-v061-large.bin",
+  "bytes": 2147483905,
+  "allocatedBytes": 12288,
+  "oracleMethod": "GNU coreutils sha256sum streaming; independent implementation from Node/OpenSSL",
+  "sha256": "f0519b3f1fcd4ff9ca74b9d433c30dda01e9022f4ddc177d5abeee069cf545ca",
+  "markers": [
+    0,
+    1073741837,
+    2147483868
+  ],
+  "originalFailure": "RangeError [ERR_FS_FILE_TOO_LARGE]: File size (2863760699) is greater than 2 GiB\nChoose a fresh version after repair. This directory is not a release.\n",
+  "originalIncompleteSourceBytes": 2863760699,
+  "beforeReleaseProducerSHA": "9bacbd68ec273493b4f4c19aab604e58c24fced84ea6879e1931ea718d1ad22d"
+}

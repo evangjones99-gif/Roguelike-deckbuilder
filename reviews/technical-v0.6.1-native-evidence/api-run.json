@@ -1,0 +1,377 @@
+{
+  "method": "Reviewer connected GitHub GET, selected factual fields; no write or executable launch",
+  "run": {
+    "id": 36791619534,
+    "head_sha": "9e6e7d7e76a2ce606acae24d2f6a27c903b54a5f",
+    "head_branch": "codex/lanternbound-production",
+    "event": "pull_request",
+    "status": "completed",
+    "conclusion": "success",
+    "run_attempt": 1,
+    "html_url": "https://github.com/evangjones99-gif/Roguelike-deckbuilder/actions/runs/36791619534"
+  },
+  "jobs": [
+    {
+      "id": 110145582870,
+      "conclusion": "success",
+      "status": "completed",
+      "labels": [
+        "windows-2022"
+      ],
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-09-30T23:32:38Z",
+          "completed_at": "2026-09-30T23:32:39Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-09-30T23:32:39Z",
+          "completed_at": "2026-09-30T23:33:37Z"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-09-30T23:33:37Z",
+          "completed_at": "2026-09-30T23:33:48Z"
+        },
+        {
+          "name": "Identify candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-09-30T23:33:48Z",
+          "completed_at": "2026-09-30T23:33:49Z"
+        },
+        {
+          "name": "Install locked dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-09-30T23:33:49Z",
+          "completed_at": "2026-09-30T23:34:01Z"
+        },
+        {
+          "name": "Install stock Electron for native resource comparison",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-09-30T23:34:01Z",
+          "completed_at": "2026-09-30T23:34:04Z"
+        },
+        {
+          "name": "Rules tests",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-09-30T23:34:04Z",
+          "completed_at": "2026-09-30T23:34:08Z"
+        },
+        {
+          "name": "Build production runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-09-30T23:34:08Z",
+          "completed_at": "2026-09-30T23:34:11Z"
+        },
+        {
+          "name": "Package unsigned Windows executable with resources enabled",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-09-30T23:34:11Z",
+          "completed_at": "2026-09-30T23:34:23Z"
+        },
+        {
+          "name": "Launch packaged Windows executable and verify offline interactions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-09-30T23:34:23Z",
+          "completed_at": "2026-09-30T23:34:31Z"
+        },
+        {
+          "name": "Archive candidate and record native resource evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-09-30T23:34:31Z",
+          "completed_at": "2026-09-30T23:34:41Z"
+        },
+        {
+          "name": "Split tested native ZIP into bounded transfer parts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-09-30T23:34:41Z",
+          "completed_at": "2026-09-30T23:34:42Z"
+        },
+        {
+          "name": "Upload small native evidence and transfer manifest",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-09-30T23:34:42Z",
+          "completed_at": "2026-09-30T23:34:44Z"
+        },
+        {
+          "name": "Upload native ZIP part 01",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-09-30T23:34:44Z",
+          "completed_at": "2026-09-30T23:34:48Z"
+        },
+        {
+          "name": "Upload native ZIP part 02",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-09-30T23:34:48Z",
+          "completed_at": "2026-09-30T23:34:50Z"
+        },
+        {
+          "name": "Upload native ZIP part 03",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-09-30T23:34:50Z",
+          "completed_at": "2026-09-30T23:34:53Z"
+        },
+        {
+          "name": "Upload native ZIP part 04",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-09-30T23:34:53Z",
+          "completed_at": "2026-09-30T23:34:56Z"
+        },
+        {
+          "name": "Upload native ZIP part 05",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-09-30T23:34:56Z",
+          "completed_at": "2026-09-30T23:34:59Z"
+        },
+        {
+          "name": "Upload native ZIP part 06",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-09-30T23:34:59Z",
+          "completed_at": "2026-09-30T23:35:02Z"
+        },
+        {
+          "name": "Upload native ZIP part 07",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-09-30T23:35:02Z",
+          "completed_at": "2026-09-30T23:35:05Z"
+        },
+        {
+          "name": "Upload native ZIP part 08",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-09-30T23:35:05Z",
+          "completed_at": "2026-09-30T23:35:07Z"
+        },
+        {
+          "name": "Upload native evidence and candidate package",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-09-30T23:35:07Z",
+          "completed_at": "2026-09-30T23:35:12Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 43,
+          "started_at": "2026-09-30T23:35:12Z",
+          "completed_at": "2026-09-30T23:35:16Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 44,
+          "started_at": "2026-09-30T23:35:16Z",
+          "completed_at": "2026-09-30T23:35:17Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 45,
+          "started_at": "2026-09-30T23:35:17Z",
+          "completed_at": "2026-09-30T23:35:17Z"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 11132202881,
+      "name": "hollowpact-0.6.1-windows-part-01-36791619534-1",
+      "size_in_bytes": 25165960,
+      "digest": "sha256:8445819857f82acb7933392b7718b09f77e8d47e9f466d4f003ec1388c8884f0",
+      "expired": false,
+      "expires_at": "2026-10-30T23:34:44Z",
+      "workflow_run": {
+        "id": 36791619534,
+        "repository_id": 1398513166,
+        "head_repository_id": 1398513166,
+        "head_branch": "codex/lanternbound-production",
+        "head_sha": "9e6e7d7e76a2ce606acae24d2f6a27c903b54a5f"
+      }
+    },
+    {
+      "id": 11132183102,
+      "name": "hollowpact-0.6.1-windows-part-08-36791619534-1",
+      "size_in_bytes": 7436555,
+      "digest": "sha256:158491cc36a544a4772ed28f54ae9cd9d4cbe552d4a3440c3953c1780ca91448",
+      "expired": false,
+      "expires_at": "2026-10-30T23:35:05Z",
+      "workflow_run": {
+        "id": 36791619534,
+        "repository_id": 1398513166,
+        "head_repository_id": 1398513166,
+        "head_branch": "codex/lanternbound-production",
+        "head_sha": "9e6e7d7e76a2ce606acae24d2f6a27c903b54a5f"
+      }
+    },
+    {
+      "id": 11132183097,
+      "name": "hollowpact-0.6.1-windows-part-07-36791619534-1",
+      "size_in_bytes": 25165960,
+      "digest": "sha256:0b86af2fda1ed838fc117fc406c047413bba638e675152e4c08a8e2a95fdb497",
+      "expired": false,
+      "expires_at": "2026-10-30T23:35:02Z",
+      "workflow_run": {
+        "id": 36791619534,
+        "repository_id": 1398513166,
+        "head_repository_id": 1398513166,
+        "head_branch": "codex/lanternbound-production",
+        "head_sha": "9e6e7d7e76a2ce606acae24d2f6a27c903b54a5f"
+      }
+    },
+    {
+      "id": 11132163119,
+      "name": "hollowpact-0.6.1-windows-part-02-36791619534-1",
+      "size_in_bytes": 25165960,
+      "digest": "sha256:532f5276e8c3e3849ff80239cce46c23f4a537480296e0f16030f3799d4a5717",
+      "expired": false,
+      "expires_at": "2026-10-30T23:34:48Z",
+      "workflow_run": {
+        "id": 36791619534,
+        "repository_id": 1398513166,
+        "head_repository_id": 1398513166,
+        "head_branch": "codex/lanternbound-production",
+        "head_sha": "9e6e7d7e76a2ce606acae24d2f6a27c903b54a5f"
+      }
+    },
+    {
+      "id": 11132128179,
+      "name": "hollowpact-0.6.1-windows-x64-36791619534-1",
+      "size_in_bytes": 192975515,
+      "digest": "sha256:ee181194451f10e601742fa4a570303e7ed6e66c79a2a7c58555bb2feb91b8d4",
+      "expired": false,
+      "expires_at": "2026-10-30T23:35:07Z",
+      "workflow_run": {
+        "id": 36791619534,
+        "repository_id": 1398513166,
+        "head_repository_id": 1398513166,
+        "head_branch": "codex/lanternbound-production",
+        "head_sha": "9e6e7d7e76a2ce606acae24d2f6a27c903b54a5f"
+      }
+    },
+    {
+      "id": 11131988966,
+      "name": "hollowpact-0.6.1-windows-evidence-36791619534-1",
+      "size_in_bytes": 9545515,
+      "digest": "sha256:1741107cb452d08eb9c2f33a02f8ff1c64076776892b512cd075747adff6f047",
+      "expired": false,
+      "expires_at": "2026-10-30T23:34:42Z",
+      "workflow_run": {
+        "id": 36791619534,
+        "repository_id": 1398513166,
+        "head_repository_id": 1398513166,
+        "head_branch": "codex/lanternbound-production",
+        "head_sha": "9e6e7d7e76a2ce606acae24d2f6a27c903b54a5f"
+      }
+    },
+    {
+      "id": 11131864303,
+      "name": "hollowpact-0.6.1-windows-part-03-36791619534-1",
+      "size_in_bytes": 25165960,
+      "digest": "sha256:8bdec2bff1b249aa9be8da57e12bec5eab6b007c032138742ff6f1fb0d6859c8",
+      "expired": false,
+      "expires_at": "2026-10-30T23:34:50Z",
+      "workflow_run": {
+        "id": 36791619534,
+        "repository_id": 1398513166,
+        "head_repository_id": 1398513166,
+        "head_branch": "codex/lanternbound-production",
+        "head_sha": "9e6e7d7e76a2ce606acae24d2f6a27c903b54a5f"
+      }
+    },
+    {
+      "id": 11131839434,
+      "name": "hollowpact-0.6.1-windows-part-06-36791619534-1",
+      "size_in_bytes": 25165960,
+      "digest": "sha256:7498ca399ed166cdf492985d713a44a14d0c4e628a91cb6915098f96b91703e8",
+      "expired": false,
+      "expires_at": "2026-10-30T23:34:59Z",
+      "workflow_run": {
+        "id": 36791619534,
+        "repository_id": 1398513166,
+        "head_repository_id": 1398513166,
+        "head_branch": "codex/lanternbound-production",
+        "head_sha": "9e6e7d7e76a2ce606acae24d2f6a27c903b54a5f"
+      }
+    },
+    {
+      "id": 11131824532,
+      "name": "hollowpact-0.6.1-windows-part-04-36791619534-1",
+      "size_in_bytes": 25165960,
+      "digest": "sha256:b8875f4c0247c679cc43fddc27e805a1efd6ee9828f197739d2f31d5e7c731c0",
+      "expired": false,
+      "expires_at": "2026-10-30T23:34:54Z",
+      "workflow_run": {
+        "id": 36791619534,
+        "repository_id": 1398513166,
+        "head_repository_id": 1398513166,
+        "head_branch": "codex/lanternbound-production",
+        "head_sha": "9e6e7d7e76a2ce606acae24d2f6a27c903b54a5f"
+      }
+    },
+    {
+      "id": 11131819429,
+      "name": "hollowpact-0.6.1-windows-part-05-36791619534-1",
+      "size_in_bytes": 25165960,
+      "digest": "sha256:d3e25682f372a8810ff915fd59093030f21da23cfd76cc167bef853ce32bab51",
+      "expired": false,
+      "expires_at": "2026-10-30T23:34:56Z",
+      "workflow_run": {
+        "id": 36791619534,
+        "repository_id": 1398513166,
+        "head_repository_id": 1398513166,
+        "head_branch": "codex/lanternbound-production",
+        "head_sha": "9e6e7d7e76a2ce606acae24d2f6a27c903b54a5f"
+      }
+    }
+  ]
+}

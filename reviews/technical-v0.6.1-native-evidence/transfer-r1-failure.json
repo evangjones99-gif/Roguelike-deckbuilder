@@ -1,0 +1,7 @@
+{
+  "scope": "Reviewer harness selected evidence by the local wrapper filename phrase, but GitHub names it windows-evidence. No package/source defect inferred. Preserve r1 and retry new r2 with explicit actual artifact ID.",
+  "sourceSHA256": "81378b9c35b590b036297af14ad3c809aac07296f6f9cd9c9dd6d657d03dc131",
+  "returnCode": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/workspace/Roguelike-deckbuilder/reviews/technical-v0.6.1-native-evidence/verify-transfer.py\", line 14, in <module>\n    d=next(d for d in downloads if 'native-evidence' in d['artifact']['name']);evidence=Path(d['local']['path']);a=artifacts[d['artifact']['id']];blob=evidence.read_bytes();assert len(blob)==a['size_in_bytes']==9545515;assert sha(blob)==a['digest'].split(':')[1]=='1741107cb452d08eb9c2f33a02f8ff1c64076776892b512cd075747adff6f047';canonical=Path('reviews/windows-native/0.6.1/run-36791619534-1')\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nStopIteration\n"
+}

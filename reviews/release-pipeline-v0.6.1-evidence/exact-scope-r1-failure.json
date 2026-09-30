@@ -1,0 +1,7 @@
+{
+  "scope": "Reviewer fixture closure omission; production release defines version correctly. No product failure inferred. Original harness preserved; corrected new r2 follows.",
+  "harnessSHA256": "df999482f30c7f96e6b5291656abbef39c277dcfa919820b7337cb4c06015906",
+  "returnCode": 1,
+  "stderr": "<anonymous_script>:6\n  run('git', ['archive', '--format=zip', `--output=${path.join(dest, `${pkg.name}-${version}-source.zip`)}`, sourceCommit, '--', ...sourceRoots]);\n                                                                                    ^\n\nReferenceError: version is not defined\n    at eval (eval at <anonymous> (file:///workspace/Roguelike-deckbuilder/reviews/release-pipeline-v0.6.1-evidence/exact-scope-probe.mjs:2:331), <anonymous>:6:85)\n    at file:///workspace/Roguelike-deckbuilder/reviews/release-pipeline-v0.6.1-evidence/exact-scope-probe.mjs:2:729\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.19.0\n",
+  "stdout": ""
+}
