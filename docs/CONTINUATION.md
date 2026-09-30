@@ -9,6 +9,10 @@ Working branch: codex/lanternbound-production
 Draft PR: https://github.com/evangjones99-gif/Roguelike-deckbuilder/pull/1
 Historical v0.1/tag/archives preserved; v0.2 is the grim iteration. Read package.json, release manifests and latest independent reviews to determine actual current status. Local paths or scheduled access can change; report access failures honestly.
 
+## Continuous foreground requirement
+
+The owner repeated on 30 September 2026: do not stop after milestones. AGENTS.md records this standing production instruction. After preserving a reviewed version, begin the next meaningful improvement while the foreground execution remains available. The hourly trigger is a fallback, not a substitute for active work. Do not end merely to announce completion or offer to continue. Be honest about actual hard execution/access limits.
+
 ## Each bounded cycle
 
 1. Read latest user steering, this file, PRODUCTION.md, AAA-CRAFT-REVIEW.md, current rules, and independent reports. Inspect git status and existing workers; avoid simultaneous edits to the same files. Preserve user changes. Read review findings before adding content.

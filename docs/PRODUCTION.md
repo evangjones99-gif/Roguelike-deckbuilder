@@ -24,6 +24,10 @@ Acceptance dimensions: meaningful choices, pacing, onboarding, readability, visu
 6. **Steam candidate.** Verified depots/install/launch, store materials and disclosure, rights, real account/app identifiers, review submission and recorded results. Public Steam launch is a separate verifiable milestone.
 7. **Post-release.** Prioritize observed defects and player feedback. Keep release history, readable change notes, stable rollback and save compatibility. Continue only actionable improvements; do not churn gameplay to manufacture a version number.
 
+## Standing continuous-production requirement
+
+AGENTS.md records the owner’s repeated instruction to continue foreground production after every milestone. Build and review checkpoints must lead directly into the next meaningful improvement. Do not substitute scheduling or a final status announcement for ongoing authorized work. Real execution/access limits must be reported honestly; no claim of infinite background activity is permitted.
+
 ## Review and promotion cycle
 
 Freeze candidate → run regression/held-out simulations → independent agents play and inspect → triage evidence → repair → rerun affected checks → preserve version → compare to stable baseline → promote when gates pass. Review reports identify exact commit or file hashes, seed, actions, platform and limitations. Publish archive candidates only with accurate labels. Never delete an old milestone or rewrite historical reviews. If a build is rejected, record the rejection; do not repeatedly ask reviewers for praise.
