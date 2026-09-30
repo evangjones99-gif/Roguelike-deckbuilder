@@ -28,7 +28,7 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: '24.19.0'
           cache: npm
       - name: Identify candidate
         id: candidate
@@ -41,7 +41,9 @@ jobs:
       - name: Build production runtime
         run: npm run build
       - name: Package unsigned Windows executable with resources enabled
-        run: npx --no-install electron-builder --win dir --x64 -c.win.signAndEditExecutable=true -c.win.signExecutable=false -c.forceCodeSigning=false
+        run: |
+          node -e "const fs=require('node:fs'); const {build}=require('./package.json'); const config={...build,win:{...build.win,signAndEditExecutable:true,signExecutable:false},forceCodeSigning:false}; fs.mkdirSync('build-desktop',{recursive:true}); fs.writeFileSync('build-desktop/windows-native-config.json',JSON.stringify(config,null,2)+'\n');"
+          npx --no-install electron-builder --win dir --x64 --config build-desktop/windows-native-config.json
       - name: Launch packaged Windows executable and verify offline interactions
         run: node scripts/windows-smoke.mjs build-desktop/win-unpacked/Hollowpact.exe
       - name: Archive candidate and record native resource evidence
@@ -83,6 +85,7 @@ jobs:
             reviews/windows-native/
             build-desktop/hollowpact-*-windows-native-x64.zip
             build-desktop/builder-effective-config.yaml
+            build-desktop/windows-native-config.json
             dist/build-provenance.json
           if-no-files-found: warn
           retention-days: 30
