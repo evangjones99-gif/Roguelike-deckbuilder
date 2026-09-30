@@ -36,6 +36,8 @@ jobs:
           node -e "const fs=require('node:fs'); const p=require('./package.json'); fs.appendFileSync(process.env.GITHUB_OUTPUT, 'version='+p.version+'\n');"
       - name: Install locked dependencies
         run: npm ci
+      - name: Install stock Electron for native resource comparison
+        run: node node_modules/electron/install.js
       - name: Rules tests
         run: npm test
       - name: Build production runtime
