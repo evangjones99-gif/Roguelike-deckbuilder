@@ -735,7 +735,7 @@ function play(
           ...target!.intent!,
           damage: 0,
           label: target!.intent!.label.includes("block")
-            ? target!.intent!.label + " · silenced (armor remains)"
+            ? canonicalSilenceGuardLabel(target!.intent!.label)
             : "Silenced · damage and reinforcements canceled",
           summon: [],
         };
@@ -1030,7 +1030,13 @@ function reduceAction(
   }
   return s;
 }
-/** Existing reducer API: same state and random sequence as the archived rules. */
+const SILENCE_GUARD_SUFFIX = " · silenced (armor remains)";
+function canonicalSilenceGuardLabel(label: string): string {
+  while (label.endsWith(SILENCE_GUARD_SUFFIX))
+    label = label.slice(0, -SILENCE_GUARD_SUFFIX.length);
+  return label + SILENCE_GUARD_SUFFIX;
+}
+/** Existing reducer API. v0.4 canonicalizes repeated Silence labels only. */
 export function applyAction(state: GameState, action: Action): GameState {
   return reduceAction(state, action);
 }
@@ -1041,6 +1047,41 @@ export function applyActionWithEvents(
 ): { state: GameState; events: ResolvedEvent[] } {
   const events: ResolvedEvent[] = [];
   return { state: reduceAction(state, action, events), events };
+}
+/** Recover only the identified legacy guard-label overflow; never mutate input.
+ * Valid saves use the normal loader. All unrelated corruption still fails.
+ */
+export function recoverLegacySilenceSave(value: unknown): GameState | null {
+  try {
+    if (validateState(value) || !value || typeof value !== "object" ||
+        Object.getPrototypeOf(value) !== Object.prototype) return null;
+    const s = structuredClone(value) as GameState;
+    if (s.schema !== 2 || !["battle", "defeat"].includes(s.phase) ||
+        !Array.isArray(s.enemies)) return null;
+    let repaired = false;
+    for (const e of s.enemies) {
+      if (!e?.intent || typeof e.intent.label !== "string" ||
+          e.intent.label.length <= 100) continue;
+      const base = e.cardId === "ironjaw" && s.turn % 2 === 1
+        ? "Raise plated shield · gain 14 block"
+        : e.cardId === "raider" && s.turn % 2 === 1
+          ? "Raise shield · gain 4 block"
+          : e.cardId === "cindermaw" && s.turn % 3 === 1
+            ? "Fold armored wings · gain 10 block" : null;
+      const i = e.intent;
+      if (!base || i.damage !== 0 || i.target !== e.uid ||
+          !Array.isArray(i.summon) || i.summon.length !== 0 ||
+          i.label.length > 10000) return null;
+      const tail = i.label.slice(base.length),
+        repeats = tail.length / SILENCE_GUARD_SUFFIX.length;
+      if (!i.label.startsWith(base) || !Number.isInteger(repeats) ||
+          repeats < 2 || tail !== SILENCE_GUARD_SUFFIX.repeat(repeats))
+        return null;
+      i.label = base + SILENCE_GUARD_SUFFIX;
+      repaired = true;
+    }
+    return repaired && validateState(s) ? s : null;
+  } catch { return null; }
 }
 /** Validate untrusted JSON without executing reducer code. Bounds prevent pathological saves. */
 export function validateState(value: unknown): value is GameState {

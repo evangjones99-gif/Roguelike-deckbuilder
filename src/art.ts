@@ -39,6 +39,8 @@ export interface CreaturePoseFrame {
   anchorX?: number;
   anchorY?: number;
   scale?: number;
+  /** Painted apparent elevation; do not apply it as extra body translation. */
+  ground?: { altitude: number; footprint: number; contact: number };
   /** Fractions of one grid cell; source sampling preserves original pixels. */
   crop?: { x: number; y: number; width: number; height: number };
 }
@@ -49,6 +51,8 @@ export interface CreatureAnimationAtlas {
   anchorX: number;
   anchorY: number;
   poses: Partial<Record<CreaturePose, readonly CreaturePoseFrame[]>>;
+  /** Pose-specific painted-frame dissolve duration; zero gives a solid cel cut. */
+  blendMs?: Partial<Record<CreaturePose, number>>;
 }
 export interface CreatureSequenceStep { pose: CreaturePose; durationMs: number }
 export const CREATURE_ATTACK_SEQUENCE: readonly CreatureSequenceStep[] = [
@@ -64,10 +68,12 @@ export const HOUND_POSES: CreatureAnimationAtlas = {
   url: `${import.meta.env.BASE_URL}art/hound-poses.png`,
   columns: 3, rows: 2,
   anchorX: .5, anchorY: .94,
+  // Sparse painted poses stay solid; a dissolve creates doubled anatomy.
+  blendMs: { idle: 0, anticipation: 0, attack: 0, recovery: 0, reaction: 0, death: 0 },
   poses: {
     idle: [{ column: 0, row: 0, anchorY: (446 - 96) / 384, scale: 1.1, crop: { x: 32 / 512, y: 96 / 512, width: 448 / 512, height: 384 / 512 } }],
     anticipation: [{ column: 1, row: 0, anchorY: (440 - 96) / 384, scale: 1.1, crop: { x: 32 / 512, y: 96 / 512, width: 448 / 512, height: 384 / 512 } }],
-    attack: [{ column: 2, row: 0, anchorY: (446 - 96) / 384, scale: 1.1, crop: { x: 32 / 512, y: 96 / 512, width: 448 / 512, height: 384 / 512 } }],
+    attack: [{ column: 2, row: 0, ground: { altitude: 28 / 384 * 1.1, footprint: 1.12, contact: .68 }, anchorY: (446 - 96) / 384, scale: 1.1, crop: { x: 32 / 512, y: 96 / 512, width: 448 / 512, height: 384 / 512 } }],
     recovery: [{ column: 0, row: 1, anchorY: (400 - 96) / 384, scale: 1.1, crop: { x: 32 / 512, y: 96 / 512, width: 448 / 512, height: 384 / 512 } }],
     reaction: [{ column: 1, row: 1, anchorY: (394 - 96) / 384, scale: 1.1, crop: { x: 32 / 512, y: 96 / 512, width: 448 / 512, height: 384 / 512 } }],
     death: [{ column: 2, row: 1, anchorY: (397 - 96) / 384, scale: 1.1, crop: { x: 32 / 512, y: 96 / 512, width: 448 / 512, height: 384 / 512 } }],

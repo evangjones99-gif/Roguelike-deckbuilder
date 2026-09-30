@@ -89,3 +89,10 @@ textarea:focus-visible,select:focus-visible{outline:3px solid #cfb47e;outline-of
 .deck-grid .game-card.large-card{height:auto;min-height:256px}
 .dossier-hunter{background-size:contain;background-position:center center}
 #toast{visibility:hidden}#toast.visible{visibility:visible}#toast:empty{visibility:hidden}
+
+/* Consequences remain above the field; the six intent rows retain their space. */
+.battle-guidance{font-size:12px}
+.battle-guidance>span{min-width:0;flex:1;line-height:16px}
+.battle-guidance>.text-button{flex-shrink:0}
+.battle-guidance.danger-preview{color:#edb6a5;background:#863f342e}
+@media(max-width:760px){.battle-ui{grid-template-rows:64px 195px 220px 195px}.battle-guidance{font-size:12px}.battle-guidance>span{max-width:none}.battle-guidance>.text-button{font-size:11px}}

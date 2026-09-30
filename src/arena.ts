@@ -185,9 +185,11 @@ export function createArena(canvas: HTMLCanvasElement) {
   }
   function shadow(point: Point, size: number, alpha: number) {
     ctx.save(); ctx.globalAlpha = alpha;
-    const shade = ctx.createRadialGradient(point.x, point.y, 0, point.x, point.y, size * .5);
+    // The floor ellipse and gradient share one transformed local origin.
+    ctx.translate(point.x, point.y); ctx.scale(1, .2);
+    const shade = ctx.createRadialGradient(0, 0, 0, 0, 0, size * .5);
     shade.addColorStop(0, 'rgba(0,0,0,.85)'); shade.addColorStop(1, 'rgba(0,0,0,0)');
-    ctx.fillStyle = shade; ctx.translate(point.x, point.y); ctx.scale(1, .2);
+    ctx.fillStyle = shade;
     ctx.beginPath(); ctx.arc(0, 0, size * .55, 0, Math.PI * 2); ctx.fill(); ctx.restore();
   }
   function sigil(point: Point, size: number, color: string, alpha: number) {
@@ -225,6 +227,10 @@ export function createArena(canvas: HTMLCanvasElement) {
     for (const frame of frames) { if (remaining < (frame.holdMs ?? 100)) return frame; remaining -= frame.holdMs ?? 100; }
     return frames[frames.length - 1];
   }
+  function poseBlend(figure: Figure) {
+    const duration = (figure.animation?.blendMs?.[figure.pose] ?? 70) / 1000;
+    return reduced || duration <= 0 ? 1 : clamp((time - figure.poseChanged) / duration, 0, 1);
+  }
   function drawPose(image: HTMLImageElement, atlas: CreatureAnimationAtlas, frame: CreaturePoseFrame, size: number, alpha: number) {
     const cellWidth = image.naturalWidth / atlas.columns, cellHeight = image.naturalHeight / atlas.rows;
     const crop = frame.crop ?? { x: 0, y: 0, width: 1, height: 1 };
@@ -258,31 +264,48 @@ export function createArena(canvas: HTMLCanvasElement) {
     return { x, y };
   }
 
-  function paintFigure(figure: Figure) {
+  function prepareFigure(figure: Figure) {
     if (figure.dead !== null && time >= figure.dead && !figure.deathAnchored) {
       const atContact = motionFor(figure, figure.dead - .00001);
       figure.lastPoint = { x: figure.lastPoint.x + atContact.x, y: figure.lastPoint.y + atContact.y };
       figure.deathAnchored = true;
     }
-    const point = position(figure); figure.lastPoint = point;
-    const size = figureSize(figure);
+    figure.lastPoint = position(figure);
+    const currentPose = figurePose(figure);
+    if (currentPose !== figure.pose) {
+      figure.priorPose = figure.pose; figure.pose = currentPose; figure.poseChanged = time;
+    }
+  }
+  function figureOpacity(figure: Figure) {
+    const age = figure.dead === null ? -1 : time - figure.dead;
+    return age >= 0 ? clamp(1 - Math.max(0, age - .3) / (deathDuration - .3), 0, 1)
+      : reduced ? 1 : clamp((time - figure.born) / .32, 0, 1);
+  }
+  function paintFloor(figure: Figure) {
+    const point = position(figure), size = figureSize(figure), movement = motionFor(figure);
     const deathAge = figure.dead === null ? -1 : time - figure.dead;
     const summonAge = time - figure.born;
-    const alpha = deathAge >= 0 ? clamp(1 - Math.max(0, deathAge - .3) / (deathDuration - .3), 0, 1) : reduced ? 1 : clamp(summonAge / .32, 0, 1);
-    const movement = motionFor(figure);
-    shadow({ x: point.x + movement.x, y: point.y + movement.y }, size, alpha);
+    const current = figure.animation && poseFrame(figure.animation, figure.pose, time - figure.poseChanged);
+    const prior = figure.animation && figure.priorPose && poseFrame(figure.animation, figure.priorPose, 0);
+    const blend = poseBlend(figure);
+    const footprint = (prior?.ground?.footprint ?? 1) + ((current?.ground?.footprint ?? 1) - (prior?.ground?.footprint ?? 1)) * blend;
+    const contact = (prior?.ground?.contact ?? 1) + ((current?.ground?.contact ?? 1) - (prior?.ground?.contact ?? 1)) * blend;
+    shadow({ x: point.x + movement.x, y: point.y + movement.y }, size * footprint, figureOpacity(figure) * contact);
     if (selected === figure.uid && deathAge < 0) sigil(point, size * 1.05, '#ecd099', .86);
     else if (!reduced && summonAge < .75 && deathAge < 0) sigil(point, size, '#c7c493', (1 - summonAge / .75) * .75);
+  }
+  function paintFigure(figure: Figure) {
+    const point = position(figure);
+    const size = figureSize(figure);
+    const deathAge = figure.dead === null ? -1 : time - figure.dead;
+    const alpha = figureOpacity(figure);
+    const movement = motionFor(figure);
     const hitAge = time - figure.hit;
     const recoil = !reduced && hitAge > 0 && hitAge < CREATURE_REACTION_MS / 1000 ? Math.sin(hitAge * 45) * (1 - hitAge / (CREATURE_REACTION_MS / 1000)) * size * .025 : 0;
     const breath = !reduced && deathAge < 0 ? 1 + Math.sin(time * 1.35 + figure.phase) * .006 : 1;
     const image = figure.art && imageFor(figure.art.url);
     const atlasImage = figure.animation && imageFor(figure.animation.url);
-    const currentPose = figurePose(figure);
-    if (currentPose !== figure.pose) {
-      figure.priorPose = figure.pose; figure.pose = currentPose; figure.poseChanged = time;
-    }
-    const blend = reduced ? 1 : clamp((time - figure.poseChanged) / .07, 0, 1);
+    const blend = poseBlend(figure);
     ctx.save(); ctx.globalAlpha = alpha;
     ctx.translate(point.x + movement.x + recoil, point.y + movement.y);
     // Enemies face the bound party; the assets retain their painted anatomy.
@@ -359,7 +382,12 @@ export function createArena(canvas: HTMLCanvasElement) {
     paintBackdrop(); ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
     if (back) ctx.drawImage(backplate, 0, 0, width, height);
     else { ctx.fillStyle = '#151a20'; ctx.fillRect(0, 0, width, height); }
-    [...figures.values()].sort((a, b) => position(a).y + motionFor(a).y - position(b).y - motionFor(b).y).forEach(paintFigure);
+    const ordered = [...figures.values()];
+    ordered.forEach(prepareFigure);
+    reconcileStrikeEndpoints();
+    ordered.sort((a, b) => position(a).y + motionFor(a).y - position(b).y - motionFor(b).y);
+    ordered.forEach(paintFloor);
+    ordered.forEach(paintFigure);
     paintStrikes();
     if (!reduced) {
       ctx.save();

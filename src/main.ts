@@ -1,11 +1,27 @@
 import './style.css';
 import packageInfo from '../package.json';
-import { applyActionWithEvents, createGame, CARDS, legalActions, validateState, cardTarget, type GameState, type Action, type Unit, type CardDef } from './engine';
+import { applyActionWithEvents, createGame, CARDS, legalActions, validateState, recoverLegacySilenceSave, cardTarget, type GameState, type Action, type Unit, type CardDef } from './engine';
 import { createArena } from './arena';
 import { portraitFor } from './art';
 import { ENEMIES, RELICS, SHOP_PRICES, EVENT_CHOICES, bossForSeed } from './content';
 
 const SAVE_KEY = 'hollowpact.run.v2';
+const SAVE_BACKUP_KEY = `${SAVE_KEY}.backup.silence`;
+let pendingRecoveryBackup: string | null = null;
+function preserveRecoveryOriginal(): boolean {
+  if (pendingRecoveryBackup === null) return true;
+  let key = SAVE_BACKUP_KEY;
+  const existing = localStorage.getItem(key);
+  if (existing !== null && existing !== pendingRecoveryBackup) {
+    const prefix = `${SAVE_BACKUP_KEY}.${Date.now()}`;
+    key = prefix;
+    let suffix = 1;
+    while (localStorage.getItem(key) !== null) key = `${prefix}.${suffix++}`;
+  }
+  localStorage.setItem(key, pendingRecoveryBackup);
+  pendingRecoveryBackup = null;
+  return true;
+}
 const SETTINGS_KEY = 'hollowpact.settings.v2';
 const TUTORIAL_KEY = 'hollowpact.tutorial.v2';
 const VERSION = packageInfo.version;
@@ -41,7 +57,19 @@ try {
   if (save) {
     const value: unknown = JSON.parse(save);
     if (validateState(value)) { savedRun = value as GameState; state = savedRun; }
-    else saveNotice = 'An incompatible save was found. Start a new campaign to continue.';
+    else {
+      const recovered = recoverLegacySilenceSave(value);
+      if (recovered && validateState(recovered)) {
+        savedRun = recovered; state = recovered; pendingRecoveryBackup = save;
+        saveNotice = 'Recovered a repeated Silence status label. Your run is preserved.';
+        try {
+          preserveRecoveryOriginal();
+          localStorage.setItem(SAVE_KEY, JSON.stringify(recovered));
+        } catch {
+          saveNotice = pendingRecoveryBackup === null ? 'Recovered the repeated Silence status. A backup is preserved; the browser could not store the updated campaign.' : 'Recovered the repeated Silence status for this window. The original save is unchanged; the browser could not create a backup.';
+        }
+      } else saveNotice = 'An incompatible save was found. Start a new campaign to continue.';
+    }
   }
 } catch { saveNotice = 'Your save could not be read. A new campaign is still available.'; }
 
@@ -163,7 +191,7 @@ function clearToast() {
 }
 function save() {
   savedRun = state;
-  try { localStorage.setItem(SAVE_KEY, JSON.stringify(state)); }
+  try { preserveRecoveryOriginal(); localStorage.setItem(SAVE_KEY, JSON.stringify(state)); }
   catch { notify('This browser cannot store the campaign. Keep this window open to continue.'); }
 }
 function actions(): Action[] { return legalActions(state); }
@@ -340,6 +368,110 @@ function compactTargetName(uid: string): string {
   const hostile = state.enemies.findIndex(unit => unit.uid === uid);
   return hostile >= 0 ? `hostile ${hostile + 1}` : 'hunter';
 }
+// Consequences come from the same pure reducer as committed actions. Never expose drawn cards or rewards.
+const previewCache = new Map<string, { text: string; danger: boolean }>();
+let activePreviewKey = '';
+function selectionGuidance(): string {
+  const choice = selected;
+  const unit = choice?.kind === 'attack' ? state.allies.find(u => u.uid === choice.uid) : undefined;
+  if (choice?.kind === 'attack') return `${unit ? unitLabel(unit) : 'Creature'} selected. Focus or hover a hostile target to read the outcome.`;
+  if (choice?.kind === 'card') return `${CARDS[state.hand[choice.index]].name}: focus or hover ${cardTarget(state.hand[choice.index]) === 'ally' ? 'a bound creature' : 'a hostile target'} to read the outcome.`;
+  return 'Deploy a binding or play a tool. Select a ready creature, then its target.';
+}
+function consequencePreview(action: Action): { text: string; danger: boolean } {
+  const { state: after, events } = applyActionWithEvents(state, action);
+  const target = 'target' in action ? action.target : undefined;
+  const sourceUnit = action.type === 'attack' ? state.allies.find(u => u.uid === action.unit) : undefined;
+  const label = action.type === 'attack' ? sourceUnit ? unitLabel(sourceUnit) : 'Command' : action.type === 'play' ? CARDS[state.hand[action.index]].name : 'Order';
+  const parts: string[] = [];
+  const who = (uid: string): string => {
+    if (uid === 'hunter') return 'hunter';
+    const existing = [...state.allies, ...state.enemies].some(u => u.uid === uid);
+    if (existing) return compactTargetName(uid);
+    const summoned = events.filter(e => e.type === 'summon' && e.side === 'ally');
+    const index = summoned.findIndex(e => e.target === uid);
+    return index >= 0 ? `binding ${state.allies.length + index + 1}` : 'target';
+  };
+  if (action.type === 'play' && CARDS[state.hand[action.index]].type === 'summon') parts.push('binds a creature ready to command');
+  const affected = target ? [target] : [...new Set(events.filter(e => e.type === 'hit' && e.target !== 'hunter').map(e => e.target))];
+  for (const uid of affected) {
+    const hits = events.filter(e => e.type === 'hit' && e.target === uid);
+    const lost = hits.reduce((sum, e) => sum + (e.type === 'hit' ? e.hpLost : 0), 0);
+    const blocked = hits.reduce((sum, e) => sum + (e.type === 'hit' ? e.blocked : 0), 0);
+    const dead = events.some(e => e.type === 'death' && e.target === uid);
+    const prefix = target ? '' : `${who(uid)}: `;
+    if (hits.length) parts.push(`${prefix}${lost} health damage${dead ? ' (lethal)' : ''}${blocked ? `, ${blocked} blocked` : ''}`);
+    const prior = [...state.allies, ...state.enemies].find(u => u.uid === uid);
+    const next = [...after.allies, ...after.enemies].find(u => u.uid === uid);
+    // Sundering can remove armor before a hit. Read the resolved result rather than reconstructing damage rules.
+    if (prior && (next || dead)) {
+      const removed = Math.max(0, prior.block - (next?.block || 0));
+      if (removed > blocked) parts.push(`removes ${removed} block`);
+    }
+    if (prior && next && prior.acted && !next.acted) parts.push('command readied');
+    if (prior?.intent && next?.intent && JSON.stringify(prior.intent) !== JSON.stringify(next.intent)) parts.push(next.intent.label);
+  }
+  const totals = new Map<string, { heal: number; ward: number }>();
+  for (const event of events) if (event.type === 'heal' || event.type === 'ward') {
+    const value = totals.get(event.target) || { heal: 0, ward: 0 };
+    value[event.type === 'heal' ? 'heal' : 'ward'] += event.amount;
+    totals.set(event.target, value);
+  }
+  const supportGroups = new Map<string, { ids: string[]; heal: number; ward: number }>();
+  for (const [uid, values] of totals) {
+    const side = uid === 'hunter' ? 'hunter' : who(uid).startsWith('binding') ? 'bindings' : 'targets';
+    const key = `${side}:${values.heal}:${values.ward}`;
+    const group = supportGroups.get(key) || { ids: [], ...values };
+    group.ids.push(uid); supportGroups.set(key, group);
+  }
+  for (const values of supportGroups.values()) {
+    const prefix = values.ids.length === 1 ? values.ids[0] === target ? '' : `${who(values.ids[0])}: ` : `${values.ids.length} bindings: `;
+    const each = values.ids.length > 1 ? ' each' : '';
+    if (values.heal) parts.push(`${prefix}restores ${values.heal} health${each}`);
+    if (values.ward) parts.push(`${prefix}gains ${values.ward} block${each}`);
+  }
+  if (action.type === 'play') {
+    const effect = CARDS[state.hand[action.index]].effect;
+    if (effect === 'heal' && target && !totals.get(target)?.heal) parts.push('restores 0 health (already full)');
+    if (['hunterheal','communion','siphon','hunter-heal'].includes(effect || '') && !totals.get('hunter')?.heal) parts.push(`hunter restores 0 health${state.hp === state.maxHp ? ' (already full)' : ''}`);
+    const energyGain = after.energy - state.energy + CARDS[state.hand[action.index]].cost;
+    if (energyGain > 0) parts.push(`gains ${energyGain} energy`);
+  }
+  const retaliation = events.filter(e => e.type === 'hit' && e.kind === 'retaliation');
+  for (const hit of retaliation) if (hit.type === 'hit') parts.push(`${who(hit.target)} takes ${hit.hpLost} retaliation${events.some(e => e.type === 'death' && e.target === hit.target) ? ' (lethal)' : ''}`);
+  const hunterHits = events.filter(e => e.type === 'hit' && e.target === 'hunter');
+  const hunterLoss = hunterHits.reduce((sum, e) => sum + (e.type === 'hit' ? e.hpLost : 0), 0);
+  if (hunterHits.length) parts.push(`hunter loses ${hunterLoss} health`);
+  if (after.phase === 'defeat') parts.push('HUNTER DIES · campaign ends');
+  else if (state.phase === 'battle' && ['reward', 'victory'].includes(after.phase)) parts.push(after.phase === 'victory' ? 'final contract cleared' : 'contract cleared');
+  if (!parts.length) parts.push(action.type === 'play' ? cardRules(CARDS[state.hand[action.index]]) : 'order available');
+  return { text: `${label}${target ? ` → ${compactTargetName(target)}` : ''}: ${parts.join(' · ')}`, danger: after.phase === 'defeat' || retaliation.some(hit => events.some(e => e.type === 'death' && e.target === hit.target)) };
+}
+function showConsequenceFor(element: Element | null): boolean {
+  if (title || settlingCombat || state.phase !== 'battle') return false;
+  const button = element?.closest<HTMLButtonElement>('[data-unit], [data-ui="play-card"]');
+  let action: Action | undefined;
+  if (button?.dataset.unit && selected) {
+    const choice = selected;
+    action = actions().find(a => choice.kind === 'attack' ? a.type === 'attack' && a.unit === choice.uid && a.target === button.dataset.unit : a.type === 'play' && a.index === choice.index && a.target === button.dataset.unit);
+  } else if (button?.dataset.ui === 'play-card') {
+    const index = Number(button.dataset.index);
+    if (cardTarget(state.hand[index]) === 'none') action = actions().find(a => a.type === 'play' && a.index === index);
+  }
+  const output = document.getElementById('consequence-preview');
+  if (!output) return false;
+  const key = action ? JSON.stringify(action) : '';
+  if (key === activePreviewKey) return !!action;
+  activePreviewKey = key;
+  let result: { text: string; danger: boolean } | null = null;
+  try { result = action ? previewCache.get(key) || consequencePreview(action) : null; }
+  catch { activePreviewKey = ''; output.textContent = 'Read the card and target traits before giving the order.'; return false; }
+  if (result) previewCache.set(key, result);
+  output.textContent = result?.text || selectionGuidance();
+  output.dataset.preview = result ? 'consequence' : 'instruction';
+  output.closest('.battle-guidance')?.classList.toggle('danger-preview', !!result?.danger);
+  return !!action;
+}
 function roster(side: 'allies' | 'enemies'): string {
   const units = state[side];
   const enemy = side === 'enemies';
@@ -356,10 +488,10 @@ function roster(side: 'allies' | 'enemies'): string {
   }).join('')}</div>${enemy ? '<div class="rail-note">Intents resolve in order.<br>A fallen marked creature redirects the hit to the hunter.</div>' : '<div class="rail-note">One free command per turn.<br>New bindings can act immediately.</div>'}</section>`;
 }
 function renderBattle() {
-  const currentSelection = selected;
-  const selectedUnit = currentSelection?.kind === 'attack' ? state.allies.find(a => a.uid === currentSelection.uid) : undefined;
-  const selectionText = currentSelection?.kind === 'attack' ? `${selectedUnit ? unitLabel(selectedUnit) : 'Creature'} selected. Choose a hostile target.` : selected?.kind === 'card' ? `${CARDS[state.hand[selected.index]].name}: choose ${cardTarget(state.hand[selected.index]) === 'ally' ? 'a bound creature' : 'a hostile target'}.` : 'Deploy a binding or play a tool. Select a ready creature, then its target.';
-  $('scene-ui').innerHTML = `<div class="battle-ui"><div class="battle-guidance ${selected ? 'targeting' : ''}"><span>${icon(selected ? 'battle' : 'shield')}${escape(selectionText)}</span>${selected ? '<button class="text-button" data-ui="cancel">Cancel <kbd>Esc</kbd></button>' : `<button class="text-button" data-ui="log">Combat record ${icon('book')}</button>`}</div>${roster('allies')}<div class="arena-caption" aria-hidden="true"><span>THE BLACK MARCH</span><small>${selected ? 'TARGET ACQUIRED · GIVE THE ORDER' : 'READ THE THREAT. BREAK THE LINE.'}</small></div>${roster('enemies')}</div>`;
+  previewCache.clear();
+  activePreviewKey = '';
+  const selectionText = selectionGuidance();
+  $('scene-ui').innerHTML = `<div class="battle-ui"><div class="battle-guidance ${selected ? 'targeting' : ''}"><span id="consequence-preview" role="status" aria-live="polite" aria-atomic="true">${escape(selectionText)}</span>${selected ? '<button class="text-button" data-ui="cancel">Cancel <kbd>Esc</kbd></button>' : `<button class="text-button" data-ui="log">Combat record ${icon('book')}</button>`}</div>${roster('allies')}<div class="arena-caption" aria-hidden="true"><span>THE BLACK MARCH</span><small>${selected ? 'TARGET ACQUIRED · GIVE THE ORDER' : 'READ THE THREAT. BREAK THE LINE.'}</small></div>${roster('enemies')}</div>`;
   const playable = actions().filter(a => a.type === 'play');
   $('dock').innerHTML = `<div class="hand-area"><div class="hand-heading"><span class="eyebrow">AVAILABLE CARDS <span>${state.hand.length}</span></span><div class="pile-buttons"><button data-ui="draw">Draw <strong>${state.draw.length}</strong></button><button data-ui="discard">Discard <strong>${state.discard.length}</strong></button></div></div><div class="hand-cards">${state.hand.map((id, index) => renderCard(CARDS[id], { handIndex: index, disabled: !playable.some(a => a.type === 'play' && a.index === index), selected: selected?.kind === 'card' && selected.index === index })).join('')}${!state.hand.length ? '<div class="empty-hand">No cards in hand.<br>Use remaining commands, then end your turn.</div>' : ''}</div></div><div class="turn-controls"><div class="energy-orb">${icon('energy')}<strong>${state.energy}</strong><span>energy</span></div><button class="button end-turn" data-action="endTurn" data-focus="end-turn">End turn ${icon('arrow')}<small>Enemy intents resolve · draw 5 · refill energy</small></button><span class="keyboard-hint"><kbd>E</kbd> End turn <span>·</span> <kbd>Esc</kbd> Cancel</span></div>`;
 }
@@ -567,6 +699,14 @@ function handleClick(event: MouseEvent) {
   }
 }
 document.addEventListener('click', handleClick);
+document.addEventListener('focusin', event => showConsequenceFor(event.target instanceof Element ? event.target : null));
+document.addEventListener('pointerover', event => {
+  if (!showConsequenceFor(event.target instanceof Element ? event.target : null)) showConsequenceFor(document.activeElement);
+});
+document.addEventListener('pointerout', event => {
+  const from = event.target instanceof Element ? event.target.closest('[data-unit], [data-ui="play-card"]') : null;
+  if (from && !(event.relatedTarget instanceof Node && from.contains(event.relatedTarget))) showConsequenceFor(document.activeElement);
+});
 document.addEventListener('submit', event => {
   if ((event.target as HTMLElement).id === 'feedback-form') { event.preventDefault(); exportFeedback(event.target as HTMLFormElement); return; }
   if ((event.target as HTMLElement).id !== 'new-game-form') return;

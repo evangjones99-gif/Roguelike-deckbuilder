@@ -1,0 +1,88 @@
+name: Native Windows validation
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-validation-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  windows-x64:
+    runs-on: windows-2022
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Identify candidate
+        id: candidate
+        run: |
+          node -e "const fs=require('node:fs'); const p=require('./package.json'); fs.appendFileSync(process.env.GITHUB_OUTPUT, 'version='+p.version+'\n');"
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Rules tests
+        run: npm test
+      - name: Build production runtime
+        run: npm run build
+      - name: Package unsigned Windows executable with resources enabled
+        run: npx --no-install electron-builder --win dir --x64 -c.win.signAndEditExecutable=true -c.win.signExecutable=false -c.forceCodeSigning=false
+      - name: Launch packaged Windows executable and verify offline interactions
+        run: node scripts/windows-smoke.mjs build-desktop/win-unpacked/Hollowpact.exe
+      - name: Archive candidate and record native resource evidence
+        run: |
+          $version = '${{ steps.candidate.outputs.version }}'
+          $review = "reviews/windows-native/$version/run-$env:GITHUB_RUN_ID-$env:GITHUB_RUN_ATTEMPT"
+          New-Item -ItemType Directory -Force $review | Out-Null
+          $exe = Resolve-Path 'build-desktop/win-unpacked/Hollowpact.exe'
+          $info = (Get-Item $exe).VersionInfo
+          $signature = Get-AuthenticodeSignature $exe
+          if ($signature.Status -ne 'NotSigned') { throw "Expected unsigned candidate; actual status $($signature.Status)" }
+          Add-Type -AssemblyName System.Drawing
+          $icon = [System.Drawing.Icon]::ExtractAssociatedIcon($exe.Path)
+          if ($null -eq $icon) { throw 'Native icon extraction failed' }
+          $bitmap = $icon.ToBitmap()
+          $bitmap.Save((Join-Path (Resolve-Path $review) 'executable-icon.png'), [System.Drawing.Imaging.ImageFormat]::Png)
+          $bitmap.Dispose()
+          $icon.Dispose()
+          $zip = "build-desktop/hollowpact-$version-windows-native-x64.zip"
+          Compress-Archive -Path 'build-desktop/win-unpacked/*' -DestinationPath $zip
+          @{
+            productName = $info.ProductName
+            fileVersion = $info.FileVersion
+            productVersion = $info.ProductVersion
+            signatureStatus = $signature.Status.ToString()
+            executableSHA256 = (Get-FileHash $exe -Algorithm SHA256).Hash.ToLower()
+            archive = $zip
+            archiveSHA256 = (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
+            commit = $env:GITHUB_SHA
+            runId = $env:GITHUB_RUN_ID
+            attempt = $env:GITHUB_RUN_ATTEMPT
+          } | ConvertTo-Json -Depth 5 | Set-Content -Encoding utf8 "$review/native-package.json"
+      - name: Upload native evidence and candidate package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hollowpact-${{ steps.candidate.outputs.version }}-windows-x64-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            reviews/windows-native/
+            build-desktop/hollowpact-*-windows-native-x64.zip
+            build-desktop/builder-effective-config.yaml
+            dist/build-provenance.json
+          if-no-files-found: warn
+          retention-days: 30

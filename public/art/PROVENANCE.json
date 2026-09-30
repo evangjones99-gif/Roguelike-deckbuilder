@@ -1,6 +1,6 @@
 {
   "project": "Hollowpact",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "createdDate": "2026-09-30",
   "AIContent": true,
   "presentation": "Illustrated 2.5D creature artwork with pose transitions where supplied; not rigged 3D runtime characters",
@@ -149,6 +149,13 @@
           1,
           1
         ]
+      },
+      "presentationMetadata": {
+        "version": "0.4.0",
+        "poseBlendMs": 0,
+        "contactShadow": "Local-origin floor shadow; wider/lighter footprint for already-painted attack altitude",
+        "sourcePixelsUnchanged": true,
+        "limitation": "Six hard painted poses; no new in-between frames or skeletal rig"
       }
     }
   ]
