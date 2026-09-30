@@ -2,13 +2,13 @@
 
 A grim monster-binding roguelike deckbuilder. Play a contract hunter, deploy dangerous creatures, and defeat an armored warlord, a necromancer or an ember dragon. Working title; name clearance remains pending.
 
-**v0.3 reviewed development checkpoint.** The grim monster hunter now has an original portrait, the hound has six illustrated combat poses, and final strikes retain visible impact/death feedback before showing the outcome. Resolved combat events keep effects faithful to the rules. A newly reproduced inherited defect lets repeated Silence against a guard invalidate a save; its repair is the immediate next cycle. This version is preserved development evidence and is not commercially ready. AAA studio craft is the production target; pose transitions and synthetic playtesting do not establish AAA quality or human enjoyment.
+**v0.4 reviewed development milestone.** Repeated Silence no longer breaks campaign saves; narrow legacy recovery preserves the exact original save before replacement. Target previews show actual damage, armor, recovery and retaliation without revealing future draws. Corrected contact shadows and solid illustrated pose changes improve creature readability. Independent reviews accept development preservation; archive hashes and source identity are recorded under releases/0.4.0 after archival. AAA studio craft and human enjoyment remain unproven; sparse animation still needs work. Known draw-inspector ordering and multi-target dragon-motion defects are recorded for the immediate next repairs.
 
 ## Run
 
 Node 22 or later. `npm ci`, then `npm run dev`. Open the printed local address. `npm test` checks the renderer-free rules; `npm run build` checks TypeScript and creates an offline web build. `npm run simulate` compares reproducible policies. `npm run test:browser` tests the built production assets with system Chromium; adjust `playwright.config.ts` to your installed browser on other machines.
 
-`npm run package:linux` or `npm run package:windows` builds an Electron desktop directory. `npm run desktop` launches current built assets. Linux needs the usual Chromium GUI libraries. Packaging here does not establish Windows launch or Steam installation.
+`npm run package:linux` or `npm run package:windows` builds an Electron desktop directory. `npm run desktop` launches current built assets. Linux needs the usual Chromium GUI libraries. A native Windows Server 2022 runner has launched the v0.4 package and checked branding, persistence and offline feedback; see [native evidence](docs/NATIVE-WINDOWS.md). This does not establish clean consumer installs, Steam Deck or Steam installation.
 
 ## Combat
 
@@ -16,7 +16,7 @@ Five energy and five fresh cards each turn. Play a creature, select its ready bi
 
 Cairn Hounds punish exposed enemies. Fen Stalkers recover through damaging commands. Briar Colossi protect the hunter. Ash Widows strengthen targeted damage tools. Build around these roles, inspect the final quarry's traits, and select upgrades deliberately. Armored retaliation, delayed reinforcements and dragon breath require different answers.
 
-Rewards can be skipped. Rest or choose a specific deck entry to train, buy or remove cards, and judge shrine bargains before accepting them. Saves and settings stay on the device; no telemetry is sent. The optional Field report downloads feedback locally. v0.3 retains schema-2 storage keys and preserves v0.1 saves.
+Rewards can be skipped. Rest or choose a specific deck entry to train, buy or remove cards, and judge shrine bargains before accepting them. Saves and settings stay on the device; no telemetry is sent. The optional Field report downloads feedback locally. v0.4 retains schema-2 storage keys and preserves earlier saves. Known repeated-Silence damage is repaired only after the original text is backed up.
 
 ## Production and evidence
 

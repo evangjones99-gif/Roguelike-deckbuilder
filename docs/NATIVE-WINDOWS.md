@@ -42,3 +42,9 @@ node scripts/windows-smoke.mjs build-desktop/win-unpacked/Hollowpact.exe
 ```
 
 This validates one hosted-runner configuration and a short combat flow. It does not qualify real target GPUs, frame pacing, audio quality, controller navigation, complete campaigns, native download chooser behavior, clean consumer installation, SmartScreen, installer/uninstaller, updates, Steam depots or Steam Deck. The unsigned directory ZIP is a review candidate, not a commercial readiness certificate. Preserve failures and correct them before recording the platform as passed.
+
+## Preserved native verification — run 36772521612
+
+The fourth job actually passed every test/build/resource/launch gate and uploaded eight bounded parts. All were downloaded locally and checked against their artifact and per-part hashes, then reconstructed into the exact tested 178,481,506-byte ZIP (`ec5203567cf15bcae28c6b1b4e908469fd075197bba6b67cfab2185f2b9d8927`). Independent technical review verified all 72 extracted file hashes, the seven PE icons/version resources, unsigned certificate status, full provenance and feedback evidence. The bundled ASAR is byte-identical to Linux at `fa54150ce08f79d05e1d3785e8051eb2ba7c26f79920f3b0eb34bfdc26f482a4`; both identify runtime digest `da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425`. Working Windows packaging now contains these actual native-tested bytes.
+
+The Actions checkout is PR merge commit `d48500ece67b35221d21519f6171f4ac7bdb0813`, distinguished from branch head `be87d9a20c3ce9da97f132d49d5d05a1b04ee739`. Complete records stay in `reviews/windows-native/0.4.0/run-36772521612-1/`; earlier failed runs and the initial successful run remain evidence. This accepts a development package, with the platform/install/Steam limitations above still applying.

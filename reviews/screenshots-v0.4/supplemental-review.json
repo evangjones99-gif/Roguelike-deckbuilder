@@ -1,0 +1,280 @@
+{
+  "fixture": {
+    "schema": 2,
+    "seed": 121,
+    "rng": 3709142840,
+    "phase": "battle",
+    "hp": 65,
+    "maxHp": 65,
+    "block": 0,
+    "energy": 5,
+    "gold": 65,
+    "floor": 1,
+    "turn": 1,
+    "deck": [
+      "cairnhound",
+      "silence",
+      "edict",
+      "scour",
+      "ironward",
+      "survey"
+    ],
+    "draw": [
+      "scour",
+      "ironward",
+      "survey"
+    ],
+    "discard": [],
+    "hand": [
+      "silence",
+      "edict"
+    ],
+    "allies": [
+      {
+        "uid": "a10",
+        "cardId": "cairnhound",
+        "name": "Cairn Hound",
+        "species": "hound",
+        "hp": 7,
+        "maxHp": 7,
+        "attack": 3,
+        "block": 0,
+        "acted": false,
+        "color": "#c4c6b5",
+        "passive": "Commands deal 2 extra damage to enemies with no block."
+      }
+    ],
+    "enemies": [
+      {
+        "uid": "e30",
+        "cardId": "raider",
+        "name": "Ironjaw Reaver",
+        "species": "warlord",
+        "hp": 16,
+        "attack": 4,
+        "color": "#a6a59c",
+        "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation.",
+        "maxHp": 16,
+        "block": 0,
+        "acted": false,
+        "intent": {
+          "target": "hunter",
+          "damage": 4,
+          "label": "Review fixture attack"
+        }
+      }
+    ],
+    "rewards": [],
+    "relics": [],
+    "route": [
+      "battle"
+    ],
+    "log": [
+      "A scarred hunter. One final contract. No pact is harmless.",
+      "The keep has teeth."
+    ],
+    "nextUid": 100,
+    "difficulty": 0,
+    "stats": {
+      "cardsPlayed": 0,
+      "damageDealt": 0,
+      "turns": 1,
+      "battles": 1
+    }
+  },
+  "scope": "Constructed validated visual fixtures, not a natural balance/fun test.",
+  "results": [
+    {
+      "mode": "cues",
+      "errors": [],
+      "hunterDossier": "Marek Voss",
+      "silence": {
+        "schema": 2,
+        "seed": 121,
+        "rng": 3709142840,
+        "phase": "battle",
+        "hp": 65,
+        "maxHp": 65,
+        "block": 0,
+        "energy": 3,
+        "gold": 65,
+        "floor": 1,
+        "turn": 1,
+        "deck": [
+          "cairnhound",
+          "silence",
+          "edict",
+          "scour",
+          "ironward",
+          "survey"
+        ],
+        "draw": [
+          "scour",
+          "ironward",
+          "survey"
+        ],
+        "discard": [
+          "silence"
+        ],
+        "hand": [
+          "edict"
+        ],
+        "allies": [
+          {
+            "uid": "a10",
+            "cardId": "cairnhound",
+            "name": "Cairn Hound",
+            "species": "hound",
+            "hp": 7,
+            "maxHp": 7,
+            "attack": 3,
+            "block": 0,
+            "acted": false,
+            "color": "#c4c6b5",
+            "passive": "Commands deal 2 extra damage to enemies with no block."
+          }
+        ],
+        "enemies": [
+          {
+            "uid": "e30",
+            "cardId": "raider",
+            "name": "Ironjaw Reaver",
+            "species": "warlord",
+            "hp": 16,
+            "attack": 4,
+            "color": "#a6a59c",
+            "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation.",
+            "maxHp": 16,
+            "block": 0,
+            "acted": false,
+            "intent": {
+              "target": "hunter",
+              "damage": 0,
+              "label": "Silenced · damage and reinforcements canceled",
+              "summon": []
+            }
+          }
+        ],
+        "rewards": [],
+        "relics": [],
+        "route": [
+          "battle"
+        ],
+        "log": [
+          "A scarred hunter. One final contract. No pact is harmless.",
+          "The keep has teeth.",
+          "Cast Silence the Dead."
+        ],
+        "nextUid": 100,
+        "difficulty": 0,
+        "stats": {
+          "cardsPlayed": 1,
+          "damageDealt": 0,
+          "turns": 1,
+          "battles": 1
+        }
+      },
+      "edict": {
+        "schema": 2,
+        "seed": 121,
+        "rng": 3709142840,
+        "phase": "battle",
+        "hp": 65,
+        "maxHp": 65,
+        "block": 0,
+        "energy": 1,
+        "gold": 65,
+        "floor": 1,
+        "turn": 1,
+        "deck": [
+          "cairnhound",
+          "silence",
+          "edict",
+          "scour",
+          "ironward",
+          "survey"
+        ],
+        "draw": [
+          "scour",
+          "ironward",
+          "survey"
+        ],
+        "discard": [
+          "silence",
+          "edict"
+        ],
+        "hand": [],
+        "allies": [
+          {
+            "uid": "a10",
+            "cardId": "cairnhound",
+            "name": "Cairn Hound",
+            "species": "hound",
+            "hp": 7,
+            "maxHp": 7,
+            "attack": 5,
+            "block": 0,
+            "acted": false,
+            "color": "#c4c6b5",
+            "passive": "Commands deal 2 extra damage to enemies with no block."
+          }
+        ],
+        "enemies": [
+          {
+            "uid": "e30",
+            "cardId": "raider",
+            "name": "Ironjaw Reaver",
+            "species": "warlord",
+            "hp": 16,
+            "attack": 4,
+            "color": "#a6a59c",
+            "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation.",
+            "maxHp": 16,
+            "block": 0,
+            "acted": false,
+            "intent": {
+              "target": "hunter",
+              "damage": 0,
+              "label": "Silenced · damage and reinforcements canceled",
+              "summon": []
+            }
+          }
+        ],
+        "rewards": [],
+        "relics": [],
+        "route": [
+          "battle"
+        ],
+        "log": [
+          "A scarred hunter. One final contract. No pact is harmless.",
+          "The keep has teeth.",
+          "Cast Silence the Dead.",
+          "Cast Pack Edict."
+        ],
+        "nextUid": 100,
+        "difficulty": 0,
+        "stats": {
+          "cardsPlayed": 2,
+          "damageDealt": 0,
+          "turns": 1,
+          "battles": 1
+        }
+      },
+      "drawnPoseCells": [
+        "32,96"
+      ]
+    },
+    {
+      "mode": "os-reduced",
+      "errors": [],
+      "hunterDossier": "Marek Voss",
+      "arenaStable": true
+    },
+    {
+      "mode": "pose-missing",
+      "errors": [],
+      "hunterDossier": "Marek Voss",
+      "acted": true
+    }
+  ]
+}

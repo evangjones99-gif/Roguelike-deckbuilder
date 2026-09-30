@@ -1,0 +1,626 @@
+{
+  "state": {
+    "schema": 2,
+    "seed": 121,
+    "rng": 3283419617,
+    "phase": "battle",
+    "hp": 62,
+    "maxHp": 65,
+    "block": 0,
+    "energy": 5,
+    "gold": 65,
+    "floor": 1,
+    "turn": 2,
+    "deck": [
+      "cairnhound",
+      "ironward",
+      "ironward",
+      "scour",
+      "survey"
+    ],
+    "draw": [],
+    "discard": [],
+    "hand": [
+      "survey",
+      "scour",
+      "ironward",
+      "ironward",
+      "cairnhound"
+    ],
+    "allies": [],
+    "enemies": [
+      {
+        "uid": "e30",
+        "cardId": "thrall",
+        "name": "Bone Thrall",
+        "species": "thrall",
+        "hp": 7,
+        "attack": 3,
+        "color": "#b2ac95",
+        "passive": "Attacks the weakest bound creature, or the hunter if none remain.",
+        "maxHp": 7,
+        "block": 0,
+        "acted": false,
+        "intent": {
+          "target": "hunter",
+          "damage": 3,
+          "label": "Claw weakest creature"
+        }
+      },
+      {
+        "uid": "e31",
+        "cardId": "thrall",
+        "name": "Bone Thrall",
+        "species": "thrall",
+        "hp": 7,
+        "attack": 3,
+        "color": "#b2ac95",
+        "passive": "Attacks the weakest bound creature, or the hunter if none remain.",
+        "maxHp": 7,
+        "block": 0,
+        "acted": false,
+        "intent": {
+          "target": "hunter",
+          "damage": 3,
+          "label": "Claw weakest creature"
+        }
+      }
+    ],
+    "rewards": [],
+    "relics": [],
+    "route": [
+      "battle"
+    ],
+    "log": [
+      "A scarred hunter. One final contract. No pact is harmless.",
+      "The keep has teeth.",
+      "Bone Thrall: Attack weak binding.",
+      "Cairn Hound returns to the deck.",
+      "Bone Thrall: Attack weak binding.",
+      "Turn 2."
+    ],
+    "nextUid": 100,
+    "difficulty": 0,
+    "stats": {
+      "cardsPlayed": 0,
+      "damageDealt": 0,
+      "turns": 2,
+      "battles": 1
+    }
+  },
+  "impacts": [
+    {
+      "t": 2322.699999999255,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 408.80000000074506,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2368.5,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 454.6000000014901,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2375.5999999996275,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 461.7000000011176,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2375.5999999996275,
+      "x": 339.36,
+      "y": 221.6,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 461.7000000011176,
+      "hunterAimDistance": 2.842170943040401e-14
+    },
+    {
+      "t": 2389.0999999996275,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 475.2000000011176,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2389.0999999996275,
+      "x": 339.36,
+      "y": 221.60000000000002,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 475.2000000011176,
+      "hunterAimDistance": 0
+    },
+    {
+      "t": 2405.7999999988824,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 491.90000000037253,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2405.7999999988824,
+      "x": 339.36,
+      "y": 221.6,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 491.90000000037253,
+      "hunterAimDistance": 2.842170943040401e-14
+    },
+    {
+      "t": 2442.5,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 528.6000000014901,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2442.5999999996275,
+      "x": 339.36,
+      "y": 221.6,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 528.7000000011176,
+      "hunterAimDistance": 2.842170943040401e-14
+    },
+    {
+      "t": 2456.89999999851,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 543,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2457,
+      "x": 339.36,
+      "y": 221.60000000000002,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 543.1000000014901,
+      "hunterAimDistance": 0
+    },
+    {
+      "t": 2473.39999999851,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 559.5,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2473.5,
+      "x": 339.36,
+      "y": 221.60000000000002,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 559.6000000014901,
+      "hunterAimDistance": 0
+    },
+    {
+      "t": 2493.699999999255,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 579.8000000007451,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2493.699999999255,
+      "x": 339.36,
+      "y": 221.6,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 579.8000000007451,
+      "hunterAimDistance": 2.842170943040401e-14
+    },
+    {
+      "t": 2509.699999999255,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 595.8000000007451,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2509.89999999851,
+      "x": 339.36,
+      "y": 221.59999999999997,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 596,
+      "hunterAimDistance": 5.684341886080802e-14
+    },
+    {
+      "t": 2527.5999999996275,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 613.7000000011176,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2527.699999999255,
+      "x": 339.36,
+      "y": 221.6,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 613.8000000007451,
+      "hunterAimDistance": 2.842170943040401e-14
+    },
+    {
+      "t": 2544.89999999851,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 631,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2545,
+      "x": 339.36,
+      "y": 221.59999999999997,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 631.1000000014901,
+      "hunterAimDistance": 5.684341886080802e-14
+    },
+    {
+      "t": 2560.699999999255,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 646.8000000007451,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2560.699999999255,
+      "x": 339.36,
+      "y": 221.6,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 646.8000000007451,
+      "hunterAimDistance": 2.842170943040401e-14
+    },
+    {
+      "t": 2572.39999999851,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 658.5,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2572.39999999851,
+      "x": 339.36,
+      "y": 221.6,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 658.5,
+      "hunterAimDistance": 2.842170943040401e-14
+    },
+    {
+      "t": 2589,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 675.1000000014901,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2589,
+      "x": 339.36,
+      "y": 221.59999999999997,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 675.1000000014901,
+      "hunterAimDistance": 5.684341886080802e-14
+    },
+    {
+      "t": 2606.699999999255,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 692.8000000007451,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2606.699999999255,
+      "x": 339.36,
+      "y": 221.6,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 692.8000000007451,
+      "hunterAimDistance": 2.842170943040401e-14
+    },
+    {
+      "t": 2641.89999999851,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 728,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2642,
+      "x": 339.36,
+      "y": 221.60000000000002,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 728.1000000014901,
+      "hunterAimDistance": 0
+    },
+    {
+      "t": 2647.7999999988824,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 733.9000000003725,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2647.7999999988824,
+      "x": 339.36,
+      "y": 221.6,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 733.9000000003725,
+      "hunterAimDistance": 2.842170943040401e-14
+    },
+    {
+      "t": 2658.199999999255,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 744.3000000007451,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2658.2999999988824,
+      "x": 339.36,
+      "y": 221.6,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 744.4000000003725,
+      "hunterAimDistance": 2.842170943040401e-14
+    },
+    {
+      "t": 2680.89999999851,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 767,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2681,
+      "x": 339.36,
+      "y": 221.6,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 767.1000000014901,
+      "hunterAimDistance": 2.842170943040401e-14
+    },
+    {
+      "t": 2692,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 778.1000000014901,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2692.0999999996275,
+      "x": 339.36,
+      "y": 221.6,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 778.2000000011176,
+      "hunterAimDistance": 2.842170943040401e-14
+    },
+    {
+      "t": 2706.0999999996275,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 792.2000000011176,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2706.0999999996275,
+      "x": 339.36,
+      "y": 221.6,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 792.2000000011176,
+      "hunterAimDistance": 2.842170943040401e-14
+    },
+    {
+      "t": 2743.7999999988824,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 829.9000000003725,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2743.7999999988824,
+      "x": 339.36,
+      "y": 221.59999999999997,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 829.9000000003725,
+      "hunterAimDistance": 5.684341886080802e-14
+    },
+    {
+      "t": 2759.5,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 845.6000000014901,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2759.5999999996275,
+      "x": 339.36,
+      "y": 221.6,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 845.7000000011176,
+      "hunterAimDistance": 2.842170943040401e-14
+    },
+    {
+      "t": 2773.0999999996275,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 859.2000000011176,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2773.0999999996275,
+      "x": 339.36,
+      "y": 221.6,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 859.2000000011176,
+      "hunterAimDistance": 2.842170943040401e-14
+    },
+    {
+      "t": 2789.0999999996275,
+      "x": 234.32,
+      "y": 185.3961,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 875.2000000011176,
+      "hunterAimDistance": 111.10411322363366
+    },
+    {
+      "t": 2789.0999999996275,
+      "x": 339.36,
+      "y": 221.6,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 875.2000000011176,
+      "hunterAimDistance": 2.842170943040401e-14
+    },
+    {
+      "t": 2805.699999999255,
+      "x": 339.36,
+      "y": 221.59999999999997,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 891.8000000007451,
+      "hunterAimDistance": 5.684341886080802e-14
+    },
+    {
+      "t": 2843.699999999255,
+      "x": 339.36,
+      "y": 221.6,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 929.8000000007451,
+      "hunterAimDistance": 2.842170943040401e-14
+    },
+    {
+      "t": 2845.199999999255,
+      "x": 339.36,
+      "y": 221.60000000000002,
+      "canvasWidth": 808,
+      "canvasHeight": 277,
+      "strokeStyle": "#f3d3a4",
+      "elapsed": 931.3000000007451,
+      "hunterAimDistance": 0
+    }
+  ],
+  "start": 1913.8999999985099,
+  "errors": [],
+  "method": "Constructed validated weak-binding fixture. Reconstruct physical impact center from actual Canvas quadratic slash curves; hunter CSS aim is width*.42,height*.8. Read-only probe; not a skeletal contact benchmark."
+}

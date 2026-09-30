@@ -1,0 +1,29 @@
+{
+  "appId": "com.hollowpact.game",
+  "productName": "Hollowpact",
+  "directories": {
+    "output": "build-desktop"
+  },
+  "files": [
+    "dist/**/*",
+    "desktop/**/*",
+    "package.json"
+  ],
+  "asar": true,
+  "linux": {
+    "target": [
+      "dir"
+    ],
+    "category": "Game",
+    "icon": "desktop/icon.png"
+  },
+  "win": {
+    "target": [
+      "dir"
+    ],
+    "signAndEditExecutable": true,
+    "icon": "desktop/icon.png",
+    "signExecutable": false
+  },
+  "forceCodeSigning": false
+}
