@@ -13,6 +13,22 @@ Historical v0.1/tag/archives preserved; v0.2 is the grim iteration. Read package
 
 The owner repeated on 30 September 2026: do not stop after milestones. AGENTS.md records this standing production instruction. After preserving a reviewed version, begin the next meaningful improvement while the foreground execution remains available. The hourly trigger is a fallback, not a substitute for active work. Do not end merely to announce completion or offer to continue. Be honest about actual hard execution/access limits.
 
+## Active v0.5 production evidence — not yet archived
+
+Package0.5.0 is an active candidate, not an archived/tagged milestone. New campaigns use schema3/engineKind2 with purpose-separated worlds; schema2 campaigns retain exact kind1 behavior. Engine/source changes are frozen and independently accepted after64 rules tests,4608 legal held-out campaigns and120 full legacy state/event replays. See ENGINE-v0.5.md and gameplay-v0.5-engine.md. The880-record ML experiment independently reproduced byte-identically; negative health/pacing outcomes remain explicit and no balance patch or human-fun claim follows.
+
+Draw inspection now has stable public grouping. Dragon seven/fourteen-hit casts retain real per-target cues while the caster stays grounded. Tool paintings map only six compatible equipment cards (four shared families); a six-key warleader sheet is under actual facing/contact review. Original/rejected art inputs and every candidate finding are retained. CandidateCDF4098 repaired an inherited1920collection-grid overlap and passed independent containment/performance checks, but its warleader can point away from a cross-column target. The arena author is repairing this before promotion; do not archive or claim final graphics acceptance yet.
+
+An inherited preferences-loading issue is repaired independently: malformed/null settings no longer hide a valid campaign; both schemas, raw preservation and storage failures were tested on interim997b4623. Root main hash7847bbac18cba3009ea993e68384e2bb1a8399eea4544424fb4823e025dd5526 is frozen. Final combined facing+preferences build/native correspondence remain pending. CDF Linux launch/local negative-feedback export passed under Xvfb/--no-sandbox; this is a retained earlier candidate, not certification of the next combined package. v0.5 native Windows has not run yet.
+
+Concurrent QA initially collided in Playwright's shared trace directory. Exact failed cleanup traces are preserved; unique per-invocation output directories and affected reruns passed without weakening behavior assertions. Preserve the failed run and distinguish its cleanup errors from game behavior.
+
+v0.4 tag/archives remain unchanged. Actual successful draft-storage run36779379544 preserved the exact native ZIP/evidence and three metadata files; all five assets passed read-back hashes. It covers two of six archives only; see MILESTONE-STORAGE.md and milestone-storage-v0.4-actual.md. Four other archive bytes remain local. No public or Steam release occurred. Four attempted official Steamworks documentation reads were blocked403; reviews/steam-gates-2026-09-30/fetch.json records failures rather than claiming documents were inspected.
+
+Immediately after a verified v0.5 archive, implement the independently measured controller/accessibility work in reviews/controller-accessibility-v0.6-plan.md: held Enter/E repeats and modifier handling, source/phase/modal focus recovery, shorter regional/spatial navigation, and an edge-triggered local Gamepad adapter. Its existing prototype is unshipped synthetic evidence; physical controllers/Steam Deck/audio activation remain unverified.
+
+Final combined d6221bf764bad593b04981e87bead7ba6868b72cf361d70671af5c91aac39416 is now frozen for production review: main7847bbac preferences isolation and arena2e2a5d65 target-facing repair. Author14 paired rendering cases and14 actual source-UI cases passed without coordinate/crop/save/event changes. Final27 browser cases and three independent final production reviews are underway; source checkpoint/nativeCI may precede archive acceptance. No v0.5 archive/tag yet.
+
 ## Each bounded cycle
 
 1. Read latest user steering, this file, PRODUCTION.md, AAA-CRAFT-REVIEW.md, current rules, and independent reports. Inspect git status and existing workers; avoid simultaneous edits to the same files. Preserve user changes. Read review findings before adding content.
@@ -38,6 +54,6 @@ The owner repeated on 30 September 2026: do not stop after milestones. AGENTS.md
 
 ## Safeguards
 
-Old releases/reviews/datasets are immutable. scripts/release.mjs refuses overwrite and validates source provenance in desktop packages. A hard-killed release may leave .release-lock; check its recorded owner is no longer active before manual recovery. No default personal telemetry. New saves use hollowpact.run.v2 and settings/tutorial.v2; preserve old Lanternbound keys. Record future migration behavior explicitly.
+Old releases/reviews/datasets are immutable. scripts/release.mjs refuses overwrite and validates source provenance in desktop packages. A hard-killed release may leave .release-lock; check its recorded owner is no longer active before manual recovery. No default personal telemetry. Campaigns retain storage key hollowpact.run.v2: new states use schema3/engineKind2, legacy schema2 remains kind1; settings/tutorial.v2 remain separate; preserve old Lanternbound keys. Record future migration behavior explicitly.
 
 A recurring automation is a bounded development trigger, not proof of continuous execution or guaranteed deployment. If only GitHub connector access exists, make progress within that access; do not pretend local builds/agents ran. Name material blockers accurately and preserve reviewable work before requesting final external publication approval when needed.

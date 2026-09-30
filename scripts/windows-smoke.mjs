@@ -121,9 +121,9 @@ try {
   await page.locator('[data-ui="close"]').first().click();
   const settings = await page.evaluate(key => localStorage.getItem(key), settingsKey);
   assert.deepEqual(JSON.parse(settings), {mute: true, volume: 0.01, motion: false});
-  mark('seed 117 first-run tutorial and battle through controls');
+  mark('seed 121 first-run tutorial and battle through controls');
   await page.locator('[data-ui="new"]').click();
-  await page.locator('#seed').fill('117');
+  await page.locator('#seed').fill('121');
   await page.locator('#new-game-form button[type="submit"]').click();
   await expect(page.locator('[data-ui="learned"]')).toBeVisible();
   await page.locator('[data-ui="learned"]').click();
@@ -133,7 +133,9 @@ try {
   await page.locator('.enemy.valid-target').first().click();
   const saved = await readSave();
   const state = JSON.parse(saved);
-  assert.equal(state.seed, 117);
+  assert.equal(state.seed, 121);
+  assert.equal(state.schema, 3);
+  assert.equal(state.engineKind, 2);
   assert.equal(state.phase, 'battle');
   assert.ok(state.allies.some(unit => unit.acted), 'Command did not persist');
   evidence.state = {seed: state.seed, phase: state.phase, allies: state.allies.length, enemies: state.enemies.length, hp: state.hp};
@@ -143,6 +145,25 @@ try {
   await page.locator('[data-ui="resume"]').click();
   assert.equal(await readSave(), saved);
   assert.equal(await page.evaluate(key => localStorage.getItem(key), settingsKey), settings);
+
+  mark('decode packaged warleader/tool sheets and render actual starter equipment paintings');
+  evidence.decorativeArt = await page.evaluate(async () => {
+    const result = {};
+    for (const file of ['warleader-poses.png', 'tool-vignettes.png']) {
+      const image = new Image(); image.src = new URL(`art/${file}`, document.baseURI).href;
+      await image.decode();
+      result[file] = {width: image.naturalWidth, height: image.naturalHeight, protocol: new URL(image.src).protocol};
+    }
+    return result;
+  });
+  assert.deepEqual(evidence.decorativeArt['warleader-poses.png'], {width:1536,height:1024,protocol:'file:'});
+  assert.deepEqual(evidence.decorativeArt['tool-vignettes.png'], {width:1774,height:887,protocol:'file:'});
+  await page.locator('[data-ui="deck"]').click();
+  for (const id of ['scour', 'ironward', 'sutures']) {
+    await expect(page.locator(`dialog [data-card="${id}"] .card-art`).first()).toHaveClass(/illustration-ready/);
+  }
+  assert.equal(await readSave(), saved);
+  await page.locator('[data-ui="close"]').click();
 
   mark('export explicit synthetic negative feedback through native will-download');
   const destination = path.join(outputDir, 'synthetic-negative-feedback.json');
@@ -164,7 +185,7 @@ try {
   const feedback = JSON.parse(fs.readFileSync(destination, 'utf8'));
   assert.equal(feedback.context.build.sourceDigest, runtime.sourceDigest);
   assert.equal(feedback.context.build.version, version);
-  assert.equal(feedback.context.run.seed, 117);
+  assert.equal(feedback.context.run.seed, 121);
   assert.equal(feedback.responses.confusion, negative);
   assert.equal(feedback.responses.replayIntent, 'no');
   assert.equal(await page.evaluate(() => JSON.stringify({...localStorage})), storage);

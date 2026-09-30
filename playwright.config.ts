@@ -1,5 +1,7 @@
 import { defineConfig } from '@playwright/test';
 export default defineConfig({
+  // Independent reviewers may run concurrently; preserve each runner's traces.
+  outputDir: `test-results/run-${process.pid}-${Date.now()}`,
   testDir: './tests/browser', workers: 1,
   use: { baseURL: 'http://127.0.0.1:4173', browserName: 'chromium',
     launchOptions: { executablePath: '/usr/bin/chromium', args: ['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] },

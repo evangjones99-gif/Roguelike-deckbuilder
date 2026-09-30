@@ -1,11 +1,11 @@
 {
   "project": "Hollowpact",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "createdDate": "2026-09-30",
   "AIContent": true,
   "presentation": "Illustrated 2.5D creature artwork with pose transitions where supplied; not rigged 3D runtime characters",
   "inputsPreserved": true,
-  "sourceRecords": "Generation requests are preserved in the originating Codex chat; stored briefs are summaries. Original generated images and repair inputs are retained in assets/art-sources/v0.2 and assets/art-sources/v0.3 in source archives.",
+  "sourceRecords": "Generation requests are preserved in the originating Codex chat; stored briefs are summaries. Original generated images and repair inputs are retained in assets/art-sources/v0.2 and assets/art-sources/v0.3 in source archives. v0.5 exact requests and images are retained in assets/art-sources/v0.5.",
   "images": [
     {
       "file": "abbey-courtyard.png",
@@ -156,6 +156,82 @@
         "contactShadow": "Local-origin floor shadow; wider/lighter footprint for already-painted attack altitude",
         "sourcePixelsUnchanged": true,
         "limitation": "Six hard painted poses; no new in-between frames or skeletal rig"
+      }
+    },
+    {
+      "file": "tool-vignettes.png",
+      "firstIntroducedVersion": "0.5.0",
+      "sha256": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+      "width": 1774,
+      "height": 887,
+      "mode": "RGB",
+      "creatorTool": "image_gen.imagegen",
+      "rightsReview": "pending before commercial distribution",
+      "generatedOriginal": "/workspace/generated_images/exec-b41676ef-2afe-4e7c-86b8-5841fb4a1819.png",
+      "preservedSource": "assets/art-sources/v0.5/tool-vignettes-still-life.png",
+      "preservedRequest": "assets/art-sources/v0.5/tool-vignettes-still-life-request.json",
+      "brief": "Four original grounded equipment still-life families: chained hook, iron ward plate, needle and red wool thread/bandage, fang and physical bound-creature effigies. Limited semantic mapping only; shared art families rather than unique illustrations for every tool.",
+      "presentationMetadata": {
+        "sourcePixelsUnchanged": true,
+        "layout": "Four 2x2 landscape quadrants; inset sample windows differ between hand and large cards. See src/art.ts.",
+        "fallback": "Original family symbol retained on missing/incorrect-size image; decorative canvas hidden from assistive text.",
+        "independentStudy": "reviews/art-v0.5/review.md",
+        "independentReviewGate": "Source-study acceptance permits limited integration testing. Final production promotion is determined by separate immutable v0.5 runtime review evidence; this metadata does not assert acceptance."
+      }
+    },
+    {
+      "file": "warleader-poses.png",
+      "firstIntroducedVersion": "0.5.0",
+      "sha256": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "creatorTool": "image_gen.imagegen",
+      "rightsReview": "pending before commercial distribution",
+      "generatedOriginal": "/workspace/generated_images/exec-89b6ca1f-8b80-42b9-89ef-664d4bcfeaa5.png",
+      "preservedSource": "assets/art-sources/v0.5/warleader-poses-repair2.png",
+      "preservedReferenceInput": "assets/art-sources/v0.5/warleader-poses-repair1.png",
+      "preservedRequest": "assets/art-sources/v0.5/warleader-poses-repair2-request.json",
+      "brief": "Original Ironjaw Warleader six-pose sheet: armored masked goblin warleader with chipped cleaver and ragged red cape. Initial sheet and two spacing edits retained; final fully contained cells accepted for limited runtime testing.",
+      "layout": {
+        "columns": 3,
+        "rows": 2,
+        "cells": [
+          "idle",
+          "anticipation",
+          "attack",
+          "recovery",
+          "reaction",
+          "death"
+        ],
+        "cameraCropWithinCell": [
+          0,
+          32,
+          512,
+          448
+        ],
+        "groundAnchorsWithinCell": [
+          474,
+          473,
+          476,
+          406,
+          405,
+          406
+        ],
+        "dividerAlphaMaximum": [
+          0,
+          1,
+          0
+        ]
+      },
+      "presentationMetadata": {
+        "sourcePixelsUnchanged": true,
+        "uniformScale": 1.1,
+        "poseBlendMs": 0,
+        "contactLandmarks": "Boots in five standing poses; gauntlet/body plane for collapsed pose rather than lower cleaver tip.",
+        "limitation": "Six hard keys, some highlight/cape drift; requested64px gutters not achieved. Fullcell crop preserves corpse left edge. Not skeletal/inbetween animation.",
+        "independentSourceGate": "reviews/art-v0.5-warleader",
+        "independentReviewGate": "Source-study acceptance permits limited integration testing. Final production promotion is determined by separate immutable v0.5 runtime review evidence; this metadata does not assert acceptance."
       }
     }
   ]

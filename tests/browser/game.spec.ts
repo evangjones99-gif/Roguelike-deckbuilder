@@ -4,6 +4,7 @@ import { createGame, applyAction, legalActions, validateState, CARDS, type Actio
 
 const key = 'hollowpact.run.v2';
 const version=JSON.parse(readFileSync('package.json','utf8')).version;
+const captureId = `${JSON.parse(readFileSync('dist/build-provenance.json','utf8')).sourceDigest.slice(0,12)}-${Date.now()}`;
 test('first-time tutorial, summon/command, save/resume and settings', async ({page}) => {
   test.setTimeout(90000);
   await page.addInitScript(()=>localStorage.setItem('hollowpact.settings.v2',JSON.stringify({mute:true,volume:0,motion:false})));
@@ -36,7 +37,7 @@ test('first-time tutorial, summon/command, save/resume and settings', async ({pa
   await page.locator('#motion').uncheck();
   await expect(page.locator('html')).toHaveAttribute('data-reduced-motion','true');
   await page.getByRole('button',{name:'Close dialog',exact:true}).click();
-  await page.screenshot({path:`reviews/browser-${version}-battle.png`});
+  await page.screenshot({path:`reviews/browser-${version}-${captureId}-battle.png`});
   expect(errors).toEqual([]);
 });
 

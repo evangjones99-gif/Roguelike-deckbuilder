@@ -86,7 +86,7 @@ textarea:focus-visible,select:focus-visible{outline:3px solid #cfb47e;outline-of
 .hunter-icon.hunter-photo,.title-hunter{background-size:230% auto;background-position:43% 0%}
 
 /* Collection rules can wrap differently at each grid width; retain all printed stats. */
-.deck-grid .game-card.large-card{height:auto;min-height:256px}
+.deck-grid .game-card.large-card{width:100%;min-width:0;max-width:200px;height:auto;min-height:256px}
 .dossier-hunter{background-size:contain;background-position:center center}
 #toast{visibility:hidden}#toast.visible{visibility:visible}#toast:empty{visibility:hidden}
 
@@ -96,3 +96,8 @@ textarea:focus-visible,select:focus-visible{outline:3px solid #cfb47e;outline-of
 .battle-guidance>.text-button{flex-shrink:0}
 .battle-guidance.danger-preview{color:#edb6a5;background:#863f342e}
 @media(max-width:760px){.battle-ui{grid-template-rows:64px 195px 220px 195px}.battle-guidance{font-size:12px}.battle-guidance>span{max-width:none}.battle-guidance>.text-button{font-size:11px}}
+
+/* Illustrations remain decorative; original symbols survive failed assets. */
+.card-art.tool-painted canvas{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;opacity:0}
+.card-art.tool-painted.illustration-ready canvas{opacity:1}
+.card-art.tool-painted.illustration-ready>.icon,.card-art.tool-painted.illustration-ready>.card-art-ring{visibility:hidden}

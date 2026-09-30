@@ -113,7 +113,7 @@ test("24 original cards, four creature families and enhancement texts are comple
 });
 
 test("schema 2 saves reject historical schema, presentation menu and malformed inputs", () => {
-  const s = createGame(77);
+  const s = createGame(77, 0, { engineKind: 1 });
   assert.equal(s.schema, 2);
   assert.ok(validateState(s));
   assert.equal(validateState({ ...s, schema: 1 }), false);

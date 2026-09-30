@@ -27,7 +27,7 @@ function canonicalLabels(s: GameState): GameState {
   return copy;
 }
 function replay() {
-  let current = createGame(fixture.seed, fixture.difficulty),
+  let current = createGame(fixture.seed, fixture.difficulty, { engineKind: 1 }),
     old = legacy.createGame(fixture.seed, fixture.difficulty);
   for (const [index, action] of fixture.actions.entries()) {
     assert.ok(legalActions(current).some(a => JSON.stringify(a) === JSON.stringify(action)));

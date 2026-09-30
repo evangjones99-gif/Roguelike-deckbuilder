@@ -1,0 +1,29 @@
+{
+  "version": "0.5.0",
+  "executablePath": "./build-desktop/linux-unpacked/hollowpact",
+  "display": "Xvfb",
+  "rendering": "Canvas2D on virtual display",
+  "sandboxDisabledForTest": true,
+  "steps": [
+    "launch offline packaged binary",
+    "settings motion off",
+    "seed121 start",
+    "tutorial/map",
+    "summon Cairn Hound",
+    "command against enemy"
+  ],
+  "state": {
+    "phase": "battle",
+    "allies": 1,
+    "enemies": 2,
+    "hp": 65
+  },
+  "errors": [],
+  "limitations": [
+    "Linux host only, virtual display/software GPU",
+    "Test launches with --no-sandbox due cloud constraints; normal sandboxed clean-machine launch unverified",
+    "This Linux-only smoke does not establish native Windows launch",
+    "No Steam depot/install test"
+  ],
+  "runtimeSourceDigest": "cdf4098ab5426281d75a22d4565b6d5b92667a42b9937e756a919a97227449af"
+}

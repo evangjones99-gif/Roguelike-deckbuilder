@@ -13,6 +13,7 @@ type Figure = {
   priorPose: CreaturePose | null;
   poseChanged: number;
   side: Side;
+  facing: -1 | 1;
   slot: number;
   count: number;
   born: number;
@@ -211,12 +212,21 @@ export function createArena(canvas: HTMLCanvasElement) {
     }
     return 'idle';
   }
+  function activeGesture(figure: Figure, sampleTime = time): Strike | null {
+    // A caster action may resolve against many targets. Impacts remain separate,
+    // while the body performs only its latest active gesture, never their sum.
+    for (let i = strikes.length - 1; i >= 0; i--) {
+      const strike = strikes[i], age = sampleTime - strike.born;
+      if (strike.source === figure.uid && (strike.kind === 'physical' || strike.kind === 'magic') && age >= 0 && age < attackDuration) return strike;
+    }
+    return null;
+  }
   function figurePose(figure: Figure): CreaturePose {
     if (reduced) return 'idle';
     if (figure.dead !== null && time >= figure.dead) return 'death';
     const hitAge = time - figure.hit;
     if (hitAge >= 0 && hitAge < CREATURE_REACTION_MS / 1000) return 'reaction';
-    const command = strikes.filter(strike => strike.source === figure.uid && (strike.kind === 'physical' || strike.kind === 'magic') && time >= strike.born && time - strike.born < attackDuration).at(-1);
+    const command = activeGesture(figure);
     return command ? sequencePose(time - command.born) : 'idle';
   }
   function poseFrame(atlas: CreatureAnimationAtlas, pose: CreaturePose, age: number): CreaturePoseFrame | null {
@@ -246,22 +256,17 @@ export function createArena(canvas: HTMLCanvasElement) {
 
   function motionFor(figure: Figure, sampleTime = time): Point {
     if (reduced || (figure.dead !== null && sampleTime >= figure.dead)) return { x: 0, y: 0 };
-    let x = 0, y = 0;
-    for (const strike of strikes) if (strike.source === figure.uid && strike.kind === 'physical') {
-      const age = sampleTime - strike.born;
-      if (age >= 0 && age < attackDuration) {
-        let amount = 0;
-        if (age < .14) amount = -Math.sin(age / .14 * Math.PI) * .035;
-        // Reach the victim with the painted jaw/claws on the impact frame,
-        // then withdraw through the attack hold and recovery pose.
-        else if (age < impactTime) amount = Math.sin((age - .14) / (impactTime - .14) * Math.PI * .5) * .74;
-        else if (age < .32) amount = .74 - (age - impactTime) / (.32 - impactTime) * .09;
-        else amount = Math.max(0, 1 - (age - .32) / .26) * .65;
-        x += (strike.to.x - strike.from.x) * amount;
-        y += (strike.to.y - strike.from.y) * amount;
-      }
-    }
-    return { x, y };
+    const strike = activeGesture(figure, sampleTime);
+    if (!strike || strike.kind !== 'physical') return { x: 0, y: 0 };
+    const age = sampleTime - strike.born;
+    let amount = 0;
+    if (age < .14) amount = -Math.sin(age / .14 * Math.PI) * .035;
+    // Reach the victim with the painted jaw/claws on the impact frame,
+    // then withdraw through the attack hold and recovery pose.
+    else if (age < impactTime) amount = Math.sin((age - .14) / (impactTime - .14) * Math.PI * .5) * .74;
+    else if (age < .32) amount = .74 - (age - impactTime) / (.32 - impactTime) * .09;
+    else amount = Math.max(0, 1 - (age - .32) / .26) * .65;
+    return { x: (strike.to.x - strike.from.x) * amount, y: (strike.to.y - strike.from.y) * amount };
   }
 
   function prepareFigure(figure: Figure) {
@@ -272,6 +277,17 @@ export function createArena(canvas: HTMLCanvasElement) {
     }
     figure.lastPoint = position(figure);
     const currentPose = figurePose(figure);
+    // Aim the painted anatomy with the accepted physical gesture. Keep its
+    // last direction during reaction/collapse; counters and area casts never
+    // invent a new facing. A settled living idle returns to its side profile.
+    if (figure.dead === null || time < figure.dead) {
+      const gesture = activeGesture(figure);
+      if (gesture?.kind === 'physical' && !reduced) {
+        const dx = gesture.to.x - gesture.from.x;
+        const neutral = Math.max(4, figureSize(figure) * .04);
+        if (Math.abs(dx) > neutral) figure.facing = dx > 0 ? 1 : -1;
+      } else if (currentPose === 'idle') figure.facing = figure.side === 'enemy' ? -1 : 1;
+    }
     if (currentPose !== figure.pose) {
       figure.priorPose = figure.pose; figure.pose = currentPose; figure.poseChanged = time;
     }
@@ -308,8 +324,8 @@ export function createArena(canvas: HTMLCanvasElement) {
     const blend = poseBlend(figure);
     ctx.save(); ctx.globalAlpha = alpha;
     ctx.translate(point.x + movement.x + recoil, point.y + movement.y);
-    // Enemies face the bound party; the assets retain their painted anatomy.
-    ctx.scale(figure.side === 'enemy' ? -1 : 1, breath);
+    // Mirror the original painted anatomy toward its actual resolved target.
+    ctx.scale(figure.facing, breath);
     if (atlasImage && loaded(atlasImage) && figure.animation) {
       const current = poseFrame(figure.animation, figure.pose, time - figure.poseChanged);
       const prior = figure.priorPose && blend < 1 ? poseFrame(figure.animation, figure.priorPose, 0) : null;
@@ -404,7 +420,7 @@ export function createArena(canvas: HTMLCanvasElement) {
     strikes = [];
     for (const [uid, figure] of figures) {
       if (figure.dead !== null) figures.delete(uid);
-      else { figure.born = time - 2; figure.hit = -10; figure.pose = 'idle'; figure.priorPose = null; figure.poseChanged = time - 2; figure.layoutFrom = { ...figure.layoutTarget }; figure.sizeFrom = figure.sizeTarget; figure.layoutStarted = time - 2; }
+      else { figure.born = time - 2; figure.hit = -10; figure.pose = 'idle'; figure.priorPose = null; figure.poseChanged = time - 2; figure.facing = figure.side === 'enemy' ? -1 : 1; figure.layoutFrom = { ...figure.layoutTarget }; figure.sizeFrom = figure.sizeTarget; figure.layoutStarted = time - 2; }
     }
     resolvePresentationWaiters();
   }
@@ -433,7 +449,7 @@ export function createArena(canvas: HTMLCanvasElement) {
     reduced = next; if (reduced) settle(); resume();
   }
   function createFigure(unit: Unit, side: Side, slot: number, count: number): Figure {
-    const figure: Figure = { uid: unit.uid, unit, art: portraitFor(unit.species), animation: animationFor(unit.species), pose: 'idle', priorPose: null, poseChanged: time - 2, side, slot, count, born: reduced ? time - 2 : time, hit: -10, dead: null, departing: false, deathAnchored: false, phase: random() * 6.28, lastPoint: { x: 0, y: 0 }, layoutFrom: { x: 0, y: 0 }, layoutTarget: { x: 0, y: 0 }, layoutStarted: time - 2, sizeFrom: 0, sizeTarget: 0 };
+    const figure: Figure = { uid: unit.uid, unit, art: portraitFor(unit.species), animation: animationFor(unit.species), pose: 'idle', priorPose: null, poseChanged: time - 2, side, facing: side === 'enemy' ? -1 : 1, slot, count, born: reduced ? time - 2 : time, hit: -10, dead: null, departing: false, deathAnchored: false, phase: random() * 6.28, lastPoint: { x: 0, y: 0 }, layoutFrom: { x: 0, y: 0 }, layoutTarget: { x: 0, y: 0 }, layoutStarted: time - 2, sizeFrom: 0, sizeTarget: 0 };
     const target = targetPosition(figure), size = targetSize(figure);
     figure.layoutFrom = target; figure.layoutTarget = target;
     figure.sizeFrom = size; figure.sizeTarget = size; figure.lastPoint = target;
@@ -540,7 +556,11 @@ export function createArena(canvas: HTMLCanvasElement) {
           }
           queueStrike(source, event.target, 'ward', delayFor(event.source));
         } else if (event.type === 'hit') {
-          const kind = event.kind === 'retaliation' ? 'counter' : event.kind === 'command' || (event.kind === 'enemy' && !/wraith|necromancer/.test(figures.get(event.source)?.unit.species ?? '')) ? 'physical' : 'magic';
+          // The trace proves this hit executed. Its pre-action intent identifies
+          // ranged area casts without parsing localized labels or replaying intent.
+          const caster = before.enemies.find(unit => unit.uid === event.source);
+          const areaCast = event.kind === 'enemy' && caster?.intent?.target === 'all';
+          const kind = event.kind === 'retaliation' ? 'counter' : event.kind === 'command' || (event.kind === 'enemy' && !areaCast && !/wraith|necromancer/.test(caster?.species ?? figures.get(event.source)?.unit.species ?? '')) ? 'physical' : 'magic';
           const strike = queueStrike(source, event.target, kind, delayFor(event.source, event.kind === 'retaliation'));
           lastHits.set(event.target, strike);
         } else if (event.type === 'control' || event.type === 'buff') {

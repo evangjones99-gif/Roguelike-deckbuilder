@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {
   applyAction,
   applyActionWithEvents,
-  createGame,
+  createGame as createCurrentGame,
   legalActions,
   validateState,
   CARDS,
@@ -15,6 +15,8 @@ import {
 import * as archived from "../reviews/ml-policy-v0.2/engine";
 import { ENEMIES } from "../src/content";
 import { chooseHeuristic } from "../scripts/simulate";
+const createGame = (seed: number, difficulty = 0) =>
+  createCurrentGame(seed, difficulty, { engineKind: 1 });
 const starting = ["cairnhound", "scour", "ironward", "sutures", "sunder"];
 function battle(cards = starting) {
   const map = createGame(31);
@@ -126,7 +128,7 @@ test("first lethal hunter strike suppresses every later enemy strike", () => {
   );
   assert.equal(
     JSON.stringify(result.state),
-    JSON.stringify(archived.applyAction(s, { type: "endTurn" })),
+    JSON.stringify(archived.applyAction(s as archived.GameState, { type: "endTurn" })),
   );
 });
 
@@ -182,7 +184,7 @@ test("one executed area attack finishes its real targets even if hunter dies, th
   assert.equal(result.state.allies.length, 0);
   assert.equal(
     JSON.stringify(result.state),
-    JSON.stringify(archived.applyAction(s, { type: "endTurn" })),
+    JSON.stringify(archived.applyAction(s as archived.GameState, { type: "endTurn" })),
   );
 });
 
@@ -478,7 +480,7 @@ test("Silence reports a truthful noninjury control event and redundant silence e
   assert.equal(
     JSON.stringify(result.state),
     JSON.stringify(
-      archived.applyAction(s, play(s, "silence", s.enemies[0].uid)),
+      archived.applyAction(s as archived.GameState, play(s, "silence", s.enemies[0].uid)),
     ),
   );
   const again = applyActionWithEvents(
@@ -516,7 +518,7 @@ test("Edict reports each real attack increase in roster order without invented i
   );
   assert.equal(
     JSON.stringify(result.state),
-    JSON.stringify(archived.applyAction(s, play(s, "edict"))),
+    JSON.stringify(archived.applyAction(s as archived.GameState, play(s, "edict"))),
   );
   const empty = battle(["edict", "scour", "ironward", "sutures", "survey"]);
   assert.deepEqual(

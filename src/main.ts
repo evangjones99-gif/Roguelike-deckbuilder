@@ -2,7 +2,8 @@ import './style.css';
 import packageInfo from '../package.json';
 import { applyActionWithEvents, createGame, CARDS, legalActions, validateState, recoverLegacySilenceSave, cardTarget, type GameState, type Action, type Unit, type CardDef } from './engine';
 import { createArena } from './arena';
-import { portraitFor } from './art';
+import { portraitFor, toolArtFor } from './art';
+import { createToolIllustrations } from './tool-art';
 import { ENEMIES, RELICS, SHOP_PRICES, EVENT_CHOICES, bossForSeed } from './content';
 
 const SAVE_KEY = 'hollowpact.run.v2';
@@ -40,6 +41,7 @@ let state = createGame(Date.now() >>> 0);
 let title = true;
 // CSS custom-property URLs resolve at their consuming stylesheet; use a document-based absolute URL.
 const ART_BASE = new URL(`${import.meta.env.BASE_URL}art/`, document.baseURI).href;
+const toolIllustrations = createToolIllustrations();
 document.documentElement.style.setProperty('--courtyard-art', `url("${ART_BASE}abbey-courtyard.png")`);
 document.documentElement.style.setProperty('--hunter-art', `url("${ART_BASE}hunter-portrait.png")`);
 let selected: Selection = null;
@@ -51,8 +53,10 @@ try {
   const stored = localStorage.getItem(SETTINGS_KEY);
   if (stored) {
     const value = JSON.parse(stored);
-    if (typeof value.mute === 'boolean' && typeof value.volume === 'number' && Number.isFinite(value.volume) && typeof value.motion === 'boolean') settings = { mute: value.mute, volume: Math.max(0, Math.min(1, value.volume)), motion: value.motion };
+    if (value !== null && typeof value === 'object' && !Array.isArray(value) && typeof value.mute === 'boolean' && typeof value.volume === 'number' && Number.isFinite(value.volume) && typeof value.motion === 'boolean') settings = { mute: value.mute, volume: Math.max(0, Math.min(1, value.volume)), motion: value.motion };
   }
+} catch { /* Unreadable preferences use defaults without hiding the campaign. */ }
+try {
   const save = localStorage.getItem(SAVE_KEY);
   if (save) {
     const value: unknown = JSON.parse(save);
@@ -68,7 +72,12 @@ try {
         } catch {
           saveNotice = pendingRecoveryBackup === null ? 'Recovered the repeated Silence status. A backup is preserved; the browser could not store the updated campaign.' : 'Recovered the repeated Silence status for this window. The original save is unchanged; the browser could not create a backup.';
         }
-      } else saveNotice = 'An incompatible save was found. Start a new campaign to continue.';
+      } else {
+        const candidate = value && typeof value === 'object' ? value as Record<string, unknown> : null;
+        saveNotice = candidate && (typeof candidate.schema === 'number' && candidate.schema > 3 || candidate.schema === 3 && candidate.engineKind !== 2)
+          ? 'This campaign uses an unsupported rules version. Its saved data is unchanged. Start a new campaign to continue.'
+          : 'An incompatible save was found. Start a new campaign to continue.';
+      }
     }
   }
 } catch { saveNotice = 'Your save could not be read. A new campaign is still available.'; }
@@ -318,7 +327,7 @@ function render() {
   $('footer').innerHTML = `<span>v${VERSION} <span class="footer-dot">·</span> Playable prototype</span><span>${title ? 'Original dark fantasy · Working title' : `Seed ${state.seed} <span class="footer-dot">·</span> Contract saved locally`}</span><button data-ui="fullscreen" class="text-button">Fullscreen</button>`;
   try { arena?.setSelected(selected?.kind === 'attack' ? selected.uid : null); arena?.render(state); } catch { $('arena-wrap').classList.add('arena-fallback'); }
   if (focusKey) document.querySelector<HTMLElement>(`[data-focus="${CSS.escape(focusKey)}"]`)?.focus({ preventScroll: true });
-
+  toolIllustrations.refresh();
 }
 
 function renderTitle() {
@@ -500,7 +509,8 @@ function renderCard(card: CardDef, opts: { handIndex?: number; disabled?: boolea
   const action = opts.handIndex !== undefined ? 'data-ui="play-card"' : opts.reward ? 'data-action="reward"' : opts.shop ? 'data-action="buy"' : 'data-ui="inspect"';
   const price = SHOP_PRICES[card.type];
   const target = cardTarget(card.id);
-  return `<button class="game-card ${card.type} ${opts.selected ? 'selected' : ''} ${opts.disabled ? 'unplayable' : ''} ${opts.handIndex === undefined ? 'large-card' : ''}" ${action} data-index="${opts.handIndex ?? ''}" data-card="${escape(card.id)}" data-focus="${opts.handIndex !== undefined ? `card-${opts.handIndex}` : `card-${escape(card.id)}`}" aria-disabled="${!!opts.disabled}" ${opts.disabled && opts.handIndex === undefined ? 'disabled' : ''} aria-label="${escape(card.name)}, ${card.cost} energy. ${escape(cardRules(card))}${opts.disabled ? '. Currently unavailable.' : ''}"><span class="card-cost">${card.cost}</span><span class="card-art" style="--card-color:${escape(card.color)}">${card.type === 'summon' ? creature(card.species, card.color) : icon(card.effect === 'block' ? 'shield' : card.effect === 'heal' ? 'heart' : card.effect === 'draw' ? 'book' : 'energy')}<span class="card-art-ring"></span></span><span class="card-name">${escape(card.name)}</span><span class="card-kind">${card.type === 'summon' ? 'BINDING' : `TOOL${target === 'none' ? '' : ' · CHOOSE TARGET'}`}</span><span class="card-description">${escape(cardRules(card))}</span>${card.type === 'summon' ? `<span class="card-stats">${icon('battle')} ${card.attack} Attack <span>${icon('heart')} ${card.hp} Health</span></span>` : ''}${opts.reward ? `<span class="card-choose">Add to deck ${icon('arrow')}</span>` : opts.shop ? `<span class="card-choose">${icon('gold')} ${price} gold ${icon('arrow')}</span>` : ''}</button>`;
+  const art = toolArtFor(card.id);
+  return `<button class="game-card ${card.type} ${opts.selected ? 'selected' : ''} ${opts.disabled ? 'unplayable' : ''} ${opts.handIndex === undefined ? 'large-card' : ''}" ${action} data-index="${opts.handIndex ?? ''}" data-card="${escape(card.id)}" data-focus="${opts.handIndex !== undefined ? `card-${opts.handIndex}` : `card-${escape(card.id)}`}" aria-disabled="${!!opts.disabled}" ${opts.disabled && opts.handIndex === undefined ? 'disabled' : ''} aria-label="${escape(card.name)}, ${card.cost} energy. ${escape(cardRules(card))}${opts.disabled ? '. Currently unavailable.' : ''}"><span class="card-cost">${card.cost}</span><span class="card-art ${art ? 'tool-painted' : ''}" style="--card-color:${escape(card.color)}">${art ? `<canvas data-tool-art="${art}" aria-hidden="true"></canvas>` : ''}${card.type === 'summon' ? creature(card.species, card.color) : icon(card.effect === 'block' ? 'shield' : card.effect === 'heal' ? 'heart' : card.effect === 'draw' ? 'book' : 'energy')}<span class="card-art-ring"></span></span><span class="card-name">${escape(card.name)}</span><span class="card-kind">${card.type === 'summon' ? 'BINDING' : `TOOL${target === 'none' ? '' : ' · CHOOSE TARGET'}`}</span><span class="card-description">${escape(cardRules(card))}</span>${card.type === 'summon' ? `<span class="card-stats">${icon('battle')} ${card.attack} Attack <span>${icon('heart')} ${card.hp} Health</span></span>` : ''}${opts.reward ? `<span class="card-choose">Add to deck ${icon('arrow')}</span>` : opts.shop ? `<span class="card-choose">${icon('gold')} ${price} gold ${icon('arrow')}</span>` : ''}</button>`;
 }
 function renderRewards() {
   $('scene-ui').innerHTML = `<div class="page-panel reward-panel"><div class="page-intro"><span class="eyebrow">WARRANT CLOSED</span><h1>Take what keeps you alive.</h1><p>Claim one binding or tool. Refuse the reward to keep a tighter deck.</p></div><div class="reward-cards">${state.rewards.map(id => renderCard(CARDS[id], { reward: true })).join('')}</div><button class="button secondary" data-action="reward" data-card="">Leave the salvage ${icon('arrow')}</button><span class="panel-footnote">Permanent addition. Temporary combat bonuses have ended.</span></div>`;
@@ -540,11 +550,12 @@ function openDialog(name: string, content: string, wide = false) {
   dialog.className = wide ? 'wide-dialog' : '';
   dialog.innerHTML = `<div class="dialog-head"><h2 id="dialog-title">${escape(name)}</h2><button class="icon-button" data-ui="close" aria-label="Close dialog">${icon('close')}</button></div><div class="dialog-body">${content}</div>`;
   if (!dialog.open) dialog.showModal();
+  toolIllustrations.refresh();
 }
 function closeDialog() { $<HTMLDialogElement>('dialog').close(); }
 function openNew() {
   if (settlingCombat) { cancelPresentation(); render(); }
-  openDialog('A new campaign', `<p class="dialog-copy">The seed fixes the campaign. Reuse it to test a different deck and method.</p><form id="new-game-form"><label class="field-label" for="seed">Campaign seed <small>Any number or words</small></label><input id="seed" name="seed" type="text" maxlength="64" value="${Math.floor(Math.random() * 9999999)}" autocomplete="off"/><fieldset class="difficulty-options"><legend>Contract difficulty</legend><label><input type="radio" name="difficulty" value="0" checked/><span><strong>Initiate</strong><small>Lower pressure. Learn command timing and target priorities.</small></span></label><label><input type="radio" name="difficulty" value="1"/><span><strong>Hunter</strong><small>Stronger opposition. Less room for wasted orders.</small></span></label><label><input type="radio" name="difficulty" value="2"/><span><strong>Veteran</strong><small>Highest enemy pressure. Every binding must earn its place.</small></span></label></fieldset>${!title && !['victory','defeat'].includes(state.phase) || savedRun && !['victory','defeat'].includes(savedRun.phase) ? '<p class="abandon-notice">Beginning a new campaign replaces the current v0.2 save.</p>' : ''}<button class="button primary full-width" type="submit">Accept the warrant ${icon('arrow')}</button></form>`);
+  openDialog('A new campaign', `<p class="dialog-copy">The seed fixes the campaign. Reuse it to test a different deck and method.</p><form id="new-game-form"><label class="field-label" for="seed">Campaign seed <small>Any number or words</small></label><input id="seed" name="seed" type="text" maxlength="64" value="${Math.floor(Math.random() * 9999999)}" autocomplete="off"/><fieldset class="difficulty-options"><legend>Contract difficulty</legend><label><input type="radio" name="difficulty" value="0" checked/><span><strong>Initiate</strong><small>Lower pressure. Learn command timing and target priorities.</small></span></label><label><input type="radio" name="difficulty" value="1"/><span><strong>Hunter</strong><small>Stronger opposition. Less room for wasted orders.</small></span></label><label><input type="radio" name="difficulty" value="2"/><span><strong>Veteran</strong><small>Highest enemy pressure. Every binding must earn its place.</small></span></label></fieldset>${!title && !['victory','defeat'].includes(state.phase) || savedRun && !['victory','defeat'].includes(savedRun.phase) ? '<p class="abandon-notice">Beginning a new campaign replaces your current campaign.</p>' : ''}<button class="button primary full-width" type="submit">Accept the warrant ${icon('arrow')}</button></form>`);
 }
 function openTutorial() {
   openDialog('Know your tools. Read your quarry.', `<p class="dialog-copy">Keep the hunter alive and defeat the final contract. The arena shows the fight; the side panels show the exact rules.</p><div class="tutorial-steps"><div><span>1</span><section><h3>Spend energy deliberately</h3><p>Start each turn with <strong>5 energy and 5 cards</strong>. A card’s corner shows its cost. Unplayed cards enter discard at turn end. When draw runs out, discard reshuffles.</p></section></div><div><span>2</span><section><h3>Deploy a binding</h3><p>Creature cards occupy one of <strong>6 binding slots</strong>. They remain through the fight. Their cards stay out of your piles while alive; fallen creatures return to discard.</p></section></div><div><span>3</span><section><h3>Give an explicit command</h3><p><strong>Select a ready creature, then an enemy.</strong> One free command per creature each turn, including its arrival turn. Targeted tools also wait for your choice. Use each creature’s <strong>Inspect button (i)</strong> to read traits.</p></section></div><div><span>4</span><section><h3>Read every intent</h3><p>Enemy panels show their next target, damage, guard, or reinforcements. Intents resolve in order when you <strong>End turn</strong>. If a marked creature falls, its attacker hits the hunter. Block expires at your next turn; some enemies explicitly ignore it.</p></section></div></div><div class="tutorial-shortcuts"><kbd>E</kbd> End turn <kbd>Esc</kbd> Cancel / pause <kbd>Tab</kbd> Navigate <kbd>Enter</kbd> Choose</div><button class="button primary full-width" data-ui="learned">Accept field orders ${icon('arrow')}</button>`, true);
@@ -560,7 +571,10 @@ function openDeck(pile: 'deck' | 'draw' | 'discard' = 'deck', removing = false) 
   const ids = state[pile];
   const counts = new Map<string, number>();
   ids.forEach(id => counts.set(id, (counts.get(id) || 0) + 1));
-  openDialog(removing ? 'Lighten your deck · 35 gold' : `${pile === 'deck' ? 'Campaign deck' : pile === 'draw' ? 'Draw pile' : 'Discard pile'} · ${ids.length} cards`, `${removing ? '<p class="dialog-copy">Choose one card to remove permanently. This costs 35 gold.</p>' : `<p class="dialog-copy">${pile === 'draw' ? 'Grouped by card, without revealing draw order.' : pile === 'discard' ? 'These cards return when your draw pile reshuffles.' : 'Bindings and tools for this campaign. Living bindings stay out of the draw pile until they fall.'}</p>`}<div class="deck-grid">${Array.from(counts).map(([id, count]) => `<div class="deck-entry">${removing ? `<button class="remove-card" data-action="remove" data-index="${state.deck.indexOf(id)}">${creature(CARDS[id].species, CARDS[id].color)}<span><strong>${escape(CARDS[id].name)}</strong><small>${count} in deck · ${CARDS[id].cost} energy</small><p>${escape(CARDS[id].text)}</p></span>${icon('close')}</button>` : `${renderCard(CARDS[id], { inspect: true })}<span class="copy-count">${count} ${count === 1 ? 'copy' : 'copies'}</span>`}</div>`).join('') || '<p class="empty-pile">This pile is empty.</p>'}</div>${pile === 'deck' && !removing && state.relics.length ? `<h3 class="charms-heading">Recovered relics</h3><div class="charm-list">${state.relics.map(r => `<p>${icon('moon')}<span><strong>${escape(relicInfo[r]?.name || r)}</strong><small>${escape(relicInfo[r]?.text || '')}</small></span></p>`).join('')}</div>` : ''}`, true);
+  // Draw categories must depend only on public identities/counts, never pile position.
+  const grouped = Array.from(counts);
+  if (pile === 'draw') grouped.sort(([a], [b]) => a < b ? -1 : a > b ? 1 : 0);
+  openDialog(removing ? 'Lighten your deck · 35 gold' : `${pile === 'deck' ? 'Campaign deck' : pile === 'draw' ? 'Draw pile' : 'Discard pile'} · ${ids.length} cards`, `${removing ? '<p class="dialog-copy">Choose one card to remove permanently. This costs 35 gold.</p>' : `<p class="dialog-copy">${pile === 'draw' ? 'Grouped by card, without revealing draw order.' : pile === 'discard' ? 'These cards return when your draw pile reshuffles.' : 'Bindings and tools for this campaign. Living bindings stay out of the draw pile until they fall.'}</p>`}<div class="deck-grid">${grouped.map(([id, count]) => `<div class="deck-entry">${removing ? `<button class="remove-card" data-action="remove" data-index="${state.deck.indexOf(id)}">${creature(CARDS[id].species, CARDS[id].color)}<span><strong>${escape(CARDS[id].name)}</strong><small>${count} in deck · ${CARDS[id].cost} energy</small><p>${escape(CARDS[id].text)}</p></span>${icon('close')}</button>` : `${renderCard(CARDS[id], { inspect: true })}<span class="copy-count">${count} ${count === 1 ? 'copy' : 'copies'}</span>`}</div>`).join('') || '<p class="empty-pile">This pile is empty.</p>'}</div>${pile === 'deck' && !removing && state.relics.length ? `<h3 class="charms-heading">Recovered relics</h3><div class="charm-list">${state.relics.map(r => `<p>${icon('moon')}<span><strong>${escape(relicInfo[r]?.name || r)}</strong><small>${escape(relicInfo[r]?.text || '')}</small></span></p>`).join('')}</div>` : ''}`, true);
 }
 function openHunter() {
   openDialog(HUNTER_NAME, `<div class="hunter-dossier"><div class="hunter-photo dossier-hunter" aria-hidden="true"></div><section><span class="eyebrow">THE IRON WITNESS · CONTRACT HUNTER</span><h3>${HUNTER_NAME}</h3><p>A field knife. A heavy seal gauntlet. Scars that never quite closed.</p><p>Voss binds what others bury, and answers every warrant in person.</p></section></div><div class="dossier-rule"><h3>Your part in the pact</h3><p>Keep the hunter alive. Tools spend energy; bound creatures take your commands. Hunter health persists between contracts.</p><strong>${title && !savedRun ? 'A fresh campaign begins with 65 health.' : `${state.hp}/${state.maxHp} hunter health · ${state.block} block.`}</strong></div><button class="button secondary full-width" data-ui="close">Return</button>`);
@@ -568,7 +582,7 @@ function openHunter() {
 type FeedbackContext = {
   build: { version: string; sourceDigest: string | null; channel: 'development' | 'packaged' };
   screen: string;
-  run: { seed: number; difficulty: number; phase: GameState['phase']; contract: number; hunterHealth: number; maximumHealth: number; deck: string[]; relics: string[]; stats: GameState['stats'] } | null;
+  run: { seed: number; difficulty: number; phase: GameState['phase']; contract: number; hunterHealth: number; maximumHealth: number; saveSchema: GameState['schema']; rulesGeneration: 1 | 2; deck: string[]; relics: string[]; stats: GameState['stats'] } | null;
 };
 let feedbackContext: FeedbackContext | null = null;
 function openFeedback() {
@@ -577,6 +591,7 @@ function openFeedback() {
     screen: title ? 'title' : state.phase,
     run: title && !savedRun ? null : {
       seed: state.seed, difficulty: state.difficulty, phase: state.phase, contract: state.floor, hunterHealth: state.hp, maximumHealth: state.maxHp,
+      saveSchema: state.schema, rulesGeneration: state.schema === 3 ? state.engineKind : 1,
       deck: state.deck.slice(), relics: state.relics.slice(),
       stats: { cardsPlayed: state.stats.cardsPlayed, damageDealt: state.stats.damageDealt, turns: state.stats.turns, battles: state.stats.battles },
     },
@@ -738,5 +753,5 @@ $<HTMLDialogElement>('dialog').addEventListener('click', event => {
 });
 document.addEventListener('visibilitychange', () => { if (settlingCombat) finishPresentation(presentationEpoch); });
 window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', event => { if (event.matches && settlingCombat) finishPresentation(presentationEpoch); });
-window.addEventListener('beforeunload', () => { disposed = true; cancelPresentation(); sceneObserver.disconnect(); arena?.dispose(); });
+window.addEventListener('beforeunload', () => { disposed = true; cancelPresentation(); sceneObserver.disconnect(); toolIllustrations.dispose(); arena?.dispose(); });
 render();
