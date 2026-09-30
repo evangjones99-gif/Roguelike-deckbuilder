@@ -11,3 +11,8 @@ releases/*/desktop/
 *.log
 .DS_Store
 .release-lock/
+
+# Verbose local playtest traces are preserved losslessly as tracked .json.gz.
+reviews/gameplay-v0.2-pilot.json
+reviews/gameplay-v0.2-experiments.json
+reviews/gameplay-v0.2-quarry-holdout.json

@@ -1,0 +1,1 @@
+Original image-generation outputs and atlas repair inputs, retained without alteration. Runtime copies live in public/art. Their hashes, briefs, tool attribution and pending rights review are in public/art/PROVENANCE.json. Exact generation requests are in the originating Codex chat; the briefs are summaries, not claimed verbatim prompts.

@@ -1,4 +1,6 @@
-# Lanternbound — integration contract
+# Lanternbound v0.1 — historical integration contract
+
+Preserved as the first milestone contract. The owner changed the art direction and set AAA craft as the target. HOLLOWPACT v0.2 uses schema2, targeted camp training, passive descriptions, announced reinforcements and an illustrated 2.5D arena; see ENGINE-v0.2.md and ART-DIRECTION.md for the current integration direction.
 
 Working title. This is an original folklore monster hunter who casts spells and commands summoned companions. Cozy lantern light; dangerous woodland contracts. Plain English, two card types. All rules renderer-free TypeScript; deterministic seeded runs.
 

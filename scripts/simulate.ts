@@ -39,16 +39,35 @@ export function heuristicScore(s: GameState, a: Action): number {
         case "damage":
         case "siphon":
         case "pack":
+        case "solo":
           score =
             55 +
             (u
               ? Math.min(
-                  c.value! + (c.effect === "pack" ? s.allies.length * 2 : 0),
+                  c.value! +
+                    (c.effect === "pack"
+                      ? s.allies.length * 2
+                      : c.effect === "solo" && s.allies.length === 0
+                        ? 4
+                        : 0) +
+                    s.allies.filter((a) => a.species === "spider").length * 2,
                   u.hp,
                 )
               : 0) *
               3 +
             (u && u.hp <= c.value! ? 30 : 0);
+          break;
+        case "shred":
+          score = u && u.block > 0 ? 125 + u.block * 3 : 45;
+          break;
+        case "control":
+          score =
+            u && (u.intent?.damage || u.intent?.summon?.length)
+              ? 50 + u.intent.damage * 3 + (u.intent.summon?.length ?? 0) * 20
+              : 0;
+          break;
+        case "hunterheal":
+          score = Math.min(s.maxHp - s.hp, c.value!) * 8;
           break;
         case "aoe":
           score =
@@ -100,7 +119,12 @@ export function heuristicScore(s: GameState, a: Action): number {
         65 +
         Math.min(u.attack, e.hp) * 3 +
         (u.attack >= e.hp + e.block ? 40 : 0) -
-        e.block * 2
+        e.block * 2 +
+        (e.cardId === "revenant" ? 25 : 0) +
+        (e.cardId === "acolyte" || e.cardId === "cantor" ? 10 : 0) -
+        (e.block > 0 && ["ironjaw", "raider"].includes(e.cardId) && u.hp <= 2
+          ? 40
+          : 0)
       );
     }
     case "endTurn":
@@ -109,36 +133,55 @@ export function heuristicScore(s: GameState, a: Action): number {
       return a.card
         ? { summon: 30, spell: 10 }[CARDS[a.card].type] +
             ([
-              "rally",
-              "thorns",
-              "shelter",
-              "siphon",
-              "willowdrake",
-              "moonmoth",
-              "communion",
+              "edict",
+              "harpoon",
+              "aegis",
+              "gravetithe",
+              "ossuarycolossus",
+              "ashwidow",
+              "covenant",
             ].includes(a.card)
               ? 30
               : 0) -
             s.deck.length
         : 5;
     case "camp":
-      return a.choice === "rest" ? (s.hp < s.maxHp - 15 ? 100 : 0) : 50;
+      return a.choice === "rest"
+        ? s.hp < s.maxHp - 15
+          ? 100
+          : 0
+        : 50 +
+            (a.index !== undefined &&
+            ["cairnhound", "silence", "edict", "sunder"].includes(
+              s.deck[a.index],
+            )
+              ? 20
+              : 0);
     case "buy":
       return s.deck.length < 16 &&
         (CARDS[a.card].type === "summon" ||
-          ["rally", "siphon", "thorns", "shelter"].includes(a.card))
+          [
+            "edict",
+            "gravetithe",
+            "harpoon",
+            "aegis",
+            "silence",
+            "sunder",
+          ].includes(a.card))
         ? 50
         : 0;
     case "remove":
-      return s.deck.length > 9 && s.deck[a.index] === "spark" ? 20 : 0;
+      return s.deck.length > 9 && s.deck[a.index] === "scour" ? 20 : 0;
     case "leave":
       return 1;
     case "event":
       return a.choice === "offering" && s.hp > 30
         ? 60
-        : a.choice === "forage"
-          ? 50
-          : 0;
+        : a.choice === "bargain" && s.hp < s.maxHp - 14
+          ? 80
+          : a.choice === "forage"
+            ? 50
+            : 0;
     default:
       return 0;
   }
@@ -183,9 +226,10 @@ export function run(
 }
 if (process.argv[1]?.endsWith("simulate.ts")) {
   const n = Math.min(1000, Math.max(1, Number(process.argv[2]) || 100));
+  const difficulty = Math.max(0, Math.min(2, Number(process.argv[3]) || 0));
   const results = ["random", "heuristic"].map((policy) => {
     const runs = Array.from({ length: n }, (_, i) =>
-      run(i + 1, policy as "random" | "heuristic"),
+      run(i + 1, policy as "random" | "heuristic", difficulty),
     );
     return {
       policy,
@@ -200,7 +244,7 @@ if (process.argv[1]?.endsWith("simulate.ts")) {
   });
   console.log(
     JSON.stringify(
-      { version: "0.1.0", difficulty: 0, seedRange: [1, n], results },
+      { version: "0.2.0", difficulty, seedRange: [1, n], results },
       null,
       2,
     ),

@@ -1,0 +1,572 @@
+{
+  "sourceBefore": {
+    "src/main.ts": "8a7700763ad6872d6fedade008330e28bae22da29611bf6226422746e285a324",
+    "src/style.css": "166105cdd658b8d6fa331d90af9b13777c522fe2c4a9c4fa0dd2b4f3131478de",
+    "src/arena.ts": "61e8e03ddbd02ed139ac05d95aa191bc66f8a4d09fc445d041397b36fcf77f91",
+    "src/art.ts": "3127ed46b8ec4aecbcc8218c8a78ded3e3f57c922d04b330c7f8fe0c51be1e85",
+    "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+    "src/engine.ts": "21bafb33832ec2d3ee1ca4ead9486825510bd380b62e143a8736465f1ad4110b",
+    "index.html": "fa9d21cc9c38a02bb08485df2303ada2880648a5e62c363784a97e8f8532764c"
+  },
+  "buildHashes": {
+    "dist/index.html": "956e4c94d506d95d41e3625b080d32d753b2c69c195015d47565cc9321faa82b",
+    "dist/assets/index-BRMqMSVy.css": "28f87cdb0f3ceed742e2c32310345b259753a30ef4547f7467e1b9a835064293",
+    "dist/assets/index-CZGG71EA.js": "855e7f6e1d0fe8c2552fa802f3c339ec6e7fbb64ee964a404fdd999b5233b9e8"
+  },
+  "errors": [],
+  "badResponses": [],
+  "seed": 121,
+  "summon": {
+    "type": "play",
+    "index": 0
+  },
+  "attack": {
+    "type": "attack",
+    "unit": "a3",
+    "target": "e1"
+  },
+  "attackTimes": [
+    {
+      "file": "reviews/screenshots-v0.2/attack-0.png",
+      "elapsedMs": 247
+    },
+    {
+      "file": "reviews/screenshots-v0.2/attack-1.png",
+      "elapsedMs": 536
+    },
+    {
+      "file": "reviews/screenshots-v0.2/attack-2.png",
+      "elapsedMs": 922
+    },
+    {
+      "file": "reviews/screenshots-v0.2/attack-3.png",
+      "elapsedMs": 1594
+    }
+  ],
+  "allyActed": true,
+  "perf": {
+    "method": "Instrumented actual arena drawImage(backplate) calls over 1500ms in Linux headless Chromium. Not hardware target certification.",
+    "canvasDraws": 32,
+    "approxFPS": 21.622375671337082,
+    "p50FrameGap": 49.89999999990687,
+    "p95FrameGap": 50.200000000186265
+  },
+  "motionDisabledFramesIdentical": true,
+  "motionOffDraws": 0,
+  "layouts": {
+    "390": {
+      "nav": "- navigation \"Game tools\":\n  - button \"Deck\"\n  - button \"How to play\": \"?\"\n  - button \"Settings\"",
+      "metrics": {
+        "viewport": 390,
+        "documentWidth": 390,
+        "documentHeight": 1255,
+        "canvas": {
+          "w": 390,
+          "h": 220
+        },
+        "text": [
+          {
+            "txt": "Cairn Hound",
+            "font": "12px",
+            "height": 14,
+            "scrollHeight": 14
+          },
+          {
+            "txt": " Command spent",
+            "font": "11px",
+            "height": 16,
+            "scrollHeight": 16
+          },
+          {
+            "txt": "Ironjaw Reaver",
+            "font": "12px",
+            "height": 14,
+            "scrollHeight": 14
+          },
+          {
+            "txt": "Raise shield · gain 4 block",
+            "font": "11px",
+            "height": 28,
+            "scrollHeight": 28
+          },
+          {
+            "txt": "Bone Thrall",
+            "font": "12px",
+            "height": 14,
+            "scrollHeight": 14
+          },
+          {
+            "txt": "3 damage → hunter",
+            "font": "11px",
+            "height": 28,
+            "scrollHeight": 28
+          },
+          {
+            "txt": "Heal a creature 6 HP and give it 2 block.",
+            "font": "11px",
+            "height": 104,
+            "scrollHeight": 104
+          },
+          {
+            "txt": "Your targeted damaging spells deal 2 extra damage while this creature lives.",
+            "font": "11px",
+            "height": 82,
+            "scrollHeight": 82
+          },
+          {
+            "txt": "After commanding this creature, gain 2 hunter block.",
+            "font": "11px",
+            "height": 82,
+            "scrollHeight": 82
+          },
+          {
+            "txt": "Gain 7 hunter block.",
+            "font": "11px",
+            "height": 104,
+            "scrollHeight": 104
+          }
+        ],
+        "cards": [
+          {
+            "name": "Blood Sutures, 1 energy. Heal a creature 6 HP and give it 2 block.",
+            "height": 199,
+            "scrollHeight": 199
+          },
+          {
+            "name": "Ash Widow, 2 energy. Your targeted damaging spells deal 2 extra damage while this creature lives.",
+            "height": 199,
+            "scrollHeight": 199
+          },
+          {
+            "name": "Briar Colossus, 3 energy. After commanding this creature, gain 2 hunter block.",
+            "height": 199,
+            "scrollHeight": 199
+          },
+          {
+            "name": "Iron Ward, 1 energy. Gain 7 hunter block.",
+            "height": 199,
+            "scrollHeight": 199
+          }
+        ]
+      }
+    },
+    "1280": {
+      "nav": "- navigation \"Game tools\":\n  - button \"Deck\": Deck 12\n  - button \"How to play\": \"? How to play\"\n  - button \"Settings\"",
+      "metrics": {
+        "viewport": 1280,
+        "documentWidth": 1280,
+        "documentHeight": 720,
+        "canvas": {
+          "w": 808,
+          "h": 277
+        },
+        "text": [
+          {
+            "txt": "Cairn Hound",
+            "font": "13px",
+            "height": 15,
+            "scrollHeight": 15
+          },
+          {
+            "txt": " Command spent",
+            "font": "12px",
+            "height": 16,
+            "scrollHeight": 16
+          },
+          {
+            "txt": "Ironjaw Reaver",
+            "font": "13px",
+            "height": 15,
+            "scrollHeight": 15
+          },
+          {
+            "txt": "Raise shield · gain 4 block",
+            "font": "12px",
+            "height": 16,
+            "scrollHeight": 16
+          },
+          {
+            "txt": "Bone Thrall",
+            "font": "13px",
+            "height": 15,
+            "scrollHeight": 15
+          },
+          {
+            "txt": "3 damage → hunter",
+            "font": "12px",
+            "height": 16,
+            "scrollHeight": 16
+          },
+          {
+            "txt": "Heal a creature 6 HP and give it 2 block.",
+            "font": "12px",
+            "height": 104,
+            "scrollHeight": 104
+          },
+          {
+            "txt": "Your targeted damaging spells deal 2 extra damage while this creature lives.",
+            "font": "12px",
+            "height": 82,
+            "scrollHeight": 82
+          },
+          {
+            "txt": "After commanding this creature, gain 2 hunter block.",
+            "font": "12px",
+            "height": 82,
+            "scrollHeight": 82
+          },
+          {
+            "txt": "Gain 7 hunter block.",
+            "font": "12px",
+            "height": 104,
+            "scrollHeight": 104
+          }
+        ],
+        "cards": [
+          {
+            "name": "Blood Sutures, 1 energy. Heal a creature 6 HP and give it 2 block.",
+            "height": 199,
+            "scrollHeight": 199
+          },
+          {
+            "name": "Ash Widow, 2 energy. Your targeted damaging spells deal 2 extra damage while this creature lives.",
+            "height": 199,
+            "scrollHeight": 199
+          },
+          {
+            "name": "Briar Colossus, 3 energy. After commanding this creature, gain 2 hunter block.",
+            "height": 199,
+            "scrollHeight": 199
+          },
+          {
+            "name": "Iron Ward, 1 energy. Gain 7 hunter block.",
+            "height": 199,
+            "scrollHeight": 199
+          }
+        ]
+      }
+    },
+    "1920": {
+      "nav": "- navigation \"Game tools\":\n  - button \"Deck\": Deck 12\n  - button \"How to play\": \"? How to play\"\n  - button \"Settings\"",
+      "metrics": {
+        "viewport": 1920,
+        "documentWidth": 1920,
+        "documentHeight": 1080,
+        "canvas": {
+          "w": 1354,
+          "h": 570
+        },
+        "text": [
+          {
+            "txt": "Cairn Hound",
+            "font": "15px",
+            "height": 17,
+            "scrollHeight": 17
+          },
+          {
+            "txt": " Command spent",
+            "font": "13px",
+            "height": 17,
+            "scrollHeight": 17
+          },
+          {
+            "txt": "Ironjaw Reaver",
+            "font": "15px",
+            "height": 17,
+            "scrollHeight": 17
+          },
+          {
+            "txt": "Raise shield · gain 4 block",
+            "font": "13px",
+            "height": 17,
+            "scrollHeight": 17
+          },
+          {
+            "txt": "Bone Thrall",
+            "font": "15px",
+            "height": 17,
+            "scrollHeight": 17
+          },
+          {
+            "txt": "3 damage → hunter",
+            "font": "13px",
+            "height": 17,
+            "scrollHeight": 17
+          },
+          {
+            "txt": "Heal a creature 6 HP and give it 2 block.",
+            "font": "12px",
+            "height": 101,
+            "scrollHeight": 101
+          },
+          {
+            "txt": "Your targeted damaging spells deal 2 extra damage while this creature lives.",
+            "font": "12px",
+            "height": 74,
+            "scrollHeight": 74
+          },
+          {
+            "txt": "After commanding this creature, gain 2 hunter block.",
+            "font": "12px",
+            "height": 74,
+            "scrollHeight": 74
+          },
+          {
+            "txt": "Gain 7 hunter block.",
+            "font": "12px",
+            "height": 101,
+            "scrollHeight": 101
+          }
+        ],
+        "cards": [
+          {
+            "name": "Blood Sutures, 1 energy. Heal a creature 6 HP and give it 2 block.",
+            "height": 216,
+            "scrollHeight": 216
+          },
+          {
+            "name": "Ash Widow, 2 energy. Your targeted damaging spells deal 2 extra damage while this creature lives.",
+            "height": 216,
+            "scrollHeight": 216
+          },
+          {
+            "name": "Briar Colossus, 3 energy. After commanding this creature, gain 2 hunter block.",
+            "height": 216,
+            "scrollHeight": 216
+          },
+          {
+            "name": "Iron Ward, 1 energy. Gain 7 hunter block.",
+            "height": 216,
+            "scrollHeight": 216
+          }
+        ]
+      }
+    }
+  },
+  "dossier": "Cairn Hound\nBOUND CREATURE\nCairn Hound\n\n7/7 health · 3 attack\n\nTrait\n\nCommands deal 2 extra damage to enemies with no block.\n\nBinding effect\n\nBind a spectral hound. On binding: gain 2 hunter block.\n\nCommand spent this turn.\nReturn to the fight",
+  "deck": {
+    "cardCount": 9,
+    "textOverflow": []
+  },
+  "steps": [
+    {
+      "action": {
+        "type": "play",
+        "index": 2
+      },
+      "phase": "battle",
+      "turn": 1,
+      "hp": 65,
+      "enemies": 2,
+      "allies": 2
+    },
+    {
+      "action": {
+        "type": "attack",
+        "unit": "a4",
+        "target": "e1"
+      },
+      "phase": "battle",
+      "turn": 1,
+      "hp": 65,
+      "enemies": 2,
+      "allies": 2
+    },
+    {
+      "action": {
+        "type": "play",
+        "index": 0,
+        "target": "a3"
+      },
+      "phase": "battle",
+      "turn": 1,
+      "hp": 65,
+      "enemies": 2,
+      "allies": 2
+    },
+    {
+      "action": {
+        "type": "endTurn"
+      },
+      "phase": "battle",
+      "turn": 2,
+      "hp": 65,
+      "enemies": 2,
+      "allies": 2
+    },
+    {
+      "action": {
+        "type": "play",
+        "index": 0
+      },
+      "phase": "battle",
+      "turn": 2,
+      "hp": 65,
+      "enemies": 2,
+      "allies": 3
+    },
+    {
+      "action": {
+        "type": "play",
+        "index": 0,
+        "target": "e2"
+      },
+      "phase": "battle",
+      "turn": 2,
+      "hp": 65,
+      "enemies": 2,
+      "allies": 3
+    },
+    {
+      "action": {
+        "type": "play",
+        "index": 2
+      },
+      "phase": "battle",
+      "turn": 2,
+      "hp": 65,
+      "enemies": 2,
+      "allies": 4
+    },
+    {
+      "action": {
+        "type": "attack",
+        "unit": "a3",
+        "target": "e2"
+      },
+      "phase": "battle",
+      "turn": 2,
+      "hp": 65,
+      "enemies": 1,
+      "allies": 4
+    },
+    {
+      "action": {
+        "type": "play",
+        "index": 0
+      },
+      "phase": "battle",
+      "turn": 2,
+      "hp": 65,
+      "enemies": 1,
+      "allies": 4
+    },
+    {
+      "action": {
+        "type": "attack",
+        "unit": "a4",
+        "target": "e1"
+      },
+      "phase": "battle",
+      "turn": 2,
+      "hp": 65,
+      "enemies": 1,
+      "allies": 4
+    },
+    {
+      "action": {
+        "type": "attack",
+        "unit": "a6",
+        "target": "e1"
+      },
+      "phase": "battle",
+      "turn": 2,
+      "hp": 65,
+      "enemies": 1,
+      "allies": 4
+    },
+    {
+      "action": {
+        "type": "attack",
+        "unit": "a5",
+        "target": "e1"
+      },
+      "phase": "reward",
+      "turn": 2,
+      "hp": 65,
+      "enemies": 0,
+      "allies": 0
+    }
+  ],
+  "finalState": {
+    "schema": 2,
+    "seed": 121,
+    "rng": 3617578011,
+    "phase": "reward",
+    "hp": 65,
+    "maxHp": 65,
+    "block": 0,
+    "energy": 0,
+    "gold": 90,
+    "floor": 1,
+    "turn": 2,
+    "deck": [
+      "cairnhound",
+      "cairnhound",
+      "fenstalker",
+      "ashwidow",
+      "briarcolossus",
+      "scour",
+      "scour",
+      "ironward",
+      "ironward",
+      "sutures",
+      "sunder",
+      "survey"
+    ],
+    "draw": [],
+    "discard": [],
+    "hand": [],
+    "allies": [],
+    "enemies": [],
+    "rewards": [
+      "ironward",
+      "draught",
+      "ashwidow"
+    ],
+    "relics": [],
+    "route": [
+      "battle"
+    ],
+    "log": [
+      "A scarred hunter. One final contract. No pact is harmless.",
+      "The keep has teeth.",
+      "Bound Cairn Hound.",
+      "Cairn Hound strikes Ironjaw Reaver.",
+      "Bound Briar Colossus.",
+      "Briar Colossus strikes Ironjaw Reaver.",
+      "Cast Blood Sutures.",
+      "Ironjaw Reaver: Raise shield · gain 4 block.",
+      "Bone Thrall: Claw weakest creature.",
+      "Turn 2.",
+      "Bound Fen Stalker.",
+      "Cast Scour.",
+      "Bound Cairn Hound.",
+      "Cairn Hound strikes Bone Thrall.",
+      "Cast Iron Ward.",
+      "Ironjaw Reaver retaliates against Briar Colossus.",
+      "Briar Colossus strikes Ironjaw Reaver.",
+      "Cairn Hound strikes Ironjaw Reaver.",
+      "Fen Stalker strikes Ironjaw Reaver.",
+      "Contract complete. Choose one new card or travel light."
+    ],
+    "nextUid": 7,
+    "difficulty": 0,
+    "stats": {
+      "cardsPlayed": 7,
+      "damageDealt": 23,
+      "turns": 2,
+      "battles": 1
+    }
+  },
+  "sourceAfter": {
+    "src/main.ts": "8a7700763ad6872d6fedade008330e28bae22da29611bf6226422746e285a324",
+    "src/style.css": "166105cdd658b8d6fa331d90af9b13777c522fe2c4a9c4fa0dd2b4f3131478de",
+    "src/arena.ts": "61e8e03ddbd02ed139ac05d95aa191bc66f8a4d09fc445d041397b36fcf77f91",
+    "src/art.ts": "3127ed46b8ec4aecbcc8218c8a78ded3e3f57c922d04b330c7f8fe0c51be1e85",
+    "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+    "src/engine.ts": "21bafb33832ec2d3ee1ca4ead9486825510bd380b62e143a8736465f1ad4110b",
+    "index.html": "fa9d21cc9c38a02bb08485df2303ada2880648a5e62c363784a97e8f8532764c"
+  },
+  "sourceStable": true
+}

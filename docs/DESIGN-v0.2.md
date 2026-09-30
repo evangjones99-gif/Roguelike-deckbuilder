@@ -1,6 +1,6 @@
 # HOLLOWPACT — v0.2 candidate design
 
-Proposed working title; clearance unverified. This is a reviewable implementation plan, not a claim that the features below have shipped. Preserve Lanternbound v0.1 and all of its independent reviews before applying the new direction.
+Working title; clearance unverified. Aligned with the current `src/content.ts`, client source, and ENGINE-v0.2.md on 30 September 2026. This document distinguishes implemented candidate mechanics from future experiments. The preserved Lanternbound v0.1 artifacts and reviews remain the historical baseline. Current source is a prototype candidate, not evidence of public Steam release, AAA quality, or human enjoyment.
 
 ## Player promise
 
@@ -10,47 +10,59 @@ Take dangerous contracts as a hardened hunter. Read the prey's next move, prepar
 
 The independent v0.1 gameplay review accepted a playable prototype and rejected commercial/Steam-ready promotion. Across its 864 seeded simulations, threat-aware starter policies could win without acquisition, and one untouched starter policy won all tested hard normal-route seeds. The reviewer found targeted combat decisions but little strategic variation, untargeted camp upgrades, excess late gold, fixed routes, and repeated elites/relics. These are sampled policy outcomes, not a proof that every build is solved. The visual reviewer found inconsistent card/model identities and preliminary attack/death feedback even after readability and motion defects were repaired. Preserve both reports as baseline evidence.
 
-## Candidate scope and sequence
+## Implemented candidate scope
 
-1. Replace the cozy world, names, palettes, creature proportions, UI voice, and card/arena identity consistently. Deliver the contract hunter fantasy with a small original roster before adding a large catalogue.
-2. Add a real camp upgrade choice: select an eligible card from the actual deck, show its exact before/after stats or effect and cost, allow cancellation, and apply only the chosen upgrade. Duplicate cards must be distinguishable by deck entry; never silently upgrade the first eligible summon.
-3. Establish two different viable plans beyond the current full-board buff loop. Give acquisition and removal a purpose, then test pressure, recovery, and the shop economy together.
-4. Add a small number of announced enemy questions and contract/event outcomes. Reuse well-understood mechanics where appropriate; do not increase all enemy damage to disguise shallow progression.
-5. Freeze source, review the real client and engine independently, preserve artifacts, and compare fresh holdout outcomes against baseline. Publish this milestone honestly as a candidate/prototype until broader release gates pass.
+The candidate uses original grim contract-hunter names, a local generated ruined-abbey background, and illustrated 2.5D creature cutouts. The current content is **eight bindings across four role families plus sixteen spells**, making 24 base cards with enhanced forms. Four elite formations, six relics, five crypt event choices, and three seed-selected bosses broaden the finite ten-node campaign. ART-DIRECTION.md records exact families and shared illustrations; do not equate card count with unique illustrated species.
 
-## Three proposed hunting plans
+Camp training selects a real eligible deck index, so duplicates can be enhanced independently. The client shows a per-copy before/after comparison and permits cancellation. Creature enhancement adds 3 HP and 1 attack. Most spells increase their effect value by 2; enhanced Silence the Dead instead reduces its energy cost from 2 to 1. Training consumes the shelter choice; resting remains an alternative.
 
-| Plan | Player decisions | Necessary payoff | Counterpressure |
-| --- | --- | --- | --- |
-| Pact | Keep a few strong monsters alive; choose protection versus immediate damage | Bound creatures that reward different command timings and roles rather than universal stacking buffs | Announced sweep or binding disruption creates a defense/redeployment decision |
-| Hunt | Prepare a marked target, then spend precise damage during its opening | Mark/exposure payoff and a reliable hunter attack tool; rewards can improve focused damage without filling the board | A guard cycle makes timing matter; overkill wastes the opening |
-| Seal | Use tools and spells to disrupt a dangerous move and convert that delay into damage | A limited interrupt/control resource and a fragile creature that rewards tool use | Multiple threats require selecting which move to disrupt; immunity must be visible and specific |
+The engine remains a deterministic renderer-independent reducer with five energy, five fresh cards, six creature slots, and free manual commands including the binding turn. Kill Command explicitly readies a creature for another command. Living bindings keep their own source card out of the piles, dead bindings return that copy to discard, and temporary stats reset each fight. Save schema 2 and a separate client save key distinguish this candidate from archived v0.1. ENGINE-v0.2.md is the detailed mechanics and validation reference.
 
-These are hypotheses. A renamed damage spell is not a different archetype. Each plan must change legal-action priorities, reward preferences, and response to at least one encounter. Retain skip rewards as a sensible deck-size choice. Do not force acquisition by making every starter card unusable.
+## Four implemented binding roles
 
-## Tools, traps, and binding choices
+| Family and cards | Implemented payoff | Intended decision |
+| --- | --- | --- |
+| Hounds: Cairn Hound / Grave Hound | Commands deal +2 damage against unblocked enemies | Break armor first or execute an already exposed enemy |
+| Stalkers: Fen Stalker / Fen Raker | Commands dealing health damage heal the creature 2 HP | Choose a target that yields recovery; block-only hits do not heal |
+| Colossi: Briar Colossus / Ossuary Colossus | Each command grants the hunter 2 block | Allocate commands for protection as well as damage |
+| Widows: Ash Widow / Ember Widow | Each living widow adds 2 targeted spell damage | Protect fragile amplifiers; targeted and area spells have different payoffs |
 
-Keep two primary card categories initially: bound creatures and hunter tools/spells. A trap can be a tool card rather than requiring a third category. Select one addition only after engine/UI ownership and testing are arranged.
+These roles exist in the reducer. Their ability to sustain distinct viable builds remains a review question. The twelve-card starter contains all four families, so acquisition needs to change commitment and action priorities rather than merely introduce a role the starter already has.
 
-| Option | Benefit | Cost/risk | Recommendation |
-| --- | --- | --- | --- |
-| Immediate seal/control tool | Fits current targeting, communicates a response to announced intent | Permanent stun could erase enemy counterplay; needs a bounded effect | First candidate: reduce or interrupt one explicitly eligible announced move, with visible duration |
-| Mark/expose tool | Creates a hunter-centered focused-damage plan with simple targeting | Stacking can become another universal buff | Test one nonstacking, clearly scoped mark that expires predictably |
-| Persistent trap | Strong preparation fantasy and route/encounter anticipation | Requires placed state, trigger timing, ownership, and UI; hidden triggers confuse play | Later experiment after immediate control/mark are understandable |
-| Binding/recruitment reward | Makes winning a contract feed the creature deck and hunter identity | A giant random bestiary dilutes art quality and build purpose | Offer a small creature/tool choice tied to the completed contract; always permit refusal |
-| Hunter weapon/relic slots | Visible identity and long-run commitment | New UI, save migration, balance interactions and progression cost | Defer until card plans already create distinct runs |
+## Current tools and build hypotheses
 
-## Encounter prototypes
+The two primary card categories remain bindings and tools/spells. Current tools include targeted/area damage, block, creature healing, permanent-in-battle pack growth, command readying, draw, energy for an HP cost, hunter recovery, armor removal, and one-turn control. There are no placed traps, mark counters, poison counters, weapon slots, or persistent binding-disruption debuffs in this candidate.
 
-Iron Husk alternates a clearly shown guard turn with an exposed turn. The response is to prepare/defend through guard or break it with a stated tool, then exploit the opening. Hollow Cantor announces a binding-disruption or heavy attack with a visible eligible interrupt window; avoiding it costs a card/resource, so disabling every enemy is not automatic. Carrion Ravager pressures a named target and rewards removing that threat before its next action. The Bellwrought boss announces guard, breach, and charge states with exact effects; the player chooses focused damage, protection, or a limited interrupt. Exact values and timing are balance experiments, not established implementation contracts.
+| Candidate build hypothesis | Existing support | What independent playtesting must establish |
+| --- | --- | --- |
+| Exposed-prey commands | Sundering Hex removes block before damage; hounds exploit unblocked targets; Pack Edict and Kill Command support creature damage | Armor removal and command timing change target priorities without making every deck identical |
+| Spell amplification/control | Widows amplify targeted spells; Silence the Dead cancels announced damage and reinforcements for this turn, while armor still resolves | Protecting widows and paying control costs compete meaningfully with damage and defense |
+| Enduring bindings | Stalker recovery, colossus hunter block, Blood Sutures, Black Aegis, and Flesh Covenant | Recovery has a tactical price and does not trivialize all sustained threats |
+| Sparse/solo hunter | Grave Resonance deals +4 damage with no bound creatures; Dead Man's Coin grants turn-start energy without creatures | A sparse deck is viable beyond a good opening turn and offers useful acquisition/removal decisions |
+
+Rewards can be refused to preserve deck size. There is no scripted capture system tied to the defeated creature: victory currently offers optional card acquisition. The above plans are supported design hypotheses, not proven independent archetypes or human preferences.
+
+## Implemented encounter questions
+
+Ironjaw Reavers and the Ironjaw Warlord alternate guard and strikes; commands reflect damage while their block remains, while spells avoid retaliation. Sundering Hex opens a safe command window. Gloam Revenants ignore block and reduce targeted damaging spells by 2, favoring commands or untargeted Witchfire. Hollow Acolytes announce one Bone Thrall reinforcement; the Hollow Cantor boss raises two, curses, and then assaults all targets. Killing the source or using Silence prevents announced reinforcement. New thralls receive next-turn intents and a player response window. Bone Thralls threaten the weakest binding or the hunter when no bindings remain.
+
+Cindermaw Brood alternate a front-creature bite with area breath. The Cindermaw boss cycles guard, area breath, and a heavy hunter strike. Healing, group protection, and control timing provide different responses. Ironjaw Warlord, Hollow Cantor, and Cindermaw are the three final bosses. The normalized seed selects the boss independently of earlier RNG consumption, and the client previews its name and known trait on the field chart.
+
+Earlier proposal names such as Iron Husk, Carrion Ravager, and The Bellwrought are not implemented encounters. The Cantor does not apply a persistent binding-disruption mechanic. Exact current HP, damage, and passive text live in `src/content.ts`; intent cycles and resolution are documented in ENGINE-v0.2.md.
 
 Provide enemies with a reason to exist beyond HP inflation. Every new rule needs readable intent text, tooltips, legal actions, saved state, simulation support, and an accessible HTML representation. Stable announced targets should remain stable during a turn unless a deliberate mechanic clearly explains the change.
 
-## Contract map, economy, and learning
+## Current progression and recovery
 
-Use a compact route with visible contract danger and available recovery. Place a purchase/removal opportunity where earned gold can actually change later battles; compare income, prices, resting, innate healing, and upgrades as a system. Add two or three authored event choices with actual deck/resource tradeoffs before writing a large lore corpus. A contract can preview a dominant enemy trait so preparation is an informed choice.
+The ten-node route retains battle/event, camp/shop, and normal/elite alternatives. The single crypt event offers five choices: trade 8 HP for Wraithglass Shard, take 25 gold, pay 4 HP to remove the first unenhanced Scour, pay 30 gold for 16 HP recovery, or leave. The purge names its deterministic target; it is not arbitrary selected-card removal. Shops offer optional bindings/tools and selected-card removal, priced at 55/40/35 gold, retaining at least five cards. Rewards and purchases avoid duplicates within the offer/stock, while deck duplicates remain allowed.
 
-Keep the forgiving learning difficulty. Explain command timing, summons, incoming damage, and tool targeting through clear neutral instruction. Plain language belongs in a mature game. Rename cheerful camp/event copy into believable field actions without obscuring costs or outcomes. The hunter's character emerges through short contract details, worn equipment, and consequences, not exposition between every click.
+Normal/elite victories award 25/40 gold and recover 2/3 HP. The surgeon relic adds 2 victory recovery, and camp resting restores 18 HP. Six relics support spell damage, creature endurance, opening energy, victory recovery, creature attack, or solo turn-start energy. Three possible elite visits cannot award the whole catalogue. These are current retunings; whether gold timing, acquisition, and recovery become more purposeful needs comparative testing rather than an assumption based on content count.
+
+The client labels difficulties Initiate, Hunter, and Veteran, corresponding to engine levels 0/1/2. ENGINE-v0.2.md uses the earlier internal Story/Contract/Nightmare labels for those same levels. Keep the forgiving learning setting and neutral explanations of energy, cycling, commands, target fallback, and announced reinforcement. Dark tone must not obscure actual costs or outcomes. The hunter's character should emerge through contract details and field actions rather than exposition between every click.
+
+## Future experiments, not current features
+
+Placed traps could strengthen preparation but require saved placement state, visible triggers, and clear timing. A nonstacking mark could add another focused-damage option, but hounds already reward exposed targets and armor removal, so duplication needs a reason. Weapon slots and captured-prey acquisition would add identity at the cost of UI/save complexity. More biomes, unique variant illustrations, and rigged characters are separate production tasks. Do not add these before reviewing current role viability, economy, clarity, and presentation. Expand only where evidence identifies a missing choice or visual weakness.
 
 ## Promotion evidence
 

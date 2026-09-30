@@ -8,7 +8,8 @@ app.whenReady().then(() => {
   });
   const win = new BrowserWindow({
     width: 1440, height: 900, minWidth: 1024, minHeight: 720,
-    title: 'Lanternbound', backgroundColor: '#111d1c', autoHideMenuBar: true,
+    title: 'Hollowpact', backgroundColor: '#111516', autoHideMenuBar: true,
+    icon: path.join(__dirname,'icon.png'),
     webPreferences: { nodeIntegration: false, contextIsolation: true, sandbox: true }
   });
   win.webContents.setWindowOpenHandler(() => ({ action: 'deny' }));

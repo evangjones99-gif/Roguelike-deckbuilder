@@ -9,16 +9,20 @@ import {
   cardTarget,
   type GameState,
   type Unit,
-  type Action,
 } from "../src/engine";
-import { ENEMIES, SHOP_PRICES, BASE_CARD_IDS } from "../src/content";
+import {
+  ENEMIES,
+  SHOP_PRICES,
+  BASE_CARD_IDS,
+  RELICS,
+  BOSS_IDS,
+  bossForSeed,
+} from "../src/content";
 import { chooseHeuristic, run } from "../scripts/simulate";
-function battle(
-  cards = ["mossling", "spark", "ward", "rally", "mend"],
-  seed = 1,
-): GameState {
+const FIVE = ["cairnhound", "scour", "ironward", "sutures", "sunder"];
+function battle(cards = FIVE, seed = 1): GameState {
   const s = createGame(seed);
-  s.deck = cards;
+  s.deck = cards.slice();
   return applyAction(s, { type: "travel", choice: "battle" });
 }
 function hand(s: GameState, ids: string[]) {
@@ -28,7 +32,7 @@ function hand(s: GameState, ids: string[]) {
   s.discard = [];
   s.allies = [];
 }
-function enemy(s: GameState, id: string, hp?: number): Unit {
+function foe(s: GameState, id: string, hp?: number): Unit {
   const d = ENEMIES[id];
   return {
     uid: "e" + s.nextUid++,
@@ -41,7 +45,7 @@ function enemy(s: GameState, id: string, hp?: number): Unit {
     intent: { damage: d.attack, target: "hunter", label: "Strike" },
   };
 }
-function addAlly(s: GameState, id = "mossling"): Unit {
+function ally(s: GameState, id = "cairnhound"): Unit {
   const c = CARDS[id];
   const u = {
     uid: "a" + s.nextUid++,
@@ -49,6 +53,7 @@ function addAlly(s: GameState, id = "mossling"): Unit {
     name: c.name,
     species: c.species!,
     color: c.color,
+    passive: c.passive,
     hp: c.hp!,
     maxHp: c.hp!,
     attack: c.attack!,
@@ -59,320 +64,603 @@ function addAlly(s: GameState, id = "mossling"): Unit {
   s.deck.push(id);
   return u;
 }
-function settle(s: GameState): GameState {
-  for (let i = 0; i < 400 && s.phase === "battle"; i++)
+function play(s: GameState, id: string, target?: string) {
+  return applyAction(s, {
+    type: "play",
+    index: s.hand.indexOf(id),
+    ...(target ? { target } : {}),
+  });
+}
+function command(s: GameState, unit: Unit, target: Unit) {
+  return applyAction(s, { type: "attack", unit: unit.uid, target: target.uid });
+}
+function enter(node: number, choice: string, seed = 1) {
+  const s = createGame(seed);
+  s.floor = node - 1;
+  s.route = [choice];
+  return applyAction(s, { type: "travel", choice });
+}
+function settle(s: GameState) {
+  for (let i = 0; i < 500 && s.phase === "battle"; i++)
     s = applyAction(s, chooseHeuristic(s));
   assert.notEqual(s.phase, "battle");
   return s;
 }
-test("all original cards and upgrades are complete, targeted spells are explicit", () => {
+
+test("24 original cards, four creature families and enhancement texts are complete", () => {
   assert.equal(BASE_CARD_IDS.length, 24);
   assert.equal(Object.keys(CARDS).length, 48);
+  const families = new Set<string>();
   for (const id of BASE_CARD_IDS) {
-    assert.equal(CARDS[id].id, id);
-    assert.equal(CARDS[id + "+"].id, id + "+");
-    assert.ok(CARDS[id].text);
-    assert.ok(CARDS[id + "+"].text);
-    assert.ok(CARDS[id + "+"].type === CARDS[id].type);
+    const c = CARDS[id],
+      u = CARDS[id + "+"];
+    assert.equal(c.id, id);
+    assert.equal(u.id, id + "+");
+    assert.equal(u.type, c.type);
+    assert.ok(c.text && u.text);
+    if (c.type === "summon") {
+      families.add(c.species!);
+      assert.ok(c.passive);
+      assert.equal(u.hp, c.hp! + 3);
+      assert.equal(u.attack, c.attack! + 1);
+    } else assert.ok(c.effect);
   }
-  assert.equal(cardTarget("spark"), "enemy");
-  assert.equal(cardTarget("mend"), "ally");
-  assert.equal(cardTarget("mossling"), "none");
+  assert.deepEqual([...families], ["hound", "stalker", "colossus", "spider"]);
+  assert.equal(CARDS["silence+"].cost, 1);
+  assert.equal(cardTarget("silence"), "enemy");
+  assert.equal(cardTarget("sunder"), "enemy");
+  assert.equal(cardTarget("sutures"), "ally");
 });
-test("seeds and serialized runs reproduce exactly and reducers preserve input", () => {
+
+test("schema 2 saves reject historical schema, presentation menu and malformed inputs", () => {
+  const s = createGame(77);
+  assert.equal(s.schema, 2);
+  assert.ok(validateState(s));
+  assert.equal(validateState({ ...s, schema: 1 }), false);
+  assert.equal(validateState({ ...s, phase: "menu" }), false);
+  for (const bad of [null, undefined, {}, [], 1, "save", true, new Date()])
+    assert.equal(validateState(bad), false);
+  assert.equal(
+    validateState(
+      new Proxy(
+        {},
+        {
+          get() {
+            throw Error("hostile");
+          },
+        },
+      ),
+    ),
+    false,
+  );
+});
+
+test("serialized action replay is exact, pure, and deterministic through terminal state", () => {
   let a = createGame(718),
     b = createGame(718);
-  for (let i = 0; i < 200 && legalActions(a).length; i++) {
-    const act = chooseHeuristic(a),
+  for (let i = 0; i < 700 && legalActions(a).length; i++) {
+    const action = chooseHeuristic(a),
       before = JSON.stringify(a);
-    a = applyAction(a, act);
-    assert.equal(JSON.stringify(b), before);
-    b = applyAction(JSON.parse(JSON.stringify(b)), act);
+    const next = applyAction(a, action);
+    assert.equal(JSON.stringify(a), before);
+    a = next;
+    b = applyAction(JSON.parse(JSON.stringify(b)), action);
     assert.deepEqual(a, b);
     assert.ok(validateState(a));
   }
+  assert.equal(a.phase, "victory");
   assert.deepEqual(run(718, "heuristic"), run(718, "heuristic"));
 });
-test("invalid actions, missing target, overfull board and unaffordable cards leave identity unchanged", () => {
-  let s = battle();
-  assert.equal(applyAction(s, { type: "travel", choice: "boss" }), s);
+
+test("invalid indices, targets, phase, budget and board size return original object", () => {
+  const s = battle();
   assert.equal(applyAction(s, { type: "play", index: -1 }), s);
   assert.equal(
-    applyAction(s, { type: "attack", unit: "bogus", target: "e1" }),
+    applyAction(s, { type: "play", index: s.hand.indexOf("scour") }),
     s,
   );
-  hand(s, ["spark", "mossling", "ward", "mend", "rally"]);
-  assert.equal(applyAction(s, { type: "play", index: 0 }), s);
-  assert.equal(applyAction(s, { type: "play", index: 0, target: "hunter" }), s);
   assert.equal(
-    applyAction(s, { type: "play", index: 3, target: s.enemies[0].uid }),
+    applyAction(s, {
+      type: "play",
+      index: s.hand.indexOf("scour"),
+      target: "hunter",
+    }),
+    s,
+  );
+  assert.equal(applyAction(s, { type: "travel", choice: "boss" }), s);
+  assert.equal(
+    applyAction(s, {
+      type: "attack",
+      unit: "missing",
+      target: s.enemies[0].uid,
+    }),
     s,
   );
   s.energy = 0;
-  assert.equal(applyAction(s, { type: "play", index: 1 }), s);
+  assert.equal(play(s, "cairnhound"), s);
   s.energy = 5;
-  for (let i = 0; i < 6; i++) addAlly(s);
-  assert.equal(applyAction(s, { type: "play", index: 1 }), s);
+  for (let i = 0; i < 6; i++) ally(s);
+  assert.equal(play(s, "cairnhound"), s);
 });
-test("each live summon owns exactly one deck copy and cannot redraw", () => {
-  let s = battle(["mossling", "spark", "ward", "mend", "rally"]);
-  s = applyAction(s, { type: "play", index: s.hand.indexOf("mossling") });
-  const u = s.allies[0];
-  assert.equal(u.acted, false);
+
+test("living creatures own one card copy outside piles; dead creatures rejoin discard", () => {
+  let s = battle();
+  s = play(s, "cairnhound");
+  assert.equal(s.allies[0].acted, false);
   assert.equal(
-    [...s.hand, ...s.draw, ...s.discard].includes("mossling"),
+    [...s.hand, ...s.draw, ...s.discard].includes("cairnhound"),
     false,
   );
   assert.ok(validateState(s));
-  s.enemies = [enemy(s, "crown", 500)];
-  s.enemies[0].intent = { damage: 0, target: s.enemies[0].uid, label: "Armor" };
-  for (let i = 0; i < 5; i++) {
+  const u = s.allies[0];
+  s.enemies = [foe(s, "thrall", 200)];
+  s.enemies[0].intent = { damage: 0, target: "hunter", label: "Canceled" };
+  for (let i = 0; i < 4; i++) {
     s = applyAction(s, { type: "endTurn" });
     assert.equal(
-      [...s.hand, ...s.draw, ...s.discard].includes("mossling"),
+      [...s.hand, ...s.draw, ...s.discard].includes("cairnhound"),
       false,
     );
     assert.ok(validateState(s));
-    s.enemies[0].intent = {
-      damage: 0,
-      target: s.enemies[0].uid,
-      label: "Armor",
-    };
+    s.enemies[0].intent = { damage: 0, target: "hunter", label: "Canceled" };
   }
-});
-test("dead summon returns one copy to shared discard and can be summoned later", () => {
-  let s = battle(["mossling", "spark", "ward", "mend", "rally"]);
-  s = applyAction(s, { type: "play", index: s.hand.indexOf("mossling") });
   s.allies[0].hp = 1;
-  s.enemies = [enemy(s, "wolf")];
-  s.enemies[0].intent = {
-    damage: 20,
-    target: s.allies[0].uid,
-    label: "Pounce",
-  };
+  s.enemies[0].intent = { damage: 99, target: u.uid, label: "Claw" };
   s = applyAction(s, { type: "endTurn" });
   assert.equal(s.allies.length, 0);
   assert.equal(
-    [...s.hand, ...s.draw, ...s.discard].filter((id) => id === "mossling")
+    [...s.hand, ...s.draw, ...s.discard].filter((id) => id === "cairnhound")
       .length,
     1,
   );
   assert.ok(validateState(s));
 });
-test("new summon commands immediately once; ready spell permits another command", () => {
-  let s = battle(["mossling", "recall", "ward", "mend", "rally"]);
-  s.enemies = [enemy(s, "crown", 150)];
-  s = applyAction(s, { type: "play", index: s.hand.indexOf("mossling") });
-  const uid = s.allies[0].uid,
-    eid = s.enemies[0].uid;
-  s = applyAction(s, { type: "attack", unit: uid, target: eid });
-  assert.equal(s.allies[0].acted, true);
-  assert.equal(applyAction(s, { type: "attack", unit: uid, target: eid }), s);
-  s = applyAction(s, {
-    type: "play",
-    index: s.hand.indexOf("recall"),
-    target: uid,
-  });
-  assert.equal(s.allies[0].acted, false);
-  s = applyAction(s, { type: "attack", unit: uid, target: eid });
-  assert.equal(s.enemies[0].hp, 144);
+
+test("two identical source copies remain separate when one dies", () => {
+  let s = battle(["cairnhound", "cairnhound", "scour", "ironward", "survey"]);
+  s = play(s, "cairnhound");
+  s = play(s, "cairnhound");
+  assert.equal(s.allies.length, 2);
+  const dead = s.allies[0].uid;
+  s.allies[0].hp = 1;
+  s.enemies = [foe(s, "thrall")];
+  s.enemies[0].intent = { damage: 99, target: dead, label: "Claw" };
+  s = applyAction(s, { type: "endTurn" });
+  assert.equal(s.allies.length, 1);
+  assert.equal(
+    [...s.hand, ...s.draw, ...s.discard].filter((id) => id === "cairnhound")
+      .length,
+    1,
+  );
+  assert.ok(validateState(s));
 });
-test("visible enemy intent stays stable when companions are summoned", () => {
+
+test("Cairn Hound executes exposed targets but does not receive bonus against armor", () => {
+  let s = battle();
+  s = play(s, "cairnhound");
+  s.enemies = [foe(s, "cindermaw", 100)];
+  const u = s.allies[0],
+    e = s.enemies[0];
+  s = command(s, u, e);
+  assert.equal(s.enemies[0].hp, 95);
+  s.allies[0].acted = false;
+  s.enemies[0].block = 2;
+  s = command(s, s.allies[0], s.enemies[0]);
+  assert.equal(s.enemies[0].hp, 94);
+  assert.equal(s.enemies[0].block, 0);
+});
+
+test("Fen Stalker heals only when its command deals health damage", () => {
+  let s = battle();
+  hand(s, ["fenstalker", "scour", "ironward", "sutures", "sunder"]);
+  s = play(s, "fenstalker");
+  s.allies[0].hp = 4;
+  s.enemies = [foe(s, "cindermaw", 100)];
+  s.enemies[0].block = 10;
+  s = command(s, s.allies[0], s.enemies[0]);
+  assert.equal(s.allies[0].hp, 4);
+  s.allies[0].acted = false;
+  s.enemies[0].block = 0;
+  s = command(s, s.allies[0], s.enemies[0]);
+  assert.equal(s.allies[0].hp, 6);
+});
+
+test("Briar Colossus grants hunter block after every command, even into armor", () => {
+  let s = battle();
+  hand(s, ["briarcolossus", "scour", "ironward", "sutures", "sunder"]);
+  s = play(s, "briarcolossus");
+  s.enemies = [foe(s, "cindermaw", 100)];
+  s.enemies[0].block = 20;
+  s = command(s, s.allies[0], s.enemies[0]);
+  assert.equal(s.block, 2);
+  assert.equal(s.enemies[0].hp, 100);
+});
+
+test("Ash Widow amplifies targeted damage, relic combines, Revenant resists it", () => {
+  let s = battle();
+  hand(s, ["ashwidow", "scour", "witchfire", "ironward", "sunder"]);
+  s.energy = 10;
+  s.relics = ["moon-charm"];
+  s.enemies = [foe(s, "revenant", 100), foe(s, "thrall", 100)];
+  s = play(s, "ashwidow");
+  s = play(s, "scour", s.enemies[0].uid);
+  assert.equal(s.enemies[0].hp, 93);
+  s = play(s, "witchfire");
+  assert.equal(s.enemies[0].hp, 88);
+  assert.equal(s.enemies[1].hp, 95);
+  assert.ok(validateState(s));
+});
+
+test("Grave Resonance supports a spell-only opening and loses solo bonus after binding", () => {
+  let s = battle();
+  hand(s, ["resonance", "resonance", "cairnhound", "ironward", "sunder"]);
+  s.energy = 10;
+  s.enemies = [foe(s, "cantor", 100)];
+  s = play(s, "resonance", s.enemies[0].uid);
+  assert.equal(s.enemies[0].hp, 86);
+  s = play(s, "cairnhound");
+  s = play(s, "resonance", s.enemies[0].uid);
+  assert.equal(s.enemies[0].hp, 76);
+});
+
+test("ready permits a second command while ordinary commands are once per turn", () => {
+  let s = battle();
+  hand(s, ["cairnhound", "killcommand", "scour", "ironward", "sunder"]);
+  s.enemies = [foe(s, "cindermaw", 100)];
+  s = play(s, "cairnhound");
+  s = command(s, s.allies[0], s.enemies[0]);
+  assert.equal(command(s, s.allies[0], s.enemies[0]), s);
+  s = play(s, "killcommand", s.allies[0].uid);
+  s = command(s, s.allies[0], s.enemies[0]);
+  assert.equal(s.enemies[0].hp, 90);
+});
+
+test("Ironjaw armor retaliates through creature block; Sundering Hex prevents retaliation", () => {
+  let s = battle();
+  s = play(s, "cairnhound");
+  s.enemies = [foe(s, "ironjaw", 100)];
+  s.enemies[0].block = 14;
+  s.allies[0].block = 20;
+  const hp = s.allies[0].hp;
+  s = command(s, s.allies[0], s.enemies[0]);
+  assert.equal(s.allies[0].hp, hp - 2);
+  assert.equal(s.enemies[0].block, 11);
+  s = play(s, "sunder", s.enemies[0].uid);
+  assert.equal(s.enemies[0].block, 0);
+  assert.equal(s.enemies[0].hp, 97);
+  s.allies[0].acted = false;
+  s = command(s, s.allies[0], s.enemies[0]);
+  assert.equal(s.allies[0].hp, hp - 2);
+  assert.equal(s.enemies[0].hp, 92);
+  assert.ok(validateState(s));
+});
+
+test("retaliation deaths return exactly one source card and no duplicate draws", () => {
+  let s = battle();
+  s = play(s, "cairnhound");
+  s.allies[0].hp = 2;
+  s.enemies = [foe(s, "ironjaw", 100)];
+  s.enemies[0].block = 14;
+  s = command(s, s.allies[0], s.enemies[0]);
+  assert.equal(s.allies.length, 0);
+  assert.equal(s.discard.filter((id) => id === "cairnhound").length, 1);
+  assert.ok(validateState(s));
+});
+
+test("announced targets stay stable across bindings and commands; missing creature falls back to hunter", () => {
   let s = battle();
   const before = structuredClone(s.enemies.map((e) => e.intent));
-  s = applyAction(s, { type: "play", index: s.hand.indexOf("mossling") });
+  s = play(s, "cairnhound");
   assert.deepEqual(
     s.enemies.map((e) => e.intent),
     before,
   );
-});
-test("dead companion intent target falls back to hunter without secretly retargeting", () => {
-  let s = battle();
-  hand(s, ["ward", "ward", "ward", "ward", "ward"]);
-  const u = addAlly(s);
+  s.enemies = [foe(s, "thrall"), foe(s, "thrall")];
+  const u = s.allies[0];
   u.hp = 1;
-  s.enemies = [enemy(s, "wolf"), enemy(s, "wolf")];
   for (const e of s.enemies)
-    e.intent = { damage: 5, target: u.uid, label: "Pounce" };
+    e.intent = { damage: 5, target: u.uid, label: "Claw" };
+  s.block = 0;
   const hp = s.hp;
   s = applyAction(s, { type: "endTurn" });
   assert.equal(s.hp, hp - 5);
   assert.equal(s.allies.length, 0);
   assert.ok(validateState(s));
 });
-test("wisp ignores armor; ordinary attacks consume armor", () => {
+
+test("Revenant strikes ignore hunter armor and have explicit visible text", () => {
   let s = battle();
-  s.allies = [];
-  s.enemies = [enemy(s, "briar"), enemy(s, "wisp")];
-  s.block = 20;
+  s.enemies = [foe(s, "revenant")];
+  s.block = 30;
   const hp = s.hp;
   s = applyAction(s, { type: "endTurn" });
-  assert.equal(s.hp, hp - 4);
-  assert.equal(s.block, 0);
+  assert.equal(s.hp, hp - 5);
+  assert.ok(s.enemies[0].intent!.label.includes("ignores block"));
 });
-test("sentinel defense persists through player turn and alternates with attack", () => {
-  let s = battle();
-  s.enemies = [enemy(s, "sentinel")];
+
+test("Cantor raises announced thralls after enemy resolution; no hidden immediate attacks", () => {
+  let s = enter(10, "boss", 1);
+  assert.equal(s.enemies[0].cardId, "cantor");
+  assert.deepEqual(s.enemies[0].intent!.summon, ["thrall", "thrall"]);
+  const hp = s.hp;
+  s = applyAction(s, { type: "endTurn" });
+  assert.equal(s.hp, hp);
+  assert.equal(s.enemies.length, 3);
+  assert.ok(
+    s.enemies
+      .slice(1)
+      .every((e) => e.cardId === "thrall" && e.intent!.damage > 0),
+  );
+  assert.equal(s.enemies[0].intent!.label, "Death litany");
+  assert.ok(validateState(s));
+});
+
+test("reinforcements respect six slots and cannot carry an unannounced extra enemy", () => {
+  let s = enter(10, "boss", 1);
+  for (let i = 0; i < 4; i++) {
+    const e = foe(s, "thrall");
+    e.intent = { damage: 0, target: "hunter", label: "Canceled" };
+    s.enemies.push(e);
+  }
+  s = applyAction(s, { type: "endTurn" });
+  assert.equal(s.enemies.length, 6);
+  assert.equal(s.enemies.filter((e) => e.cardId === "thrall").length, 5);
+  assert.ok(validateState(s));
+});
+
+test("Silence cancels necromancy; canceled attacks do not become armor; guard remains guard", () => {
+  let s = enter(10, "boss", 1);
+  hand(s, ["silence", "scour", "ironward", "sutures", "sunder"]);
+  s = play(s, "silence", s.enemies[0].uid);
+  assert.deepEqual(s.enemies[0].intent!.summon, []);
+  assert.ok(validateState(s));
+  s = applyAction(s, { type: "endTurn" });
+  assert.equal(s.enemies.length, 1);
+  assert.equal(s.enemies[0].block, 0);
+  s = play(s, "silence", s.enemies[0].uid);
+  assert.ok(validateState(s));
+  const hp = s.hp;
+  s = applyAction(s, { type: "endTurn" });
+  assert.equal(s.hp, hp);
+  assert.equal(s.enemies[0].block, 0);
+  let guarded = enter(10, "boss", 0);
+  hand(guarded, ["silence", "scour", "ironward", "sutures", "sunder"]);
+  guarded = play(guarded, "silence", guarded.enemies[0].uid);
+  assert.ok(guarded.enemies[0].intent!.label.includes("armor remains"));
+  guarded = applyAction(guarded, { type: "endTurn" });
+  assert.equal(guarded.enemies[0].block, 14);
+  assert.ok(validateState(guarded));
+});
+
+test("killing the raising source before ending the turn prevents its reinforcements", () => {
+  let s = enter(6, "battle");
+  s.enemies = [foe(s, "acolyte", 1), foe(s, "thrall", 100)];
   s.enemies[0].intent = {
     damage: 0,
     target: s.enemies[0].uid,
-    label: "Root armor · gain 6 block",
+    label: "Raise 1 Bone Thrall",
+    summon: ["thrall"],
   };
+  hand(s, ["scour", "ironward", "ironward", "sunder", "survey"]);
+  s = play(s, "scour", s.enemies[0].uid);
   s = applyAction(s, { type: "endTurn" });
-  assert.equal(s.enemies[0].block, 6);
-  assert.equal(s.enemies[0].intent!.damage, s.enemies[0].attack + 3);
-  assert.equal(s.enemies[0].intent!.target, "hunter");
+  assert.equal(s.enemies.length, 1);
+  assert.equal(s.enemies[0].cardId, "thrall");
+  assert.ok(validateState(s));
+});
+
+test("Cindermaw guard/breath/strike cycle has readable damage windows and expires armor", () => {
+  let s = enter(10, "boss", 2);
+  assert.equal(s.enemies[0].cardId, "cindermaw");
+  assert.equal(s.enemies[0].intent!.damage, 0);
+  s = applyAction(s, { type: "endTurn" });
+  assert.equal(s.enemies[0].block, 10);
+  assert.equal(s.enemies[0].intent!.target, "all");
+  assert.equal(s.enemies[0].intent!.damage, 7);
   s = applyAction(s, { type: "endTurn" });
   assert.equal(s.enemies[0].block, 0);
+  assert.equal(s.enemies[0].intent!.target, "hunter");
+  assert.equal(s.enemies[0].intent!.damage, s.enemies[0].attack + 4);
+  s = applyAction(s, { type: "endTurn" });
   assert.equal(s.enemies[0].intent!.damage, 0);
 });
-test("wolf prefers front companion, imp weakest, witch alternates curse, boss cycles", () => {
-  let s = battle();
-  const strong = addAlly(s, "stonehart"),
-    weak = addAlly(s, "reedkin");
-  s.enemies = [
-    enemy(s, "wolf"),
-    enemy(s, "briar"),
-    enemy(s, "witch"),
-    enemy(s, "crown"),
-  ];
-  for (const e of s.enemies)
-    e.intent = { damage: 0, target: e.uid, label: "Wait" };
-  s = applyAction(s, { type: "endTurn" });
-  assert.equal(s.enemies[0].intent!.target, strong.uid);
-  assert.equal(s.enemies[1].intent!.target, weak.uid);
-  assert.equal(s.enemies[2].intent!.damage, s.enemies[2].attack + 3);
-  assert.equal(s.enemies[3].intent!.target, "all");
-  assert.equal(s.enemies[3].intent!.damage, 5);
-  s.enemies = s.enemies.slice(3);
-  s = applyAction(s, { type: "endTurn" });
-  assert.equal(s.enemies[0].intent!.target, "hunter");
-  assert.equal(s.enemies[0].intent!.damage, s.enemies[0].attack + 5);
+
+test("boss is forecastable from run seed independently of earlier RNG consumption", () => {
+  assert.equal(BOSS_IDS.length, 3);
+  for (let seed = 0; seed < 12; seed++) {
+    const expected = bossForSeed(seed);
+    const s = createGame(seed);
+    s.floor = 9;
+    s.route = ["boss"];
+    s.rng = (s.rng + 91501) >>> 0;
+    const entered = applyAction(s, { type: "travel", choice: "boss" });
+    assert.equal(entered.enemies[0].cardId, expected);
+    assert.ok(validateState(entered));
+  }
 });
-test("rally, moth spell armor, pack damage, relic bonus combine meaningfully", () => {
-  let s = battle();
-  hand(s, ["moonmoth", "rally", "thorns", "ward", "spark"]);
-  s.enemies = [enemy(s, "crown", 100)];
-  s.relics = ["moon-charm"];
-  s.energy = 10;
-  s = applyAction(s, { type: "play", index: 0 });
-  const uid = s.allies[0].uid;
-  s = applyAction(s, { type: "play", index: s.hand.indexOf("rally") });
-  assert.equal(s.allies[0].attack, 5);
-  assert.equal(s.block, 2);
-  s = applyAction(s, {
-    type: "play",
-    index: s.hand.indexOf("thorns"),
-    target: s.enemies[0].uid,
+
+test("elite formations offer four distinct questions and never guarantee all six relics", () => {
+  const found = new Set<string>();
+  for (let seed = 1; seed <= 100; seed++) {
+    const s = enter(4, "elite", seed);
+    found.add(s.enemies.map((e) => e.cardId).join(","));
+    assert.ok(validateState(s));
+  }
+  assert.equal(found.size, 4);
+  assert.equal(Object.keys(RELICS).length, 6);
+  let s = createGame(27);
+  for (let i = 0; i < 1000 && legalActions(s).length; i++) {
+    const acts = legalActions(s);
+    const action =
+      s.phase === "map"
+        ? (acts.find((a) => a.type === "travel" && a.choice === "elite") ??
+          chooseHeuristic(s))
+        : chooseHeuristic(s);
+    s = applyAction(s, action);
+    assert.ok(validateState(s));
+  }
+  assert.ok(s.relics.length < 6);
+});
+
+test("targeted camp upgrade changes precisely the selected duplicate entry", () => {
+  let s = enter(3, "camp");
+  const ids = s.deck.slice(),
+    target = ids.indexOf("sunder");
+  const train = legalActions(s).filter(
+    (a) => a.type === "camp" && a.choice === "train",
+  );
+  assert.equal(train.length, ids.length);
+  assert.equal(applyAction(s, { type: "camp", choice: "train" }), s);
+  assert.equal(applyAction(s, { type: "camp", choice: "train", index: -1 }), s);
+  s = applyAction(s, { type: "camp", choice: "train", index: target });
+  assert.deepEqual(
+    s.deck,
+    ids.map((id, i) => (i === target ? id + "+" : id)),
+  );
+  assert.ok(validateState(s));
+  let duplicated = enter(3, "camp");
+  duplicated = applyAction(duplicated, {
+    type: "camp",
+    choice: "train",
+    index: 1,
   });
-  assert.equal(s.enemies[0].hp, 92);
-  assert.equal(s.block, 4);
-  assert.ok(s.allies.find((u) => u.uid === uid));
+  assert.equal(duplicated.deck[0], "cairnhound");
+  assert.equal(duplicated.deck[1], "cairnhound+");
+  assert.equal(duplicated.phase, "map");
 });
-test("battle temporary stats reset while collection and hunter health persist", () => {
+
+test("relic effects support summon endurance, command attack, solo economy and recovery", () => {
   let s = battle();
-  s = settle(s);
+  s.relics = ["ember-seed", "war-brand"];
+  s = play(s, "cairnhound");
+  assert.equal(s.allies[0].maxHp, 9);
+  assert.equal(s.allies[0].attack, 4);
+  let solo = enter(10, "boss", 1);
+  solo.relics = ["grave-coin"];
+  solo = applyAction(solo, { type: "endTurn" });
+  assert.equal(solo.energy, 6);
+  solo = play(solo, "cairnhound");
+  solo.enemies.forEach(
+    (e) => (e.intent = { damage: 0, target: "hunter", label: "Canceled" }),
+  );
+  solo = applyAction(solo, { type: "endTurn" });
+  assert.equal(solo.energy, 5);
+  const opener = createGame(10);
+  opener.relics = ["brass-bell", "grave-coin"];
+  const opened = applyAction(opener, { type: "travel", choice: "battle" });
+  assert.equal(opened.energy, 7);
+  let recovery = battle();
+  recovery.hp = 30;
+  recovery.relics = ["blood-vial"];
+  recovery.enemies = [foe(recovery, "thrall", 1)];
+  recovery = play(recovery, "scour", recovery.enemies[0].uid);
+  assert.equal(recovery.hp, 34);
+});
+
+test("rewards, real shop costs and removals cannot be collected twice", () => {
+  let s = settle(battle());
   assert.equal(s.phase, "reward");
+  assert.equal(s.gold, 90);
+  assert.equal(s.rewards.length, 3);
+  assert.equal(new Set(s.rewards).size, 3);
+  const card = s.rewards[0],
+    len = s.deck.length;
+  s = applyAction(s, { type: "reward", card });
+  assert.equal(s.deck.length, len + 1);
+  assert.equal(applyAction(s, { type: "reward", card }), s);
+  let shop = enter(3, "shop");
+  const item = shop.rewards[0],
+    gold = shop.gold;
+  shop = applyAction(shop, { type: "buy", card: item });
+  assert.equal(shop.gold, gold - SHOP_PRICES[CARDS[item].type]);
+  assert.equal(applyAction(shop, { type: "buy", card: item }), shop);
+  shop.gold = 35;
+  const size = shop.deck.length;
+  shop = applyAction(shop, { type: "remove", index: 0 });
+  assert.equal(shop.gold, 0);
+  assert.equal(shop.deck.length, size - 1);
+  assert.equal(applyAction(shop, { type: "remove", index: 0 }), shop);
+  shop = applyAction(shop, { type: "leave" });
+  assert.equal(shop.floor, 3);
+  assert.ok(validateState(shop));
+});
+
+test("crypt events provide paid recovery, card purge or bounded relic oath", () => {
+  let s = enter(5, "event");
+  s.hp = 40;
+  const gold = s.gold;
+  s = applyAction(s, { type: "event", choice: "bargain" });
+  assert.equal(s.hp, 56);
+  assert.equal(s.gold, gold - 30);
+  assert.ok(validateState(s));
+  let purge = enter(5, "event");
+  const len = purge.deck.length,
+    hp = purge.hp;
+  purge = applyAction(purge, { type: "event", choice: "purge" });
+  assert.equal(purge.deck.length, len - 1);
+  assert.equal(purge.deck.filter((id) => id === "scour").length, 1);
+  assert.equal(purge.hp, hp - 4);
+  assert.ok(validateState(purge));
+  let oath = enter(5, "event");
+  oath.hp = 8;
+  assert.equal(applyAction(oath, { type: "event", choice: "offering" }), oath);
+  oath.hp = 30;
+  oath = applyAction(oath, { type: "event", choice: "offering" });
+  assert.equal(oath.hp, 22);
+  assert.deepEqual(oath.relics, ["moon-charm"]);
+  assert.ok(validateState(oath));
+});
+
+test("temporary attack bonuses reset between contracts while permanent deck and HP persist", () => {
+  let s = battle();
+  hand(s, ["cairnhound", "edict", "scour", "ironward", "sunder"]);
+  s = play(s, "cairnhound");
+  s = play(s, "edict");
+  assert.equal(s.allies[0].attack, 5);
+  s = settle(s);
   const deck = s.deck.slice();
   assert.equal(s.allies.length, 0);
-  assert.equal(s.hand.length, 0);
   s = applyAction(s, { type: "reward", card: null });
-  assert.deepEqual(s.deck, deck);
   const hp = s.hp;
   s = applyAction(s, { type: "travel", choice: "battle" });
   assert.equal(s.hp, hp);
-  assert.equal(s.energy, 5);
+  assert.deepEqual(s.deck, deck);
   assert.equal(s.turn, 1);
+  s = play(s, "cairnhound");
+  assert.equal(s.allies[0].attack, 3);
   assert.ok(validateState(s));
 });
-test("reward offers unique legal cards, awards gold once, can skip", () => {
-  let s = settle(battle()),
-    before = s.gold;
-  assert.equal(s.rewards.length, 3);
-  assert.equal(new Set(s.rewards).size, 3);
-  assert.equal(before, 90);
-  const id = s.rewards[0],
-    size = s.deck.length;
-  s = applyAction(s, { type: "reward", card: id });
-  assert.equal(s.deck.length, size + 1);
-  assert.equal(s.deck.at(-1), id);
-  assert.equal(s.phase, "map");
-  assert.equal(applyAction(s, { type: "reward", card: id }), s);
-  assert.equal(s.gold, before);
-});
-test("shop purchases and removal use real prices, no repeated item, leave advances once", () => {
-  let s = createGame(1);
-  s.floor = 2;
-  s.route = ["camp", "shop"];
-  s = applyAction(s, { type: "travel", choice: "shop" });
-  const id = s.rewards.find((id) => CARDS[id].type === "spell") ?? s.rewards[0],
-    gold = s.gold;
-  s = applyAction(s, { type: "buy", card: id });
-  assert.equal(s.gold, gold - SHOP_PRICES[CARDS[id].type]);
-  assert.equal(s.rewards.includes(id), false);
-  assert.equal(applyAction(s, { type: "buy", card: id }), s);
-  s.gold = 35;
-  const size = s.deck.length;
-  s = applyAction(s, { type: "remove", index: 0 });
-  assert.equal(s.gold, 0);
-  assert.equal(s.deck.length, size - 1);
-  assert.equal(applyAction(s, { type: "remove", index: 0 }), s);
-  s = applyAction(s, { type: "leave" });
-  assert.equal(s.phase, "map");
-  assert.equal(s.floor, 3);
-  assert.ok(validateState(s));
-});
-test("camp enhancement is permanent, rest capped, shrine cannot kill hunter or duplicate relic", () => {
-  let s = createGame(1);
-  s.floor = 2;
-  s.route = ["camp", "shop"];
-  s = applyAction(s, { type: "travel", choice: "camp" });
-  s = applyAction(s, { type: "camp", choice: "train" });
-  assert.equal(s.deck[0], "mossling+");
-  s.floor = 4;
-  s.route = ["event", "shop"];
-  s = applyAction(s, { type: "travel", choice: "event" });
-  s.hp = 8;
-  assert.equal(applyAction(s, { type: "event", choice: "offering" }), s);
-  s.hp = 30;
-  s = applyAction(s, { type: "event", choice: "offering" });
-  assert.equal(s.hp, 22);
-  assert.deepEqual(s.relics, ["moon-charm"]);
-  assert.equal(s.phase, "map");
-  s.floor = 8;
-  s.route = ["camp", "event"];
-  s = applyAction(s, { type: "travel", choice: "camp" });
-  s.hp = 60;
-  s = applyAction(s, { type: "camp", choice: "rest" });
-  assert.equal(s.hp, 65);
-  assert.ok(validateState(s));
-});
-test("hunter death ends immediately even when finishing the last enemy in the same action", () => {
+
+test("hunter self-damage defeat is immediate and terminal; terminal turn is counted", () => {
   let s = battle();
-  hand(s, ["kindle", "spark", "ward", "rally", "mend"]);
-  s.hp = 2;
-  s = applyAction(s, { type: "play", index: 0 });
+  hand(s, ["bloodprice", "scour", "ironward", "sutures", "sunder"]);
+  s.hp = 3;
+  s = play(s, "bloodprice");
   assert.equal(s.phase, "defeat");
   assert.equal(s.hp, 0);
+  assert.equal(s.stats.turns, 1);
   assert.equal(legalActions(s).length, 0);
-  assert.ok(validateState(s));
   assert.equal(applyAction(s, { type: "endTurn" }), s);
+  assert.ok(validateState(s));
 });
-test("boss victory terminal state preserves collection and has no further actions", () => {
-  let s = createGame(43);
-  for (let i = 0; i < 1000 && legalActions(s).length; i++) {
-    s = applyAction(s, chooseHeuristic(s));
-    assert.ok(validateState(s));
+
+test("all three boss contracts can finish in a valid terminal collection state", () => {
+  for (const seed of [42, 43, 44]) {
+    let s = createGame(seed);
+    for (let i = 0; i < 1000 && legalActions(s).length; i++) {
+      s = applyAction(s, chooseHeuristic(s));
+      assert.ok(validateState(s));
+    }
+    assert.equal(s.phase, "victory");
+    assert.equal(s.floor, 10);
+    assert.equal(s.enemies.length, 0);
+    assert.equal(s.allies.length, 0);
+    assert.equal(legalActions(s).length, 0);
+    assert.ok(s.stats.turns >= s.stats.battles);
   }
-  assert.equal(s.phase, "victory");
-  assert.equal(s.floor, 10);
-  assert.equal(s.enemies.length, 0);
-  assert.equal(legalActions(s).length, 0);
-  assert.ok(s.stats.battles >= 5);
 });
-test("save validator rejects primitive, cyclic missing fields, corrupt numbers, ids and conservation", () => {
-  for (const value of [null, undefined, {}, [], 1, "save", true, new Date()])
-    assert.equal(validateState(value), false);
+
+test("save validation rejects prototype identities, forged passives and illegal reinforcement fields", () => {
   const s = battle();
   for (const [field, value] of [
     ["rng", 0],
@@ -387,82 +675,33 @@ test("save validator rejects primitive, cyclic missing fields, corrupt numbers, 
     ["route", ["fake"]],
     ["stats", null],
     ["allies", [null]],
-    ["hand", ["spark", "spark", "spark", "spark", "spark"]],
+    ["hand", ["scour", "scour", "scour", "scour", "scour"]],
   ] as [string, unknown][]) {
     const bad = structuredClone(s);
     (bad as unknown as Record<string, unknown>)[field] = value;
     assert.equal(validateState(bad), false, field);
   }
-  const dup = structuredClone(s);
-  dup.enemies[1].uid = dup.enemies[0].uid;
-  assert.equal(validateState(dup), false);
-  const constructor = structuredClone(s);
-  constructor.enemies[0].cardId = "constructor";
-  assert.equal(validateState(constructor), false);
-  const badIntent = structuredClone(s);
-  badIntent.enemies[0].intent!.target = "foreign";
-  assert.equal(validateState(badIntent), false);
-  assert.equal(
-    validateState(
-      new Proxy(
-        {},
-        {
-          get() {
-            throw new Error("hostile");
-          },
-        },
-      ),
-    ),
-    false,
-  );
+  const duplicate = structuredClone(s);
+  duplicate.enemies[1].uid = duplicate.enemies[0].uid;
+  assert.equal(validateState(duplicate), false);
+  const prototype = structuredClone(s);
+  prototype.enemies[0].cardId = "constructor";
+  assert.equal(validateState(prototype), false);
+  const passive = structuredClone(s);
+  passive.enemies[0].passive = "No actual rule.";
+  assert.equal(validateState(passive), false);
+  const reinforce = structuredClone(s);
+  reinforce.enemies[0].intent!.summon = ["thrall"];
+  assert.equal(validateState(reinforce), false);
+  const cantor = enter(10, "boss", 1);
+  cantor.enemies[0].intent!.summon = ["constructor"];
+  assert.equal(validateState(cantor), false);
+  cantor.enemies[0].intent!.summon = ["thrall", "thrall", "thrall"];
+  assert.equal(validateState(cantor), false);
   assert.ok(validateState(JSON.parse(JSON.stringify(s))));
 });
-test("100 independent legal random runs conserve copies and end within simulation budget", () => {
-  for (let seed = 1; seed <= 100; seed++) {
-    const result = run(seed, "random");
-    assert.ok(["victory", "defeat"].includes(result.phase));
-    assert.ok(result.steps < 3000);
-  }
-});
 
-test("menu is presentation only and cannot be restored as a dead-end run", () => {
-  const save = JSON.parse(JSON.stringify(createGame(77))) as GameState;
-  save.phase = "menu";
-  assert.equal(legalActions(save).length, 0);
-  assert.equal(validateState(save), false);
-  assert.ok(validateState(createGame(77)));
-});
-
-test("save validation reserves the final combat node for the boss", () => {
-  const save = battle();
-  save.floor = 10;
-  save.route = ["battle"];
-  save.hand = ["spark"];
-  save.draw = save.deck.slice();
-  save.draw.splice(save.draw.indexOf("spark"), 1);
-  save.discard = [];
-  save.allies = [];
-  save.enemies = [enemy(save, "briar", 1)];
-  assert.equal(validateState(save), false);
-  // This corrupt save would otherwise yield a reward at floor ten, from
-  // which no legitimate next map exists. The load gate must reject it.
-  const won = applyAction(save, {
-    type: "play",
-    index: 0,
-    target: save.enemies[0].uid,
-  });
-  assert.equal(won.phase, "reward");
-  assert.equal(validateState(won), false);
-  const finalMap = createGame(77);
-  finalMap.floor = 9;
-  finalMap.route = ["boss"];
-  const boss = applyAction(finalMap, { type: "travel", choice: "boss" });
-  assert.ok(validateState(boss));
-  assert.equal(boss.floor, 10);
-  assert.deepEqual(boss.route, ["boss"]);
-});
-
-test("encounter saves require a choice offered by their actual node", () => {
+test("every encounter must match its actual node; final combat allows only boss", () => {
   const choices = [
     ["battle"],
     ["battle", "event"],
@@ -475,22 +714,34 @@ test("encounter saves require a choice offered by their actual node", () => {
     ["camp", "event"],
     ["boss"],
   ];
-  for (let index = 0; index < choices.length; index++) {
-    for (const choice of choices[index]) {
-      const map = createGame(101);
-      map.floor = index;
-      map.route = choices[index];
-      const entered = applyAction(map, { type: "travel", choice });
-      assert.ok(validateState(entered), `generated ${index + 1} ${choice}`);
-      for (let node = 1; node <= 10; node++) {
+  for (let i = 0; i < choices.length; i++)
+    for (const choice of choices[i]) {
+      const entered = enter(i + 1, choice, 101);
+      assert.ok(validateState(entered));
+      for (let floor = 1; floor <= 10; floor++) {
         const moved = structuredClone(entered);
-        moved.floor = node;
+        moved.floor = floor;
         assert.equal(
           validateState(moved),
-          choices[node - 1].includes(choice),
-          `node ${node} ${choice}`,
+          choices[floor - 1].includes(choice),
+          `${floor} ${choice}`,
         );
       }
     }
-  }
+  const forged = battle();
+  forged.floor = 10;
+  forged.enemies = [foe(forged, "thrall", 1)];
+  assert.equal(validateState(forged), false);
+  const invalidReward = play(forged, "scour", forged.enemies[0].uid);
+  assert.equal(invalidReward.phase, "reward");
+  assert.equal(validateState(invalidReward), false);
+});
+
+test("300 seeded legal-random runs validate every intermediate state across difficulties", () => {
+  for (let difficulty = 0; difficulty <= 2; difficulty++)
+    for (let seed = 1; seed <= 100; seed++) {
+      const result = run(seed, "random", difficulty);
+      assert.ok(["victory", "defeat"].includes(result.phase));
+      assert.ok(result.steps < 3000);
+    }
 });

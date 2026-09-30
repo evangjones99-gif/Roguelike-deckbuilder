@@ -1,0 +1,46 @@
+{
+  "version": "0.2.0",
+  "date": "2026-09-30",
+  "runtimeSourceDigest": "006db8571a5c1697b21bcbe51434161e53bb75580c5b72bed852efdd4da7bee9",
+  "checks": {
+    "engineTests": {
+      "passed": 33,
+      "includes": "300 legal-random runs, deterministic replay, creature roles, bosses, targeted duplicate training, schema validation"
+    },
+    "productionBrowserTests": {
+      "passed": 5,
+      "browser": "system Chromium",
+      "viewport": "1440x900",
+      "fullRun": "seed121, Initiate, actual Canvas2D and controls, every action compared to pure engine, midway reload; 47.2s on final candidate",
+      "otherCases": [
+        "first-run tutorial/summon/command/save/resume/settings",
+        "corrupt save usable fresh-start",
+        "accepted local-save name remains inert text in inspection dossier",
+        "six-versus-six full rosters simultaneously visible, duplicate binding targets identified"
+      ],
+      "recheck": "Four checks passed together on repaired build. The injection test retained an old exact-title assertion after binding labels were added; it was updated to accept the label and independently rerun successfully on the same build. No game code changed for this harness adjustment."
+    },
+    "linuxDesktop": "Passed packaged executable summon/command smoke; see linux-desktop-0.2.0-smoke.json",
+    "windowsDesktop": "Packaged and independently inspected ASAR correspondence; native launch not tested",
+    "independentTechnical": "See technical-v0.2.md",
+    "independentGameplay": "2412 valid simulated runs plus complete hard-mode browser play and independent duplicate-target/phase-toast repair recheck; see gameplay-v0.2.md",
+    "independentVisual": "All twelve desktop unit panels visible at 1024/1280/1440/1920; repaired six-versus-six cadence ~59fps on headless Linux, motion-off stable. See visual-v0.2.md for limits."
+  },
+  "ml": {
+    "report": "ml-policy-v0.2/report.json",
+    "trainingSeeds": "200..207",
+    "evaluationSeeds": "9000..9031; held out from this policy training, reused historical baseline for comparison",
+    "difficulty": 1,
+    "randomWins": 0,
+    "heuristicWins": 31,
+    "learnedWins": 31,
+    "sampleSizePerPolicy": 32,
+    "conclusion": "Learned policy offers no win-rate improvement. These synthetic results do not measure enjoyment."
+  },
+  "limitations": [
+    "One full production-browser run is not a long-duration target-hardware graphics soak",
+    "Cloud Linux virtual display and desktop --no-sandbox qualification",
+    "No native Windows, controller, Steam Deck, Steam depot or real human enjoyment verification",
+    "Detailed illustrated art and effect animation are not articulated creature rigs or AAA certification"
+  ]
+}

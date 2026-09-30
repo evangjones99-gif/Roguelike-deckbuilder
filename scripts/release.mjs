@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import {gunzipSync} from 'node:zlib';
 import { execFileSync } from 'node:child_process';
 
 const version = process.argv[2];
@@ -27,8 +28,8 @@ fs.mkdirSync(path.dirname(dest), { recursive: true });
 fs.mkdirSync(dest); // Exclusive creation: never merge with a raced existing release.
 try {
   fs.cpSync('dist', path.join(dest, 'web'), { recursive: true });
-  run('zip', ['-qr', path.join(dest, `lanternbound-${version}-web.zip`), 'dist']);
-  run('git', ['archive', '--format=zip', `--output=${path.join(dest, `lanternbound-${version}-source.zip`)}`, sourceCommit]);
+  run('zip', ['-qr', path.join(dest, `${pkg.name}-${version}-web.zip`), 'dist']);
+  run('git', ['archive', '--format=zip', `--output=${path.join(dest, `${pkg.name}-${version}-source.zip`)}`, sourceCommit]);
   const desktops = [];
   const freshProvenance = JSON.parse(fs.readFileSync('dist/build-provenance.json','utf8'));
   for (const [dir, platform] of [['linux-unpacked', 'linux-x64'], ['win-unpacked', 'windows-x64']]) {
@@ -40,12 +41,20 @@ try {
     if (packed.version !== version) throw new Error(`Stale ${platform} desktop build: ${packed.version}`);
     const provenance = JSON.parse(asar.extractFile(path.join(origin, 'resources', 'app.asar'), 'dist/build-provenance.json').toString());
     if (provenance.sourceDigest !== freshProvenance.sourceDigest) throw new Error(`Stale ${platform} desktop source; rebuild matching source before release`);
-    const archive = path.join(dest, `lanternbound-${version}-${platform}.${platform==='windows-x64'?'zip':'tar.gz'}`);
+    const archive = path.join(dest, `${pkg.name}-${version}-${platform}.${platform==='windows-x64'?'zip':'tar.gz'}`);
     if (platform==='windows-x64') execFileSync('zip', ['-qr', archive, '.'], {cwd:origin});
     else execFileSync('tar', ['-czf', archive, '-C', origin, '.']);
     desktops.push(platform);
   }
-  fs.cpSync('reviews', path.join(dest, 'reviews'), { recursive: true });
+  fs.cpSync('reviews', path.join(dest, 'reviews'), { recursive: true, filter: source => {
+    if (source.endsWith('.json') && fs.existsSync(source + '.gz')) {
+      const raw = crypto.createHash('sha256').update(fs.readFileSync(source)).digest('hex');
+      const packed = crypto.createHash('sha256').update(gunzipSync(fs.readFileSync(source + '.gz'))).digest('hex');
+      if (raw !== packed) throw new Error(`Compressed review does not preserve source bytes: ${source}`);
+      return false; // Keep the exact lossless compressed evidence, retain raw file locally.
+    }
+    return true;
+  } });
   const archives = fs.readdirSync(dest).filter(f => /\.(zip|tar\.gz)$/.test(f));
   const digests = Object.fromEntries(archives.map(f => [f, crypto.createHash('sha256').update(fs.readFileSync(path.join(dest, f))).digest('hex')]));
   fs.writeFileSync(path.join(dest, 'SHA256SUMS'), Object.entries(digests).map(([f, h]) => `${h}  ${f}\n`).join(''));

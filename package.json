@@ -1,7 +1,7 @@
 {
-  "name": "lanternbound",
-  "version": "0.1.0",
-  "description": "An original folklore monster-summoning roguelike deckbuilder",
+  "name": "hollowpact",
+  "version": "0.2.0",
+  "description": "A grim monster-binding contract hunter roguelike deckbuilder",
   "main": "desktop/main.cjs",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
@@ -20,20 +20,16 @@
     "url": "git+https://github.com/evangjones99-gif/Roguelike-deckbuilder.git"
   },
   "keywords": [],
-  "author": "Lanternbound contributors",
+  "author": "Hollowpact contributors",
   "license": "UNLICENSED",
   "type": "module",
   "bugs": {
     "url": "https://github.com/evangjones99-gif/Roguelike-deckbuilder/issues"
   },
   "homepage": "https://github.com/evangjones99-gif/Roguelike-deckbuilder#readme",
-  "dependencies": {
-    "three": "^0.186.1"
-  },
   "devDependencies": {
     "@electron/asar": "^4.3.1",
     "@playwright/test": "^1.63.0",
-    "@types/three": "^0.186.0",
     "electron": "^44.5.1",
     "electron-builder": "^26.15.3",
     "tsx": "^4.23.15",
@@ -42,8 +38,8 @@
   },
   "private": true,
   "build": {
-    "appId": "com.lanternbound.game",
-    "productName": "Lanternbound",
+    "appId": "com.hollowpact.game",
+    "productName": "Hollowpact",
     "directories": {
       "output": "build-desktop"
     },
@@ -57,13 +53,15 @@
       "target": [
         "dir"
       ],
-      "category": "Game"
+      "category": "Game",
+      "icon": "desktop/icon.png"
     },
     "win": {
       "target": [
         "dir"
       ],
-      "signAndEditExecutable": false
+      "signAndEditExecutable": false,
+      "icon": "desktop/icon.png"
     }
   }
 }

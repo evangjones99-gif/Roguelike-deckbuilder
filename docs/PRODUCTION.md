@@ -2,7 +2,9 @@
 
 ## Product promise
 
-Collect memorable monsters, summon them into a cozy, tangible arena, and make readable tactical decisions that produce different deck strategies. Familiar folklore, plain-English effects, manual commands, and brief feedback. Hunter casts spells; creatures handle physical attacks. Hearthstone atmosphere and Slay the Spire deck variety are inspirations, not assets or copied content.
+Become a capable, scarred contract hunter who binds dangerous monsters and commands them against threats in ruined keeps, flooded crypts and cursed wilderness. Realistic anatomy, weathered materials, ominous lighting, forceful impacts, readable tactics and different deck plans define the promise. Plain-English effects and immediate commanded actions remain useful foundations. Create original creatures and writing from broad dark-fantasy references; do not import franchise assets. HOLLOWPACT is a provisional working title, with name clearance still unverified.
+
+The owner rejected the v0.1 cute woodland direction and explicitly set an AAA studio standard as the target on 30 September2026. All reviews must measure the candidate against that craft target; functional correctness or impressive generated concept art does not satisfy it. AAA-level polish and exceptional human enjoyment are goals, not current verified achievements.
 
 ## Evidence and acceptance
 
@@ -15,7 +17,7 @@ Acceptance dimensions: meaningful choices, pacing, onboarding, readability, visu
 ## Milestones
 
 1. **0.1: complete prototype run.** Deterministic independent simulation, summon-command combat, intentions, choices/rewards, camp/shop/event, boss, victory/defeat, save/resume, tutorial/settings; authored procedural arena; offline web and desktop candidates. Capture independent findings and preserve artifacts.
-2. **0.2: measured iteration.** Address highest-impact independent findings. Add learned policy comparison with fixed training/held-out seeds; inspect build diversity and pacing. Freeze baseline evidence before adjustments and rerun on held-out seeds. Preserve both versions. A prediction of higher win rate cannot establish higher fun.
+2. **0.2: grim vertical-slice iteration.** Replace the rejected presentation with an original realistic ruined-abbey environment and consistent monster cutouts. Improve directed command/hit/death feedback, tactical enemy counterplay, distinct companion roles and selected upgrades. Compare held-out simulations and independent inspection to the preserved first milestone. Its illustrated2.5D animation is an interim implementation; full rigged models/animation craft remain future requirements. A prediction of higher win rate cannot establish higher fun.
 3. **Vertical slice.** Register consistent creature artwork/rigs; bring summon, attack, hit and death animations to a single visual standard. Integrate accessible local prototype/research tools once those files are available. Test first-run comprehension with prospective players and record quotations/observations with consent.
 4. **Alpha.** Expanded encounter roster and at least three distinct strategies, tutorial and controller interaction, deck inspection, coherent progression and difficulty. Review actual run variety, repeated decisions, stalemates and dominant exploits before adding more cards.
 5. **Beta.** Save migration, settings/navigation, Steam Deck and declared target platforms, performance profiling, long-run soak, clean-machine installs, audio/art provenance, packaging and update compatibility. External playtest feedback drives priorities.
