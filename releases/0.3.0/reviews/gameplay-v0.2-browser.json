@@ -1,0 +1,25 @@
+{
+  "seed": 5001,
+  "policy": "pack",
+  "difficulty": 2,
+  "boss": "ironjaw",
+  "acceptedActions": 195,
+  "phase": "victory",
+  "hp": 65,
+  "errors": [],
+  "observations": [
+    {
+      "action": "upgrade-dialog",
+      "entries": 14
+    },
+    {
+      "action": "upgrade-dialog",
+      "entries": 16
+    },
+    {
+      "action": "upgrade-dialog",
+      "entries": 16
+    }
+  ],
+  "method": "Actual Playwright clicks through rendered controls, without loading artificial engine states; pre-action saves compared to independent engine trace"
+}

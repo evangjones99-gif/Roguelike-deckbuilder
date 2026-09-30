@@ -1,0 +1,11 @@
+import fs from'node:fs/promises';
+import{validateState,applyActionWithEvents}from'../../src/engine.ts';
+import{ENEMIES}from'../../src/content.ts';
+const s=JSON.parse(await fs.readFile('reviews/screenshots-v0.2/full-fixture.json','utf8'));
+s.allies=s.allies.slice(0,1);s.allies[0].hp=1;s.allies[0].acted=true;s.allies[0].block=0;
+s.enemies=['e30','e31'].map(uid=>({uid,cardId:'thrall',...ENEMIES.thrall,maxHp:ENEMIES.thrall.hp,block:0,acted:false,intent:{damage:3,target:s.allies[0].uid,label:'Attack weak binding'}}));
+s.deck=[s.allies[0].cardId,'ironward','ironward','scour','survey'];s.hand=['ironward'];s.draw=['ironward','scour','survey'];s.discard=[];s.block=0;
+if(!validateState(s))throw Error('Invalid fixture');const result=applyActionWithEvents(s,{type:'endTurn'});
+await fs.writeFile('reviews/screenshots-v0.3/weak-binding-fixture.json',JSON.stringify(s,null,2));
+await fs.writeFile('reviews/screenshots-v0.3/weak-binding-expected.json',JSON.stringify({method:'Validated constructed resolution fixture; first thrall kills sole binding, second must redirect to hunter. Pure-engine preparation only.',result},null,2));
+console.log(result.events);console.log({hp:result.state.hp,allies:result.state.allies.length,valid:validateState(result.state)});

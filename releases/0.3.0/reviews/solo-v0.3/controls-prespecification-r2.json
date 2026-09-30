@@ -1,0 +1,21 @@
+{
+  "revision": 2,
+  "status": "written before fresh control execution",
+  "seedRange": [
+    20001,
+    20072
+  ],
+  "harnessSHA256": "4b4521194abd03ecca0b8e05b40525219f6426c8794bff41fb0f98b1454a76a4",
+  "methods": {
+    "ordinaryPack": "Negative control: does not release creatures; price change should leave all relevant state fields identical.",
+    "widowHybrid": "Same combat as pack, acquire spiders and spells, release nonspider creatures, retain spider bindings.",
+    "leanPack": "Same combat and base pack acquisition, exclude spiders, release spider cards.",
+    "comparisons": "Both shop price treatments share each policy; effects include changed procurement and subsequent RNG paths."
+  },
+  "criteria": [
+    "Any nonidentical ordinary-pack paired record is a harness defect to resolve before inference.",
+    "Report both rescued and newly losing seeds for active sculpture policies, plus HP/gold/removal/acquisition changes.",
+    "Do not call greaterwinrate a betterhumanexperience; broad costchange still requires independent review."
+  ],
+  "metricRepair": "Revision2 excludes terminal endTurn hand from fresh drawDead counts. Preserve r1 evidence and prespecified results; compare outcomes for all repeated holdoutcases."
+}

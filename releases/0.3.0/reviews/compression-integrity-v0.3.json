@@ -1,0 +1,13 @@
+{
+  "reason": "Archive requires lossless preservation of exact raw bytes; originals retained separately.",
+  "repairs": [
+    {
+      "raw": "reviews/solo-v0.3/silence-overflow-campaign.json",
+      "preservedOriginal": "reviews/solo-v0.3/silence-overflow-campaign-compact-original.json.gz",
+      "originalGzipSha256": "81041becd78e8bf2ecca8fee977ea4e5ab391d9d2a87cf8002457a621e976112",
+      "exactGzipSha256": "31e02783b30f9c1da25b9b11047bb47f722058e244517bad49e41492841a0211",
+      "rawAndDecodedSha256": "3b923c9b71735fdfe5bcf9d0cf068733267022c7957378b109bfdc4118ff78b6",
+      "JSONSemanticallyEqual": true
+    }
+  ]
+}

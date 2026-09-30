@@ -1,0 +1,692 @@
+{
+  "revision": 4,
+  "cohort": "world-controls",
+  "worldVerification": [
+    {
+      "seed": 6501,
+      "difficulty": 0,
+      "formation": [
+        "raider",
+        "revenant"
+      ],
+      "threeDeckArmsMatched": true
+    },
+    {
+      "seed": 6501,
+      "difficulty": 1,
+      "formation": [
+        "raider",
+        "revenant"
+      ],
+      "threeDeckArmsMatched": true
+    },
+    {
+      "seed": 6501,
+      "difficulty": 2,
+      "formation": [
+        "raider",
+        "revenant"
+      ],
+      "threeDeckArmsMatched": true
+    },
+    {
+      "seed": 6502,
+      "difficulty": 0,
+      "formation": [
+        "raider",
+        "thrall"
+      ],
+      "threeDeckArmsMatched": true
+    },
+    {
+      "seed": 6502,
+      "difficulty": 1,
+      "formation": [
+        "raider",
+        "thrall"
+      ],
+      "threeDeckArmsMatched": true
+    },
+    {
+      "seed": 6502,
+      "difficulty": 2,
+      "formation": [
+        "raider",
+        "thrall"
+      ],
+      "threeDeckArmsMatched": true
+    },
+    {
+      "seed": 6503,
+      "difficulty": 0,
+      "formation": [
+        "raider",
+        "revenant"
+      ],
+      "threeDeckArmsMatched": true
+    },
+    {
+      "seed": 6503,
+      "difficulty": 1,
+      "formation": [
+        "raider",
+        "revenant"
+      ],
+      "threeDeckArmsMatched": true
+    },
+    {
+      "seed": 6503,
+      "difficulty": 2,
+      "formation": [
+        "raider",
+        "revenant"
+      ],
+      "threeDeckArmsMatched": true
+    },
+    {
+      "seed": 6501,
+      "difficulty": 0,
+      "divergentPriorRngShopOffersMatched": true,
+      "divergentPriorRngRewardOffersMatched": true,
+      "relicDropAndLogMatched": true
+    },
+    {
+      "seed": 6501,
+      "difficulty": 1,
+      "divergentPriorRngShopOffersMatched": true,
+      "divergentPriorRngRewardOffersMatched": true,
+      "relicDropAndLogMatched": true
+    },
+    {
+      "seed": 6501,
+      "difficulty": 2,
+      "divergentPriorRngShopOffersMatched": true,
+      "divergentPriorRngRewardOffersMatched": true,
+      "relicDropAndLogMatched": true
+    },
+    {
+      "seed": 6502,
+      "difficulty": 0,
+      "divergentPriorRngShopOffersMatched": true,
+      "divergentPriorRngRewardOffersMatched": true,
+      "relicDropAndLogMatched": true
+    },
+    {
+      "seed": 6502,
+      "difficulty": 1,
+      "divergentPriorRngShopOffersMatched": true,
+      "divergentPriorRngRewardOffersMatched": true,
+      "relicDropAndLogMatched": true
+    },
+    {
+      "seed": 6502,
+      "difficulty": 2,
+      "divergentPriorRngShopOffersMatched": true,
+      "divergentPriorRngRewardOffersMatched": true,
+      "relicDropAndLogMatched": true
+    },
+    {
+      "seed": 6503,
+      "difficulty": 0,
+      "divergentPriorRngShopOffersMatched": true,
+      "divergentPriorRngRewardOffersMatched": true,
+      "relicDropAndLogMatched": true
+    },
+    {
+      "seed": 6503,
+      "difficulty": 1,
+      "divergentPriorRngShopOffersMatched": true,
+      "divergentPriorRngRewardOffersMatched": true,
+      "relicDropAndLogMatched": true
+    },
+    {
+      "seed": 6503,
+      "difficulty": 2,
+      "divergentPriorRngShopOffersMatched": true,
+      "divergentPriorRngRewardOffersMatched": true,
+      "relicDropAndLogMatched": true
+    },
+    {
+      "serializedShimReplayExact": true,
+      "steps": 120,
+      "phase": "defeat",
+      "invalidActionIdentityPreserved": true
+    }
+  ],
+  "seedRange": [
+    24001,
+    24006
+  ],
+  "sourceHashes": {
+    "reviews/ml-policy-v0.2/engine.ts": "21bafb33832ec2d3ee1ca4ead9486825510bd380b62e143a8736465f1ad4110b",
+    "reviews/ml-policy-v0.2/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+    "scripts/solo-investigation-v0.3.ts": "2c171706a5558aacea245a7c8751834e6e448d8033a9d062915d347d3b3ce4df"
+  },
+  "worldSampling": "Virtual independently sampled encounters, reward/shop offers, relicdrops and battle drawstream resets; base engine unchanged. Changed schedule invalidates direct oldseed outcomecomparison.",
+  "method": "Exploratory post-solo-holdout controls, fixed before these fresh seeds. Ordinary pack never releases creatures and is an inert negativecontrol. Widowhybrid releases nonspiders; leanpack releases spiders. Both can still bind retained creatures. Both treatments share policy and seeds; later RNGpaths may differ after economic choices. These are not humanbalance judgments.",
+  "summary": [
+    {
+      "difficulty": 0,
+      "mode": "solo",
+      "treatment": "legal-remove-first",
+      "n": 6,
+      "wins": 4,
+      "defeats": 2,
+      "meanHp": 28.5,
+      "meanTurns": 26.67,
+      "meanRemainingCreatures": 1.33,
+      "meanCreatureRemovals": 3.67,
+      "meanRemovalSpend": 128.33,
+      "meanPurchases": 0,
+      "meanGold": 50
+    },
+    {
+      "difficulty": 0,
+      "mode": "solo",
+      "treatment": "proposal-removal-15",
+      "n": 6,
+      "wins": 6,
+      "defeats": 0,
+      "meanHp": 49.5,
+      "meanTurns": 22.83,
+      "meanRemainingCreatures": 0,
+      "meanCreatureRemovals": 5,
+      "meanRemovalSpend": 98.33,
+      "meanPurchases": 0.33,
+      "meanGold": 57.5
+    },
+    {
+      "difficulty": 0,
+      "mode": "pack",
+      "treatment": "legal-remove-first",
+      "n": 6,
+      "wins": 6,
+      "defeats": 0,
+      "meanHp": 49.67,
+      "meanTurns": 21.67,
+      "meanRemainingCreatures": 7.83,
+      "meanCreatureRemovals": 0,
+      "meanRemovalSpend": 11.67,
+      "meanPurchases": 2.67,
+      "meanGold": 124.17
+    },
+    {
+      "difficulty": 0,
+      "mode": "pack",
+      "treatment": "proposal-removal-15",
+      "n": 6,
+      "wins": 6,
+      "defeats": 0,
+      "meanHp": 49.67,
+      "meanTurns": 21.67,
+      "meanRemainingCreatures": 7.83,
+      "meanCreatureRemovals": 0,
+      "meanRemovalSpend": 11.67,
+      "meanPurchases": 2.67,
+      "meanGold": 124.17
+    },
+    {
+      "difficulty": 0,
+      "mode": "widow-hybrid",
+      "treatment": "legal-remove-first",
+      "n": 6,
+      "wins": 6,
+      "defeats": 0,
+      "meanHp": 40.67,
+      "meanTurns": 25.67,
+      "meanRemainingCreatures": 2.17,
+      "meanCreatureRemovals": 4,
+      "meanRemovalSpend": 140,
+      "meanPurchases": 0,
+      "meanGold": 120
+    },
+    {
+      "difficulty": 0,
+      "mode": "widow-hybrid",
+      "treatment": "proposal-removal-15",
+      "n": 6,
+      "wins": 6,
+      "defeats": 0,
+      "meanHp": 43.5,
+      "meanTurns": 23.67,
+      "meanRemainingCreatures": 2.67,
+      "meanCreatureRemovals": 4,
+      "meanRemovalSpend": 60,
+      "meanPurchases": 1.67,
+      "meanGold": 125.83
+    },
+    {
+      "difficulty": 0,
+      "mode": "lean-pack",
+      "treatment": "legal-remove-first",
+      "n": 6,
+      "wins": 6,
+      "defeats": 0,
+      "meanHp": 54.33,
+      "meanTurns": 20.5,
+      "meanRemainingCreatures": 6.17,
+      "meanCreatureRemovals": 1,
+      "meanRemovalSpend": 52.5,
+      "meanPurchases": 2.17,
+      "meanGold": 113.33
+    },
+    {
+      "difficulty": 0,
+      "mode": "lean-pack",
+      "treatment": "proposal-removal-15",
+      "n": 6,
+      "wins": 6,
+      "defeats": 0,
+      "meanHp": 44.83,
+      "meanTurns": 21.33,
+      "meanRemainingCreatures": 6.67,
+      "meanCreatureRemovals": 1,
+      "meanRemovalSpend": 20.83,
+      "meanPurchases": 2.67,
+      "meanGold": 117.5
+    },
+    {
+      "difficulty": 1,
+      "mode": "solo",
+      "treatment": "legal-remove-first",
+      "n": 6,
+      "wins": 4,
+      "defeats": 2,
+      "meanHp": 12.17,
+      "meanTurns": 26.67,
+      "meanRemainingCreatures": 1.33,
+      "meanCreatureRemovals": 3.67,
+      "meanRemovalSpend": 128.33,
+      "meanPurchases": 0,
+      "meanGold": 41.67
+    },
+    {
+      "difficulty": 1,
+      "mode": "solo",
+      "treatment": "proposal-removal-15",
+      "n": 6,
+      "wins": 6,
+      "defeats": 0,
+      "meanHp": 38.67,
+      "meanTurns": 25.5,
+      "meanRemainingCreatures": 0,
+      "meanCreatureRemovals": 5,
+      "meanRemovalSpend": 98.33,
+      "meanPurchases": 0.33,
+      "meanGold": 57.5
+    },
+    {
+      "difficulty": 1,
+      "mode": "pack",
+      "treatment": "legal-remove-first",
+      "n": 6,
+      "wins": 6,
+      "defeats": 0,
+      "meanHp": 39.33,
+      "meanTurns": 22.33,
+      "meanRemainingCreatures": 7.83,
+      "meanCreatureRemovals": 0,
+      "meanRemovalSpend": 11.67,
+      "meanPurchases": 2.67,
+      "meanGold": 124.17
+    },
+    {
+      "difficulty": 1,
+      "mode": "pack",
+      "treatment": "proposal-removal-15",
+      "n": 6,
+      "wins": 6,
+      "defeats": 0,
+      "meanHp": 39.33,
+      "meanTurns": 22.33,
+      "meanRemainingCreatures": 7.83,
+      "meanCreatureRemovals": 0,
+      "meanRemovalSpend": 11.67,
+      "meanPurchases": 2.67,
+      "meanGold": 124.17
+    },
+    {
+      "difficulty": 1,
+      "mode": "widow-hybrid",
+      "treatment": "legal-remove-first",
+      "n": 6,
+      "wins": 3,
+      "defeats": 3,
+      "meanHp": 14.33,
+      "meanTurns": 18.67,
+      "meanRemainingCreatures": 1.67,
+      "meanCreatureRemovals": 4,
+      "meanRemovalSpend": 140,
+      "meanPurchases": 0,
+      "meanGold": 67.5
+    },
+    {
+      "difficulty": 1,
+      "mode": "widow-hybrid",
+      "treatment": "proposal-removal-15",
+      "n": 6,
+      "wins": 2,
+      "defeats": 4,
+      "meanHp": 11.33,
+      "meanTurns": 17.83,
+      "meanRemainingCreatures": 2.17,
+      "meanCreatureRemovals": 4,
+      "meanRemovalSpend": 60,
+      "meanPurchases": 1.67,
+      "meanGold": 75.83
+    },
+    {
+      "difficulty": 1,
+      "mode": "lean-pack",
+      "treatment": "legal-remove-first",
+      "n": 6,
+      "wins": 5,
+      "defeats": 1,
+      "meanHp": 40.33,
+      "meanTurns": 21.17,
+      "meanRemainingCreatures": 6,
+      "meanCreatureRemovals": 1,
+      "meanRemovalSpend": 52.5,
+      "meanPurchases": 2.17,
+      "meanGold": 102.5
+    },
+    {
+      "difficulty": 1,
+      "mode": "lean-pack",
+      "treatment": "proposal-removal-15",
+      "n": 6,
+      "wins": 5,
+      "defeats": 1,
+      "meanHp": 31.17,
+      "meanTurns": 21.83,
+      "meanRemainingCreatures": 6.5,
+      "meanCreatureRemovals": 1,
+      "meanRemovalSpend": 20.83,
+      "meanPurchases": 2.67,
+      "meanGold": 106.67
+    },
+    {
+      "difficulty": 2,
+      "mode": "solo",
+      "treatment": "legal-remove-first",
+      "n": 6,
+      "wins": 2,
+      "defeats": 4,
+      "meanHp": 5.33,
+      "meanTurns": 19.83,
+      "meanRemainingCreatures": 1.67,
+      "meanCreatureRemovals": 3.33,
+      "meanRemovalSpend": 116.67,
+      "meanPurchases": 0,
+      "meanGold": 30
+    },
+    {
+      "difficulty": 2,
+      "mode": "solo",
+      "treatment": "proposal-removal-15",
+      "n": 6,
+      "wins": 4,
+      "defeats": 2,
+      "meanHp": 27,
+      "meanTurns": 27.5,
+      "meanRemainingCreatures": 0,
+      "meanCreatureRemovals": 5,
+      "meanRemovalSpend": 98.33,
+      "meanPurchases": 0.33,
+      "meanGold": 48.33
+    },
+    {
+      "difficulty": 2,
+      "mode": "pack",
+      "treatment": "legal-remove-first",
+      "n": 6,
+      "wins": 3,
+      "defeats": 3,
+      "meanHp": 14.83,
+      "meanTurns": 18.5,
+      "meanRemainingCreatures": 7.17,
+      "meanCreatureRemovals": 0,
+      "meanRemovalSpend": 11.67,
+      "meanPurchases": 2.67,
+      "meanGold": 71.67
+    },
+    {
+      "difficulty": 2,
+      "mode": "pack",
+      "treatment": "proposal-removal-15",
+      "n": 6,
+      "wins": 3,
+      "defeats": 3,
+      "meanHp": 14.83,
+      "meanTurns": 18.5,
+      "meanRemainingCreatures": 7.17,
+      "meanCreatureRemovals": 0,
+      "meanRemovalSpend": 11.67,
+      "meanPurchases": 2.67,
+      "meanGold": 71.67
+    },
+    {
+      "difficulty": 2,
+      "mode": "widow-hybrid",
+      "treatment": "legal-remove-first",
+      "n": 6,
+      "wins": 1,
+      "defeats": 5,
+      "meanHp": 8,
+      "meanTurns": 16.67,
+      "meanRemainingCreatures": 1.5,
+      "meanCreatureRemovals": 4,
+      "meanRemovalSpend": 140,
+      "meanPurchases": 0,
+      "meanGold": 45.83
+    },
+    {
+      "difficulty": 2,
+      "mode": "widow-hybrid",
+      "treatment": "proposal-removal-15",
+      "n": 6,
+      "wins": 3,
+      "defeats": 3,
+      "meanHp": 9.83,
+      "meanTurns": 21,
+      "meanRemainingCreatures": 2.17,
+      "meanCreatureRemovals": 4,
+      "meanRemovalSpend": 60,
+      "meanPurchases": 1.67,
+      "meanGold": 73.33
+    },
+    {
+      "difficulty": 2,
+      "mode": "lean-pack",
+      "treatment": "legal-remove-first",
+      "n": 6,
+      "wins": 3,
+      "defeats": 3,
+      "meanHp": 26.17,
+      "meanTurns": 18.33,
+      "meanRemainingCreatures": 5.5,
+      "meanCreatureRemovals": 1,
+      "meanRemovalSpend": 52.5,
+      "meanPurchases": 2.17,
+      "meanGold": 60.83
+    },
+    {
+      "difficulty": 2,
+      "mode": "lean-pack",
+      "treatment": "proposal-removal-15",
+      "n": 6,
+      "wins": 3,
+      "defeats": 3,
+      "meanHp": 15.67,
+      "meanTurns": 18.67,
+      "meanRemainingCreatures": 6,
+      "meanCreatureRemovals": 1,
+      "meanRemovalSpend": 20.83,
+      "meanPurchases": 2.67,
+      "meanGold": 65
+    }
+  ],
+  "pairs": [
+    {
+      "difficulty": 0,
+      "mode": "solo",
+      "rescued": [
+        24001,
+        24006
+      ],
+      "newDefeats": [],
+      "nonidentical": [
+        24001,
+        24002,
+        24003,
+        24004,
+        24005,
+        24006
+      ]
+    },
+    {
+      "difficulty": 0,
+      "mode": "pack",
+      "rescued": [],
+      "newDefeats": [],
+      "nonidentical": []
+    },
+    {
+      "difficulty": 0,
+      "mode": "widow-hybrid",
+      "rescued": [],
+      "newDefeats": [],
+      "nonidentical": [
+        24001,
+        24002,
+        24003,
+        24004,
+        24005,
+        24006
+      ]
+    },
+    {
+      "difficulty": 0,
+      "mode": "lean-pack",
+      "rescued": [],
+      "newDefeats": [],
+      "nonidentical": [
+        24001,
+        24002,
+        24003,
+        24004,
+        24005,
+        24006
+      ]
+    },
+    {
+      "difficulty": 1,
+      "mode": "solo",
+      "rescued": [
+        24001,
+        24006
+      ],
+      "newDefeats": [],
+      "nonidentical": [
+        24001,
+        24002,
+        24003,
+        24004,
+        24005,
+        24006
+      ]
+    },
+    {
+      "difficulty": 1,
+      "mode": "pack",
+      "rescued": [],
+      "newDefeats": [],
+      "nonidentical": []
+    },
+    {
+      "difficulty": 1,
+      "mode": "widow-hybrid",
+      "rescued": [],
+      "newDefeats": [
+        24005
+      ],
+      "nonidentical": [
+        24001,
+        24002,
+        24003,
+        24004,
+        24005,
+        24006
+      ]
+    },
+    {
+      "difficulty": 1,
+      "mode": "lean-pack",
+      "rescued": [],
+      "newDefeats": [],
+      "nonidentical": [
+        24001,
+        24002,
+        24003,
+        24004,
+        24005,
+        24006
+      ]
+    },
+    {
+      "difficulty": 2,
+      "mode": "solo",
+      "rescued": [
+        24005,
+        24006
+      ],
+      "newDefeats": [],
+      "nonidentical": [
+        24001,
+        24002,
+        24003,
+        24004,
+        24005,
+        24006
+      ]
+    },
+    {
+      "difficulty": 2,
+      "mode": "pack",
+      "rescued": [],
+      "newDefeats": [],
+      "nonidentical": []
+    },
+    {
+      "difficulty": 2,
+      "mode": "widow-hybrid",
+      "rescued": [
+        24003,
+        24005
+      ],
+      "newDefeats": [],
+      "nonidentical": [
+        24001,
+        24002,
+        24003,
+        24004,
+        24005,
+        24006
+      ]
+    },
+    {
+      "difficulty": 2,
+      "mode": "lean-pack",
+      "rescued": [],
+      "newDefeats": [],
+      "nonidentical": [
+        24001,
+        24002,
+        24003,
+        24004,
+        24005,
+        24006
+      ]
+    }
+  ]
+}
