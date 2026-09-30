@@ -1,0 +1,400 @@
+{
+  "scope": "Actual production handlers; only navigator.getGamepads samples emulated. No injected host or adapter. Diagnostic fixtures are unearned validated saves; no physical hardware claim.",
+  "digest": "0ec0187f0a42eb519000646695980dd91e1e026e1cb925b96935ee3e8646acde",
+  "referenceSHA": "e8836833a56836fa97e79ebced4ee0845ad64e99cf6c85d107faaeb09b8fdad5",
+  "harnessSHA": "d1cb0d646f761c1ceea52f8b2ee992754e46e101e983015dc22676571ddf0739",
+  "results": [
+    {
+      "name": "accurate-selected-shortcuts-binding-1",
+      "fixture": "binding-target-hints",
+      "kind": 1,
+      "actualBindingOrCardSelection": "binding",
+      "keyboardSelectedHint": "Enter Choose; Esc Cancel; T Targets; Arrows Move; I Inspect; E End turn",
+      "unsupportedHBNotAdvertisedAndInert": true,
+      "padSelectedHint": "A Choose · B Back\nX Inspect · Y End turn\nD-pad Move · Start Pause",
+      "LB_RBNotAdvertised": true,
+      "realInspectBackRoutes": true,
+      "realUnspentEAndCancel": true,
+      "cancelRestoresSourceAndDefaultHints": true,
+      "modeSwitchCanonicalPure": true,
+      "exactFreshCanonicalAction": true,
+      "localNegativeQA": {
+        "data": {
+          "schema": 1,
+          "kind": "voluntary-player-feedback",
+          "source": "local-export",
+          "createdAt": "2026-09-30T23:04:37.586Z",
+          "context": {
+            "build": {
+              "version": "0.6.0",
+              "sourceDigest": "0ec0187f0a42eb519000646695980dd91e1e026e1cb925b96935ee3e8646acde",
+              "channel": "packaged"
+            },
+            "screen": "battle",
+            "run": {
+              "seed": 121,
+              "difficulty": 0,
+              "phase": "battle",
+              "contract": 1,
+              "hunterHealth": 65,
+              "maximumHealth": 65,
+              "saveSchema": 2,
+              "rulesGeneration": 1,
+              "deck": [
+                "cairnhound",
+                "gravehound",
+                "fenstalker",
+                "fenraker",
+                "briarcolossus",
+                "ossuarycolossus",
+                "cairnhound+",
+                "gravehound+",
+                "fenstalker+",
+                "fenraker+",
+                "briarcolossus+",
+                "cairnhound",
+                "cairnhound+",
+                "gravehound",
+                "gravehound+",
+                "fenstalker",
+                "fenstalker+",
+                "fenraker",
+                "fenraker+",
+                "briarcolossus",
+                "briarcolossus+",
+                "ossuarycolossus",
+                "ossuarycolossus+",
+                "ashwidow",
+                "ashwidow+",
+                "emberwidow",
+                "emberwidow+",
+                "scour",
+                "scour+",
+                "ironward",
+                "ironward+",
+                "sutures",
+                "sutures+",
+                "edict",
+                "edict+",
+                "witchfire",
+                "witchfire+",
+                "killcommand",
+                "killcommand+",
+                "gravetithe",
+                "gravetithe+",
+                "survey",
+                "survey+",
+                "bloodprice",
+                "bloodprice+",
+                "aegis",
+                "aegis+",
+                "harpoon",
+                "harpoon+",
+                "covenant",
+                "covenant+",
+                "sunder",
+                "sunder+",
+                "silence",
+                "silence+",
+                "resonance",
+                "resonance+",
+                "draught",
+                "draught+"
+              ],
+              "relics": [],
+              "stats": {
+                "cardsPlayed": 0,
+                "damageDealt": 0,
+                "turns": 1,
+                "battles": 1
+              }
+            }
+          },
+          "responses": {
+            "confusion": "AUTOMATED QA ONLY: corrected target shortcut availability and exact finalhint build identity. Not human feedback.",
+            "interestingChoice": "",
+            "replayIntent": "no"
+          }
+        },
+        "storageUnchanged": true,
+        "newRequests": 0
+      },
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "e30",
+        "id": "",
+        "text": "Ironjaw ReaverH1 11/1644 damage → hunter"
+      },
+      "finalSaveHash": "0a6168bace0704bfe4306844b3f3aa21971fd21cc7f86b6e65b45874c3f726a3",
+      "errors": []
+    },
+    {
+      "name": "accurate-selected-shortcuts-card-1",
+      "fixture": "card-target-hints",
+      "kind": 1,
+      "actualBindingOrCardSelection": "card",
+      "keyboardSelectedHint": "Enter Choose; Esc Cancel; T Targets; Arrows Move; I Inspect; E End turn",
+      "unsupportedHBNotAdvertisedAndInert": true,
+      "padSelectedHint": "A Choose · B Back\nX Inspect · Y End turn\nD-pad Move · Start Pause",
+      "LB_RBNotAdvertised": true,
+      "realInspectBackRoutes": true,
+      "realUnspentEAndCancel": false,
+      "cancelRestoresSourceAndDefaultHints": true,
+      "modeSwitchCanonicalPure": true,
+      "exactFreshCanonicalAction": true,
+      "localNegativeQA": {
+        "data": {
+          "schema": 1,
+          "kind": "voluntary-player-feedback",
+          "source": "local-export",
+          "createdAt": "2026-09-30T23:04:40.253Z",
+          "context": {
+            "build": {
+              "version": "0.6.0",
+              "sourceDigest": "0ec0187f0a42eb519000646695980dd91e1e026e1cb925b96935ee3e8646acde",
+              "channel": "packaged"
+            },
+            "screen": "battle",
+            "run": {
+              "seed": 45001,
+              "difficulty": 1,
+              "phase": "battle",
+              "contract": 1,
+              "hunterHealth": 65,
+              "maximumHealth": 65,
+              "saveSchema": 2,
+              "rulesGeneration": 1,
+              "deck": [
+                "scour",
+                "silence",
+                "ironward",
+                "survey",
+                "bloodprice"
+              ],
+              "relics": [],
+              "stats": {
+                "cardsPlayed": 0,
+                "damageDealt": 0,
+                "turns": 1,
+                "battles": 1
+              }
+            }
+          },
+          "responses": {
+            "confusion": "AUTOMATED QA ONLY: corrected target shortcut availability and exact finalhint build identity. Not human feedback.",
+            "interestingChoice": "",
+            "replayIntent": "no"
+          }
+        },
+        "storageUnchanged": true,
+        "newRequests": 0
+      },
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "e3",
+        "id": "",
+        "text": "Gloam RevenantH1 15/1555 damage → hunter"
+      },
+      "finalSaveHash": "238d71769ff16cfa63bb6a35857a5cd0d7406d6239afbc75b3e8d95da769a7a7",
+      "errors": []
+    },
+    {
+      "name": "accurate-selected-shortcuts-binding-2",
+      "fixture": "binding-target-hints",
+      "kind": 2,
+      "actualBindingOrCardSelection": "binding",
+      "keyboardSelectedHint": "Enter Choose; Esc Cancel; T Targets; Arrows Move; I Inspect; E End turn",
+      "unsupportedHBNotAdvertisedAndInert": true,
+      "padSelectedHint": "A Choose · B Back\nX Inspect · Y End turn\nD-pad Move · Start Pause",
+      "LB_RBNotAdvertised": true,
+      "realInspectBackRoutes": true,
+      "realUnspentEAndCancel": true,
+      "cancelRestoresSourceAndDefaultHints": true,
+      "modeSwitchCanonicalPure": true,
+      "exactFreshCanonicalAction": true,
+      "localNegativeQA": {
+        "data": {
+          "schema": 1,
+          "kind": "voluntary-player-feedback",
+          "source": "local-export",
+          "createdAt": "2026-09-30T23:04:43.282Z",
+          "context": {
+            "build": {
+              "version": "0.6.0",
+              "sourceDigest": "0ec0187f0a42eb519000646695980dd91e1e026e1cb925b96935ee3e8646acde",
+              "channel": "packaged"
+            },
+            "screen": "battle",
+            "run": {
+              "seed": 121,
+              "difficulty": 0,
+              "phase": "battle",
+              "contract": 1,
+              "hunterHealth": 65,
+              "maximumHealth": 65,
+              "saveSchema": 3,
+              "rulesGeneration": 2,
+              "deck": [
+                "cairnhound",
+                "gravehound",
+                "fenstalker",
+                "fenraker",
+                "briarcolossus",
+                "ossuarycolossus",
+                "cairnhound+",
+                "gravehound+",
+                "fenstalker+",
+                "fenraker+",
+                "briarcolossus+",
+                "cairnhound",
+                "cairnhound+",
+                "gravehound",
+                "gravehound+",
+                "fenstalker",
+                "fenstalker+",
+                "fenraker",
+                "fenraker+",
+                "briarcolossus",
+                "briarcolossus+",
+                "ossuarycolossus",
+                "ossuarycolossus+",
+                "ashwidow",
+                "ashwidow+",
+                "emberwidow",
+                "emberwidow+",
+                "scour",
+                "scour+",
+                "ironward",
+                "ironward+",
+                "sutures",
+                "sutures+",
+                "edict",
+                "edict+",
+                "witchfire",
+                "witchfire+",
+                "killcommand",
+                "killcommand+",
+                "gravetithe",
+                "gravetithe+",
+                "survey",
+                "survey+",
+                "bloodprice",
+                "bloodprice+",
+                "aegis",
+                "aegis+",
+                "harpoon",
+                "harpoon+",
+                "covenant",
+                "covenant+",
+                "sunder",
+                "sunder+",
+                "silence",
+                "silence+",
+                "resonance",
+                "resonance+",
+                "draught",
+                "draught+"
+              ],
+              "relics": [],
+              "stats": {
+                "cardsPlayed": 0,
+                "damageDealt": 0,
+                "turns": 1,
+                "battles": 1
+              }
+            }
+          },
+          "responses": {
+            "confusion": "AUTOMATED QA ONLY: corrected target shortcut availability and exact finalhint build identity. Not human feedback.",
+            "interestingChoice": "",
+            "replayIntent": "no"
+          }
+        },
+        "storageUnchanged": true,
+        "newRequests": 0
+      },
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "e30",
+        "id": "",
+        "text": "Ironjaw ReaverH1 11/1644 damage → hunter"
+      },
+      "finalSaveHash": "4290a5eb788a25a70dd9e2d0fa81d9291011b91b3281ef494b3ac43bf261e2b2",
+      "errors": []
+    },
+    {
+      "name": "accurate-selected-shortcuts-card-2",
+      "fixture": "card-target-hints",
+      "kind": 2,
+      "actualBindingOrCardSelection": "card",
+      "keyboardSelectedHint": "Enter Choose; Esc Cancel; T Targets; Arrows Move; I Inspect; E End turn",
+      "unsupportedHBNotAdvertisedAndInert": true,
+      "padSelectedHint": "A Choose · B Back\nX Inspect · Y End turn\nD-pad Move · Start Pause",
+      "LB_RBNotAdvertised": true,
+      "realInspectBackRoutes": true,
+      "realUnspentEAndCancel": false,
+      "cancelRestoresSourceAndDefaultHints": true,
+      "modeSwitchCanonicalPure": true,
+      "exactFreshCanonicalAction": true,
+      "localNegativeQA": {
+        "data": {
+          "schema": 1,
+          "kind": "voluntary-player-feedback",
+          "source": "local-export",
+          "createdAt": "2026-09-30T23:04:46.263Z",
+          "context": {
+            "build": {
+              "version": "0.6.0",
+              "sourceDigest": "0ec0187f0a42eb519000646695980dd91e1e026e1cb925b96935ee3e8646acde",
+              "channel": "packaged"
+            },
+            "screen": "battle",
+            "run": {
+              "seed": 45001,
+              "difficulty": 1,
+              "phase": "battle",
+              "contract": 1,
+              "hunterHealth": 65,
+              "maximumHealth": 65,
+              "saveSchema": 3,
+              "rulesGeneration": 2,
+              "deck": [
+                "scour",
+                "silence",
+                "ironward",
+                "survey",
+                "bloodprice"
+              ],
+              "relics": [],
+              "stats": {
+                "cardsPlayed": 0,
+                "damageDealt": 0,
+                "turns": 1,
+                "battles": 1
+              }
+            }
+          },
+          "responses": {
+            "confusion": "AUTOMATED QA ONLY: corrected target shortcut availability and exact finalhint build identity. Not human feedback.",
+            "interestingChoice": "",
+            "replayIntent": "no"
+          }
+        },
+        "storageUnchanged": true,
+        "newRequests": 0
+      },
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "e3",
+        "id": "",
+        "text": "Gloam RevenantH1 15/1555 damage → hunter"
+      },
+      "finalSaveHash": "7716c802d23188c0773c617ad4f9ef466e1b6cdfd230e2b1ab7664153bc7fef1",
+      "errors": []
+    }
+  ]
+}

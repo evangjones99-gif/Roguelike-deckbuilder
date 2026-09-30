@@ -1,0 +1,129 @@
+[
+  {
+    "name": "two-dragons-fourteen-hits",
+    "action": {
+      "type": "endTurn"
+    },
+    "beforeValid": true,
+    "afterValid": true,
+    "expectedEqualsCurrentEngine": true,
+    "eventsEqual": true
+  },
+  {
+    "name": "warleader-melee-right",
+    "action": {
+      "type": "endTurn"
+    },
+    "beforeValid": true,
+    "afterValid": true,
+    "expectedEqualsCurrentEngine": true,
+    "eventsEqual": true
+  },
+  {
+    "name": "hound-leftward",
+    "action": {
+      "type": "attack",
+      "unit": "a10",
+      "target": "e30"
+    },
+    "beforeValid": true,
+    "afterValid": true,
+    "expectedEqualsCurrentEngine": true,
+    "eventsEqual": true
+  },
+  {
+    "name": "hound-rightward",
+    "action": {
+      "type": "attack",
+      "unit": "a10",
+      "target": "e35"
+    },
+    "beforeValid": true,
+    "afterValid": true,
+    "expectedEqualsCurrentEngine": true,
+    "eventsEqual": true
+  },
+  {
+    "name": "hound-near-left",
+    "action": {
+      "type": "attack",
+      "unit": "a10",
+      "target": "e34"
+    },
+    "beforeValid": true,
+    "afterValid": true,
+    "expectedEqualsCurrentEngine": true,
+    "eventsEqual": true
+  },
+  {
+    "name": "hound-near-right",
+    "action": {
+      "type": "attack",
+      "unit": "a10",
+      "target": "e31"
+    },
+    "beforeValid": true,
+    "afterValid": true,
+    "expectedEqualsCurrentEngine": true,
+    "eventsEqual": true
+  },
+  {
+    "name": "hound-vertical",
+    "action": {
+      "type": "attack",
+      "unit": "a10",
+      "target": "e30"
+    },
+    "beforeValid": true,
+    "afterValid": true,
+    "expectedEqualsCurrentEngine": true,
+    "eventsEqual": true
+  },
+  {
+    "name": "hound-far-left-mutual-death",
+    "action": {
+      "type": "attack",
+      "unit": "a10",
+      "target": "e30"
+    },
+    "beforeValid": true,
+    "afterValid": true,
+    "expectedEqualsCurrentEngine": true,
+    "eventsEqual": true
+  },
+  {
+    "name": "hound-duel-short-range",
+    "action": {
+      "type": "attack",
+      "unit": "a10",
+      "target": "e30"
+    },
+    "beforeValid": true,
+    "afterValid": true,
+    "expectedEqualsCurrentEngine": true,
+    "eventsEqual": true
+  },
+  {
+    "name": "formation-command-fourth-binding",
+    "action": {
+      "type": "attack",
+      "unit": "a10",
+      "target": "e35"
+    },
+    "beforeValid": true,
+    "afterValid": true,
+    "expectedEqualsCurrentEngine": true,
+    "eventsEqual": true
+  },
+  {
+    "name": "formation-command-fourth-binding",
+    "action": {
+      "type": "play",
+      "index": 0
+    },
+    "beforeValid": true,
+    "afterValid": true,
+    "expectedEqualsCurrentEngine": true,
+    "eventsEqual": true
+  }
+]

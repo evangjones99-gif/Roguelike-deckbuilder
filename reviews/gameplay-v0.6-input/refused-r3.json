@@ -1,0 +1,26 @@
+{
+  "scope": "Actual production handlers; only navigator.getGamepads samples emulated. No injected host or adapter. Diagnostic fixtures are unearned validated saves; no physical hardware claim.",
+  "digest": "d33ce538e38d98eba6ec06f90660252d53d3f3fc0122c7316b229f043489b52c",
+  "referenceSHA": "e8836833a56836fa97e79ebced4ee0845ad64e99cf6c85d107faaeb09b8fdad5",
+  "harnessSHA": "e0cdc166d40185398176e7db1e7689a3a21dd500460a6a2bae97a0151092f39a",
+  "results": [
+    {
+      "name": "controller-refused",
+      "fixture": "no-unspent",
+      "kind": 2,
+      "api": "refused",
+      "readCount": 4,
+      "elapsedMs": 1001,
+      "nativeKeyboardWorks": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "action": "endTurn",
+        "id": "",
+        "text": "End turn Enemy intents resolve · draw 5 · refill energy"
+      },
+      "finalSaveHash": "3281f3110cd62e1fe3a703162868aa73b0db335c07ff2295a4b7aa58142a80a9",
+      "errors": []
+    }
+  ]
+}

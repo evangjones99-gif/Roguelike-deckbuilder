@@ -1,0 +1,7 @@
+{
+  "runtimeSourceDigest": "1788250060f96dc0a1b8ff24092997f47643121a265d17fd6b95bbfc1b98811a",
+  "result": "7passed1failed",
+  "failedAssertion": "Fresh synthetic pad press after blur/focus/60ms neutral sampling did not commit expected command. All earlier composition/paused-held checks passed.",
+  "independentResult": "Separate gameplay actual-host probe passes same boundary in both generations.",
+  "repairAssessment": "Investigating fixed-clock sample scheduling; replace guess of60ms with observing actual getGamepads sampling. Preservefailure and require unchanged-source rerun; do not mark original suitepassed."
+}

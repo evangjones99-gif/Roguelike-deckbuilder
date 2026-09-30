@@ -1,0 +1,31 @@
+
+> hollowpact@0.6.0 package:linux
+> npm run build && electron-builder --linux dir
+
+
+> hollowpact@0.6.0 build
+> node scripts/build.mjs
+
+vite v8.3.1 building client environment for production...
+transforming...
+✓ 13 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   1.65 kB │ gzip:  0.80 kB
+dist/assets/index-BBETvFBh.css   49.02 kB │ gzip: 11.44 kB
+dist/assets/index-BKAjkdgo.js   111.68 kB │ gzip: 39.32 kB
+
+✓ built in 102ms
+Runtime source digest: 0ec0187f0a42eb519000646695980dd91e1e026e1cb925b96935ee3e8646acde
+  • electron-builder  version=26.15.3 os=6.18.44
+  • loaded configuration  file=package.json ("build" field)
+  • executing @electron/rebuild  electronVersion=44.5.1 arch=x64 buildFromSource=false workspaceRoot=/workspace/Roguelike-deckbuilder projectDir=./ appDir=./
+  • installing native dependencies  arch=x64
+  • completed installing native dependencies
+  • packaging       platform=linux arch=x64 electron=44.5.1 appOutDir=build-desktop/linux-unpacked
+  • downloaded      label=electron progress=100%
+  • downloaded electron zip extracted successfully  output=/workspace/Roguelike-deckbuilder/build-desktop/linux-unpacked
+  • searching for node modules  pm=npm searchDir=/workspace/Roguelike-deckbuilder
+  • searching for node modules  pm=traversal searchDir=/workspace/Roguelike-deckbuilder
+  • using manual traversal of node_modules to build dependency tree
+  • no node modules returned while searching directories  searchDirectories=[""]

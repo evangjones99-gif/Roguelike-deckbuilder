@@ -1,0 +1,76 @@
+{
+  "scope": "Actual production handlers; only navigator.getGamepads samples emulated. No injected host or adapter. Diagnostic fixtures are unearned validated saves; no physical hardware claim.",
+  "digest": "a502ed48dfb625257acea8d747439bce23be2c2ec346013b6c1a4fd9c8cb14f5",
+  "referenceSHA": "e8836833a56836fa97e79ebced4ee0845ad64e99cf6c85d107faaeb09b8fdad5",
+  "harnessSHA": "e0cdc166d40185398176e7db1e7689a3a21dd500460a6a2bae97a0151092f39a",
+  "results": [
+    {
+      "name": "terminal-hold-safe-start-1-true",
+      "fixture": "terminal-reward",
+      "kind": 1,
+      "observedActualLock": true,
+      "canonicalCommittedImmediately": true,
+      "startSafePause": true,
+      "staleEUnchanged": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "H1",
+        "id": "",
+        "text": "Take what keeps you alive."
+      },
+      "finalSaveHash": "217f7c3ce110f6f951df56b49b452c0bd98e27fcb93fbcc63b663eb83b06d5c1",
+      "errors": []
+    },
+    {
+      "name": "terminal-hold-safe-start-1-false",
+      "fixture": "terminal-reward",
+      "kind": 1,
+      "observedActualLock": false,
+      "canonicalCommittedImmediately": true,
+      "startSafePause": false,
+      "staleEUnchanged": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "H1",
+        "id": "",
+        "text": "Take what keeps you alive."
+      },
+      "finalSaveHash": "217f7c3ce110f6f951df56b49b452c0bd98e27fcb93fbcc63b663eb83b06d5c1",
+      "errors": []
+    },
+    {
+      "name": "terminal-hold-safe-start-2-true",
+      "fixture": "terminal-reward",
+      "kind": 2,
+      "observedActualLock": true,
+      "canonicalCommittedImmediately": true,
+      "startSafePause": true,
+      "staleEUnchanged": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "H1",
+        "id": "",
+        "text": "Take what keeps you alive."
+      },
+      "finalSaveHash": "922f030a613e3a57a5c61e2dc47fe2ec3b333d484cd7c1abae8a582e42bb2de5",
+      "errors": []
+    },
+    {
+      "name": "terminal-hold-safe-start-2-false",
+      "fixture": "terminal-reward",
+      "kind": 2,
+      "observedActualLock": false,
+      "canonicalCommittedImmediately": true,
+      "startSafePause": false,
+      "staleEUnchanged": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "H1",
+        "id": "",
+        "text": "Take what keeps you alive."
+      },
+      "finalSaveHash": "922f030a613e3a57a5c61e2dc47fe2ec3b333d484cd7c1abae8a582e42bb2de5",
+      "errors": []
+    }
+  ]
+}

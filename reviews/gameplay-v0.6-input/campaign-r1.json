@@ -1,0 +1,1550 @@
+{
+  "scope": "Actual shipped production input; complete native-keyboard fresh campaign and gamepad-activated/native-Tab-navigated legacy campaign. No DOM click/focus teleport for action/navigation. Synthetic pad samples; not physical/controller-only certification. Reused archived model policy is not human enjoyment.",
+  "digest": "d33ce538e38d98eba6ec06f90660252d53d3f3fc0122c7316b229f043489b52c",
+  "harnessSHA": "b469f2e8ca71c5a8aaea706a2f66168ac06bae627b62087d1638d68e553799e3",
+  "referenceSHA": "e8836833a56836fa97e79ebced4ee0845ad64e99cf6c85d107faaeb09b8fdad5",
+  "results": [
+    {
+      "kind": 2,
+      "seed": 47101,
+      "fresh": true,
+      "motion": true,
+      "mode": "Native keyboard only, no DOM click/focus navigation",
+      "accepted": 0,
+      "actionCounts": {},
+      "holds": [],
+      "reload": null,
+      "pass": false,
+      "trace": [],
+      "error": "Error: Native Tab cannot reach input[name=\"difficulty\"][value=\"1\"]\n    at seek (file:///workspace/scratch/gameplay-v06-input/campaign-input.mjs:8:169)\n    at async file:///workspace/scratch/gameplay-v06-input/campaign-input.mjs:13:143",
+      "errors": [],
+      "actualSaveHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    },
+    {
+      "kind": 1,
+      "seed": 6503,
+      "fresh": false,
+      "motion": true,
+      "mode": "Gamepad activation with native Tab navigation",
+      "accepted": 119,
+      "actionCounts": {
+        "buy": 3,
+        "leave": 1,
+        "travel": 5,
+        "play": 38,
+        "attack": 57,
+        "endTurn": 11,
+        "reward": 2,
+        "camp": 2
+      },
+      "holds": [
+        {
+          "step": 41,
+          "phase": "reward",
+          "canonicalImmediate": true,
+          "staleEUnchanged": true,
+          "observedRemainingMs": 938
+        },
+        {
+          "step": 73,
+          "phase": "reward",
+          "canonicalImmediate": true,
+          "staleEUnchanged": true,
+          "observedRemainingMs": 1014
+        },
+        {
+          "step": 119,
+          "phase": "victory",
+          "canonicalImmediate": true,
+          "staleEUnchanged": true,
+          "observedRemainingMs": 1029
+        }
+      ],
+      "reload": {
+        "step": 15,
+        "canonicalExact": true
+      },
+      "pass": true,
+      "trace": [
+        {
+          "action": {
+            "type": "buy",
+            "card": "fenraker"
+          },
+          "afterHash": "19c2b299581c7b415545e29d93750a707769ee5c0081c997daddee82e4e8023c",
+          "focus": {
+            "tag": "H1"
+          },
+          "phase": "shop"
+        },
+        {
+          "action": {
+            "type": "buy",
+            "card": "killcommand"
+          },
+          "afterHash": "dd4107a986cd692228b712ac113fce901de28939699074fb47948171f4303a76",
+          "focus": {
+            "tag": "H1"
+          },
+          "phase": "shop"
+        },
+        {
+          "action": {
+            "type": "buy",
+            "card": "emberwidow"
+          },
+          "afterHash": "0a8acc082e011c975e8bff3de3a484fb306a83c85e2866229159f8064a52a37e",
+          "focus": {
+            "tag": "H1"
+          },
+          "phase": "shop"
+        },
+        {
+          "action": {
+            "type": "leave"
+          },
+          "afterHash": "275a7ae3da243de37761b5d8f04606a2303c7d40c1626a9bc51fa7562af818a4",
+          "focus": {
+            "tag": "H1"
+          },
+          "phase": "map"
+        },
+        {
+          "action": {
+            "type": "travel",
+            "choice": "elite"
+          },
+          "afterHash": "fd96e4845a109c8ee79a61136d3b0b837cdb3d05ead7a3dee08423ec0fb08376",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 1
+          },
+          "afterHash": "8deeb938d67713178cf53c6ded7bd3ae721e0b91b82a2d1cad7b5ca13174005a",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a25",
+            "target": "e23"
+          },
+          "afterHash": "25ec8b05544dad20419f41feccffcc303c94e3c07a52122ac9fcac730cbbe0de",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e23"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 1,
+            "target": "a25"
+          },
+          "afterHash": "e63c5438bdf629a6f9c05dbcbaa8e6390365e53c863f92a559b76a3ade755d3d",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a25"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a25",
+            "target": "e23"
+          },
+          "afterHash": "7c39359c7851ab15a9b0c70433188339f6892d05c575315d597c541adf38054b",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e23"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 1,
+            "target": "e23"
+          },
+          "afterHash": "150e2bad082eef7029ae4de0dd508c6229cb13f080814bfab2d03ed07fb6450f",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e23"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "endTurn"
+          },
+          "afterHash": "49654b6a285b064664816d619ccc049aa54d8dedae41db38f2048ed6ee06c65b",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e23"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 1
+          },
+          "afterHash": "ff8f20ab97f61260294de631f462699e0e74493e3760efb41ebefc6ffe73da85",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 3
+          },
+          "afterHash": "6218d839ddb50a442e526b23ee97fb48c753d65c2a5833106c326ae46c683458",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a25"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a25",
+            "target": "e23"
+          },
+          "afterHash": "58d08b0315ce75471800a6887c2a5d6d34359867559989259ad56e9528813872",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e23"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a27",
+            "target": "e23"
+          },
+          "afterHash": "b95fda6949a867f40f9ef6ca483e91f4bb0da4915fe5550b643420d4d9e9c99b",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a28"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 1
+          },
+          "afterHash": "d1d1450e2a63452b182ff004cc0a02ee47732b828f55f5717868bcf6bb01b5c3",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a28",
+            "target": "e24"
+          },
+          "afterHash": "68d21dfebed1faf2b5a3389820fb651011be4c8243b910ef12a8896f453d352f",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e24"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "endTurn"
+          },
+          "afterHash": "7a44901040282bfde5146baba5c564c056abbeedb8fa20bd48d42eeb6ff30dc7",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e24"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 2
+          },
+          "afterHash": "d7938ec94d16e4c00c10be723d817cabd1991ac6195993b1edf17787d37dc7cf",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 1
+          },
+          "afterHash": "c7aed99169cf4f77cf307d6dd3cf1903ad5c38d49b428098bb41e8b66d59d9c7",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a25",
+            "target": "e24"
+          },
+          "afterHash": "e02fc1a1a3f2b0a5a32453ee11b7cf543f3ead81439e7b5de5fcdd20a8ea5516",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e24"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a29",
+            "target": "e24"
+          },
+          "afterHash": "6404cdf6bf77b8e7bbce02bd49c2b03075ac4afee9c8af184e1b35835df4ae6b",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e24"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a28",
+            "target": "e24"
+          },
+          "afterHash": "196b98054ebec788af53d9dd998f020a6677b1806f186d26ecf544329c6eb0b0",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e24"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a30",
+            "target": "e24"
+          },
+          "afterHash": "101db34804dcf6785dd5b76ff7c2a034567fa5ceb1ad3aceb45a6353bd33e01c",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e24"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a27",
+            "target": "e24"
+          },
+          "afterHash": "3f5abd9ea18a4cd0282d0c2b0a87ab94fdf309640dacc6c9b07dae5cfc967831",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e24"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "endTurn"
+          },
+          "afterHash": "ca239b2cebf6217b230663e6ec5c4e37dcc438b5b835bb5701d24f51c6ef3c05",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e24"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a25",
+            "target": "e24"
+          },
+          "afterHash": "58093705d5df86c6793ec88c28dad634b77b4437b4c2d4cdd4fecd35901f8d49",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a27"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 2,
+            "target": "e26"
+          },
+          "afterHash": "a82aafc404765689e578a10ffaf69747c1a3e63878d49ed56be49ca22398fda3",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a27"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 3
+          },
+          "afterHash": "f024693b5d4bef4eb2097987ad3cd873c6d5bd9a3e003fe5c4747195a06dda44",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a27"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a29",
+            "target": "e31"
+          },
+          "afterHash": "9b68904ad9d8ac356da385fb3e07a872a1acd433d0dea23aad6923e0c90eac09",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e31"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a28",
+            "target": "e31"
+          },
+          "afterHash": "af37eae4b20a993444690ff5877c4cf3a319be8b573782de9ca6d587e014f9ca",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a27"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 2
+          },
+          "afterHash": "cf9186cef0bb384b3303d29c4e4ad53dd3aa089ac70f2932fd8adfb834bfa7b7",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a27"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a27",
+            "target": "e22"
+          },
+          "afterHash": "6ff132b790a7b0fbe2f74071935f44fe6da43ce5656be1549b8b2f6e7b165659",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e22"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a30",
+            "target": "e22"
+          },
+          "afterHash": "902c132f51824610712c7463533b4c7474cebe927bc4e8e1a707085f4218ad5d",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e22"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "endTurn"
+          },
+          "afterHash": "cfc520574d1584a8b4c9fdcff4c8709f8db122d7ebf0a1a4ac89f4085687d80b",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e22"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 0
+          },
+          "afterHash": "00bed6f0ba3a2d8ceb6ef4e014d84e408c4ce6e2cdca04736cb5335c9ffb5961",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 2
+          },
+          "afterHash": "cfea2820a3c02c130809115e58dde32cca4cc99db0efc9242e0b13999d6cc166",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a25",
+            "target": "e22"
+          },
+          "afterHash": "1718c24b64b2459a04642fa4044419e7a57d9586accf1dc0a033e7c158828410",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e22"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 4,
+            "target": "a25"
+          },
+          "afterHash": "de34ca6292bba1bcd747ea2ad4455c37b35bb6051d63782843da91ecaac12786",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a25"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a25",
+            "target": "e22"
+          },
+          "afterHash": "cb507a56402c869023504cbebc34ec385fd5d0b647f59bcef6cdc0542e843c0b",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e22"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a29",
+            "target": "e22"
+          },
+          "afterHash": "e40683241fa51f6d32e1bf39d3d48e78e3042f19a84a43c0e61106fec53bead2",
+          "focus": {
+            "tag": "BODY"
+          },
+          "phase": "reward"
+        },
+        {
+          "action": {
+            "type": "reward",
+            "card": "fenraker"
+          },
+          "afterHash": "cf9588292ecfdbf3e8f85a29b4e33f9010a552baa25f0e4f815fed47a01f7e30",
+          "focus": {
+            "tag": "H1"
+          },
+          "phase": "map"
+        },
+        {
+          "action": {
+            "type": "travel",
+            "choice": "camp"
+          },
+          "afterHash": "6a42ce734801831da435fce5d1ee2199890a1140e91e8e2c878e7b899613b438",
+          "focus": {
+            "tag": "H1"
+          },
+          "phase": "camp"
+        },
+        {
+          "action": {
+            "type": "camp",
+            "choice": "train",
+            "index": 0
+          },
+          "afterHash": "168ddf998f309b480c9c4630478c7b68d3393fce658b2740946901ea1409ef0d",
+          "focus": {
+            "tag": "H1"
+          },
+          "phase": "map"
+        },
+        {
+          "action": {
+            "type": "travel",
+            "choice": "elite"
+          },
+          "afterHash": "aed8e2e61152878f9c76d8349e3250f08e6b5baefe38d3a6cf64f4ec7e63bfa4",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 2
+          },
+          "afterHash": "a1ad7e52e82c0f7da615250dd4006d36fd079d98f6fd88eef57341ec9551a17c",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 2
+          },
+          "afterHash": "1501e13764101d1dcc732580d5e74aa7cdeb5f887a8d800195d872031dbc4dfd",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a36",
+            "target": "e34"
+          },
+          "afterHash": "6141bd8a16b2d72d1064b27dc25918a94a2c1fc51f4ed7d411477906ee01f301",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e34"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a37",
+            "target": "e34"
+          },
+          "afterHash": "4a0f7277d4947445162133627d799dd903c2db8107afae29e65fb0688c1f1980",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e34"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "endTurn"
+          },
+          "afterHash": "638032f7dd1adf776e59bc418166a28d47cc7f146db8a21d804ec1b27b8f83b5",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e34"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 3
+          },
+          "afterHash": "b1791265232ef8a1fab5550bb5a19feed178882cc488cd95bceb1ef4833b266e",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 0
+          },
+          "afterHash": "c9ff7d39bcf544165934922869f0436fb4ea7c2859f3f3e3dada5584f7f8b260",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 1
+          },
+          "afterHash": "b9189a4df3263ca44bafe69cdabf70abbf9e77d005b5bac9ed6cb5ec03f51c66",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a36",
+            "target": "e34"
+          },
+          "afterHash": "131ab07c703639b5c67ad3b8c77929d77f2676a4a8137eba37f0f8eb676ab2e8",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e34"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a39",
+            "target": "e34"
+          },
+          "afterHash": "19b7e3fe17ee1b1344e490660611c882de5d23cf1d4fb0950753ddf180ecf81d",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a37"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a40",
+            "target": "e35"
+          },
+          "afterHash": "1defb9a9feea09bb2b5dde88b22e21ab1731b96efbbfcdb30b8272486ceed50b",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e35"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a37",
+            "target": "e35"
+          },
+          "afterHash": "a1ce6d599e364896f537f304db6003f7935749594f53b76a52f1ed2aee56207a",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e35"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a41",
+            "target": "e35"
+          },
+          "afterHash": "7e6e0fec18acfed668c97b34c5e184bf285e6f5b763f1e8a7f4a5205c976886c",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e35"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 1
+          },
+          "afterHash": "f04f8fc347dfaede122fecdc2270ffc5b98fb33e5f199960ae79d3d4a560a0f6",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "endTurn"
+          },
+          "afterHash": "f833c834ce24d3da50152d13cd076966a384f72a79f285bd38755f1be59809da",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 4,
+            "target": "e38"
+          },
+          "afterHash": "54ea0ca333edc10644c1c3f7054b976b372c196e4e1d2b75007139a0ccf37a54",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a36"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 0
+          },
+          "afterHash": "81c92d9be934f3e55630c168288ed2a9d7f592816f3442787bb6fbd43a4edf2d",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a36",
+            "target": "e35"
+          },
+          "afterHash": "861e0973c2dcf57603b809e78465ffcffd1d72732e184f53f429560ff98dcad9",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e35"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a39",
+            "target": "e35"
+          },
+          "afterHash": "ea050747e63a1b43570b006fa6ec6a029f8cf75732e5c5a013be972527c37cd1",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e35"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a42",
+            "target": "e35"
+          },
+          "afterHash": "daac9b10c7e2e8c58da56f522de288c64674f5e48d41a15783a74a6ab47b4777",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e35"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a37",
+            "target": "e35"
+          },
+          "afterHash": "0aedf067fbcd1594176c9d1805822fb84a5c275f788b5fbf269234507ec6cf1f",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a40"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a40",
+            "target": "e33"
+          },
+          "afterHash": "2b489f0750317b484f3eb712dd90b119e26d9515cd755179f8e20d8b8a1e1604",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e33"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a41",
+            "target": "e33"
+          },
+          "afterHash": "f8b6838e62e14f03a4ff9d4860cb16efb16f316de40dcd580587ca2a39cf8435",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e33"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "endTurn"
+          },
+          "afterHash": "95c4395262e31458114a720e872082441736aeed13b01e7ad2235232cc877a3d",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e33"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 1
+          },
+          "afterHash": "31e4ac358dcb558b684febd1d52c5e916d227ec867055e67cfa16e4910be4765",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a36",
+            "target": "e33"
+          },
+          "afterHash": "afe55b5e03aaa07ebc9852241f3f9af0aea87dbcd8e9def827478c16a1130a9c",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e33"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a39",
+            "target": "e33"
+          },
+          "afterHash": "d536bffe7e8723e121f817bbbea17274a41ae372274dee64af5cc0e92be5f12d",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e33"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 1,
+            "target": "e33"
+          },
+          "afterHash": "c627baffbeff8e80760fa7426fdbd34227099a9be25637ec208312fe730a7f93",
+          "focus": {
+            "tag": "BODY"
+          },
+          "phase": "reward"
+        },
+        {
+          "action": {
+            "type": "reward",
+            "card": "gravehound"
+          },
+          "afterHash": "bc0f55cc6b2d68a34e70d45c8888c19db25b644c5a2c5afe3c15906e145a58c0",
+          "focus": {
+            "tag": "H1"
+          },
+          "phase": "map"
+        },
+        {
+          "action": {
+            "type": "travel",
+            "choice": "camp"
+          },
+          "afterHash": "8d44e8c67d2f0e26464922caf3f0ce31aa10aec5a57916edaead56b3af301a08",
+          "focus": {
+            "tag": "H1"
+          },
+          "phase": "camp"
+        },
+        {
+          "action": {
+            "type": "camp",
+            "choice": "train",
+            "index": 1
+          },
+          "afterHash": "1b331ce7e5d682a599c2d9c3b4d6beed0f8bf33b8ae98ba41581c4923b6d7946",
+          "focus": {
+            "tag": "H1"
+          },
+          "phase": "map"
+        },
+        {
+          "action": {
+            "type": "travel",
+            "choice": "boss"
+          },
+          "afterHash": "fafccff18eb29e77bd1c788a1e8166269f0676d090797ef83a2c7a4b153b7012",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 2
+          },
+          "afterHash": "569402670766fe48c85aadb228b6aa73a18f263f44682e244863df12486d217b",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 2
+          },
+          "afterHash": "523f4528f8303883e83431f6c3c2eb8b3be4ad0190f93fc4c3c8d6c8308170b0",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a44",
+            "target": "e43"
+          },
+          "afterHash": "be79acf534f9313e2157f8c47ccbd86888ebd6047b6a2558638923b7894e42b6",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a45",
+            "target": "e43"
+          },
+          "afterHash": "3945e5a8e67e67f7605c76ac791c4865faae5f97a25e84edf1ef6967be79d5e6",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "endTurn"
+          },
+          "afterHash": "a5bf9ad1cbeebf56524cb043a8ec872af6f76187de15a78042cccf3f3843ce02",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 2
+          },
+          "afterHash": "70a423a5e451d89e79b298ab1705e3eb07b4b55fa655757a704c9a92c322931b",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 2
+          },
+          "afterHash": "b7d87da81b4ab7e4c9e0d8047dac1b63e7cb8a76df2706a12e3732af76fe883c",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a44",
+            "target": "e43"
+          },
+          "afterHash": "d662f87fb46551bc3eb0980f27dd2e7123450bb00d7e289ed89030eec299542a",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a45",
+            "target": "e43"
+          },
+          "afterHash": "d7afd8528a9e0104d8d296a7143444b52f0bb656717d31d28b8f7f463b92f384",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a47",
+            "target": "e43"
+          },
+          "afterHash": "74ff47bf47f28e66157347686ebe94be8c2bd4513d0c95d2567788966a84be19",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a46",
+            "target": "e43"
+          },
+          "afterHash": "f8e4bc9e2e1150e392944d834d0fa7b58c33587f2c261325abcf8d347d32988d",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "endTurn"
+          },
+          "afterHash": "219c13b026db9432f79e347b56ed8052e659ab38bb97bb62ff8a7f561a9f6012",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 1
+          },
+          "afterHash": "7524d2e36e4f62cf41d8cf890bca31e81d54a8e57c4e621ee69a4ad758bb9a3a",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 1
+          },
+          "afterHash": "585f4b452aef44e7720d30bda9b37f257f49289a5d8ad1990565f5482aba8947",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a44",
+            "target": "e43"
+          },
+          "afterHash": "0955da95a27a9952cb52dff7782f5454a30f3ddda0760b3219fd57c0bda3f14e",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 0,
+            "target": "a44"
+          },
+          "afterHash": "df04e57c422aecd397e01060c25c4aff4d2f2167c84cfa4c6ce8df834a7e13b8",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a44"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a44",
+            "target": "e43"
+          },
+          "afterHash": "801c3bf995287b7cecd2852b5696e31d646f99a8728e34fccd15eee538b21166",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a45",
+            "target": "e43"
+          },
+          "afterHash": "bab6de5ae0dae68d2d37562713d6469e87df8460cea81e5bf060c61be864c2eb",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a48",
+            "target": "e43"
+          },
+          "afterHash": "71ea076ddabccbc36e153ce6706f593e1aaff4b3aa56d22ece04ad3de8c164b3",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a49",
+            "target": "e43"
+          },
+          "afterHash": "6d6fae05c415bbf293b42b11bfd33891da2237d3735c9618fc66f214234f878b",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a47",
+            "target": "e43"
+          },
+          "afterHash": "d156047b21ebe4670b871b69a9f031dc230ee9da1d7c46536ed1e2b159206e36",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "endTurn"
+          },
+          "afterHash": "6210d0df511eeaa61eb85e3cf08e1a72eb6b84dc2bd43ae4e8ef4f63923c5443",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 4
+          },
+          "afterHash": "a3515269b3cc2bafbf7163f6c2fa9b38bcf3ca616100ae935903c0c75927c6d0",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a44"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 2
+          },
+          "afterHash": "0100ed6af896b3100870483dcd608a323c99cb2d189a0831e5fcedfd9db6dede",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 1
+          },
+          "afterHash": "1a1cc3a406feca679fab9a4f1af268eb7c3ab2533b7fe68cdd38623cf41d4e98",
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "play-card"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a44",
+            "target": "e43"
+          },
+          "afterHash": "46a8948040ae9d7fd38d849f4515f4d83c3ac74f6147760c28a73df681cd86e2",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a45",
+            "target": "e43"
+          },
+          "afterHash": "29a4c66e8135ea37175b4bb5b1d003d940a020f9050587e3051b6277f195a674",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a48",
+            "target": "e43"
+          },
+          "afterHash": "28912bcfc62b7625030d8392df86916ed12fa6c42b47c2060fcf3d12408438b8",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a49",
+            "target": "e43"
+          },
+          "afterHash": "441f1165585a6f0e6a8202eaa4e36b6d832899c9facde3bb5fa33cd7ceeba1f9",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a50",
+            "target": "e43"
+          },
+          "afterHash": "efd38c8b049fb98fcab216d727900d6b21690ea723325e957421f0ddfc3b6c6f",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a47",
+            "target": "e43"
+          },
+          "afterHash": "f2d71dbcfbe226ec0af17b527816637ee935f512b43fd6bc3afb98f85f9ad51a",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 1,
+            "target": "a47"
+          },
+          "afterHash": "7389823d1f3a474f4dbe225ce7ee69b07d0818e05fb4f1e136f7a7695b6c0dc4",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a47"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "endTurn"
+          },
+          "afterHash": "04937815d40f93fa4b58027576a059f49d7e1a4c121bae05fb7be3031339dded",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a47"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 2,
+            "target": "e43"
+          },
+          "afterHash": "adfeb817234523087c1fa9a1107f90e68c2886875703476714c6e83c7ad3a92f",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a44",
+            "target": "e43"
+          },
+          "afterHash": "af52dbba87dc8a21a134968add1639e25d59b2384ac1b0aa8e8c52845e935fc4",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 2,
+            "target": "a44"
+          },
+          "afterHash": "1a1f6746cc8fa6b6af342953315e46d23d7a8f520ccfd565149a5cbafbd12e0b",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a44"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a44",
+            "target": "e43"
+          },
+          "afterHash": "cc80cde20a640b767ad259edf2214e74912cdab3b57e5352fb2eb9b783fe527b",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a45",
+            "target": "e43"
+          },
+          "afterHash": "11471693739e03f7dce4c8403c34d3aa187e758766abc063b568ca1226c653c0",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a48",
+            "target": "e43"
+          },
+          "afterHash": "dc89192ec03ba95d6cd0d5e39cf3f0676b802ac9cbb4bfdd97f1f95be7c8209e",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a49",
+            "target": "e43"
+          },
+          "afterHash": "5e4536cbd13e6f01d0cb0d5ff335008b9a2bf7c54828cc2429c3326d78eb4607",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "attack",
+            "unit": "a50",
+            "target": "e43"
+          },
+          "afterHash": "a7ab7e3a83a82c5ef313432e421a078b8788ef75e535cb92a5b11b34578bb564",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e43"
+          },
+          "phase": "battle"
+        },
+        {
+          "action": {
+            "type": "play",
+            "index": 2,
+            "target": "e43"
+          },
+          "afterHash": "7da66a332e880dd8e46dfcba7f60138ac2e0601428c9caf6bf1ed96f3295d539",
+          "focus": {
+            "tag": "BODY"
+          },
+          "phase": "victory"
+        }
+      ],
+      "outcome": {
+        "phase": "victory",
+        "hp": 41
+      },
+      "errors": []
+    }
+  ]
+}

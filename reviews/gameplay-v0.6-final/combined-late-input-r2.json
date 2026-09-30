@@ -1,0 +1,46 @@
+{
+  "scope": "Actual production handlers; only navigator.getGamepads samples emulated. No injected host or adapter. Diagnostic fixtures are unearned validated saves; no physical hardware claim.",
+  "digest": "a502ed48dfb625257acea8d747439bce23be2c2ec346013b6c1a4fd9c8cb14f5",
+  "referenceSHA": "e8836833a56836fa97e79ebced4ee0845ad64e99cf6c85d107faaeb09b8fdad5",
+  "harnessSHA": "ddf89f6ccc9d5eebb3fdf1c82e4b1707aeefa6a7870213f60eed0bdbaad4d32b",
+  "results": [
+    {
+      "name": "late-held-input-during-actual-contact-1",
+      "fixture": "hound-leftward",
+      "kind": 1,
+      "actualContactStillPlaying": true,
+      "heldLateActivationNoNewSelection": true,
+      "deliberateNextSourceThenFreshInputSelects": true,
+      "EscapeRestoresSource": true,
+      "canonicalUnchangedAfterCommand": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "a11",
+        "id": "",
+        "text": "Grave HoundB1 11/114Ready"
+      },
+      "finalSaveHash": "0a6168bace0704bfe4306844b3f3aa21971fd21cc7f86b6e65b45874c3f726a3",
+      "errors": []
+    },
+    {
+      "name": "late-held-input-during-actual-contact-2",
+      "fixture": "hound-leftward",
+      "kind": 2,
+      "actualContactStillPlaying": true,
+      "heldLateActivationNoNewSelection": true,
+      "deliberateNextSourceThenFreshInputSelects": true,
+      "EscapeRestoresSource": true,
+      "canonicalUnchangedAfterCommand": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "a11",
+        "id": "",
+        "text": "Grave HoundB1 11/114Ready"
+      },
+      "finalSaveHash": "4290a5eb788a25a70dd9e2d0fa81d9291011b91b3281ef494b3ac43bf261e2b2",
+      "errors": []
+    }
+  ]
+}

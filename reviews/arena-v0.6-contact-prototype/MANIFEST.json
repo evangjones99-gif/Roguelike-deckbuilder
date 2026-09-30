@@ -1,0 +1,43 @@
+{
+  "status": "isolated-owner-QA-pass-await-root-and-independent-production-acceptance",
+  "frozenBaselineBuild": "d6221bf764bad593b04981e87bead7ba6868b72cf361d70671af5c91aac39416",
+  "verifiedImmutableWebZipSHA256": "c8a3210688dde4d6bcbe8229ffbc6ae8b11407aa5e6b396c4dfe79c9b3e51c86",
+  "eligiblePromotionFiles": {
+    "arena.ts": "4cfa90a38f10b270867683940400cfb1ca954a3aaf773b6c469e5cca1bab13e1",
+    "art.ts": "26b515016ecf52996acf91ae704da608224d2d1475a883f9675aa0079abbfb1c"
+  },
+  "neverPromote": "candidate/engine.ts is a type-only isolated QA bridge; real runtime engine untouched",
+  "protectedRuntime": {
+    "src/arena.ts": "2e2a5d65a58db91d09ef0e8746a98264fca129520a988ccbb3b5233569f32b79",
+    "src/art.ts": "379e6b60f78cafd20170bcbcc4168a490cd2663388131957ad9766df852430b7",
+    "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+    "public/art/hound-poses.png": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+    "public/art/warleader-poses.png": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b",
+    "public/art/companions-atlas.png": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+    "public/art/adversaries-atlas.png": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5"
+  },
+  "baselineCopies": {
+    "arena.ts": "2e2a5d65a58db91d09ef0e8746a98264fca129520a988ccbb3b5233569f32b79",
+    "art.ts": "379e6b60f78cafd20170bcbcc4168a490cd2663388131957ad9766df852430b7"
+  },
+  "controlledComparisons": 79,
+  "actualCanonicalSaveProbes": 16,
+  "maximumBusyMs": 1191,
+  "sourceImagePixelsEdited": false,
+  "productionIntegrated": false,
+  "independentlyAccepted": false,
+  "hardwareFPSCertified": false,
+  "retainedAttempts": [
+    "pass1",
+    "pass2"
+  ],
+  "representativeImages": [
+    "native-captures/1280-hound-leftward-arena-240.png",
+    "native-captures/1280-hound-leftward-prototype-240.png",
+    "captures/actual-desktop-field-hound-rightward-241-candidate.png",
+    "captures/actual-narrow-field-hound-duel-short-range-241-candidate.png",
+    "captures/tall-narrow-field-hound-vertical-241-candidate.png",
+    "captures/actual-desktop-field-hound-far-left-mutual-death-641-candidate.png",
+    "formation-captures/actual-desktop-field-legal-command-then-fourth-bind-241-candidate.png"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "reviewer": "Independent gameplay agent",
+  "scope": "Actual frozen production host integration after root GO, no injected adapter/host-context shim. Only native Gamepad API emulation is synthetic.",
+  "baselineDigest": "d6221bf764bad593b04981e87bead7ba6868b72cf361d70671af5c91aac39416",
+  "expectedEngineSHA": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+  "outputOwnership": "Scratch only until archive complete and root authorizes new repository paths.",
+  "baselineChecks": [
+    "nonfinal focused enemy kill",
+    "Enter repeated after automatic target focus",
+    "Ctrl/Meta/Alt E with no unspent confirmation ambiguity",
+    "dialog replace/close external opener",
+    "source cancel focus"
+  ],
+  "productionChecks": [
+    "both generations canonical source/reducer/save exactness",
+    "fresh and held Enter/Space/A release/repress",
+    "removed target/source and shrinking hand focus",
+    "nested dialog/phase/motion recovery",
+    "actual final-strike lock and Start safe pause",
+    "Y opens actual unspent confirmation without held auto-confirm",
+    "H/B/T/I/arrows and modifiers",
+    "controller absent/refused/malformed/disconnect/hidden/held connection",
+    "native seed/textarea/contenteditable/range/select controls",
+    "complete keyboard campaign plus disclosed pad-activated earned progression"
+  ],
+  "controllerLimits": "Emulated standard-pad samples against actual shipped callback integration are browser QA, not physical controller, Steam Input or Steam Deck certification. Visibility emulation is not a real background-tab proof.",
+  "references": "Frozen v0.5 engine and existing legally generated/validated diagnostic saves. No parallel implementation of input adapter or focus policy.",
+  "failurePolicy": "Preserve every failed probe/version; diagnostic failures do not silently relax the declared acceptance criteria."
+}

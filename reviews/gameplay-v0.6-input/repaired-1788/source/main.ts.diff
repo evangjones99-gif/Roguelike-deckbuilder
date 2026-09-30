@@ -1,0 +1,45 @@
+--- d33/main.ts
++++ 1788/main.ts
+@@ -5,7 +5,7 @@
+ import { portraitFor, toolArtFor } from './art';
+ import { createToolIllustrations } from './tool-art';
+ import { ENEMIES, RELICS, SHOP_PRICES, EVENT_CHOICES, bossForSeed } from './content';
+-import { createInputAdapter } from './input';
++import { createInputAdapter, type InputMode } from './input';
+ 
+ const SAVE_KEY = 'hollowpact.run.v2';
+ const SAVE_BACKUP_KEY = `${SAVE_KEY}.backup.silence`;
+@@ -49,6 +49,7 @@
+ let selectionOrigin: string | null = null;
+ let dialogOrigin: string | null = null;
+ let renderedScreen: string | null = null;
++let inputMode: InputMode = 'keyboard';
+ let savedRun: GameState | null = null;
+ let saveNotice = '';
+ let toastTimeout: ReturnType<typeof setTimeout>;
+@@ -550,7 +551,12 @@
+   const selectionText = selectionGuidance();
+   $('scene-ui').innerHTML = `<div class="battle-ui"><div class="battle-guidance ${selected ? 'targeting' : ''}"><span id="consequence-preview" role="status" aria-live="polite" aria-atomic="true">${escape(selectionText)}</span>${selected ? '<button class="text-button" data-ui="cancel">Cancel <kbd>Esc</kbd></button>' : `<button class="text-button" data-ui="log">Combat record ${icon('book')}</button>`}</div>${roster('allies')}<div class="arena-caption" aria-hidden="true"><span>THE BLACK MARCH</span><small>${selected ? 'TARGET ACQUIRED · GIVE THE ORDER' : 'READ THE THREAT. BREAK THE LINE.'}</small></div>${roster('enemies')}</div>`;
+   const playable = actions().filter(a => a.type === 'play');
+-  $('dock').innerHTML = `<div class="hand-area"><div class="hand-heading"><span class="eyebrow">AVAILABLE CARDS <span>${state.hand.length}</span></span><div class="pile-buttons"><button data-ui="draw">Draw <strong>${state.draw.length}</strong></button><button data-ui="discard">Discard <strong>${state.discard.length}</strong></button></div></div><div class="hand-cards">${state.hand.map((id, index) => renderCard(CARDS[id], { handIndex: index, disabled: !playable.some(a => a.type === 'play' && a.index === index), selected: selected?.kind === 'card' && selected.index === index })).join('')}${!state.hand.length ? '<div class="empty-hand">No cards in hand.<br>Use remaining commands, then end your turn.</div>' : ''}</div></div><div class="turn-controls"><div class="energy-orb">${icon('energy')}<strong>${state.energy}</strong><span>energy</span></div><button class="button end-turn" data-action="endTurn" data-focus="end-turn">End turn ${icon('arrow')}<small>Enemy intents resolve · draw 5 · refill energy</small></button><span class="keyboard-hint"><kbd>E</kbd> End turn <span>·</span> <kbd>Esc</kbd> Cancel</span></div>`;
++  $('dock').innerHTML = `<div class="hand-area"><div class="hand-heading"><span class="eyebrow">AVAILABLE CARDS <span>${state.hand.length}</span></span><div class="pile-buttons"><button data-ui="draw">Draw <strong>${state.draw.length}</strong></button><button data-ui="discard">Discard <strong>${state.discard.length}</strong></button></div></div><div class="hand-cards">${state.hand.map((id, index) => renderCard(CARDS[id], { handIndex: index, disabled: !playable.some(a => a.type === 'play' && a.index === index), selected: selected?.kind === 'card' && selected.index === index })).join('')}${!state.hand.length ? '<div class="empty-hand">No cards in hand.<br>Use remaining commands, then end your turn.</div>' : ''}</div></div><div class="turn-controls"><div class="energy-orb">${icon('energy')}<strong>${state.energy}</strong><span>energy</span></div><button class="button end-turn" data-action="endTurn" data-focus="end-turn">End turn ${icon('arrow')}<small>Enemy intents resolve · draw 5 · refill energy</small></button><span class="keyboard-hint" aria-label="${inputMode === 'controller' ? 'Controller' : 'Keyboard'} controls">${inputHints()}</span></div>`;
++}
++function inputHints(): string {
++  return inputMode === 'controller'
++    ? '<span><kbd>A</kbd> Choose · <kbd>B</kbd> Back</span><span><kbd>X</kbd> Inspect · <kbd>Y</kbd> End turn</span><span>D-pad Move · LB/RB Regions</span>'
++    : '<span><kbd>E</kbd> End turn · <kbd>Esc</kbd> Back</span><span><kbd>H</kbd> Hand · <kbd>B</kbd> Bindings · <kbd>T</kbd> Hostiles</span><span><kbd>I</kbd> Inspect · Arrows Move</span>';
+ }
+ 
+ function renderCard(card: CardDef, opts: { handIndex?: number; disabled?: boolean; selected?: boolean; reward?: boolean; shop?: boolean; inspect?: boolean } = {}): string {
+@@ -845,6 +851,11 @@
+     if (!title && !settlingCombat && state.phase === 'battle' && !$<HTMLDialogElement>('dialog').open) document.querySelector<HTMLButtonElement>('[data-action="endTurn"]')?.click();
+   },
+   pause: () => { if (!title && !$<HTMLDialogElement>('dialog').open) openPause(); },
++  onInputMode: mode => {
++    inputMode = mode;
++    const hint = document.querySelector<HTMLElement>('.keyboard-hint');
++    if (hint) { hint.innerHTML = inputHints(); hint.setAttribute('aria-label', `${mode === 'controller' ? 'Controller' : 'Keyboard'} controls`); }
++  },
+ });
+ window.addEventListener('beforeunload', () => { disposed = true; inputAdapter.dispose(); cancelPresentation(); sceneObserver.disconnect(); toolIllustrations.dispose(); arena?.dispose(); });
+ render();

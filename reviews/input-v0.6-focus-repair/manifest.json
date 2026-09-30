@@ -1,0 +1,61 @@
+{
+  "kind": "unshipped focus/composition repair candidate",
+  "timestamp": "2026-09-30T22:33:37.523953+00:00",
+  "reviewedBaselineDigest": "d33ce538e38d98eba6ec06f90660252d53d3f3fc0122c7316b229f043489b52c",
+  "baselineRuntimeUnchanged": true,
+  "testsPassed": 17,
+  "browserComparisonPassed": true,
+  "syntheticComposition": true,
+  "syntheticWindowFocus": true,
+  "physicalController": false,
+  "files": {
+    "adapter.test.ts": {
+      "sha256": "7cce13587c640bfb71fe013c7772e2de4fa5bf6c17402838844deb80dfaf4804",
+      "bytes": 8505
+    },
+    "adapter.ts": {
+      "sha256": "b69d87d1a5a71a15d3b29cdfcdbb3f0b33e739f3aa5d8ba82d9cfb470bbdb415",
+      "bytes": 16787
+    },
+    "baseline-adapter.ts": {
+      "sha256": "4ae4ca1a2dadb41f3a51b8eba35dd41efed5ececb00d912edfbec2e346f9f69d",
+      "bytes": 16117
+    },
+    "browser-evidence-1790807556483.json": {
+      "sha256": "5caf6e71c4c0f1c30887d90329dc0aad77246d8077fccd35eadc07e86935f0a6",
+      "bytes": 4784
+    },
+    "browser-evidence-1790807616755.json": {
+      "sha256": "97efe760674301b7fd06eeaaa77b014702040707acac2a096fe48b4d533a1fda",
+      "bytes": 4884
+    },
+    "browser-regression.mjs": {
+      "sha256": "8da2d7d407852d81c81310972941e061e0047073ba328ab0dd7242cf150ae9ca",
+      "bytes": 8982
+    },
+    "emitted/adapter.js": {
+      "sha256": "2cbd61a132f3aeee49be551e1d646e0014757fe17359bc74980c795070e3c76a",
+      "bytes": 17678
+    },
+    "emitted/baseline-adapter.js": {
+      "sha256": "61547911bf036f9020eb6ea188496251e2e4f1f8e5b1f81961b6b149d157f52b",
+      "bytes": 16966
+    },
+    "harness-failure-1790807551306.json": {
+      "sha256": "f43d5c7f4c990dac020ffc7bc58493c31d3e0d30760befb373d13c95d616cd5a",
+      "bytes": 341
+    },
+    "latest-browser.stdout.json": {
+      "sha256": "97efe760674301b7fd06eeaaa77b014702040707acac2a096fe48b4d533a1fda",
+      "bytes": 4884
+    },
+    "proposed.patch": {
+      "sha256": "9faa1e2332fbcea1ae513c3f6b7ab74c65401603252dbdc4dbe356d5470fa816",
+      "bytes": 4193
+    },
+    "test-results.tap": {
+      "sha256": "a8f28116193a05301c136f1ad9b7d7f6f79aaa415138f77d310568fb91935449",
+      "bytes": 1671
+    }
+  }
+}

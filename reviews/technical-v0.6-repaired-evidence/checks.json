@@ -1,0 +1,57 @@
+{
+  "method": "Independent actual production integration; synthetic valid diagnostic inventory and virtual standard pad, no hardware/human claim",
+  "expectedDigest": "1788250060f96dc0a1b8ff24092997f47643121a265d17fd6b95bbfc1b98811a",
+  "checks": [
+    {
+      "name": "held Enter cannot follow binding-to-target focus",
+      "passed": true,
+      "deliberateFreshActivationCanonical": true
+    },
+    {
+      "name": "held Space selects once and fresh Space confirms once",
+      "passed": true
+    },
+    {
+      "name": "removed focused nonfinal enemy recovers connected gameplay focus",
+      "passed": true,
+      "focus": {
+        "tag": "BUTTON",
+        "unit": "a11",
+        "id": ""
+      }
+    },
+    {
+      "name": "Escape selection cancellation restores source without save mutation",
+      "passed": true
+    },
+    {
+      "name": "modal replacement and outside-control activation preserve origin and save",
+      "passed": true
+    },
+    {
+      "name": "composing I must not invoke game inspection",
+      "passed": true,
+      "dialogOpened": false,
+      "syntheticCompositionEvent": true
+    },
+    {
+      "name": "keyboard fields keep native E/arrows and repeat editing",
+      "passed": true
+    },
+    {
+      "name": "actual integrated virtual pad confirmation is edge-only and canonical",
+      "passed": true,
+      "physicalControllerTested": false
+    },
+    {
+      "name": "virtual pad cannot command after visible-window blur",
+      "passed": true,
+      "selectedAfterBlur": 0,
+      "saveChangedAfterBlur": false,
+      "syntheticBlur": true,
+      "actualDocumentFocus": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": []
+}

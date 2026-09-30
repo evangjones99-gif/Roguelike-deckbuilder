@@ -1,0 +1,38 @@
+{
+  "scope": "Actual production handlers; only navigator.getGamepads samples emulated. No injected host or adapter. Diagnostic fixtures are unearned validated saves; no physical hardware claim.",
+  "digest": "a502ed48dfb625257acea8d747439bce23be2c2ec346013b6c1a4fd9c8cb14f5",
+  "referenceSHA": "e8836833a56836fa97e79ebced4ee0845ad64e99cf6c85d107faaeb09b8fdad5",
+  "harnessSHA": "bf72c1fc8d0affc2913260d7caf9075d3a20022663b92ff8848a91444aa6d630",
+  "results": [
+    {
+      "name": "late-held-input-during-actual-contact-1",
+      "fixture": "hound-leftward",
+      "kind": 1,
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0 !== 1\n\n    at test.motion (file:///workspace/scratch/gameplay-v06-input/final-late-input.mjs:26:758)\n    at async test (file:///workspace/scratch/gameplay-v06-input/final-late-input.mjs:22:237)\n    at async file:///workspace/scratch/gameplay-v06-input/final-late-input.mjs:26:26",
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "e30",
+        "id": "",
+        "text": "Ironjaw ReaverH1 11/1644 damage → hunter"
+      },
+      "finalSaveHash": "0a6168bace0704bfe4306844b3f3aa21971fd21cc7f86b6e65b45874c3f726a3",
+      "errors": []
+    },
+    {
+      "name": "late-held-input-during-actual-contact-2",
+      "fixture": "hound-leftward",
+      "kind": 2,
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0 !== 1\n\n    at test.motion (file:///workspace/scratch/gameplay-v06-input/final-late-input.mjs:26:758)\n    at async test (file:///workspace/scratch/gameplay-v06-input/final-late-input.mjs:22:237)\n    at async file:///workspace/scratch/gameplay-v06-input/final-late-input.mjs:26:26",
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "e30",
+        "id": "",
+        "text": "Ironjaw ReaverH1 11/1644 damage → hunter"
+      },
+      "finalSaveHash": "4290a5eb788a25a70dd9e2d0fa81d9291011b91b3281ef494b3ac43bf261e2b2",
+      "errors": []
+    }
+  ]
+}

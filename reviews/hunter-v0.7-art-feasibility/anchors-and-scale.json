@@ -1,0 +1,194 @@
+{
+  "status": "Unshipped scratch feasible metadata proposal; not runtime or independent gate",
+  "sourceCrop": [
+    0,
+    0,
+    512,
+    512
+  ],
+  "scaleRule": "One same cell size for all six poses: target idle height *512/418. Never renormalize pose bbox heights individually.",
+  "anchorDefinition": "x=.5 fixed sourcecellmidpoint provisional; y=bottomedge of supported boot including alpha>128; seatedpose anchors nearer boot contact, glove support is farther back on perspective floor.",
+  "limits": "An opaque-bbox height is pose compression proxy, not actual skeletal scale. Top20px hair span is appearance proxy, confounded by head turn/tilt. These do not establish a rig, exact physical human height, or motion quality.",
+  "poses": [
+    {
+      "pose": "idle",
+      "cell": [
+        0,
+        0
+      ],
+      "anchorX": 0.5,
+      "anchorY": 0.98046875,
+      "groundBottomEdgeSourcePx": 502,
+      "alpha128BBoxInclusive": [
+        106,
+        84,
+        379,
+        501
+      ],
+      "standingHeightProxyPx": 418,
+      "heightRatioToIdle": 1.0,
+      "headTop20pxOpaqueSpanPx": 63,
+      "headTop20pxOpaqueSpanX": [
+        261,
+        323
+      ],
+      "common448GroundErrorSourcePx": 54,
+      "uniform100pxIdleBody": {
+        "cellSizePx": 122.48803827751196,
+        "meaningfulHeightPx": 100.0,
+        "meaningfulWidthPx": 65.55023923444976,
+        "common448GroundErrorPx": 12.91866028708134
+      }
+    },
+    {
+      "pose": "anticipation",
+      "cell": [
+        1,
+        0
+      ],
+      "anchorX": 0.5,
+      "anchorY": 0.98046875,
+      "groundBottomEdgeSourcePx": 502,
+      "alpha128BBoxInclusive": [
+        69,
+        97,
+        433,
+        501
+      ],
+      "standingHeightProxyPx": 405,
+      "heightRatioToIdle": 0.9689,
+      "headTop20pxOpaqueSpanPx": 67,
+      "headTop20pxOpaqueSpanX": [
+        242,
+        308
+      ],
+      "common448GroundErrorSourcePx": 54,
+      "uniform100pxIdleBody": {
+        "cellSizePx": 122.48803827751196,
+        "meaningfulHeightPx": 96.88995215311004,
+        "meaningfulWidthPx": 87.32057416267942,
+        "common448GroundErrorPx": 12.91866028708134
+      }
+    },
+    {
+      "pose": "command",
+      "cell": [
+        2,
+        0
+      ],
+      "anchorX": 0.5,
+      "anchorY": 0.9765625,
+      "groundBottomEdgeSourcePx": 500,
+      "alpha128BBoxInclusive": [
+        68,
+        90,
+        409,
+        499
+      ],
+      "standingHeightProxyPx": 410,
+      "heightRatioToIdle": 0.980861,
+      "headTop20pxOpaqueSpanPx": 66,
+      "headTop20pxOpaqueSpanX": [
+        201,
+        266
+      ],
+      "common448GroundErrorSourcePx": 52,
+      "uniform100pxIdleBody": {
+        "cellSizePx": 122.48803827751196,
+        "meaningfulHeightPx": 98.08612440191388,
+        "meaningfulWidthPx": 81.81818181818181,
+        "common448GroundErrorPx": 12.440191387559809
+      }
+    },
+    {
+      "pose": "recovery",
+      "cell": [
+        0,
+        1
+      ],
+      "anchorX": 0.5,
+      "anchorY": 0.87890625,
+      "groundBottomEdgeSourcePx": 450,
+      "alpha128BBoxInclusive": [
+        78,
+        45,
+        389,
+        449
+      ],
+      "standingHeightProxyPx": 405,
+      "heightRatioToIdle": 0.9689,
+      "headTop20pxOpaqueSpanPx": 64,
+      "headTop20pxOpaqueSpanX": [
+        261,
+        324
+      ],
+      "common448GroundErrorSourcePx": 2,
+      "uniform100pxIdleBody": {
+        "cellSizePx": 122.48803827751196,
+        "meaningfulHeightPx": 96.88995215311004,
+        "meaningfulWidthPx": 74.64114832535886,
+        "common448GroundErrorPx": 0.4784688995215311
+      }
+    },
+    {
+      "pose": "reaction",
+      "cell": [
+        1,
+        1
+      ],
+      "anchorX": 0.5,
+      "anchorY": 0.873046875,
+      "groundBottomEdgeSourcePx": 447,
+      "alpha128BBoxInclusive": [
+        71,
+        76,
+        436,
+        446
+      ],
+      "standingHeightProxyPx": 371,
+      "heightRatioToIdle": 0.88756,
+      "headTop20pxOpaqueSpanPx": 69,
+      "headTop20pxOpaqueSpanX": [
+        207,
+        275
+      ],
+      "common448GroundErrorSourcePx": -1,
+      "uniform100pxIdleBody": {
+        "cellSizePx": 122.48803827751196,
+        "meaningfulHeightPx": 88.75598086124401,
+        "meaningfulWidthPx": 87.5598086124402,
+        "common448GroundErrorPx": -0.23923444976076555
+      }
+    },
+    {
+      "pose": "collapse",
+      "cell": [
+        2,
+        1
+      ],
+      "anchorX": 0.5,
+      "anchorY": 0.861328125,
+      "groundBottomEdgeSourcePx": 441,
+      "alpha128BBoxInclusive": [
+        48,
+        173,
+        463,
+        440
+      ],
+      "standingHeightProxyPx": 268,
+      "heightRatioToIdle": 0.641148,
+      "headTop20pxOpaqueSpanPx": 62,
+      "headTop20pxOpaqueSpanX": [
+        161,
+        222
+      ],
+      "common448GroundErrorSourcePx": -7,
+      "uniform100pxIdleBody": {
+        "cellSizePx": 122.48803827751196,
+        "meaningfulHeightPx": 64.11483253588517,
+        "meaningfulWidthPx": 99.52153110047847,
+        "common448GroundErrorPx": -1.674641148325359
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "version": "0.6.0",
+  "sourceDigest": "a502ed48dfb625257acea8d747439bce23be2c2ec346013b6c1a4fd9c8cb14f5",
+  "rules": {
+    "passed": 81,
+    "failed": 0,
+    "log": "rules.log.txt"
+  },
+  "browser": {
+    "status": "passed",
+    "passed": 35,
+    "failed": 0,
+    "duration": "3.6m",
+    "log": "browser.log.txt"
+  },
+  "build": {
+    "status": "passed",
+    "log": "build.log.txt",
+    "sourceInputs": 27
+  },
+  "inspectionCommandFailure": "Build completed successfully; following metadata inspection initially asked for nonexistent dist/build-info.json. Correct provenance file is dist/build-provenance.json. No source repair was required.",
+  "independentFinalCombinedReview": "in progress; no borrowed approval from input-only1788",
+  "nativePackages": "still v0.5; not v0.6 certification",
+  "limitations": "Synthetic input and cloud/software-rendered browser evidence; no physical controller, human fun, AAA, Steam Deck or Steam publication claim.",
+  "appIntegration": {
+    "prMetadataRead": "Actual lightweight GitHub REST GET confirmed draft open PR1 head9a2dfa6 and outdated v0.5 candidate description; update pending verified source checkpoint.",
+    "largePRFetchFailure": "github_fetch_pr rejected oversized response above8388608 bytes; lightweight GET succeeded.",
+    "attachmentAttempt": "codex_app attach_artifact yielded without result and was terminated after bounded wait; no new successful attachment claim. Existing PR remains owner-provided and previously attached in prior context."
+  },
+  "linuxPackage": {
+    "sourceDigest": "a502ed48dfb625257acea8d747439bce23be2c2ec346013b6c1a4fd9c8cb14f5",
+    "packageLog": "linux-package.log.txt",
+    "smoke": "../linux-desktop-0.6.0-a502ed48dfb6-123557-1790809045086-smoke.json",
+    "feedback": "../linux-feedback-0.6.0-a502ed48dfb6-123953-1790809055978-smoke.json",
+    "status": "passed",
+    "limits": "Xvfb/cloud/software rendering; --no-sandbox test flag; not consumer installation or normal sandbox qualification."
+  }
+}

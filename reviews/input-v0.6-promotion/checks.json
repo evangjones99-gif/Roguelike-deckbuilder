@@ -1,0 +1,39 @@
+{
+  "kind": "author-module-promotion-check",
+  "timestamp": "2026-09-30T22:23:24.331605+00:00",
+  "baselineVersion": "0.5.0",
+  "baselineDigest": "d6221bf764bad593b04981e87bead7ba6868b72cf361d70671af5c91aac39416",
+  "files": {
+    "src/input.ts": {
+      "sha256": "4ae4ca1a2dadb41f3a51b8eba35dd41efed5ececb00d912edfbec2e346f9f69d",
+      "bytes": 16117,
+      "exactFrozenModule": true
+    },
+    "tests/input.test.ts": {
+      "sha256": "6bf30c09d86f60b681c0c308cecc8c3d6ea9b2d3df5c34c8d17d3c80c35d06e8",
+      "bytes": 5372,
+      "onlyChangedFrozenTestImport": true
+    }
+  },
+  "checks": [
+    {
+      "command": "npx tsx --test tests/input.test.ts",
+      "workingDirectory": "/workspace/Roguelike-deckbuilder",
+      "exitCode": 0,
+      "tests": 13,
+      "pass": 13,
+      "fail": 0
+    },
+    {
+      "command": "npx tsc --noEmit",
+      "workingDirectory": "/workspace/Roguelike-deckbuilder",
+      "exitCode": 0,
+      "scope": "whole project strict configured TypeScript"
+    }
+  ],
+  "preparatoryArtifactFilesVerified": 18,
+  "mainOwnedBy": "root",
+  "buildRun": false,
+  "shippedHostAccepted": false,
+  "physicalControllerTested": false
+}

@@ -9,6 +9,9 @@
 *.mp4 -text
 *.gz -text
 *.zip -text
+*.wav -text
 # Preserve native CI evidence exactly, including Windows CRLF records.
 reviews/windows-native/**/*.exact-ci.* -text
 releases/0.5.0/reviews/windows-native/** -text
+reviews/windows-native/0.6.0/** -text
+releases/0.6.0/reviews/windows-native/** -text

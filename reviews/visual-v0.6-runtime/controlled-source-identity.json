@@ -1,0 +1,27 @@
+{
+  "scope": "Read-only source-byte comparison isolated outside shipping project. Both modules are the actual immutable/current source bytes; no type bridge or implementation modification. Native integrated checks remain separate.",
+  "sourceArchive": "/workspace/Roguelike-deckbuilder/releases/0.5.0/hollowpact-0.5.0-source.zip",
+  "sourceArchiveSHA256": "8b67b13acdb6e279c927a6569fee18206b2994d0fdb0c580ec0670551bc395fe",
+  "records": [
+    {
+      "mode": "baseline",
+      "file": "arena.ts",
+      "sha256": "2e2a5d65a58db91d09ef0e8746a98264fca129520a988ccbb3b5233569f32b79"
+    },
+    {
+      "mode": "baseline",
+      "file": "art.ts",
+      "sha256": "379e6b60f78cafd20170bcbcc4168a490cd2663388131957ad9766df852430b7"
+    },
+    {
+      "mode": "candidate",
+      "file": "arena.ts",
+      "sha256": "4cfa90a38f10b270867683940400cfb1ca954a3aaf773b6c469e5cca1bab13e1"
+    },
+    {
+      "mode": "candidate",
+      "file": "art.ts",
+      "sha256": "26b515016ecf52996acf91ae704da608224d2d1475a883f9675aa0079abbfb1c"
+    }
+  ]
+}

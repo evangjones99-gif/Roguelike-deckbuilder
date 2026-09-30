@@ -8,6 +8,10 @@ releases/*/*.zip
 releases/*/*.tar.gz
 releases/*/web/
 releases/*/desktop/
+# New milestones retain their local review copy; canonical frozen evidence is
+# tracked once in reviews/ and preserved in the tagged source archive.
+# Earlier milestone directories remain tracked and unchanged.
+releases/0.6.0/reviews/
 *.log
 .DS_Store
 .release-lock/

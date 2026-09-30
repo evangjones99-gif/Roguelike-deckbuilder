@@ -1,0 +1,40 @@
+{
+  "scope": "Actual production handlers; only navigator.getGamepads samples emulated. No injected host or adapter. Diagnostic fixtures are unearned validated saves; no physical hardware claim.",
+  "digest": "d6221bf764bad593b04981e87bead7ba6868b72cf361d70671af5c91aac39416",
+  "referenceSHA": "e8836833a56836fa97e79ebced4ee0845ad64e99cf6c85d107faaeb09b8fdad5",
+  "harnessSHA": "514042587b80d5c9cb72eff0b61de2f8549d06c65acfcebd9f2274853e53776f",
+  "results": [
+    {
+      "name": "archive-baseline-held-enter-1",
+      "fixture": "nonfinal-kill",
+      "kind": 1,
+      "observedHeldRepeatCommittedCommand": true,
+      "observedRemovedEnemyFocusBODY": true,
+      "exactActionReducer": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BODY",
+        "id": "",
+        "text": "\n    \n      HOLLOWPACTCONTRACTS · CREATURES · CONSEQUENCESDeck 59?How to playFie"
+      },
+      "finalSaveHash": "da4580e8be00a0032a548fabf2483343bd450518c5558ed44cbc189b86b37f86",
+      "errors": []
+    },
+    {
+      "name": "archive-baseline-held-enter-2",
+      "fixture": "nonfinal-kill",
+      "kind": 2,
+      "observedHeldRepeatCommittedCommand": true,
+      "observedRemovedEnemyFocusBODY": true,
+      "exactActionReducer": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BODY",
+        "id": "",
+        "text": "\n    \n      HOLLOWPACTCONTRACTS · CREATURES · CONSEQUENCESDeck 59?How to playFie"
+      },
+      "finalSaveHash": "c70bcf1038054abc5d29cc045ed769725cfa3eb611931741fd5694e460c8b217",
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+✔ connection-held confirm requires neutral release, then a fresh edge (1.873118ms)
+✔ confirm does not repeat across selection focus changes or long holds (0.371086ms)
+✔ button value hysteresis does not chatter near the press threshold (0.24424ms)
+✔ axis enter/exit deadzones ignore jitter and require threshold on reversal (0.218422ms)
+✔ direction alone repeats after350ms, then100ms; reentry is immediate (0.34635ms)
+✔ simultaneous activation buttons produce a single prioritized intent (0.157111ms)
+✔ presentation gate suppresses confirm and requires release after reopening (0.171032ms)
+✔ safe pause may open while gated, but is not replayed into a modal (0.311068ms)
+✔ disconnect, hidden reset and pad-index changes neutralize held input (0.314383ms)
+✔ unsupported mapping, invalid timing and opposing dpad directions stay inert (0.218712ms)
+✔ nonfinite axes/buttons are ignored, and decoder never reads a device identity (0.265942ms)
+✔ decoding does not mutate borrowed browser snapshots (0.781921ms)
+✔ safe pause works after neutral presentation-lock frames, without arming gameplay (0.131884ms)
+✔ initial unfocused document does not read controller; focus event needs neutral then a fresh press (1.005871ms)
+✔ visible-window blur stops reads and requires neutral release before any resumed controller action (0.412948ms)
+✔ blur cancels scheduled RAF; focus reschedules, and disposed adapters cannot resume (0.382574ms)
+✔ unavailable initial focus API retains event-based keyboard/controller fallback (0.388091ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 156.632746

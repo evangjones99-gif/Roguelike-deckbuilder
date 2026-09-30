@@ -1,0 +1,46 @@
+{
+  "scope": "Actual production handlers; only navigator.getGamepads samples emulated. No injected host or adapter. Diagnostic fixtures are unearned validated saves; no physical hardware claim.",
+  "digest": "a502ed48dfb625257acea8d747439bce23be2c2ec346013b6c1a4fd9c8cb14f5",
+  "referenceSHA": "e8836833a56836fa97e79ebced4ee0845ad64e99cf6c85d107faaeb09b8fdad5",
+  "harnessSHA": "77e6b1ab884c82cc6905670bf908a14b602dc795785aa802cae6d7eab370c622",
+  "results": [
+    {
+      "name": "contextual-target-hints-1",
+      "fixture": "nonfinal-kill",
+      "kind": 1,
+      "keyboardTargetContext": true,
+      "cancelRestoresHostiles": true,
+      "startPauseDiscoverable": true,
+      "noCanonicalChanges": true,
+      "controllerText": "A Choose · B Back\nX Inspect · Y End turn\nD-pad Move · LB/RB Regions · Start Pause",
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "e30",
+        "id": "",
+        "text": "Ironjaw ReaverH1 1/1644 damage → hunter"
+      },
+      "finalSaveHash": "cf6f38da8ec0d87d18ad7f7e2221e3d7a31a76b21e71dd6e5b98921c9d0ea759",
+      "errors": []
+    },
+    {
+      "name": "contextual-target-hints-2",
+      "fixture": "nonfinal-kill",
+      "kind": 2,
+      "keyboardTargetContext": true,
+      "cancelRestoresHostiles": true,
+      "startPauseDiscoverable": true,
+      "noCanonicalChanges": true,
+      "controllerText": "A Choose · B Back\nX Inspect · Y End turn\nD-pad Move · LB/RB Regions · Start Pause",
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "e30",
+        "id": "",
+        "text": "Ironjaw ReaverH1 1/1644 damage → hunter"
+      },
+      "finalSaveHash": "a118f334cc9baf27b6faedfcacdc91c839b1712d7331aefcc10c9d93dc3416d6",
+      "errors": []
+    }
+  ]
+}

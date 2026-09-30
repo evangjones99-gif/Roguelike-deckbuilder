@@ -1,0 +1,48 @@
+{
+  "version": "0.6.0",
+  "sourceDigest": "0ec0187f0a42eb519000646695980dd91e1e026e1cb925b96935ee3e8646acde",
+  "changedRuntimeFromA502": [
+    "src/main.ts: inputHints only"
+  ],
+  "reason": "Independent visual review confirmed inactive H/B/LB/RB regions were misleadingly advertised during target selection. Static hint repair does not change input handling/state/events.",
+  "originalA502Findings": "All independent final a502 reports and new target-hints finding remain unchanged. Final0ec acceptance needs supplemental exact-identity review.",
+  "build": "passed",
+  "browser": {
+    "passed": 35,
+    "failed": 0,
+    "duration": "3.6m",
+    "log": "browser.log.txt"
+  },
+  "linuxPackage": {
+    "status": "passed",
+    "digest": "0ec0187f0a42eb519000646695980dd91e1e026e1cb925b96935ee3e8646acde",
+    "qualified": "Fresh unique profile/Xvfb/cloud/software rendering/--no-sandbox, no consumer install or ordinary sandbox proof.",
+    "logPrintingError": "Both packaged QA commands passed. A final tail -3 with multiple filenames rejected its legacy option syntax; actual retained logs independently confirm both outcomes."
+  },
+  "sourceCommit": "next clean source/evidence checkpoint; no archive yet",
+  "retainedHunterResearch": {
+    "status": "unshipped v0.7 research; no public/runtime promotion",
+    "files": 23,
+    "feasibilitySHA256": "801a183eb55e816992d5746c74e8c4db67ee9501fa466a1689254659b6fccce4"
+  },
+  "limits": "No physical controller/human fun/AAA/native Windows v0.6/Steam certification.",
+  "sourceCheckpoint": "f54a64d6bed7f1d63607d9efde2b26176e303724",
+  "nativeWindows": {
+    "runId": 36789372782,
+    "jobId": 110138367111,
+    "status": "overall actual Windows run success and independent exact package acceptance",
+    "sourceCheckpoint": "f54a64d6bed7f1d63607d9efde2b26176e303724",
+    "scope": "Includes actual trusted automated keyboard focus/held repeat/canonical command probes; not physical keyboard/controller, clean install, audio listening or Steam proof.",
+    "actualPRMergeCheckout": "f50911544405138c65fdda5e1e8e98556730844a",
+    "originalZIP_SHA256": "74439d2bdfb851252d8f815c4265338f4b104e0eb61ace06704823010210ffbf"
+  },
+  "independentFinalAccepted": [
+    "gameplay-v0.6-hints.md",
+    "technical-v0.6-hints.md",
+    "visual-v0.6.md",
+    "technical-v0.6-native.md"
+  ],
+  "matchingASAR_SHA256": "2f870f81fcac803bcc1fbb78831064b676bb1d914c91a0ab4b21a211d72814cf",
+  "reviewStorage": "For v0.6 the full local release review copy is retained but ignored by Git to avoid another duplicate directory. Canonical immutable reports are tracked once in reviews/ and included in the tagged source archive; all earlier tracked versions stay unchanged.",
+  "prUpdate": "Connector returned verified updated draft PR1 metadata at head f54a64d; earlier attachment attempt did not return successful app receipt."
+}

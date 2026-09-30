@@ -1,0 +1,1765 @@
+{
+  "status": "frozen initial combined a502 native findings and independently identified source-clock comparison; new hint-only supplemental pending",
+  "nativeDigest": "a502ed48dfb625257acea8d747439bce23be2c2ec346013b6c1a4fd9c8cb14f5",
+  "report": {
+    "path": "reviews/visual-v0.6-initial-combined.md",
+    "sha256": "215fff30203c2cf08dbc08ef0c2ab031c9e22b4288b8ea85359dd6f4f002c848"
+  },
+  "files": [
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-1398x276-hound-duel-short-range-baseline.png",
+      "bytes": 726254,
+      "sha256": "06911c8f865b19da04c32d8338ff90a8f726f93b31a6b19502bf5627bccda388"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-1398x276-hound-duel-short-range-candidate.png",
+      "bytes": 723256,
+      "sha256": "d526a0d335352bb14d738db1c8eebef61f0a091fcd965dfe84defa16fe4e5870"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-1398x276-hound-leftward-baseline.png",
+      "bytes": 763314,
+      "sha256": "8134b0ee9a0ead6758b2c3c60cccde6a548d3f043b6fb77b39e609f1cc4c8c7e"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-1398x276-hound-leftward-candidate.png",
+      "bytes": 762674,
+      "sha256": "a73b5147d71a7c113a3b14b21efbdab0be5cf6e8d937ee7ba386221403dd0e44"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-390x220-hound-duel-short-range-baseline.png",
+      "bytes": 159524,
+      "sha256": "d839e7fd7005d2c2eda0a567fb321cd20182b8023c880973683dbe17d6f4a5b1"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-390x220-hound-duel-short-range-candidate.png",
+      "bytes": 159524,
+      "sha256": "d839e7fd7005d2c2eda0a567fb321cd20182b8023c880973683dbe17d6f4a5b1"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-390x220-hound-leftward-baseline.png",
+      "bytes": 166226,
+      "sha256": "c55d83a5de8d7b58bb5ea64f385d1457f1b0334c05bb580af4cec4438b82d1c9"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-390x220-hound-leftward-candidate.png",
+      "bytes": 166246,
+      "sha256": "b3c8ecf0321b39152b1168bbd3683a16f7d5da8cf020c6f4d79ee09fd6bcbcd9"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-758x277-hound-duel-short-range-baseline.png",
+      "bytes": 394330,
+      "sha256": "a6ff2f41b689ccc8f3a67cc5733b0a48a85e36aebaa7302003f21b718b762cb8"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-758x277-hound-duel-short-range-candidate.png",
+      "bytes": 393692,
+      "sha256": "741b84e2376422270d307fe2b7685eab0979bd12d9c435dfa6f737c31e5f0892"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-758x277-hound-leftward-baseline.png",
+      "bytes": 421036,
+      "sha256": "50921809d502e86e5d0bb6f57fd0971a3c3a1b08e8b5c1f09f784bb03bd2b10c"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-758x277-hound-leftward-candidate.png",
+      "bytes": 420624,
+      "sha256": "bb9518e517e9ec82ee42bd9094daf341f37c4abebc17a7b8fe5b0973516437cb"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-comparison-threshold.json",
+      "bytes": 6202846,
+      "sha256": "10f33a285989ef59aac15b804a07a0155817fce99aa85186e8f7892130105486"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-comparison.json",
+      "bytes": 5750574,
+      "sha256": "a9db8ce5e52a5ea1025f3eefb1ef86159f9127af337040f4de7645e5b5525ad0"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-measure.mjs",
+      "bytes": 2768,
+      "sha256": "3992ce7583a90a4c5547a225562dc61470bc79dbdf8c11cec1838019e15ab5c9"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-measurements.json",
+      "bytes": 209294,
+      "sha256": "533995585e331a70648ebc2d3b464108bf4babce8281e80caed3f79b21ca4957"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-review.mjs",
+      "bytes": 5844,
+      "sha256": "f81b0423c7e8c3c71e758924760cbab8c8ac4d1a56fed4c8d558b3ed054fe58b"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-source-identity.json",
+      "bytes": 1034,
+      "sha256": "6b1a7d205d272a5d4f8d738e4d12a9adfb18f2ba5f56ce930dabe111551b6811"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-threshold-1398x276-hound-duel-short-range-baseline.png",
+      "bytes": 726254,
+      "sha256": "06911c8f865b19da04c32d8338ff90a8f726f93b31a6b19502bf5627bccda388"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-threshold-1398x276-hound-duel-short-range-candidate.png",
+      "bytes": 723256,
+      "sha256": "d526a0d335352bb14d738db1c8eebef61f0a091fcd965dfe84defa16fe4e5870"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-threshold-1398x276-hound-leftward-baseline.png",
+      "bytes": 763314,
+      "sha256": "8134b0ee9a0ead6758b2c3c60cccde6a548d3f043b6fb77b39e609f1cc4c8c7e"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-threshold-1398x276-hound-leftward-candidate.png",
+      "bytes": 762674,
+      "sha256": "a73b5147d71a7c113a3b14b21efbdab0be5cf6e8d937ee7ba386221403dd0e44"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-threshold-390x220-hound-duel-short-range-baseline.png",
+      "bytes": 159524,
+      "sha256": "d839e7fd7005d2c2eda0a567fb321cd20182b8023c880973683dbe17d6f4a5b1"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-threshold-390x220-hound-duel-short-range-candidate.png",
+      "bytes": 159524,
+      "sha256": "d839e7fd7005d2c2eda0a567fb321cd20182b8023c880973683dbe17d6f4a5b1"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-threshold-390x220-hound-leftward-baseline.png",
+      "bytes": 166226,
+      "sha256": "c55d83a5de8d7b58bb5ea64f385d1457f1b0334c05bb580af4cec4438b82d1c9"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-threshold-390x220-hound-leftward-candidate.png",
+      "bytes": 166246,
+      "sha256": "b3c8ecf0321b39152b1168bbd3683a16f7d5da8cf020c6f4d79ee09fd6bcbcd9"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-threshold-758x277-hound-duel-short-range-baseline.png",
+      "bytes": 394330,
+      "sha256": "a6ff2f41b689ccc8f3a67cc5733b0a48a85e36aebaa7302003f21b718b762cb8"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-threshold-758x277-hound-duel-short-range-candidate.png",
+      "bytes": 393692,
+      "sha256": "741b84e2376422270d307fe2b7685eab0979bd12d9c435dfa6f737c31e5f0892"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-threshold-758x277-hound-leftward-baseline.png",
+      "bytes": 421036,
+      "sha256": "50921809d502e86e5d0bb6f57fd0971a3c3a1b08e8b5c1f09f784bb03bd2b10c"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-threshold-758x277-hound-leftward-candidate.png",
+      "bytes": 420624,
+      "sha256": "bb9518e517e9ec82ee42bd9094daf341f37c4abebc17a7b8fe5b0973516437cb"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-threshold-measure.mjs",
+      "bytes": 2791,
+      "sha256": "f91d601016d9215ae17dbdf89824615d5f4184b14fd76afb01ed364591a44680"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-threshold-measurements.json",
+      "bytes": 240775,
+      "sha256": "1949502d97e8730115e793dadc22a48e1699236d3ee3dea34bc7df6665de549b"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/controlled-threshold-review.mjs",
+      "bytes": 5871,
+      "sha256": "8f0a1996dfa6ea0efb441719e61c7a6e5af635157c20d6bd39f1ff74b0951fcc"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/fixture-proof.json",
+      "bytes": 2641,
+      "sha256": "4f4a03f5437fcd6d6fd5a5e57771a717eb0bcf2e5f7a0cdc2d6c225b9a45f94f"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/measure.mjs",
+      "bytes": 2596,
+      "sha256": "d8fd81da2ec750af11c3589ad5244d100ec4ec45c637e0ad23976a3a76093016"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/fixtures.json",
+      "bytes": 326311,
+      "sha256": "985df694f34d58c4d698034f280052a5755f1f426f935c405493e14a569fc2f5"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/summary.json",
+      "bytes": 17873,
+      "sha256": "d2ac88f15eb0e1f5e639df2f4d6f02f749cd8ef46fafbc32842d0a8648d7650d"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-hound-leftward/after.png",
+      "bytes": 814801,
+      "sha256": "4cfe42ec4d469ec1ac585789d44d37c4b3f5cf7254c49295fd77451d2ce250c9"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-hound-leftward/before.png",
+      "bytes": 814813,
+      "sha256": "c66f7d44945a31f38a2637d8d9a86749e88f7c174e6592d5a1030452bc9be152"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-hound-leftward/frame-1150.png",
+      "bytes": 547280,
+      "sha256": "ea8b2f869b8be238558163e23708aee11a3465851f6d198f23e5ac0c3717b762"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-hound-leftward/frame-350.png",
+      "bytes": 547280,
+      "sha256": "24a89c3b684f13dc3ca3baac0170cffc5ffecb7e0a25f04c81fe9c47ae770fe6"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-hound-leftward/frame-600.png",
+      "bytes": 547347,
+      "sha256": "6acffb2cd0bf5af0e7ec913c6176fbe45ed0bd13dd07dee64e6c44949f49c049"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-hound-leftward/frame-900.png",
+      "bytes": 547233,
+      "sha256": "d8c0c2ff8f6edaad75769146bcfc70fe8ddabe243cf6bb0ca177246b5a0b823e"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-hound-leftward/frame-first-impact.png",
+      "bytes": 547491,
+      "sha256": "03ca0243f2a177679cee022366cbbc17ea9ffcf6d3846f1987886c3ca25cb781"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-hound-leftward/runtime.json",
+      "bytes": 827466,
+      "sha256": "68021332147503d0fe4f9bad21428e871689d57b4a67fce4e768a4f1bf00e5dc"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-hound-rightward/after.png",
+      "bytes": 817927,
+      "sha256": "ef920c430ae65bbc2722a91d769e1bc84f72d6aa02d32a880b0a939d79e8c175"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-hound-rightward/before.png",
+      "bytes": 814072,
+      "sha256": "686dde627d1909dfb7ca6a82e6a6d447aea8062d3ef439a969262ec1934c592b"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-hound-rightward/frame-1150.png",
+      "bytes": 547190,
+      "sha256": "50fa13549c65ae30dd8f5b997499f9db3e1da424edf7d3fdd3fef135f2e0fbe1"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-hound-rightward/frame-350.png",
+      "bytes": 547036,
+      "sha256": "94cf3d4a5efd3cee10f8a8d674f85449942f53736db089f7590af15c1c73b231"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-hound-rightward/frame-600.png",
+      "bytes": 547219,
+      "sha256": "b1ab669e9bf7ddf60d815ed89283dd6083e3f38981e604cb51f89379e81da105"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-hound-rightward/frame-900.png",
+      "bytes": 547195,
+      "sha256": "46cef7c63949184814653252e0e5eb51dd0e4b4d13e485a93ebf854e730f1d3a"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-hound-rightward/frame-first-impact.png",
+      "bytes": 547129,
+      "sha256": "02546ca49bcf2e708cd5c5f47e6a5f20fbf3c7f0cbaa8451f92ed2535144e371"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-hound-rightward/runtime.json",
+      "bytes": 779909,
+      "sha256": "f26a9c6e2664201f77a44d3479ca55a6e3d0a9a77112d4d330eb01d60c99dce7"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-two-dragons-fourteen-hits/after.png",
+      "bytes": 757204,
+      "sha256": "b86c0c6f1457a1f6a0adc40122c2be06930ba11f993daab6160b895388c46ef6"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-two-dragons-fourteen-hits/before.png",
+      "bytes": 808335,
+      "sha256": "5cd82331c448a2155cc393703e072962681b5073ffbfc1af068ca2bc35610637"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-two-dragons-fourteen-hits/frame-1150.png",
+      "bytes": 542560,
+      "sha256": "83e1ea5cf8e5eee3ed6d7bb28d87f604dd92cf2bee69ad4fa2612f1319b4d78e"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-two-dragons-fourteen-hits/frame-350.png",
+      "bytes": 549373,
+      "sha256": "1561934768873cbbfddf7c78affca1237a4bc2cb9e19cba1c3c2e157f244f66b"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-two-dragons-fourteen-hits/frame-600.png",
+      "bytes": 547924,
+      "sha256": "ea19d5e8d240dd5ebb1c176dfd47baa1488be5ddcbe1364329bd5f655c129b46"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-two-dragons-fourteen-hits/frame-900.png",
+      "bytes": 544244,
+      "sha256": "6a87bbfab16894a7d2224948ddb2a13e73e07b56684c5e960fc3f56fb2e602a1"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-two-dragons-fourteen-hits/runtime.json",
+      "bytes": 633902,
+      "sha256": "fe6200b03d2566032235264e59b9ea3cb1fb99dd69f9f05aa08f4b715af1e50a"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-warleader-melee-right/after.png",
+      "bytes": 764328,
+      "sha256": "4600feaf0d56cf515a8846de59b77e56601c0b4dc402380bf5bd35842a6e54f8"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-warleader-melee-right/before.png",
+      "bytes": 811814,
+      "sha256": "a468d3f7ec3722f445e5011d18fb15aa9286d3deb98d4b4ff6083ab8c5190a86"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-warleader-melee-right/frame-1150.png",
+      "bytes": 545391,
+      "sha256": "1331d8efbecca0e248e9c8d4238bcd8237a25fbab5258dde68f814a11efeaae1"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-warleader-melee-right/frame-350.png",
+      "bytes": 543440,
+      "sha256": "a50c7505ee518e016e8c3243000081ba6157ffbfa6fcc7099e463c0d8a2d8294"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-warleader-melee-right/frame-600.png",
+      "bytes": 545525,
+      "sha256": "db89d2e2b8bbd91517f88de2645e2008122d4fc609269bd65c88981d164ff348"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-warleader-melee-right/frame-900.png",
+      "bytes": 545436,
+      "sha256": "8b56f2469f82ebb3ca0afa073adc0c48ca8031f510cc26e12f540859e1796b7b"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-warleader-melee-right/frame-first-impact.png",
+      "bytes": 542100,
+      "sha256": "ece433b845e7662a74650aaa331a88adf96fbf8dc3c3f7e05845a01d3d2bcc65"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-1280-warleader-melee-right/runtime.json",
+      "bytes": 498941,
+      "sha256": "02821149e6dd79ff5a4218e887eeb60a689291a2832d0a2f8869ca6afb04970d"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-390-hound-duel-short-range/after.png",
+      "bytes": 388071,
+      "sha256": "db0f9d6af3ed940b3472d18676f97101c2f4efa594ff4ce981c1f351a6193bf3"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-390-hound-duel-short-range/before.png",
+      "bytes": 387657,
+      "sha256": "58ca975d06c6b14b708d6a89972cba52555a13529427d67f6c69b08e624504bd"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-390-hound-duel-short-range/frame-1150.png",
+      "bytes": 211549,
+      "sha256": "6b6c8f131d7367bf822d59c8685b7373513e336397cd4e016c8d781958c7bfb4"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-390-hound-duel-short-range/frame-350.png",
+      "bytes": 211449,
+      "sha256": "7612092618294e6d9ee274bfd4a41a98b8510b7308d39a73618d4232a7f04d84"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-390-hound-duel-short-range/frame-600.png",
+      "bytes": 211625,
+      "sha256": "d8e6051f58948539ddd4817af66c2e73034da503cca08d39da388b534ecfcd3f"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-390-hound-duel-short-range/frame-900.png",
+      "bytes": 211573,
+      "sha256": "1bd7d21266742ca240b9f2da262fd5d1583c8efc972120665bd9960d8bda064f"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-390-hound-duel-short-range/frame-first-impact.png",
+      "bytes": 211140,
+      "sha256": "86123cb462e2d72b662d8aaf50a65b54b0d502ef90b74f746bdae7a75b911cac"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v5-immutable-390-hound-duel-short-range/runtime.json",
+      "bytes": 206323,
+      "sha256": "4602bc1c0bf36a03f924cd8c0575213de8e21a9746c02bb99abdfcd1b4a8e130"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-dragon-area-seven-hits/after.png",
+      "bytes": 768250,
+      "sha256": "02338d62353e792b96ff9a6787312ba247a231bca1d2409f1978906ce61d0004"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-dragon-area-seven-hits/before.png",
+      "bytes": 815483,
+      "sha256": "3a70703d79176a424ba3520b2fea5f6837ecb114d3a5ba4596caa727e72ebefb"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-dragon-area-seven-hits/frame-1150.png",
+      "bytes": 543948,
+      "sha256": "2b4ba133f1ca0c9fa6282889667b6452a130a696cce5e36f2143d5bd8c3a48a7"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-dragon-area-seven-hits/frame-350.png",
+      "bytes": 544873,
+      "sha256": "d53f961c7cb4815fa0749b693c305586b38d19a71cde50a9f3d9bc31b151a481"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-dragon-area-seven-hits/frame-600.png",
+      "bytes": 544706,
+      "sha256": "d64bffd07b44daa9ccdf1e94abd83d32c69bad54eca3e580777000ef87efee92"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-dragon-area-seven-hits/frame-900.png",
+      "bytes": 544026,
+      "sha256": "d6f20338ebfda2d977cc080f95e8cc17bf339611b01828ee81a5205acc41cefb"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-dragon-area-seven-hits/runtime.json",
+      "bytes": 492765,
+      "sha256": "8f04c0bb416f52c00fbc9f6eff652f7698fdfe82191959f962296e62006fe002"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-dragon-one-target-bite/after.png",
+      "bytes": 768302,
+      "sha256": "b0c2b5eeefc2bb3c95a22f5ab0084078b989139d52234b660862411cb4c3e2c9"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-dragon-one-target-bite/before.png",
+      "bytes": 815780,
+      "sha256": "11e9dade099f63f668acd7f8143cc96e224f0c9d6f1ce254eec6ea07edca39b3"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-dragon-one-target-bite/frame-1150.png",
+      "bytes": 543990,
+      "sha256": "72ea9d146caf5f8e0937022634904fb22e0568104db0b2463ab85469fa248fed"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-dragon-one-target-bite/frame-350.png",
+      "bytes": 543065,
+      "sha256": "c706b8e3d3366b0c63595c292aef7fce33b0b0adc5432e0e272113650336ea62"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-dragon-one-target-bite/frame-600.png",
+      "bytes": 544049,
+      "sha256": "4f9bd4701239588a026c0a98c8f94463a21ddfa970d517b1e3ec2c5211fb8932"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-dragon-one-target-bite/frame-900.png",
+      "bytes": 544074,
+      "sha256": "b4809cd09ca6290e7cd7ddc5c81c7aad6704d763935791542718b7518c5075e6"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-dragon-one-target-bite/frame-first-impact.png",
+      "bytes": 543550,
+      "sha256": "07920824c0b848652fd1aa6555490541fb61930a94bdb62db4e323e0b2d2eaf2"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-dragon-one-target-bite/runtime.json",
+      "bytes": 470886,
+      "sha256": "7997f16250f8c1f39437edae1c56107704a58b1b306e30a41a3bed1139dc58c1"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-formation-command-fourth-binding/after.png",
+      "bytes": 794164,
+      "sha256": "8db0b693470ea6e7a4dbe428b1b3c217e87dc430d323bd6cb4f63bf71138b0f1"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-formation-command-fourth-binding/before.png",
+      "bytes": 803023,
+      "sha256": "197e025613eb6fbe3ba91db873bc6308b647b910429ce199f21305e4fad8fc03"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-formation-command-fourth-binding/frame-1150.png",
+      "bytes": 541418,
+      "sha256": "2e09704ac015bd20544fd8c14cf298c15e7cc3a706f11265855fd85ded5b32a0"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-formation-command-fourth-binding/frame-350.png",
+      "bytes": 542409,
+      "sha256": "afc603a165f8191b14caa81b4aa725cda2335bf2461307ee455ce2ddd147a961"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-formation-command-fourth-binding/frame-600.png",
+      "bytes": 542572,
+      "sha256": "7b4d7ac5262d1722289b29ae3824ee42be862f9fc4f88ebd93dc8c3c191e61c6"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-formation-command-fourth-binding/frame-900.png",
+      "bytes": 541485,
+      "sha256": "d75bfa4934e80302a82a84a9e11a05ddd07823beeffc374c6935bf59551c4836"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-formation-command-fourth-binding/frame-first-impact.png",
+      "bytes": 539436,
+      "sha256": "6349b7b9ab9a60ae723d9733b88ff2bc252392cd2da4f00c6f6461d091da315a"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-formation-command-fourth-binding/runtime.json",
+      "bytes": 432324,
+      "sha256": "64c237370c22ed9901da29247a7ef6de7a664392bcf1db2d90cb9bde0557dea3"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-duel-short-range/after.png",
+      "bytes": 727617,
+      "sha256": "bd5fb219219d4dd99b9b5b8eaf13db4a2d4c43a4cc061acf1c75e2a3972a83d7"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-duel-short-range/before.png",
+      "bytes": 726978,
+      "sha256": "a8825089867efd8f5e4fef6d6f2efdbe5dd2f737a2f0134feffd0b3249c5b4e3"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-duel-short-range/frame-1150.png",
+      "bytes": 567377,
+      "sha256": "54c455161f81113ff9beee90564c4c0154392f9ffaa1624e43888e132f3d7f32"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-duel-short-range/frame-350.png",
+      "bytes": 566014,
+      "sha256": "6c2fb8ef2020328ee360df6c7b777a120843f95b849e5c1c79a83fd26e44f380"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-duel-short-range/frame-600.png",
+      "bytes": 567332,
+      "sha256": "7f2c44e4e4b5529649ce6fed761a7892e8620525161d31cd73eedae07abe6b2e"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-duel-short-range/frame-900.png",
+      "bytes": 567443,
+      "sha256": "db89c6f9cfe5f0afb35703dd3ee894ae7a14b8b4211f58973090a37b4d0a4e70"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-duel-short-range/frame-first-impact.png",
+      "bytes": 565180,
+      "sha256": "fc8cf7bde175b73d5462b98da975eb70182cb879bc17111e1e40db51a78eab61"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-duel-short-range/runtime.json",
+      "bytes": 210189,
+      "sha256": "5510abdd7c6b07ce7c807eb999e11842199f230845e64c1505ffb66f39d96eb4"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-blocked/after.png",
+      "bytes": 818320,
+      "sha256": "c8008a5e6383d26a81b775434f8d59bcce54e19e86fbacf3c2d9d398177686e1"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-blocked/before.png",
+      "bytes": 818412,
+      "sha256": "a780a2574d037003af94952f2628a4b7d7081a5bc0211d6ef4705d246b78b022"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-blocked/frame-1150.png",
+      "bytes": 547192,
+      "sha256": "37e5e36ebb32946f5b552e9989f996f804065df00e304ab6304dad4160aded8f"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-blocked/frame-350.png",
+      "bytes": 547593,
+      "sha256": "f8df5d1877b579eee649a6ce2fa5496c689f64e250d89bc03a07278030b91be2"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-blocked/frame-600.png",
+      "bytes": 547450,
+      "sha256": "ad10afd819cb83495652ac19956871845ed85bcfde2b35aeacb7d17506261c72"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-blocked/frame-900.png",
+      "bytes": 547327,
+      "sha256": "33497895fb09770ff166ead3377971da45f549ed4c942b4eb659885914fb2246"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-blocked/frame-first-impact.png",
+      "bytes": 547177,
+      "sha256": "9bd61ade81eb58e9d02f5b531c20a40ee5408789a257d1e299f12a1e5487fe68"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-blocked/runtime.json",
+      "bytes": 844376,
+      "sha256": "61475829e22b582fc49f60f939bbc69e5450aef65572a29fa48372aa34cfaada"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-counter/after.png",
+      "bytes": 818204,
+      "sha256": "b85f66530c75c52534a8f461fcb5dfb8903e293710dc209377bbfd0c3d2a2b51"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-counter/before.png",
+      "bytes": 818504,
+      "sha256": "72c84819e27edc2b04dbe97522c4d3cfd2fefd3ddded6c0b67275a88f33ddad3"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-counter/frame-1150.png",
+      "bytes": 547192,
+      "sha256": "37e5e36ebb32946f5b552e9989f996f804065df00e304ab6304dad4160aded8f"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-counter/frame-350.png",
+      "bytes": 547593,
+      "sha256": "f8df5d1877b579eee649a6ce2fa5496c689f64e250d89bc03a07278030b91be2"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-counter/frame-600.png",
+      "bytes": 547456,
+      "sha256": "f0b3696fe3722a7ac5157a7407871dc41ad0f1bb0ae0cdf3a31db168542d1528"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-counter/frame-900.png",
+      "bytes": 547327,
+      "sha256": "33497895fb09770ff166ead3377971da45f549ed4c942b4eb659885914fb2246"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-counter/frame-first-impact.png",
+      "bytes": 547177,
+      "sha256": "9bd61ade81eb58e9d02f5b531c20a40ee5408789a257d1e299f12a1e5487fe68"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-counter/runtime.json",
+      "bytes": 834736,
+      "sha256": "3d3384fa859e291add5b9f0db185da942231b0e9ee65131944fe0b5f03eb2327"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-mutual-death/after.png",
+      "bytes": 810991,
+      "sha256": "151219b101954b35a834cd172d4f6830ddabc91f68e8dffc0d98edaa22228262"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-mutual-death/before.png",
+      "bytes": 818292,
+      "sha256": "c662039424b0eeada08d7b41fa201fc6f62471222182889ce8e994881d8b290b"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-mutual-death/frame-1150.png",
+      "bytes": 544466,
+      "sha256": "62465135f741c4985435681f57de7c999fb5fd33b334baaa674b0d4597034bc0"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-mutual-death/frame-350.png",
+      "bytes": 548099,
+      "sha256": "7a75ea0d4efab9e39717a2b7d09f75d9344bb343702658ed87161bcd20e249ea"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-mutual-death/frame-600.png",
+      "bytes": 547373,
+      "sha256": "82b0f29da5cc62c0d6a2ffa1d01603c21a4beabfee423091c012c709899dabf4"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-mutual-death/frame-900.png",
+      "bytes": 545340,
+      "sha256": "8b584812c52922a2ec04605606e357686bfc10dd35f743a9a9302e9f35f0ca44"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-mutual-death/frame-first-impact.png",
+      "bytes": 547389,
+      "sha256": "484b5774c4ff8dc472723fc5e82b045c3f5392fc27db54d3254f552be68887a8"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-mutual-death/runtime.json",
+      "bytes": 824155,
+      "sha256": "f7bea6c168628dc748e6562a234addde5bc7f0679aad0ebb8082b22a9506a52f"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-partial-counter/after.png",
+      "bytes": 818082,
+      "sha256": "cc6712fc07620865083b6faccb0fa7aac12b1afb72cdc2033c6707bfec4a6624"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-partial-counter/before.png",
+      "bytes": 818209,
+      "sha256": "cf513a25d5933ede7e8b17fe2c9aaae0390ccdffddaed0310e57fc06d3d5694f"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-partial-counter/frame-1150.png",
+      "bytes": 547120,
+      "sha256": "0cb98c7b804c24eea222e1d300e9f11ff8782edd6dcaf74f083f05f1d8020c51"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-partial-counter/frame-350.png",
+      "bytes": 547706,
+      "sha256": "07af3d96c3eb5c266fc905a7172d78526d6d87f429860ac2b6df1e48066d1a0c"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-partial-counter/frame-600.png",
+      "bytes": 547516,
+      "sha256": "870330b3e31d2d6bef95af7ea88a7e54566ea2eacb46d923c457fc7f6212deff"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-partial-counter/frame-900.png",
+      "bytes": 547221,
+      "sha256": "eeeae42f72bddce06eebb9399de1a2499775bc04dcfbf487b432343b3a683f31"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-partial-counter/frame-first-impact.png",
+      "bytes": 547135,
+      "sha256": "453f8e4c88b17b8f1e2a6e433ba56aec7ef01dd9f94922e1219ea780596a9398"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-far-left-partial-counter/runtime.json",
+      "bytes": 844584,
+      "sha256": "947b73016e29fbeb65f1141a3cc21c0b7b1b8b6e0ad5dfd58777b5c266053f55"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-leftward/after.png",
+      "bytes": 817832,
+      "sha256": "41d444d6d3f41b423a31cbaa7a21701b66d0bc3f1259c2438c64b8ba1c33cc68"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-leftward/before.png",
+      "bytes": 817984,
+      "sha256": "92ea98fe1efbe708bda267619ca7df6cb836ed8502f2ee9b47c28fac9cc88161"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-leftward/frame-1150.png",
+      "bytes": 547254,
+      "sha256": "5a4f4942c50041b9a6917dd65c9451f3b5d3343e1deb9f5b48a660760729c674"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-leftward/frame-350.png",
+      "bytes": 547453,
+      "sha256": "57475b4e5c42dbff5e969b25a9f28ccdc63bb3535f5205a57de049a4551a7c56"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-leftward/frame-600.png",
+      "bytes": 547380,
+      "sha256": "b969f9806182ea9e2c34b180ec545457c8c74a39ffef888a3f4e840df8d1b15e"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-leftward/frame-900.png",
+      "bytes": 547191,
+      "sha256": "6c6d77a06331c6a31920099e97470b2b693603c4edfc232b9a11ddd4669c3b38"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-leftward/frame-first-impact.png",
+      "bytes": 547223,
+      "sha256": "3c56c7052c3349cc7af481b3249dc05b69f816c7d115da05ee4aefd6526001ac"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-leftward/runtime.json",
+      "bytes": 789568,
+      "sha256": "01adceac997c243634e3961e663a85dab0ebdad3a5c5f4e8074ac01a54291b25"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-near-left/after.png",
+      "bytes": 818404,
+      "sha256": "5781b3f3e6acc15e7fac5e323878daf07949c1b07c8c34a525ed055909f4f3e0"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-near-left/before.png",
+      "bytes": 818056,
+      "sha256": "d90093a09f93ce1c2b39636e3a9f4503140a3e7bde9e086d4d7f6cc16c0887f7"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-near-left/frame-1150.png",
+      "bytes": 547204,
+      "sha256": "b182246357235029c9abcb41aafe8646d7c9a64731ea584dab7c9169087c2590"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-near-left/frame-350.png",
+      "bytes": 546245,
+      "sha256": "473b013acc7eb9fd62c5753aa101d0d595825f123d5923759c27ef721d1a3cbd"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-near-left/frame-600.png",
+      "bytes": 547458,
+      "sha256": "bc1882071aa58d3fb67f22ee75bd7ba45c8cfd4acd5aa265736b00cac089b933"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-near-left/frame-900.png",
+      "bytes": 547306,
+      "sha256": "813352f94137eeff3064147c822742ddad39ab9a2d3d887178c61f8b8ebc4159"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-near-left/frame-first-impact.png",
+      "bytes": 545981,
+      "sha256": "9b850091e25ca4acc6fa58527e83fa56a9b705fcbfbe18b5a2e566be685b7f10"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-near-left/runtime.json",
+      "bytes": 826953,
+      "sha256": "7d88101779b3e09e17dc86db317b2574e708dd2f0b655b68f6d4363591ccf29d"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-near-right/after.png",
+      "bytes": 821288,
+      "sha256": "2c8ab509d7dd5c9120db4547644743eef34b3dddeb81591e94abf5d73b9e830f"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-near-right/before.png",
+      "bytes": 817297,
+      "sha256": "9417b1477758214cafd588dc6609df535a28e4f5f1477d280f50bc849787ad23"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-near-right/frame-1150.png",
+      "bytes": 547192,
+      "sha256": "a477259169b782e9b8a0e4e09dff03588a0bb7a5737999951c3821e44a0520d7"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-near-right/frame-350.png",
+      "bytes": 547738,
+      "sha256": "4224c9b2e9a41c12f53ebb252138898ff3201b1cfa5dc61ad167354c07b49d82"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-near-right/frame-600.png",
+      "bytes": 547187,
+      "sha256": "6655e363f9c1e5cce449127edc1b5ed3ad73ac9dfe365c9b2764ae23be9d2546"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-near-right/frame-900.png",
+      "bytes": 547192,
+      "sha256": "82f15a226d617ab2ace84807cc9ced427ffba24b8f6ebf4f457793f2e67dad23"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-near-right/frame-first-impact.png",
+      "bytes": 547179,
+      "sha256": "bab311ac8d72e30e2d96f73bd66a456dd19dec879c3b9073579ae19546d71163"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-near-right/runtime.json",
+      "bytes": 827318,
+      "sha256": "69716c8d74e7771baede7bb0d28c8f8dccc6a93532cdecd9a93156b2ed289503"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-rightward/after.png",
+      "bytes": 821440,
+      "sha256": "392d58fb86bc43710c698684adf660cfa8b476b8a10f4ae03f16d2a990d284f4"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-rightward/before.png",
+      "bytes": 817291,
+      "sha256": "31798e696dbc71b9a2f04474edf7613643cab0374329455e7e73e456bf65a688"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-rightward/frame-1150.png",
+      "bytes": 547378,
+      "sha256": "1258808f60c718f227f2b426ab0e9924be2aa70a5e9340fd3e8fd32ace97a233"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-rightward/frame-350.png",
+      "bytes": 547322,
+      "sha256": "5176798d65c0089d5523609f7db8d80f28916816e12c82e6781012474a0d34a4"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-rightward/frame-600.png",
+      "bytes": 547158,
+      "sha256": "19770dcc58d23ee8582dd655c8c7320617a63ff5dc3c64ab1bf3459a01e85244"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-rightward/frame-900.png",
+      "bytes": 547168,
+      "sha256": "bc48c2cbdad56426ddbd8d925e220fb94591e84be50c0c0aa0684f9188d25b37"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-rightward/frame-first-impact.png",
+      "bytes": 545824,
+      "sha256": "9316f2e876aa053d8996de386687e7304db91a9e9ee51bdb9f923da8a5117884"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-rightward/runtime.json",
+      "bytes": 808373,
+      "sha256": "d6e7c7bc5707d57a309afccfb1bb74b27f6aeaba6c5e10468484f1b92b917a9d"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-vertical/after.png",
+      "bytes": 817197,
+      "sha256": "e617be28ad5ac05fa67d761ce2cffce4eb98253e4c2e382f11bc0b9bc32c5966"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-vertical/before.png",
+      "bytes": 817330,
+      "sha256": "754b1f760535ddd8fc7b8a2aaea000facc77c55d2c51ec2db10ab09c5b6ef848"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-vertical/frame-1150.png",
+      "bytes": 547147,
+      "sha256": "da7c9739a177c52ffb853537e22c162551f4f7c3d71222118ddd07893345150f"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-vertical/frame-350.png",
+      "bytes": 547134,
+      "sha256": "f21e20341774209fe234cf648807cfcab5566ef7cacb0dccd10c1b25399d69ad"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-vertical/frame-600.png",
+      "bytes": 547216,
+      "sha256": "bd14443270b77b5441157338dcd71663fe8fdfd29b22d92d5640eee4df766a8e"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-vertical/frame-900.png",
+      "bytes": 547155,
+      "sha256": "ca3b41aa377a7df6194b92fac14ea99d329cccf6adc539d6c6e542f951739aca"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-vertical/frame-first-impact.png",
+      "bytes": 547329,
+      "sha256": "39bcfb0f6455e6f665db1c1d2dd3dfb29d913afef14edbf8cf0605e5bf5c5e69"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-hound-vertical/runtime.json",
+      "bytes": 827475,
+      "sha256": "005f8dd2fbc98928079213b6b171b30fb6018d9febf072ee0dceb521877c161a"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-mutual-lethal-counter/after.png",
+      "bytes": 795914,
+      "sha256": "edfb489167754ac7f27f6ef28cf73cb1a212dc5b01370f3c42f8777b53b7792f"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-mutual-lethal-counter/before.png",
+      "bytes": 800603,
+      "sha256": "29b15304761b0eefe2985097ef79aeacaf3e1c3ae169fa7d811682cadeb3752f"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-mutual-lethal-counter/frame-1150.png",
+      "bytes": 562586,
+      "sha256": "bf04921f15794a826d2cff96a1bb990ef954dd76ad9f7340896911950ff802af"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-mutual-lethal-counter/frame-350.png",
+      "bytes": 566864,
+      "sha256": "b4bbe8c7fdfaca3baf2e367472419e8d8d4bd43b62299ca3fba433047f323436"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-mutual-lethal-counter/frame-600.png",
+      "bytes": 565621,
+      "sha256": "0aaca951520e7507403eba4572d5bd1a7cc3eaec40951589741c953bbc9eacc6"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-mutual-lethal-counter/frame-900.png",
+      "bytes": 562546,
+      "sha256": "570c9938f0a9ff0e353c86ceba9d3a06f28ef054a19ed5153dd2c6d944166cc3"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-mutual-lethal-counter/frame-first-impact.png",
+      "bytes": 569366,
+      "sha256": "8cc46da3429552294aa74213c3c3988d668ec7433c4cbbc8e568c6dce85cd737"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-mutual-lethal-counter/runtime.json",
+      "bytes": 188481,
+      "sha256": "7586af8c1f794089ed713fb3ccb7f1dc2ce6ef0d7cb224cc297cd545cf944d95"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-two-dragons-fourteen-hits/after.png",
+      "bytes": 761312,
+      "sha256": "b062d34cd4af296c649bd7566e937c4a3c088240d2cec1f030932bdb65169fcf"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-two-dragons-fourteen-hits/before.png",
+      "bytes": 811518,
+      "sha256": "86f7a9364aa1aaec12186973026cfeeb39527323ade3e17e65689ca32c6fb34b"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-two-dragons-fourteen-hits/frame-1150.png",
+      "bytes": 542730,
+      "sha256": "2414826679d449fa4e05f1393c696960a4de1bab20c4cbb11862ef83e338171f"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-two-dragons-fourteen-hits/frame-350.png",
+      "bytes": 549345,
+      "sha256": "8dfa197a21843b9a6fa84e8a783e13490abe993777feaf30438543a68fef4f7c"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-two-dragons-fourteen-hits/frame-600.png",
+      "bytes": 547918,
+      "sha256": "afee0df399dd985e927c01f9f920564879e4d3cc0cc00f40068eeab6a0eaba2e"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-two-dragons-fourteen-hits/frame-900.png",
+      "bytes": 544135,
+      "sha256": "e70409b4c573112f0bb8c329c331d26ffd6bca2e141b5884d9589e49407da0a2"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-two-dragons-fourteen-hits/runtime.json",
+      "bytes": 633704,
+      "sha256": "73e2ac15cafe9ee7d729c36d676f5b88ef05a45322ed3fc67ea3c2c4895dc1b9"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-melee-left/after.png",
+      "bytes": 768918,
+      "sha256": "5abaad87b37f6caee649cb2a36eddc83e8fbbe06f6a9ab3f0595b3b3325b5727"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-melee-left/before.png",
+      "bytes": 816145,
+      "sha256": "5930ead1924f98121c7510612664d35d250e2215b2dc120b89b88e19bd94d9b5"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-melee-left/frame-1150.png",
+      "bytes": 545407,
+      "sha256": "a1dcf74ae0f919b6bdda88120c104294383078f55bfa2e30a2330d389a1955c9"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-melee-left/frame-350.png",
+      "bytes": 544975,
+      "sha256": "fa7a3d64ca5926535bb0e7f22a445d08451e5c9eef97ac7dd6ae0ef3a3fdb7ee"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-melee-left/frame-600.png",
+      "bytes": 545490,
+      "sha256": "39e7c5c79e84ff59eae4d8b126a33912e4d0f93f96ebe6ce0fe1945787e12ba2"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-melee-left/frame-900.png",
+      "bytes": 545408,
+      "sha256": "48d61366eb353ee94dd9bc6166d5fcc87ac15a3f1f79321560a530bbf810d7f4"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-melee-left/frame-first-impact.png",
+      "bytes": 544658,
+      "sha256": "b42f2d1f0c66a9cc9ce0fecf7eaf25407b47d0163719592a98e0e76ae8020304"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-melee-left/runtime.json",
+      "bytes": 500018,
+      "sha256": "3346df5b08f483d9058c3d09921c45436b1ad1cfec579c818dbc16692f7c639a"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-melee-right/after.png",
+      "bytes": 768464,
+      "sha256": "74f760c86fb8b877cbaba791b39d5831303202371a9690c181ececdb85a4d3e3"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-melee-right/before.png",
+      "bytes": 814765,
+      "sha256": "c31011bda70915fee5cbef9e117c142489c59327064bd14ff275a464eb283adc"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-melee-right/frame-1150.png",
+      "bytes": 545510,
+      "sha256": "bfa1b2116dcc64657a96d194bc86fecb3755b565f9a291039bdb853bd1a61c3c"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-melee-right/frame-350.png",
+      "bytes": 543471,
+      "sha256": "bfbd470a176a940d4312dd58f8049712b9d634e1c635b41ee3114464f9eb9188"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-melee-right/frame-600.png",
+      "bytes": 545446,
+      "sha256": "9d2e6a7938abfbcba2355062fd073734c82f58651ebbd1258533a7cec4035194"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-melee-right/frame-900.png",
+      "bytes": 545412,
+      "sha256": "a46463b810e7ead9bf3a382d73c83ceda4bc6d8afeb4644600e9eaf0751cd249"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-melee-right/frame-first-impact.png",
+      "bytes": 541988,
+      "sha256": "5979577a62ecfdc8ff5490b5fe89b3993e7f93829ef8d9df999678cfe4466e45"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-melee-right/runtime.json",
+      "bytes": 487210,
+      "sha256": "5223d653fc84b61451b0e57e7287fa22473c0a8d1a02854bf29b03ea3902303a"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-neutral-axis/after.png",
+      "bytes": 770788,
+      "sha256": "5f0bbe111450ec0e615a1cfdae8b2857ad99061f21627f50ed7225b92b007f99"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-neutral-axis/before.png",
+      "bytes": 817977,
+      "sha256": "cc8fee5ea357376f66ef6ce24fce8be7524b90c7984f41a1d2789b9a9288e644"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-neutral-axis/frame-1150.png",
+      "bytes": 547186,
+      "sha256": "8722b6ddcd787a1b35da6465a18ad19f6a9056befcb2bbc6294f19172312905b"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-neutral-axis/frame-350.png",
+      "bytes": 547147,
+      "sha256": "53942473b232127f32ba9bcd980d6fd9fdaf00fafdce3a7a9ac565de213b6d00"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-neutral-axis/frame-600.png",
+      "bytes": 547361,
+      "sha256": "f42b8e493d2b3fbe1eece7f7edb1d958b73048e4345d20325e7893f09bf2c84e"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-neutral-axis/frame-900.png",
+      "bytes": 547186,
+      "sha256": "e117525a4abcf3ce0cd288afbf77e922b6e55a0d531e502e72a135d1d697ad98"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-neutral-axis/frame-first-impact.png",
+      "bytes": 546830,
+      "sha256": "c7e88351d9fdb924e78b84152469226c205b0fd237c801c48d83ae07197fcac3"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-neutral-axis/runtime.json",
+      "bytes": 789777,
+      "sha256": "5b0d6c8fcf1c9ed4eb0f997a179cd5c02ea24a0d5be639913c507a6d246a9a60"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-nonlethal-reaction/after.png",
+      "bytes": 727480,
+      "sha256": "94d3e429a0503bcea3b3db31bb490df3a26c2a904e794444fe84ad9b7ea3e924"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-nonlethal-reaction/before.png",
+      "bytes": 726997,
+      "sha256": "cd78b05da467fecf10b67359859c7fa5ec60311e2118294ef644adf7adaad804"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-nonlethal-reaction/frame-1150.png",
+      "bytes": 567355,
+      "sha256": "ae34890930c48c807e5671cc899a3ea72400d35e357aa9c6127323ee744a49eb"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-nonlethal-reaction/frame-350.png",
+      "bytes": 566019,
+      "sha256": "e9ab80b49010353aea95d3c0c0d22cc75b3e7c6331d83e8031ecb197dcc70e9b"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-nonlethal-reaction/frame-600.png",
+      "bytes": 567531,
+      "sha256": "41a30ac3e565c2c643cd0d68f5318e10a97e1fc2d6908987f50d675f5f9f9161"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-nonlethal-reaction/frame-900.png",
+      "bytes": 567401,
+      "sha256": "c3ca97fe81be4ddf1ef1325842e0c499c3f70c5c4e69365cef8e08158c8b7072"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-nonlethal-reaction/frame-first-impact.png",
+      "bytes": 565157,
+      "sha256": "6724831bed1098c3ddb7f7ee996caa5e005740cee644aa62a42c7f5cf2d5694c"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-nonlethal-reaction/runtime.json",
+      "bytes": 205674,
+      "sha256": "6c3244a8c14eb0414f44666d533f9f728cc18bf603825ff987e94b8ef963dcb2"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-vertical/after.png",
+      "bytes": 758482,
+      "sha256": "46ac332eac881b90fef23abc507e434f9f459eaf3d9de047f798c48d36be84f3"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-vertical/before.png",
+      "bytes": 801339,
+      "sha256": "4899dc684d3601a020ff683cae76be41b2969eac5001aabd583cf2f7a64b588b"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-vertical/frame-1150.png",
+      "bytes": 567374,
+      "sha256": "9c41074a1103a516bb1430f02c6c6502af9f5f72c80d1603b060d9bc69d030b0"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-vertical/frame-350.png",
+      "bytes": 570424,
+      "sha256": "ab7353a6e4385e83f181c7e8d25bd86c4214649b38b0a5f359417e48e8d31822"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-vertical/frame-600.png",
+      "bytes": 567571,
+      "sha256": "8f25b87db7c90109cbd86f4747ffdc2108fdd12135e58fa7999563b4f82f74ce"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-vertical/frame-900.png",
+      "bytes": 567422,
+      "sha256": "50d23ec8d540924fb5495355522d9f572fb69849076f26cff282cd55127d56d3"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-vertical/frame-first-impact.png",
+      "bytes": 570529,
+      "sha256": "329dc68a849266a8c73ef6e536f6b484ec67f91ad6964348d5bcc6ddba87f6aa"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1280-warleader-vertical/runtime.json",
+      "bytes": 201041,
+      "sha256": "208f70333738c426175dd1dc17aa3835f22dc9f7e661d1d16a45f9473cf80b2d"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-formation-command-fourth-binding/after.png",
+      "bytes": 1150065,
+      "sha256": "75c69c37c42251685e30400d52270afed500b88211576866e25684c50a04248a"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-formation-command-fourth-binding/before.png",
+      "bytes": 1156157,
+      "sha256": "09af50cc9670601654e5c08ee5684096458d0a536280fa7c472ba4b8b2b4e2b2"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-formation-command-fourth-binding/frame-1150.png",
+      "bytes": 1002209,
+      "sha256": "3a02c97b64612bc9c33be673d92e8d0cf10abeda9773d147a0de8c1932e6eeec"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-formation-command-fourth-binding/frame-350.png",
+      "bytes": 1004418,
+      "sha256": "16ba55a1420e83baa4a0f06fe877a86b0db810e5843f3ba3b6612a93e6f29fea"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-formation-command-fourth-binding/frame-600.png",
+      "bytes": 1003342,
+      "sha256": "41c7b6f67a685cd13bfa5cad6704877c5d92c7a15995685cbd73a82ddf6ec861"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-formation-command-fourth-binding/frame-900.png",
+      "bytes": 1002098,
+      "sha256": "a2e36f2d5b19c4dfcd8a1107389068b51424279d7ce1e0100d5ad2cf951ac646"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-formation-command-fourth-binding/frame-first-impact.png",
+      "bytes": 1000442,
+      "sha256": "784a41fdb4197c1d97bfc258502e239dc186aaf26c5674337a7d3b29210c6743"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-formation-command-fourth-binding/runtime.json",
+      "bytes": 421553,
+      "sha256": "77e4c48f20790bf826b570c881582acd588009d5293cb98a56466ca304176e75"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-duel-short-range/after.png",
+      "bytes": 1061378,
+      "sha256": "72f6e6520a47da8b59f6e3c1b8a7d5c1d48f509427aaadfebd926b07ac0c60d4"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-duel-short-range/before.png",
+      "bytes": 1059981,
+      "sha256": "03512246918b9c3d8adc1765d3318a17f5158b2d05903614c810974bc28a446e"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-duel-short-range/frame-1150.png",
+      "bytes": 966056,
+      "sha256": "0a6a5e2c4700b610d0a4e288014094f68388169cf424cf1531c5909877ec4123"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-duel-short-range/frame-350.png",
+      "bytes": 964446,
+      "sha256": "249459311bb32f30d3799f1264ff6317bb794361d69f91e230d404ff5e30cda7"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-duel-short-range/frame-600.png",
+      "bytes": 966199,
+      "sha256": "94b7f8e23967c06c06a44017f13861dccc6cc57e2e44d791dc3fd458bc0bee47"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-duel-short-range/frame-900.png",
+      "bytes": 966076,
+      "sha256": "f2bd3b244754fac93e939fa4105f6994ca1e407dd48d3784973e508a2cf1eb53"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-duel-short-range/frame-first-impact.png",
+      "bytes": 963093,
+      "sha256": "186bf7826a21314c9989eedee66b79535eb3c924dc4d657dff005b1c8bbd7c10"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-duel-short-range/runtime.json",
+      "bytes": 206221,
+      "sha256": "0e5e26b67d699defc392fd2e90359790b005256bf637302d1d975df3996d3602"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-far-left-mutual-death/after.png",
+      "bytes": 1175794,
+      "sha256": "f60d18ee97e453b32f9088cb0b64bacefd2f7f5b95af9a34a41ec51ce594e43f"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-far-left-mutual-death/before.png",
+      "bytes": 1195234,
+      "sha256": "7dcd765be8ce061cb37cf044907e2c47db45ab2222d7a86f962110471ac5bb3b"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-far-left-mutual-death/frame-1150.png",
+      "bytes": 1007549,
+      "sha256": "7d0c25d8b2a6330e50557ccca885bab406c25c3e9b7321c471d9fe26e2ca800d"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-far-left-mutual-death/frame-350.png",
+      "bytes": 1012821,
+      "sha256": "5be07e9f5de145762d8bdb8a6e136bd151f424a31857bdc216119d7dfcb20164"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-far-left-mutual-death/frame-600.png",
+      "bytes": 1011943,
+      "sha256": "e7ebea18cdbc4b5ccb8eb2625dcf04d92e4e4b8b4b9a5db13b0ef5477a46ef4b"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-far-left-mutual-death/frame-900.png",
+      "bytes": 1009014,
+      "sha256": "d2a9150d0e98575b41ca45cf6f7013e1c3ddbd710ff7194c7ae8256f64eaf400"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-far-left-mutual-death/frame-first-impact.png",
+      "bytes": 1012263,
+      "sha256": "4f031391f7a8185f60e6aa49d0fab21c92470977f8baf86e2151b3b418413ab6"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-far-left-mutual-death/runtime.json",
+      "bytes": 754827,
+      "sha256": "62af571a4e07e3d96d940f03af89e009e86dc505ca1c4e5f0f338f0904ee3560"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-leftward/after.png",
+      "bytes": 1194946,
+      "sha256": "5aa2fdc5f11b1eb5ecd41f4c14d2143d2b545022c5609f665e6e67ef37a488dc"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-leftward/before.png",
+      "bytes": 1195130,
+      "sha256": "9ead046687eb763e539f028021e37826c149a3760dca16109ec9d5f9e56ab99e"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-leftward/frame-1150.png",
+      "bytes": 1013358,
+      "sha256": "ea989dbbe4364ef2d1929181791b3262b57a6bdac107986c91c248c74fe01927"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-leftward/frame-350.png",
+      "bytes": 1012412,
+      "sha256": "fb09ed926450102c2ee93095dccae629546a61a0cc21e85653caaf735ee32de3"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-leftward/frame-600.png",
+      "bytes": 1013260,
+      "sha256": "bae70396fc1bcc68f90ad573ebb31906fed5a182e77f8ab87f496a159be347ac"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-leftward/frame-900.png",
+      "bytes": 1013290,
+      "sha256": "0ba6afebe2c3e44e58f89339e587ac03543f2201570c23f050d104922781ff91"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-leftward/frame-first-impact.png",
+      "bytes": 1012176,
+      "sha256": "e655eef39cdf188e7f5e9d9e83878c33e0134df152d75d37229b4e5556d7d9fd"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-leftward/runtime.json",
+      "bytes": 785371,
+      "sha256": "4aa1522cd92de8fcba2c234ab0bc1a8df12206419938f1aafd7fad02cf4d6682"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-near-left/after.png",
+      "bytes": 1195292,
+      "sha256": "1d985fcf3ee3c0aefbb6d38f0fe81fde97103a185d8a4478d790a837d01bebf7"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-near-left/before.png",
+      "bytes": 1194877,
+      "sha256": "0b6d69b0273808f96d835495300dcb5621207bd620aef29df48271980cac1980"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-near-left/frame-1150.png",
+      "bytes": 1013307,
+      "sha256": "311e1c5898a7b2be2e4224bd832c681b2a4f80097059ebda146e5214163fffee"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-near-left/frame-350.png",
+      "bytes": 1010812,
+      "sha256": "7b039023fba83dcc2b7f94763cda3e67f07e82f8a375ce5c2eeb2554b31d564c"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-near-left/frame-600.png",
+      "bytes": 1013168,
+      "sha256": "2e2de3da6ec098c7456f635f8a7590826cace3fdb69717eeada1fa9eb4672861"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-near-left/frame-900.png",
+      "bytes": 1013373,
+      "sha256": "eb9a8ead3a78dfe35a4be47e5a1fdd9db62b7fec33e50450f2d29c4b2d509065"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-near-left/frame-first-impact.png",
+      "bytes": 1011290,
+      "sha256": "5d7546798ad8e4e87c3b217c1db28e828f41bb9f562a2780f8d50478554d1a6e"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-near-left/runtime.json",
+      "bytes": 804355,
+      "sha256": "7946defde20d66121afc66a64eb5a500aac96cfabec460a69b44361cc175bf39"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-rightward/after.png",
+      "bytes": 1192511,
+      "sha256": "2ae2293c6f239a3ee9f2dd6bded13ce7579e4ba3182ebb9bbb3401cf72d625d9"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-rightward/before.png",
+      "bytes": 1194992,
+      "sha256": "21a6eee5a17150b044af7c40ab9b24239eeecbbee5e6f0f87aeb796f6087016d"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-rightward/frame-1150.png",
+      "bytes": 1013468,
+      "sha256": "0517ab3296e6c5db11f7f6384a0466beae78bdf1ab96487713565199f18372e4"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-rightward/frame-350.png",
+      "bytes": 1012817,
+      "sha256": "5fccdee7eef98c0ee4e4f740c4c9b2cb235800cb39858d7954c4c8d0a4436b1f"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-rightward/frame-600.png",
+      "bytes": 1013457,
+      "sha256": "59ac3e95309724f7a680d9fbd3a9fe89a10a54d4259c6bf7b4c859332a21ea80"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-rightward/frame-900.png",
+      "bytes": 1013375,
+      "sha256": "c475ab687d46a8b3a0e97f4345ad45d095fd0afcadfa7b45bbfc5df6ea1339be"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-rightward/frame-first-impact.png",
+      "bytes": 1011563,
+      "sha256": "167fa634e166ff6ff329addac287ae946fd1065169398f3b6660f7c0c0eb569d"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-rightward/runtime.json",
+      "bytes": 786071,
+      "sha256": "55e1db67734c900b8a98504ab3f05a5de5326ff3b545a2e500dadba0f138d24e"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-vertical/after.png",
+      "bytes": 1195096,
+      "sha256": "7ecedddb5a7ff6a08557f4ccf4eb6ac2ff818c0483630f33a8999832041aeca6"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-vertical/before.png",
+      "bytes": 1194850,
+      "sha256": "47b77087836f8dc56f99358ea9878e731c540b8d65d9a3c62fb9e1f5942057c9"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-vertical/frame-1150.png",
+      "bytes": 1013386,
+      "sha256": "9b72bc39fe29da2023eaf4d38b43ad5382a82b6c23c22de9158fec9c9004a1ae"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-vertical/frame-350.png",
+      "bytes": 1012100,
+      "sha256": "64b7030bd52681446927952e4f8f4c74357e0aa69fb2552dc89343ae5cf4abfb"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-vertical/frame-600.png",
+      "bytes": 1013353,
+      "sha256": "8e21fea20590ba8a2b6caaf3c5e80155a5abe9072d022f68ee9fcc734fba036c"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-vertical/frame-900.png",
+      "bytes": 1013569,
+      "sha256": "c01c8cdc7a911d8ed348eb0a01f869c240e8bee1cc1e13a2b808c0f76e231c88"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-vertical/frame-first-impact.png",
+      "bytes": 1012234,
+      "sha256": "66707212fbdbc479f51832fe416817eff19f354b5b0102d563588da9c91692c4"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-1920-hound-vertical/runtime.json",
+      "bytes": 794828,
+      "sha256": "17b023f4c08572e686d3b2c85cefd34d0e529f38b1f65fc49c1bf0397e59c3ac"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-formation-command-fourth-binding/after.png",
+      "bytes": 357710,
+      "sha256": "20349b9d1820fc757df3910119f36f02396bffcbc01d8ba7956f32be0d2e9d50"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-formation-command-fourth-binding/before.png",
+      "bytes": 383165,
+      "sha256": "4334c29b5086a83aa438da2fca7190610e8d0997b9abdfe10cd42d7d22d753a1"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-formation-command-fourth-binding/frame-1150.png",
+      "bytes": 211952,
+      "sha256": "8af80ae8e1bf534fca5d5f5bf16fd992f3690a6414fd73cb5f569c2830ee681c"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-formation-command-fourth-binding/frame-350.png",
+      "bytes": 214676,
+      "sha256": "bdd6acbcc77cacb6d922bc136e03262ac293810306dccb5ad17ea16460be3de8"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-formation-command-fourth-binding/frame-600.png",
+      "bytes": 214703,
+      "sha256": "f57db5df805f00a1a4e6ec6b08341f60bc25e04439074db701d7f5e1971c2c3b"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-formation-command-fourth-binding/frame-900.png",
+      "bytes": 211058,
+      "sha256": "fecfa717f25e721529ed41de6be1b8e55c81a333d51ce58ed41a41d81412ba0f"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-formation-command-fourth-binding/frame-first-impact.png",
+      "bytes": 214198,
+      "sha256": "72b8e771c8eab703697c4f8fe9d765c8928a6665ac3eb7d6ceccf4d22557123a"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-formation-command-fourth-binding/runtime.json",
+      "bytes": 418051,
+      "sha256": "1f5c4a9a80e48c4f753c51dbaff6211c3fe5c96a15ae46ad1e5a2f13720a9ce9"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-duel-short-range/after.png",
+      "bytes": 387890,
+      "sha256": "a066085b86acd451c3945a7dd4e660f94416e1579c0935b2acf2c2df00ba5580"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-duel-short-range/before.png",
+      "bytes": 387607,
+      "sha256": "40df9d589d64b35953ac970f8df49ea9eb7fb6317efb079d2e3625322be9c733"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-duel-short-range/frame-1150.png",
+      "bytes": 211597,
+      "sha256": "bda94c2c6dbd27a2b41d627cb3384ebf2cf49bb8b395f16488261712d8e6fca5"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-duel-short-range/frame-350.png",
+      "bytes": 211379,
+      "sha256": "00c64ee99c2d35ec572d2e4be20ba4863d364b7bb40ed599d0461fe872900d22"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-duel-short-range/frame-600.png",
+      "bytes": 211695,
+      "sha256": "b9b537cdf004a194c874d423d889817838d18badcf32bf977b0a3fedfecb2015"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-duel-short-range/frame-900.png",
+      "bytes": 211538,
+      "sha256": "1e0c7c738a96e9426c171c0a1154506c5131e9b985015a441882108a15732324"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-duel-short-range/frame-first-impact.png",
+      "bytes": 211105,
+      "sha256": "7f2093fb22fa95fcf3003fc7946df9c056d816fc14aca18d19f173e53ba5ef53"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-duel-short-range/runtime.json",
+      "bytes": 209093,
+      "sha256": "88e15c61d2d62a979e1b44424dc7b480e8a3315879d458bc8208ffd0a1b4a1ca"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-far-left-mutual-death/after.png",
+      "bytes": 368333,
+      "sha256": "62989bfe1ec10aecbe71997328ef88b43e661322ee830203f2c836c5db59e62c"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-far-left-mutual-death/before.png",
+      "bytes": 358737,
+      "sha256": "1d7a6fc58c7259af7762bca46137f4cc820bc2fd4e26e52fe412f20e5fb4c968"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-far-left-mutual-death/frame-1150.png",
+      "bytes": 213853,
+      "sha256": "e5f6d1d7696fdaa5a26e2b42c9e1f61dcc79b02724b6947819f9e23fa0a3b124"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-far-left-mutual-death/frame-350.png",
+      "bytes": 215550,
+      "sha256": "93f359c24b487d2a093612fc92750711b68d5f00077e677a998d191a4f5bb83a"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-far-left-mutual-death/frame-600.png",
+      "bytes": 215128,
+      "sha256": "90d49ec2fa8c5698b04475971fc11ea23e05060a2ecc08844cd023bde69a8076"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-far-left-mutual-death/frame-900.png",
+      "bytes": 214185,
+      "sha256": "5c14b6fb574f4bd8c68f2a8c5413417bc269a4fd810545f022e7a47fd37a9d54"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-far-left-mutual-death/frame-first-impact.png",
+      "bytes": 215105,
+      "sha256": "a00fbe3f276906df8c882bfef9227eb70bf792dc84bf3f7078ce4953ca8463ea"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-far-left-mutual-death/runtime.json",
+      "bytes": 823585,
+      "sha256": "52f242a094a3c336e28aa530cbedf2a463ae0260fa3242cb7838799209cc0fdd"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-leftward/after.png",
+      "bytes": 358497,
+      "sha256": "b8ece6dadfd1fb7d26db771a24bdee8a5a136062568cf0ea5e5257684335211e"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-leftward/before.png",
+      "bytes": 358099,
+      "sha256": "a542b4695c79174789aa9db22b080cef29536c195d3ec2040aa65716c5dfc3a2"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-leftward/frame-1150.png",
+      "bytes": 214870,
+      "sha256": "ef07925a5c006906dfb0ded2da459478c539b52eb847ebf940c601bf0d216214"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-leftward/frame-350.png",
+      "bytes": 215056,
+      "sha256": "1102552224bd5c0bc21ac624c22584f0bba0c3fcaa31a542d081361e55daed1f"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-leftward/frame-600.png",
+      "bytes": 215073,
+      "sha256": "b0430b32c0a441b2a4f20057016b0128cff01d555bedc69c89b76804acd66fc7"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-leftward/frame-900.png",
+      "bytes": 214864,
+      "sha256": "644b6e533c7369e6221e8fc3f3b0b69c467d483b2af1d78aa36bcfb69bb4c8df"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-leftward/frame-first-impact.png",
+      "bytes": 214918,
+      "sha256": "e0ee51e81dcb81d13388dd86bb69038304b0710ddcf01bc40a8f8cb0d044dd70"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-leftward/runtime.json",
+      "bytes": 837328,
+      "sha256": "b33a4493e07136a0f61c01a34e24fd7c1bc6a3d55cb2a56de6ee8c87141bc264"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-near-left/after.png",
+      "bytes": 358458,
+      "sha256": "8d27e93854818e906f2dd070476ede8e8f814d6a49f5e150077a8f9c3c7f931b"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-near-left/before.png",
+      "bytes": 358045,
+      "sha256": "46bae64ae332119620b130f3c1d723817768b5374dc58695f8b1c83449b9b5be"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-near-left/frame-1150.png",
+      "bytes": 214795,
+      "sha256": "f3c1f785e9aa816cdce430ff2a3f1661660dc5d1dca423d74dcbad82fd36f809"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-near-left/frame-350.png",
+      "bytes": 214978,
+      "sha256": "a36c4bb087ef85075e670e1553bd79e7dfd7bce36e31fc24e28dc449dbd84665"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-near-left/frame-600.png",
+      "bytes": 215076,
+      "sha256": "59fbe377629689301cf2a107da731a914d59b37ca324ca447547089f9367cbc7"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-near-left/frame-900.png",
+      "bytes": 214935,
+      "sha256": "6d5552d85d0870687e4fa75c47d21b6b61f83d4147857d70ed0a748f0f79019f"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-near-left/frame-first-impact.png",
+      "bytes": 214805,
+      "sha256": "69b8335d3e04576a8ace440713fc12b4e90b3fd67ac88f0788ac420c67c40dfe"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-near-left/runtime.json",
+      "bytes": 836624,
+      "sha256": "bc98ecedd32bd448aeb263957e80abd06ec86aea5ff950605fe5a89aac8d3073"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-rightward/after.png",
+      "bytes": 359097,
+      "sha256": "7fb19ed56e1b498b0f27da05e37bc398c001923c889ccbbba74e64be483a7cae"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-rightward/before.png",
+      "bytes": 358593,
+      "sha256": "cbd4857ff62107672e945a245b1f7f2ff106a8a50664474a0b41e2e112be67aa"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-rightward/frame-1150.png",
+      "bytes": 214655,
+      "sha256": "77115b69a4e2428e1f26bb13adfd0bdcfb60d9256465e8b0a3a3fd2b8da36123"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-rightward/frame-350.png",
+      "bytes": 214989,
+      "sha256": "a916ca1f21db264e6c21fc5683c608ebcb5c63812860e3f747c98e1cd4b764cf"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-rightward/frame-600.png",
+      "bytes": 214942,
+      "sha256": "6f5dab5e22d757ba2a55caa700e330fdd755f9eaf74668f0c33705f92186acf4"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-rightward/frame-900.png",
+      "bytes": 214730,
+      "sha256": "9e9b5a77f4d46949df419aab96476650baee56d1086bf221152e0e0c5e3aa7cc"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-rightward/frame-first-impact.png",
+      "bytes": 214423,
+      "sha256": "4a02151ac390db5420c4b782de7c4578188a676ea23400c32e5a1880fc83f812"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-rightward/runtime.json",
+      "bytes": 836508,
+      "sha256": "6fce490806737e184209153464d9513092ac22b48b8ddf086528ecdb56d39d21"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-vertical/after.png",
+      "bytes": 359266,
+      "sha256": "4350e4c70bde55a3134cfba347f9cffccfbeedaa63adc98cc98dab51439b97f7"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-vertical/before.png",
+      "bytes": 358584,
+      "sha256": "c3abd7b48a926d2234136ca946d38b1724bb9cca74f87dfce430236f1a27f7bc"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-vertical/frame-1150.png",
+      "bytes": 214638,
+      "sha256": "d0943b8a6a90cd4e32414591b89275be0153c2c43c173c7d9844db3128f1e103"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-vertical/frame-350.png",
+      "bytes": 214857,
+      "sha256": "9ceb4fefa62ef5b0efd0f628720b61d360e3b4771fc62fc1ba19c2cd616b19f3"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-vertical/frame-600.png",
+      "bytes": 214889,
+      "sha256": "c68d980ac587fb14aeee2bd51d2e391087a679cc944058880bc4c3d3ad689b87"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-vertical/frame-900.png",
+      "bytes": 214717,
+      "sha256": "38114390310b1fc11629e501215e41d24cf4d1c39ff7f43c2c53600523ff127f"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-vertical/frame-first-impact.png",
+      "bytes": 214792,
+      "sha256": "ecdd0faf4c85a274477daf955b3dc815c969f8ad6fa81d83c95bac41abce88a6"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native/v6-390-hound-vertical/runtime.json",
+      "bytes": 836880,
+      "sha256": "8998dc2b7261fb2afe8dbbe54af5347105d86999db35d61ba04827512e879019"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native-measurements.json",
+      "bytes": 94573,
+      "sha256": "fd0f869a8857e07f8a3ea38626778221e499fc068f0138be5cd793ccb347f03b"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/native-review.mjs",
+      "bytes": 8784,
+      "sha256": "ac52c15845f4257dbd175bdd848caa7b28f6ff62b9672ab8fe5addf703721230"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/target-hint-inert-regions.png",
+      "bytes": 745934,
+      "sha256": "7f582c734e978fa75968d41144aecab25cfe93766ba06b2e82908234aa66df02"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/target-hints-review.json",
+      "bytes": 32714,
+      "sha256": "8103d8a85a573443d55bd5b22b775b4a2753a76aa346afd3a7d99eab60ab245b"
+    },
+    {
+      "path": "reviews/visual-v0.6-runtime/target-hints.mjs",
+      "bytes": 2595,
+      "sha256": "0c213ede369bd2abe9fb546a1b559e8dbd9a187f1783562500396ebd891f35eb"
+    }
+  ]
+}

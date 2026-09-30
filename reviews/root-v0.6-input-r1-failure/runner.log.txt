@@ -1,0 +1,99 @@
+
+Running 8 tests using 1 worker
+
+(node:110398) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/browser/input-v0.6.spec.ts:26:48 › kind1: held Enter selects without following focus to commit (3.8s)
+  ✓  2 tests/browser/input-v0.6.spec.ts:26:48 › kind1: held Space selects without following focus to commit (2.6s)
+  ✓  3 tests/browser/input-v0.6.spec.ts:40:3 › kind1: cancel, nested dossier and nonfinal death retain meaningful focus (3.5s)
+  ✓  4 tests/browser/input-v0.6.spec.ts:26:48 › kind2: held Enter selects without following focus to commit (2.7s)
+  ✓  5 tests/browser/input-v0.6.spec.ts:26:48 › kind2: held Space selects without following focus to commit (2.8s)
+  ✓  6 tests/browser/input-v0.6.spec.ts:40:3 › kind2: cancel, nested dossier and nonfinal death retain meaningful focus (2.8s)
+  ✘  7 tests/browser/input-v0.6.spec.ts:61:1 › composition passes through; synthetic visible blur requires a neutral controller release (3.1s)
+(node:110755) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  8 tests/browser/input-v0.6.spec.ts:81:1 › all twelve intents and complete hand rules fit wide short viewports (4.5s)
+
+
+  1) tests/browser/input-v0.6.spec.ts:61:1 › composition passes through; synthetic visible blur requires a neutral controller release 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 4
+    + Received  + 3
+
+    @@ -1,9 +1,9 @@
+      Object {
+        "allies": Array [
+          Object {
+    -       "acted": true,
+    +       "acted": false,
+            "attack": 4,
+            "block": 0,
+            "cardId": "fenstalker",
+            "color": "#7f9386",
+            "hp": 10,
+    @@ -45,11 +45,11 @@
+            "acted": false,
+            "attack": 4,
+            "block": 0,
+            "cardId": "raider",
+            "color": "#a6a59c",
+    -       "hp": 12,
+    +       "hp": 16,
+            "intent": Object {
+              "damage": 0,
+              "label": "Raise shield · gain 4 block",
+              "target": "e1",
+            },
+    @@ -91,11 +91,10 @@
+        "hp": 65,
+        "log": Array [
+          "A scarred hunter. One final contract. No pact is harmless.",
+          "The keep has teeth.",
+          "Bound Fen Stalker.",
+    -     "Fen Stalker strikes Ironjaw Reaver.",
+        ],
+        "maxHp": 65,
+        "nextUid": 4,
+        "phase": "battle",
+        "relics": Array [],
+    @@ -107,10 +106,10 @@
+        "schema": 3,
+        "seed": 121,
+        "stats": Object {
+          "battles": 1,
+          "cardsPlayed": 1,
+    -     "damageDealt": 4,
+    +     "damageDealt": 0,
+          "turns": 1,
+        },
+        "turn": 1,
+      }
+
+      76 |   await page.waitForTimeout(60); expect(await saved(page)).toEqual(s);
+      77 |   await button(false); await button(true);
+    > 78 |   expect(await saved(page)).toEqual(applyAction(s, action));
+         |                             ^
+      79 |   await expect(page.locator('.keyboard-hint')).toContainText('LB/RB Regions');
+      80 | });
+      81 | test('all twelve intents and complete hand rules fit wide short viewports', async ({ page }) => {
+        at /workspace/Roguelike-deckbuilder/tests/browser/input-v0.6.spec.ts:78:29
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/run-110398-1790807808661/input-v0.6-composition-pas-f533b--neutral-controller-release/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/run-110398-1790807808661/input-v0.6-composition-pas-f533b--neutral-controller-release/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/run-110398-1790807808661/input-v0.6-composition-pas-f533b--neutral-controller-release/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/run-110398-1790807808661/input-v0.6-composition-pas-f533b--neutral-controller-release/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests/browser/input-v0.6.spec.ts:61:1 › composition passes through; synthetic visible blur requires a neutral controller release 
+  7 passed (27.9s)

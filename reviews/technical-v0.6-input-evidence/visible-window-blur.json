@@ -1,0 +1,50 @@
+{
+  "scope": "Actual separate browser contexts/windows plus synthetic standard navigator gamepad; no physical controller claim",
+  "timeline": [
+    {
+      "when": "beforefocusloss",
+      "hidden": false,
+      "visibility": "visible",
+      "hasFocus": true,
+      "focusedUnit": "a10",
+      "selected": 0,
+      "save": "unchanged"
+    },
+    {
+      "when": "afterotherwindowfront",
+      "hidden": false,
+      "visibility": "visible",
+      "hasFocus": true,
+      "focusedUnit": "a10",
+      "selected": 0,
+      "save": "unchanged"
+    },
+    {
+      "when": "virtualconfirm=true",
+      "hidden": false,
+      "visibility": "visible",
+      "hasFocus": true,
+      "focusedUnit": "e30",
+      "selected": 1,
+      "save": "unchanged"
+    },
+    {
+      "when": "virtualconfirm=false",
+      "hidden": false,
+      "visibility": "visible",
+      "hasFocus": true,
+      "focusedUnit": "e30",
+      "selected": 1,
+      "save": "unchanged"
+    },
+    {
+      "when": "virtualconfirm=true",
+      "hidden": false,
+      "visibility": "visible",
+      "hasFocus": true,
+      "focusedUnit": "e30",
+      "selected": 0,
+      "save": "changed"
+    }
+  ]
+}

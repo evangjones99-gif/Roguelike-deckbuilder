@@ -1,0 +1,30 @@
+{
+  "status": "unshipped original art research, no commercial rights clearance",
+  "generator": "image_gen.imagegen",
+  "references": {
+    "public/art/hunter-portrait.png": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+    "public/art/abbey-courtyard.png": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3"
+  },
+  "transparentBackgroundRequested": true,
+  "generated": [
+    {
+      "path": "hunter-sheet-original-r1.png",
+      "sha256": "71d6a14abcc2ac97ae694d87110f94857f2508ecda0ebc8e9361b313b9094d46"
+    },
+    {
+      "path": "hunter-sheet-edit-r2.png",
+      "sha256": "71bedf595a24b98a9bc1971150affe09f584aa9e35eaf4adaf6b19e3ecad65bc"
+    },
+    {
+      "path": "hunter-sheet-edit-r3.png",
+      "sha256": "4492577d3bacc868e9b66da0abf25915bdeaf68bc8f5c31ae8a1d8db485f3c53"
+    }
+  ],
+  "requests": [
+    "hunter-sheet-request.txt",
+    "hunter-sheet-edit-r2-request.txt",
+    "hunter-sheet-edit-r3-request.txt"
+  ],
+  "edits": "R2 and R3 used image_gen with previous original sheet as reference; no script image editing or pixel replacement. All original generator files remain in /workspace/generated_images.",
+  "findings": "R1/R2 fail requested48px safe margins/common boot anchors. R3 improves idle facing and retains full boots, still misses48px bottom gutter and uniform requested anchor; geometry/halo/actual-size review pending. Inspect QC, do not equate requested and achieved geometry."
+}

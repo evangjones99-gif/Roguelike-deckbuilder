@@ -1,0 +1,26 @@
+<!doctype html><meta charset="utf-8"><title>Unshipped Marek atlas feasibility</title><style>body{margin:0;background:#111;color:#ddd;font:15px system-ui}canvas{display:block}</style><canvas id="fixture"></canvas><script>
+const params=new URLSearchParams(location.search), revision=params.get('r')||'r3',mode=params.get('mode')||'abbey',size=+(params.get('size')||220), common=params.get('common')==='true';
+const files={r1:'hunter-sheet-original-r1.png',r2:'hunter-sheet-edit-r2.png',r3:'hunter-sheet-edit-r3.png'};
+const anchors={r1:[511,510,510,492,489,479],r2:[510,510,508,461,458,453],r3:[502,502,500,450,447,441]};
+const names=['Idle','Anticipation','Command','Recovery','Reaction','Exhausted collapse'];
+const sheet=new Image(),bg=new Image();sheet.src='/Roguelike-deckbuilder/assets/art-sources/v0.7/'+files[revision];bg.src='/Roguelike-deckbuilder/public/art/abbey-courtyard.png';
+Promise.all([sheet.decode(),bg.decode()]).then(()=>{
+const canvas=document.querySelector('canvas'), ctx=canvas.getContext('2d'), full=mode==='full'; canvas.width=full?1536:1440;canvas.height=full?1100:900;
+ctx.fillStyle='#101416';ctx.fillRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle='#ddd';ctx.font='18px system-ui';ctx.fillText('Unshipped '+revision+' · unchanged full512 source cells · '+(common?'requested common y448':'measured per-pose ground')+' · '+mode,24,30);
+const h=full?512:size*512/418,w=h;
+window.drawRecords=[];
+for(let k=0;k<6;k++){
+ const col=k%3,row=Math.floor(k/3),paneW=full?512:480,paneH=full?512:410,left=col*paneW,top=row*paneH+50,footX=left+paneW*.5,footY=top+paneH-50;
+ if(mode==='abbey'){ctx.drawImage(bg,0,0,bg.width,bg.height,left,top,paneW,paneH);ctx.fillStyle='rgba(0,0,0,.18)';ctx.fillRect(left,top,paneW,paneH);}
+ else {const n=16;for(let x=0;x<paneW;x+=n)for(let y=0;y<paneH;y+=n){ctx.fillStyle=mode==='white'?'#eee':(((x/n+y/n)%2)?'#57626a':'#3f4951');ctx.fillRect(left+x,top+y,n,n);}}
+ const a=common?448:anchors[revision][k],x=full?left:footX-w*.5,y=full?top:footY-a/512*h;
+ if(!full){ctx.save();ctx.translate(footX,footY+1);ctx.scale(h*.2,h*.033);const grad=ctx.createRadialGradient(0,0,.1,0,0,1);grad.addColorStop(0,'rgba(0,0,0,.7)');grad.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=grad;ctx.beginPath();ctx.arc(0,0,1,0,Math.PI*2);ctx.fill();ctx.restore();}
+ ctx.drawImage(sheet,col*512,row*512,512,512,x,y,w,h);
+ if(!full){ctx.strokeStyle='#cfb15e';ctx.beginPath();ctx.moveTo(footX-35,footY);ctx.lineTo(footX+35,footY);ctx.stroke();}
+ ctx.fillStyle='#fff';ctx.font='17px system-ui';ctx.fillText(names[k]+': ground '+a,left+16,top+24);
+ window.drawRecords.push({pose:names[k],source:[col*512,row*512,512,512],destination:[x,y,w,h],ground:[footX,footY],sourceGround:a});
+}
+window.ready=true;window.fixtureMeta={revision,mode,size,common,canvas:[canvas.width,canvas.height],records:drawRecords};
+}).catch(e=>{window.error=String(e)});
+</script>

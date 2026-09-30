@@ -1,0 +1,96 @@
+{
+  "method": "Reviewer personally hashes downloaded API-pinned wrappers/parts/whole ZIP, CRC and every ZIP/package/current-evidence byte; no binary execution",
+  "run": {
+    "id": 36789372782,
+    "head_sha": "f54a64d6bed7f1d63607d9efde2b26176e303724",
+    "head_branch": "codex/lanternbound-production",
+    "event": "pull_request",
+    "status": "completed",
+    "conclusion": "success",
+    "run_attempt": 1,
+    "html_url": "https://github.com/evangjones99-gif/Roguelike-deckbuilder/actions/runs/36789372782"
+  },
+  "wrappersVerified": 9,
+  "parts": [
+    {
+      "part": 1,
+      "artifactId": 11130594610,
+      "wrapperSHA": "91e6f74ec3f0fa5236e5976c7d30cb5b056f789993a27fcdf701df34b191261a",
+      "wrapperBytes": 25165960,
+      "innerSHA": "2397f21571bb368f85f213fc5e6527df98dbb9bb3736014f9a7a1bfd8f75a400",
+      "innerBytes": 25165824
+    },
+    {
+      "part": 2,
+      "artifactId": 11131860082,
+      "wrapperSHA": "45b23a058de0a529ac4f02a6e8e7b2c7992f1efe58f4d7748eebe03d32a79f5b",
+      "wrapperBytes": 25165960,
+      "innerSHA": "e4d8c9e432c46b5c6b787a4f331201492b8fa9e95c4e856d2fbef783ad59068e",
+      "innerBytes": 25165824
+    },
+    {
+      "part": 3,
+      "artifactId": 11130899081,
+      "wrapperSHA": "a87c1131afe741fcd72069f22045c98b58170d4dd16cb53e12ad5f99a6a1da9a",
+      "wrapperBytes": 25165960,
+      "innerSHA": "bb8667fce47f0e72968f36a3aeab8d5545b726d74e5111ca279ea8e626154145",
+      "innerBytes": 25165824
+    },
+    {
+      "part": 4,
+      "artifactId": 11130859905,
+      "wrapperSHA": "3e13e199f3ed40b0e6d7b655dba7c7e2883a5e7466e823ab69e20aef944f909e",
+      "wrapperBytes": 25165960,
+      "innerSHA": "455b9ac991b921b4fb51164aae5784e018cb9fdcbdae19646ddbb1fa32cfb68c",
+      "innerBytes": 25165824
+    },
+    {
+      "part": 5,
+      "artifactId": 11131840178,
+      "wrapperSHA": "215c269c690dc1a44fcd874c6e8315509d6b49246996112046ef305e29b44daf",
+      "wrapperBytes": 25165960,
+      "innerSHA": "2f5672a5182c90a1195031be417033a9c2366105d66b9f933f44dc74f83c4984",
+      "innerBytes": 25165824
+    },
+    {
+      "part": 6,
+      "artifactId": 11130889891,
+      "wrapperSHA": "39009e8bf8444c59bfed5f6a35d4cb4ba32812764765ccf6ca90f648aab1c941",
+      "wrapperBytes": 25165960,
+      "innerSHA": "97a05d496bec90d3100a11af16f4371ab9a44d48c84e2ff7c353b29356b1994a",
+      "innerBytes": 25165824
+    },
+    {
+      "part": 7,
+      "artifactId": 11130739443,
+      "wrapperSHA": "fdf89717202a3f80e6d79619a11c03be508c30feb6bfd8b4e407ef64f754c74a",
+      "wrapperBytes": 25165960,
+      "innerSHA": "04a8219cf4bc839f691d7380646b9ed5f122a3d4fa2463590ff5da86d7b9fc5d",
+      "innerBytes": 25165824
+    },
+    {
+      "part": 8,
+      "artifactId": 11130824864,
+      "wrapperSHA": "0459b1ed3c34f09594ea46b4d491f64d5d0692153dab070d3c533e57c05c65e4",
+      "wrapperBytes": 7436561,
+      "innerSHA": "0b48b71969cd48b8615902a9e646be1b48d4a09d7ccfdd036a25d8a2f1a46f90",
+      "innerBytes": 7436425
+    }
+  ],
+  "zipFilesMatched": 72,
+  "archiveSHA256": "74439d2bdfb851252d8f815c4265338f4b104e0eb61ace06704823010210ffbf",
+  "archiveBytes": 183597193,
+  "currentEvidenceRawFilesByteExact": [
+    "reviews/windows-native/0.6.0/run-36789372782-1/battle.png",
+    "reviews/windows-native/0.6.0/run-36789372782-1/executable-icon.png",
+    "reviews/windows-native/0.6.0/run-36789372782-1/keyboard-command.png",
+    "reviews/windows-native/0.6.0/run-36789372782-1/native-package.json",
+    "reviews/windows-native/0.6.0/run-36789372782-1/smoke.json",
+    "reviews/windows-native/0.6.0/run-36789372782-1/relaunch-resumed.png",
+    "reviews/windows-native/0.6.0/run-36789372782-1/synthetic-negative-feedback.json",
+    "reviews/windows-native/0.6.0/run-36789372782-1/title.png"
+  ],
+  "smallEvidenceSHA256": "ea64967af81c0a50a7c9279c0e4688607f81a5e0ddfbb72222ab722b05fcb3ed",
+  "smallEvidenceBytes": 6834648,
+  "retainedOriginalPart8Failure": "downloads-r1.json [object Object]; actual reason unavailable, retry2 succeeds and hashes exact"
+}

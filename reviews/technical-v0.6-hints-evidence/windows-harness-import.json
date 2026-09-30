@@ -1,0 +1,14 @@
+{
+  "scope": "Linux source/import and syntax verification only; no Windows executable launch claimed",
+  "node": "v24.19.0",
+  "platform": "linux",
+  "digest": "0ec0187f0a42eb519000646695980dd91e1e026e1cb925b96935ee3e8646acde",
+  "dependencyChecks": {
+    "src/engine.ts": true,
+    "src/content.ts": true,
+    "src/world-rng.ts": true
+  },
+  "fileURLProtocol": "file:",
+  "applyActionExport": "function",
+  "legalActionsExport": "function"
+}

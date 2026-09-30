@@ -1,0 +1,412 @@
+{
+  "scope": "Actual production handlers; only navigator.getGamepads samples emulated. No injected host or adapter. Diagnostic fixtures are unearned validated saves; no physical hardware claim.",
+  "digest": "1788250060f96dc0a1b8ff24092997f47643121a265d17fd6b95bbfc1b98811a",
+  "referenceSHA": "e8836833a56836fa97e79ebced4ee0845ad64e99cf6c85d107faaeb09b8fdad5",
+  "harnessSHA": "e0cdc166d40185398176e7db1e7689a3a21dd500460a6a2bae97a0151092f39a",
+  "results": [
+    {
+      "name": "held-enter-target-and-cancel-1",
+      "fixture": "nonfinal-kill",
+      "kind": 1,
+      "heldEnterUnchanged": true,
+      "cancelRestoredSource": true,
+      "commandCanonicalExact": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "a11",
+        "id": "",
+        "text": "Grave HoundB2 11/114Ready"
+      },
+      "finalSaveHash": "da4580e8be00a0032a548fabf2483343bd450518c5558ed44cbc189b86b37f86",
+      "errors": []
+    },
+    {
+      "name": "space-hand-shrink-1",
+      "fixture": "hand-two-summons",
+      "kind": 1,
+      "oneReleaseOneSummon": true,
+      "shrinkingHandFocus": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "ui": "play-card",
+        "index": "0",
+        "id": "",
+        "text": "1Cairn HoundBINDINGOn binding: gain 2 hunter block. Commands deal 2 extra damage"
+      },
+      "finalSaveHash": "e681ac74e24aaaf7370abe67de3ac3c7d29468c8e76a236f03d2bd5ca57e52e6",
+      "errors": []
+    },
+    {
+      "name": "held-pad-command-1",
+      "fixture": "nonfinal-kill",
+      "kind": 1,
+      "realHostPadEdges": true,
+      "canonicalExact": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "a11",
+        "id": "",
+        "text": "Grave HoundB2 11/114Ready"
+      },
+      "finalSaveHash": "da4580e8be00a0032a548fabf2483343bd450518c5558ed44cbc189b86b37f86",
+      "errors": []
+    },
+    {
+      "name": "held-pad-summon-1",
+      "fixture": "hand-two-summons",
+      "kind": 1,
+      "oneSummonThroughActualHost": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "ui": "play-card",
+        "index": "0",
+        "id": "",
+        "text": "1Cairn HoundBINDINGOn binding: gain 2 hunter block. Commands deal 2 extra damage"
+      },
+      "finalSaveHash": "e681ac74e24aaaf7370abe67de3ac3c7d29468c8e76a236f03d2bd5ca57e52e6",
+      "errors": []
+    },
+    {
+      "name": "modifiers-native-contenteditable-1",
+      "fixture": "no-unspent",
+      "kind": 1,
+      "modifierSaveUnchanged": true,
+      "nativeEditable": true,
+      "freshEExact": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "action": "endTurn",
+        "id": "",
+        "text": "End turn Enemy intents resolve · draw 5 · refill energy"
+      },
+      "finalSaveHash": "935127d8dc9b10a43eb5c4cf742ee698954a27f5397cf0784ff3052ae0b6d7bd",
+      "errors": []
+    },
+    {
+      "name": "source-reflection-death-focus-1",
+      "fixture": "source-falls",
+      "kind": 1,
+      "actualRetaliationExact": true,
+      "focusRecovered": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "e3",
+        "id": "",
+        "text": "Ironjaw ReaverH1 20/20454 damage → hunter"
+      },
+      "finalSaveHash": "8f15c773db86ff61f87c1a28f1fa90e831c74052763447197c966f9472574e02",
+      "errors": []
+    },
+    {
+      "name": "dialog-external-origin-inspect-1",
+      "fixture": "full-roster",
+      "kind": 1,
+      "replacementExternalOrigin": true,
+      "keyboardInspectPadBack": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "ui": "play-card",
+        "index": "0",
+        "id": "",
+        "text": "1Cairn Hound +BINDINGOn binding: gain 2 hunter block. Commands deal 2 extra dama"
+      },
+      "finalSaveHash": "abaa6923ffa249c575076599fd052955ba86564f900a50e35842c741dbb72da4",
+      "errors": []
+    },
+    {
+      "name": "actual-unspent-padY-1",
+      "fixture": "full-roster",
+      "kind": 1,
+      "heldYOnlyOpensConfirmation": true,
+      "cancelSourceRecovered": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "a10",
+        "id": "",
+        "text": "Cairn HoundB1 7/73Ready"
+      },
+      "finalSaveHash": "abaa6923ffa249c575076599fd052955ba86564f900a50e35842c741dbb72da4",
+      "errors": []
+    },
+    {
+      "name": "terminal-hold-safe-start-1-true",
+      "fixture": "terminal-reward",
+      "kind": 1,
+      "observedActualLock": true,
+      "canonicalCommittedImmediately": true,
+      "startSafePause": true,
+      "staleEUnchanged": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "H1",
+        "id": "",
+        "text": "Take what keeps you alive."
+      },
+      "finalSaveHash": "217f7c3ce110f6f951df56b49b452c0bd98e27fcb93fbcc63b663eb83b06d5c1",
+      "errors": []
+    },
+    {
+      "name": "terminal-hold-safe-start-1-false",
+      "fixture": "terminal-reward",
+      "kind": 1,
+      "observedActualLock": false,
+      "canonicalCommittedImmediately": true,
+      "startSafePause": false,
+      "staleEUnchanged": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "H1",
+        "id": "",
+        "text": "Take what keeps you alive."
+      },
+      "finalSaveHash": "217f7c3ce110f6f951df56b49b452c0bd98e27fcb93fbcc63b663eb83b06d5c1",
+      "errors": []
+    },
+    {
+      "name": "held-enter-target-and-cancel-2",
+      "fixture": "nonfinal-kill",
+      "kind": 2,
+      "heldEnterUnchanged": true,
+      "cancelRestoredSource": true,
+      "commandCanonicalExact": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "a11",
+        "id": "",
+        "text": "Grave HoundB2 11/114Ready"
+      },
+      "finalSaveHash": "c70bcf1038054abc5d29cc045ed769725cfa3eb611931741fd5694e460c8b217",
+      "errors": []
+    },
+    {
+      "name": "space-hand-shrink-2",
+      "fixture": "hand-two-summons",
+      "kind": 2,
+      "oneReleaseOneSummon": true,
+      "shrinkingHandFocus": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "ui": "play-card",
+        "index": "0",
+        "id": "",
+        "text": "1Cairn HoundBINDINGOn binding: gain 2 hunter block. Commands deal 2 extra damage"
+      },
+      "finalSaveHash": "fd93f4f2ede25dbb44c05f26a7e3aab56a19be052049eb2899573d79ac7956ca",
+      "errors": []
+    },
+    {
+      "name": "held-pad-command-2",
+      "fixture": "nonfinal-kill",
+      "kind": 2,
+      "realHostPadEdges": true,
+      "canonicalExact": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "a11",
+        "id": "",
+        "text": "Grave HoundB2 11/114Ready"
+      },
+      "finalSaveHash": "c70bcf1038054abc5d29cc045ed769725cfa3eb611931741fd5694e460c8b217",
+      "errors": []
+    },
+    {
+      "name": "held-pad-summon-2",
+      "fixture": "hand-two-summons",
+      "kind": 2,
+      "oneSummonThroughActualHost": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "ui": "play-card",
+        "index": "0",
+        "id": "",
+        "text": "1Cairn HoundBINDINGOn binding: gain 2 hunter block. Commands deal 2 extra damage"
+      },
+      "finalSaveHash": "fd93f4f2ede25dbb44c05f26a7e3aab56a19be052049eb2899573d79ac7956ca",
+      "errors": []
+    },
+    {
+      "name": "modifiers-native-contenteditable-2",
+      "fixture": "no-unspent",
+      "kind": 2,
+      "modifierSaveUnchanged": true,
+      "nativeEditable": true,
+      "freshEExact": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "action": "endTurn",
+        "id": "",
+        "text": "End turn Enemy intents resolve · draw 5 · refill energy"
+      },
+      "finalSaveHash": "3281f3110cd62e1fe3a703162868aa73b0db335c07ff2295a4b7aa58142a80a9",
+      "errors": []
+    },
+    {
+      "name": "source-reflection-death-focus-2",
+      "fixture": "source-falls",
+      "kind": 2,
+      "actualRetaliationExact": true,
+      "focusRecovered": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "e3",
+        "id": "",
+        "text": "Ironjaw ReaverH1 20/20454 damage → hunter"
+      },
+      "finalSaveHash": "7cbc528906ae2b8a63dbc688d6651f5c475ac5344659fa76de9343fbeeb1e726",
+      "errors": []
+    },
+    {
+      "name": "dialog-external-origin-inspect-2",
+      "fixture": "full-roster",
+      "kind": 2,
+      "replacementExternalOrigin": true,
+      "keyboardInspectPadBack": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "ui": "play-card",
+        "index": "0",
+        "id": "",
+        "text": "1Cairn Hound +BINDINGOn binding: gain 2 hunter block. Commands deal 2 extra dama"
+      },
+      "finalSaveHash": "069075d9a612bd0d42aeec108dcd428763c5671226d6326796da4a6b39f3ab2b",
+      "errors": []
+    },
+    {
+      "name": "actual-unspent-padY-2",
+      "fixture": "full-roster",
+      "kind": 2,
+      "heldYOnlyOpensConfirmation": true,
+      "cancelSourceRecovered": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "a10",
+        "id": "",
+        "text": "Cairn HoundB1 7/73Ready"
+      },
+      "finalSaveHash": "069075d9a612bd0d42aeec108dcd428763c5671226d6326796da4a6b39f3ab2b",
+      "errors": []
+    },
+    {
+      "name": "terminal-hold-safe-start-2-true",
+      "fixture": "terminal-reward",
+      "kind": 2,
+      "observedActualLock": true,
+      "canonicalCommittedImmediately": true,
+      "startSafePause": true,
+      "staleEUnchanged": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "H1",
+        "id": "",
+        "text": "Take what keeps you alive."
+      },
+      "finalSaveHash": "922f030a613e3a57a5c61e2dc47fe2ec3b333d484cd7c1abae8a582e42bb2de5",
+      "errors": []
+    },
+    {
+      "name": "terminal-hold-safe-start-2-false",
+      "fixture": "terminal-reward",
+      "kind": 2,
+      "observedActualLock": false,
+      "canonicalCommittedImmediately": true,
+      "startSafePause": false,
+      "staleEUnchanged": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "H1",
+        "id": "",
+        "text": "Take what keeps you alive."
+      },
+      "finalSaveHash": "922f030a613e3a57a5c61e2dc47fe2ec3b333d484cd7c1abae8a582e42bb2de5",
+      "errors": []
+    },
+    {
+      "name": "controller-absent",
+      "fixture": "no-unspent",
+      "kind": 2,
+      "api": "absent",
+      "readCount": 0,
+      "elapsedMs": 1001,
+      "nativeKeyboardWorks": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "action": "endTurn",
+        "id": "",
+        "text": "End turn Enemy intents resolve · draw 5 · refill energy"
+      },
+      "finalSaveHash": "3281f3110cd62e1fe3a703162868aa73b0db335c07ff2295a4b7aa58142a80a9",
+      "errors": []
+    },
+    {
+      "name": "controller-refused",
+      "fixture": "no-unspent",
+      "kind": 2,
+      "api": "refused",
+      "readCount": 4,
+      "elapsedMs": 1001,
+      "nativeKeyboardWorks": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "action": "endTurn",
+        "id": "",
+        "text": "End turn Enemy intents resolve · draw 5 · refill energy"
+      },
+      "finalSaveHash": "3281f3110cd62e1fe3a703162868aa73b0db335c07ff2295a4b7aa58142a80a9",
+      "errors": []
+    },
+    {
+      "name": "disconnect-held-reconnect-and-hidden",
+      "fixture": "hand-two-summons",
+      "kind": 2,
+      "heldReconnectDeArmed": true,
+      "visibilityEmulation": true,
+      "hiddenPollStopped": true,
+      "heldRestoreUnchanged": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "ui": "play-card",
+        "index": "0",
+        "id": "",
+        "text": "1Cairn HoundBINDINGOn binding: gain 2 hunter block. Commands deal 2 extra damage"
+      },
+      "finalSaveHash": "fd93f4f2ede25dbb44c05f26a7e3aab56a19be052049eb2899573d79ac7956ca",
+      "errors": []
+    },
+    {
+      "name": "native-seed-range-select-textarea",
+      "fixture": "full-roster",
+      "kind": 2,
+      "nativeRangeArrow": true,
+      "padRangeActualInputHandler": true,
+      "nativeSeedAndTextarea": true,
+      "nativeSelect": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "SELECT",
+        "id": "feedback-replay",
+        "text": "Prefer not to answerYesMaybeNo"
+      },
+      "finalSaveHash": "069075d9a612bd0d42aeec108dcd428763c5671226d6326796da4a6b39f3ab2b",
+      "errors": []
+    }
+  ]
+}

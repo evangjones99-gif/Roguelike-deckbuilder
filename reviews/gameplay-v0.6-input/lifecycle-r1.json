@@ -1,0 +1,60 @@
+{
+  "scope": "Actual production handlers; only navigator.getGamepads samples emulated. No injected host or adapter. Diagnostic fixtures are unearned validated saves; no physical hardware claim.",
+  "digest": "d33ce538e38d98eba6ec06f90660252d53d3f3fc0122c7316b229f043489b52c",
+  "referenceSHA": "e8836833a56836fa97e79ebced4ee0845ad64e99cf6c85d107faaeb09b8fdad5",
+  "harnessSHA": "70e712e110b2ca45b554d72b6827de6d3d262ac79e786063583879905dcc1263",
+  "results": [
+    {
+      "name": "initial-held-connection-neutral-first",
+      "fixture": "hand-two-summons",
+      "kind": 2,
+      "heldInitialConnectionUnchanged": true,
+      "releaseFreshActivates": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "ui": "play-card",
+        "index": "0",
+        "id": "",
+        "text": "1Cairn HoundBINDINGOn binding: gain 2 hunter block. Commands deal 2 extra damage"
+      },
+      "finalSaveHash": "fd93f4f2ede25dbb44c05f26a7e3aab56a19be052049eb2899573d79ac7956ca",
+      "errors": []
+    },
+    {
+      "name": "nonstandard-and-malformed-controller",
+      "fixture": "hand-two-summons",
+      "kind": 2,
+      "nonstandardNoGuess": true,
+      "malformedNoError": true,
+      "neutralRecoveryActualAction": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "ui": "play-card",
+        "index": "0",
+        "id": "",
+        "text": "1Cairn HoundBINDINGOn binding: gain 2 hunter block. Commands deal 2 extra damage"
+      },
+      "finalSaveHash": "fd93f4f2ede25dbb44c05f26a7e3aab56a19be052049eb2899573d79ac7956ca",
+      "errors": []
+    },
+    {
+      "name": "controller-analog-button-hysteresis",
+      "fixture": "nonfinal-kill",
+      "kind": 2,
+      "partialPressIgnored": true,
+      "hysteresisHeldNoCommit": true,
+      "releaseThresholdFreshCommits": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "a11",
+        "id": "",
+        "text": "Grave HoundB2 11/114Ready"
+      },
+      "finalSaveHash": "c70bcf1038054abc5d29cc045ed769725cfa3eb611931741fd5694e460c8b217",
+      "errors": []
+    }
+  ]
+}

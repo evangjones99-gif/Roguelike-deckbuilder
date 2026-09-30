@@ -1,0 +1,162 @@
+{
+  "kind": "unshipped differential adapter browser regression",
+  "digest": "d33ce538e38d98eba6ec06f90660252d53d3f3fc0122c7316b229f043489b52c",
+  "physicalController": false,
+  "host": "isolated actual UI DOM clone; callback counters, no engine actions",
+  "syntheticComposition": true,
+  "syntheticWindowLifecycle": true,
+  "beforeHashes": {
+    "src/input.ts": "4ae4ca1a2dadb41f3a51b8eba35dd41efed5ececb00d912edfbec2e346f9f69d",
+    "tests/input.test.ts": "6bf30c09d86f60b681c0c308cecc8c3d6ea9b2d3df5c34c8d17d3c80c35d06e8",
+    "src/main.ts": "dba47ae29bca37d099d04fd0d3d2bcb05948d4d7426b5ab7a331448206d46496",
+    "src/style.css": "357345b6276e4a26515cb19964c416056c00efe64215241cdcb50883d1be49a2",
+    "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+    "src/arena.ts": "2e2a5d65a58db91d09ef0e8746a98264fca129520a988ccbb3b5233569f32b79"
+  },
+  "checks": [
+    {
+      "name": "baseline-adapter composition",
+      "results": [
+        {
+          "key": "i",
+          "unchangedFocus": true,
+          "unchangedInspect": false,
+          "defaultPrevented": true
+        },
+        {
+          "key": "h",
+          "unchangedFocus": false,
+          "unchangedInspect": true,
+          "defaultPrevented": true
+        },
+        {
+          "key": "b",
+          "unchangedFocus": true,
+          "unchangedInspect": true,
+          "defaultPrevented": true
+        },
+        {
+          "key": "t",
+          "unchangedFocus": false,
+          "unchangedInspect": true,
+          "defaultPrevented": true
+        },
+        {
+          "key": "ArrowDown",
+          "unchangedFocus": false,
+          "unchangedInspect": true,
+          "defaultPrevented": true
+        },
+        {
+          "key": "ArrowRight",
+          "unchangedFocus": false,
+          "unchangedInspect": true,
+          "defaultPrevented": true
+        }
+      ],
+      "initialHasFocusReads": 0
+    },
+    {
+      "name": "baseline-adapter visible blur",
+      "beforeBlur": {
+        "reads": 18,
+        "hidden": false,
+        "hasFocus": true
+      },
+      "blurred": {
+        "reads": 33,
+        "activations": 2,
+        "commands": 1,
+        "hidden": false,
+        "hasFocus": true
+      },
+      "patchedHeldResumeSuppressed": false,
+      "patchedFreshReleaseWorks": false,
+      "patchedKeyboardFallbackWorks": false
+    },
+    {
+      "name": "adapter composition",
+      "results": [
+        {
+          "key": "i",
+          "unchangedFocus": true,
+          "unchangedInspect": true,
+          "defaultPrevented": false
+        },
+        {
+          "key": "h",
+          "unchangedFocus": true,
+          "unchangedInspect": true,
+          "defaultPrevented": false
+        },
+        {
+          "key": "b",
+          "unchangedFocus": true,
+          "unchangedInspect": true,
+          "defaultPrevented": false
+        },
+        {
+          "key": "t",
+          "unchangedFocus": true,
+          "unchangedInspect": true,
+          "defaultPrevented": false
+        },
+        {
+          "key": "ArrowDown",
+          "unchangedFocus": true,
+          "unchangedInspect": true,
+          "defaultPrevented": false
+        },
+        {
+          "key": "ArrowRight",
+          "unchangedFocus": true,
+          "unchangedInspect": true,
+          "defaultPrevented": false
+        }
+      ],
+      "initialHasFocusReads": 1
+    },
+    {
+      "name": "adapter visible blur",
+      "beforeBlur": {
+        "reads": 28,
+        "hidden": false,
+        "hasFocus": true
+      },
+      "blurred": {
+        "reads": 30,
+        "activations": 0,
+        "commands": 0,
+        "hidden": false,
+        "hasFocus": true
+      },
+      "patchedHeldResumeSuppressed": true,
+      "patchedFreshReleaseWorks": true,
+      "patchedKeyboardFallbackWorks": true
+    },
+    {
+      "name": "patched initially unfocused",
+      "nativeInitialFocus": true,
+      "explicitInitialFocusOverride": false,
+      "initialHasFocusReads": 1,
+      "eventFocusRequired": true,
+      "neutralRequired": true
+    }
+  ],
+  "errors": [],
+  "nativeHeadlessObservation": {
+    "hidden": false,
+    "hasFocus": true,
+    "initialNativeFocus": true
+  },
+  "afterHashes": {
+    "src/input.ts": "4ae4ca1a2dadb41f3a51b8eba35dd41efed5ececb00d912edfbec2e346f9f69d",
+    "tests/input.test.ts": "6bf30c09d86f60b681c0c308cecc8c3d6ea9b2d3df5c34c8d17d3c80c35d06e8",
+    "src/main.ts": "dba47ae29bca37d099d04fd0d3d2bcb05948d4d7426b5ab7a331448206d46496",
+    "src/style.css": "357345b6276e4a26515cb19964c416056c00efe64215241cdcb50883d1be49a2",
+    "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+    "src/arena.ts": "2e2a5d65a58db91d09ef0e8746a98264fca129520a988ccbb3b5233569f32b79"
+  },
+  "runtimeUnchanged": true,
+  "passed": true
+}
