@@ -1,0 +1,61 @@
+{
+  "preActivationHEAD": "e720b18dec7f17ddc25da2d5ec7a6f13277932bc",
+  "sourceDigest": "801db1ce4000c15268569cb047e7388148a65105c7b86208611ceb3aff40f029",
+  "runtimeInputs": 78,
+  "distOutputs": 56,
+  "expectedLockedProducerASAR": "6a89d2b61562309f0d8b9974df6a3bb18008dd5626a6001e898491bbba2ce03b",
+  "selectedFiles": [
+    {
+      "path": "scripts/windows-installer-asar-payload.json",
+      "rootExists": false,
+      "sameAsRoot": false,
+      "proposedSHA256": "a9eb7aed1b9238bf07ab4733cf8ba3e209e8255f864bbfdfa86f30a4c1a49860",
+      "currentRootSHA256": null
+    },
+    {
+      "path": "scripts/windows-installer-asar-validation.mjs",
+      "rootExists": false,
+      "sameAsRoot": false,
+      "proposedSHA256": "2321e5fca463ea9af6d735884ca5579e24827530e9057318053ed085c4314455",
+      "currentRootSHA256": null
+    },
+    {
+      "path": "scripts/windows-installer-asar-validation.test.mjs",
+      "rootExists": false,
+      "sameAsRoot": false,
+      "proposedSHA256": "a25a2bfaaba62a8b13377f5ba43d611b0cea0dedc71246677d18418bbd69d40b",
+      "currentRootSHA256": null
+    },
+    {
+      "path": "scripts/windows-installer-current-validation.test.mjs",
+      "rootExists": true,
+      "sameAsRoot": false,
+      "proposedSHA256": "1a447371158b6de675c67b4d50f8b64076ce51bf88f95f88080d1cbf80e6d09b",
+      "currentRootSHA256": "66949a41394b9b947426404f35b6af94c1abb33df8912586270ff90fc410e642"
+    },
+    {
+      "path": "scripts/windows-installer-guards.mjs",
+      "rootExists": true,
+      "sameAsRoot": false,
+      "proposedSHA256": "2f0ffa8e6f155b4adb2bb8325b3a1e58a744dcc29e1822a366aa8df5bd7203d5",
+      "currentRootSHA256": "b7ad25e19f50837da611b1538b1700c43e7c8d5f64571b3aca2e918adf04a22c"
+    },
+    {
+      "path": "scripts/windows-installer-smoke.mjs",
+      "rootExists": true,
+      "sameAsRoot": false,
+      "proposedSHA256": "89c570ba955eb79e8d3b40e5d6532044d90f87e007b62f22ca131bd410442dc7",
+      "currentRootSHA256": "fe7d34293dc05d812e10c65badc3fbdbba232c3c429391ce9a28571cd3d10885"
+    }
+  ],
+  "unchangedTooling": [
+    "scripts/windows-installer-current-validation.mjs",
+    "scripts/windows-installer-guards.test.mjs",
+    "scripts/windows-installer-prepare.mjs",
+    "scripts/windows-installer-transfer.mjs",
+    "scripts/windows-installer-transfer.test.mjs"
+  ],
+  "independentReview": "reviews/installer-asar-current801d-v0.9-independent/REVIEW.md",
+  "independentReviewSHA256": "74f0f3fadf7bd7c48318170a32a3ddd68b9187fe77f0647830f959b002037694",
+  "scope": "Select exact six reviewed files for controlled isolated Windows QA. Game source/build unchanged. No actual Windows result or consumer/Steam acceptance yet."
+}

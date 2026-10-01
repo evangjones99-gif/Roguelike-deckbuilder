@@ -5,6 +5,7 @@ import {execFileSync,spawn} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
 import {_electron as electron,expect} from '@playwright/test';
 import {extractFile} from '@electron/asar';
+import {assertPackagedAsar} from './windows-installer-asar-validation.mjs';
 import * as ResEdit from 'resedit';
 import {tsImport} from 'tsx/esm/api';
 import {expectedDigest,expectedAsar,expectedVersion,hash,hashFile,checkOwnership,noLinks,commandArguments,checkInstalledRegistry,directoryWitness} from './windows-installer-guards.mjs';
@@ -87,6 +88,7 @@ try{
   report.installerSHA256=await hashFile(installer);report.installerResources=resource(installer);
   assert.equal(signature(installer),'NotSigned');report.signature='NotSigned';
   const stagedAsar=path.join(staged,'resources/app.asar');assert.equal(await hashFile(stagedAsar),expectedAsar);
+  report.stagedAsarPayload=await assertPackagedAsar(stagedAsar,path.resolve('.'));
   const runtime=JSON.parse(extractFile(stagedAsar,'dist/build-provenance.json').toString());
   assertCurrentRuntime(runtime);assert.equal(runtime.version,request.version);
   const build=JSON.parse(fs.readFileSync('dist/build-provenance.json','utf8'));assert.deepEqual(runtime,build);
@@ -107,6 +109,7 @@ try{
   report.installedFiles=await snapshot(v.install);
   for(const [f,h] of Object.entries(stagedFiles))assert.equal(report.installedFiles[f],h,`Installed bytes differ: ${f}`);
   assert.equal(await hashFile(path.join(v.install,'resources/app.asar')),expectedAsar);
+  report.installedAsarPayload=await assertPackagedAsar(path.join(v.install,'resources/app.asar'),path.resolve('.'));
   report.executableResources=resource(exe);assert.equal(signature(exe),'NotSigned');
   report.executableSHA256=await hashFile(exe);report.asarSHA256=await hashFile(path.join(v.install,'resources/app.asar'));
   assert.equal(hash(extractFile(path.join(v.install,'resources/app.asar'),path.join('dist','art','hunter-marek-v07-r3.png'))),'4492577d3bacc868e9b66da0abf25915bdeaf68bc8f5c31ae8a1d8db485f3c53');

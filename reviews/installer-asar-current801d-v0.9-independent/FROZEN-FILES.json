@@ -1,0 +1,140 @@
+{
+  "scope": "Independent current801d producer/source/closed-payload acceptance only; no QA activation/Windows install",
+  "files": [
+    {
+      "path": "46-tests.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "46-tests.stdout.txt",
+      "bytes": 4864,
+      "sha256": "9e74e34fcdd38755fb7d0d15a5106e5144154b61d6688c8bd1ca3de5fa91c99f"
+    },
+    {
+      "path": "ACTIVATION-SCOPE.json",
+      "bytes": 2306,
+      "sha256": "b694fda794770a55ab6da81a8b5640c6dbe2d84161b04c6d5c127ee3bf38aa8b"
+    },
+    {
+      "path": "AUTHORIZED-ROOT-TRANSITION.json",
+      "bytes": 490,
+      "sha256": "1065a361ef0e5c43a8cb9c1fccd9753d7214ce65ac071ce88fb783c99fbfe472"
+    },
+    {
+      "path": "CAPACITY-PREFLIGHT.json",
+      "bytes": 428,
+      "sha256": "77cc9085d613bd642a7fc38de261484e12b6b298e9a8a3f84f958e46216e4027"
+    },
+    {
+      "path": "CURRENT-ACTUAL-GATE.json",
+      "bytes": 34183,
+      "sha256": "16e9c3823cfb74a065a0922ec44d516d6fb5ec59769427354045d81a0b4f9f09"
+    },
+    {
+      "path": "INDEPENDENT-SUMMARY.json",
+      "bytes": 1522,
+      "sha256": "a0665dac1d57ffa51c9cfe240b4ec654e03d419b65b8379ffba077bdf7c07af1"
+    },
+    {
+      "path": "INPUT-AFTER.json",
+      "bytes": 48181,
+      "sha256": "f8cdf9499c343adc326c768c2d00807328c8673ee64938177a194424e6548fc9"
+    },
+    {
+      "path": "INPUT-BEFORE.json",
+      "bytes": 48181,
+      "sha256": "f8cdf9499c343adc326c768c2d00807328c8673ee64938177a194424e6548fc9"
+    },
+    {
+      "path": "OWN-BOUNDARIES.json",
+      "bytes": 2120,
+      "sha256": "74b742b6cba0a0fd94119e3bac3bb055131cfadd500c5b28748b2c80a9f7f4d6"
+    },
+    {
+      "path": "PRODUCER-POSTFLIGHT.json",
+      "bytes": 61,
+      "sha256": "df5f67da394ca409245a4f5f913a2ad5d22056dd401de3db8179cf39dc5f8226"
+    },
+    {
+      "path": "PRODUCER-PREFLIGHT.json",
+      "bytes": 94,
+      "sha256": "945e61bd6a78bd3e3210c2b1f6ddb9291eadc0f8a5d4d73bff0c000975d70609"
+    },
+    {
+      "path": "PRODUCER-RESULTS.json",
+      "bytes": 191482,
+      "sha256": "1f049910cc291204dbb24b09578e47f7ebddb05d6168c25039373098a5574538"
+    },
+    {
+      "path": "REVIEW.md",
+      "bytes": 8885,
+      "sha256": "74f0f3fadf7bd7c48318170a32a3ddd68b9187fe77f0647830f959b002037694"
+    },
+    {
+      "path": "actual-gate.mjs",
+      "bytes": 1959,
+      "sha256": "a8303958d38fb28b1f6bf9783556440545557e61dc569c8d548faf8ecc7cab36"
+    },
+    {
+      "path": "actual-gate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "actual-gate.stdout.txt",
+      "bytes": 309,
+      "sha256": "4db8781ff69e805cebfe88c9d7b50b1ac045e7d8c5630e62e8e9d3c310e987e4"
+    },
+    {
+      "path": "own-boundaries.mjs",
+      "bytes": 6731,
+      "sha256": "13b4e5a54d82f1b274901c51724cf46bd82e843cf6f7a1f3b987d062fe01134e"
+    },
+    {
+      "path": "own-boundaries.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "own-boundaries.stdout.txt",
+      "bytes": 139,
+      "sha256": "c2f6bf95c348679dba95ffe30795fc63a2c98ea3fee242e1ab17bd3e62b0f5d0"
+    },
+    {
+      "path": "producer.mjs",
+      "bytes": 6059,
+      "sha256": "c095ffe1d1dd6815be61f1236bad977874a06d1237aca0d2c576f72e063cb747"
+    },
+    {
+      "path": "producer.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "producer.stdout.txt",
+      "bytes": 499,
+      "sha256": "eff9b4fbdc38ac177eebf57c40fb0f7cc4aa8ff41c1cc6679212fbaf7b4f5f36"
+    },
+    {
+      "path": "verify-after.txt",
+      "bytes": 217,
+      "sha256": "8b3c1704a36192fb39cb737d2f2831ba8cc6fa02da91515c1f9e7408a39ff2a2"
+    },
+    {
+      "path": "verify-before.txt",
+      "bytes": 217,
+      "sha256": "8b3c1704a36192fb39cb737d2f2831ba8cc6fa02da91515c1f9e7408a39ff2a2"
+    },
+    {
+      "path": "verify-r2.py",
+      "bytes": 4891,
+      "sha256": "5078c43dedf1b7c651f1af0a3a22deec323aec9891470d0a1aad21965a7990ea"
+    },
+    {
+      "path": "verify.py",
+      "bytes": 3942,
+      "sha256": "0188d5eceecf96cbfe524d49f085aa1e70021f52096061aa971f84b4fa8f9427"
+    }
+  ]
+}

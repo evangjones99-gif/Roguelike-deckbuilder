@@ -1,3 +1,5 @@
+// Register portable ASAR refusal cases in the existing CI current-validation command.
+import './windows-installer-asar-validation.test.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -15,8 +17,8 @@ const {encounterEnvironment}=await tsImport(pathToFileURL(path.resolve('src/enco
 const fixture=earnedCryptTrace(engine,encounterEnvironment);
 const nativeFixture=()=>({elapsedMs:100,records:assets.sounds.map(sound=>({...sound,rawSHA256:sound.sha256,peak:sound.decodedPCM.peak,meanSquare:sound.decodedPCM.meanSquare,pcmSHA256:sound.decodedPCM.sha256,pcmBytes:sound.decodedPCM.bytes,url:'file:///C:/QA/installation/resources/app.asar/dist/audio/'+sound.name}))});
 
-test('current0.9 ordered provenance is77 exact actual source bytes and fixed ASAR pin',()=>{
- assertCurrentRuntime(runtime);assert.equal(expectedAsar,'0d82286ca7e49206b5085c3544d377735f3af048129abdd1b261d9d1b4086251');
+test('current0.9 ordered provenance is78 exact actual source bytes and fixed ASAR pin',()=>{
+ assertCurrentRuntime(runtime);assert.equal(expectedAsar,'6a89d2b61562309f0d8b9974df6a3bb18008dd5626a6001e898491bbba2ce03b');
  for(const [file,digest] of Object.entries(runtime.hashes))assert.equal(hash(fs.readFileSync(file)),digest);
  assert.equal(hash(JSON.stringify(runtime.hashes)),expectedDigest);
 });

@@ -1,0 +1,1 @@
+Initial pre-audit failed with connection refused on inherited baseline4630. Candidate4661 also returns000/connection refused. No initial audit receipt was generated. Original audit.py retained. Reviewer starts private exact-byte Python HTTP baseline4668 and candidate4669 without editing stages. audit-r2.py changes only those ports. Own hosts will close before packet freeze.
