@@ -1,5 +1,13 @@
 # Production and continuous improvement
 
+## Opening checkpoint: READY selected; rapid-drop trial rejected — 1 October2026
+
+The six-context native `settleDrag` comparison completed once in88.718681149s. Both queries lifted cards, both rapid releases returned unspent, both held releases committed once after natural target readiness, and both genuine held cancellations stayed pure without queued play. All18 full checkpoint save pairs match; the new formation cue never appeared. This is no observed improvement, so leave the query unselected and preserve the rapid-drop finding. See [OPENING-READY-AND-RAPID-DROP.md](OPENING-READY-AND-RAPID-DROP.md). Current selected READY source251c4fd4 /outputs2c664aa3 and sealed0.8.0 remain as documented. Next inspect blocked-target feedback, and pursue the specifically authorized matching CONTACT art reference after reviews/recording; no blanket drag fix or pixel promotion follows.
+
+## Current opening-session finding — 1 October2026
+
+The isolated default READY guidance build and first300-second actual session are recorded in [OPENING-READY-AND-RAPID-DROP.md](OPENING-READY-AND-RAPID-DROP.md). Separate reviewers support narrow cue behavior and source/lifecycle correctness, but reject overall reliable drag flow: a rapid second Scour drop was a complete save no-op. Preserve that negative and test pointer ownership, visual pickup/hold and naturally observed target readiness in a reversible query trial. No autoqueued play or weaker release authority is allowed. Selected development build now includes only the accepted READY cue, source251c4fd4 /outputs2c664aa3 (87/56), with exact R8 source/code rollback retained; sealed0.8.0 remains unchanged. The independent rapid-drop rejection remains in force, and articulated pixel contact art is still withheld after independent rejection. Milestones remain checkpoints.
+
 Current native128 trial is actually tested and independently rejected for default art selection; see [OPENING-NATIVE128-TRIAL.md](OPENING-NATIVE128-TRIAL.md). Gameplay/save continuity passes in the limited fixed-seed pair. Production continues into articulated command poses and contextual READY guidance, with build/conversion currently paused before launch by the disk guard. Preserve the R8 selected baseline and all negative art evidence.
 
 ## Owner resolution steering — generated reference to native128, 1 October2026

@@ -1,0 +1,512 @@
+{
+  "decision": "ACCEPT_EXACT_BOUNDED_EVIDENCE_CAPSULE_WITH_DECLARED_FOOTPRINT_DEVIATION",
+  "archive": {
+    "sha256": "27c7d4e2a117c5fa2625146a5ca78e7965705f8f809e44b6c2d7b9efb52817af",
+    "bytes": 3303630
+  },
+  "manifestSHA256": "005225286c6784598181a46bd0ad25cc99d4ee54b3c2394d58d5ea915b41155b",
+  "logicalEntries": 737,
+  "uniqueBlobs": 661,
+  "excludedRetainedBodies": 166,
+  "fullArchiveRoundtrip": true,
+  "originalAndExcludedBodies": {
+    "totalLogicalBodies": 903,
+    "uniqueOriginalPaths": 902,
+    "allBytesEqual": true,
+    "fullLogicalMapUniqueAndSafe": true,
+    "logicalMapDigest": "2225c7a8afbeb5f156c2b4b42fb202cd6ad732ae2c4d877c3f109523438a66e4",
+    "verifiedBlobMapDigest": "8b8cb02c0de79874b07c3b43f805270eeba125e7f61a68f74209624bef1e2bea",
+    "excludedBySuffix": {
+      ".jpg": 8,
+      ".png": 80,
+      ".wav": 78
+    }
+  },
+  "selectedRuntime": {
+    "sourceDigest": "251c4fd4fdcce5bbbc39bf438155277ea440c724bd803adf10cd07b5ffa89a65",
+    "outputsDigest": "2c664aa389221f8570e1f6cebd1ae63f0784d2cba95a7fcc267c3743096a823c",
+    "sourceCount": 87,
+    "outputCount": 56,
+    "fullCurrentCanonicalBodiesVerified": true,
+    "runtimeMapsDigest": "e03f6fd2b0fadebfd79a6ba5f8ed9b9dd0f49ddd0c447a32fce975de0082dac3",
+    "mainSHA256": "276999ac8c8feeb148d326b5adcfca7d175db99c743e5722501a34256fd54b9a",
+    "presentationDeltaAdded11Removed2": true,
+    "rollbackOriginalMainSHA256": "2027b1f73c804ab22bac0a949e26c34ea6bc9d9cd61f416f8e6072bec41d126d",
+    "fullOld87Inputs56OutputsReconstructed": true,
+    "fiveOldNonmediaBodies": [
+      "CREDITS.md",
+      "assets/index-CScXCgR1.css",
+      "assets/index-DcM6C17i.js",
+      "build-provenance.json",
+      "index.html"
+    ],
+    "engineRulesInputStateSaveTimersByteExactOutsidePresentationHunk": true
+  },
+  "gatesPresent": [
+    {
+      "path": "packets/ready-coach-actual-technical-independent-r1/GATE.json",
+      "originalPath": "/workspace/scratch/ready-coach-actual-technical-independent-r1/GATE.json",
+      "bytes": 2446,
+      "sha256": "ccb1241d605b77518cf7628ac684e7373566939c96518d5f196b8ce90dc290b0"
+    },
+    {
+      "path": "packets/ready-coach-actual-technical-independent-r1/MANIFEST.json",
+      "originalPath": "/workspace/scratch/ready-coach-actual-technical-independent-r1/MANIFEST.json",
+      "bytes": 1226,
+      "sha256": "d6250316995824c367f9a9308abf87a91f92c07dbe1d142c55ec54d3388c48d9"
+    },
+    {
+      "path": "packets/ready-coach-actual-technical-independent-r1/PROOF.json",
+      "originalPath": "/workspace/scratch/ready-coach-actual-technical-independent-r1/PROOF.json",
+      "bytes": 62872,
+      "sha256": "64c26482c39e64d6d31859be4f4717f8fe854e06ecb433a2f6420ea130bbed24"
+    },
+    {
+      "path": "packets/ready-coach-actual-technical-independent-r1/REVIEW.md",
+      "originalPath": "/workspace/scratch/ready-coach-actual-technical-independent-r1/REVIEW.md",
+      "bytes": 3628,
+      "sha256": "356401d27d8705fe8693104133626f2005a9bf1ad5fd9fd05c0f11471f750d98"
+    },
+    {
+      "path": "packets/ready-coach-actual-gameplay-independent-r1/MANIFEST.json",
+      "originalPath": "/workspace/scratch/ready-coach-actual-gameplay-independent-r1/MANIFEST.json",
+      "bytes": 2776,
+      "sha256": "b3be924811eeed51a0acb1465fbed64e4ba9d86f30b61ae8e98279e53b77f1b6"
+    },
+    {
+      "path": "packets/ready-coach-actual-gameplay-independent-r1/REVIEW.md",
+      "originalPath": "/workspace/scratch/ready-coach-actual-gameplay-independent-r1/REVIEW.md",
+      "bytes": 3990,
+      "sha256": "54aa2212b7790289b66121c1c968193e35ad675814622f08d7ec68d2df5b928e"
+    },
+    {
+      "path": "packets/ready-coach-visual-independent-r1/MANIFEST.json",
+      "originalPath": "/workspace/scratch/ready-coach-visual-independent-r1/MANIFEST.json",
+      "bytes": 801,
+      "sha256": "cf8d33f8aeaaad10ec8b21c837f859d9a1adbb365529c67fedc5922ce520833b"
+    },
+    {
+      "path": "packets/ready-coach-visual-independent-r1/REVIEW.md",
+      "originalPath": "/workspace/scratch/ready-coach-visual-independent-r1/REVIEW.md",
+      "bytes": 7107,
+      "sha256": "f3706efd44f7f84dce245f49d0e627eef2bd06564ac2cbe9713de4e45d4843b5"
+    },
+    {
+      "path": "packets/ready-default-build-technical-independent-r1/GATE.json",
+      "originalPath": "/workspace/scratch/ready-default-build-technical-independent-r1/GATE.json",
+      "bytes": 2817,
+      "sha256": "3fbeb9de96e11cc1bd9d823b35017855ca27c17aa6874dbe2d6913223294f5b8"
+    },
+    {
+      "path": "packets/ready-default-build-technical-independent-r1/MANIFEST.json",
+      "originalPath": "/workspace/scratch/ready-default-build-technical-independent-r1/MANIFEST.json",
+      "bytes": 1238,
+      "sha256": "c53ffc8ab6e1dc1e1821edb7b467e9eae47e6089d4a25e28c9c0905a9760e581"
+    },
+    {
+      "path": "packets/ready-default-build-technical-independent-r1/PROOF.json",
+      "originalPath": "/workspace/scratch/ready-default-build-technical-independent-r1/PROOF.json",
+      "bytes": 53708,
+      "sha256": "1e349183edd821b12c4bc4a8341a59103f324c1bf8e685bce9df666795d10c4e"
+    },
+    {
+      "path": "packets/ready-default-build-technical-independent-r1/REVIEW.md",
+      "originalPath": "/workspace/scratch/ready-default-build-technical-independent-r1/REVIEW.md",
+      "bytes": 3452,
+      "sha256": "58b56e4e26e2bb064a01591f02760be06a1e59877ad586b9f88c27a585151276"
+    },
+    {
+      "path": "packets/ready-default-first300-technical-independent-r1/GATE.json",
+      "originalPath": "/workspace/scratch/ready-default-first300-technical-independent-r1/GATE.json",
+      "bytes": 2839,
+      "sha256": "b526d5adbf6c20d9c42541f7c3f6e5114be6441a96fb1d97e4a3d4bb507a42af"
+    },
+    {
+      "path": "packets/ready-default-first300-technical-independent-r1/MANIFEST.json",
+      "originalPath": "/workspace/scratch/ready-default-first300-technical-independent-r1/MANIFEST.json",
+      "bytes": 1263,
+      "sha256": "ab2987284901a02cfb709d2df13319bc10de9f46151daecf97b759419cbd2997"
+    },
+    {
+      "path": "packets/ready-default-first300-technical-independent-r1/PROOF.json",
+      "originalPath": "/workspace/scratch/ready-default-first300-technical-independent-r1/PROOF.json",
+      "bytes": 49343,
+      "sha256": "dd47086afb5ffadd1d09ec71e20bf2203a8c2854089a5db2f7aa9b484fe9388f"
+    },
+    {
+      "path": "packets/ready-default-first300-technical-independent-r1/REVIEW.md",
+      "originalPath": "/workspace/scratch/ready-default-first300-technical-independent-r1/REVIEW.md",
+      "bytes": 3403,
+      "sha256": "3ed2d12794bf07c647104a61618cbaad54adf07033d4d0ae95dfc4e04da57203"
+    },
+    {
+      "path": "packets/ready-default-first300-gameplay-independent-r1/MANIFEST.json",
+      "originalPath": "/workspace/scratch/ready-default-first300-gameplay-independent-r1/MANIFEST.json",
+      "bytes": 1924,
+      "sha256": "e6c5b7fffc331d4516a05467a6cca257d8889ac5a6a906ff8972f2be48bcb7b8"
+    },
+    {
+      "path": "packets/ready-default-first300-gameplay-independent-r1/REVIEW.md",
+      "originalPath": "/workspace/scratch/ready-default-first300-gameplay-independent-r1/REVIEW.md",
+      "bytes": 4970,
+      "sha256": "3ab9c797ac59c506569e388cf5fe900d7fff733a5cc08b8602f19760b1107d1b"
+    },
+    {
+      "path": "packets/ready-default-first300-visual-independent-r1/MANIFEST.json",
+      "originalPath": "/workspace/scratch/ready-default-first300-visual-independent-r1/MANIFEST.json",
+      "bytes": 812,
+      "sha256": "6f785d187ea1bba112e7de94fdaaed7ea00121f62e160d07759516cbe6d8de38"
+    },
+    {
+      "path": "packets/ready-default-first300-visual-independent-r1/REVIEW.md",
+      "originalPath": "/workspace/scratch/ready-default-first300-visual-independent-r1/REVIEW.md",
+      "bytes": 8410,
+      "sha256": "27ec9c464ca772de2f76e337356a55ba8b77a6b8f4e53fa9641434ca56dcfb1c"
+    },
+    {
+      "path": "packets/ready-default-promotion-and-settle-build-independent-r1/GATE.json",
+      "originalPath": "/workspace/scratch/ready-default-promotion-and-settle-build-independent-r1/GATE.json",
+      "bytes": 2357,
+      "sha256": "648dc3f1a031b70bc6c4b7e33e9f04973b03667f3edde804a511910d5e2a5661"
+    },
+    {
+      "path": "packets/ready-default-promotion-and-settle-build-independent-r1/MANIFEST.json",
+      "originalPath": "/workspace/scratch/ready-default-promotion-and-settle-build-independent-r1/MANIFEST.json",
+      "bytes": 1258,
+      "sha256": "10ecd1eabaf3611e21f67f0c765db47b317665abdb24494dd8cf5c9cf38a42f4"
+    },
+    {
+      "path": "packets/ready-default-promotion-and-settle-build-independent-r1/PROOF.json",
+      "originalPath": "/workspace/scratch/ready-default-promotion-and-settle-build-independent-r1/PROOF.json",
+      "bytes": 15421,
+      "sha256": "5a50e415274fe0abd206b4d954af663f4cd6837edb0a8e700eae7a34361f27b5"
+    },
+    {
+      "path": "packets/ready-default-promotion-and-settle-build-independent-r1/REVIEW.md",
+      "originalPath": "/workspace/scratch/ready-default-promotion-and-settle-build-independent-r1/REVIEW.md",
+      "bytes": 3294,
+      "sha256": "30b632a86e5d1463def51617fb1d0d38d9c90e9195f20426795695f509c50140"
+    },
+    {
+      "path": "packets/settle-drag-source-technical-independent-r1/GATE.json",
+      "originalPath": "/workspace/scratch/settle-drag-source-technical-independent-r1/GATE.json",
+      "bytes": 2270,
+      "sha256": "436db3bf68cce724353585b24ccc4f117fb3506bfe995a44dd04a55718705359"
+    },
+    {
+      "path": "packets/settle-drag-source-technical-independent-r1/MANIFEST.json",
+      "originalPath": "/workspace/scratch/settle-drag-source-technical-independent-r1/MANIFEST.json",
+      "bytes": 1229,
+      "sha256": "491e0ff66c3fd9ebf3f482606463265af2f96ccb92d4c0e5a05a65674f166e7c"
+    },
+    {
+      "path": "packets/settle-drag-source-technical-independent-r1/PROOF.json",
+      "originalPath": "/workspace/scratch/settle-drag-source-technical-independent-r1/PROOF.json",
+      "bytes": 5621,
+      "sha256": "fe926b7be8d1fe3a04e61e3b2143e7638f23ffc1f28de1eee82d390f961e57d1"
+    },
+    {
+      "path": "packets/settle-drag-source-technical-independent-r1/REVIEW.md",
+      "originalPath": "/workspace/scratch/settle-drag-source-technical-independent-r1/REVIEW.md",
+      "bytes": 2745,
+      "sha256": "e5a4a63dc6c9efc56bd9c0fc8da06ae7b73e4d40cb2289f0cabb7ec4fa75ce7b"
+    },
+    {
+      "path": "packets/settle-drag-caller-technical-independent-r1/GATE.json",
+      "originalPath": "/workspace/scratch/settle-drag-caller-technical-independent-r1/GATE.json",
+      "bytes": 1636,
+      "sha256": "3d1138ebe474410d8d15d9f08cfca576c6a88f11316e5642dc86684b5d0d6ef8"
+    },
+    {
+      "path": "packets/settle-drag-caller-technical-independent-r1/MANIFEST.json",
+      "originalPath": "/workspace/scratch/settle-drag-caller-technical-independent-r1/MANIFEST.json",
+      "bytes": 1814,
+      "sha256": "ebcb442b0adc45b22e51be3b3e127d60968c095f499b3b6ff7c0d35b673a0452"
+    },
+    {
+      "path": "packets/settle-drag-caller-technical-independent-r1/PROOF.json",
+      "originalPath": "/workspace/scratch/settle-drag-caller-technical-independent-r1/PROOF.json",
+      "bytes": 11155,
+      "sha256": "5824fa2efcdcc63e3dd57af756130c21a33bdd782b959b4a07d711c41668b55e"
+    },
+    {
+      "path": "packets/settle-drag-caller-technical-independent-r1/REVIEW.md",
+      "originalPath": "/workspace/scratch/settle-drag-caller-technical-independent-r1/REVIEW.md",
+      "bytes": 959,
+      "sha256": "f55dc1bc72fce50ed9080db043bd1ca98e14e415f4ca5f2498118cfaba7b68c0"
+    },
+    {
+      "path": "packets/settle-drag-caller-technical-independent-r2/GATE.json",
+      "originalPath": "/workspace/scratch/settle-drag-caller-technical-independent-r2/GATE.json",
+      "bytes": 2020,
+      "sha256": "803743f4bec70ebf1e9cbbf93b5df8a55cc168e3354c976a61d58ec7cd13ff7a"
+    },
+    {
+      "path": "packets/settle-drag-caller-technical-independent-r2/MANIFEST.json",
+      "originalPath": "/workspace/scratch/settle-drag-caller-technical-independent-r2/MANIFEST.json",
+      "bytes": 1237,
+      "sha256": "598fb43f70925867540c58fa7daf1007cd297e5f0b7ac578113583fef30aedd6"
+    },
+    {
+      "path": "packets/settle-drag-caller-technical-independent-r2/PROOF.json",
+      "originalPath": "/workspace/scratch/settle-drag-caller-technical-independent-r2/PROOF.json",
+      "bytes": 14281,
+      "sha256": "50c8890223ee1852922cc596fc54122e331fa6e5998c9c5a001781e732f511ef"
+    },
+    {
+      "path": "packets/settle-drag-caller-technical-independent-r2/REVIEW.md",
+      "originalPath": "/workspace/scratch/settle-drag-caller-technical-independent-r2/REVIEW.md",
+      "bytes": 1267,
+      "sha256": "9bdfd215560566bc56e2aac46a763f871ad7e514cd117108dfcdb6c357fc59c0"
+    },
+    {
+      "path": "packets/settle-drag-actual-technical-independent-r1/GATE.json",
+      "originalPath": "/workspace/scratch/settle-drag-actual-technical-independent-r1/GATE.json",
+      "bytes": 2747,
+      "sha256": "93feab5a60593a6adcf771f1727cfed38d3f70816052ae7bd32a02a3df076b9e"
+    },
+    {
+      "path": "packets/settle-drag-actual-technical-independent-r1/MANIFEST.json",
+      "originalPath": "/workspace/scratch/settle-drag-actual-technical-independent-r1/MANIFEST.json",
+      "bytes": 2668,
+      "sha256": "3ddb23864b38ec8600c71f2928d6f51d8f66f086777ea43f9a1b96c4bbcbc360"
+    },
+    {
+      "path": "packets/settle-drag-actual-technical-independent-r1/PROOF.json",
+      "originalPath": "/workspace/scratch/settle-drag-actual-technical-independent-r1/PROOF.json",
+      "bytes": 67992,
+      "sha256": "8136b863864edc9be0ceee2927e956a5f001aa37a9ef8f32dac173c360fa115c"
+    },
+    {
+      "path": "packets/settle-drag-actual-technical-independent-r1/REVIEW.md",
+      "originalPath": "/workspace/scratch/settle-drag-actual-technical-independent-r1/REVIEW.md",
+      "bytes": 1788,
+      "sha256": "1f53eaaa8829c104072a20108e41554098a6341fd0d496250ce3a35f5f692e0f"
+    },
+    {
+      "path": "packets/settle-drag-actual-gameplay-independent-r1/REVIEW.md",
+      "originalPath": "/workspace/scratch/settle-drag-actual-gameplay-independent-r1/REVIEW.md",
+      "bytes": 5383,
+      "sha256": "11256f6a0c5de07bce887e36c2601a13fdb36b155ed88a0c89dfa21794cde32d"
+    },
+    {
+      "path": "packets/settle-drag-actual-visual-independent-r1/MANIFEST.json",
+      "originalPath": "/workspace/scratch/settle-drag-actual-visual-independent-r1/MANIFEST.json",
+      "bytes": 1367,
+      "sha256": "650a2937ae2260e3b09d2408bbb3c70a4bb6160864776b3771663b9003fe3422"
+    },
+    {
+      "path": "packets/settle-drag-actual-visual-independent-r1/REVIEW.md",
+      "originalPath": "/workspace/scratch/settle-drag-actual-visual-independent-r1/REVIEW.md",
+      "bytes": 7811,
+      "sha256": "d5656de863845816e70d5526c7ee585ce91fc9c66e1580bc70a3f660747c1fc7"
+    }
+  ],
+  "completeRaw18PairComparisons": [
+    {
+      "scenario": "rapid-release",
+      "label": "C0",
+      "completeRawEqual": true,
+      "rawSHA256": "c06f61c9e277f17043066f74e2e69ca0bf0a81018e8ab1a2b92ccb84de96bf9f"
+    },
+    {
+      "scenario": "rapid-release",
+      "label": "C1",
+      "completeRawEqual": true,
+      "rawSHA256": "729c3eefe9a879e945aa24f70726b33894af92ebf21a62a09980bed47f6c51af"
+    },
+    {
+      "scenario": "rapid-release",
+      "label": "C2",
+      "completeRawEqual": true,
+      "rawSHA256": "3df8c699f3d12f3a1792627e16bc39a05ee066e6256d0482a09c9992f7848d5d"
+    },
+    {
+      "scenario": "rapid-release",
+      "label": "C-firstDrop",
+      "completeRawEqual": true,
+      "rawSHA256": "3b951b13cfd30384d1f69e4e47b80a7123f7b27c6d424a95f155bcd62a549b9d"
+    },
+    {
+      "scenario": "rapid-release",
+      "label": "C-secondOutcome",
+      "completeRawEqual": true,
+      "rawSHA256": "3b951b13cfd30384d1f69e4e47b80a7123f7b27c6d424a95f155bcd62a549b9d"
+    },
+    {
+      "scenario": "rapid-release",
+      "label": "C-normalized",
+      "completeRawEqual": true,
+      "rawSHA256": "dde9e46fca417dde24358a25afabf8e7f5f571de12cfe64765f66be9e42e2220"
+    },
+    {
+      "scenario": "hold-release",
+      "label": "C0",
+      "completeRawEqual": true,
+      "rawSHA256": "c06f61c9e277f17043066f74e2e69ca0bf0a81018e8ab1a2b92ccb84de96bf9f"
+    },
+    {
+      "scenario": "hold-release",
+      "label": "C1",
+      "completeRawEqual": true,
+      "rawSHA256": "729c3eefe9a879e945aa24f70726b33894af92ebf21a62a09980bed47f6c51af"
+    },
+    {
+      "scenario": "hold-release",
+      "label": "C2",
+      "completeRawEqual": true,
+      "rawSHA256": "3df8c699f3d12f3a1792627e16bc39a05ee066e6256d0482a09c9992f7848d5d"
+    },
+    {
+      "scenario": "hold-release",
+      "label": "C-firstDrop",
+      "completeRawEqual": true,
+      "rawSHA256": "3b951b13cfd30384d1f69e4e47b80a7123f7b27c6d424a95f155bcd62a549b9d"
+    },
+    {
+      "scenario": "hold-release",
+      "label": "C-secondOutcome",
+      "completeRawEqual": true,
+      "rawSHA256": "dde9e46fca417dde24358a25afabf8e7f5f571de12cfe64765f66be9e42e2220"
+    },
+    {
+      "scenario": "hold-release",
+      "label": "C-normalized",
+      "completeRawEqual": true,
+      "rawSHA256": "dde9e46fca417dde24358a25afabf8e7f5f571de12cfe64765f66be9e42e2220"
+    },
+    {
+      "scenario": "hold-cancel",
+      "label": "C0",
+      "completeRawEqual": true,
+      "rawSHA256": "c06f61c9e277f17043066f74e2e69ca0bf0a81018e8ab1a2b92ccb84de96bf9f"
+    },
+    {
+      "scenario": "hold-cancel",
+      "label": "C1",
+      "completeRawEqual": true,
+      "rawSHA256": "729c3eefe9a879e945aa24f70726b33894af92ebf21a62a09980bed47f6c51af"
+    },
+    {
+      "scenario": "hold-cancel",
+      "label": "C2",
+      "completeRawEqual": true,
+      "rawSHA256": "3df8c699f3d12f3a1792627e16bc39a05ee066e6256d0482a09c9992f7848d5d"
+    },
+    {
+      "scenario": "hold-cancel",
+      "label": "C-firstDrop",
+      "completeRawEqual": true,
+      "rawSHA256": "3b951b13cfd30384d1f69e4e47b80a7123f7b27c6d424a95f155bcd62a549b9d"
+    },
+    {
+      "scenario": "hold-cancel",
+      "label": "C-secondOutcome",
+      "completeRawEqual": true,
+      "rawSHA256": "3b951b13cfd30384d1f69e4e47b80a7123f7b27c6d424a95f155bcd62a549b9d"
+    },
+    {
+      "scenario": "hold-cancel",
+      "label": "C-normalized",
+      "completeRawEqual": true,
+      "rawSHA256": "dde9e46fca417dde24358a25afabf8e7f5f571de12cfe64765f66be9e42e2220"
+    }
+  ],
+  "callerAsserts15SubsetNot18": true,
+  "includedOriginalPhotographs": [
+    {
+      "path": "packets/ready-default-first300-actual-r1/01-entry.jpg",
+      "originalPath": "/workspace/scratch/ready-default-first300-actual-r1/01-entry.jpg",
+      "bytes": 120043,
+      "sha256": "78fc5709e216dfc9e6ad9a189a95e3ae3cd98a23faa0ecde66d82140cb2fb864"
+    },
+    {
+      "path": "packets/ready-default-first300-actual-r1/02-opening-battle.jpg",
+      "originalPath": "/workspace/scratch/ready-default-first300-actual-r1/02-opening-battle.jpg",
+      "bytes": 213374,
+      "sha256": "2a240fef40aaf007332d93f843d953deb8d20c0a151830e408ef703073f490b0"
+    },
+    {
+      "path": "packets/ready-default-first300-actual-r1/03-drag-cancel-return.jpg",
+      "originalPath": "/workspace/scratch/ready-default-first300-actual-r1/03-drag-cancel-return.jpg",
+      "bytes": 216022,
+      "sha256": "ceb17c07214655aa6b3be98b8464688a7076adc6281559cb72df8266cad38964"
+    },
+    {
+      "path": "packets/ready-default-first300-actual-r1/04-first-binding-ready-cue.jpg",
+      "originalPath": "/workspace/scratch/ready-default-first300-actual-r1/04-first-binding-ready-cue.jpg",
+      "bytes": 210138,
+      "sha256": "8b44c08c02ca7d7fb0bc46ae2e8bc024dfeaaf5db816af8e87848a4a6a6d60d2"
+    },
+    {
+      "path": "packets/ready-default-first300-actual-r1/05-first-order-issued.jpg",
+      "originalPath": "/workspace/scratch/ready-default-first300-actual-r1/05-first-order-issued.jpg",
+      "bytes": 206827,
+      "sha256": "f70344d2f0c78d994c64b844324e7ca93a7698e6b53e006acfffe463ba2dbb20"
+    },
+    {
+      "path": "packets/ready-default-first300-actual-r1/06-final.jpg",
+      "originalPath": "/workspace/scratch/ready-default-first300-actual-r1/06-final.jpg",
+      "bytes": 200262,
+      "sha256": "2ef5049c247d6a5ce1de0af1feaeb5ea43a6605353c5830ee3ea3d6e5c90162d"
+    },
+    {
+      "path": "packets/settle-drag-comparison-actual-r1/A-hold-release-01-native-held-card.jpg",
+      "originalPath": "/workspace/scratch/settle-drag-comparison-actual-r1/A-hold-release-01-native-held-card.jpg",
+      "bytes": 193460,
+      "sha256": "c2c632da6a7af03561a2e4a2881e241a0df6cec295efb8d770ed0e638561d8ec"
+    },
+    {
+      "path": "packets/settle-drag-comparison-actual-r1/B-hold-release-01-native-held-card.jpg",
+      "originalPath": "/workspace/scratch/settle-drag-comparison-actual-r1/B-hold-release-01-native-held-card.jpg",
+      "bytes": 193671,
+      "sha256": "57eae545133c6ffc7e312a2046e823708fd324cfe52fd00c6969a921ca3cb53a"
+    }
+  ],
+  "excludedBodyRetention": "Every166 excluded body remains byte exact at its declared original path and remains needed for unique art/rawphoto/reproduction/evidence. Exclusion is not retirement authorization. No decoded visual judgement here.",
+  "producerGuards": [
+    {
+      "name": "guard-r1",
+      "points": 10,
+      "workMiB": 128,
+      "reserveMiB": 512,
+      "exitCode": 1,
+      "minimumHeadroom": 1480028160,
+      "maximumAggregateDelta": 12738560,
+      "result": {
+        "sha256": "68bba3828a48f6c7f789d0ae6e2c11602e29bd6c5074ec96c2888fe1dee647f4",
+        "bytes": 2179
+      },
+      "eventsUnchanged": true
+    },
+    {
+      "name": "guard-r2",
+      "points": 4,
+      "workMiB": 64,
+      "reserveMiB": 512,
+      "exitCode": 0,
+      "minimumHeadroom": 1481707520,
+      "maximumAggregateDelta": 8437760,
+      "result": {
+        "sha256": "8e3f166658cb511191f11208a53a4c764e37387418d3188594c0fb6418d5821d",
+        "bytes": 1046
+      },
+      "eventsUnchanged": true
+    }
+  ],
+  "failureAndFootprint": "Original archive command rc1 after full3303630B complete write exceeds planned2621440 softcap by682190B. Failure artifact/receipt retained byte exact. Separate64+512 finite fullroundtrip0 accepted actual declared footprint; unchangedarchive, no re-encoding/runtime retry. This does not convert sizecapfailure into a test pass or authorize cleanup.",
+  "summaryReadmeClaims": "Matches soleREADY selection; privatequery showed no differential benefit, rapid no-ops preserved and causeunknown; first300 turn1 without response/clear;18 complete raw pairs versuscaller15 normalized subset verified; withheld art/trial, no humanfun/release/platform/selfcontained/OSreadonly/retirement claim.",
+  "releaseControlPins": {
+    "manifest.json": "0ac18130702c1b2d50831516d1119485c30ae275d42cb26bedb897fa368a5668",
+    "SHA256SUMS": "4c0c7c0c7dd68afab94d474e69eebcdfd66b792f27d2f9b93a6ce762dc2db01c",
+    "VERIFICATION.json": "206cf5ebfb8e5df00da8f91524c59709d02d1f5d49c0920f7f03cfe991591a37"
+  },
+  "releaseControlsEqualHEAD": true,
+  "releaseScope": "Only three0.8 metadata/control bodies compared to exact HEAD blobs and retainedpins; no new tag/version/release inferred. Existing0.9 developmentpackage distinct. Historical multiGB release archive bodies were not rehashed here.",
+  "snapshotLimits": "Capsule is selected bounded evidence, not fullglobal scratch archival coverage or selfcontained playable release. Protectedmedia mounted under workflow holds, not OSenforcement. Independent gate copies preserve original findings/failures; not an approval of excluded art or allpast experiments.",
+  "toolsClosureScope": "Producer generic guards normal finitechild waits (archive rc1, verifyrc0), all sample/events inspected. No numericchild-startidentity ledger/globalbackend census; no exhaustive reviewer/backend actor attribution or unknownconsumer absence claim. Reviewer streamed archive/source bodies only, no extraction/runtime/build/Node/imageview/write; three finite Gitshow read-only subprocesses waited.",
+  "readMethod": "NOATIME|NOFOLLOW terminal retainedbody reads,32768B hashing/tarstream. JPEG/media bytes compared solely for preservation, no decode/view. FDs closed, NEWproof writes only. Producer ordinaryread atimequalifications remain.",
+  "reviewerCountAssumptionFailurePreserved": "Initial verifier GUARD rc1 before proof after fullarchive/current/rollback bodies passed: assumed13/4 line counts. Exact default main276999 versusR8main2027 has11 added/2 removed lines, one hunk. Original verifier/log retained; r2 adjusts only reviewer count/wording, no archive/source or runtime retry.",
+  "reviewerOwnHWM": 18640896,
+  "utcNs": 1790897362621230702
+}

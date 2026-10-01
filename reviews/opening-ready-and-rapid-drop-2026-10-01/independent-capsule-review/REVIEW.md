@@ -1,0 +1,7 @@
+Accept the exact evidence capsule with its explicitly declared3,303,630-byte retention footprint. Every661 archive blob roundtrips, all737 logical entries and166 excluded retained bodies match originals, and logical paths are unique. The failed2.5MiB softcap assertion remains a failure; the subsequent finite verification accepts the unchanged artifact, not the failed cap.
+
+All current87/56 canonical bodies match selected READY source251c4f/output2c664a/main276999. Full R8 rollback87/56 bodies remain recoverable. Only the reviewed presentation hunk (11 added/2 removed lines) differs in main; rules/input/save/timers are unchanged. Independent positive and negative gates/failures are preserved. All18 complete drag checkpoint pairs match, while the caller asserts15 normalized pairs. Eight selected originals are included; other media remain needed at pinned retained paths. No images were decoded or judged.
+
+Producer128+512 failure and64+512 correction receipts pass sampled resources/events with finite closure. Generic receipts do not establish exhaustive child identities or global reviewer/backend attribution. The three0.8 release control bodies match retained hashes and HEAD; multiGB historical release archives were not reread. Development package0.9 is distinct from latest sealed0.8.
+
+This accepts bounded evidence preservation, not a self-contained game release, drag improvement/repair, art quality, human enjoyment, promotion or retirement. No archive rewriting, source/media mutation, runtime, Node, build or image operation occurred.

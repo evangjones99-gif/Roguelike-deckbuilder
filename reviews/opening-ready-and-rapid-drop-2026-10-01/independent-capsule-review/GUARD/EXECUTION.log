@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/ready-and-drag-capsule-independent-r1/verify.py", line 69, in <module>
+    assert len(added)==13 and len(removed)==4 and sum(v.startswith('@@') for v in diff)==1
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

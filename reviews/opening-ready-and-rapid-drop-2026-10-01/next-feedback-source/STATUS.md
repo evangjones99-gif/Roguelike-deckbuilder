@@ -1,0 +1,1 @@
+Opt-in source proposal only. Independent SOURCE gate accepted; no build, runtime label/fit, actual save comparison or default promotion. Complete original author controls remain at pinned scratch paths. SOURCE.diff is reviewable against selected canonical baseline.
