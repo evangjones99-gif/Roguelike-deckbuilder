@@ -1,0 +1,23 @@
+{
+  "originalCommit": "ba26b58",
+  "attributesCommit": "2ea4ba1",
+  "scope": "Earlier text-auto staging normalized two stored log representations. Original working bytes remain unchanged. First regular git add retained cached normalized entries, caught by exact index assertion; explicit renormalize now reapplies -text and verifies both full exact original index bodies. Old commits remain preserved; no original job receipt/log rewritten.",
+  "files": [
+    {
+      "path": "reviews/root-v0.9-installer-36819597195-failure/ORIGINAL-JOB-LOG.log",
+      "originalWorkingBytes": 64517,
+      "originalSHA256": "6506a53295cf15f8a5739bc5ae21fc9285ffa7a3df2e4c8d39cce5e156945993",
+      "earlierNormalizedGitBytes": 63802,
+      "earlierNormalizedGitSHA256": "391e853da66f6a9c68bc2d93a8a47d8e56682928ac269c843c4f6aec6c30ac97",
+      "exactIndexBytesVerified": true
+    },
+    {
+      "path": "reviews/root-v0.9-portable-36819607381-intake/RETURNED-JOB-TEXT.txt",
+      "originalWorkingBytes": 75393,
+      "originalSHA256": "bd6af4b498e9197e03472526f15e42da8870eb94a98da0dd9e0f7831360cf141",
+      "earlierNormalizedGitBytes": 74542,
+      "earlierNormalizedGitSHA256": "d69cd5167c7cce8a9817887ccd623ea72d895bf92ef60a5c93f0f5e1d3a0de6a",
+      "exactIndexBytesVerified": true
+    }
+  ]
+}
