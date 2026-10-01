@@ -21,6 +21,6 @@ margin=128*1024*1024
 tmp_needed=max(zipbytes,packbytes+16*1024*1024)+margin
 durable_needed=packbytes+146100000+191814688+12265727+42000000+margin
 record={'sourceCommit':commit,'temporarySourceZIPStreamBytes':zipbytes,'reachablePackStreamBytes':packbytes,'packEstimateQualification':'Same source reachable closure; measured streamed pack, not an official retained bundle hash. Includes 128MiB margin plus temporary pack-index estimate. Actual bundle restoration must still pass.','tmpNeededBytes':tmp_needed,'durableNeededBytes':durable_needed,'tmpFreeBytes':free('/tmp'),'durableFreeBytes':free('/workspace'),'reserveBytes':margin,'tmpPass':free('/tmp')>=tmp_needed,'durablePass':free('/workspace')>=durable_needed,'noReleaseDirectoryCreated':not(root/'releases/0.8.0').exists(),'createdAtUTC':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime())}
-dest=root/'reviews/root-v0.8-archive-capacity'/f'PREFLIGHT-{commit}.json'
+dest=Path('/workspace/retained-native-experiments/windows-run-36806506465')/f'SOURCE-CAPACITY-{commit}.json'
 with dest.open('x') as f:json.dump(record,f,indent=2);f.write('\n')
 print(json.dumps(record))

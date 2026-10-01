@@ -1,0 +1,64 @@
+{
+  "sourceDirectory": "/workspace/scratch/release-v08-sealer-independent-source-r1",
+  "archive": "curated-evidence.tar.gz",
+  "archiveBytes": 13193,
+  "archiveSHA256": "17e20a2b5a7a81123ccbd21cb8788ae84bdfa3e993a71bbdb38a3bf245c5909f",
+  "everyDeclaredByteRoundTripVerified": true,
+  "scope": "Only exact manifest/addendum-declared file bytes. Individually hashed media references captured as regular bytes; reference targets recorded. No directory/dependency links followed; source paths and originals remain unchanged.",
+  "files": [
+    {
+      "path": "FROZEN-FILES.json",
+      "bytes": 1331,
+      "sha256": "d142f4037ec00392592d9f0b4ecb5647067a4e54a589fa0e50aeb787499ba3e9",
+      "referenceTarget": null
+    },
+    {
+      "path": "REVIEW.md",
+      "bytes": 6132,
+      "sha256": "a5262d4cc32827b23a9900d43e553c88929a75361b9bcdcf94677d0c4edbdb9d",
+      "referenceTarget": null
+    },
+    {
+      "path": "SOURCE-IDENTITY.json",
+      "bytes": 1592,
+      "sha256": "93b051690ecbbc3d6781057e6c93675b408f9eb34b9b65a0caa3968ce9237675",
+      "referenceTarget": null
+    },
+    {
+      "path": "SOURCE-REVISION-NOTE.md",
+      "bytes": 666,
+      "sha256": "ad6841b16c36fda25c9126c9e3d1a05cde27d9d919b8d8cfb484aa43491c98f5",
+      "referenceTarget": null
+    },
+    {
+      "path": "release.mjs",
+      "bytes": 7179,
+      "sha256": "4f3e0ce18b1b622527c529974c02e4461a0a3da735c86735748b73b2075321c6",
+      "referenceTarget": null
+    },
+    {
+      "path": "review-index.mjs",
+      "bytes": 2976,
+      "sha256": "a593b93aaec2bc3b43f9aeb90d7cb2af98977a26991221a8ea562d0d5c899d29",
+      "referenceTarget": null
+    },
+    {
+      "path": "seal.py",
+      "bytes": 8168,
+      "sha256": "81f7c3fa01f5da2d930ba121bdfb879fd7d334602fc2fe7a7221767dbdc40660",
+      "referenceTarget": null
+    },
+    {
+      "path": "source-bundle.mjs",
+      "bytes": 5169,
+      "sha256": "7d9af128cbe7d9bf2f30e9e3b8a1ab2aeb1f911346b48382df075a5136e38315",
+      "referenceTarget": null
+    },
+    {
+      "path": "verify-bundle-tree.py",
+      "bytes": 2149,
+      "sha256": "d5030d125819c2d87a681013361b2ed69caa9d2d7b46d60d327c11857202cc96",
+      "referenceTarget": null
+    }
+  ]
+}

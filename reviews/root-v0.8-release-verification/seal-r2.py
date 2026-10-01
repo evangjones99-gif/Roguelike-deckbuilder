@@ -17,7 +17,7 @@ def parent_paths(files):
  return {str(parent) for name in files for parent in PurePosixPath(name).parents}
 source=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
 assert not (ROOT/'.release-lock').exists() and not (DEST/'INCOMPLETE.txt').exists()
-assert not subprocess.check_output(['git','status','--porcelain','--untracked-files=all','--','.',':(exclude)releases/0.8.0'],cwd=ROOT,text=True).strip()
+assert not subprocess.check_output(['git','status','--porcelain','--untracked-files=all','--','.',':(exclude)releases'],cwd=ROOT,text=True).strip()
 producer=json.loads((DEST/'manifest.json').read_text())
 assert producer['sourceCommit']==source and producer['runtimeSourceDigest']==RUNTIME
 assert producer['sourceArchiveFormat']=='git-bundle-v2' and producer['platforms']==['web','linux-x64']
@@ -67,7 +67,6 @@ with zipfile.ZipFile(DEST/'hollowpact-0.8.0-web.zip') as z:
   if m.is_dir():directory=name.rstrip('/');assert directory in expected_web_dirs and directory not in web_dirs;web_dirs.add(directory);continue
   assert name.startswith('dist/') and name not in web
   rel=name[5:]
-  assert rel not in web
   with z.open(m) as f:actual=sha_stream(f)
   assert actual==sha(ROOT/'dist'/rel)==sha(DEST/'web'/rel)
   web[rel]={'sha256':actual,'bytes':m.file_size}

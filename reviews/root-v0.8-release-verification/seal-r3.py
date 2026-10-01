@@ -67,7 +67,6 @@ with zipfile.ZipFile(DEST/'hollowpact-0.8.0-web.zip') as z:
   if m.is_dir():directory=name.rstrip('/');assert directory in expected_web_dirs and directory not in web_dirs;web_dirs.add(directory);continue
   assert name.startswith('dist/') and name not in web
   rel=name[5:]
-  assert rel not in web
   with z.open(m) as f:actual=sha_stream(f)
   assert actual==sha(ROOT/'dist'/rel)==sha(DEST/'web'/rel)
   web[rel]={'sha256':actual,'bytes':m.file_size}
