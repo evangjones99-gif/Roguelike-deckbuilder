@@ -1,0 +1,176 @@
+{
+  "sourceDirectory": "/workspace/scratch/windows-installer-independent-v08-r2",
+  "curatedOnly": true,
+  "scope": "Exact manifest-listed evidence; support dependency symlinks and temporary browser profiles remain at original paths.",
+  "archive": "curated-evidence.tar.gz",
+  "archiveBytes": 53194,
+  "archiveSHA256": "3c31a79ff0589e5ff9f5ccbfdc943b0bbafed8fe162370f126ae5b7e5f2fcf78",
+  "everyMemberStreamVerified": true,
+  "files": [
+    {
+      "path": "MANIFEST.json",
+      "bytes": 5695,
+      "sha256": "b6fd4a13a925900b0bb7551a0c3ff1315b845d76cfecf92bad2360ddb9c91e67"
+    },
+    {
+      "path": "REVIEW.md",
+      "bytes": 7517,
+      "sha256": "774f99ca40977c24418df3247da4effada1fe3d495752ce51ca9a5f66a255826"
+    },
+    {
+      "path": "final-input-recheck.json",
+      "bytes": 2849,
+      "sha256": "dd23bb8767c184666cd9b112aefcebec3565ed208edf6be6d7732832a0647927"
+    },
+    {
+      "path": "frozen-r2/AUTHOR.md",
+      "bytes": 8394,
+      "sha256": "75be8f590b66063b7a49f51792290bd3dd074d440ddf12c729e9b2cea8f7047d"
+    },
+    {
+      "path": "frozen-r2/evidence/generated-example.nsh",
+      "bytes": 3149,
+      "sha256": "8a0b8e48ba2ae76b68404ce3bb76e6a9b85cdfe786af5a9b3edf33294428aaa6"
+    },
+    {
+      "path": "frozen-r2/evidence/guards-and-transfer-r2.log",
+      "bytes": 1572,
+      "sha256": "cac4b5501e4eb38a8bfaab0452fe85dffc4165c6511d04eb677dd289ee1a37ea"
+    },
+    {
+      "path": "frozen-r2/evidence/guards-r1.log",
+      "bytes": 1351,
+      "sha256": "b39d05e4bd693f5f5700b759e77bb8c3474c5eddd02f554414af17bcbef650a9"
+    },
+    {
+      "path": "frozen-r2/evidence/native-precondition-linux-r1.log",
+      "bytes": 624,
+      "sha256": "ea4af7a6098d20a93c9c4106b99b9ccdd577abf6bab0ab145f861ac7d0e19217"
+    },
+    {
+      "path": "frozen-r2/evidence/source-and-workflow-checks.json",
+      "bytes": 1946,
+      "sha256": "97e528af9eb220a8f4c9988a917e4e68295c072fb2d01e075c1caa32bfc2b25e"
+    },
+    {
+      "path": "frozen-r2/manifest.json",
+      "bytes": 2330,
+      "sha256": "d32b3f18d62eefe6858575ecaff003c6fc5d9626c9824e1f0d406af022e548ed"
+    },
+    {
+      "path": "frozen-r2/scripts/windows-installer-guards.mjs",
+      "bytes": 7539,
+      "sha256": "c74685bfed7a282f2af53b50908b38dbcfbd837b66a58d7bd84a0ea86c7c4dd1"
+    },
+    {
+      "path": "frozen-r2/scripts/windows-installer-guards.test.mjs",
+      "bytes": 7479,
+      "sha256": "e28f9d5d6ba3dc742d3a2e1694e0a78b036c5cf7b8e44f43fd5a30c76b52fab8"
+    },
+    {
+      "path": "frozen-r2/scripts/windows-installer-prepare.mjs",
+      "bytes": 3053,
+      "sha256": "c8c7fbcd9e9b32de65d7f712beef2766fdfad9b28f9621e4bc80b9205c6e8328"
+    },
+    {
+      "path": "frozen-r2/scripts/windows-installer-smoke.mjs",
+      "bytes": 17819,
+      "sha256": "e048ae2937b8e427c1e7308e09c500897233767c4b41f130766eb6b2ede7a6c1"
+    },
+    {
+      "path": "frozen-r2/scripts/windows-installer-transfer.mjs",
+      "bytes": 3754,
+      "sha256": "21f7414909f5a63c6f90e277f8462f09189deea85d965d9aae9a227277b784f2"
+    },
+    {
+      "path": "frozen-r2/scripts/windows-installer-transfer.test.mjs",
+      "bytes": 2319,
+      "sha256": "da5295cb582f7e82a68dfc4f4e7f49a5f59304257cedba9284bdf3517aa76c3b"
+    },
+    {
+      "path": "frozen-r2/workflows/windows-installer-validation.yml",
+      "bytes": 7268,
+      "sha256": "6d1238d0f9812a0645aadb11e418e053e76a9760be6055b824985487cea8f01a"
+    },
+    {
+      "path": "input-hashes-r2.json",
+      "bytes": 2077,
+      "sha256": "50862e949971aef4b2d9851716245369f8cd48d12ee823cd75fa99afb28bc77f"
+    },
+    {
+      "path": "microsoft-shared-registry-keys.md",
+      "bytes": 13512,
+      "sha256": "08b2bde90c4279b18507faa0ef8670b0ac578035adf3eb3b7c6a60758e219a88"
+    },
+    {
+      "path": "registry-doc-fetch-failure.json",
+      "bytes": 164,
+      "sha256": "8250ee0f8d02674ba788cb1eee93bbf3e0e32b7267f1a5edda75e6acf5352dcb"
+    },
+    {
+      "path": "registry-doc-github-fetch.json",
+      "bytes": 29509,
+      "sha256": "e5a3c49d39bcfa804d26c7028e5cfa2ed233e247966169d320da3d3fdebdbdad"
+    },
+    {
+      "path": "source-ordering.json",
+      "bytes": 3431,
+      "sha256": "98644f91fc4ec20ef15665ee44f0b67c43c060d49070be3dff7af3e85b60a7cd"
+    },
+    {
+      "path": "stock-source/out/appInfo.js",
+      "bytes": 7057,
+      "sha256": "d10fa4b8196933d6dd7480d107941671790062f87c81e9a7179463034779fc09"
+    },
+    {
+      "path": "stock-source/out/targets/nsis/NsisTarget.js",
+      "bytes": 39661,
+      "sha256": "43a6cb5c64b0f0f889bc9dd9d66fa351e5294cd6a7baedfa834c0067fd123372"
+    },
+    {
+      "path": "stock-source/out/vm/WineVm.js",
+      "bytes": 1609,
+      "sha256": "dce471a598e059f2d1289e5363cb7cbb9049da990ef9a9bf3c9ff0823edf6e24"
+    },
+    {
+      "path": "stock-source/templates/nsis/common.nsh",
+      "bytes": 4068,
+      "sha256": "281e8071663d2ef3e9f00bb27e6ef09d2c2b52b85458da07082f2b186100e259"
+    },
+    {
+      "path": "stock-source/templates/nsis/include/installUtil.nsh",
+      "bytes": 6113,
+      "sha256": "97bd546b5cd2aaf16b77bc9e2be8a18962dd74ab5c4d23b35b163ca89bf4dd2a"
+    },
+    {
+      "path": "stock-source/templates/nsis/include/installer.nsh",
+      "bytes": 8790,
+      "sha256": "0e319437dd01dcbf911f3f48f664fde0cefbaef704f1cdb1739f63d563f5d4a0"
+    },
+    {
+      "path": "stock-source/templates/nsis/installSection.nsh",
+      "bytes": 2705,
+      "sha256": "74c4dbb4163cdd90ca4850b75d304e916235c882d6af7b5cdad63bffbc977072"
+    },
+    {
+      "path": "stock-source/templates/nsis/installer.nsi",
+      "bytes": 3063,
+      "sha256": "8811964416d122612c3e7601728af5d3f998d677918df829a4e8b4c739c8b9f8"
+    },
+    {
+      "path": "stock-source/templates/nsis/multiUser.nsh",
+      "bytes": 3928,
+      "sha256": "9aca256695c289ec8a875143101fae8c6236bc8c6a7cf369bbe8b4986e09c9cb"
+    },
+    {
+      "path": "stock-source/templates/nsis/oneClick.nsh",
+      "bytes": 399,
+      "sha256": "87d6c095f37716759c8d9373dcab906394546007abb626c04e1c784158f6de5b"
+    },
+    {
+      "path": "stock-source/templates/nsis/uninstaller.nsh",
+      "bytes": 5490,
+      "sha256": "9ee2dac4593478083e8aa6f8487287ce9401006ccd50ecc538871d133ea4a42c"
+    }
+  ]
+}

@@ -19,3 +19,6 @@ reviews/windows-native/0.6.1/** -text
 releases/0.6.1/reviews/windows-native/** -text
 # New0.7 native records must preserve original runner bytes from first commit.
 reviews/windows-native/0.7.0/** -text
+# Exact upstream Microsoft reference bytes include a retained final blank line.
+reviews/installer-v0.8-r1-independent/microsoft-shared-registry-keys.md -text whitespace=-blank-at-eof
+reviews/installer-v0.8-r2-independent/microsoft-shared-registry-keys.md -text whitespace=-blank-at-eof

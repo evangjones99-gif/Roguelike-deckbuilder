@@ -1,0 +1,2 @@
+The first staged whitespace check refused the unchanged upstream Microsoft registry reference's final blank line (both R1 and R2 exact copies, line118). No commit/push/workflow activation ran after that check.
+The two exact evidence paths now disable text normalization and only the final-blank-line whitespace rule. Original reference/report/archive bytes remain unchanged; production code whitespace checks are unchanged. The complete raw reference also remains in each hash-verified curated evidence archive.
