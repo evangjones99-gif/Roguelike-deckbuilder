@@ -557,7 +557,7 @@ function renderBattle() {
 }
 function inputHints(): string {
   if (settlingCombat) return inputMode === 'controller'
-    ? '<span>Final impact resolving</span><span><kbd>Start</kbd> Pause</span>'
+    ? '<span>Final impact resolving</span><span>Start Pause</span>'
     : '<span>Final impact resolving</span><span><kbd>Esc</kbd> Pause</span>';
   if (selected) return inputMode === 'controller'
     ? '<span><kbd>A</kbd> Choose · <kbd>B</kbd> Back</span><span><kbd>X</kbd> Inspect · <kbd>Y</kbd> End turn</span><span>D-pad Move · Start Pause</span>'

@@ -8,8 +8,8 @@ releases/*/*.zip
 releases/*/*.tar.gz
 releases/*/web/
 releases/*/desktop/
-# New milestones retain their local review copy; canonical frozen evidence is
-# tracked once in reviews/ and preserved in the tagged source archive.
+# Retain these historical full local review copies unchanged. Future milestones
+# track reviews/INDEX.json against canonical evidence in their own source ZIP.
 # Earlier milestone directories remain tracked and unchanged.
 releases/0.6.0/reviews/
 releases/0.6.1/reviews/

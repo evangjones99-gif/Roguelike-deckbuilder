@@ -1,0 +1,896 @@
+{
+  "scope": "Independent isolated Vite prototype R2; synthetic standard controller, actual runtime callbacks; no native/physical claim",
+  "before": {
+    "src/main.ts": "a7890d0ba20b2ce501e6d8cda189b97ceb246eff13ac59884fa016529b342290",
+    "src/input.ts": "b69d87d1a5a71a15d3b29cdfcdbb3f0b33e739f3aa5d8ba82d9cfb470bbdb415",
+    "src/arena.ts": "4cfa90a38f10b270867683940400cfb1ca954a3aaf773b6c469e5cca1bab13e1",
+    "src/style.css": "adcb097532528d44383896c03987061831d8fe79e25d644d0b1b6088402b3bef"
+  },
+  "previousEvidenceSHA256": "92ed3ea6ebd070c185812200aff99f3b0df5342c8f3fc4f3cce6cf5708b33113",
+  "cases": [
+    {
+      "width": 1024,
+      "height": 720,
+      "mode": "keyboard",
+      "immediate": {
+        "held": true,
+        "hint": "Final impact resolvingEsc Pause",
+        "aria": "Keyboard controls",
+        "hintBounds": {
+          "x": 853.46875,
+          "y": 615.5,
+          "width": 126.046875,
+          "height": 34,
+          "right": 979.515625,
+          "bottom": 649.5
+        },
+        "parentBounds": {
+          "x": 829,
+          "y": 448,
+          "width": 175,
+          "height": 232,
+          "right": 1004,
+          "bottom": 680
+        },
+        "dockVisible": true,
+        "font": 12,
+        "childFonts": [
+          {
+            "tag": "SPAN",
+            "text": "Final impact resolving",
+            "font": 12
+          },
+          {
+            "tag": "SPAN",
+            "text": "Esc Pause",
+            "font": 12
+          },
+          {
+            "tag": "KBD",
+            "text": "Esc",
+            "font": 12
+          }
+        ],
+        "kbd": [
+          "Esc"
+        ],
+        "save": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+        "storage": {
+          "hollowpact.settings.v2": "{\"mute\":true,\"volume\":0,\"motion\":true}",
+          "hollowpact.run.v2": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+          "hollowpact.tutorial.v2": "yes"
+        },
+        "dialog": false,
+        "announcer": "Contract cleared.",
+        "reads": 72
+      },
+      "blocked": {
+        "held": true,
+        "dialog": false,
+        "canonicalUnchanged": true
+      },
+      "paused": {
+        "held": false,
+        "dialog": true,
+        "canonicalUnchanged": true
+      },
+      "resumed": {
+        "held": false,
+        "dockVisible": false,
+        "canonicalUnchanged": true,
+        "storagePure": true
+      }
+    },
+    {
+      "width": 1024,
+      "height": 720,
+      "mode": "controller",
+      "immediate": {
+        "held": true,
+        "hint": "Final impact resolvingStart Pause",
+        "aria": "Controller controls",
+        "hintBounds": {
+          "x": 853.46875,
+          "y": 615.5,
+          "width": 126.046875,
+          "height": 34,
+          "right": 979.515625,
+          "bottom": 649.5
+        },
+        "parentBounds": {
+          "x": 829,
+          "y": 448,
+          "width": 175,
+          "height": 232,
+          "right": 1004,
+          "bottom": 680
+        },
+        "dockVisible": true,
+        "font": 12,
+        "childFonts": [
+          {
+            "tag": "SPAN",
+            "text": "Final impact resolving",
+            "font": 12
+          },
+          {
+            "tag": "SPAN",
+            "text": "Start Pause",
+            "font": 12
+          },
+          {
+            "tag": "KBD",
+            "text": "Start",
+            "font": 12
+          }
+        ],
+        "kbd": [
+          "Start"
+        ],
+        "save": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+        "storage": {
+          "hollowpact.settings.v2": "{\"mute\":true,\"volume\":0,\"motion\":true}",
+          "hollowpact.run.v2": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+          "hollowpact.tutorial.v2": "yes"
+        },
+        "dialog": false,
+        "announcer": "Contract cleared.",
+        "reads": 52
+      },
+      "blocked": {
+        "held": true,
+        "dialog": false,
+        "canonicalUnchanged": true
+      },
+      "paused": {
+        "held": false,
+        "dialog": true,
+        "canonicalUnchanged": true
+      },
+      "resumed": {
+        "held": false,
+        "dockVisible": false,
+        "canonicalUnchanged": true,
+        "storagePure": true
+      }
+    },
+    {
+      "width": 1024,
+      "height": 1080,
+      "mode": "keyboard",
+      "immediate": {
+        "held": true,
+        "hint": "Final impact resolvingEsc Pause",
+        "aria": "Keyboard controls",
+        "hintBounds": {
+          "x": 853.46875,
+          "y": 975.5,
+          "width": 126.046875,
+          "height": 34,
+          "right": 979.515625,
+          "bottom": 1009.5
+        },
+        "parentBounds": {
+          "x": 829,
+          "y": 808,
+          "width": 175,
+          "height": 232,
+          "right": 1004,
+          "bottom": 1040
+        },
+        "dockVisible": true,
+        "font": 12,
+        "childFonts": [
+          {
+            "tag": "SPAN",
+            "text": "Final impact resolving",
+            "font": 12
+          },
+          {
+            "tag": "SPAN",
+            "text": "Esc Pause",
+            "font": 12
+          },
+          {
+            "tag": "KBD",
+            "text": "Esc",
+            "font": 12
+          }
+        ],
+        "kbd": [
+          "Esc"
+        ],
+        "save": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+        "storage": {
+          "hollowpact.settings.v2": "{\"mute\":true,\"volume\":0,\"motion\":true}",
+          "hollowpact.run.v2": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+          "hollowpact.tutorial.v2": "yes"
+        },
+        "dialog": false,
+        "announcer": "Contract cleared.",
+        "reads": 56
+      },
+      "blocked": {
+        "held": true,
+        "dialog": false,
+        "canonicalUnchanged": true
+      },
+      "paused": {
+        "held": false,
+        "dialog": true,
+        "canonicalUnchanged": true
+      },
+      "resumed": {
+        "held": false,
+        "dockVisible": false,
+        "canonicalUnchanged": true,
+        "storagePure": true
+      }
+    },
+    {
+      "width": 1024,
+      "height": 1080,
+      "mode": "controller",
+      "immediate": {
+        "held": true,
+        "hint": "Final impact resolvingStart Pause",
+        "aria": "Controller controls",
+        "hintBounds": {
+          "x": 853.46875,
+          "y": 975.5,
+          "width": 126.046875,
+          "height": 34,
+          "right": 979.515625,
+          "bottom": 1009.5
+        },
+        "parentBounds": {
+          "x": 829,
+          "y": 808,
+          "width": 175,
+          "height": 232,
+          "right": 1004,
+          "bottom": 1040
+        },
+        "dockVisible": true,
+        "font": 12,
+        "childFonts": [
+          {
+            "tag": "SPAN",
+            "text": "Final impact resolving",
+            "font": 12
+          },
+          {
+            "tag": "SPAN",
+            "text": "Start Pause",
+            "font": 12
+          },
+          {
+            "tag": "KBD",
+            "text": "Start",
+            "font": 12
+          }
+        ],
+        "kbd": [
+          "Start"
+        ],
+        "save": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+        "storage": {
+          "hollowpact.settings.v2": "{\"mute\":true,\"volume\":0,\"motion\":true}",
+          "hollowpact.run.v2": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+          "hollowpact.tutorial.v2": "yes"
+        },
+        "dialog": false,
+        "announcer": "Contract cleared.",
+        "reads": 42
+      },
+      "blocked": {
+        "held": true,
+        "dialog": false,
+        "canonicalUnchanged": true
+      },
+      "paused": {
+        "held": false,
+        "dialog": true,
+        "canonicalUnchanged": true
+      },
+      "resumed": {
+        "held": false,
+        "dockVisible": false,
+        "canonicalUnchanged": true,
+        "storagePure": true
+      }
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "mode": "keyboard",
+      "immediate": {
+        "held": true,
+        "hint": "Final impact resolvingEsc Pause",
+        "aria": "Keyboard controls",
+        "hintBounds": {
+          "x": 1084.46875,
+          "y": 615.5,
+          "width": 126.046875,
+          "height": 34,
+          "right": 1210.515625,
+          "bottom": 649.5
+        },
+        "parentBounds": {
+          "x": 1043,
+          "y": 448,
+          "width": 209,
+          "height": 232,
+          "right": 1252,
+          "bottom": 680
+        },
+        "dockVisible": true,
+        "font": 12,
+        "childFonts": [
+          {
+            "tag": "SPAN",
+            "text": "Final impact resolving",
+            "font": 12
+          },
+          {
+            "tag": "SPAN",
+            "text": "Esc Pause",
+            "font": 12
+          },
+          {
+            "tag": "KBD",
+            "text": "Esc",
+            "font": 12
+          }
+        ],
+        "kbd": [
+          "Esc"
+        ],
+        "save": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+        "storage": {
+          "hollowpact.settings.v2": "{\"mute\":true,\"volume\":0,\"motion\":true}",
+          "hollowpact.run.v2": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+          "hollowpact.tutorial.v2": "yes"
+        },
+        "dialog": false,
+        "announcer": "Contract cleared.",
+        "reads": 54
+      },
+      "blocked": {
+        "held": true,
+        "dialog": false,
+        "canonicalUnchanged": true
+      },
+      "paused": {
+        "held": false,
+        "dialog": true,
+        "canonicalUnchanged": true
+      },
+      "resumed": {
+        "held": false,
+        "dockVisible": false,
+        "canonicalUnchanged": true,
+        "storagePure": true
+      }
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "mode": "controller",
+      "immediate": {
+        "held": true,
+        "hint": "Final impact resolvingStart Pause",
+        "aria": "Controller controls",
+        "hintBounds": {
+          "x": 1084.46875,
+          "y": 615.5,
+          "width": 126.046875,
+          "height": 34,
+          "right": 1210.515625,
+          "bottom": 649.5
+        },
+        "parentBounds": {
+          "x": 1043,
+          "y": 448,
+          "width": 209,
+          "height": 232,
+          "right": 1252,
+          "bottom": 680
+        },
+        "dockVisible": true,
+        "font": 12,
+        "childFonts": [
+          {
+            "tag": "SPAN",
+            "text": "Final impact resolving",
+            "font": 12
+          },
+          {
+            "tag": "SPAN",
+            "text": "Start Pause",
+            "font": 12
+          },
+          {
+            "tag": "KBD",
+            "text": "Start",
+            "font": 12
+          }
+        ],
+        "kbd": [
+          "Start"
+        ],
+        "save": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+        "storage": {
+          "hollowpact.settings.v2": "{\"mute\":true,\"volume\":0,\"motion\":true}",
+          "hollowpact.run.v2": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+          "hollowpact.tutorial.v2": "yes"
+        },
+        "dialog": false,
+        "announcer": "Contract cleared.",
+        "reads": 46
+      },
+      "blocked": {
+        "held": true,
+        "dialog": false,
+        "canonicalUnchanged": true
+      },
+      "paused": {
+        "held": false,
+        "dialog": true,
+        "canonicalUnchanged": true
+      },
+      "resumed": {
+        "held": false,
+        "dockVisible": false,
+        "canonicalUnchanged": true,
+        "storagePure": true
+      }
+    },
+    {
+      "width": 1280,
+      "height": 1080,
+      "mode": "keyboard",
+      "immediate": {
+        "held": true,
+        "hint": "Final impact resolvingEsc Pause",
+        "aria": "Keyboard controls",
+        "hintBounds": {
+          "x": 1084.46875,
+          "y": 975.5,
+          "width": 126.046875,
+          "height": 34,
+          "right": 1210.515625,
+          "bottom": 1009.5
+        },
+        "parentBounds": {
+          "x": 1043,
+          "y": 808,
+          "width": 209,
+          "height": 232,
+          "right": 1252,
+          "bottom": 1040
+        },
+        "dockVisible": true,
+        "font": 12,
+        "childFonts": [
+          {
+            "tag": "SPAN",
+            "text": "Final impact resolving",
+            "font": 12
+          },
+          {
+            "tag": "SPAN",
+            "text": "Esc Pause",
+            "font": 12
+          },
+          {
+            "tag": "KBD",
+            "text": "Esc",
+            "font": 12
+          }
+        ],
+        "kbd": [
+          "Esc"
+        ],
+        "save": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+        "storage": {
+          "hollowpact.settings.v2": "{\"mute\":true,\"volume\":0,\"motion\":true}",
+          "hollowpact.run.v2": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+          "hollowpact.tutorial.v2": "yes"
+        },
+        "dialog": false,
+        "announcer": "Contract cleared.",
+        "reads": 62
+      },
+      "blocked": {
+        "held": true,
+        "dialog": false,
+        "canonicalUnchanged": true
+      },
+      "paused": {
+        "held": false,
+        "dialog": true,
+        "canonicalUnchanged": true
+      },
+      "resumed": {
+        "held": false,
+        "dockVisible": false,
+        "canonicalUnchanged": true,
+        "storagePure": true
+      }
+    },
+    {
+      "width": 1280,
+      "height": 1080,
+      "mode": "controller",
+      "immediate": {
+        "held": true,
+        "hint": "Final impact resolvingStart Pause",
+        "aria": "Controller controls",
+        "hintBounds": {
+          "x": 1084.46875,
+          "y": 975.5,
+          "width": 126.046875,
+          "height": 34,
+          "right": 1210.515625,
+          "bottom": 1009.5
+        },
+        "parentBounds": {
+          "x": 1043,
+          "y": 808,
+          "width": 209,
+          "height": 232,
+          "right": 1252,
+          "bottom": 1040
+        },
+        "dockVisible": true,
+        "font": 12,
+        "childFonts": [
+          {
+            "tag": "SPAN",
+            "text": "Final impact resolving",
+            "font": 12
+          },
+          {
+            "tag": "SPAN",
+            "text": "Start Pause",
+            "font": 12
+          },
+          {
+            "tag": "KBD",
+            "text": "Start",
+            "font": 12
+          }
+        ],
+        "kbd": [
+          "Start"
+        ],
+        "save": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+        "storage": {
+          "hollowpact.settings.v2": "{\"mute\":true,\"volume\":0,\"motion\":true}",
+          "hollowpact.run.v2": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+          "hollowpact.tutorial.v2": "yes"
+        },
+        "dialog": false,
+        "announcer": "Contract cleared.",
+        "reads": 58
+      },
+      "blocked": {
+        "held": true,
+        "dialog": false,
+        "canonicalUnchanged": true
+      },
+      "paused": {
+        "held": false,
+        "dialog": true,
+        "canonicalUnchanged": true
+      },
+      "resumed": {
+        "held": false,
+        "dockVisible": false,
+        "canonicalUnchanged": true,
+        "storagePure": true
+      }
+    },
+    {
+      "width": 1920,
+      "height": 720,
+      "mode": "keyboard",
+      "immediate": {
+        "held": true,
+        "hint": "Final impact resolvingEsc Pause",
+        "aria": "Keyboard controls",
+        "hintBounds": {
+          "x": 1531.96875,
+          "y": 621,
+          "width": 126.046875,
+          "height": 34,
+          "right": 1658.015625,
+          "bottom": 655
+        },
+        "parentBounds": {
+          "x": 1472.5,
+          "y": 444,
+          "width": 245,
+          "height": 232,
+          "right": 1717.5,
+          "bottom": 676
+        },
+        "dockVisible": true,
+        "font": 12,
+        "childFonts": [
+          {
+            "tag": "SPAN",
+            "text": "Final impact resolving",
+            "font": 12
+          },
+          {
+            "tag": "SPAN",
+            "text": "Esc Pause",
+            "font": 12
+          },
+          {
+            "tag": "KBD",
+            "text": "Esc",
+            "font": 12
+          }
+        ],
+        "kbd": [
+          "Esc"
+        ],
+        "save": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+        "storage": {
+          "hollowpact.settings.v2": "{\"mute\":true,\"volume\":0,\"motion\":true}",
+          "hollowpact.run.v2": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+          "hollowpact.tutorial.v2": "yes"
+        },
+        "dialog": false,
+        "announcer": "Contract cleared.",
+        "reads": 66
+      },
+      "blocked": {
+        "held": true,
+        "dialog": false,
+        "canonicalUnchanged": true
+      },
+      "paused": {
+        "held": false,
+        "dialog": true,
+        "canonicalUnchanged": true
+      },
+      "resumed": {
+        "held": false,
+        "dockVisible": false,
+        "canonicalUnchanged": true,
+        "storagePure": true
+      }
+    },
+    {
+      "width": 1920,
+      "height": 720,
+      "mode": "controller",
+      "immediate": {
+        "held": true,
+        "hint": "Final impact resolvingStart Pause",
+        "aria": "Controller controls",
+        "hintBounds": {
+          "x": 1531.96875,
+          "y": 621,
+          "width": 126.046875,
+          "height": 34,
+          "right": 1658.015625,
+          "bottom": 655
+        },
+        "parentBounds": {
+          "x": 1472.5,
+          "y": 444,
+          "width": 245,
+          "height": 232,
+          "right": 1717.5,
+          "bottom": 676
+        },
+        "dockVisible": true,
+        "font": 12,
+        "childFonts": [
+          {
+            "tag": "SPAN",
+            "text": "Final impact resolving",
+            "font": 12
+          },
+          {
+            "tag": "SPAN",
+            "text": "Start Pause",
+            "font": 12
+          },
+          {
+            "tag": "KBD",
+            "text": "Start",
+            "font": 12
+          }
+        ],
+        "kbd": [
+          "Start"
+        ],
+        "save": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+        "storage": {
+          "hollowpact.settings.v2": "{\"mute\":true,\"volume\":0,\"motion\":true}",
+          "hollowpact.run.v2": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+          "hollowpact.tutorial.v2": "yes"
+        },
+        "dialog": false,
+        "announcer": "Contract cleared.",
+        "reads": 58
+      },
+      "blocked": {
+        "held": true,
+        "dialog": false,
+        "canonicalUnchanged": true
+      },
+      "paused": {
+        "held": false,
+        "dialog": true,
+        "canonicalUnchanged": true
+      },
+      "resumed": {
+        "held": false,
+        "dockVisible": false,
+        "canonicalUnchanged": true,
+        "storagePure": true
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "mode": "keyboard",
+      "immediate": {
+        "held": true,
+        "hint": "Final impact resolvingEsc Pause",
+        "aria": "Keyboard controls",
+        "hintBounds": {
+          "x": 1531.96875,
+          "y": 966,
+          "width": 126.046875,
+          "height": 34,
+          "right": 1658.015625,
+          "bottom": 1000
+        },
+        "parentBounds": {
+          "x": 1472.5,
+          "y": 778,
+          "width": 245,
+          "height": 254,
+          "right": 1717.5,
+          "bottom": 1032
+        },
+        "dockVisible": true,
+        "font": 12,
+        "childFonts": [
+          {
+            "tag": "SPAN",
+            "text": "Final impact resolving",
+            "font": 12
+          },
+          {
+            "tag": "SPAN",
+            "text": "Esc Pause",
+            "font": 12
+          },
+          {
+            "tag": "KBD",
+            "text": "Esc",
+            "font": 12
+          }
+        ],
+        "kbd": [
+          "Esc"
+        ],
+        "save": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+        "storage": {
+          "hollowpact.settings.v2": "{\"mute\":true,\"volume\":0,\"motion\":true}",
+          "hollowpact.run.v2": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+          "hollowpact.tutorial.v2": "yes"
+        },
+        "dialog": false,
+        "announcer": "Contract cleared.",
+        "reads": 46
+      },
+      "blocked": {
+        "held": true,
+        "dialog": false,
+        "canonicalUnchanged": true
+      },
+      "paused": {
+        "held": false,
+        "dialog": true,
+        "canonicalUnchanged": true
+      },
+      "resumed": {
+        "held": false,
+        "dockVisible": false,
+        "canonicalUnchanged": true,
+        "storagePure": true
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "mode": "controller",
+      "immediate": {
+        "held": true,
+        "hint": "Final impact resolvingStart Pause",
+        "aria": "Controller controls",
+        "hintBounds": {
+          "x": 1531.96875,
+          "y": 966,
+          "width": 126.046875,
+          "height": 34,
+          "right": 1658.015625,
+          "bottom": 1000
+        },
+        "parentBounds": {
+          "x": 1472.5,
+          "y": 778,
+          "width": 245,
+          "height": 254,
+          "right": 1717.5,
+          "bottom": 1032
+        },
+        "dockVisible": true,
+        "font": 12,
+        "childFonts": [
+          {
+            "tag": "SPAN",
+            "text": "Final impact resolving",
+            "font": 12
+          },
+          {
+            "tag": "SPAN",
+            "text": "Start Pause",
+            "font": 12
+          },
+          {
+            "tag": "KBD",
+            "text": "Start",
+            "font": 12
+          }
+        ],
+        "kbd": [
+          "Start"
+        ],
+        "save": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+        "storage": {
+          "hollowpact.settings.v2": "{\"mute\":true,\"volume\":0,\"motion\":true}",
+          "hollowpact.run.v2": "{\"schema\":3,\"engineKind\":2,\"seed\":121,\"rng\":2496303052,\"phase\":\"reward\",\"hp\":65,\"maxHp\":65,\"block\":0,\"energy\":0,\"gold\":90,\"floor\":1,\"turn\":1,\"deck\":[\"cairnhound\",\"cairnhound\",\"fenstalker\",\"ashwidow\",\"briarcolossus\",\"scour\",\"scour\",\"ironward\",\"ironward\",\"sutures\",\"sunder\",\"survey\"],\"draw\":[],\"discard\":[],\"hand\":[],\"allies\":[],\"enemies\":[],\"rewards\":[\"silence\",\"scour\",\"briarcolossus\"],\"relics\":[],\"route\":[\"battle\"],\"log\":[\"A scarred hunter. One final contract. No pact is harmless.\",\"The keep has teeth.\",\"Cast Scour.\",\"Contract complete. Choose one new card or travel light.\"],\"nextUid\":3,\"difficulty\":0,\"stats\":{\"cardsPlayed\":1,\"damageDealt\":1,\"turns\":1,\"battles\":1}}",
+          "hollowpact.tutorial.v2": "yes"
+        },
+        "dialog": false,
+        "announcer": "Contract cleared.",
+        "reads": 48
+      },
+      "blocked": {
+        "held": true,
+        "dialog": false,
+        "canonicalUnchanged": true
+      },
+      "paused": {
+        "held": false,
+        "dialog": true,
+        "canonicalUnchanged": true
+      },
+      "resumed": {
+        "held": false,
+        "dockVisible": false,
+        "canonicalUnchanged": true,
+        "storagePure": true
+      }
+    }
+  ],
+  "pageErrors": [],
+  "after": {
+    "src/main.ts": "a7890d0ba20b2ce501e6d8cda189b97ceb246eff13ac59884fa016529b342290",
+    "src/input.ts": "b69d87d1a5a71a15d3b29cdfcdbb3f0b33e739f3aa5d8ba82d9cfb470bbdb415",
+    "src/arena.ts": "4cfa90a38f10b270867683940400cfb1ca954a3aaf773b6c469e5cca1bab13e1",
+    "src/style.css": "adcb097532528d44383896c03987061831d8fe79e25d644d0b1b6088402b3bef"
+  },
+  "status": "PASS: all12 actual R2 hint/containment/canonical/pause/stale-action cases"
+}
