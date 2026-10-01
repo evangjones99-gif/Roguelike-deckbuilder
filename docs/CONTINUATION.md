@@ -1,5 +1,9 @@
 # Hollowpact production continuation
 
+## Completed frozen128 physical sharing — 1 October2026
+
+After confirmed clean push `dc675518`, independently reviewed exact sharing recovered30,347,264B in its measured window while preserving all100 recipient paths/bodies,50 anchors and eight trace aliases. Independent POST gate `f6b90508` accepts preservation/closure, including full89/57 and selected/retained87/56 maps. Original inode/time/write isolation losses and stale proposal authorization text are explicitly qualified; see [supplemental records](../reviews/frozen128-physical-sharing-post-2026-10-01/README.md). No unique material or release was retired, and no further cleanup is authorized. Selected READY251c4fd4 /2c664aa3 remains unchanged. Continue the separate targetWaitCue playable trial and targeted CONTACT art study; neither is selected by this storage finding.
+
 ## Pointer-traced rapid-card comparison: candidate withheld — 1 October2026
 
 The six-context native `settleDrag` comparison completed once in88.718681149s. Both queries lifted cards, both rapid releases returned unspent, both held releases committed once after natural target readiness, and both genuine held cancellations stayed pure without queued play. All18 full checkpoint save pairs match; the new formation cue never appeared. This is no observed improvement, so leave the query unselected and preserve the rapid-drop finding. See [OPENING-READY-AND-RAPID-DROP.md](OPENING-READY-AND-RAPID-DROP.md). Current selected READY source251c4fd4 /outputs2c664aa3 and sealed0.8.0 remain as documented. Next inspect blocked-target feedback, and pursue the specifically authorized matching CONTACT art reference after reviews/recording; no blanket drag fix or pixel promotion follows.
