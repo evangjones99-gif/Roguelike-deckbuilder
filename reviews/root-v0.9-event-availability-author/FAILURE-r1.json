@@ -1,0 +1,5 @@
+{
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    allies: [],\n    block: 0,\n    deck: [\n      'cairnhound',\n...\n    floor: 2,\n+   gold: 65,\n-   gold: 90,\n    hand: [],\n    hp: 65,\n    log: [\n      'A scarred hunter. One final contract. No pact is harmless.',\n-     'Found 25 gold beneath the roots.'\n    ],\n    maxHp: 65,\n    nextUid: 1,\n+   phase: 'event',\n-   phase: 'map',\n    relics: [\n      'moon-charm'\n    ],\n    rewards: [],\n    rng: 381027,\n    route: [\n+     'event'\n-     'camp',\n-     'shop'\n    ],\n    schema: 2,\n    seed: 381027,\n    stats: {\n      battles: 0,\n\n    at file:///workspace/Roguelike-deckbuilder/reviews/root-v0.9-event-availability-author/browser-r1.mjs:15:506",
+  "completed": 0,
+  "errors": []
+}

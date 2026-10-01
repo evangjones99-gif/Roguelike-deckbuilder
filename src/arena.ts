@@ -48,7 +48,7 @@ export function createArena(canvas: HTMLCanvasElement) {
   if (!context) {
     const notice = document.createElement('div');
     notice.className = 'arena-fallback'; notice.setAttribute('role', 'status');
-    notice.textContent = 'Battlefield illustration unavailable. All cards, companions and enemy commands remain available in the panels.';
+    notice.textContent = 'Battlefield artwork unavailable. Combat details are in the panels.';
     canvas.hidden = true; canvas.insertAdjacentElement('afterend', notice);
     return { render(_state: GameState) {}, playAction(_action: Action, _before: GameState, _after: GameState, _events?: readonly TransitionEvent[]) {}, busyMs() { return 0; }, getPresentationBusyMs() { return 0; }, waitForPresentation() { return Promise.resolve(); }, cancelPresentation() {}, setSelected(_uid: string | null) {}, resize() {}, dispose() { notice.remove(); canvas.hidden = false; } };
   }
@@ -83,7 +83,6 @@ export function createArena(canvas: HTMLCanvasElement) {
   const missing = new Set<string>();
   const status = document.createElement('div');
   status.className = 'arena-art-status'; status.setAttribute('role', 'status');
-  Object.assign(status.style, { position: 'absolute', bottom: '8px', left: '12px', right: '12px', color: '#d3c4a5', fontSize: '11px', pointerEvents: 'none', textAlign: 'center' });
   canvas.insertAdjacentElement('afterend', status);
   let artSeed = 24071;
   const random = () => { artSeed = (artSeed * 1664525 + 1013904223) >>> 0; return artSeed / 4294967296; };
@@ -101,7 +100,7 @@ export function createArena(canvas: HTMLCanvasElement) {
   }
   function updateStatus() {
     const relevantMissing = [...missing].some(url => (url !== ARENA_ART.courtyard && url !== ARENA_ART.crypt) || url === ARENA_ART[environment]);
-    status.textContent = relevantMissing ? 'Some battlefield artwork could not load. Combat controls remain available.' : '';
+    status.textContent = relevantMissing ? 'Some artwork is missing. Combat details are in the panels.' : '';
   }
   // Environment art is requested on demand; unused crypt art cannot fail a courtyard.
   imageFor(ARENA_ART.companions); imageFor(ARENA_ART.adversaries);

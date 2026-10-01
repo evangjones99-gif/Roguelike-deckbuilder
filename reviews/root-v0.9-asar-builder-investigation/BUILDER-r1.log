@@ -1,0 +1,23 @@
+  • electron-builder  version=26.15.3 os=6.18.44
+  • loaded configuration  file=package.json ("build" field)
+  • executing @electron/rebuild  electronVersion=44.5.1 arch=x64 buildFromSource=false workspaceRoot=/tmp/hollowpact-final-kill-v09-root-r1 projectDir=./ appDir=./
+  • installing native dependencies  arch=x64
+  • completed installing native dependencies
+  • packaging       platform=linux arch=x64 electron=44.5.1 appOutDir=/tmp/hollowpact-asar-builder-order-v09-root-r1/linux-unpacked
+  • downloaded      label=electron progress=100%
+  • downloaded electron zip extracted successfully  output=/tmp/hollowpact-asar-builder-order-v09-root-r1/linux-unpacked
+  • searching for node modules  pm=npm searchDir=/tmp/hollowpact-final-kill-v09-root-r1
+  • searching for node modules  pm=traversal searchDir=/tmp/hollowpact-final-kill-v09-root-r1
+  • using manual traversal of node_modules to build dependency tree
+  • no node modules returned while searching directories  searchDirectories=[""]
+  ⨯ Application entry file "desktop/main.cjs" in the "/tmp/hollowpact-asar-builder-order-v09-root-r1/linux-unpacked/resources/app.asar" is corrupted: Error: "desktop/main.cjs" was not found in this archive  failedTask=build stackTrace=Error: Application entry file "desktop/main.cjs" in the "/tmp/hollowpact-asar-builder-order-v09-root-r1/linux-unpacked/resources/app.asar" is corrupted: Error: "desktop/main.cjs" was not found in this archive
+    at error (/workspace/Roguelike-deckbuilder/node_modules/app-builder-lib/src/asar/asarFileChecker.ts:7:12)
+    at checkFileInArchive (/workspace/Roguelike-deckbuilder/node_modules/app-builder-lib/src/asar/asarFileChecker.ts:16:11)
+    at LinuxPackager.checkFileInPackage (/workspace/Roguelike-deckbuilder/node_modules/app-builder-lib/src/platformPackager.ts:636:7)
+    at LinuxPackager.sanityCheckPackage (/workspace/Roguelike-deckbuilder/node_modules/app-builder-lib/src/platformPackager.ts:684:5)
+    at LinuxPackager.doPack (/workspace/Roguelike-deckbuilder/node_modules/app-builder-lib/src/platformPackager.ts:350:5)
+    at LinuxPackager.pack (/workspace/Roguelike-deckbuilder/node_modules/app-builder-lib/src/platformPackager.ts:163:5)
+    at Packager.doBuild (/workspace/Roguelike-deckbuilder/node_modules/app-builder-lib/src/packager.ts:530:11)
+    at executeFinally (/workspace/Roguelike-deckbuilder/node_modules/builder-util/src/promise.ts:12:14)
+    at Packager.build (/workspace/Roguelike-deckbuilder/node_modules/app-builder-lib/src/packager.ts:450:31)
+    at executeFinally (/workspace/Roguelike-deckbuilder/node_modules/builder-util/src/promise.ts:12:14)

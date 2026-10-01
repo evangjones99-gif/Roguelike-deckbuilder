@@ -1,0 +1,1 @@
+R1 failed in the first initial DOM snapshot before any completed context or action: its rect helper treated a DOMRect returned by text Range as an Element. Product code was not changed. Source, stdout and compressed failure are retained. R2 accepts the actual Range DOMRect directly, retaining all actual UI checks. All owned contexts/browser closed via finally.
