@@ -13,16 +13,16 @@ const assets=packagedAssetWitness(runtime,readParts);
 const engine=await tsImport(pathToFileURL(path.resolve('src/engine.ts')).href,import.meta.url);
 const {encounterEnvironment}=await tsImport(pathToFileURL(path.resolve('src/encounter-environment.ts')).href,import.meta.url);
 const fixture=earnedCryptTrace(engine,encounterEnvironment);
-const nativeFixture=()=>({elapsedMs:100,records:assets.sounds.map(sound=>({...sound,url:'file:///C:/QA/installation/resources/app.asar/dist/audio/'+sound.name}))});
+const nativeFixture=()=>({elapsedMs:100,records:assets.sounds.map(sound=>({...sound,rawSHA256:sound.sha256,peak:sound.decodedPCM.peak,meanSquare:sound.decodedPCM.meanSquare,pcmSHA256:sound.decodedPCM.sha256,pcmBytes:sound.decodedPCM.bytes,url:'file:///C:/QA/installation/resources/app.asar/dist/audio/'+sound.name}))});
 
-test('current0.8 ordered provenance is76 exact actual source bytes and fixed ASAR pin',()=>{
- assertCurrentRuntime(runtime);assert.equal(expectedAsar,'c383c4437ac5467146174c6ea039b2a8b28af43d609701379e8cf695f59d530c');
+test('current0.9 ordered provenance is77 exact actual source bytes and fixed ASAR pin',()=>{
+ assertCurrentRuntime(runtime);assert.equal(expectedAsar,'0d82286ca7e49206b5085c3544d377735f3af048129abdd1b261d9d1b4086251');
  for(const [file,digest] of Object.entries(runtime.hashes))assert.equal(hash(fs.readFileSync(file)),digest);
  assert.equal(hash(JSON.stringify(runtime.hashes)),expectedDigest);
 });
 test('old0.7, stale version/count/content/order provenance refused',()=>{
  for(const changed of [
-  {...runtime,version:'0.7.0'}, {...runtime,sourceDigest:'0be4f01d416e6fc4cca3f19b6916b5b65993b9fd426a926a1ede6d8487834a35'},
+  {...runtime,version:'0.7.0'}, {...runtime,version:'0.8.0'}, {...runtime,sourceDigest:'0be4f01d416e6fc4cca3f19b6916b5b65993b9fd426a926a1ede6d8487834a35'},
   {...runtime,hashes:Object.fromEntries(Object.entries(runtime.hashes).slice(1))},
   {...runtime,hashes:{...runtime.hashes,'src/engine.ts':'0'.repeat(64)}},
   {...runtime,hashes:Object.fromEntries(Object.entries(runtime.hashes).reverse())},
@@ -56,7 +56,7 @@ test('native-result validator accepts exact original metrics but refuses stale/d
  for(const change of [r=>r.records.pop(),r=>r.records.push(r.records[0]),r=>{r.records[1].name=r.records[0].name;},
   r=>{r.records[0].url='https://example.com/'+r.records[0].name;},r=>{r.records[0].url='file:///C:/other/'+r.records[0].name;},
   r=>{r.records[0].bytes++;},r=>{r.records[0].frames--;},r=>{r.records[0].channels=1;},r=>{r.records[0].sampleRate=44100;},
-  r=>{r.records[0].peak=NaN;},r=>{r.records[0].meanSquare=0;},r=>{r.records[0].duration+=0.001;},r=>{r.elapsedMs=100001;}]){
+  r=>{r.records[0].peak=NaN;},r=>{r.records[0].meanSquare=0;},r=>{r.records[0].duration+=0.001;},r=>{r.elapsedMs=100001;},r=>{r.records[0].pcmSHA256='0'.repeat(64);},r=>{r.records[0].pcmBytes--;}]){
   const result=nativeFixture();change(result);assert.throws(()=>assertNativeDecodedSounds(assets,result));
  }
 });
@@ -122,4 +122,40 @@ test('renderer rejects remote file authorities before count admission, offline c
   }
  }finally{for(const [key,descriptor] of originals){if(descriptor)Object.defineProperty(globalThis,key,descriptor);else delete globalThis[key];}}
  assert.equal(contextCalls,0);assert.equal(fetchCalls,0);
+});
+
+test('decoded ordered PCM requires original raw hash, Float32 hash/layout/count and known normalization',()=>{
+ for(const change of [r=>{delete r.records[0].rawSHA256;},r=>{r.records[0].rawSHA256='0'.repeat(64);},
+  r=>{delete r.records[0].pcmSHA256;},r=>{r.records[0].pcmSHA256='0'.repeat(64);},r=>{r.records[0].pcmBytes--;},
+  r=>{r.records[0].pcmBytes=NaN;}]){const result=nativeFixture();change(result);assert.throws(()=>assertNativeDecodedSounds(assets,result));}
+ for(const change of [w=>{w.sounds[0].decodedPCM.normalization='uniform-s16-v0';},w=>{w.sounds[0].decodedPCM.layout='interleaved';}]){
+  const witness=structuredClone(assets);change(witness);assert.throws(()=>assertNativeDecodedSounds(witness,nativeFixture()));
+ }
+});
+test('uniform /32768 raw mean-square is not accepted as the decoded positive-endpoint witness',()=>{
+ const result=nativeFixture(),source=assets.sounds[0];assert(Math.abs(source.meanSquare-source.decodedPCM.meanSquare)>1e-10);
+ result.records[0].meanSquare=source.meanSquare;assert.throws(()=>assertNativeDecodedSounds(assets,result),/Native PCM metric differs/);
+ assertNativeDecodedSounds(assets,nativeFixture());
+});
+test('equal-energy stereo-frame permutation remains distinguishable by ordered Float32 SHA',()=>{
+ const original=fs.readFileSync(assets.sounds[0].source),permuted=Buffer.from(original);
+ // Rotate whole stereo frames; each channel keeps exactly the same samples.
+ original.copy(permuted,44,48);original.copy(permuted,permuted.length-4,44,48);
+ const before=pcmWitness(original),after=pcmWitness(permuted);
+ assert.equal(before.decodedPCM.peak,after.decodedPCM.peak);
+ assert(Math.abs(before.decodedPCM.meanSquare-after.decodedPCM.meanSquare)<1e-10);
+ assert.notEqual(before.decodedPCM.sha256,after.decodedPCM.sha256);
+ const result=nativeFixture();result.records[0].pcmSHA256=after.decodedPCM.sha256;
+ assert.throws(()=>assertNativeDecodedSounds(assets,result),/Ordered decoded Float32 PCM differs/);
+ assert.throws(()=>packagedAssetWitness(runtime,parts=>parts.join('/')==='dist/audio/'+assets.sounds[0].name?permuted:readParts(parts)),/Packaged sound differs/);
+});
+test('channel exchange cannot evade the ordered PCM witness even with identical pooled metrics',()=>{
+ const original=fs.readFileSync(assets.sounds[0].source),swapped=Buffer.from(original);
+ for(let i=44;i<swapped.length;i+=4){original.copy(swapped,i,i+2,i+4);original.copy(swapped,i+2,i,i+2);}
+ const before=pcmWitness(original),after=pcmWitness(swapped);
+ assert.equal(before.decodedPCM.peak,after.decodedPCM.peak);
+ assert(Math.abs(before.decodedPCM.meanSquare-after.decodedPCM.meanSquare)<1e-10);
+ assert.notEqual(before.decodedPCM.sha256,after.decodedPCM.sha256);
+ const result=nativeFixture();result.records[0].pcmSHA256=after.decodedPCM.sha256;
+ assert.throws(()=>assertNativeDecodedSounds(assets,result),/Ordered decoded Float32 PCM differs/);
 });

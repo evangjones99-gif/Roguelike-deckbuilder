@@ -1,0 +1,1 @@
+First canonical visual curation guessed FROZEN-FILES.json; actual immutable declared manifest is FROZEN.json. It stopped before target creation; gameplay curation completed. Corrected intake uses actual filename/hash, no originals mutated.

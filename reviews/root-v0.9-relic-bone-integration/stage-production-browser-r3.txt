@@ -1,0 +1,12 @@
+
+> hollowpact@0.9.0 test:browser
+> playwright test tests/browser/preview-v0.4.spec.ts:119 --output=/tmp/hollowpact-relic-bone-root-browser-v09-r3/test-results
+
+
+Running 1 test using 1 worker
+
+(node:358036) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/browser/preview-v0.4.spec.ts:119:1 › failed backup storage never overwrites the inherited original while recovered play remains available (6.2s)
+
+  1 passed (8.0s)

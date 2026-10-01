@@ -41,7 +41,18 @@ export function pcmWitness(bytes){
  let peak=0,sum=0;
  for(let offset=44;offset<bytes.length;offset+=2){const value=bytes.readInt16LE(offset)/32768;peak=Math.max(peak,Math.abs(value));sum+=value*value;}
  assert.ok(peak>0&&peak<1,'Silent or clipped fixed production sound');
- return {bytes:bytes.length,frames,channels:2,sampleRate:48000,duration:frames/48000,peak,meanSquare:sum/(frames*2)};
+ // Chromium FixedSampleTypeTraits<int16_t>::To<float> uses different signed
+ // endpoints and Float32 reciprocal multiplication, not uniform /32768.
+ // This expected channel-major LE PCM is computed from SHA-pinned raw samples.
+ const decodedBytes=Buffer.alloc(frames*2*4),positive=Math.fround(1/32767),negative=Math.fround(1/32768);
+ let index=0,decodedPeak=0,decodedSum=0;
+ for(let channel=0;channel<2;channel++)for(let frame=0;frame<frames;frame++){
+  const sample=bytes.readInt16LE(44+(frame*2+channel)*2),value=Math.fround(sample*(sample<0?negative:positive));
+  decodedBytes.writeFloatLE(value,index++*4);decodedPeak=Math.max(decodedPeak,Math.abs(value));decodedSum+=value*value;
+ }
+ return {bytes:bytes.length,frames,channels:2,sampleRate:48000,duration:frames/48000,peak,meanSquare:sum/(frames*2),
+  decodedPCM:{normalization:'chromium-s16-asymmetric-f32-reciprocal-v1',layout:'channel-major-float32-le',bytes:decodedBytes.length,
+   sha256:hash(decodedBytes),peak:decodedPeak,meanSquare:decodedSum/(frames*2)}};
 }
 export function packagedAssetWitness(runtime,readParts){
  const sounds=audioInputs(runtime).map(source=>{
@@ -63,6 +74,12 @@ export async function decodeInstalledSounds(sounds){
  if(base.protocol!=='file:'||base.hostname!==''||!base.pathname.endsWith('/resources/app.asar/dist/audio/'))throw Error('Not an installed ASAR sound path');
  if(sounds.length!==39)throw Error('Wrong fixed decode count');
  const started=performance.now(),context=new OfflineAudioContext(2,1,48000),records=[];
+ async function digest(input){
+  let timer;const result=await Promise.race([crypto.subtle.digest('SHA-256',input),
+   new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('Installed sound hash timeout')),10000);}),
+  ]).finally(()=>clearTimeout(timer));
+  return [...new Uint8Array(result)].map(byte=>byte.toString(16).padStart(2,'0')).join('');
+ }
  for(const sound of sounds){
   if(performance.now()-started>90000)throw Error('Installed sound decode phase deadline');
   if(!/^[a-z_]+-[123]\.wav$/.test(sound.name))throw Error('Unsafe sound filename');
@@ -70,14 +87,18 @@ export async function decodeInstalledSounds(sounds){
   const response=await fetch(url,{credentials:'omit',signal:AbortSignal.timeout(10000)});
   if(!response.ok)throw Error('Installed sound unavailable');const bytes=await response.arrayBuffer();
   if(bytes.byteLength!==sound.bytes||bytes.byteLength>2097152)throw Error('Installed sound byte count differs');
+  const rawSHA256=await digest(bytes);
+  if(rawSHA256!==sound.sha256)throw Error('Installed sound raw SHA differs');
   let timer;const decoded=await Promise.race([
    context.decodeAudioData(bytes),new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('Installed sound decode timeout')),10000);}),
   ]).finally(()=>clearTimeout(timer));
-  let peak=0,sum=0;
+  if(decoded.length!==sound.frames||decoded.numberOfChannels!==sound.channels||decoded.sampleRate!==sound.sampleRate)throw Error('Installed decoded PCM format differs');
+  const pcm=new ArrayBuffer(decoded.length*decoded.numberOfChannels*4),view=new DataView(pcm);let sampleIndex=0,peak=0,sum=0;
   for(let channel=0;channel<decoded.numberOfChannels;channel++)for(const value of decoded.getChannelData(channel)){
-   if(!Number.isFinite(value))throw Error('Nonfinite native decoded PCM');peak=Math.max(peak,Math.abs(value));sum+=value*value;
+   if(!Number.isFinite(value))throw Error('Nonfinite native decoded PCM');view.setFloat32(sampleIndex++*4,value,true);peak=Math.max(peak,Math.abs(value));sum+=value*value;
   }
-  records.push({name:sound.name,url:url.href,bytes:sound.bytes,frames:decoded.length,channels:decoded.numberOfChannels,
+  const pcmSHA256=await digest(pcm);
+  records.push({rawSHA256,pcmSHA256,pcmBytes:pcm.byteLength,name:sound.name,url:url.href,bytes:sound.bytes,frames:decoded.length,channels:decoded.numberOfChannels,
    sampleRate:decoded.sampleRate,duration:decoded.duration,peak,meanSquare:sum/(decoded.length*decoded.numberOfChannels)});
  }
  return {method:'Installed file fetch + offline Chromium Web Audio decode; no output/listening/application-audio claim',elapsedMs:performance.now()-started,records};
@@ -91,9 +112,13 @@ export function assertNativeDecodedSounds(witness,result){
   assert.equal(actual.name,source.name);assert.equal(url.protocol,'file:');assert.equal(url.hostname,'');
   assert.ok(url.pathname.endsWith('/resources/app.asar/dist/audio/'+source.name));
   for(const field of ['bytes','frames','channels','sampleRate'])assert.equal(actual[field],source[field]);
+  assert.equal(source.decodedPCM.normalization,'chromium-s16-asymmetric-f32-reciprocal-v1');
+  assert.equal(source.decodedPCM.layout,'channel-major-float32-le');
+  assert.equal(actual.rawSHA256,source.sha256,'Actual fetched raw WAV differs');
+  assert.equal(actual.pcmBytes,source.decodedPCM.bytes);assert.equal(actual.pcmSHA256,source.decodedPCM.sha256,'Ordered decoded Float32 PCM differs');
   for(const field of ['duration','peak','meanSquare']){
    assert.ok(Number.isFinite(actual[field])&&actual[field]>0);
-   assert.ok(Math.abs(actual[field]-source[field])<=1e-10,`Native PCM metric differs: ${source.name}/${field}`);
+   assert.ok(Math.abs(actual[field]-(field==='duration'?source.duration:source.decodedPCM[field]))<=1e-10,`Native PCM metric differs: ${source.name}/${field}`);
   }
  }
 }

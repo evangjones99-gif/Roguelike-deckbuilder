@@ -1,0 +1,19 @@
+{
+  "completedTests": 28,
+  "interruptedTest": "tests/browser/preview-v0.4.spec.ts:108",
+  "notRun": 6,
+  "exitCode": 130,
+  "ownedPlaywrightPID": 350914,
+  "scopeCorrection": "Playwright normally removed its own unfrozen transient successful trace workspace when gracefully interrupted. The122MB peak is NOT a retained frozen trace set; no claim all ephemeral trace bytes preserved. Exact original stdout log, current interrupted error/context/state and this qualification remain. No old frozen review/art/release input deleted by root.",
+  "remainingRawOutputs": {
+    ".last-run.json": {
+      "bytes": 346,
+      "sha256": "b4724ab9aebc2f91c205ac35dbd97cf752f224324157a4ec54c8a51e676a360f"
+    },
+    "preview-v0.4-recovery-pres-3e96e-a-separate-exact-raw-backup/trace.zip": {
+      "bytes": 5131,
+      "sha256": "5985ac3542fb9ec819bfd4296803159b7c5d0fa55845592004a19955bd4cb3eb"
+    }
+  },
+  "nextTests": "Rerun exact interrupted case plus six not-run tests with TMP output; earlier28 success log remains."
+}

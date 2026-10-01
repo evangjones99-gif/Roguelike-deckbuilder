@@ -2,10 +2,10 @@ import assert from 'node:assert/strict';
 import path from 'node:path';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
-export const expectedDigest = '23477f68c99d6d60b0b3f82b286a8d33bb6da6f2ca92c103fbecf5663634959f';
-export const expectedAsar = 'c383c4437ac5467146174c6ea039b2a8b28af43d609701379e8cf695f59d530c';
-export const expectedVersion = '0.8.0';
-export const expectedInputCount = 76;
+export const expectedDigest = '8a33f950ed57093a222baf9b7883a5c1ccf2deb2e8412429ef0fe05d370467cb';
+export const expectedAsar = '0d82286ca7e49206b5085c3544d377735f3af048129abdd1b261d9d1b4086251';
+export const expectedVersion = '0.9.0';
+export const expectedInputCount = 77;
 export const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 export async function hashFile(file) { const h=crypto.createHash('sha256');for await(const b of fs.createReadStream(file))h.update(b);return h.digest('hex'); }
 export function layout(localAppData, token) {

@@ -1,5 +1,12 @@
 # Hollowpact production continuation
 
+## Controlled0.9 installer retry — exact8a source, continue
+
+Root selects the separately reviewed R3 decoder repair at installer-v0.9-decoder-r3-author/independent. Exactly guards/current-validation/current-validation-test change; all77 game inputs remain runtime8a33/55 outputs/ASAR0d822. Root31 guard tests pass. Chromium positive/negative endpoint Float32 reciprocal witness independently matches all39 historical Windows metrics exactly; tight1e-10 limits remain, actual raw and ordered decoded-PCM hashes add corruption detection. Fresh exact-helper author/independent Linux file-ASAR39-cue probes and hash-timeout/refusal tests pass, not new Windows/hearing/consumer proof. The following tooling push activates isolated Windows QA; capture its exact checkout before selecting newer4bfa game sources. Old actual0.8 run remains failed with original evidence preserved.
+
+All fresh merged4bfa gates now accept scoped development: root35 production browser cases across an honestly qualified interrupted/split run; independent23-context gameplay,27-context visual and13-context actual Linux package.78 inputs/56 outputs, matching manual ASAR6976f762b6add426a3a3ca49e4c10da2ddd8d050b0f97547457b8a79794270ff. New BoneThrall artwork and visible relic-effect inspection remain staged until source promotion after this short QA checkout freeze. Further artwork-fallback/card-layout/pose research continues in separate owned stages. Source/archive capacity remains a concrete blocker to sealing0.9; owner storage-location request is pending, no work paused for that answer.
+
+
 ## Working0.9.0 — final-kill readout accepted, continue
 
 Root now promotes runtime `8a33f950ed57093a222baf9b7883a5c1ccf2deb2e8412429ef0fe05d370467cb` (77 inputs/55 outputs), main-only versus acceptedefef. Root strict build matches all55 outputs,9 affected browser checks pass; fresh merged gameplay46 contexts/72 actions, visual26 contexts and actual Linux17 contexts/17 actions/17 reloads accept scoped development. Matching ASAR `0d82286ca7e49206b5085c3544d377735f3af048129abdd1b261d9d1b4086251` is a manually assembled affected candidate with all59 leaves and74 package files checked,73 disclosed shared stock aliases; this is not a new builder/Windows/consumer qualification. Final health/block/attack/bars/status/ARIA now show resolved actors, including new sixth binding and living survivors after canonical victory cleanup. Held economy/card context remains inherited. Three changed built outputs and52 exact retainedefef outputs reconstruct this build.

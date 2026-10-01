@@ -1,0 +1,496 @@
+{
+  "sourceDirectory": "/workspace/scratch/installer-v09-decoder-author-r3",
+  "archive": "curated-evidence.tar.gz",
+  "archiveBytes": 123837,
+  "archiveSHA256": "3cfbc7233e9e7a97571d0dac8eff1f97611cda4fe7720cab4c39422a8978b399",
+  "everyDeclaredByteRoundTripVerified": true,
+  "scope": "Only exact manifest/addendum-declared file bytes. Individually hashed media references captured as regular bytes; reference targets recorded. No directory/dependency links followed; source paths and originals remain unchanged.",
+  "files": [
+    {
+      "path": "ASAR-PIN-AFTER.json",
+      "bytes": 374,
+      "sha256": "e2b5fa8dd27afd27eba2caa153c9951256d962e739139af9efb0a12bf1b012d9",
+      "referenceTarget": null
+    },
+    {
+      "path": "ASAR-PIN.json",
+      "bytes": 374,
+      "sha256": "e2b5fa8dd27afd27eba2caa153c9951256d962e739139af9efb0a12bf1b012d9",
+      "referenceTarget": null
+    },
+    {
+      "path": "AUTHOR.md",
+      "bytes": 10058,
+      "sha256": "3f17e558c233840adafbb7b3c40c77c36842ff11ab69155d01c3435dee2379b6",
+      "referenceTarget": null
+    },
+    {
+      "path": "MANIFEST.json",
+      "bytes": 13923,
+      "sha256": "3a9718808fd01c97d300e6c96bfb13daecf5a855853d2c244559c228f9abcea4",
+      "referenceTarget": null
+    },
+    {
+      "path": "ORIGINAL-INSTALLER-RETENTION-PLAN.json",
+      "bytes": 3980,
+      "sha256": "ae726313b0117881bebe3610b6eda06b99c819d2c2d98f39365589d6df7d7af7",
+      "referenceTarget": null
+    },
+    {
+      "path": "PRESERVATION-CHECK.json",
+      "bytes": 2874,
+      "sha256": "a5c6a924e512d799cb932097f3bd3d15cac57e77fde4115c87ee02bc7e56d1e6",
+      "referenceTarget": null
+    },
+    {
+      "path": "R2-MANIFEST.json",
+      "bytes": 6558,
+      "sha256": "6ee30a2627d296456ebec283e25226e4cec479ad0ced3931b9c3c7aa62d7a136",
+      "referenceTarget": null
+    },
+    {
+      "path": "R2-TO-R3-DRAFT-WITH-TOOL-LINK.patch",
+      "bytes": 14107,
+      "sha256": "0f7f7d14a50488dd550e8664a0b4827947dc9ea8133e941519bb47debac0ac52",
+      "referenceTarget": null
+    },
+    {
+      "path": "R2-TO-R3-FINAL.patch",
+      "bytes": 14477,
+      "sha256": "3e14c05b907f77d5be6da99b7ecc708c1aa2e72af7878533c6ed376433d3406c",
+      "referenceTarget": null
+    },
+    {
+      "path": "R2-TO-R3.patch",
+      "bytes": 13723,
+      "sha256": "650003af6ff323361c041f17e5ad52162a89cc90aef26b0384fe204492013205",
+      "referenceTarget": null
+    },
+    {
+      "path": "STAGED-BUILD-OUTPUTS.json",
+      "bytes": 8859,
+      "sha256": "2709cf6a47e35517aa5c9e82f958eb02193f0caae061da54b25e9bacbb406d68",
+      "referenceTarget": null
+    },
+    {
+      "path": "STAGED-FINAL-PRESERVATION.json",
+      "bytes": 344,
+      "sha256": "e7c01bd6c697812f62776945a3b1c927846199f8669878fc7980234bf50adbbe",
+      "referenceTarget": null
+    },
+    {
+      "path": "STAGED-SOURCE-INPUTS-AFTER.json",
+      "bytes": 26381,
+      "sha256": "e744570f2b7dde64eaf3950c05661712a55f7d828279b3dd5daa4af18945880d",
+      "referenceTarget": null
+    },
+    {
+      "path": "STAGED-SOURCE-INPUTS-BEFORE.json",
+      "bytes": 26381,
+      "sha256": "e744570f2b7dde64eaf3950c05661712a55f7d828279b3dd5daa4af18945880d",
+      "referenceTarget": null
+    },
+    {
+      "path": "UPSTREAM-RAW-COPY-RECEIPT.json",
+      "bytes": 412,
+      "sha256": "000059af8c84f85368682efc166d06fa349a1f6a1eee465c8fe9eaefe2cd6b02",
+      "referenceTarget": null
+    },
+    {
+      "path": "WINDOWS-NUMERIC-CORRESPONDENCE.json",
+      "bytes": 16048,
+      "sha256": "af73a1150491baf44b380c1dcc464b7c9ddd4aba9b63484b1dda55db2e329aad",
+      "referenceTarget": null
+    },
+    {
+      "path": "actual-http-decode-r2.mjs",
+      "bytes": 2477,
+      "sha256": "9423745aa17c43626aa69f0aded13b671b3ad22130ceb6f582fe78bf45cb6fc5",
+      "referenceTarget": null
+    },
+    {
+      "path": "actual-http-decode.json",
+      "bytes": 17171,
+      "sha256": "79d0a3306b4de10e595855196ff370b69a96b5552cb905de4a15c47caa3549e9",
+      "referenceTarget": null
+    },
+    {
+      "path": "actual-http-decode.mts",
+      "bytes": 2510,
+      "sha256": "46dde0e263856b7a553ce2114b7e2d5e19380b75d3cf7abeede8d9bd5d3daf91",
+      "referenceTarget": null
+    },
+    {
+      "path": "actual-http-model-comparison.json",
+      "bytes": 34651,
+      "sha256": "bf6b40bd90dce6bf42a24db724d8192449e24b92295dc33aaf192134589a902f",
+      "referenceTarget": null
+    },
+    {
+      "path": "actual-native-float32-reciprocal-analysis.json",
+      "bytes": 12946,
+      "sha256": "eedc314ad7c604a58d177261fb9ec9fe7d7ea9b10aa4878d47d19394b6589689",
+      "referenceTarget": null
+    },
+    {
+      "path": "actual-native-model-analysis.json",
+      "bytes": 39377,
+      "sha256": "071d5db246eb09bc0ee344adda697be8ad740ee06664c2901674439b63e735db",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/.github/workflows/windows-installer-validation.yml",
+      "bytes": 7402,
+      "sha256": "f9a275d14cf5dc4e921abb709e853de5d57524d428143da13fba68284f0df9af",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/windows-installer-current-validation.mjs",
+      "bytes": 8517,
+      "sha256": "6c2aa3e9f9197dfa5584f0c7d5cbd5c45e964472cf1c46f955bbc14875c3590e",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/windows-installer-current-validation.test.mjs",
+      "bytes": 9504,
+      "sha256": "e300466c782e624f7af26d7a1a29ade2e0da481a05f50d41e6535cb05982bc9c",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/windows-installer-guards.mjs",
+      "bytes": 7617,
+      "sha256": "939c24d21a7f2d549e1fa44d493bbd8f9e1b94166774a72cc75ccd6afd0d56c0",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/windows-installer-guards.test.mjs",
+      "bytes": 7479,
+      "sha256": "e28f9d5d6ba3dc742d3a2e1694e0a78b036c5cf7b8e44f43fd5a30c76b52fab8",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/windows-installer-prepare.mjs",
+      "bytes": 2956,
+      "sha256": "fe89119b530472585175ddf23b6a50d07d4f0206931e0543c6842cc69803e4e4",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/windows-installer-smoke.mjs",
+      "bytes": 22796,
+      "sha256": "fe7d34293dc05d812e10c65badc3fbdbba232c3c429391ce9a28571cd3d10885",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/windows-installer-transfer.mjs",
+      "bytes": 3754,
+      "sha256": "21f7414909f5a63c6f90e277f8462f09189deea85d965d9aae9a227277b784f2",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/windows-installer-transfer.test.mjs",
+      "bytes": 2319,
+      "sha256": "da5295cb582f7e82a68dfc4f4e7f49a5f59304257cedba9284bdf3517aa76c3b",
+      "referenceTarget": null
+    },
+    {
+      "path": "build-provenance.json",
+      "bytes": 7938,
+      "sha256": "15ba7c95728060573e9d6a720db5164c26c638ae6edea172364e6a362c6cacc6",
+      "referenceTarget": null
+    },
+    {
+      "path": "failed-native/FAILURE-INTAKE.json",
+      "bytes": 3343,
+      "sha256": "f25a326485351db7b57bb9148100e5cf6c52b9593812cd267017bb4afeb1a62a",
+      "referenceTarget": null
+    },
+    {
+      "path": "failed-native/installer-smoke.json",
+      "bytes": 56219,
+      "sha256": "1bb35a79c50ab31850367a0eb5ad082042f41f5c84c564f468013911d9873bd1",
+      "referenceTarget": null
+    },
+    {
+      "path": "failed-native/manifest.json",
+      "bytes": 1930,
+      "sha256": "c2c9f8ea9cba8d4ba892bfb74a4f687f9ced0dbed6a1217f10b69f953bc29993",
+      "referenceTarget": null
+    },
+    {
+      "path": "helper-before-hash-timeouts.mjs.txt",
+      "bytes": 10580,
+      "sha256": "4baa9e868c885ad100f7771589caef92ff252d066852d2ad091d73580e472b8d",
+      "referenceTarget": null
+    },
+    {
+      "path": "helper-syntax.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "referenceTarget": null
+    },
+    {
+      "path": "helper-syntax.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "referenceTarget": null
+    },
+    {
+      "path": "http-decode-r2.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "referenceTarget": null
+    },
+    {
+      "path": "http-decode-r2.stdout.txt",
+      "bytes": 49,
+      "sha256": "0ae72e962c32678200f23ac74fab22bfd1775123498b6b3c01340224973ec17f",
+      "referenceTarget": null
+    },
+    {
+      "path": "http-decode.stderr.txt",
+      "bytes": 420,
+      "sha256": "244351f11f0f6f21b9f081d6a9a8a752029cdd56bd7bf15a27b344a596525e9a",
+      "referenceTarget": null
+    },
+    {
+      "path": "http-decode.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "referenceTarget": null
+    },
+    {
+      "path": "investigate-native.mjs",
+      "bytes": 1772,
+      "sha256": "b9e4cadaf4d0d018569a24f45ba2d70b221bbcf08759082f22b5a3b99b9c39e5",
+      "referenceTarget": null
+    },
+    {
+      "path": "native-investigation.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "referenceTarget": null
+    },
+    {
+      "path": "native-investigation.stdout.txt",
+      "bytes": 59,
+      "sha256": "6d1261a2248b5c5415237663bc35dfb8437c2af34ec4017de1145a437ca74634",
+      "referenceTarget": null
+    },
+    {
+      "path": "native-linux-file-probe-r2.json",
+      "bytes": 24159,
+      "sha256": "8494ea52dd2ac7e033cd605fd17af7e05acddb59317c2a45cfed206a87e4aaca",
+      "referenceTarget": null
+    },
+    {
+      "path": "native-linux-file-probe-r2.mjs",
+      "bytes": 2869,
+      "sha256": "f9281c0e6be86b5d687db8e37470109463b88f1056b4bd084c07d84776065e41",
+      "referenceTarget": null
+    },
+    {
+      "path": "native-linux-file-probe-r3.json",
+      "bytes": 24788,
+      "sha256": "d882cf34463bc2dabd2f0e8622ec3aef74f05ff8faaca031007bff1187eb034a",
+      "referenceTarget": null
+    },
+    {
+      "path": "native-linux-file-probe-r3.mjs",
+      "bytes": 5031,
+      "sha256": "bdf5df608defee766dcd8d8a282c1c54315a4b8096793aea2513b6b17ac056fa",
+      "referenceTarget": null
+    },
+    {
+      "path": "native-linux-file-probe.json",
+      "bytes": 24161,
+      "sha256": "ce44cfda0e137525bea8aea49695ac48c52709628e6bc8041a803935678618ca",
+      "referenceTarget": null
+    },
+    {
+      "path": "native-linux-file-probe.mjs",
+      "bytes": 2866,
+      "sha256": "73dcd53574589cc189731bde68d86ea88a645903e07a37cdb19ff4c2641922a4",
+      "referenceTarget": null
+    },
+    {
+      "path": "native-linux-r2.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "referenceTarget": null
+    },
+    {
+      "path": "native-linux-r2.stdout.txt",
+      "bytes": 108,
+      "sha256": "46cfc2ad22fc5b982be9d997f9f0674d094d164847b1014590def4a7a04246ad",
+      "referenceTarget": null
+    },
+    {
+      "path": "native-linux-r3.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "referenceTarget": null
+    },
+    {
+      "path": "native-linux-r3.stdout.txt",
+      "bytes": 108,
+      "sha256": "c967136c23bfbfa093d27a11357ded0afd8794f86a08cdc2ff7d147f454327ce",
+      "referenceTarget": null
+    },
+    {
+      "path": "native-linux.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "referenceTarget": null
+    },
+    {
+      "path": "native-linux.stdout.txt",
+      "bytes": 110,
+      "sha256": "8b4cd25e52f96a463740ded5ab36fa591ccf22e4c36303705674c458d4e2881f",
+      "referenceTarget": null
+    },
+    {
+      "path": "original-installer-artifact-api.json",
+      "bytes": 6391,
+      "sha256": "d561267b671c95840ded41fce8c1b302ce33f04c9a1b14e936273aa6468a8077",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/.github/workflows/windows-installer-validation.yml",
+      "bytes": 7402,
+      "sha256": "f9a275d14cf5dc4e921abb709e853de5d57524d428143da13fba68284f0df9af",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/scripts/windows-installer-current-validation.mjs",
+      "bytes": 10737,
+      "sha256": "6ca522b86639fbdcaa8a8894ed382dce54627b434dc72c82031a16c998567175",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/scripts/windows-installer-current-validation.test.mjs",
+      "bytes": 12647,
+      "sha256": "66949a41394b9b947426404f35b6af94c1abb33df8912586270ff90fc410e642",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/scripts/windows-installer-guards.mjs",
+      "bytes": 7617,
+      "sha256": "b7ad25e19f50837da611b1538b1700c43e7c8d5f64571b3aca2e918adf04a22c",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/scripts/windows-installer-guards.test.mjs",
+      "bytes": 7479,
+      "sha256": "e28f9d5d6ba3dc742d3a2e1694e0a78b036c5cf7b8e44f43fd5a30c76b52fab8",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/scripts/windows-installer-prepare.mjs",
+      "bytes": 2956,
+      "sha256": "fe89119b530472585175ddf23b6a50d07d4f0206931e0543c6842cc69803e4e4",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/scripts/windows-installer-smoke.mjs",
+      "bytes": 22796,
+      "sha256": "fe7d34293dc05d812e10c65badc3fbdbba232c3c429391ce9a28571cd3d10885",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/scripts/windows-installer-transfer.mjs",
+      "bytes": 3754,
+      "sha256": "21f7414909f5a63c6f90e277f8462f09189deea85d965d9aae9a227277b784f2",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/scripts/windows-installer-transfer.test.mjs",
+      "bytes": 2319,
+      "sha256": "da5295cb582f7e82a68dfc4f4e7f49a5f59304257cedba9284bdf3517aa76c3b",
+      "referenceTarget": null
+    },
+    {
+      "path": "tests-r1.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "referenceTarget": null
+    },
+    {
+      "path": "tests-r1.stdout.txt",
+      "bytes": 3010,
+      "sha256": "2744410d80d34ae971a85b6a833610e3b6980662b83214233e7916f8b73b3f7c",
+      "referenceTarget": null
+    },
+    {
+      "path": "tests-r2.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "referenceTarget": null
+    },
+    {
+      "path": "tests-r2.stdout.txt",
+      "bytes": 3435,
+      "sha256": "2d0ebeb529657a6264ef362a3903252c6754d7ce0e79d457c9b5786685cc1b22",
+      "referenceTarget": null
+    },
+    {
+      "path": "tests-r3.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "referenceTarget": null
+    },
+    {
+      "path": "tests-r3.stdout.txt",
+      "bytes": 3440,
+      "sha256": "01a3c4b6056598e987935fa2488c8ad1527c6e99c54381c5ad3c1bd7d4bba30d",
+      "referenceTarget": null
+    },
+    {
+      "path": "upstream-audio-sample-types.h.txt",
+      "bytes": 10568,
+      "sha256": "96fee7d58629f2cb6749eba333c57cc171c4bab60c4638a37b9a5be2382ab547",
+      "referenceTarget": null
+    },
+    {
+      "path": "upstream-reference-failure.json",
+      "bytes": 225,
+      "sha256": "579b8c10751c5308e183adb91055da99a6cc4ef5a0f869c2138d58821ecb9607",
+      "referenceTarget": null
+    },
+    {
+      "path": "upstream-reference-patch-wrapper-draft.h.txt",
+      "bytes": 10569,
+      "sha256": "aa88c5b81a805ef249d5cdb16c4835a3b7a2583457bdb6316b34b110d1aae892",
+      "referenceTarget": null
+    },
+    {
+      "path": "upstream-reference.json",
+      "bytes": 447,
+      "sha256": "ae7905d18c17a5b23da0e599f0e92fd8d6accf037f2c4fc8e9ced19084a85180",
+      "referenceTarget": null
+    },
+    {
+      "path": "windows-installer-prepare.mjs.syntax.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "referenceTarget": null
+    },
+    {
+      "path": "windows-installer-prepare.mjs.syntax.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "referenceTarget": null
+    },
+    {
+      "path": "windows-installer-smoke.mjs.syntax.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "referenceTarget": null
+    },
+    {
+      "path": "windows-installer-smoke.mjs.syntax.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "referenceTarget": null
+    }
+  ]
+}
