@@ -1,4 +1,7 @@
 import { drawHoundJaw, houndJawClosure } from './hound-jaw';
+import { createBattlefieldLayout, normalizeLayoutConfig, sameLayoutConfig, interpolateCell, projectCell, interpolateRect, intersectRects, sameRect, transformedImageRect, unionRects, clipToViewport, type BattlefieldCell, type BattlefieldRect, type BattlefieldHunterGeometry, type ArenaLayoutConfig, type ArenaReadoutMetrics, type ArenaUnitRegion, type ArenaUnitViewport } from './battlefield-layout';
+import { compactIntent } from './compact-intent';
+export type { ArenaUnitRegion, ArenaUnitViewport, ArenaReadoutMetrics } from './battlefield-layout';
 import { encounterEnvironment } from './encounter-environment';
 import { observeHunter, hunterEventCues, hunterGeometry, paintHunterShadow, paintHunterSheet, HUNTER_ART_URL, hunterSourcePoint, hunterPose, type HunterPresentation } from './hunter-presence';
 import type { Action, GameState, TransitionEvent } from './engine';
@@ -7,6 +10,7 @@ import { ARENA_ART, HOUND_POSES, portraitFor, animationFor, CREATURE_ATTACK_SEQU
 type Unit = GameState['allies'][number];
 type Side = 'ally' | 'enemy';
 type Point = { x: number; y: number };
+type UnitRegionListener = (regions: readonly ArenaUnitRegion[]) => void;
 type Figure = {
   uid: string;
   unit: Unit;
@@ -32,6 +36,8 @@ type Figure = {
   layoutStarted: number;
   sizeFrom: number;
   sizeTarget: number;
+  cellFrom: BattlefieldCell;
+  cellTarget: BattlefieldCell;
 };
 type Strike = {
   source: string | null;
@@ -48,15 +54,16 @@ export function createArena(canvas: HTMLCanvasElement) {
   if (!context) {
     const notice = document.createElement('div');
     notice.className = 'arena-fallback'; notice.setAttribute('role', 'status');
-    notice.textContent = 'Battlefield artwork unavailable. Combat details are in the panels.';
+    notice.textContent = 'Battlefield artwork unavailable. Combat controls remain available.';
     canvas.hidden = true; canvas.insertAdjacentElement('afterend', notice);
-    return { render(_state: GameState) {}, playAction(_action: Action, _before: GameState, _after: GameState, _events?: readonly TransitionEvent[]) {}, busyMs() { return 0; }, getPresentationBusyMs() { return 0; }, waitForPresentation() { return Promise.resolve(); }, cancelPresentation() {}, setSelected(_uid: string | null) {}, resize() {}, dispose() { notice.remove(); canvas.hidden = false; } };
+    const regions: readonly ArenaUnitRegion[] = Object.freeze([]);
+    return { render(_state: GameState) {}, playAction(_action: Action, _before: GameState, _after: GameState, _events?: readonly TransitionEvent[]) {}, busyMs() { return 0; }, getPresentationBusyMs() { return 0; }, waitForPresentation() { return Promise.resolve(); }, cancelPresentation() {}, setSelected(_uid: string | null) {}, resize() {}, getUnitRegions() { return regions; }, getUnitViewport(): ArenaUnitViewport { return { width: 0, height: 0, canvasAvailable: false, requiredHeight: 0, layoutPending: false, hunterRect: { left: 0, top: 0, width: 0, height: 0 } }; }, setReadoutMetrics(_metrics: ArenaReadoutMetrics) {}, getActionPresentationDelayMs() { return 0; }, subscribeUnitRegions(listener: UnitRegionListener) { notifyRegionListener(listener, regions); return () => {}; }, dispose() { notice.remove(); canvas.hidden = false; } };
   }
   const ctx = context;
   let environment: 'courtyard' | 'crypt' = 'courtyard';
   function updateEnvironmentLabel() {
     const place = environment === 'crypt' ? 'ossuary crypt' : 'ruined abbey courtyard';
-    canvas.setAttribute('aria-label', `An illustrated ${place}. Bound monsters face the forces of the hollow. All combat controls are in the companion and enemy panels.`);
+    canvas.setAttribute('aria-label', `An illustrated ${place}. Bound monsters face the forces of the hollow. Combat controls and information accompany each creature.`);
   }
   updateEnvironmentLabel();
   const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -67,10 +74,20 @@ export function createArena(canvas: HTMLCanvasElement) {
   let frame = 0, lastTimestamp = 0, time = 0;
   let selected: string | null = null;
   let active = false;
-  const formationCounts: Record<Side, number> = { ally: 0, enemy: 0 };
+  let layoutConfig: ArenaLayoutConfig = { allies: 0, enemies: 0, intentRows: 3, statsRows: 1 };
+  let measuredRows: ArenaReadoutMetrics = {};
+  type Allocation = { config: ArenaLayoutConfig; slots: Map<string, number>; start: number; cueStart: number };
+  let pendingAllocation: Allocation | null = null;
+  let actionAllocationSlots = new Map<string, number>();
+  let allocationTransitionEnd = -10, lastActionLeadMs = 0, lastActionCueStart = -10;
+  let hunterFrom: BattlefieldHunterGeometry | null = null, hunterTarget: BattlefieldHunterGeometry | null = null, hunterStarted = -10;
+  const fieldLayout = (config = layoutConfig) => createBattlefieldLayout(width, height, config);
   let previous: GameState | null = null;
   let hunter: HunterPresentation | null = null;
   const figures = new Map<string, Figure>();
+  const regionListeners = new Set<UnitRegionListener>();
+  let publishedRegions: readonly ArenaUnitRegion[] = Object.freeze([]);
+  let publishedViewport = '';
   let strikes: Strike[] = [];
   const presentationWaiters = new Set<() => void>();
   const attackDuration = CREATURE_ATTACK_SEQUENCE.reduce((total, step) => total + step.durationMs, 0) / 1000;
@@ -100,7 +117,7 @@ export function createArena(canvas: HTMLCanvasElement) {
   }
   function updateStatus() {
     const relevantMissing = [...missing].some(url => (url !== ARENA_ART.courtyard && url !== ARENA_ART.crypt) || url === ARENA_ART[environment]);
-    status.textContent = relevantMissing ? 'Some artwork is missing. Combat details are in the panels.' : '';
+    status.textContent = relevantMissing ? 'Some artwork is missing. Combat controls remain available.' : '';
   }
   // Environment art is requested on demand; unused crypt art cannot fail a courtyard.
   imageFor(ARENA_ART.companions); imageFor(ARENA_ART.adversaries);
@@ -141,19 +158,124 @@ export function createArena(canvas: HTMLCanvasElement) {
     back.fillStyle = edge; back.fillRect(0, 0, width, height);
   }
 
-  function targetPosition(figure: Figure): Point {
-    if (figure.dead !== null) return figure.lastPoint;
-    return figure.side === 'ally'
-      ? { x: width * [.21, .79, .33, .67, .09, .91][figure.slot], y: height * .89 }
-      : { x: width * (figure.slot + 1) / (figure.count + 1), y: height * .50 };
+  function cellFor(side: Side, slot: number, config = layoutConfig): BattlefieldCell {
+    const countKey = side === 'ally' ? 'allies' : 'enemies';
+    const safe = config[countKey] > slot ? config : { ...config, [countKey]: slot + 1 };
+    return fieldLayout(safe)[side][slot];
   }
-  function targetSize(figure: Figure) {
-    const boss = /dragon|crown/.test(figure.unit.species);
-    const bulky = /colossus|golem/.test(figure.unit.species);
-    const max = Math.min(height * (figure.side === 'ally' ? figure.count <= 2 ? .43 : .38 : .43),
-      figure.side === 'ally' ? width * (figure.count <= 2 ? .23 : figure.count <= 4 ? .14 : .12)
-      : width / (figure.count + 1) * .92);
-    return Math.min(max * (boss ? 1.3 : bulky ? 1.07 : 1), height * .52);
+  function shapeExtents(figure: Figure) {
+    let left = .5, right = .5, top = .94 * 1.006, bottom = .06 * 1.006;
+    const atlas = figure.animation, image = atlas && images.get(atlas.url);
+    if (atlas) {
+      left = right = top = bottom = 0;
+      const ratio = image && loaded(image) ? image.naturalWidth / atlas.columns / (image.naturalHeight / atlas.rows) : 1;
+      for (const frames of Object.values(atlas.poses)) for (const frame of frames ?? []) {
+        const crop = frame.crop ?? { x: 0, y: 0, width: 1, height: 1 };
+        const h = frame.scale ?? 1, w = h * ratio * crop.width / crop.height;
+        const ax = frame.anchorX ?? atlas.anchorX, ay = frame.anchorY ?? atlas.anchorY;
+        // Facing can flip during contact; reserve both full unchanged cell edges.
+        const horizontal = w * Math.max(ax, 1 - ax) + .025;
+        left = Math.max(left, horizontal); right = Math.max(right, horizontal);
+        top = Math.max(top, h * ay * 1.006); bottom = Math.max(bottom, h * (1 - ay) * 1.006);
+      }
+      // Missing/loading art still paints a square heraldry cell at its own anchor.
+      if (!image || !loaded(image)) { left = Math.max(left, .525); right = Math.max(right, .525);
+        top = Math.max(top, .94 * 1.006); bottom = Math.max(bottom, .06 * 1.006); }
+    } else { left += .025; right += .025; }
+    return { left, right, top, bottom };
+  }
+  function feetFor(figure: Figure, cell: BattlefieldCell): Point {
+    const shape = shapeExtents(figure), body = cell.bodyRect;
+    const ratio = shape.top / Math.max(.001, shape.top + shape.bottom);
+    return { x: body.left + body.width / 2, y: body.top + 2 + Math.max(0, body.height - 4) * ratio };
+  }
+  function fitSize(figure: Figure, body: BattlefieldRect) {
+    const shape = shapeExtents(figure), ratio = shape.top / Math.max(.001, shape.top + shape.bottom);
+    const vertical = Math.max(0, body.height - 4);
+    return Math.max(0, Math.min((body.width / 2 - 4) / Math.max(shape.left, shape.right),
+      vertical * ratio / Math.max(.001, shape.top), vertical * (1 - ratio) / Math.max(.001, shape.bottom)));
+  }
+  function targetPosition(figure: Figure): Point {
+    return figure.dead !== null && time >= figure.dead ? figure.lastPoint : feetFor(figure, figure.cellTarget);
+  }
+  function targetSize(figure: Figure) { return fitSize(figure, figure.cellTarget.bodyRect); }
+  function figureCell(figure: Figure): BattlefieldCell {
+    return interpolateCell(figure.cellFrom, figure.cellTarget, layoutBlend(figure));
+  }
+  function hunterPlacement(): BattlefieldHunterGeometry {
+    const target = hunterTarget ?? fieldLayout().hunter, from = hunterFrom ?? target;
+    const raw = reduced ? 1 : clamp((time - hunterStarted) / .32, 0, 1), blend = raw * raw * (3 - 2 * raw);
+    return { feet: { x: from.feet.x + (target.feet.x - from.feet.x) * blend,
+      y: from.feet.y + (target.feet.y - from.feet.y) * blend },
+      torso: { x: from.torso.x + (target.torso.x - from.torso.x) * blend,
+        y: from.torso.y + (target.torso.y - from.torso.y) * blend },
+      bodyHeight: from.bodyHeight + (target.bodyHeight - from.bodyHeight) * blend,
+      bodyWidth: from.bodyWidth + (target.bodyWidth - from.bodyWidth) * blend,
+      rect: interpolateRect(from.rect, target.rect, blend) };
+  }
+  function desiredAllocation(state: GameState): { config: ArenaLayoutConfig; slots: Map<string, number> } {
+    const slots = new Map<string, number>();
+    state.allies.slice(0, 6).forEach((unit, index) => slots.set(unit.uid, index));
+    state.enemies.slice(0, 6).forEach((unit, index) => slots.set(unit.uid, index));
+    const intentRows = Math.max(3, ...state.enemies.map(unit => compactIntent(state, unit).essentialRows), measuredRows.intentRows ?? 0);
+    return { config: normalizeLayoutConfig({ allies: state.allies.length, enemies: state.enemies.length,
+      intentRows, statsRows: measuredRows.statsRows ?? 1, identityRows: measuredRows.identityRows ?? 1 }), slots };
+  }
+  function allocationChanges(config: ArenaLayoutConfig, slots: Map<string, number>): boolean {
+    const next = fieldLayout(config);
+    if (Math.abs(next.requiredHeight - fieldLayout().requiredHeight) > .01 || !sameRect(next.hunter.rect, hunterPlacement().rect)) return true;
+    for (const figure of figures.values()) {
+      const slot = slots.get(figure.uid); if (slot === undefined || (figure.dead !== null && time >= figure.dead)) continue;
+      const cell = next[figure.side][slot];
+      if (!sameRect(figure.cellTarget, cell) || Math.abs(figure.sizeTarget - fitSize(figure, cell.bodyRect)) > .01) return true;
+    }
+    return false;
+  }
+  function applyAllocation(config: ArenaLayoutConfig, slots: Map<string, number>, start: number, animate: boolean) {
+    const oldHunter = hunterPlacement(), nextConfig = normalizeLayoutConfig(config);
+    const staged = animate;
+    // A live UID crossing rows or a count change can sweep through another
+    // owner's readout or the hunter's old center band. Commit that allocation
+    // atomically after holds; the pre-cue stage still locks changing ownership.
+    const reindexed = [...figures.values()].some(figure => slots.has(figure.uid) && slots.get(figure.uid) !== figure.slot);
+    const tween = animate && !reindexed && nextConfig.allies === layoutConfig.allies && nextConfig.enemies === layoutConfig.enemies;
+    layoutConfig = nextConfig;
+    const next = fieldLayout();
+    hunterFrom = tween ? oldHunter : next.hunter; hunterTarget = next.hunter; hunterStarted = tween ? start : time - 2;
+    let moved = !sameRect(oldHunter.rect, next.hunter.rect);
+    for (const figure of figures.values()) {
+      const slot = slots.get(figure.uid); if (slot === undefined || (figure.dead !== null && time >= figure.dead)) continue;
+      const oldCell = figureCell(figure), oldPoint = position(figure), oldSize = figureSize(figure);
+      figure.slot = slot; figure.count = figure.side === 'ally' ? layoutConfig.allies : layoutConfig.enemies;
+      const cell = next[figure.side][slot], point = feetFor(figure, cell), size = fitSize(figure, cell.bodyRect);
+      const changed = !sameRect(oldCell, cell) || Math.abs(oldSize - size) > .01;
+      const transition = tween && changed && figure.born < start;
+      figure.cellFrom = transition ? oldCell : cell; figure.cellTarget = cell;
+      figure.layoutFrom = transition ? oldPoint : point; figure.layoutTarget = point;
+      figure.sizeFrom = transition ? oldSize : size; figure.sizeTarget = size;
+      figure.layoutStarted = transition ? start : time - 2;
+      figure.lastPoint = position(figure); moved ||= changed;
+    }
+    if (staged && moved) allocationTransitionEnd = Math.max(allocationTransitionEnd, start + .32);
+    else if (!staged) allocationTransitionEnd = time;
+  }
+  function advanceAllocation() {
+    if (pendingAllocation && time >= pendingAllocation.start) {
+      const pending = pendingAllocation; pendingAllocation = null;
+      applyAllocation(pending.config, pending.slots, pending.start, !reduced && !document.hidden);
+    }
+    if (!pendingAllocation && time >= allocationTransitionEnd && cueBusyMs() === 0 && active && previous) {
+      const next = desiredAllocation(previous);
+      if (!sameLayoutConfig(layoutConfig, next.config) || allocationChanges(next.config, next.slots))
+        applyAllocation(next.config, next.slots, time, !reduced && !document.hidden);
+    }
+  }
+  function setReadoutMetrics(metrics: ArenaReadoutMetrics) {
+    const intentRows = metrics.intentRows ?? measuredRows.intentRows;
+    const statsRows = metrics.statsRows ?? measuredRows.statsRows;
+    const identityRows = metrics.identityRows ?? measuredRows.identityRows;
+    if (intentRows === measuredRows.intentRows && statsRows === measuredRows.statsRows && identityRows === measuredRows.identityRows) return;
+    measuredRows = { intentRows, statsRows, identityRows }; advanceAllocation(); draw();
   }
   function layoutBlend(figure: Figure) {
     if (reduced) return 1;
@@ -161,12 +283,13 @@ export function createArena(canvas: HTMLCanvasElement) {
     return progress * progress * (3 - 2 * progress);
   }
   function position(figure: Figure): Point {
-    if (figure.dead !== null) return figure.lastPoint;
+    if (figure.dead !== null && time >= figure.dead) return figure.lastPoint;
     const blend = layoutBlend(figure);
     return { x: figure.layoutFrom.x + (figure.layoutTarget.x - figure.layoutFrom.x) * blend, y: figure.layoutFrom.y + (figure.layoutTarget.y - figure.layoutFrom.y) * blend };
   }
   function figureSize(figure: Figure) {
-    return figure.sizeFrom + (figure.sizeTarget - figure.sizeFrom) * layoutBlend(figure);
+    return Math.min(figure.sizeFrom + (figure.sizeTarget - figure.sizeFrom) * layoutBlend(figure),
+      fitSize(figure, figureCell(figure).bodyRect));
   }
   function reconcileStrikeEndpoints() {
     for (const strike of strikes) {
@@ -178,17 +301,17 @@ export function createArena(canvas: HTMLCanvasElement) {
   function sourcePoint(uid: string): Point {
     if (uid === 'hunter') {
       const sheet = images.get(HUNTER_ART_URL);
-      return sheet && loaded(sheet) ? hunterSourcePoint(hunter,width,height,time,reduced) : hunterGeometry(width,height).torso;
+      return sheet && loaded(sheet) ? hunterSourcePoint(hunter,width,height,time,reduced,hunterPlacement()) : hunterGeometry(width,height,hunterPlacement()).torso;
     }
     return combatPoint(uid);
   }
   function pointFor(uid: string): Point {
-    if (uid === 'hunter') return hunterGeometry(width, height).feet;
+    if (uid === 'hunter') return hunterGeometry(width, height,hunterPlacement()).feet;
     const figure = figures.get(uid);
     return figure ? position(figure) : { x: width * .42, y: height * .92 };
   }
   function combatPoint(uid: string): Point {
-    if (uid === 'hunter') return hunterGeometry(width, height).torso;
+    if (uid === 'hunter') return hunterGeometry(width, height,hunterPlacement()).torso;
     const figure = figures.get(uid);
     const point = pointFor(uid);
     return { x: point.x, y: point.y - (figure ? figureSize(figure) * .43 : height * .12) };
@@ -256,6 +379,13 @@ export function createArena(canvas: HTMLCanvasElement) {
     const duration = (figure.animation?.blendMs?.[figure.pose] ?? 70) / 1000;
     return reduced || duration <= 0 ? 1 : clamp((time - figure.poseChanged) / duration, 0, 1);
   }
+  function poseDimensions(image: HTMLImageElement, atlas: CreatureAnimationAtlas, pose: CreaturePoseFrame, size: number) {
+    const crop = pose.crop ?? { x: 0, y: 0, width: 1, height: 1 };
+    const height = size * (pose.scale ?? 1);
+    return { width: height * (image.naturalWidth / atlas.columns * crop.width)
+      / (image.naturalHeight / atlas.rows * crop.height), height,
+      anchorX: pose.anchorX ?? atlas.anchorX, anchorY: pose.anchorY ?? atlas.anchorY };
+  }
   function drawPose(image: HTMLImageElement, atlas: CreatureAnimationAtlas, frame: CreaturePoseFrame, size: number, alpha: number, jawClosure = 0) {
     const cellWidth = image.naturalWidth / atlas.columns, cellHeight = image.naturalHeight / atlas.rows;
     const crop = frame.crop ?? { x: 0, y: 0, width: 1, height: 1 };
@@ -263,13 +393,14 @@ export function createArena(canvas: HTMLCanvasElement) {
     const sx = frame.column * cellWidth + cellWidth * crop.x, sy = frame.row * cellHeight + cellHeight * crop.y;
     // Cell aspect follows the actual source image; anatomy is never stretched
     // merely to force an image-generator output into the preferred 3:2 sheet.
-    const h = size * (frame.scale ?? 1), w = h * sw / sh;
+    const dimensions = poseDimensions(image, atlas, frame, size);
+    const h = dimensions.height, w = dimensions.width;
     ctx.save(); ctx.globalAlpha *= alpha;
     if (jawClosure > 0 && atlas === HOUND_POSES && frame.column === 2 && frame.row === 0 && cellWidth === 512 && cellHeight === 512) {
       drawHoundJaw(ctx, image, jawClosure, frame.column*cellWidth, frame.row*cellHeight,
         cellWidth*crop.x, cellHeight*crop.y, sw, sh,
-        -w*(frame.anchorX ?? atlas.anchorX), -h*(frame.anchorY ?? atlas.anchorY), w, h);
-    } else ctx.drawImage(image, sx, sy, sw, sh, -w * (frame.anchorX ?? atlas.anchorX), -h * (frame.anchorY ?? atlas.anchorY), w, h);
+        -w * dimensions.anchorX, -h * dimensions.anchorY, w, h);
+    } else ctx.drawImage(image, sx, sy, sw, sh, -w * dimensions.anchorX, -h * dimensions.anchorY, w, h);
     ctx.restore();
   }
 
@@ -362,6 +493,7 @@ export function createArena(canvas: HTMLCanvasElement) {
       : reduced ? 1 : clamp((time - figure.born) / .32, 0, 1);
   }
   function paintFloor(figure: Figure) {
+    if (time < figure.born) return;
     const point = position(figure), size = figureSize(figure), movement = motionFor(figure);
     const deathAge = figure.dead === null ? -1 : time - figure.dead;
     const summonAge = time - figure.born;
@@ -374,22 +506,30 @@ export function createArena(canvas: HTMLCanvasElement) {
     if (selected === figure.uid && deathAge < 0) sigil(point, size * 1.05, '#ecd099', .86);
     else if (!reduced && summonAge < .75 && deathAge < 0) sigil(point, size, '#c7c493', (1 - summonAge / .75) * .75);
   }
-  function paintFigure(figure: Figure) {
+  function figureTransform(figure: Figure) {
     const point = position(figure);
     const size = figureSize(figure);
     const deathAge = figure.dead === null ? -1 : time - figure.dead;
-    const alpha = figureOpacity(figure);
     const movement = motionFor(figure);
     const hitAge = time - figure.hit;
     const recoil = !reduced && hitAge > 0 && hitAge < CREATURE_REACTION_MS / 1000 ? Math.sin(hitAge * 45) * (1 - hitAge / (CREATURE_REACTION_MS / 1000)) * size * .025 : 0;
     const breath = !reduced && deathAge < 0 ? 1 + Math.sin(time * 1.35 + figure.phase) * .006 : 1;
+    return { origin: { x: point.x + movement.x + recoil, y: point.y + movement.y }, breath };
+  }
+  function paintFigure(figure: Figure) {
+    if (time < figure.born) return;
+    const point = position(figure);
+    const size = figureSize(figure);
+    const deathAge = figure.dead === null ? -1 : time - figure.dead;
+    const alpha = figureOpacity(figure);
+    const transform = figureTransform(figure);
     const image = figure.art && imageFor(figure.art.url);
     const atlasImage = figure.animation && imageFor(figure.animation.url);
     const blend = poseBlend(figure);
     ctx.save(); ctx.globalAlpha = alpha;
-    ctx.translate(point.x + movement.x + recoil, point.y + movement.y);
+    ctx.translate(transform.origin.x, transform.origin.y);
     // Mirror the original painted anatomy toward its actual resolved target.
-    ctx.scale(figure.facing, breath);
+    ctx.scale(figure.facing, transform.breath);
     if (atlasImage && loaded(atlasImage) && figure.animation) {
       const current = poseFrame(figure.animation, figure.pose, time - figure.poseChanged);
       const prior = figure.priorPose && blend < 1 ? poseFrame(figure.animation, figure.priorPose, 0) : null;
@@ -427,6 +567,89 @@ export function createArena(canvas: HTMLCanvasElement) {
     return { x: point.x + movement.x, y: point.y + movement.y };
   }
 
+  function getUnitViewport(): ArenaUnitViewport {
+    return { width, height, canvasAvailable: !disposed, requiredHeight: fieldLayout().requiredHeight,
+      layoutPending: !!pendingAllocation || time < allocationTransitionEnd, hunterRect: hunterPlacement().rect };
+  }
+  function getUnitRegions(): readonly ArenaUnitRegion[] {
+    if (disposed) return Object.freeze([]);
+    const busy = busyMs() > 0;
+    // During terminal presentation the old figures still have useful readouts,
+    // but are never legal controls. The reducer owns actual action legality.
+    if (!active && !busy) return Object.freeze([]);
+    const canonical = new Set([...(previous?.allies ?? []), ...(previous?.enemies ?? [])].map(unit => unit.uid));
+    const result: ArenaUnitRegion[] = [];
+    for (const figure of figures.values()) {
+      const dead = figure.dead !== null;
+      if (time < figure.born) continue;
+      if ((dead || figure.departing) && !busy) continue;
+      // A new binding has a readout from its first summon frame, even while
+      // its paint fades in. Only a fully faded corpse loses its region.
+      if (dead && figureOpacity(figure) <= 0) continue;
+      const size = figureSize(figure), transform = figureTransform(figure);
+      const rectFor = (w: number, h: number, ax: number, ay: number) =>
+        transformedImageRect(transform.origin, figure.facing, transform.breath, w, h, ax, ay);
+      // Portrait and missing-art heraldry share a semantic creature cell.
+      // Atlas controls instead use actual source aspect, crop and anchors.
+      let rect = rectFor(size, size, .5, .94);
+      const atlas = figure.animation, image = atlas && images.get(atlas.url);
+      if (atlas && image && loaded(image)) {
+        const current = poseFrame(atlas, figure.pose, time - figure.poseChanged);
+        const prior = figure.priorPose && poseBlend(figure) < 1 ? poseFrame(atlas, figure.priorPose, 0) : null;
+        const boundsFor = (pose: CreaturePoseFrame) => {
+          const d = poseDimensions(image, atlas, pose, size);
+          return rectFor(d.width, d.height, d.anchorX, d.anchorY);
+        };
+        if (current) rect = boundsFor(current);
+        if (prior) rect = current ? unionRects(rect, boundsFor(prior)) : boundsFor(prior);
+      }
+      rect = clipToViewport(rect, width, height);
+      const cell = figureCell(figure), freeze = (value: BattlefieldRect) => Object.freeze({ ...value });
+      const hitRect = clipToViewport(intersectRects(rect, cell.bodyRect), width, height);
+      const sideUnits = figure.side === 'ally' ? previous?.allies : previous?.enemies;
+      const canonicalIndex = sideUnits?.findIndex(unit => unit.uid === figure.uid) ?? -1;
+      const summon = figure.unit.intent?.summon ? [...figure.unit.intent.summon] : undefined;
+      if (summon) Object.freeze(summon);
+      const readoutUnit = Object.freeze({ ...figure.unit, intent: figure.unit.intent ? Object.freeze({ ...figure.unit.intent, summon }) : undefined });
+      result.push(Object.freeze({ uid: figure.uid, side: figure.side, slot: figure.slot,
+        readoutUnit, canonicalIndex: canonicalIndex < 0 ? null : canonicalIndex,
+        ...rect, feetX: transform.origin.x, feetY: transform.origin.y,
+        cell: freeze(cell), bodyRect: freeze(cell.bodyRect), hitRect: freeze(hitRect),
+        intentRect: freeze(cell.intentRect), inspectRect: freeze(cell.inspectRect),
+        identityRect: freeze(cell.identityRect), statsRect: freeze(cell.statsRect), statusRect: freeze(cell.statusRect),
+        disabled: !active || busy || dead || figure.departing || !canonical.has(figure.uid) || hitRect.width <= 0 || hitRect.height <= 0,
+        dead, departing: figure.departing }));
+    }
+    return Object.freeze(result);
+  }
+  function notifyRegionListener(listener: UnitRegionListener, regions: readonly ArenaUnitRegion[]) {
+    // An adapter error must not stop paint, presentation waiters or other users.
+    try { listener(regions); } catch (error) { console.error('Battlefield geometry listener failed', error); }
+  }
+  function publishRegions() {
+    const regions = getUnitRegions(), view = getUnitViewport();
+    const viewport = `${width}/${height}/${!disposed}/${view.requiredHeight}/${view.layoutPending}/${view.hunterRect.left}/${view.hunterRect.top}/${view.hunterRect.width}/${view.hunterRect.height}`;
+    const unchanged = regions.length === publishedRegions.length && regions.every((region, index) => {
+      const prior = publishedRegions[index];
+      return region.uid === prior.uid && region.side === prior.side && region.slot === prior.slot
+        && region.left === prior.left && region.top === prior.top && region.width === prior.width && region.height === prior.height
+        && region.feetX === prior.feetX && region.feetY === prior.feetY && region.disabled === prior.disabled
+        && region.dead === prior.dead && region.departing === prior.departing
+        && region.canonicalIndex === prior.canonicalIndex && JSON.stringify(region.readoutUnit) === JSON.stringify(prior.readoutUnit)
+        && sameRect(region.cell, prior.cell) && sameRect(region.bodyRect, prior.bodyRect) && sameRect(region.hitRect, prior.hitRect)
+        && sameRect(region.intentRect, prior.intentRect) && sameRect(region.inspectRect, prior.inspectRect)
+        && sameRect(region.identityRect, prior.identityRect) && sameRect(region.statsRect, prior.statsRect) && sameRect(region.statusRect, prior.statusRect);
+    });
+    if (unchanged && viewport === publishedViewport) return;
+    publishedRegions = regions; publishedViewport = viewport;
+    for (const listener of [...regionListeners]) notifyRegionListener(listener, regions);
+  }
+  function subscribeUnitRegions(listener: UnitRegionListener): () => void {
+    if (disposed) { notifyRegionListener(listener, Object.freeze([])); return () => {}; }
+    regionListeners.add(listener); notifyRegionListener(listener, getUnitRegions());
+    return () => { regionListeners.delete(listener); };
+  }
+
   function paintStrikes() {
     if (reduced) return;
     for (const strike of strikes) {
@@ -459,7 +682,9 @@ export function createArena(canvas: HTMLCanvasElement) {
     }
   }
   function draw() {
-    if (disposed || document.hidden) return;
+    if (disposed) return;
+    advanceAllocation();
+    if (document.hidden) { publishRegions(); return; }
     reconcileStrikeEndpoints();
     paintBackdrop(); ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
     if (back) ctx.drawImage(backplate, 0, 0, width, height);
@@ -468,14 +693,14 @@ export function createArena(canvas: HTMLCanvasElement) {
     ordered.forEach(prepareFigure);
     reconcileStrikeEndpoints();
     ordered.sort((a, b) => position(a).y + motionFor(a).y - position(b).y - motionFor(b).y);
-    paintHunterShadow(ctx, hunter, width, height);
+    paintHunterShadow(ctx, hunter, width, height, hunterPlacement());
     ordered.forEach(paintFloor);
     const paintHunterBody = () => {
       const sheet = imageFor(HUNTER_ART_URL);
-      if (sheet && loaded(sheet)) paintHunterSheet(ctx, hunter, width, height, time, reduced, sheet);
+      if (sheet && loaded(sheet)) paintHunterSheet(ctx, hunter, width, height, time, reduced, sheet, hunterPlacement());
     };
     // The separate observer joins only paint depth, never Unit/formation maps.
-    const hunterFoot = hunterGeometry(width,height).feet.y;
+    const hunterFoot = hunterGeometry(width,height,hunterPlacement()).feet.y;
     let hunterPainted = false;
     for (const figure of ordered) {
       if (!hunterPainted && position(figure).y + motionFor(figure).y > hunterFoot) {
@@ -495,14 +720,16 @@ export function createArena(canvas: HTMLCanvasElement) {
       }
       ctx.restore();
     }
+    publishRegions();
   }
   function settle() {
-    strikes = [];
+    strikes = []; pendingAllocation = null; actionAllocationSlots.clear(); allocationTransitionEnd = time; lastActionLeadMs = 0; lastActionCueStart = time;
     if (hunter) { hunter.cues = []; if (!hunter.dead) hunter.facing = 1; }
     for (const [uid, figure] of figures) {
       if (figure.dead !== null) figures.delete(uid);
       else { figure.born = time - 2; figure.hit = -10; figure.pose = 'idle'; figure.priorPose = null; figure.poseChanged = time - 2; figure.facing = figure.side === 'enemy' ? -1 : 1; figure.layoutFrom = { ...figure.layoutTarget }; figure.sizeFrom = figure.sizeTarget; figure.layoutStarted = time - 2; }
     }
+    if (active && previous) { const desired = desiredAllocation(previous); applyAllocation(desired.config, desired.slots, time, false); }
     resolvePresentationWaiters();
   }
   function tick(timestamp: number) {
@@ -530,8 +757,9 @@ export function createArena(canvas: HTMLCanvasElement) {
     const next = motionOff(); if (next === reduced) return;
     reduced = next; if (reduced) settle(); resume();
   }
-  function createFigure(unit: Unit, side: Side, slot: number, count: number): Figure {
-    const figure: Figure = { uid: unit.uid, unit, art: portraitFor(unit.species), animation: animationFor(unit.species), pose: 'idle', priorPose: null, poseChanged: time - 2, side, facing: side === 'enemy' ? -1 : 1, slot, count, born: reduced ? time - 2 : time, hit: -10, dead: null, departing: false, deathAnchored: false, deathSizeBasis: null, phase: random() * 6.28, lastPoint: { x: 0, y: 0 }, layoutFrom: { x: 0, y: 0 }, layoutTarget: { x: 0, y: 0 }, layoutStarted: time - 2, sizeFrom: 0, sizeTarget: 0 };
+  function createFigure(unit: Unit, side: Side, slot: number, count: number, born = reduced ? time - 2 : time): Figure {
+    const cell = cellFor(side, slot, pendingAllocation?.config ?? layoutConfig);
+    const figure: Figure = { uid: unit.uid, unit, art: portraitFor(unit.species), animation: animationFor(unit.species), pose: 'idle', priorPose: null, poseChanged: time - 2, side, facing: side === 'enemy' ? -1 : 1, slot, count, born, hit: -10, dead: null, departing: false, deathAnchored: false, deathSizeBasis: null, phase: random() * 6.28, lastPoint: { x: 0, y: 0 }, layoutFrom: { x: 0, y: 0 }, layoutTarget: { x: 0, y: 0 }, layoutStarted: time - 2, sizeFrom: 0, sizeTarget: 0, cellFrom: cell, cellTarget: cell };
     const target = targetPosition(figure), size = targetSize(figure);
     figure.layoutFrom = target; figure.layoutTarget = target;
     figure.sizeFrom = size; figure.sizeTarget = size; figure.lastPoint = target;
@@ -542,74 +770,127 @@ export function createArena(canvas: HTMLCanvasElement) {
     if (disposed) return;
     const nextEnvironment = encounterEnvironment(state);
     if (nextEnvironment && nextEnvironment !== environment) {
-      environment = nextEnvironment;
-      updateEnvironmentLabel(); updateStatus(); backDirty = true;
+      environment = nextEnvironment; updateEnvironmentLabel(); updateStatus(); backDirty = true;
     }
     hunter = observeHunter(state, hunter ?? undefined);
     active = state.phase === 'battle';
-    if (active && (!previous || previous.phase !== 'battle')) {
-      hunter = observeHunter(state);
-      figures.clear(); strikes = []; resolvePresentationWaiters();
-      formationCounts.ally = 0; formationCounts.enemy = 0;
+    const starting = active && (!previous || previous.phase !== 'battle');
+    if (starting) {
+      hunter = observeHunter(state); figures.clear(); strikes = []; pendingAllocation = null; actionAllocationSlots.clear();
+      allocationTransitionEnd = time; measuredRows = {}; lastActionLeadMs = 0; lastActionCueStart = time;
+      const initial = desiredAllocation(state); layoutConfig = initial.config;
+      hunterFrom = hunterTarget = fieldLayout().hunter; hunterStarted = time - 2;
+      resolvePresentationWaiters();
     }
-    const oldPositions = new Map([...figures].map(([uid, figure]) => [uid, position(figure)]));
-    const oldSizes = new Map([...figures].map(([uid, figure]) => [uid, figureSize(figure)]));
     const seen = new Set<string>();
     for (const side of ['ally', 'enemy'] as const) {
       const units = side === 'ally' ? state.allies : state.enemies;
-      const occupied = new Set([...figures.values()].filter(figure => figure.side === side && figure.dead === null && units.some(unit => unit.uid === figure.uid)).map(figure => figure.slot));
-      formationCounts[side] = Math.max(formationCounts[side], units.length);
       units.slice(0, 6).forEach((unit, index) => {
         seen.add(unit.uid);
         let figure = figures.get(unit.uid);
         if (!figure) {
-          const slot = [0, 1, 2, 3, 4, 5].find(candidate => !occupied.has(candidate)) ?? index;
-          occupied.add(slot);
-          formationCounts[side] = Math.max(formationCounts[side], slot + 1);
-          figure = createFigure(unit, side, slot, formationCounts[side]);
+          const slot = pendingAllocation?.slots.get(unit.uid) ?? actionAllocationSlots.get(unit.uid) ?? index;
+          const born = reduced ? time - 2 : actionAllocationSlots.has(unit.uid) ? lastActionCueStart : pendingAllocation?.cueStart ?? time;
+          figure = createFigure(unit, side, slot, units.length, born);
           figures.set(unit.uid, figure);
         } else {
-          if (unit.hp < figure.unit.hp) figure.hit = Math.max(figure.hit, time + impactTime);
-          figure.unit = unit; figure.side = side; figure.count = formationCounts[side]; figure.dead = null; figure.deathSizeBasis = null;
+          if (unit.hp < figure.unit.hp) figure.hit = Math.max(figure.hit, time + lastActionLeadMs / 1000 + impactTime);
+          figure.unit = unit; figure.side = side; figure.dead = null; figure.deathSizeBasis = null;
         }
       });
-      // Death leaves a temporary visual gap; survivors do not slide over the
-      // disappearing body or move the attacker's origin halfway through a hit.
-      for (const figure of figures.values()) if (figure.side === side && figure.dead === null) {
-        figure.count = formationCounts[side];
-      }
-    }
-    for (const [uid, figure] of figures) if ((seen.has(uid) || (figure.side === 'ally' && (state.phase === 'reward' || state.phase === 'victory'))) && figure.dead === null) {
-      const target = targetPosition(figure), size = targetSize(figure);
-      if (!oldPositions.has(uid)) {
-        figure.layoutFrom = target; figure.layoutTarget = target;
-        figure.sizeFrom = size; figure.sizeTarget = size; figure.layoutStarted = time - 2;
-      } else if (Math.abs(target.x - figure.layoutTarget.x) > .1 || Math.abs(target.y - figure.layoutTarget.y) > .1 || Math.abs(size - figure.sizeTarget) > .1) {
-        figure.layoutFrom = oldPositions.get(uid)!; figure.layoutTarget = target;
-        figure.sizeFrom = oldSizes.get(uid)!; figure.sizeTarget = size;
-        figure.layoutStarted = reduced ? time - 2 : time;
-      }
-      figure.lastPoint = position(figure);
     }
     for (const [uid, figure] of figures) if (!seen.has(uid) && figure.dead === null) {
-      // Winning rule state deliberately releases the party. Keep its surviving
-      // painted figures while the last enemy falls; victory is not their death.
+      // A cleared victory party is departing, not fabricated dead units.
       if (figure.side === 'ally' && (state.phase === 'reward' || state.phase === 'victory')) {
         figure.departing = true; continue;
       }
       if (reduced || (previous && previous.phase !== 'battle')) figures.delete(uid);
       else {
         const incoming = strikes.filter(strike => strike.target === uid && strike.kind !== 'heal' && strike.kind !== 'ward').at(-1);
-        figure.dead = incoming ? Math.max(time, incoming.born + impactTime) : time + .12;
+        figure.dead = incoming ? Math.max(time, incoming.born + impactTime) : time + lastActionLeadMs / 1000 + .12;
+        figure.unit = { ...figure.unit, hp: 0, block: 0 };
         figure.deathAnchored = false; figure.deathSizeBasis = null;
         figure.departing = figure.side === 'ally' && !active;
       }
     }
-    // A newly filled formation can move both parties while an earlier strike
-    // is still in flight. Resolve presentation endpoints by UID again after
-    // layout reconciliation, including retained death figures.
-    reconcileStrikeEndpoints();
-    previous = state; draw(); resolvePresentationWaiters();
+    previous = state;
+    if (starting || reduced || document.hidden) {
+      const desired = desiredAllocation(state);
+      if (active) applyAllocation(desired.config, desired.slots, time, false);
+    }
+    reconcileStrikeEndpoints(); draw(); resolvePresentationWaiters();
+  }
+  function prepareActionAllocation(before: GameState, after: GameState, events: readonly TransitionEvent[] = []): number {
+    const forecast = after.phase === 'battle' ? after : before;
+    const desired = desiredAllocation(forecast), slots = new Map<string, number>();
+    const occupied: Record<Side, Set<number>> = { ally: new Set(), enemy: new Set() };
+    // Every held body reserves its original slot until its collapse finishes.
+    // A full side may reuse a resolved victim's slot, but the new birth is
+    // delayed below until that victim's complete hold has ended.
+    for (const figure of figures.values()) {
+      slots.set(figure.uid, figure.slot); occupied[figure.side].add(figure.slot);
+    }
+    const arrivals = events.filter((event): event is Extract<TransitionEvent, { type: 'summon' }> => event.type === 'summon');
+    for (const side of ['ally', 'enemy'] as const) {
+      const reclaimed = new Set<number>();
+      const willDie = (figure: Figure) => figure.dead !== null || events.some(event => event.type === 'death' && event.target === figure.uid);
+      const victims = [...figures.values()].filter(figure => figure.side === side && willDie(figure) &&
+        ![...figures.values()].some(other => other.uid !== figure.uid && other.side === side && other.slot === figure.slot && !willDie(other)));
+      const units = [...(side === 'ally' ? after.allies : after.enemies), ...arrivals.filter(event => event.side === side).map(event => event.unit)];
+      for (const unit of units) if (!slots.has(unit.uid)) {
+        const free = [0, 1, 2, 3, 4, 5].find(slot => !occupied[side].has(slot));
+        const victim = victims.find(figure => !reclaimed.has(figure.slot));
+        const slot = free ?? victim?.slot;
+        if (slot === undefined) throw new Error('No legal presentation slot for accepted arrival');
+        if (free === undefined) reclaimed.add(slot);
+        slots.set(unit.uid, slot); occupied[side].add(slot);
+      }
+    }
+    actionAllocationSlots = slots;
+    const extent = (side: Side) => Math.max(0, ...[...slots].filter(([uid]) => figures.get(uid)?.side === side || arrivals.some(event => event.target === uid && event.side === side) || (side === 'ally' ? after.allies : after.enemies).some(unit => unit.uid === uid)).map(([, slot]) => slot + 1));
+    const config = normalizeLayoutConfig({ allies: Math.max(layoutConfig.allies, extent('ally')),
+      enemies: Math.max(layoutConfig.enemies, extent('enemy')),
+      intentRows: Math.max(layoutConfig.intentRows, desired.config.intentRows), statsRows: Math.max(layoutConfig.statsRows, desired.config.statsRows),
+      identityRows: Math.max(layoutConfig.identityRows ?? 1, desired.config.identityRows ?? 1) });
+    const expanding = !sameLayoutConfig(config, layoutConfig);
+    if (!expanding && !pendingAllocation) return 0;
+    if (pendingAllocation) {
+      pendingAllocation.config = config; pendingAllocation.slots = slots;
+      return Math.max(0, pendingAllocation.cueStart - time);
+    }
+    if (!allocationChanges(config, slots)) { applyAllocation(config, slots, time, false); return 0; }
+    const start = time + cueBusyMs() / 1000;
+    pendingAllocation = { config, slots, start, cueStart: start + .32 };
+    advanceAllocation(); publishRegions();
+    return Math.max(0, start + .32 - time);
+  }
+  function reusedArrivalHold(after: GameState, events: readonly TransitionEvent[] = []): number {
+    // Current rules cannot kill and reuse their own arrival side in one trace:
+    // allied binds may burn enemies, enemy phases hit bindings/the hunter.
+    // A legal reused slot therefore holds a previously scheduled old corpse.
+    const arrivals = new Map<string, Side>();
+    for (const event of events) if (event.type === 'summon') arrivals.set(event.target, event.side);
+    for (const side of ['ally', 'enemy'] as const)
+      for (const unit of side === 'ally' ? after.allies : after.enemies)
+        if (!figures.has(unit.uid)) arrivals.set(unit.uid, side);
+    let end = time;
+    for (const [uid, side] of arrivals) {
+      const slot = actionAllocationSlots.get(uid); if (slot === undefined) continue;
+      for (const old of figures.values()) if (old.uid !== uid && old.side === side && old.slot === slot && old.dead !== null)
+        end = Math.max(end, old.dead + deathDuration);
+    }
+    return Math.max(0, end - time);
+  }
+  function referencedFutureBirthHold(events: readonly TransitionEvent[] = []): number {
+    // Canonical actions may touch an earlier accepted arrival before first
+    // paint. Delay only this action's actually traced sources/targets, rather
+    // than locking unrelated actions behind every optional presentation cue.
+    let end = time;
+    for (const event of events) for (const uid of [event.source, event.target]) {
+      const figure = figures.get(uid);
+      if (figure && figure.born > time) end = Math.max(end, figure.born);
+    }
+    return Math.max(0, end - time);
   }
   function queueStrike(source: string | null, target: string, kind: Strike['kind'], delay = 0) {
     const from = source ? sourcePoint(source) : { x: width * .34, y: height * .82 };
@@ -622,25 +903,43 @@ export function createArena(canvas: HTMLCanvasElement) {
   /** Observe an accepted rule action. This only schedules presentation effects. */
   function playAction(action: Action, before: GameState, after: GameState, events?: readonly TransitionEvent[]) {
     if (disposed) return;
-    if (reduced || before.phase !== 'battle') { render(after); return; }
+    if (reduced || document.hidden || before.phase !== 'battle') {
+      lastActionLeadMs = 0; lastActionCueStart = time;
+      if (reduced || document.hidden) {
+        strikes = []; pendingAllocation = null; actionAllocationSlots.clear(); if (hunter) hunter.cues = [];
+      }
+      render(after);
+      if (reduced || document.hidden) { settle(); draw(); }
+      return;
+    }
+    try {
+    const referencedBirthLead = referencedFutureBirthHold(events);
+    const allocationLead = prepareActionAllocation(before, after, events);
+    // One action anchor controls birth, gestures, impacts, and the host's audio
+    // anchor. Every referenced earlier newborn is visible by that anchor; no
+    // later per-arrival hold may silently move only the painted body.
+    const lead = Math.max(allocationLead, reusedArrivalHold(after, events), referencedBirthLead);
+    lastActionLeadMs = Math.ceil(lead * 1000); lastActionCueStart = time + lead;
     if (events) {
       const actorDelays = new Map<string, number>();
       const lastHits = new Map<string, Strike>();
       const terminal = after.phase !== 'battle';
       const delayFor = (source: string, retaliation = false) => {
-        if (retaliation) return .04;
-        if (action.type !== 'endTurn' || !before.enemies.some(unit => unit.uid === source)) return 0;
+        if (retaliation) return lead + .04;
+        if (action.type !== 'endTurn' || !before.enemies.some(unit => unit.uid === source)) return lead;
         if (!actorDelays.has(source)) actorDelays.set(source, actorDelays.size * (terminal ? .009 : .05));
-        return actorDelays.get(source)!;
+        return lead + actorDelays.get(source)!;
       };
       for (const event of events) {
         const source = event.source === 'world' ? null : event.source;
         if (event.type === 'summon') {
           if (!figures.has(event.target)) {
+            const units = event.side === 'ally' ? after.allies : after.enemies;
+            const canonicalSlot = units.findIndex(unit => unit.uid === event.target);
             const occupied = new Set([...figures.values()].filter(figure => figure.side === event.side && figure.dead === null).map(figure => figure.slot));
-            const slot = [0, 1, 2, 3, 4, 5].find(candidate => !occupied.has(candidate)) ?? 0;
-            formationCounts[event.side] = Math.max(formationCounts[event.side], slot + 1);
-            figures.set(event.target, createFigure(event.unit, event.side, slot, formationCounts[event.side]));
+            const slot = actionAllocationSlots.get(event.target) ?? ([0, 1, 2, 3, 4, 5].find(candidate => !occupied.has(candidate)) ?? (canonicalSlot >= 0 ? canonicalSlot : 0));
+            const birth = lastActionCueStart;
+            figures.set(event.target, createFigure(event.unit, event.side, slot, Math.max(units.length, slot + 1), birth));
           }
           queueStrike(source, event.target, 'ward', delayFor(event.source));
         } else if (event.type === 'hit') {
@@ -651,30 +950,46 @@ export function createArena(canvas: HTMLCanvasElement) {
           const kind = event.kind === 'retaliation' ? 'counter' : event.kind === 'command' || (event.kind === 'enemy' && !areaCast && !/wraith|necromancer/.test(caster?.species ?? figures.get(event.source)?.unit.species ?? '')) ? 'physical' : 'magic';
           const strike = queueStrike(source, event.target, kind, delayFor(event.source, event.kind === 'retaliation'));
           lastHits.set(event.target, strike);
+          const readout = figures.get(event.target);
+          if (readout) readout.unit = { ...readout.unit, hp: event.afterHp, block: Math.max(0, readout.unit.block - event.blocked) };
         } else if (event.type === 'control' || event.type === 'buff') {
           // Intent cancellation and attack rallies are real resolved effects,
           // but do not create fabricated damage, recoil or attack movement.
           queueStrike(source, event.target, event.type, delayFor(event.source));
+          const readout = figures.get(event.target);
+          if (readout) readout.unit = event.type === 'control' ? { ...readout.unit, intent: event.after } : { ...readout.unit, attack: event.after };
         } else if (event.type === 'heal' || event.type === 'ward') {
           queueStrike(source, event.target, event.type === 'heal' ? 'heal' : 'ward', delayFor(event.source));
+          const readout = figures.get(event.target);
+          if (readout) readout.unit = event.type === 'heal' ? { ...readout.unit, hp: event.afterHp } : { ...readout.unit, block: readout.unit.block + event.amount };
         } else if (event.type === 'death' && event.target !== 'hunter') {
           const figure = figures.get(event.target), hit = lastHits.get(event.target);
           if (figure) {
-            figure.dead = hit ? hit.born + impactTime : time + .12;
+            figure.dead = hit ? hit.born + impactTime : time + lead + .12;
+            figure.unit = { ...figure.unit, hp: 0, block: 0 };
             figure.deathAnchored = false; figure.deathSizeBasis = null; figure.departing = false;
           }
         }
       }
+      // A future rule that kills and reuses its own same-side slot needs an
+      // explicit multi-phase timing contract. Fail optional presentation rather
+      // than silently desynchronizing the already published common audio lead.
+      for (const event of events) if (event.type === 'summon') {
+        const arrival = figures.get(event.target); if (!arrival) continue;
+        const overlapsHold = [...figures.values()].some(old => old.uid !== arrival.uid && old.side === arrival.side &&
+          old.slot === arrival.slot && old.dead !== null && old.dead + deathDuration > arrival.born + .000001);
+        if (overlapsHold) throw new Error('Accepted arrival needs an unsupported same-action slot hold');
+      }
       if (hunter) {
         const gesture = events.find(e => e.target !== 'hunter' && e.type !== 'death' && figures.has(e.target) &&
           (e.source === 'hunter' || (e.type === 'hit' && e.kind === 'command')));
-        if (gesture) { const dx = combatPoint(gesture.target).x - hunterGeometry(width,height).feet.x;
+        if (gesture) { const dx = combatPoint(gesture.target).x - hunterGeometry(width,height,hunterPlacement()).feet.x;
           if (Math.abs(dx) > 4) hunter.facing = dx > 0 ? 1 : -1; }
         hunter.cues.push(...hunterEventCues(events, time, delayFor));
       }
       render(after); return;
     }
-    if (action.type === 'attack') queueStrike(action.unit, action.target, 'physical');
+    if (action.type === 'attack') queueStrike(action.unit, action.target, 'physical', lead);
     else if (action.type === 'play') {
       const summoned = after.allies.some(unit => !before.allies.some(old => old.uid === unit.uid));
       if (!summoned) {
@@ -687,16 +1002,25 @@ export function createArena(canvas: HTMLCanvasElement) {
         if (targets.length) targets.forEach((unit, i) => {
           const next = allAfter.find(candidate => candidate.uid === unit.uid);
           const kind = next && next.hp > unit.hp ? 'heal' : before.allies.some(candidate => candidate.uid === unit.uid) ? 'ward' : 'magic';
-          queueStrike(null, unit.uid, kind, i * .035);
+          queueStrike(null, unit.uid, kind, lead + i * .035);
         });
-        else if ('target' in action && action.target) queueStrike(null, action.target, 'magic');
+        else if ('target' in action && action.target) queueStrike(null, action.target, 'magic', lead);
       }
     }
     // Callers without a canonical trace still show state changes. They do not
     // manufacture enemy attacks from intents that may never have executed.
     render(after);
+    } catch (error) {
+      // An optional presentation failure cannot retain a geometry/input lock.
+      pendingAllocation = null; actionAllocationSlots.clear(); allocationTransitionEnd = time; lastActionLeadMs = 0; lastActionCueStart = time;
+      try {
+        strikes = []; figures.clear(); if (hunter) hunter.cues = [];
+        previous = null; render(after); settle(); draw();
+      } catch { resolvePresentationWaiters(); }
+      throw error;
+    }
   }
-  function busyMs() {
+  function cueBusyMs() {
     if (disposed || reduced || document.hidden) return 0;
     let end = time;
     for (const cue of hunter?.cues ?? []) end = Math.max(end, cue.end);
@@ -706,6 +1030,10 @@ export function createArena(canvas: HTMLCanvasElement) {
       else if (!figure.departing) end = Math.max(end, figure.born + .38, figure.hit + CREATURE_REACTION_MS / 1000, figure.layoutStarted + .32);
     }
     return Math.max(0, Math.ceil((end - time) * 1000));
+  }
+  function busyMs() {
+    if (disposed || reduced || document.hidden) return 0;
+    return Math.max(cueBusyMs(), Math.max(0, Math.ceil(((pendingAllocation?.cueStart ?? allocationTransitionEnd) - time) * 1000)));
   }
   function resolvePresentationWaiters() {
     if (busyMs() !== 0) return;
@@ -741,6 +1069,8 @@ export function createArena(canvas: HTMLCanvasElement) {
       const reproject = (point: Point): Point => ({ x: point.x * scaleX, y: point.y * scaleY });
       figure.lastPoint = reproject(figure.lastPoint);
       figure.layoutFrom = reproject(figure.layoutFrom);
+      figure.cellFrom = projectCell(figure.cellFrom, scaleX, scaleY);
+      figure.cellTarget = cellFor(figure.side, figure.slot, figure.born > time ? pendingAllocation?.config ?? layoutConfig : layoutConfig);
       if (figure.dead !== null) {
         figure.layoutTarget = reproject(figure.layoutTarget);
         // Scheduled deaths also need a stable basis before their contact
@@ -755,6 +1085,14 @@ export function createArena(canvas: HTMLCanvasElement) {
         figure.sizeFrom *= scale; figure.sizeTarget = size;
       }
     }
+    const projectHunter = (value: BattlefieldHunterGeometry): BattlefieldHunterGeometry => {
+      const scale = Math.min(scaleX, scaleY), fullCell = value.bodyHeight * 512 / 418 * scale;
+      const feet = { x: value.feet.x * scaleX, y: value.feet.y * scaleY };
+      return { feet, torso: { x: value.torso.x * scaleX, y: value.torso.y * scaleY },
+        bodyHeight: value.bodyHeight * scale, bodyWidth: value.bodyWidth * scale,
+        rect: { left: feet.x - fullCell / 2, top: feet.y - fullCell * 502 / 512, width: fullCell, height: fullCell * 573 / 512 } };
+    };
+    if (geometryChanged) { if (hunterFrom) hunterFrom = projectHunter(hunterFrom); hunterTarget = fieldLayout().hunter; }
     reconcileStrikeEndpoints(); draw();
   }
   const resizeObserver = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(resize) : null;
@@ -766,10 +1104,13 @@ export function createArena(canvas: HTMLCanvasElement) {
   resize(); resume();
   return {
     render, playAction, busyMs, getPresentationBusyMs: busyMs, waitForPresentation, cancelPresentation,
+    getUnitRegions, getUnitViewport, subscribeUnitRegions, setReadoutMetrics,
+    getActionPresentationDelayMs() { return lastActionLeadMs; },
     setSelected(uid: string | null) { selected = uid; draw(); },
     resize,
     dispose() {
       if (disposed) return; disposed = true; cancelAnimationFrame(frame); resolvePresentationWaiters();
+      publishRegions(); regionListeners.clear();
       resizeObserver?.disconnect(); motionObserver.disconnect();
       motionQuery.removeEventListener('change', updateMotion);
       document.removeEventListener('visibilitychange', resume); window.removeEventListener('resize', resize);

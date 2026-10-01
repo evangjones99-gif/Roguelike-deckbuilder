@@ -1,4 +1,5 @@
 import type { GameState, TransitionEvent } from './engine';
+import type { BattlefieldHunterGeometry } from './battlefield-layout';
 
 /** Private battlefield presentation; never a Unit or a saved field. */
 export interface HunterCue {
@@ -65,7 +66,8 @@ export function hunterPose(hunter: HunterPresentation, time: number) {
   return 'idle';
 }
 export const HUNTER_ART_URL = './art/hunter-marek-v07-r3.png';
-export function hunterGeometry(width: number, height: number) {
+export function hunterGeometry(width: number, height: number, placement?: BattlefieldHunterGeometry) {
+  if (placement) return placement;
   const desiredHeight = height * .36;
   // Fit the whole unchanged cell across every pose, including the lower
   // transparent fringe of death and the high idle boot anchor. Normal arena
@@ -82,9 +84,9 @@ export function hunterGeometry(width: number, height: number) {
   return { torso, feet, bodyHeight, bodyWidth: bodyHeight * .28 };
 }
 export function paintHunterShadow(ctx: CanvasRenderingContext2D, hunter: HunterPresentation | null,
-  width: number, height: number) {
+  width: number, height: number, placement?: BattlefieldHunterGeometry) {
   if (!hunter?.visible) return;
-  const g = hunterGeometry(width, height);
+  const g = hunterGeometry(width, height, placement);
   ctx.save();ctx.fillStyle = 'rgba(0,0,0,.55)';ctx.beginPath();
   ctx.ellipse(g.feet.x, g.feet.y, g.bodyWidth * .65, height * .012, 0, 0, Math.PI * 2);
   ctx.fill();ctx.restore();
@@ -101,17 +103,17 @@ export const HUNTER_R3_SEAL = {
   idle:{x:323,y:235},anticipation:{x:268,y:219},attack:{x:222,y:221},
   recovery:{x:283,y:172},reaction:{x:250,y:180},death:{x:244,y:290},
 } as const;
-export function hunterSourcePoint(hunter:HunterPresentation|null,width:number,height:number,time:number,reduced:boolean){
-  const g=hunterGeometry(width,height);
+export function hunterSourcePoint(hunter:HunterPresentation|null,width:number,height:number,time:number,reduced:boolean,placement?:BattlefieldHunterGeometry){
+  const g=hunterGeometry(width,height,placement);
   if(!hunter)return g.torso;
   const pose=reduced?(hunter.dead?'death':'idle'):hunterPose(hunter,time),f=HUNTER_R3_FRAMES[pose],seal=HUNTER_R3_SEAL[pose];
   const cell=g.bodyHeight*512/418;
   return {x:g.feet.x+(seal.x-256)/512*cell*hunter.facing,y:g.feet.y+(seal.y-f.groundY)/512*cell};
 }
 export function paintHunterSheet(ctx:CanvasRenderingContext2D,hunter:HunterPresentation|null,
-  width:number,height:number,time:number,reduced:boolean,image:HTMLImageElement) {
+  width:number,height:number,time:number,reduced:boolean,image:HTMLImageElement,placement?:BattlefieldHunterGeometry) {
   if(!hunter?.visible)return;
-  const g=hunterGeometry(width,height);
+  const g=hunterGeometry(width,height,placement);
   const pose = reduced ? (hunter.dead ? 'death' : 'idle') : hunterPose(hunter,time);
   const f=HUNTER_R3_FRAMES[pose];
   // Idle alpha-supported anatomy spans418px of512. Maintain the same cell

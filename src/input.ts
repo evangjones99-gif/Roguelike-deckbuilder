@@ -7,6 +7,8 @@ export interface InputContext {
   settling: boolean;
   dialog: HTMLElement | null;
   targeting: boolean;
+  /** Near/far creature rows; omitted for the legacy side rosters. */
+  battlefieldRows?: boolean;
 }
 export interface InputHost {
   getContext(): InputContext;
@@ -192,7 +194,26 @@ export function createInputAdapter(host: InputHost, options: InputOptions = {}):
     if (region.key === 'hand' && (direction === 'left' || direction === 'right')) {
       focus(region.nodes[(index+(direction === 'right'?1:-1)+region.nodes.length)%region.nodes.length],region);return;
     }
-    if (['bindings','hostiles','targets'].includes(region.key) && (direction === 'up' || direction === 'down')) {
+    if (ctx.battlefieldRows && !ctx.dialog && ['bindings','hostiles'].includes(region.key)) {
+      if (direction === 'left' || direction === 'right') {
+        focus(region.nodes[(index + (direction === 'right' ? 1 : -1) + region.nodes.length) % region.nodes.length], region);
+      } else {
+        const destination = region.key === 'bindings' ? direction === 'up' ? 'hostiles' : 'hand' : direction === 'down' ? 'bindings' : null;
+        if (destination && !focusRegion(list, destination) && destination === 'bindings') focusRegion(list, 'hand');
+      }
+      return;
+    }
+    // Targeting still contains only canonical legal buttons. In the direct field,
+    // horizontal arrows stay within the target's side; vertical arrows below use
+    // actual geometry to reach another eligible row (including the hunter).
+    if (ctx.battlefieldRows && !ctx.dialog && region.key === 'targets' && (direction === 'left' || direction === 'right')) {
+      const side = (node: HTMLElement) => node.matches('.ally') ? 'ally' : node.matches('.enemy') ? 'enemy' : 'hunter';
+      const row = region.nodes.filter(node => side(node) === side(region.nodes[index]));
+      const at = row.indexOf(region.nodes[index]);
+      focus(row[(at + (direction === 'right' ? 1 : -1) + row.length) % row.length], region);
+      return;
+    }
+    if (!ctx.battlefieldRows && ['bindings','hostiles','targets'].includes(region.key) && (direction === 'up' || direction === 'down')) {
       focus(region.nodes[(index+(direction === 'down'?1:-1)+region.nodes.length)%region.nodes.length],region);return;
     }
     if (!ctx.targeting && !ctx.dialog) {

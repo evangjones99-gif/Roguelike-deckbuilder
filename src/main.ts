@@ -1,8 +1,15 @@
 import './style.css';
+import './command-field.css';
+import './compact-readout.css';
+import './tactile-hand.css';
+import { attachTactileHand, type TactileHandController, type TactileCardSource, type TactileDestination, type TactilePoint } from './tactile-hand';
+import { compactIntent } from './compact-intent';
 import { HostAudio } from './audio-host';
 import packageInfo from '../package.json';
 import { applyActionWithEvents, createGame, CARDS, legalActions, validateState, recoverLegacySilenceSave, cardTarget, type GameState, type Action, type Unit, type CardDef, type TransitionEvent } from './engine';
 import { createArena } from './arena';
+import type { ArenaUnitRegion } from './battlefield-layout';
+import { renderHuntTitle, renderHuntContract, readHuntContractForm, showHuntContractError, focusHuntContract, attachHuntEntry } from './hunt-entry';
 import { encounterEnvironment } from './encounter-environment';
 import { portraitFor, toolArtFor } from './art';
 import { createToolIllustrations } from './tool-art';
@@ -41,19 +48,34 @@ type Settings = { mute: boolean; volume: number; motion: boolean };
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const escape = (s: string | number) => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 let state = createGame(Date.now() >>> 0);
+let tactileHand: TactileHandController | null = null;
+let canonicalRevision = 0n;
+let tactilePreviewActive = false;
+let tactileCommitInProgress = false;
+const tactileSourceStates = new Map<string, GameState>();
+function replaceCanonicalState(next: GameState) {
+  if (!tactileCommitInProgress) tactileHand?.cancel();
+  canonicalRevision++;
+  tactileSourceStates.clear();
+  state = next;
+}
 let title = true;
 // CSS custom-property URLs resolve at their consuming stylesheet; use a document-based absolute URL.
 const ART_BASE = new URL(`${import.meta.env.BASE_URL}art/`, document.baseURI).href;
 const toolIllustrations = createToolIllustrations();
 document.documentElement.style.setProperty('--scene-art', `url("${ART_BASE}abbey-courtyard.png")`);
 document.documentElement.style.setProperty('--hunter-art', `url("${ART_BASE}hunter-portrait.png")`);
+document.documentElement.style.setProperty('--hunt-hunter-art', `url("${ART_BASE}hunter-marek-v07-r3.png")`);
 let selected: Selection = null;
 let selectionOrigin: string | null = null;
 let dialogOrigin: string | null = null;
+let restoringDialogFocus = false;
 let renderedScreen: string | null = null;
 let inputMode: InputMode = 'keyboard';
 let savedRun: GameState | null = null;
 let saveNotice = '';
+let disposeTitleEntry: (() => void) | null = null;
+let disposeHuntForm: (() => void) | null = null;
 let toastTimeout: ReturnType<typeof setTimeout>;
 let settings: Settings = { mute: false, volume: .25, motion: !window.matchMedia('(prefers-reduced-motion: reduce)').matches };
 try {
@@ -67,11 +89,11 @@ try {
   const save = localStorage.getItem(SAVE_KEY);
   if (save) {
     const value: unknown = JSON.parse(save);
-    if (validateState(value)) { savedRun = value as GameState; state = savedRun; }
+    if (validateState(value)) { savedRun = value as GameState; replaceCanonicalState(savedRun); }
     else {
       const recovered = recoverLegacySilenceSave(value);
       if (recovered && validateState(recovered)) {
-        savedRun = recovered; state = recovered; pendingRecoveryBackup = save;
+        savedRun = recovered; replaceCanonicalState(recovered); pendingRecoveryBackup = save;
         saveNotice = 'Recovered a repeated Silence status label. Your run is preserved.';
         try {
           preserveRecoveryOriginal();
@@ -128,7 +150,8 @@ function cardRules(card: CardDef): string {
 let arena: ReturnType<typeof createArena> | null = null;
 try { arena = createArena($<HTMLCanvasElement>('arena')); }
 catch { $('arena-wrap').classList.add('arena-fallback'); }
-const sceneObserver = new ResizeObserver(() => arena?.resize());
+arena?.subscribeUnitRegions(regions => positionFieldControls(regions));
+const sceneObserver = new ResizeObserver(() => { arena?.resize(); measureFieldReadouts(); });
 sceneObserver.observe($('arena-wrap'));
 window.addEventListener('resize', () => arena?.resize());
 
@@ -149,6 +172,7 @@ document.addEventListener('keydown', event => {
 function sound(_kind: 'click' | 'summon' | 'attack' | 'reward' | 'end' = 'click') { hostAudio.ui(); }
 
 function setMotion() {
+  if (document.documentElement.dataset.reducedMotion !== String(!settings.motion)) tactileHand?.cancel();
   document.documentElement.classList.toggle('reduced-motion', !settings.motion);
   // Arena also respects this preference via the document attribute.
   document.documentElement.dataset.reducedMotion = String(!settings.motion);
@@ -175,7 +199,7 @@ function can(action: Action): boolean { return actions().some(a => JSON.stringif
 function focusReference(element: Element | null = document.activeElement): string | null {
   if (!(element instanceof HTMLElement) || element === document.body) return null;
   if (element.id) return `#${CSS.escape(element.id)}`;
-  const scope = element.closest('#dialog,#topbar,#hud,#dock,#scene-ui,#footer');
+  const scope = element.closest('#dialog,#topbar,#hud,#dock,#arena-wrap,#scene-ui,#footer');
   const prefix = scope?.id ? `#${CSS.escape(scope.id)} ` : '';
   if (element.dataset.focus) return `${prefix}[data-focus="${CSS.escape(element.dataset.focus)}"]`;
   for (const attribute of ['data-unit', 'data-ui', 'data-action']) {
@@ -189,11 +213,11 @@ function focusReference(element: Element | null = document.activeElement): strin
   }
   return element.matches('#scene-ui h1') ? '#scene-ui h1' : null;
 }
-function focusElement(element: HTMLElement | null): boolean {
+function focusElement(element: HTMLElement | null, scroll = true): boolean {
   if (!element?.isConnected || !element.getClientRects().length || element.closest('[hidden],[inert]') || element.matches(':disabled')) return false;
   if (!element.matches('button,input,select,textarea,a,[tabindex]')) element.tabIndex = -1;
   element.focus({ preventScroll: true });
-  element.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'auto' });
+  if (scroll) element.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'auto' });
   return document.activeElement === element;
 }
 function restoreFocus(reference: string | null): boolean {
@@ -211,6 +235,7 @@ function cancelSelection() {
   if (!restoreFocus(origin)) focusScene();
 }
 function goBack() {
+  if (tactileHand?.isDragging()) { tactileHand.cancel(); return; }
   if ($<HTMLDialogElement>('dialog').open) closeDialog();
   else if (selected) cancelSelection();
   else if (!title) openPause();
@@ -279,20 +304,22 @@ function updateFinalStrikeReadout(previous: GameState, events: readonly Transiti
     // A binding's on-entry strike can end combat before its first ordinary UI render.
     // Only that new roster needs construction; existing controls keep their nodes.
     if (panel && shown[side].some(unit => !Array.from(panel.querySelectorAll<HTMLElement>('[data-unit]')).some(button => button.dataset.unit === unit.uid))) {
-      panel.outerHTML = roster(side, shown[side]);
+      panel.outerHTML = panel.classList.contains('field-side') ? fieldRoster(side, shown[side]) : roster(side, shown[side]);
     }
     for (const [index, unit] of shown[side].entries()) {
       const button = Array.from(document.querySelectorAll<HTMLButtonElement>('.unit[data-unit]')).find(element => element.dataset.unit === unit.uid);
       if (!button) continue;
       const enemy = side === 'enemies';
       const status = unit.hp <= 0 ? enemy ? 'Quarry down' : 'Binding lost' : enemy ? 'Still standing' : 'Survived';
-      const stats = button.querySelector<HTMLElement>('.unit-stats');
-      if (stats) stats.innerHTML = `${icon('heart')} ${unit.hp}<small>/${unit.maxHp}</small><span>${icon('battle')}${unit.attack}</span>${unit.hp > 0 && unit.block ? `<span class="block-small">${icon('shield')}${unit.block}</span>` : ''}`;
-      const health = button.querySelector<HTMLElement>('.health-track i');
+      const readout = button.closest<HTMLElement>('.field-actor') || button;
+      const stats = readout.querySelector<HTMLElement>('.unit-stats');
+      if (stats) stats.innerHTML = readout.classList.contains('field-actor') ? compactStats(unit, true) : `${icon('heart')} ${unit.hp}<small>/${unit.maxHp}</small><span>${icon('battle')}${unit.attack}</span>${unit.hp > 0 && unit.block ? `<span class="block-small">${icon('shield')}${unit.block}</span>` : ''}`;
+      const health = readout.querySelector<HTMLElement>('.health-track i');
       if (health) health.style.width = `${unit.hp / unit.maxHp * 100}%`;
-      const label = button.querySelector<HTMLElement>('.unit-status');
+      const label = readout.querySelector<HTMLElement>(readout.classList.contains('field-actor') ? enemy ? '.field-intent' : '.field-ready' : '.unit-status');
       if (label) label.textContent = status;
       button.setAttribute('aria-label', `${unit.name}, ${enemy ? 'hostile' : 'binding'} ${index + 1}. ${unit.hp} of ${unit.maxHp} health, ${unit.attack} attack${unit.hp > 0 && unit.block ? `, ${unit.block} block` : ''}. ${status}. Final impact resolving.`);
+      readout.querySelector('[data-ui="inspect-unit"]')?.setAttribute('aria-label', `Inspect ${unit.name}. ${unit.hp} of ${unit.maxHp} health. ${status}. Final impact resolving.`);
       button.setAttribute('aria-pressed', 'false');
       button.classList.remove('ready', 'selected', 'valid-target');
     }
@@ -310,11 +337,12 @@ function updateFinalStrikeReadout(previous: GameState, events: readonly Transiti
     if (block) block.innerHTML = readout;
     else hunter?.insertAdjacentHTML('beforeend', `<span class="block-count">${readout}</span>`);
   } else block?.remove();
+  if (document.getElementById('field-controls')) measureFieldReadouts();
 }
 function holdFinalStrike(previous: GameState, events: readonly TransitionEvent[]): boolean {
   if (!mayAnimateCombat() || !arena) return false;
   let busy = 0;
-  try { busy = Math.max(0, Math.min(1200, Number((arena as ArenaPresentation).busyMs?.() || 0))); } catch { return false; }
+  try { busy = Number((arena as ArenaPresentation).busyMs?.() || 0); } catch { return false; }
   if (!Number.isFinite(busy) || busy <= 0) return false;
   const epoch = ++presentationEpoch;
   settlingCombat = true;
@@ -324,7 +352,7 @@ function holdFinalStrike(previous: GameState, events: readonly TransitionEvent[]
   if (hint) hint.innerHTML = inputHints();
   // Rules and saves already reflect the result. The old field exists only for the final impact.
   updateFinalStrikeReadout(previous, events);
-  document.querySelectorAll<HTMLButtonElement>('#scene-ui button, #dock button').forEach(button => { button.disabled = true; });
+  document.querySelectorAll<HTMLButtonElement>('#scene-ui button, #arena-wrap button, #dock button').forEach(button => { button.disabled = true; });
   const guidance = document.querySelector<HTMLElement>('.battle-guidance>span');
   if (guidance) guidance.textContent = state.phase === 'defeat' ? 'The pact breaks. The final impact is resolving.' : 'Contract cleared. Final strike resolving.';
   const cancel = document.querySelector<HTMLElement>('.battle-guidance>button');
@@ -335,7 +363,9 @@ function holdFinalStrike(previous: GameState, events: readonly TransitionEvent[]
   if (endButton) endButton.textContent = state.phase === 'defeat' ? 'Contract failed' : 'Contract cleared';
   document.querySelectorAll('.unit.selected, .unit.valid-target').forEach(unit => unit.classList.remove('selected', 'valid-target'));
   $('announcer').textContent = state.phase === 'defeat' ? 'The hunter has fallen.' : 'Contract cleared.';
-  presentationDeadline = setTimeout(() => finishPresentation(epoch), Math.min(1200, Math.ceil(busy) + 30));
+  // The renderer includes any allocation lead and held death. A fixed 1.2s
+  // ceiling could cut a legitimate final strike before its visible contact.
+  presentationDeadline = setTimeout(() => finishPresentation(epoch), Math.ceil(busy) + 30);
   try {
     const waiting = (arena as ArenaPresentation).waitForPresentation?.();
     if (waiting) void waiting.then(() => finishPresentation(epoch), () => finishPresentation(epoch));
@@ -344,18 +374,19 @@ function holdFinalStrike(previous: GameState, events: readonly TransitionEvent[]
 }
 function dispatch(action: Action) {
   if (settlingCombat || disposed) return;
+  if (state.phase === 'battle' && arena?.getUnitViewport().layoutPending) { notify('The formation is settling. Your next order is still available.'); return; }
   const previous = state;
   const { state: next, events } = applyActionWithEvents(state, action);
   if (JSON.stringify(next) === JSON.stringify(previous)) { notify('That action is not available right now.'); return; }
   if (next.phase !== previous.phase || action.type === 'travel') clearToast();
   // Persist the canonical result before optional animation/audio runs.
-  state = next;
+  replaceCanonicalState(next);
   selected = null;
   selectionOrigin = null;
   save();
   let effectFailed = false;
   try { arena?.playAction?.(action, previous, next, events); } catch { effectFailed = true; }
-  try { hostAudio.transition(previous, next, events, action, !effectFailed && !!arena && mayAnimateCombat()); } catch { /* Optional sound cannot block canonical gameplay. */ }
+  try { hostAudio.transition(previous, next, events, action, !effectFailed && !!arena && mayAnimateCombat(), arena?.getActionPresentationDelayMs() || 0); } catch { /* Optional sound cannot block canonical gameplay. */ }
   const terminalCombat = previous.phase === 'battle' && ['reward', 'victory', 'defeat'].includes(state.phase);
   if (terminalCombat && !effectFailed && holdFinalStrike(previous, events)) return;
   render();
@@ -366,9 +397,11 @@ function dispatch(action: Action) {
 function start(seed: number, difficulty: number) {
   cancelPresentation();
   clearToast();
-  state = createGame(seed, difficulty);
+  replaceCanonicalState(createGame(seed, difficulty));
+  if (state.phase === 'map' && state.route.length === 1) replaceCanonicalState(applyActionWithEvents(state, { type: 'travel', choice: state.route[0] }).state);
   title = false; selected = null; selectionOrigin = null; save(); render(); sound('summon');
-  try { if (!localStorage.getItem(TUTORIAL_KEY)) openTutorial(); } catch { openTutorial(); }
+  // Begin with a live fight; the full rules remain available through How to play.
+  // Teaching appears in the existing guidance row instead of blocking the first action.
 }
 function parseSeed(input: string): number {
   if (/^\d+$/.test(input.trim())) return Number(input) >>> 0;
@@ -387,6 +420,8 @@ function renderHud() {
 }
 function render() {
   if (settlingCombat) return;
+  if (!tactileCommitInProgress) tactileHand?.cancel();
+  disposeTitleEntry?.(); disposeTitleEntry = null;
   const reference = focusReference();
   const screen = title ? 'title' : state.phase;
   const changedScreen = screen !== renderedScreen;
@@ -398,6 +433,8 @@ function render() {
   renderHeader(); renderHud();
   $('dock').hidden = title || state.phase !== 'battle';
   $('arena-wrap').classList.toggle('muted-arena', title || state.phase !== 'battle');
+  $('arena-wrap').setAttribute('aria-hidden', title || state.phase !== 'battle' ? 'true' : 'false');
+  if (title || state.phase !== 'battle') { document.getElementById('field-controls')?.remove(); document.querySelector('[data-tactile-drop-zone]')?.remove(); $('scene').style.height = ''; $('arena-wrap').style.top = ''; }
   if (title) renderTitle();
   else if (state.phase === 'battle') renderBattle();
   else if (state.phase === 'map') renderMap();
@@ -407,13 +444,19 @@ function render() {
   else if (state.phase === 'event') renderEvent();
   else renderOutcome();
   $('footer').innerHTML = `<span>v${VERSION} <span class="footer-dot">·</span> Playable prototype</span><span>${title ? 'Original dark fantasy · Working title' : `Seed ${state.seed} <span class="footer-dot">·</span> Contract saved locally`}</span><button data-ui="fullscreen" class="text-button">Fullscreen</button>`;
-  try { arena?.setSelected(selected?.kind === 'attack' ? selected.uid : null); arena?.render(state); } catch { $('arena-wrap').classList.add('arena-fallback'); }
+  try { arena?.setSelected(selected?.kind === 'attack' ? selected.uid : null); arena?.render(state); positionFieldControls(arena?.getUnitRegions() || []); } catch { $('arena-wrap').classList.add('arena-fallback'); document.getElementById('field-controls')?.remove(); if (!title && state.phase === 'battle') renderBattle(); }
   if (!$<HTMLDialogElement>('dialog').open && (changedScreen || !restoreFocus(reference))) focusScene();
   toolIllustrations.refresh();
 }
 
+function activeHuntSummary() {
+  const active = !title && !['victory','defeat'].includes(state.phase) ? state : savedRun && !['victory','defeat'].includes(savedRun.phase) ? savedRun : null;
+  return active ? { contract: active.phase === 'map' ? active.floor + 1 : active.floor, hp: active.hp, maxHp: active.maxHp } : null;
+}
+function huntAudioHost() { return { uiCue: (back = false) => hostAudio.ui(back), audioEnabled: () => !settings.mute && settings.volume > 0 && !document.hidden }; }
 function renderTitle() {
-  $('scene-ui').innerHTML = `<div class="title-scene"><div class="title-copy"><div class="eyebrow line-eyebrow">A DARK FANTASY DECKBUILDING CAMPAIGN</div><h1>HOLLOW<span>PACT</span></h1><div class="title-rule"></div><p>The dead do not honour treaties.<br>Bind what you can. Hunt what you must.</p><div class="title-details"><span>Command bound monsters</span><i></i><span>Read the enemy</span><i></i><span>Survive ten contracts</span></div></div><section class="title-contract"><div class="hunter-intro"><button class="hunter-photo title-hunter" data-ui="hunter" aria-label="Inspect Marek Voss"></button><div><span class="eyebrow">MAREK VOSS · PACT HUNTER</span><p>Scarred hands. Iron seals.<br>A name the dead remember.</p></div></div><span class="eyebrow">FIELD ORDERS · THE BLACK MARCH</span><h2>Your next contract awaits.</h2><p>Build a deck of dangerous creatures and practical tools. Choose your targets. Make each command count.</p><div class="title-actions">${savedRun && !['victory','defeat'].includes(savedRun.phase) ? `<button data-ui="resume" class="button primary">Resume contract ${icon('arrow')}<small>Contract ${savedRun.phase === 'map' ? savedRun.floor + 1 : savedRun.floor} · ${savedRun.hp} health</small></button>` : ''}<button data-ui="new" class="button ${savedRun && !['victory','defeat'].includes(savedRun.phase) ? 'secondary' : 'primary'}">Begin a new contract ${icon('arrow')}</button></div>${saveNotice ? `<p class="save-notice" role="status">${escape(saveNotice)}</p>` : ''}<div class="contract-note">ONE HUNTER. SIX BINDINGS. NO WASTED ORDERS.</div></section></div>`;
+  $('scene-ui').innerHTML = renderHuntTitle({ saved: activeHuntSummary(), saveNotice, soundEnabled: !settings.mute && settings.volume > 0 });
+  disposeTitleEntry = attachHuntEntry($('scene-ui'), huntAudioHost());
 }
 
 const routes: Record<string, { name: string; tag: string; description: string }> = {
@@ -539,7 +582,12 @@ function consequencePreview(action: Action): { text: string; danger: boolean } {
   return { text: `${label}${target ? ` → ${compactTargetName(target)}` : ''}: ${parts.join(' · ')}`, danger: after.phase === 'defeat' || retaliation.some(hit => events.some(e => e.type === 'death' && e.target === hit.target)) };
 }
 function showConsequenceFor(element: Element | null): boolean {
+  if (tactileHand?.isDragging()) return tactilePreviewActive;
   if (title || settlingCombat || state.phase !== 'battle') return false;
+  if (restoringDialogFocus || $<HTMLDialogElement>('dialog').open) return !!activePreviewKey;
+  // Reading the preview or inspecting a creature must not erase the last
+  // target comparison, or change geometry during the activating press.
+  if (element?.closest('.battle-guidance, [data-ui="inspect-unit"]')) return !!activePreviewKey;
   const button = element?.closest<HTMLButtonElement>('[data-unit], [data-ui="play-card"]');
   let action: Action | undefined;
   if (button?.dataset.unit && selected) {
@@ -577,13 +625,127 @@ function roster(side: 'allies' | 'enemies', units: readonly Unit[] = state[side]
     return `<article class="unit-frame"><button class="unit ${enemy ? 'enemy' : 'ally'} ${target ? 'valid-target' : ''} ${chosen ? 'selected' : ''} ${!enemy && !unit.acted ? 'ready' : ''}" data-unit="${escape(unit.uid)}" data-focus="unit-${escape(unit.uid)}" aria-label="${escape(unitLabel(unit))}. ${unit.hp} of ${unit.maxHp} health, ${unit.attack} attack${unit.block ? `, ${unit.block} block` : ''}. ${enemy ? escape(targetText) : unit.acted ? 'Command spent.' : 'Ready; select, then choose an enemy.'}${target ? ' Select as target.' : ''}" aria-pressed="${chosen}"><div class="unit-top">${creature(unit.species, unit.color)}<div><strong>${escape(unit.name)}<span class="unit-slot" aria-hidden="true" title="${enemy ? 'Hostile' : 'Binding'} ${i + 1}">${enemy ? 'H' : 'B'}${i + 1}</span></strong><span class="unit-stats">${icon('heart')} ${unit.hp}<small>/${unit.maxHp}</small><span>${icon('battle')}${unit.attack}</span>${unit.block ? `<span class="block-small">${icon('shield')}${unit.block}</span>` : ''}</span></div></div><div class="health-track"><i style="width:${unit.hp / unit.maxHp * 100}%"></i></div><div class="unit-status ${enemy ? 'intent' : ''}">${enemy ? `${icon('battle')}<span title="${escape(targetText)}">${escape(visibleIntent)}</span>` : target ? 'SELECT TARGET' : unit.acted ? `${icon('check')} ${dense ? 'Spent' : 'Command spent'}` : chosen ? (dense ? 'Choose target' : 'CHOOSE HOSTILE TARGET') : (dense ? 'Ready' : 'Ready to command')}</div></button><button class="unit-inspect" data-ui="inspect-unit" data-uid="${escape(unit.uid)}" aria-label="Inspect ${escape(unitLabel(unit))}" title="Inspect traits and intent">i</button></article>`;
   }).join('')}</div>${enemy ? '<div class="rail-note">Intents resolve in order.<br>A fallen marked creature redirects the hit to the hunter.</div>' : '<div class="rail-note">One free command per turn.<br>New bindings can act immediately.</div>'}</section>`;
 }
+// The painted field is the command surface. Labels and accessible buttons share renderer geometry.
+function compactStats(unit: Readonly<Unit>, omitDeadBlock = false): string {
+  return `<span>${icon('heart')} <span class="stat-number">${unit.hp}</span></span><span>${icon('battle')} <span class="stat-number">${unit.attack}</span></span>${unit.block && (!omitDeadBlock || unit.hp > 0) ? `<span>${icon('shield')} <span class="stat-number">${unit.block}</span></span>` : ''}`;
+}
+function fieldIdentity(side: 'allies' | 'enemies', unit: Readonly<Unit>, index: number | null): string {
+  const enemy = side === 'enemies';
+  if (index !== null) return `${enemy ? 'Hostile' : 'Binding'} ${index + 1}`;
+  // An absent canonical slot can also be a surviving party leaving a cleared contract.
+  if (unit.hp <= 0) return enemy ? 'Hostile down' : 'Binding lost';
+  return enemy ? 'Still standing' : 'Binding survived';
+}
+function fieldActor(side: 'allies' | 'enemies', unit: Readonly<Unit>, index: number | null): string {
+  const enemy = side === 'enemies';
+  const chosen = selected?.kind === 'attack' && selected.uid === unit.uid;
+  const valid = index !== null && isTarget(unit.uid);
+  const identity = fieldIdentity(side, unit, index);
+  const intent = enemy ? compactIntent(state, unit as Unit) : null;
+  const status = unit.hp <= 0 ? enemy ? 'Quarry down' : 'Binding lost' : unit.acted ? 'Command spent' : chosen ? 'Choose a target' : 'Ready';
+  const detail = `${unit.name}, ${identity}. ${unit.hp} of ${unit.maxHp} health, ${unit.attack} attack${unit.block ? `, ${unit.block} block` : ''}. ${intent?.fullText || status}`;
+  return `<article class="field-actor" data-actor="${escape(unit.uid)}"><div class="field-intent unit-status intent" aria-hidden="true">${intent?.lines.map(line => `<span>${escape(line)}</span>`).join('') || ''}</div><button class="unit field-unit ${enemy ? 'enemy' : 'ally'} ${valid ? 'valid-target' : ''} ${chosen ? 'selected' : ''} ${!enemy && !unit.acted && unit.hp > 0 ? 'ready' : ''}" data-unit="${escape(unit.uid)}" data-focus="unit-${escape(unit.uid)}" aria-pressed="${chosen}" aria-label="${escape(detail)}${valid ? '. Valid target; select to commit.' : ''}"><span class="field-presence" aria-hidden="true"></span></button><button class="unit-inspect field-inspect" data-ui="inspect-unit" data-uid="${escape(unit.uid)}" data-focus="inspect-${escape(unit.uid)}" aria-label="Inspect ${escape(detail)}"><span class="field-identity"><span class="field-nameplate">${escape(unit.name)} · ${escape(identity)} <span aria-hidden="true">ⓘ</span></span></span><span class="field-stat-line unit-stats">${compactStats(unit)}</span><span class="health-track" aria-hidden="true"><i style="width:${Math.max(0, unit.hp / unit.maxHp * 100)}%"></i></span></button>${!enemy ? `<span class="field-ready unit-status">${escape(status)}</span>` : ''}</article>`;
+}
+function fieldRoster(side: 'allies' | 'enemies', units: readonly Unit[] = state[side]): string {
+  return `<section class="field-side ${side === 'enemies' ? 'enemy-roster' : 'ally-roster'}" aria-label="${side === 'enemies' ? 'Hostile creatures and intentions' : 'Your bound creatures'}">${units.map((unit, index) => fieldActor(side, unit, index)).join('')}</section>`;
+}
+let fieldMeasureFrame = 0;
+function measureFieldReadouts() {
+  if (fieldMeasureFrame) return;
+  fieldMeasureFrame = requestAnimationFrame(() => {
+    fieldMeasureFrame = 0;
+    const overlay = document.getElementById('field-controls');
+    if (!overlay || !arena) return;
+    let intentRows = 3, statsRows = 1, identityRows = 1;
+    for (const actor of overlay.querySelectorAll<HTMLElement>('[data-actor]')) {
+      if (actor.hidden) continue;
+      const identity = actor.querySelector<HTMLElement>('.field-nameplate');
+      if (identity) identityRows = Math.max(identityRows, Math.ceil(identity.getBoundingClientRect().height / 16));
+      const intent = actor.querySelector<HTMLElement>('.field-intent');
+      if (intent) intentRows = Math.max(intentRows, Array.from(intent.children).reduce((rows, line) => rows + Math.max(1, Math.ceil((line as HTMLElement).getBoundingClientRect().height / 16)), 0));
+      const stats = actor.querySelector<HTMLElement>('.field-stat-line');
+      if (stats) statsRows = Math.max(statsRows, Math.ceil(stats.scrollHeight / 16));
+    }
+    arena.setReadoutMetrics({ intentRows, statsRows, identityRows });
+    positionFieldControls(arena.getUnitRegions());
+  });
+}
+function positionFieldControls(regions: readonly ArenaUnitRegion[]) {
+  updateTactileDropZone();
+  const overlay = document.getElementById('field-controls');
+  if (!overlay || !arena) return;
+  const viewport = arena.getUnitViewport();
+  const guidance = document.querySelector<HTMLElement>('.battle-guidance');
+  const guidanceHeight = Math.ceil(guidance?.getBoundingClientRect().height || 48);
+  const artStatusHeight = Math.ceil(document.querySelector<HTMLElement>('.arena-art-status')?.getBoundingClientRect().height || 0);
+  const sceneHeight = `${Math.ceil(viewport.requiredHeight) + guidanceHeight + artStatusHeight}px`;
+  if ($('scene').style.height !== sceneHeight) $('scene').style.height = sceneHeight;
+  $('arena-wrap').style.top = `${guidanceHeight}px`;
+  overlay.style.width = `${viewport.width}px`; overlay.style.height = `${viewport.height}px`;
+  for (const region of regions) {
+    if (!Array.from(overlay.querySelectorAll<HTMLElement>('[data-actor]')).some(actor => actor.dataset.actor === region.uid)) {
+      overlay.querySelector(region.side === 'ally' ? '.ally-roster' : '.enemy-roster')?.insertAdjacentHTML('beforeend', fieldActor(region.side === 'ally' ? 'allies' : 'enemies', region.readoutUnit, region.canonicalIndex));
+      measureFieldReadouts();
+    }
+  }
+  for (const actor of overlay.querySelectorAll<HTMLElement>('[data-actor]')) {
+    const region = regions.find(value => value.uid === actor.dataset.actor);
+    actor.hidden = !region;
+    if (!region) continue;
+    actor.style.left = `${region.cell.left}px`; actor.style.top = `${region.cell.top}px`;
+    actor.style.width = `${region.cell.width}px`; actor.style.height = `${region.cell.height}px`;
+    actor.classList.toggle('departing', region.dead || region.departing);
+    const place = (element: HTMLElement | null, rect: {left:number;top:number;width:number;height:number}) => {
+      if (!element) return;
+      element.style.left = `${rect.left - region.cell.left}px`; element.style.top = `${rect.top - region.cell.top}px`;
+      element.style.width = `${rect.width}px`; element.style.height = `${rect.height}px`;
+    };
+    const button = actor.querySelector<HTMLButtonElement>('[data-unit]');
+    place(button, region.hitRect);
+    if (button) button.disabled = settlingCombat || region.disabled || viewport.layoutPending;
+    const inspect = actor.querySelector<HTMLButtonElement>('[data-ui="inspect-unit"]');
+    place(inspect, region.inspectRect);
+    if (inspect) inspect.disabled = settlingCombat || viewport.layoutPending;
+    place(actor.querySelector('.field-intent'), region.intentRect);
+    place(actor.querySelector('.field-ready'), region.statusRect);
+    // Keep ROOT's terminal HP distinction and settling guard. Measure natural
+    // inner text separately from the globally reserved identity rows.
+    actor.style.setProperty('--identity-height', `${region.identityRect.height}px`);
+    const identity = actor.querySelector<HTMLElement>('.field-nameplate');
+    if (identity && region.canonicalIndex === null && !settlingCombat) {
+      const label = `${region.readoutUnit.name} · ${fieldIdentity(region.side === 'ally' ? 'allies' : 'enemies', region.readoutUnit, region.canonicalIndex)} ⓘ`;
+      if (identity.textContent !== label) identity.textContent = label;
+    }
+  }
+  // Paint movement alone does not change text flow. Raw readout widths, content,
+  // visibility and newborn/departure publication do; remeasure after positioning.
+  const signature = JSON.stringify([viewport.width, ...regions.map(region => {
+    const actor = Array.from(overlay.querySelectorAll<HTMLElement>('[data-actor]')).find(value => value.dataset.actor === region.uid);
+    return [region.uid, region.intentRect.width, region.inspectRect.width, actor?.textContent];
+  })]);
+  if (overlay.dataset.readoutMeasureSignature !== signature) {
+    overlay.dataset.readoutMeasureSignature = signature;
+    measureFieldReadouts();
+  }
+}
 function renderBattle() {
   previewCache.clear();
   activePreviewKey = '';
   const selectionText = selectionGuidance();
-  $('scene-ui').innerHTML = `<div class="battle-ui"><div class="battle-guidance ${selected ? 'targeting' : ''}"><span id="consequence-preview" role="status" aria-live="polite" aria-atomic="true">${escape(selectionText)}</span>${selected ? '<button class="text-button" data-ui="cancel">Cancel <kbd>Esc</kbd></button>' : `<button class="text-button" data-ui="log">Combat record ${icon('book')}</button>`}</div>${roster('allies')}<div class="arena-caption" aria-hidden="true"><span>THE BLACK MARCH</span><small>${selected ? 'TARGET ACQUIRED · GIVE THE ORDER' : 'READ THE THREAT. BREAK THE LINE.'}</small></div>${roster('enemies')}</div>`;
+  const fallback = !arena || $<HTMLCanvasElement>('arena').hidden || $('arena-wrap').classList.contains('arena-fallback');
+  $('app').classList.toggle('direct-field', !fallback);
+  $('scene-ui').innerHTML = `<div class="battle-ui"><div class="battle-guidance ${selected ? 'targeting' : ''}"><span id="consequence-preview" tabindex="0" aria-label="Order preview" role="status" aria-live="polite" aria-atomic="true">${escape(selectionText)}</span>${selected ? '<button class="text-button" data-ui="cancel">Cancel <kbd>Esc</kbd></button>' : `<button class="text-button" data-ui="log">Combat record ${icon('book')}</button>`}</div>${fallback ? `${roster('allies')}${roster('enemies')}` : ''}</div>`;
+  document.getElementById('field-controls')?.remove();
+  if (!fallback) $('arena-wrap').insertAdjacentHTML('beforeend', `<div id="field-controls" class="field-controls compact-field">${fieldRoster('allies')}${fieldRoster('enemies')}</div>`);
+  if (!fallback) measureFieldReadouts();
   const playable = actions().filter(a => a.type === 'play');
-  $('dock').innerHTML = `<div class="hand-area"><div class="hand-heading"><span class="eyebrow">AVAILABLE CARDS <span>${state.hand.length}</span></span><div class="pile-buttons"><button data-ui="draw">Draw <strong>${state.draw.length}</strong></button><button data-ui="discard">Discard <strong>${state.discard.length}</strong></button></div></div><div class="hand-cards">${state.hand.map((id, index) => renderCard(CARDS[id], { handIndex: index, disabled: !playable.some(a => a.type === 'play' && a.index === index), selected: selected?.kind === 'card' && selected.index === index })).join('')}${!state.hand.length ? '<div class="empty-hand">No cards in hand.<br>Use remaining commands, then end your turn.</div>' : ''}</div></div><div class="turn-controls"><div class="energy-orb">${icon('energy')}<strong>${state.energy}</strong><span>energy</span></div><button class="button end-turn" data-action="endTurn" data-focus="end-turn">End turn ${icon('arrow')}<small>Enemy intents resolve · draw 5 · refill energy</small></button><span class="keyboard-hint" aria-label="${inputMode === 'controller' ? 'Controller' : 'Keyboard'} controls">${inputHints()}</span></div>`;
+  const firstBinding = state.floor === 1 && state.turn === 1 && state.allies.length === 0 && playable.some(action => action.type === 'play' && CARDS[state.hand[action.index]]?.type === 'summon');
+  $('dock').innerHTML = `<div class="hand-area"><div class="hand-heading${firstBinding ? ' opening-hand-heading' : ''}"><span class="eyebrow">AVAILABLE CARDS <span>${state.hand.length}</span></span>${firstBinding ? '<p class="first-binding-cue"><strong>Bind your first creature.</strong> Click or drag a BINDING card.</p>' : ''}<div class="pile-buttons"><button data-ui="draw">Draw <strong>${state.draw.length}</strong></button><button data-ui="discard">Discard <strong>${state.discard.length}</strong></button></div></div><div class="hand-cards">${state.hand.map((id, index) => renderCard(CARDS[id], { handIndex: index, disabled: !playable.some(a => a.type === 'play' && a.index === index), selected: selected?.kind === 'card' && selected.index === index })).join('')}${!state.hand.length ? '<div class="empty-hand">No cards in hand.<br>Use remaining commands, then end your turn.</div>' : ''}</div></div><div class="turn-controls"><div class="energy-orb">${icon('energy')}<strong>${state.energy}</strong><span>energy</span></div><button class="button end-turn" data-action="endTurn" data-focus="end-turn">End turn ${icon('arrow')}<small>Enemy intents resolve · draw 5 · refill energy</small></button><span class="keyboard-hint" aria-label="${inputMode === 'controller' ? 'Controller' : 'Keyboard'} controls">${inputHints()}</span></div>`;
+  const hand = document.querySelector<HTMLElement>('#dock .hand-cards');
+  // Natural printed rules can make a later card taller than the first.
+  const height = hand ? Math.max(0, ...Array.from(hand.querySelectorAll<HTMLElement>('.game-card'), card => card.offsetHeight)) : 0;
+  if (hand && height) hand.style.setProperty('--tactile-card-height', `${height}px`);
+  updateTactileDropZone();
 }
 function inputHints(): string {
   if (settlingCombat) return inputMode === 'controller'
@@ -647,6 +809,8 @@ function renderOutcome() {
 }
 
 function openDialog(name: string, content: string, wide = false) {
+  tactileHand?.cancel();
+  disposeHuntForm?.(); disposeHuntForm = null;
   hostAudio.cancel('dialog-open');
   const dialog = $<HTMLDialogElement>('dialog');
   if (!dialog.open) dialogOrigin = focusReference();
@@ -659,25 +823,43 @@ function openDialog(name: string, content: string, wide = false) {
 }
 function restoreDialogOrigin() {
   const reference = dialogOrigin; dialogOrigin = null;
-  if (!restoreFocus(reference)) focusScene();
+  const previous = restoringDialogFocus;
+  restoringDialogFocus = true;
+  try { if (!restoreFocus(reference)) focusScene(); }
+  finally { restoringDialogFocus = previous; }
 }
 function closeDialog() {
-  const dialog = $<HTMLDialogElement>('dialog');
-  if (!dialog.open) return;
-  dialog.close(); restoreDialogOrigin();
+  const previous = restoringDialogFocus;
+  restoringDialogFocus = true;
+  try {
+    disposeHuntForm?.(); disposeHuntForm = null;
+    const dialog = $<HTMLDialogElement>('dialog');
+    if (!dialog.open) return;
+    const origin = dialogOrigin;
+    // Native close may focus its saved element before returning or dispatch a
+    // close listener synchronously. Cover both native and explicit focus paths.
+    dialog.close();
+    if (!dialog.open && (dialogOrigin !== null || origin === null)) restoreDialogOrigin();
+  } finally { restoringDialogFocus = previous; }
 }
 function openNew() {
   if (settlingCombat) { cancelPresentation(); render(); }
-  openDialog('A new campaign', `<p class="dialog-copy">The seed fixes the campaign. Reuse it to test a different deck and method.</p><form id="new-game-form"><label class="field-label" for="seed">Campaign seed <small>Any number or words</small></label><input id="seed" name="seed" type="text" maxlength="64" value="${Math.floor(Math.random() * 9999999)}" autocomplete="off"/><fieldset class="difficulty-options"><legend>Contract difficulty</legend><label><input type="radio" name="difficulty" value="0" checked/><span><strong>Initiate</strong><small>Lower pressure. Learn command timing and target priorities.</small></span></label><label><input type="radio" name="difficulty" value="1"/><span><strong>Hunter</strong><small>Stronger opposition. Less room for wasted orders.</small></span></label><label><input type="radio" name="difficulty" value="2"/><span><strong>Veteran</strong><small>Highest enemy pressure. Every binding must earn its place.</small></span></label></fieldset>${!title && !['victory','defeat'].includes(state.phase) || savedRun && !['victory','defeat'].includes(savedRun.phase) ? '<p class="abandon-notice">Beginning a new campaign replaces your current campaign.</p>' : ''}<button class="button primary full-width" type="submit">Accept the warrant ${icon('arrow')}</button></form>`);
+  openDialog('A new hunt', renderHuntContract({ seed: String(Math.floor(Math.random() * 9999999)), difficulty: 0, replaceSaved: activeHuntSummary() }));
+  disposeHuntForm = attachHuntEntry($('dialog'), huntAudioHost());
+  focusHuntContract($<HTMLFormElement>('new-game-form'));
 }
+
 function openTutorial() {
-  openDialog('Know your tools. Read your quarry.', `<p class="dialog-copy">Keep the hunter alive and defeat the final contract. The arena shows the fight; the side panels show the exact rules.</p><div class="tutorial-steps"><div><span>1</span><section><h3>Spend energy deliberately</h3><p>Start each turn with <strong>5 energy and 5 cards</strong>. A card’s corner shows its cost. Unplayed cards enter discard at turn end. When draw runs out, discard reshuffles.</p></section></div><div><span>2</span><section><h3>Deploy a binding</h3><p>Creature cards occupy one of <strong>6 binding slots</strong>. They remain through the fight. Their cards stay out of your piles while alive; fallen creatures return to discard.</p></section></div><div><span>3</span><section><h3>Give an explicit command</h3><p><strong>Select a ready creature, then an enemy.</strong> One free command per creature each turn, including its arrival turn. Targeted tools also wait for your choice. Use each creature’s <strong>Inspect button (i)</strong> to read traits.</p></section></div><div><span>4</span><section><h3>Read every intent</h3><p>Enemy panels show their next target, damage, guard, or reinforcements. Intents resolve in order when you <strong>End turn</strong>. If a marked creature falls, its attacker hits the hunter. Block expires at your next turn; some enemies explicitly ignore it.</p></section></div></div><div class="tutorial-shortcuts"><kbd>E</kbd> End turn <kbd>Esc</kbd> Cancel / pause <kbd>Tab</kbd> Navigate <kbd>Enter</kbd> Choose</div><button class="button primary full-width" data-ui="learned">Accept field orders ${icon('arrow')}</button>`, true);
+  openDialog('Know your tools. Read your quarry.', `<p class="dialog-copy">Keep the hunter alive and defeat the final contract. Select creatures directly on the battlefield. Their readouts show health, attack and readiness.</p><div class="tutorial-steps"><div><span>1</span><section><h3>Spend energy deliberately</h3><p>Start each turn with <strong>5 energy and 5 cards</strong>. A card’s corner shows its cost. Unplayed cards enter discard at turn end. When draw runs out, discard reshuffles.</p></section></div><div><span>2</span><section><h3>Deploy a binding</h3><p>Creature cards occupy one of <strong>6 binding slots</strong>. They remain through the fight. Their cards stay out of your piles while alive; fallen creatures return to discard.</p></section></div><div><span>3</span><section><h3>Give an explicit command</h3><p><strong>Select a ready creature, then an enemy.</strong> One free command per creature each turn, including its arrival turn. Targeted tools also wait for your choice. Use each creature’s <strong>Inspect button (i)</strong> to read traits.</p></section></div><div><span>4</span><section><h3>Read every intent</h3><p>Readouts above enemies show their next target, damage, guard, or reinforcements. Intents resolve in order when you <strong>End turn</strong>. If a marked creature falls, its attacker hits the hunter. Block expires at your next turn; some enemies explicitly ignore it.</p></section></div></div><div class="tutorial-shortcuts"><kbd>E</kbd> End turn <kbd>Esc</kbd> Cancel / pause <kbd>Tab</kbd> Navigate <kbd>Enter</kbd> Choose</div><button class="button primary full-width" data-ui="learned">Accept field orders ${icon('arrow')}</button>`, true);
 }
 function openUnit(unit: Unit) {
   const passive = (unit as Unit & { passive?: string }).passive;
-  const enemy = state.enemies.some(u => u.uid === unit.uid);
+  const liveEnemy = state.enemies.some(u => u.uid === unit.uid);
+  const heldRegion = arena?.getUnitRegions().find(region => region.uid === unit.uid);
+  const enemy = liveEnemy || heldRegion?.side === 'enemy';
+  const departed = heldRegion?.canonicalIndex === null;
   const intent = unit.intent;
-  openDialog(unitLabel(unit), `<div class="unit-dossier">${creature(unit.species, unit.color)}<div><span class="eyebrow">${enemy ? 'HOSTILE DOSSIER' : 'BOUND CREATURE'}</span><h3>${escape(unitLabel(unit))}</h3><p>${unit.hp}/${unit.maxHp} health · ${unit.attack} attack${unit.block ? ` · ${unit.block} block` : ''}</p></div></div>${passive ? `<div class="dossier-rule"><h3>Trait</h3><p>${escape(passive)}</p></div>` : ''}${intent ? `<div class="dossier-rule"><h3>Next intent</h3><p>${escape(intent.label)}</p>${intent.damage > 0 ? `<strong>${intent.damage} damage to ${escape(targetName(intent.target))}.</strong>` : ''}</div>` : `<div class="dossier-rule"><h3>Binding effect</h3><p>${escape(CARDS[unit.cardId]?.text || 'One free command per turn.')}</p><strong>${unit.acted ? 'Command spent this turn.' : 'Ready to command this turn.'}</strong></div>`}<button class="button secondary full-width" data-ui="close">Return to the fight</button>`);
+  openDialog(unitLabel(unit), `<div class="unit-dossier">${creature(unit.species, unit.color)}<div><span class="eyebrow">${enemy ? 'HOSTILE DOSSIER' : 'BOUND CREATURE'}</span><h3>${escape(unitLabel(unit))}</h3><p>${unit.hp}/${unit.maxHp} health · ${unit.attack} attack${unit.block ? ` · ${unit.block} block` : ''}</p></div></div>${passive ? `<div class="dossier-rule"><h3>Trait</h3><p>${escape(passive)}</p></div>` : ''}${intent ? `<div class="dossier-rule"><h3>${departed ? 'Recorded intent before departure' : 'Next intent'}</h3><p>${escape(compactIntent(state, unit).fullText)}</p>${departed ? '<p>This departed hostile no longer resolves its intent. Target references above use the current surviving formation.</p>' : ''}</div>` : `<div class="dossier-rule"><h3>Binding effect</h3><p>${escape(CARDS[unit.cardId]?.text || 'One free command per turn.')}</p><strong>${unit.acted ? 'Command spent this turn.' : 'Ready to command this turn.'}</strong></div>`}<button class="button secondary full-width" data-ui="close">Return to the fight</button>`);
 }
 
 function openDeck(pile: 'deck' | 'draw' | 'discard' = 'deck', removing = false) {
@@ -732,14 +914,14 @@ function exportFeedback(form: HTMLFormElement) {
   form.querySelector('.feedback-saved')?.remove(); form.append(status);
 }
 function openSettings() {
-  openDialog('Make yourself comfortable', `<div class="setting-row"><label for="mute"><strong>Sound effects</strong><small>Impacts, iron, binding chains, and field signals.</small></label><input type="checkbox" id="mute" ${!settings.mute ? 'checked' : ''}/></div><div class="setting-row"><label for="volume"><strong>Volume</strong><small id="volume-value">${Math.round(settings.volume * 100)}%</small></label><input type="range" id="volume" min="0" max="100" value="${settings.volume * 100}"/></div><div class="setting-row"><label for="motion"><strong>Ambient motion</strong><small>Fog, creature motion, and combat effects.</small></label><input type="checkbox" id="motion" ${settings.motion ? 'checked' : ''}/></div><p class="settings-note">Preferences are stored on this device. Exact targets, intents, and traits are available in the binding and enemy panels.</p><button class="button secondary full-width" data-ui="close">Return</button>`);
+  openDialog('Make yourself comfortable', `<div class="setting-row"><label for="mute"><strong>Sound effects</strong><small>Impacts, iron, binding chains, and field signals.</small></label><input type="checkbox" id="mute" ${!settings.mute ? 'checked' : ''}/></div><div class="setting-row"><label for="volume"><strong>Volume</strong><small id="volume-value">${Math.round(settings.volume * 100)}%</small></label><input type="range" id="volume" min="0" max="100" value="${settings.volume * 100}"/></div><div class="setting-row"><label for="motion"><strong>Ambient motion</strong><small>Fog, creature motion, and combat effects.</small></label><input type="checkbox" id="motion" ${settings.motion ? 'checked' : ''}/></div><p class="settings-note">Preferences are stored on this device. Exact targets, intents, and traits are available in the creature readouts.</p><button class="button secondary full-width" data-ui="close">Return</button>`);
 }
 function openPause() {
   if (settlingCombat) { cancelPresentation(); render(); announceOutcome(); }
   openDialog('Campaign paused', `<p class="dialog-copy">Your campaign saves after every accepted action. Resume whenever you need.</p><div class="pause-buttons"><button class="button primary" data-ui="close">Continue ${icon('arrow')}</button><button class="button secondary" data-ui="menu">Return to title</button><button class="text-button" data-ui="new">Start a new campaign</button></div>`);
 }
 
-function selectCard(index: number) {
+function selectCard(index: number, navigateTargets = true) {
   const id = state.hand[index];
   const card = CARDS[id];
   if (!card) return;
@@ -750,9 +932,9 @@ function selectCard(index: number) {
     return;
   }
   if (cardTarget(id) === 'none') dispatch({ type: 'play', index });
-  else { selectionOrigin = focusReference(); selected = { kind: 'card', index }; sound(); render(); focusElement(document.querySelector<HTMLElement>('.unit.valid-target, .hunter-hud.valid-target button')); }
+  else { selectionOrigin = focusReference(); selected = { kind: 'card', index }; sound(); render(); if (navigateTargets) focusElement(document.querySelector<HTMLElement>('.unit.valid-target, .hunter-hud.valid-target button')); }
 }
-function selectUnit(uid: string) {
+function selectUnit(uid: string, navigateTargets = true) {
   if (selected && isTarget(uid)) {
     if (selected.kind === 'attack') dispatch({ type: 'attack', unit: selected.uid, target: uid });
     else dispatch({ type: 'play', index: selected.index, target: uid });
@@ -764,11 +946,169 @@ function selectUnit(uid: string) {
   if (ally) {
     if (ally.acted) { notify(`${unitLabel(ally)} has already been commanded this turn.`); return; }
     if (!actions().some(a => a.type === 'attack' && a.unit === uid)) { notify('No enemy is available to attack.'); return; }
-    selectionOrigin = focusReference(); selected = { kind: 'attack', uid }; sound(); render(); focusElement(document.querySelector<HTMLElement>('.enemy.valid-target'));
+    selectionOrigin = focusReference(); selected = { kind: 'attack', uid }; sound(); render(); if (navigateTargets) focusElement(document.querySelector<HTMLElement>('.enemy.valid-target'));
   } else if (uid !== 'hunter') {
     const enemy = state.enemies.find(u => u.uid === uid);
     if (enemy) notify(`${unitLabel(enemy)} plans ${enemy.intent?.damage || 0} damage to ${targetName(enemy.intent?.target || 'hunter')}. Select a ready companion or a targeted spell to attack.`);
   }
+}
+
+// Tactile presentation never selects a card or changes reducer/save state.
+function tactileCurrent(source: TactileCardSource): boolean {
+  return source.revision === String(canonicalRevision)
+    && source.key === `${canonicalRevision}:${source.handIndex}:${source.cardId}`
+    && state.hand[source.handIndex] === source.cardId
+    && tactileSourceStates.get(source.key) === state;
+}
+function tactileAllowed(source: TactileCardSource): boolean {
+  return tactileCurrent(source) && !disposed && !title && !settlingCombat
+    && state.phase === 'battle' && !document.hidden && !$<HTMLDialogElement>('dialog').open
+    && !arena?.getUnitViewport().layoutPending
+    && actions().some(action => action.type === 'play' && action.index === source.handIndex);
+}
+type TactileRect = { left: number; top: number; width: number; height: number };
+function tactileContains(rect: TactileRect, point: TactilePoint): boolean {
+  return rect.width > 0 && rect.height > 0 && point.x >= rect.left && point.x < rect.left + rect.width
+    && point.y >= rect.top && point.y < rect.top + rect.height;
+}
+function tactileOverlap(a: TactileRect, b: TactileRect): boolean {
+  return b.width > 0 && b.height > 0 && a.left < b.left + b.width && b.left < a.left + a.width
+    && a.top < b.top + b.height && b.top < a.top + a.height;
+}
+function updateTactileDropZone() {
+  const canvas = $<HTMLCanvasElement>('arena');
+  const direct = !title && state.phase === 'battle' && !!arena && !canvas.hidden
+    && !$('arena-wrap').classList.contains('arena-fallback');
+  let zone = document.querySelector<HTMLElement>('#arena-wrap [data-tactile-drop-zone="deploy"]');
+  if (!direct) {
+    zone?.remove();
+    if (!title && state.phase === 'battle') {
+      // In canvas fallback, explicitly mark an existing empty binding slot,
+      // or the friendly roster header for an immediate tool in a full party.
+      // No added layout or invented board coordinates.
+      const empty = document.querySelector<HTMLElement>('.ally-roster .empty-slot')
+        ?? document.querySelector<HTMLElement>('.ally-roster .roster-heading');
+      if (empty) { empty.dataset.tactileDropZone = 'deploy'; empty.classList.add('tactile-fallback-deploy'); }
+    }
+    return;
+  }
+  if (!zone) {
+    zone = document.createElement('div'); zone.className = 'tactile-deploy-zone';
+    zone.dataset.tactileDropZone = 'deploy'; zone.setAttribute('aria-hidden', 'true');
+    $('arena-wrap').append(zone);
+  }
+  const viewport = arena!.getUnitViewport(), regions = arena!.getUnitRegions();
+  const occupied: TactileRect[] = [viewport.hunterRect, ...regions.flatMap(region => [
+    region, region.hitRect, region.inspectRect, region.intentRect, region.statusRect,
+  ])];
+  const width = Math.min(132, viewport.width - 16), height = 32;
+  let apron: TactileRect | null = null;
+  // Explicit original deploy apron: choose a free rectangle in the friendly
+  // half, never an actor, hunter, readout or arbitrary scenery hit at release.
+  for (let top = viewport.height - height - 8; top >= viewport.height / 2 && !apron; top -= 8) {
+    for (let left = 8; left + width <= viewport.width - 8; left += 8) {
+      const candidate = { left, top, width, height };
+      if (width >= 80 && !occupied.some(rect => tactileOverlap(candidate, rect))) { apron = candidate; break; }
+    }
+  }
+  zone.hidden = !apron || viewport.layoutPending;
+  if (apron) {
+    const canvasRect = canvas.getBoundingClientRect(), wrapRect = $('arena-wrap').getBoundingClientRect();
+    zone.style.left = `${canvasRect.left - wrapRect.left + apron.left}px`;
+    zone.style.top = `${canvasRect.top - wrapRect.top + apron.top}px`;
+    zone.style.width = `${apron.width}px`; zone.style.height = `${apron.height}px`;
+  }
+}
+function tactileDestination(source: TactileCardSource, point: TactilePoint): TactileDestination | null {
+  if (!tactileAllowed(source)) return null;
+  const under = document.elementFromPoint(point.x, point.y);
+  if (!under || under.closest('#dialog, #dock, .battle-guidance, [data-ui="inspect-unit"]')) return null;
+  const unit = under.closest<HTMLButtonElement>('[data-unit]');
+  const hunter = under.closest<HTMLButtonElement>('.hunter-hud [data-ui="hunter"]');
+  const uid = unit?.dataset.unit || (hunter ? 'hunter' : null);
+  if (uid) {
+    if (unit?.disabled || hunter?.disabled) return null;
+    // Direct field controls are authoritative owned hit rectangles; fallback
+    // roster buttons carry the same immutable canonical UID.
+    if (unit?.classList.contains('field-unit')) {
+      const region = arena?.getUnitRegions().find(candidate => candidate.uid === uid);
+      if (!region || region.disabled || region.dead || region.departing || region.canonicalIndex === null) return null;
+    }
+    return actions().some(action => action.type === 'play' && action.index === source.handIndex && action.target === uid)
+      ? { kind: 'target', key: uid } : null;
+  }
+  if (cardTarget(source.cardId) !== 'none') return null;
+  updateTactileDropZone();
+  const zone = document.querySelector<HTMLElement>('[data-tactile-drop-zone="deploy"]');
+  if (!zone || zone.hidden || !tactileContains(zone.getBoundingClientRect(), point)) return null;
+  return { kind: CARDS[source.cardId].type === 'summon' ? 'deploy' : 'field', key: 'friendly-apron' };
+}
+function tactileAction(source: TactileCardSource, destination: TactileDestination | null): Extract<Action, { type: 'play' }> | null {
+  if (!destination || !tactileAllowed(source)) return null;
+  const target = destination.kind === 'target' ? destination.key : undefined;
+  if (target === undefined && (destination.key !== 'friendly-apron' || cardTarget(source.cardId) !== 'none'
+    || destination.kind !== (CARDS[source.cardId].type === 'summon' ? 'deploy' : 'field'))) return null;
+  return actions().find((action): action is Extract<Action, { type: 'play' }> => action.type === 'play'
+    && action.index === source.handIndex && action.target === target) ?? null;
+}
+function tactilePreview(source: TactileCardSource, destination: TactileDestination | null) {
+  const action = tactileAction(source, destination);
+  if (!action) return { legal: false, label: cardTarget(source.cardId) === 'none'
+    ? 'Release on the marked friendly apron, or return to hand.' : 'Choose a legal creature target, or return to hand.' };
+  const key = JSON.stringify(action);
+  let result = previewCache.get(key);
+  if (!result) { result = consequencePreview(action); previewCache.set(key, result); }
+  return { legal: true, label: result.text };
+}
+function setTactilePreview(source: TactileCardSource | null, destination: TactileDestination | null, preview: { legal: boolean; label: string } | null) {
+  document.querySelectorAll('.tactile-target-preview').forEach(element => element.classList.remove('tactile-target-preview'));
+  document.querySelectorAll<HTMLElement>('[data-tactile-drop-zone]').forEach(element => element.dataset.active = String(!!source && cardTarget(source.cardId) === 'none'));
+  tactilePreviewActive = !!source;
+  const output = document.getElementById('consequence-preview');
+  if (!source || !preview) {
+    if (!title && state.phase === 'battle' && output) {
+      output.textContent = selectionGuidance(); output.dataset.preview = 'instruction';
+      output.closest('.battle-guidance')?.classList.remove('danger-preview');
+    }
+    activePreviewKey = ''; return;
+  }
+  // Close the prior ordinary hover result without changing selected authority.
+  activePreviewKey = '';
+  const action = tactileAction(source, destination);
+  const result = action ? previewCache.get(JSON.stringify(action)) : null;
+  if (output) {
+    output.textContent = result?.text || preview.label; output.dataset.preview = preview.legal ? 'consequence' : 'instruction';
+    output.closest('.battle-guidance')?.classList.toggle('danger-preview', !!result?.danger);
+  }
+  if (preview.legal && destination?.kind === 'target') {
+    const target = destination.key === 'hunter' ? document.querySelector('.hunter-hud [data-ui="hunter"]')
+      : Array.from(document.querySelectorAll<HTMLElement>('[data-unit]')).find(element => element.dataset.unit === destination.key);
+    target?.classList.add('tactile-target-preview');
+  }
+}
+function attachRootTactileHand() {
+  tactileHand = attachTactileHand($('dock'), {
+    identify(card) {
+      const handIndex = Number(card.dataset.index), cardId = card.dataset.card;
+      if (!Number.isInteger(handIndex) || handIndex < 0 || !cardId || state.hand[handIndex] !== cardId) return null;
+      const revision = String(canonicalRevision), key = `${revision}:${handIndex}:${cardId}`;
+      tactileSourceStates.set(key, state);
+      return { key, revision, handIndex, cardId };
+    },
+    isCurrent: tactileCurrent, isInteractionAllowed: tactileAllowed,
+    resolveDestination: tactileDestination, getPreview: tactilePreview, onPreview: setTactilePreview,
+    commit(source, destination) {
+      const action = tactileAction(source, destination); if (!action) return false;
+      const before = state;
+      // The release barrier is already installed by the module. Keep its
+      // accepted ghost alive through this one synchronous canonical rerender;
+      // all other state replacements cancel normally and invalidate revision.
+      tactileCommitInProgress = true;
+      try { dispatch(action); } finally { tactileCommitInProgress = false; }
+      return state !== before;
+    },
+    onError: () => notify('The card returned to hand. Click or use keyboard commands to continue.'),
+  }, { cardSelector: '.hand-cards [data-ui="play-card"]' });
 }
 
 function handleClick(event: MouseEvent) {
@@ -777,7 +1117,7 @@ function handleClick(event: MouseEvent) {
   const dialog = $<HTMLDialogElement>('dialog');
   if (dialog.open && !dialog.contains(button)) return;
   if (settlingCombat && (button.dataset.unit || button.dataset.action || ['play-card','cancel','train','remove','inspect-unit','inspect-quarry','inspect','draw','discard','deck','log'].includes(button.dataset.ui || ''))) return;
-  if (button.dataset.unit) { selectUnit(button.dataset.unit); return; }
+  if (button.dataset.unit) { selectUnit(button.dataset.unit, event.detail === 0); return; }
   if (button.dataset.action) {
     const type = button.dataset.action;
     let action: Action | null = null;
@@ -800,7 +1140,7 @@ function handleClick(event: MouseEvent) {
   }
   switch (button.dataset.ui) {
     case 'new': openNew(); break;
-    case 'resume': if (savedRun) { cancelPresentation(); clearToast(); state = savedRun; title = false; selected = null; render(); sound(); } break;
+    case 'resume': if (savedRun) { cancelPresentation(); clearToast(); replaceCanonicalState(savedRun); title = false; selected = null; render(); sound(); } break;
     case 'retry': closeDialog(); start(state.seed, state.difficulty); break;
     case 'home': if (!title) openPause(); break;
     case 'menu': closeDialog(); cancelPresentation(); clearToast(); title = true; selected = null; render(); break;
@@ -821,8 +1161,8 @@ function handleClick(event: MouseEvent) {
     case 'remove': openDeck('deck', true); break;
     case 'train': openTraining(); break;
     case 'inspect-quarry': { const boss = ENEMIES[bossForSeed(state.seed)]; openDialog(boss.name, `<div class="unit-dossier">${creature(boss.species, boss.color)}<div><span class="eyebrow">FINAL QUARRY · FIXED BY SEED</span><h3>${escape(boss.name)}</h3></div></div><div class="dossier-rule"><h3>Known trait</h3><p>${escape(boss.passive || '')}</p></div><button class="button secondary full-width" data-ui="close">Return to field chart</button>`); break; }
-    case 'inspect-unit': { const unit = [...state.allies, ...state.enemies].find(u => u.uid === button.dataset.uid); if (unit) openUnit(unit); break; }
-    case 'play-card': selectCard(Number(button.dataset.index)); break;
+    case 'inspect-unit': { const unit = [...state.allies, ...state.enemies].find(u => u.uid === button.dataset.uid) || arena?.getUnitRegions().find(region => region.uid === button.dataset.uid)?.readoutUnit; if (unit) openUnit(unit as Unit); break; }
+    case 'play-card': selectCard(Number(button.dataset.index), event.detail === 0); break;
     case 'cancel': cancelSelection(); break;
     case 'confirm-end': closeDialog(); dispatch({ type: 'endTurn' }); break;
     case 'inspect': {
@@ -841,15 +1181,22 @@ document.addEventListener('pointerover', event => {
 });
 document.addEventListener('pointerout', event => {
   const from = event.target instanceof Element ? event.target.closest('[data-unit], [data-ui="play-card"]') : null;
-  if (from && !(event.relatedTarget instanceof Node && from.contains(event.relatedTarget))) showConsequenceFor(document.activeElement);
+  if (from && !(event.relatedTarget instanceof Node && from.contains(event.relatedTarget))) {
+    const next = event.relatedTarget instanceof Element ? event.relatedTarget : null;
+    // Pointerout precedes pointerover: entering Inspect must preserve the exact
+    // target outcome rather than briefly restoring the focused source guidance.
+    if (next?.closest('.battle-guidance, [data-ui="inspect-unit"]')) return;
+    if (!showConsequenceFor(next)) showConsequenceFor(document.activeElement);
+  }
 });
 document.addEventListener('submit', event => {
   if ((event.target as HTMLElement).id === 'feedback-form') { event.preventDefault(); exportFeedback(event.target as HTMLFormElement); return; }
   if ((event.target as HTMLElement).id !== 'new-game-form') return;
   event.preventDefault();
   const form = event.target as HTMLFormElement;
-  const data = new FormData(form);
-  closeDialog(); start(parseSeed(String(data.get('seed') || '')), Number(data.get('difficulty') || 0));
+  const result = readHuntContractForm(form, { replacementRequired: activeHuntSummary() !== null });
+  if (!result.ok) { showHuntContractError(form, result.message); return; }
+  closeDialog(); start(parseSeed(result.seed), result.difficulty);
 });
 document.addEventListener('input', event => {
   const input = event.target as HTMLInputElement;
@@ -877,6 +1224,11 @@ document.addEventListener('keydown', event => {
   if ($<HTMLDialogElement>('dialog').open) return;
   if (event.key.toLowerCase() === 'e' && !settlingCombat && !event.repeat && !title && state.phase === 'battle') { event.preventDefault(); document.querySelector<HTMLButtonElement>('[data-action="endTurn"]')?.click(); }
 }, true);
+$<HTMLDialogElement>('dialog').addEventListener('cancel', event => {
+  // Escape inside an input can bypass the document shortcut handler. Keep the
+  // UA cancellation path inside the same guarded native-close transaction.
+  event.preventDefault(); closeDialog();
+});
 $<HTMLDialogElement>('dialog').addEventListener('close', () => {
   if (dialogOrigin !== null && !$<HTMLDialogElement>('dialog').open) restoreDialogOrigin();
 });
@@ -885,9 +1237,9 @@ $<HTMLDialogElement>('dialog').addEventListener('click', event => {
   if (event.target === dialog) { const r = dialog.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) closeDialog(); }
 });
 document.addEventListener('visibilitychange', () => { hostAudio.visibility(document.hidden); if (settlingCombat) finishPresentation(presentationEpoch); });
-window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', event => { hostAudio.cancel('system-motion-change'); if (event.matches && settlingCombat) finishPresentation(presentationEpoch); });
+window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', event => { tactileHand?.cancel(); hostAudio.cancel('system-motion-change'); if (event.matches && settlingCombat) finishPresentation(presentationEpoch); });
 const inputAdapter = createInputAdapter({
-  getContext: () => ({ phase: title || state.phase === 'menu' ? 'title' : state.phase, settling: settlingCombat, dialog: $<HTMLDialogElement>('dialog').open ? $('dialog') : null, targeting: !!selected }),
+  getContext: () => ({ phase: title || state.phase === 'menu' ? 'title' : state.phase, settling: settlingCombat, dialog: $<HTMLDialogElement>('dialog').open ? $('dialog') : null, targeting: !!selected, battlefieldRows: !!document.getElementById('field-controls') }),
   activate: element => {
     const dialog = $<HTMLDialogElement>('dialog');
     if (element.isConnected && !element.matches(':disabled') && (!dialog.open || dialog.contains(element))) { element.click(); controllerAudioIntent(); }
@@ -896,8 +1248,8 @@ const inputAdapter = createInputAdapter({
   inspect: element => {
     if (settlingCombat) return;
     const uid = element.dataset.unit || element.dataset.uid;
-    const unit = [...state.allies, ...state.enemies].find(candidate => candidate.uid === uid);
-    if (unit) { openUnit(unit); controllerAudioIntent(); return; }
+    const unit = [...state.allies, ...state.enemies].find(candidate => candidate.uid === uid) || arena?.getUnitRegions().find(region => region.uid === uid)?.readoutUnit;
+    if (unit) { openUnit(unit as Unit); controllerAudioIntent(); return; }
     const card = CARDS[element.dataset.card || ''];
     if (card) openDialog(card.name, `<div class="inspect-card">${renderCard(card)}</div><p class="dialog-copy">${escape(cardRules(card))}</p><button class="button secondary full-width" data-ui="close">Return</button>`);
     else if (element.dataset.ui === 'hunter') openHunter();
@@ -913,6 +1265,7 @@ const inputAdapter = createInputAdapter({
     if (hint) { hint.innerHTML = inputHints(); hint.setAttribute('aria-label', `${mode === 'controller' ? 'Controller' : 'Keyboard'} controls`); }
   },
 });
-window.addEventListener('pagehide', () => hostAudio.cancel('pagehide'));
-window.addEventListener('beforeunload', () => { disposed = true; void hostAudio.dispose().catch(() => {}); inputAdapter.dispose(); cancelPresentation(); sceneObserver.disconnect(); toolIllustrations.dispose(); arena?.dispose(); });
+window.addEventListener('pagehide', () => { tactileHand?.cancel(); hostAudio.cancel('pagehide'); });
+window.addEventListener('beforeunload', () => { disposed = true; $('dock').replaceChildren(); tactileHand?.dispose(); tactileHand = null; void hostAudio.dispose().catch(() => {}); inputAdapter.dispose(); cancelPresentation(); sceneObserver.disconnect(); toolIllustrations.dispose(); arena?.dispose(); });
+attachRootTactileHand();
 render();

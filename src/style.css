@@ -148,3 +148,11 @@ textarea:focus-visible,select:focus-visible{outline:3px solid #cfb47e;outline-of
 .event-choices .choice-card:disabled>.icon{opacity:.55}
 .event-choices .choice-card:disabled p{color:#9da5a1}
 .event-choices .choice-card:disabled>span{color:#e2d8bd;font-size:12px}
+
+/* First binding stays beside the hand while focus/hover previews describe outcomes. */
+#dock:has(.opening-hand-heading){height:auto}
+#dock .opening-hand-heading{height:auto;min-height:18px;flex-wrap:wrap;gap:6px 16px}
+#dock .opening-hand-heading>.eyebrow,#dock .opening-hand-heading>.pile-buttons{flex:0 0 auto}
+#dock .first-binding-cue{flex:1 1 420px;min-width:0;margin:0;padding-left:10px;border-left:2px solid #c1a673;color:#e2d8bd;font:13px/18px Arial,sans-serif;overflow-wrap:anywhere}
+#dock .first-binding-cue strong{color:#f0e1ba}
+@media(max-width:1100px){#dock .first-binding-cue{order:2;flex-basis:100%}}
