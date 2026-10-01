@@ -1,0 +1,22 @@
+# Cairn native128 opening trial — 1 October 2026
+
+The 128px Cairn is visible in an actual isolated playable comparison and after ordinary Continue. It is **not selected as the default artwork**. Independent visual and gameplay reviews reject promotion: the field remains a mixture of pixel and painted art, the hound is too lateral, and moving its READY image does not articulate an attack. The sampled attack image also leaves a visible gap; its timing is not certified as peak contact, so it does not establish a complete contact diagnosis.
+
+The generated reference was cleaned onto a true128×128 indexed canvas with a shared16-entry palette, binary transparency and nearest-neighbour display. A separate technical reviewer executed the converter and reproduced all seven content outputs exactly. Native asset SHA256: `ce0897f80894e2fd3196605af1dfa5b9a4a5209fd2d5178aaa71a70f721fc441`; original generated input: `1fb0b8531352d917c754ca4fec27577aab9ef2ce5d60c8783d4a0f3aeae4e30d`. The reviewed tool is a pinned Linux/local authoring tool, not a generally hardened image uploader or a portable application. Small cluster counts do not certify craft.
+
+The opt-in build contains89 source inputs and57 outputs. Source digest: `fbf1b88745bfa545086a3d279219b299940a842fca7b48e8147779a31e5ec47a`; output digest: `6819ac88a7647cc6c630ffab1d1f491f9d3d6fb077188d858e37d6cca0a99518`. Two fresh ordinary UI-created Initiate contexts use seed9592029 and the same build, with an empty query versus `?cairn128=1&cairn128Diagnostic=1`. The diagnostic is explicitly opt-in and read-only. All six complete earned checkpoint saves match between contexts; no state injection, forced victory or reroll was used. Binding, the free Cairn command, Scour, the announced Reaver guard response, genuine selection cancellation, reduced-motion selection cancellation and local reload/Continue were observed. This sparse1440×900 case preserved the hand, costs, intentions and R8 issued-command feedback.
+
+The complete comparison took51.837826097 seconds across both contexts. All282 resource samples plus initial/final checks pass; peak observed aggregate memory delta824,954,880B, minimum headroom681,938,944B, memory events unchanged. No tracked live descendants remained; two nonlive unreaped zombies are disclosed. This is a short, source-informed reproducibility supplement, not a fresh300-second novice session, hardware benchmark or evidence of human enjoyment.
+
+Separate immutable reviews:
+
+- Technical actual gate: `6e77dfe0420aa67c806aa5b1986a8f917ab0e275175b41cec9e166b31fdab454`.
+- Visual verdict: `6f2cdf85ae93bd996e689431ab7676c9d7c9a639b9ef073deac9abf1164a1eb8`, rejecting default selection while supporting READY/Continue visibility.
+- Gameplay report remains at `/workspace/scratch/standard-sol-cairn128-gameplay-actual-review-r1/REVIEW.md`; it accepts only observed gameplay continuity and withholds whole-command presentation.
+- Raw captures and complete actual evidence remain at `/workspace/scratch/cairn128-ready-comparison-actual-r1`. The original READY and Continue PNGs are actual mixed-style game shots; the eight original JPEGs are not pixel-palette inspection inputs. No historical image or report was rewritten.
+
+The selected runtime remains R8 (`7cde12170459c48e771c2192e2d25be6ac7a366ce0c63ed4ca484be488362c4e` / `502792f1462b377551e4ca8881134a03685acf24e3d93d7d8ce9015aa2ab0a36`). No release/tag or pixel-default promotion follows this negative trial.
+
+Production proceeds with two distinct hypotheses: genuinely articulated Cairn anticipation/bite/recovery, and contextual guidance connecting READY to a free creature Order. The latter is optional SOURCE pending its own build/play comparison; it reuses the hand heading, preserves selected-card consequences and changes no rules or saves. A separate native128 Bone Thrall is only an unselected asset study. A whole pixel opening has not been implemented or accepted.
+
+Primary-source research inspected Celeste's published README, MIT code license and targeted `Player.cs` jump-grace, consumed input-buffer and response-effect code. That supports small reusable presentation components and forgiving input as production lessons; it does not justify copying commercial assets, adding turn-based automatic actions or rewriting the tested engine. A Lost Garden design article request was blocked by the network proxy (403), and its contents were not inspected. No universal five-minute-fun formula, player attention loss or causal benefit from pixel art is claimed.

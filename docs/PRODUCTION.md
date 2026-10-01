@@ -1,5 +1,7 @@
 # Production and continuous improvement
 
+Current native128 trial is actually tested and independently rejected for default art selection; see [OPENING-NATIVE128-TRIAL.md](OPENING-NATIVE128-TRIAL.md). Gameplay/save continuity passes in the limited fixed-seed pair. Production continues into articulated command poses and contextual READY guidance, with build/conversion currently paused before launch by the disk guard. Preserve the R8 selected baseline and all negative art evidence.
+
 ## Owner resolution steering — generated reference to native128, 1 October2026
 
 The owner explicitly rejected the32×32 loss of anatomy and requested128×128 trials, iterated toward a unified attractive pixel style. This supersedes the earlier32/64 studies and the scheduled prompt's generic pixel wording. Generate original references, then use repeatable conversion and deliberate cleanup: shared restrained palette, top-left light, silhouette/material clusters, binary transparency and nearest-neighbour integer display. Judge native size and the actual battlefield; a filter, concept or enlarged preview is not an implemented animation or fully pixel game. The owner cites Pokémon Platinum's readable creature presentation as inspiration, not permission to copy its assets. Preserve live text and the tested JavaScript rules/local saves. Existing32/64 studies remain unselected; make new outputs rather than overwriting their evidence.
