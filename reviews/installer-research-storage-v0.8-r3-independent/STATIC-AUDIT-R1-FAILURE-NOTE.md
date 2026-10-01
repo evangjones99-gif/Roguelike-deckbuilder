@@ -1,0 +1,1 @@
+The reviewer first expected ubuntu-latest. The actual unchanged reviewed workflow pins ubuntu-24.04; this was a reviewer assertion assumption, not a source failure. The original script/stdout/stderr are retained unchanged. No parser test ran before this assertion. A separate R2 audit corrects the expected runner and parenthesizes the trigger assertion.
