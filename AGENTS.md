@@ -4,6 +4,10 @@
 
 Use standard `gpt-6.1-sol` with `high` reasoning for newly launched delegated agents. The owner explicitly rejects the 1.5× speed option. Set the model and reasoning override when launching agents; do not claim to have changed the parent chat's model or service speed through tools that do not expose those settings. Preserve active work before replacing agents running under an unverified configuration.
 
+## Immutable retained art aliases
+
+Eight generated Playwright trace PNG paths now share retained canonical public/dist art inodes after independent byte-equivalence and transaction review. Never write, truncate, chmod or change xattrs through these aliases. Future art must use new names/inodes or atomic replacement that leaves historical trace pixels intact. The complete bounded proof records and limitations are in `reviews/reviewed-trace-media-alias-recovery-2026-10-01` and its immutable preservation supplement.
+
 ## Standing owner instruction: CONTINUE PRODUCTION
 
 The owner repeatedly and explicitly instructs the team to keep improving this game and not stop at a milestone. This is a persistent project requirement, not a one-turn suggestion.
