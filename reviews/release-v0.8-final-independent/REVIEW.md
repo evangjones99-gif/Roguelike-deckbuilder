@@ -1,0 +1,41 @@
+# Independent actual 0.8 final archival gate
+
+**Accept the actual five-archive 0.8.0 milestone for scoped development preservation at source `58efb01f4815d8b542711582b87f50168dabde81`, runtime `23477f68c99d6d60b0b3f82b286a8d33bb6da6f2ca92c103fbecf5663634959f`.** This is actual independent archive/restoration evidence, separate from my earlier unexecuted sealer source reviews and root's producer/sealer passes. It allows root to proceed with its development checkpoint/tag. It does not establish AAA craft, human enjoyment consensus, commercial/consumer readiness, general platform support or Steam publication.
+
+## Five actual archives and retained originals
+
+All five whole bodies match final manifest, SHA256SUMS and root receipt, and each is independently rehashed again at final readback:
+
+| Actual archive | Bytes | SHA256 |
+| --- | ---: | --- |
+| source Git bundle v2 | 1,711,151,088 | fd1310a36be0931bb81537004f87ef751481ca0daa349e58f1576a3c34640b3d |
+| Linux TAR.GZ | 152,172,948 | a53d9ce19137d85223bc3487b15209da359de24c8d9f524ef47f06e0de75d772 |
+| web ZIP | 26,821,363 | 9305118f5e7da63923c28199618fd7b6241461c1eff578e4feb1c5e79674d1a6 |
+| original tested Windows ZIP | 191,814,688 | 1ce6c74baea02686183e833c28738e04d19f80d5826218a0d732eff304dce563 |
+| original native-evidence ZIP | 12,265,727 | c76748bac54fad37f88b4f53e957456b726210158ce5939540b2367c737941e6 |
+
+The two native ZIPs also equal independently streamed retained originals. No Windows repack or crossbuild is substituted. The original producer's three archive hashes and original manifest/hash-list bytes are preserved; only those two exact native artifacts were added and only the disclosed new-milestone metadata fields changed. No incomplete/progress/build-lock marker remains. All **35 older sealed archive bodies** match both current retained manifests and the older manifest declarations in the pinned canonical Git source. Previous versions were read without modification.
+
+Actual safe closed membership/type/collision/CRC checks pass: Linux **74 regular files + three directories**, original Windows **72 regular files / no directories**, web **55 regular files + five directories**, and original native evidence **64 regular files / no directories**. Every archive path is validated; duplicate/case-fold collisions, traversal/absolute/backslash/drive paths, encryption, unsupported compression, links and unsupported regular-entry types are refused. Linux regular byte counts/hashes/modes equal the independently accepted package ledger. Linux directory modes are recorded as0700; web directories also match actual source modes0700, including the real empty licenses directory. Windows zero Unix mode fields are recorded without inventing POSIX permission guarantees. Web payloads and retained release/web leaves equal all55 current dist files exactly.
+
+The **actual Linux and Windows ASAR bytes are identical**, 31,444,419 bytes / SHA256 `c383c4437ac5467146174c6ea039b2a8b28af43d609701379e8cf695f59d530c`. A bounded in-memory header/body traversal independently checks all59 regular leaves, all58 dist/desktop payloads, every integrity hash/block and contiguous data spans consuming the complete body. Normalized package.json equals root semantics after removing only scripts/keywords/devDependencies/build; raw equality with the unnormalized source manifest is not claimed. Packaged/native-evidence/current provenance agree exactly, all76 actual runtime source hashes match, and the ordered hash-map digest recomputes23477.
+
+## Newly restored actual full source
+
+The capacity check ran **before** creating any fresh large TMP restore: 2,394,710,016 free bytes versus1,711,151,088 bundle bytes +33,554,432 index budget +268,435,456 reserve. The actual independent bare path was `/tmp/hollowpact-v08-independent-archive-5hxh8oci/restored.git`, newly initialized with no producer repository or alternates reused. The exact v2 header has no prerequisites and advertises only pinned HEAD and production-branch refs. Actual verify/unbundle/ref restoration and `fsck --full --strict` pass.
+
+All **4,243 reachable objects** match the root's exact source closure, and the restored repository has no additional objects. Complete current tree identity is `df9ceaf72d3feb081d608d1df7f4c7107eaf4b83`: **6,405 path entries / 3,481 unique current blob bodies** are independently streamed from both repositories, checked for canonical blob SHA1, size and full SHA256 equality. Repeated paths sharing one immutable object reuse that checked object; no repeated-body count is manufactured. Every one of the **3,563 canonical INDEX files** matches the exact restored Git blob record/mode, and every **five available raw/gzip pairs** decodes byte-exactly to the retained original raw counterpart and declared hash/size. Complete tree/blob and reachable-object ledgers are durable gzip records with exact decode receipts. Producer proof/tree/ref/object counts match this independent result; it was not treated as a substitute for restoration.
+
+After successful restore verification, exact durable ledgers were revalidated and **only the newly created owned derived TMP repository** was removed, recovering1,711,386,624 observed bytes. Its actual execution is preserved in command logs, result and cleanup receipt; the temporary bare is no longer retained or called a durable backup. Official source bundle, original inputs, old versions, failures and root Git repository remain. Final TMP free space was2,297,376,768 bytes; unrelated concurrent use can affect observed space deltas. No package tree or extra full source ZIP was created.
+
+## Accurate identities and limits
+
+Final archive source58ef, native branch checkpoint `2e93c2dab38c513a6f43e1dc4e31307f0866db14` and actual reported Windows PR-merge checkout `7c460a706d6e5bfd8c98d5886b3d1d5cab679cef` remain distinct. All76 checkpoint2e93 Git source blobs independently equal the actual packaged/final runtime hashes, and2e93 is an ancestor of58ef. The preserved original0.8 CI records report the actual merge7c460, run36806506465/attempt1,13 successful phases and NotSigned executable; their package/provenance/transfer identities match actual archived bytes. No new independent fetch/restore of the ephemeral merge tree or Windows execution ran here. Matching original artifacts and retained scoped native evidence are preserved, not broadened.
+
+The manifest honestly remains development-prerelease/steamPublished:false. Referenced gameplay/visual/technical/native review files are present in the verified canonical INDEX. Windows claims are the short muted/reduced hosted Windows2022 portable QA; Linux claims are separately scoped Xorg dummy/software/--no-sandbox packaged checks. Consumer signing/install/update, native Windows crypt/audio/hearing, physical controller/Steam Deck, hardware/performance/accessibility breadth, human fun, rights/store/Steamworks and AAA craft remain open. This gate did not play a game, hear audio, query Authenticode, run a PE inspection, train ML or publish Steam.
+
+## Preserved reviewer failure and exact close
+
+The first archive-member script correctly passed all five whole hashes/original identities, then wrongly required every historical CI member to exist in the partial `raw-small-members` extraction. Historical text logs were not all extracted. Its script/log/failure/checkpoint remain unchanged. The separate R2 script compares all64 members directly with the pinned original CI ZIP, CRC/hashes every member, and additionally checks the **36 actually available** extracted counterparts; the other28 are not claimed as extracted or inspected files. This is a corrected reviewer fixture assumption, not a hidden archive repair. All archive/source inputs remain unchanged.
+
+Final correspondence and five-archive/metadata readback pass at **2026-10-01T03:22:57.501042+00:00**. Metadata/source readers are released; all inspection processes are closed. This compact exterior review is under8MB and keeps original failures. Root may copy its evidence and carry the development checkpoint forward. Later scene/jaw/final-kill work needs its own source/build/affected gates and is not implicitly covered by this actual0.8 preservation acceptance.

@@ -1,0 +1,134 @@
+
+> hollowpact@0.8.0 release
+> node scripts/release.mjs 0.8.0 --source-format=bundle
+
+
+> hollowpact@0.8.0 test
+> tsx --test tests/*.test.ts
+
+✔ 24 original cards, four creature families and enhancement texts are complete (2.482855ms)
+✔ schema 2 saves reject historical schema, presentation menu and malformed inputs (0.89656ms)
+✔ serialized action replay is exact, pure, and deterministic through terminal state (79.96516ms)
+✔ invalid indices, targets, phase, budget and board size return original object (0.563039ms)
+✔ living creatures own one card copy outside piles; dead creatures rejoin discard (1.090085ms)
+✔ two identical source copies remain separate when one dies (0.497773ms)
+✔ Cairn Hound executes exposed targets but does not receive bonus against armor (0.510481ms)
+✔ Fen Stalker heals only when its command deals health damage (0.513637ms)
+✔ Briar Colossus grants hunter block after every command, even into armor (0.403714ms)
+✔ Ash Widow amplifies targeted damage, relic combines, Revenant resists it (0.586844ms)
+✔ Grave Resonance supports a spell-only opening and loses solo bonus after binding (0.340552ms)
+✔ ready permits a second command while ordinary commands are once per turn (0.388873ms)
+✔ Ironjaw armor retaliates through creature block; Sundering Hex prevents retaliation (0.498814ms)
+✔ retaliation deaths return exactly one source card and no duplicate draws (0.443884ms)
+✔ announced targets stay stable across bindings and commands; missing creature falls back to hunter (0.465615ms)
+✔ Revenant strikes ignore hunter armor and have explicit visible text (0.306011ms)
+✔ Cantor raises announced thralls after enemy resolution; no hidden immediate attacks (0.343876ms)
+✔ reinforcements respect six slots and cannot carry an unannounced extra enemy (0.3331ms)
+✔ Silence cancels necromancy; canceled attacks do not become armor; guard remains guard (0.765937ms)
+✔ killing the raising source before ending the turn prevents its reinforcements (0.397855ms)
+✔ Cindermaw guard/breath/strike cycle has readable damage windows and expires armor (0.297058ms)
+✔ boss is forecastable from run seed independently of earlier RNG consumption (1.164955ms)
+✔ elite formations offer four distinct questions and never guarantee all six relics (29.52859ms)
+✔ targeted camp upgrade changes precisely the selected duplicate entry (0.433718ms)
+✔ relic effects support summon endurance, command attack, solo economy and recovery (0.810243ms)
+✔ rewards, real shop costs and removals cannot be collected twice (1.364118ms)
+✔ crypt events provide paid recovery, card purge or bounded relic oath (0.410084ms)
+✔ temporary attack bonuses reset between contracts while permanent deck and HP persist (1.065749ms)
+✔ hunter self-damage defeat is immediate and terminal; terminal turn is counted (0.289476ms)
+✔ all three boss contracts can finish in a valid terminal collection state (42.592868ms)
+✔ save validation rejects prototype identities, forged passives and illegal reinforcement fields (1.088933ms)
+✔ every encounter must match its actual node; final combat allows only boss (9.916719ms)
+✔ 300 seeded legal-random runs validate every intermediate state across difficulties (1518.076523ms)
+{"acceptedObservedStates":769,"seeds":"7811..7818","difficulty":"seed%3","scope":"Actual legal random actions, no human fun inference"}
+✔ actual bind, ward, healing, control, rally and self-injury produce distinct observer cues (6.133068ms)
+✔ fully blocked actual hit braces; lethal actual trace falls at its executed impact only (1.508311ms)
+✔ observation never mutates canonical state, UID allocation, RNG, event snapshots or legal actions (90.047168ms)
+✔ unified hunter placement is deterministic and occupies no creature slot (0.211331ms)
+✔ command directs hunter without rewriting its real companion hit and timing boundaries stay bounded (0.437244ms)
+✔ all full R3 pose cells fit desktop/mobile with one shared foot plane and target identity stays canonical (1.238424ms)
+✔ connection-held confirm requires neutral release, then a fresh edge (2.386052ms)
+✔ confirm does not repeat across selection focus changes or long holds (0.421771ms)
+✔ button value hysteresis does not chatter near the press threshold (0.371807ms)
+✔ axis enter/exit deadzones ignore jitter and require threshold on reversal (0.325028ms)
+✔ direction alone repeats after350ms, then100ms; reentry is immediate (0.392818ms)
+✔ simultaneous activation buttons produce a single prioritized intent (0.21016ms)
+✔ presentation gate suppresses confirm and requires release after reopening (0.255647ms)
+✔ safe pause may open while gated, but is not replayed into a modal (0.308895ms)
+✔ disconnect, hidden reset and pad-index changes neutralize held input (0.349024ms)
+✔ unsupported mapping, invalid timing and opposing dpad directions stay inert (0.353411ms)
+✔ nonfinite axes/buttons are ignored, and decoder never reads a device identity (0.320071ms)
+✔ decoding does not mutate borrowed browser snapshots (0.963569ms)
+✔ safe pause works after neutral presentation-lock frames, without arming gameplay (0.18983ms)
+✔ initial unfocused document does not read controller; focus event needs neutral then a fresh press (1.192005ms)
+✔ visible-window blur stops reads and requires neutral release before any resumed controller action (0.436392ms)
+✔ blur cancels scheduled RAF; focus reschedules, and disposed adapters cannot resume (0.316977ms)
+✔ unavailable initial focus API retains event-based keyboard/controller fallback (0.379859ms)
+✔ events and ordinary reducer remain byte equivalent to archived v0.2 across seeded legal runs (3424.82379ms)
+✔ invalid actions produce no observations and preserve object identity (0.350526ms)
+✔ first lethal hunter strike suppresses every later enemy strike (0.433087ms)
+✔ a later strike resolves to hunter after its announced creature target dies (0.507548ms)
+✔ one executed area attack finishes its real targets even if hunter dies, then skips later enemies (0.372609ms)
+✔ fully blocked attacks are observed with zero health loss and real absorbed damage (0.23032ms)
+✔ piercing and self damage report zero block absorption despite existing wards (0.369884ms)
+✔ stalker recovery and retaliation remain distinct despite zero net creature HP change (0.307883ms)
+✔ retaliation death follows command hit and returns exactly one real card copy (0.801671ms)
+✔ spell area damage records resolved roster targets and each death in order (0.562177ms)
+✔ binding snapshots survive on-bind victory cleanup and cannot mutate returned state (0.375603ms)
+✔ necromancy emits summons from actual raising source without immediate enemy hits (0.512575ms)
+✔ healing and wards emit actual gains only, with guard source resolved explicitly (0.452135ms)
+✔ random legal replays preserve archived states across rewards, crypt, shop and control branches (322.003156ms)
+✔ Silence reports a truthful noninjury control event and redundant silence emits no second cue (0.445026ms)
+✔ Edict reports each real attack increase in roster order without invented injuries (0.467979ms)
+✔ all 119 reachable campaign actions remain valid with unchanged mechanics and payments (72.344171ms)
+✔ guard armor, fresh intentions and serialized continuation match legacy mechanics (60.882498ms)
+✔ exact inherited overflow recovery is valid, detached and preserves the original bytes (4.136419ms)
+✔ normal valid saves and unrelated corruption never enter recovery (2.354756ms)
+✔ a valid legacy double suffix becomes canonical on the next paid Silence (0.388041ms)
+✔ generation2 production hash matches frozen research vectors and browser comparison evidence (1.29737ms)
+✔ generation classification is explicit and old serialization has no new fields (1.781453ms)
+✔ actual v0.4 fixture provenance and kind1 continuation stay byte exact (867.103549ms)
+✔ reachable card acquisition, draw history and shop sculpture cannot reroll common world nodes (170.71002ms)
+✔ reachable alternate route choices do not advance any shared world cursor (32.582166ms)
+✔ identity ranking is pure and invariant to catalogue ordering and owned exclusions (6.509944ms)
+✔ new-generation full serialized/event replays preserve stream positions and query purity (1305.646688ms)
+✔ explicit kind2 legal-random campaigns validate and serialize every accepted state (493.676684ms)
+✔ recovery rejects nonserializable programmatic extras and cannot switch generations (1.326373ms)
+✔ new-run Revenant cancellation says damage is canceled; legacy text remains byte exact (1.746171ms)
+ℹ tests 87
+ℹ suites 0
+ℹ pass 87
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4016.721305
+
+> hollowpact@0.8.0 build
+> node scripts/build.mjs
+
+vite v8.3.1 building client environment for production...
+transforming...
+✓ 18 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   1.65 kB │ gzip:  0.80 kB
+dist/assets/index-BkTPW8eV.css   49.13 kB │ gzip: 11.46 kB
+dist/assets/index-qI3Cy6MH.js   124.53 kB │ gzip: 43.75 kB
+
+✓ built in 99ms
+Runtime source digest: 23477f68c99d6d60b0b3f82b286a8d33bb6da6f2ca92c103fbecf5663634959f
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: will change to "main" in Git 3.0. To configure the initial branch name
+hint: to use in all of your new repositories, which will suppress this warning,
+hint: call:
+hint:
+hint: 	git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint: 	git branch -m <name>
+hint:
+hint: Disable this message with "git config set advice.defaultBranchName false"
+/workspace/Roguelike-deckbuilder/releases/0.8.0/hollowpact-0.8.0-source.bundle is okay
+Archived 0.8.0 at /workspace/Roguelike-deckbuilder/releases/0.8.0
