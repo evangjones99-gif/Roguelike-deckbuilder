@@ -1,0 +1,146 @@
+{
+  "status": "Feasible composition math before R2 generation; actual future output must be remeasured",
+  "basisSourceDimensions": [
+    2070,
+    760
+  ],
+  "currentCover": "s=max(W/2070,H/760), x=(W-2070*s)/2, y=(H-760*s)*.62",
+  "commonVisibleSourceRectangle": {
+    "x0": 361.3636363636364,
+    "x1": 1708.6363636363635,
+    "y0": 220.57896995708157,
+    "y1": 624.8064377682404
+  },
+  "proposedSeamSourceFraction": [
+    0.43,
+    0.45
+  ],
+  "targetSeam": 0.44,
+  "completeLandmarkBandFraction": [
+    0.31,
+    0.43
+  ],
+  "decorativeUpperWallFraction": [
+    0,
+    0.3
+  ],
+  "wallPlacementReason": "A seam50percent would coincide with enemy feet in uncropped narrow views. Target44percent with43\u201345percent tolerance leaves at least11px clear floor on220px mobile while staying visible in the5.12:1 wide crop. Landmark tops31percent=235.6px exceed worst visible source top220.58px; all complete niches stay inside the common crop strip. Repetition across x361..1709 preserves mobile center identity.",
+  "tradeoff": "Source floor55\u201357percent, rather than original80percent; wide-short visible floor roughly70\u201374percent. New original must depict compact low landmarks in this band, without relying on vertical statues/vaults. It is not valid to paste the near-top architecture of R1 or claim requested aspect guarantees output.",
+  "windows": [
+    {
+      "viewport": "1024x720",
+      "visibleSource": {
+        "x0": 346.33574007220216,
+        "x1": 1723.664259927798,
+        "y0": 0,
+        "y1": 760
+      },
+      "proposedSeamSourcePx": [
+        326.8,
+        342.0
+      ],
+      "seamCanvasPx": [
+        119.11000000000001,
+        124.65
+      ],
+      "seamCanvasFraction": [
+        0.43000000000000005,
+        0.45
+      ],
+      "enemyFeetFraction": 0.5,
+      "minimumWallToEnemyFloorMarginPx": 13.849999999999994
+    },
+    {
+      "viewport": "1280x720",
+      "visibleSource": {
+        "x0": 0,
+        "x1": 2070,
+        "y0": 2.200263852242683,
+        "y1": 758.651451187335
+      },
+      "proposedSeamSourcePx": [
+        326.8,
+        342.0
+      ],
+      "seamCanvasPx": [
+        118.86309178743963,
+        124.42908212560388
+      ],
+      "seamCanvasFraction": [
+        0.4291086346116954,
+        0.44920246254730645
+      ],
+      "enemyFeetFraction": 0.5,
+      "minimumWallToEnemyFloorMarginPx": 14.070917874396116
+    },
+    {
+      "viewport": "1920x720",
+      "visibleSource": {
+        "x0": 0,
+        "x1": 2070,
+        "y0": 220.57896995708157,
+        "y1": 624.8064377682404
+      },
+      "proposedSeamSourcePx": [
+        326.8,
+        342.0
+      ],
+      "seamCanvasPx": [
+        71.7376811594203,
+        82.00318840579709
+      ],
+      "seamCanvasFraction": [
+        0.2627753888623454,
+        0.3003779795084143
+      ],
+      "enemyFeetFraction": 0.5,
+      "minimumWallToEnemyFloorMarginPx": 54.49681159420291
+    },
+    {
+      "viewport": "1920x900",
+      "visibleSource": {
+        "x0": 0,
+        "x1": 2070,
+        "y0": 113.16995708154509,
+        "y1": 690.6377682403433
+      },
+      "proposedSeamSourcePx": [
+        326.8,
+        342.0
+      ],
+      "seamCanvasPx": [
+        144.2776811594203,
+        154.54318840579708
+      ],
+      "seamCanvasFraction": [
+        0.3699427722036418,
+        0.39626458565588996
+      ],
+      "enemyFeetFraction": 0.5,
+      "minimumWallToEnemyFloorMarginPx": 40.45681159420292
+    },
+    {
+      "viewport": "390x844",
+      "visibleSource": {
+        "x0": 361.3636363636364,
+        "x1": 1708.6363636363635,
+        "y0": 0,
+        "y1": 760
+      },
+      "proposedSeamSourcePx": [
+        326.8,
+        342.0
+      ],
+      "seamCanvasPx": [
+        94.60000000000001,
+        99.0
+      ],
+      "seamCanvasFraction": [
+        0.43000000000000005,
+        0.45
+      ],
+      "enemyFeetFraction": 0.5,
+      "minimumWallToEnemyFloorMarginPx": 11.0
+    }
+  ]
+}

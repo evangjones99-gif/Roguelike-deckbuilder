@@ -1,4 +1,5 @@
 import './style.css';
+import { HostAudio } from './audio-host';
 import packageInfo from '../package.json';
 import { applyActionWithEvents, createGame, CARDS, legalActions, validateState, recoverLegacySilenceSave, cardTarget, type GameState, type Action, type Unit, type CardDef } from './engine';
 import { createArena } from './arena';
@@ -130,62 +131,21 @@ const sceneObserver = new ResizeObserver(() => arena?.resize());
 sceneObserver.observe($('arena-wrap'));
 window.addEventListener('resize', () => arena?.resize());
 
-let audio: AudioContext | null = null;
-function sound(kind: 'click' | 'summon' | 'attack' | 'reward' | 'end' = 'click') {
-  if (settings.mute || settings.volume <= 0) return;
-  try {
-    audio ||= new AudioContext();
-    void audio.resume();
-    const context = audio;
-    const start = context.currentTime;
-    const master = context.createGain();
-    master.gain.value = settings.volume * .2;
-    master.connect(context.destination);
-    const tone = (frequency: number, type: OscillatorType, duration: number, strength: number, delay = 0, endFrequency = frequency) => {
-      const osc = context.createOscillator(), gain = context.createGain();
-      const at = start + delay;
-      osc.type = type;
-      osc.frequency.setValueAtTime(frequency, at);
-      osc.frequency.exponentialRampToValueAtTime(Math.max(20, endFrequency), at + duration);
-      gain.gain.setValueAtTime(.001, at);
-      gain.gain.linearRampToValueAtTime(strength, at + .006);
-      gain.gain.exponentialRampToValueAtTime(.001, at + duration);
-      osc.connect(gain); gain.connect(master);
-      osc.start(at); osc.stop(at + duration + .01);
-    };
-    const grit = (duration: number, frequency: number, strength: number, delay = 0, filterType: BiquadFilterType = 'bandpass') => {
-      const buffer = context.createBuffer(1, Math.ceil(context.sampleRate * duration), context.sampleRate);
-      const data = buffer.getChannelData(0);
-      for (let i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
-      const source = context.createBufferSource(), filter = context.createBiquadFilter(), gain = context.createGain();
-      const at = start + delay;
-      source.buffer = buffer; filter.type = filterType; filter.frequency.value = frequency; filter.Q.value = .8;
-      gain.gain.setValueAtTime(strength, at);
-      gain.gain.exponentialRampToValueAtTime(.001, at + duration);
-      source.connect(filter); filter.connect(gain); gain.connect(master);
-      source.start(at); source.stop(at + duration);
-    };
-    if (kind === 'attack') {
-      tone(96, 'sine', .24, .9, 0, 38); // body of the impact
-      grit(.17, 1250, .65);
-      tone(410, 'triangle', .19, .15, .018, 260);
-      tone(1037, 'sine', .13, .08, .02, 690); // iron edge
-    } else if (kind === 'summon') {
-      tone(73, 'sine', .45, .75, 0, 49);
-      tone(146, 'triangle', .32, .17, .025, 109);
-      grit(.33, 330, .3, .015, 'lowpass');
-      [0, .055, .13].forEach((delay, i) => { grit(.06, 2800, .16, delay); tone(660 + i * 137, 'sine', .1, .06, delay); });
-    } else if (kind === 'reward') {
-      [0, .075, .14].forEach((delay, i) => { tone(890 + i * 210, 'sine', .15, .15, delay); grit(.035, 4200, .14, delay); });
-    } else if (kind === 'end') {
-      tone(110, 'sine', .32, .7, 0, 42); grit(.2, 650, .3, .012, 'lowpass');
-    } else {
-      grit(.035, 1700, .18); tone(175, 'triangle', .06, .13, 0, 95);
-    }
-    // Every source ends within half a second; no idle audio loop or network asset.
-    setTimeout(() => master.disconnect(), 700);
-  } catch { /* Audio is optional; rule resolution never waits for playback. */ }
-}
+const hostAudio = new HostAudio(new URL(`${import.meta.env.BASE_URL}audio/`, document.baseURI).href);
+hostAudio.settings(settings.mute, settings.volume);
+window.addEventListener('hollowpact-native-audio-ready', () => hostAudio.nativeSetup());
+window.addEventListener('hollowpact-native-audio-inactive', () => hostAudio.nativeLifecycle(true));
+window.addEventListener('hollowpact-native-audio-active', event => {
+  const cancelledEpoch = hostAudio.nativeLifecycle(false);
+  const receipt = (event as CustomEvent<{cancelledEpoch: number | null}>).detail;
+  if (receipt && typeof receipt === 'object') receipt.cancelledEpoch = cancelledEpoch;
+});
+const controllerAudioIntent = () => { if (inputMode === 'controller') hostAudio.controllerGesture(); };
+document.addEventListener('pointerdown', event => { if (event.isTrusted) hostAudio.gesture(); }, true);
+document.addEventListener('keydown', event => {
+  if (event.isTrusted && !event.repeat && !event.isComposing && !event.ctrlKey && !event.metaKey && !event.altKey) hostAudio.gesture();
+}, true);
+function sound(_kind: 'click' | 'summon' | 'attack' | 'reward' | 'end' = 'click') { hostAudio.ui(); }
 
 function setMotion() {
   document.documentElement.classList.toggle('reduced-motion', !settings.motion);
@@ -258,6 +218,7 @@ function mayAnimateCombat(): boolean {
   return settings.motion && !document.hidden && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 function cancelPresentation() {
+  hostAudio.cancel('presentation-cancel');
   presentationEpoch++;
   settlingCombat = false;
   if (presentationDeadline !== null) clearTimeout(presentationDeadline);
@@ -322,11 +283,7 @@ function dispatch(action: Action) {
   save();
   let effectFailed = false;
   try { arena?.playAction?.(action, previous, next, events); } catch { effectFailed = true; }
-  if (action.type === 'play') sound(CARDS[previous.hand[action.index]]?.type === 'summon' ? 'summon' : 'attack');
-  else if (action.type === 'attack') sound('attack');
-  else if (action.type === 'reward' || action.type === 'buy') sound('reward');
-  else if (action.type === 'endTurn') sound('end');
-  else sound();
+  try { hostAudio.transition(previous, next, events, action, !effectFailed && !!arena && mayAnimateCombat()); } catch { /* Optional sound cannot block canonical gameplay. */ }
   const terminalCombat = previous.phase === 'battle' && ['reward', 'victory', 'defeat'].includes(state.phase);
   if (terminalCombat && !effectFailed && holdFinalStrike()) return;
   render();
@@ -608,6 +565,7 @@ function renderOutcome() {
 }
 
 function openDialog(name: string, content: string, wide = false) {
+  hostAudio.cancel('dialog-open');
   const dialog = $<HTMLDialogElement>('dialog');
   if (!dialog.open) dialogOrigin = focusReference();
   dialog.className = wide ? 'wide-dialog' : '';
@@ -812,6 +770,8 @@ document.addEventListener('input', event => {
   if (input.id === 'mute') settings.mute = !input.checked;
   if (input.id === 'motion') settings.motion = input.checked;
   if (input.id === 'volume') { settings.volume = Number(input.value) / 100; $('volume-value').textContent = `${input.value}%`; }
+  hostAudio.settings(settings.mute, settings.volume);
+  if (input.id === 'motion') hostAudio.cancel('motion-change');
   setMotion();
   if (settlingCombat && !mayAnimateCombat()) finishPresentation(presentationEpoch);
   try { localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)); } catch { /* Game is usable without persistent settings. */ }
@@ -837,33 +797,35 @@ $<HTMLDialogElement>('dialog').addEventListener('click', event => {
   const dialog = $<HTMLDialogElement>('dialog');
   if (event.target === dialog) { const r = dialog.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) closeDialog(); }
 });
-document.addEventListener('visibilitychange', () => { if (settlingCombat) finishPresentation(presentationEpoch); });
-window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', event => { if (event.matches && settlingCombat) finishPresentation(presentationEpoch); });
+document.addEventListener('visibilitychange', () => { hostAudio.visibility(document.hidden); if (settlingCombat) finishPresentation(presentationEpoch); });
+window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', event => { hostAudio.cancel('system-motion-change'); if (event.matches && settlingCombat) finishPresentation(presentationEpoch); });
 const inputAdapter = createInputAdapter({
   getContext: () => ({ phase: title || state.phase === 'menu' ? 'title' : state.phase, settling: settlingCombat, dialog: $<HTMLDialogElement>('dialog').open ? $('dialog') : null, targeting: !!selected }),
   activate: element => {
     const dialog = $<HTMLDialogElement>('dialog');
-    if (element.isConnected && !element.matches(':disabled') && (!dialog.open || dialog.contains(element))) element.click();
+    if (element.isConnected && !element.matches(':disabled') && (!dialog.open || dialog.contains(element))) { element.click(); controllerAudioIntent(); }
   },
-  back: goBack,
+  back: () => { if ($<HTMLDialogElement>('dialog').open || selected || !title) { goBack(); controllerAudioIntent(); } },
   inspect: element => {
     if (settlingCombat) return;
     const uid = element.dataset.unit || element.dataset.uid;
     const unit = [...state.allies, ...state.enemies].find(candidate => candidate.uid === uid);
-    if (unit) { openUnit(unit); return; }
+    if (unit) { openUnit(unit); controllerAudioIntent(); return; }
     const card = CARDS[element.dataset.card || ''];
     if (card) openDialog(card.name, `<div class="inspect-card">${renderCard(card)}</div><p class="dialog-copy">${escape(cardRules(card))}</p><button class="button secondary full-width" data-ui="close">Return</button>`);
     else if (element.dataset.ui === 'hunter') openHunter();
+    if (card || element.dataset.ui === 'hunter') controllerAudioIntent();
   },
   endTurn: () => {
-    if (!title && !settlingCombat && state.phase === 'battle' && !$<HTMLDialogElement>('dialog').open) document.querySelector<HTMLButtonElement>('[data-action="endTurn"]')?.click();
+    if (!title && !settlingCombat && state.phase === 'battle' && !$<HTMLDialogElement>('dialog').open) { const button = document.querySelector<HTMLButtonElement>('[data-action="endTurn"]'); if (button) { button.click(); controllerAudioIntent(); } }
   },
-  pause: () => { if (!title && !$<HTMLDialogElement>('dialog').open) openPause(); },
+  pause: () => { if (!title && !$<HTMLDialogElement>('dialog').open) { openPause(); controllerAudioIntent(); } },
   onInputMode: mode => {
     inputMode = mode;
     const hint = document.querySelector<HTMLElement>('.keyboard-hint');
     if (hint) { hint.innerHTML = inputHints(); hint.setAttribute('aria-label', `${mode === 'controller' ? 'Controller' : 'Keyboard'} controls`); }
   },
 });
-window.addEventListener('beforeunload', () => { disposed = true; inputAdapter.dispose(); cancelPresentation(); sceneObserver.disconnect(); toolIllustrations.dispose(); arena?.dispose(); });
+window.addEventListener('pagehide', () => hostAudio.cancel('pagehide'));
+window.addEventListener('beforeunload', () => { disposed = true; void hostAudio.dispose().catch(() => {}); inputAdapter.dispose(); cancelPresentation(); sceneObserver.disconnect(); toolIllustrations.dispose(); arena?.dispose(); });
 render();

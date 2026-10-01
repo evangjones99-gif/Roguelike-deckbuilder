@@ -1,3 +1,4 @@
+import { encounterEnvironment } from './encounter-environment';
 import { observeHunter, hunterEventCues, hunterGeometry, paintHunterShadow, paintHunterSheet, HUNTER_ART_URL, hunterSourcePoint, hunterPose, type HunterPresentation } from './hunter-presence';
 import type { Action, GameState, TransitionEvent } from './engine';
 import { ARENA_ART, HOUND_POSES, portraitFor, animationFor, CREATURE_ATTACK_SEQUENCE, CREATURE_IMPACT_MS, CREATURE_REACTION_MS, CREATURE_DEATH_MS, type PortraitArt, type CreaturePose, type CreaturePoseFrame, type CreatureAnimationAtlas } from './art';
@@ -51,7 +52,12 @@ export function createArena(canvas: HTMLCanvasElement) {
     return { render(_state: GameState) {}, playAction(_action: Action, _before: GameState, _after: GameState, _events?: readonly TransitionEvent[]) {}, busyMs() { return 0; }, getPresentationBusyMs() { return 0; }, waitForPresentation() { return Promise.resolve(); }, cancelPresentation() {}, setSelected(_uid: string | null) {}, resize() {}, dispose() { notice.remove(); canvas.hidden = false; } };
   }
   const ctx = context;
-  canvas.setAttribute('aria-label', 'An illustrated ruined abbey courtyard. Bound monsters face the forces of the hollow. All combat controls are in the companion and enemy panels.');
+  let environment: 'courtyard' | 'crypt' = 'courtyard';
+  function updateEnvironmentLabel() {
+    const place = environment === 'crypt' ? 'ossuary crypt' : 'ruined abbey courtyard';
+    canvas.setAttribute('aria-label', `An illustrated ${place}. Bound monsters face the forces of the hollow. All combat controls are in the companion and enemy panels.`);
+  }
+  updateEnvironmentLabel();
   const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   const motionOff = () => motionQuery.matches || document.documentElement.dataset.reducedMotion === 'true';
   let reduced = motionOff();
@@ -93,9 +99,11 @@ export function createArena(canvas: HTMLCanvasElement) {
     return image;
   }
   function updateStatus() {
-    status.textContent = missing.size ? 'Some battlefield artwork could not load. Combat controls remain available.' : '';
+    const relevantMissing = [...missing].some(url => (url !== ARENA_ART.courtyard && url !== ARENA_ART.crypt) || url === ARENA_ART[environment]);
+    status.textContent = relevantMissing ? 'Some battlefield artwork could not load. Combat controls remain available.' : '';
   }
-  for (const url of Object.values(ARENA_ART)) imageFor(url);
+  // Environment art is requested on demand; unused crypt art cannot fail a courtyard.
+  imageFor(ARENA_ART.companions); imageFor(ARENA_ART.adversaries);
   imageFor(HOUND_POSES.url);
   imageFor(HUNTER_ART_URL);
   const loaded = (image: HTMLImageElement) => image.complete && image.naturalWidth > 0;
@@ -109,7 +117,7 @@ export function createArena(canvas: HTMLCanvasElement) {
     const sky = back.createLinearGradient(0, 0, 0, height);
     sky.addColorStop(0, '#202931'); sky.addColorStop(.46, '#303333'); sky.addColorStop(1, '#101314');
     back.fillStyle = sky; back.fillRect(0, 0, width, height);
-    const background = imageFor(ARENA_ART.courtyard);
+    const background = imageFor(ARENA_ART[environment]);
     if (loaded(background)) {
       const cover = Math.max(width / background.naturalWidth, height / background.naturalHeight);
       const w = background.naturalWidth * cover, h = background.naturalHeight * cover;
@@ -218,7 +226,8 @@ export function createArena(canvas: HTMLCanvasElement) {
     // while the body performs only its latest active gesture, never their sum.
     for (let i = strikes.length - 1; i >= 0; i--) {
       const strike = strikes[i], age = sampleTime - strike.born;
-      if (strike.source === figure.uid && (strike.kind === 'physical' || strike.kind === 'magic') && age >= 0 && age < attackDuration) return strike;
+      const duration = figure.animation === HOUND_POSES && strike.kind === 'physical' ? attackDuration + .04 : attackDuration;
+      if (strike.source === figure.uid && (strike.kind === 'physical' || strike.kind === 'magic') && age >= 0 && age < duration) return strike;
     }
     return null;
   }
@@ -228,7 +237,12 @@ export function createArena(canvas: HTMLCanvasElement) {
     const hitAge = time - figure.hit;
     if (hitAge >= 0 && hitAge < CREATURE_REACTION_MS / 1000) return 'reaction';
     const command = activeGesture(figure);
-    return command ? sequencePose(time - command.born) : 'idle';
+    if (!command) return 'idle';
+    const age = time - command.born;
+    // Hound contact holds40ms; its original recovery then runs in full.
+    const poseAge = figure.animation === HOUND_POSES && command.kind === 'physical' && age >= impactTime
+      ? Math.max(impactTime, age - .04) : age;
+    return sequencePose(poseAge);
   }
   function poseFrame(atlas: CreatureAnimationAtlas, pose: CreaturePose, age: number): CreaturePoseFrame | null {
     const frames = atlas.poses[pose] ?? atlas.poses.idle;
@@ -265,6 +279,13 @@ export function createArena(canvas: HTMLCanvasElement) {
     // Reach the victim with the painted jaw/claws on the impact frame,
     // then withdraw through the attack hold and recovery pose.
     else if (age < impactTime) amount = Math.sin((age - .14) / (impactTime - .14) * Math.PI * .5) * .74;
+    else if (figure.animation === HOUND_POSES) {
+      // Keep the real240ms impact and hold its contact for40ms. Shift the
+      // ORIGINAL80ms release and260ms return without compressing either.
+      const recoveryAge = Math.max(impactTime, age - .04);
+      if (recoveryAge < .32) amount = .74 - (recoveryAge - impactTime) / (.32 - impactTime) * .09;
+      else amount = Math.max(0, 1 - (recoveryAge - .32) / .26) * .65;
+    }
     else if (age < .32) amount = .74 - (age - impactTime) / (.32 - impactTime) * .09;
     else amount = Math.max(0, 1 - (age - .32) / .26) * .65;
     const movement = { x: (strike.to.x - strike.from.x) * amount, y: (strike.to.y - strike.from.y) * amount };
@@ -513,6 +534,11 @@ export function createArena(canvas: HTMLCanvasElement) {
 
   function render(state: GameState) {
     if (disposed) return;
+    const nextEnvironment = encounterEnvironment(state);
+    if (nextEnvironment && nextEnvironment !== environment) {
+      environment = nextEnvironment;
+      updateEnvironmentLabel(); updateStatus(); backDirty = true;
+    }
     hunter = observeHunter(state, hunter ?? undefined);
     active = state.phase === 'battle';
     if (active && (!previous || previous.phase !== 'battle')) {

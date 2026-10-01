@@ -1,0 +1,44 @@
+
+> hollowpact@0.8.0 test:browser
+> playwright test
+
+
+Running 35 tests using 1 worker
+
+  ✓   1 tests/browser/draw-privacy-v0.5.spec.ts:4:1 › draw inspection reveals counts but no category order from the hidden pile (8.9s)
+  ✓   2 tests/browser/game.spec.ts:8:1 › first-time tutorial, summon/command, save/resume and settings (7.3s)
+  ✓   3 tests/browser/game.spec.ts:44:1 › complete seeded run through actual controls matches rules and reaches victory (39.0s)
+  ✓   4 tests/browser/game.spec.ts:66:1 › corrupt save gives a usable fresh-start path (2.5s)
+  ✓   5 tests/browser/game.spec.ts:73:1 › loaded names render as text in the inspection dossier (5.3s)
+  ✓   6 tests/browser/game.spec.ts:88:1 › full rosters expose every intent and identify duplicate binding targets (2.2s)
+  ✓   7 tests/browser/game.spec.ts:120:1 › final strike saves outcome immediately, blocks stale commands and resumes canonical result (4.9s)
+  ✓   8 tests/browser/game.spec.ts:134:1 › reduced motion reaches salvage without a presentation hold (2.9s)
+  ✓   9 tests/browser/game.spec.ts:140:1 › voluntary field report exports exact build context and negative feedback locally without changing save (3.2s)
+  ✓  10 tests/browser/input-v0.6.spec.ts:27:48 › kind1: held Enter selects without following focus to commit (2.9s)
+  ✓  11 tests/browser/input-v0.6.spec.ts:27:48 › kind1: held Space selects without following focus to commit (3.3s)
+  ✓  12 tests/browser/input-v0.6.spec.ts:41:3 › kind1: cancel, nested dossier and nonfinal death retain meaningful focus (3.6s)
+  ✓  13 tests/browser/input-v0.6.spec.ts:27:48 › kind2: held Enter selects without following focus to commit (2.8s)
+  ✓  14 tests/browser/input-v0.6.spec.ts:27:48 › kind2: held Space selects without following focus to commit (2.5s)
+  ✓  15 tests/browser/input-v0.6.spec.ts:41:3 › kind2: cancel, nested dossier and nonfinal death retain meaningful focus (3.0s)
+  ✓  16 tests/browser/input-v0.6.spec.ts:62:1 › composition passes through; synthetic visible blur requires a neutral controller release (3.2s)
+  ✓  17 tests/browser/input-v0.6.spec.ts:88:1 › all twelve intents and complete hand rules fit wide short viewports (3.2s)
+  ✓  18 tests/browser/preferences-v0.5.spec.ts:6:5 › invalid preferences null do not hide generation 1 campaign (6.6s)
+  ✓  19 tests/browser/preferences-v0.5.spec.ts:6:5 › invalid preferences {broken do not hide generation 1 campaign (5.2s)
+  ✓  20 tests/browser/preferences-v0.5.spec.ts:6:5 › invalid preferences null do not hide generation 2 campaign (5.4s)
+  ✓  21 tests/browser/preferences-v0.5.spec.ts:6:5 › invalid preferences {broken do not hide generation 2 campaign (5.0s)
+  ✓  22 tests/browser/preview-v0.4.spec.ts:26:1 › focused spell preview includes actual widow/relic/resistance/block and preserves RNG/save (2.6s)
+  ✓  23 tests/browser/preview-v0.4.spec.ts:43:1 › terminal command preview warns of actual lethal retaliation before committing (2.8s)
+  ✓  24 tests/browser/preview-v0.4.spec.ts:56:1 › immediate Blood Price hover/focus warns that hunter dies without changing campaign (2.9s)
+  ✓  25 tests/browser/preview-v0.4.spec.ts:68:1 › ally healing preview shows capped health restoration and actual block (2.7s)
+  ✓  26 tests/browser/preview-v0.4.spec.ts:75:1 › all twelve intent panels fit at1024x720 while showing lethal command consequence (1.8s)
+  ✓  27 tests/browser/preview-v0.4.spec.ts:88:1 › only known inherited Silence overflow is recovered with exact original backup and neutral notice (3.6s)
+  ✓  28 tests/browser/preview-v0.4.spec.ts:99:1 › unrelated corruption is rejected and original primary text is preserved (2.4s)
+  ✓  29 tests/browser/preview-v0.4.spec.ts:108:1 › recovery preserves an existing different backup and creates a separate exact raw backup (3.1s)
+  ✓  30 tests/browser/preview-v0.4.spec.ts:119:1 › failed backup storage never overwrites the inherited original while recovered play remains available (2.6s)
+  ✓  31 tests/browser/save-schema-v0.5.spec.ts:6:3 › generation 1 resumes unchanged and persists its own schema (4.0s)
+  ✓  32 tests/browser/save-schema-v0.5.spec.ts:6:3 › generation 2 resumes unchanged and persists its own schema (5.6s)
+  ✓  33 tests/browser/save-schema-v0.5.spec.ts:38:1 › unsupported generations retain exact raw data through title inspection (19.6s)
+  ✓  34 tests/browser/tool-art-v0.5.spec.ts:16:1 › illustrated equipment loads in hand and collection; crops resize without affecting the save (6.7s)
+  ✓  35 tests/browser/tool-art-v0.5.spec.ts:62:1 › missing illustration leaves the original symbol and working card controls (5.9s)
+
+  35 passed (3.2m)

@@ -1,11 +1,11 @@
 {
   "project": "Hollowpact",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "createdDate": "2026-09-30",
   "AIContent": true,
   "presentation": "Illustrated 2.5D creature artwork with pose transitions where supplied; not rigged 3D runtime characters",
   "inputsPreserved": true,
-  "sourceRecords": "Generation requests are preserved in the originating Codex chat; stored briefs are summaries. Original generated images and repair inputs are retained in assets/art-sources/v0.2 and assets/art-sources/v0.3 in source archives. v0.5 exact requests and images are retained in assets/art-sources/v0.5. v0.7 original hunter generations, exact requests and rejected atlas packing inputs remain in assets/art-sources/v0.7.",
+  "sourceRecords": "Generation requests are preserved in the originating Codex chat; stored briefs are summaries. Original generated images and repair inputs are retained in assets/art-sources/v0.2 and assets/art-sources/v0.3 in source archives. v0.5 exact requests and images are retained in assets/art-sources/v0.5. v0.7 original hunter generations, exact requests and rejected atlas packing inputs remain in assets/art-sources/v0.7. v0.8 exact crypt generation request, original PNG and placement/provenance remain in assets/art-sources/v0.8/crypt-r2; full rejected studies and independent evidence remain canonical.",
   "images": [
     {
       "file": "abbey-courtyard.png",
@@ -303,6 +303,19 @@
         "limitation": "Six hard-cut keys, mirrored asymmetric gear and seated incapacitation pose. Requested48px safe gutter/common source anchor not achieved. Whole-cell runtime preserves anatomy; not articulated, rigged or fluid AAA animation.",
         "reviewGate": "R4 component reviews accept minimal integration testing only. Actual production source/build review and native packaging are separate gates; no human enjoyment/AAA/commercial certification."
       }
+    },
+    {
+      "file": "ossuary-crypt-v08-r2.png",
+      "sha256": "ff9818614003e9432ee1868c2f60b336d0b5dfe63f5c01e380832f1e880c4b00",
+      "width": 2069,
+      "height": 760,
+      "mode": "RGB",
+      "creatorTool": "image_gen.imagegen",
+      "rightsReview": "pending before commercial distribution",
+      "preservedSource": "assets/art-sources/v0.8/crypt-r2/generated-original.png",
+      "preservedRequest": "assets/art-sources/v0.8/crypt-r2/REQUEST.txt",
+      "firstIntroducedVersion": "0.8.0",
+      "presentation": "Original unchanged painted environment. Pure canonical original encounter context selects necromancer/spectral contracts; legacy nonboss encounters retain the abbey."
     }
   ]
 }

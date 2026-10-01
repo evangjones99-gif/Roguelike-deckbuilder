@@ -1,0 +1,57 @@
+{
+  "version": "0.8.0",
+  "status": "accepted-development-candidate-not-yet-release-archive",
+  "sourceDigest": "45bdc0dd114e57dae63bb7bbc1ca8adb374293f2d0edfc9721c4f52b32f14849",
+  "runtimeSourceInputs": 76,
+  "builtOutputs": 55,
+  "actualRootChecks": {
+    "rules": 87,
+    "productionBrowser": 35
+  },
+  "linuxPackageASAR": "cfedd83592e129565de6b588bb4c0cd408c1b6f50b811e0c6b0568340d30197c",
+  "independentScopes": {
+    "technical": "12 packaged Linux fault checks plus2kind2crypt canonical/reload checks;58payloads+normalizedmanifest",
+    "gameplay": "64 cases/100actions/29A-B sequences/22reloads",
+    "visual": "46 contexts/22actions;AAA quality rejected"
+  },
+  "unchangedDefaultRulesAndLocalOnlySavesFeedback": true,
+  "delta": {
+    "file": "ACCEPTED-45BD-BUILD-DELTA.tar.gz",
+    "bytes": 2503917,
+    "sha256": "62ad0d8c25b54a5592bfe6179b2d7f3aa70f5ef11f2e75d7c56741c61096135b",
+    "files": [
+      {
+        "path": "CREDITS.md",
+        "bytes": 2806,
+        "sha256": "63c352b46ea5c9a088d1d281631b8caf11cfa69c2632b2c7e8d030f94739af3b"
+      },
+      {
+        "path": "art/PROVENANCE.json",
+        "bytes": 14189,
+        "sha256": "cf545798281f8e1fa7bf0f47c4c062fa19d9d930e15187aadd903570f99d8278"
+      },
+      {
+        "path": "art/ossuary-crypt-v08-r2.png",
+        "bytes": 2464574,
+        "sha256": "ff9818614003e9432ee1868c2f60b336d0b5dfe63f5c01e380832f1e880c4b00"
+      },
+      {
+        "path": "assets/index-DbjNN_Oe.js",
+        "bytes": 124425,
+        "sha256": "89c1e4305efd7d82eb677ba2b29c6b7ac4feea614185c268778159648b9628fb"
+      },
+      {
+        "path": "build-provenance.json",
+        "bytes": 7846,
+        "sha256": "329c22ec2f7433b51a3c2f106aaf74f966465a7d35a61488fdc589796f62815d"
+      },
+      {
+        "path": "index.html",
+        "bytes": 1655,
+        "sha256": "9eee0779d158c0ed05045a95e0847e7bc9010c5f193403faadfb9f23222714f4"
+      }
+    ],
+    "reconstructWith": "Untouched retained0.7web ZIP plus exact39 WAVs retained in current source/canonical audio author packet. Replace changed baseline outputs/remove oldJSfilename; requires owned new staging.55 exact hashes supplied."
+  },
+  "remainingGates": "Human listening/playtesting, physical controller/Deck/consumer installs, rights/store/Steamworks. Current Windows0.8 package and major source/build archive remain pending. Width-bound hunter followup is independently accepted for integration; this receipt does not approve its resulting runtime."
+}

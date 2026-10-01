@@ -1,5 +1,6 @@
 /** Local, original generated artwork. Atlases are sampled; originals stay intact. */
 export const ARENA_ART = {
+  crypt: `${import.meta.env.BASE_URL}art/ossuary-crypt-v08-r2.png`,
   courtyard: `${import.meta.env.BASE_URL}art/abbey-courtyard.png`,
   companions: `${import.meta.env.BASE_URL}art/companions-atlas.png`,
   adversaries: `${import.meta.env.BASE_URL}art/adversaries-atlas.png`,

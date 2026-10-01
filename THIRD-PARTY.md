@@ -8,3 +8,7 @@ Game code, geometry, procedural effects, CSS and synthesized sound were authored
 - TypeScript (Apache-2.0), Vite (MIT), tsx (MIT), Playwright (Apache-2.0), electron-builder (MIT) and build dependencies are development tools. Their installed package license files remain in node_modules and are governed by their respective authors.
 
 Owner decision pending for distribution rights of project-authored source. Do not imply a third-party trademark endorsement or reuse competitor IP. This file is an inventory, not a completed legal audit.
+
+- Next audio candidate uses 39 project-authored synthesized WAV cues (13 families × three variants), generated with AI-assisted project scripts. They are original synthesized signals, not third-party recordings. Original synthesizer inputs, rejected mixes, graph tests and WAV hashes remain in the retained audio research. This inventory does not certify audible quality, human listening, commercial rights or store disclosure.
+
+- v0.8 adds an original AI-generated ossuary crypt panorama for reconstructed necromancer/spectral encounters. Original pixels, exact request, rejected drafts and generation provenance are retained in assets/art-sources/v0.8/crypt-r2 and canonical crypt-panorama-v0.8-r2-* evidence. Rights review and store AI-content disclosure remain pending.
