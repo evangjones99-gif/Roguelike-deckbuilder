@@ -66,10 +66,18 @@ export function hunterPose(hunter: HunterPresentation, time: number) {
 }
 export const HUNTER_ART_URL = './art/hunter-marek-v07-r3.png';
 export function hunterGeometry(width: number, height: number) {
-  const torso = { x: width * .50, y: height * .80 };
-  const bodyHeight = height * .36;
+  const desiredHeight = height * .36;
+  // Fit the whole unchanged cell across every pose, including the lower
+  // transparent fringe of death and the high idle boot anchor. Normal arena
+  // proportions retain the original scale; tall narrow layouts cap by width.
+  const inset = Math.min(2, width / 4, height / 4);
+  const bodyHeight = Math.min(desiredHeight, (width - inset * 2) * 418 / 512,
+    (height - inset * 2) * 418 / (502 + 512 - 441));
   const cellSize = bodyHeight * 512 / 418;
-  const floorY = Math.min(height * .935, height - 2 - cellSize * (512 - 441) / 512);
+  const floorY = Math.max(inset + cellSize * 502 / 512,
+    Math.min(height * .935, height - inset - cellSize * (512 - 441) / 512));
+  const torso = { x: width * .50, y: bodyHeight === desiredHeight ? height * .80
+    : floorY - (floorY - height * .80) * bodyHeight / desiredHeight };
   const feet = { x: torso.x, y: floorY };
   return { torso, feet, bodyHeight, bodyWidth: bodyHeight * .28 };
 }

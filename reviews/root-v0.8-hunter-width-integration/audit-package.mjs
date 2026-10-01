@@ -1,0 +1,37 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import assert from 'node:assert/strict';
+import { extractFile, listPackage } from '@electron/asar';
+const directory = '/tmp/hollowpact-linux-v08-width-r1/linux-unpacked';
+const archive = path.join(directory, 'resources/app.asar');
+const digest = '23477f68c99d6d60b0b3f82b286a8d33bb6da6f2ca92c103fbecf5663634959f';
+const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
+function files(dir) { return fs.readdirSync(dir, {withFileTypes:true}).flatMap(e => e.isDirectory() ? files(path.join(dir,e.name)) : [path.join(dir,e.name)]); }
+const provenance = JSON.parse(fs.readFileSync('dist/build-provenance.json'));
+assert.equal(provenance.sourceDigest, digest);
+assert.equal(Object.keys(provenance.hashes).length,76);
+for (const [name, expected] of Object.entries(provenance.hashes)) assert.equal(sha(fs.readFileSync(name)),expected,name);
+const predecessor = JSON.parse(fs.readFileSync('reviews/root-v0.8-hunter-width-integration/ACCEPTED-45BD-SOURCE.json'));
+assert.deepEqual(Object.keys(provenance.hashes),Object.keys(predecessor.hashes));
+assert.deepEqual(Object.keys(provenance.hashes).filter(name => provenance.hashes[name] !== predecessor.hashes[name]),['src/hunter-presence.ts']);
+const payload = [...files('dist'), ...files('desktop')].sort();
+assert.equal(files('dist').length,55);
+assert.equal(payload.length,58);
+const leafrecords = payload.map(name => {
+  const actual = extractFile(archive,name), expected = fs.readFileSync(name);
+  assert.deepEqual(actual,expected,name);
+  return {path:name,bytes:actual.length,sha256:sha(actual)};
+});
+const packagedBytes = extractFile(archive,'package.json'), packaged = JSON.parse(packagedBytes), sourcePackage = JSON.parse(fs.readFileSync('package.json'));
+const required = ['name','version','description','main','repository','author','license','type','bugs','homepage','private'];
+assert.deepEqual(Object.keys(packaged).sort(),required.slice().sort());
+for (const key of required) assert.deepEqual(packaged[key],sourcePackage[key],key);
+const expectedLeaves = [...payload,'package.json'].sort();
+const actualLeaves = listPackage(archive).map(name => name.replace(/^[/\\]/,'')).filter(name => expectedLeaves.includes(name)).sort();
+assert.deepEqual(actualLeaves,expectedLeaves);
+const packrecords = files(directory).sort().map(name => { const bytes = fs.readFileSync(name); return {path:path.relative(directory,name),bytes:bytes.length,mode:fs.statSync(name).mode & 0o7777,sha256:sha(bytes)}; });
+assert.equal(packrecords.length,74);
+const receipt = {version:provenance.version,sourceDigest:digest,sourceInputs:76,onlyChangedRuntimeInput:'src/hunter-presence.ts',directory,asarSHA256:sha(fs.readFileSync(archive)),all58RawPayloadLeavesExact:true,packagedManifest:{bytes:packagedBytes.length,sha256:sha(packagedBytes),requiredFieldsExact:true,value:packaged},leafrecords,packrecords,scope:'Fresh unsigned portable Linux development package; normalized manifest checked separately. Actual native review pending. No consumer installation, hearing, physical hardware, kernel sandbox or Steam qualification.'};
+fs.writeFileSync('reviews/root-v0.8-hunter-width-integration/LINUX-PACKAGE-IDENTITY.json',JSON.stringify(receipt,null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify({sourceDigest:digest,asarSHA256:receipt.asarSHA256,rawPayloads:leafrecords.length,packageFiles:packrecords.length}));

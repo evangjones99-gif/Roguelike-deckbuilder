@@ -1,0 +1,31 @@
+# Independent actual Windows installer R5 lifecycle review
+
+**Accept the actual isolated QA installation/lifecycle receipts within the scope below. Original-binary reconstruction and durable installer preservation remain pending.** Fresh run36804825248 passes its installed-game, persistence/export and complete uninstall gates. This is useful native development evidence for pinned0.7/0be, not consumer/production-identity installer or Steam release acceptance. Earlier R1 source rejection and R2/R3/R4 native failures remain retained and unchanged.
+
+## Source and actual run identity
+
+Fixed installer workflow push run36804825248/attempt1, job110186713885, source `7c22cb2ba876c3359053156f761e4c4f60504376`, concludes success. It is distinct from PR portable native run36804834749. Actual checkout remains package0.7.0/runtime `0be4f01d416e6fc4cca3f19b6916b5b65993b9fd426a926a1ede6d8487834a35` with29 byte-verified Git inputs; newer uncommitted/branch presentation must not inherit this evidence. The R5 harness SHA256 is `17413bf27f01bbce15e342a5fe268d0787d57fa28dd99d87ad9434b11ddf3fbc`, exact to independent static acceptance.
+
+The reviewer independently fetched run/jobs/artifacts and decoded native log, downloaded original small artifact11136808864 and verified663,266 bytes/SHA256 `aa375ed2eac293a45eaaf9558f7bbde8df4ad09f42681ce60ac1b2a75689eeba`, all9 safe/case-unique CRC-valid members and their raw hashes. The decoded native log is58,242 UTF8 bytes with leading BOM and650 CRLF sequences. Actual Windows2022 stock builder26.15.3/Electron44.5.1 compilation,87 rules/zero failures,14 guard/transfer tests/zero failures and five native smoke stages pass. The reviewer inspected their receipts rather than running a Windows installer locally.
+
+## What the actual CI evidence establishes
+
+- Native installer/executable signature oracles return NotSigned; expected Hollowpact0.7 branding/version resources are recorded. Ownership/source/config/include guards hold; generator directory is distinct/present empty and real target initially absent. The random QA identity is unique.
+- Actual silent per-user installation exits0. Both HKCU logical views identify the same exact QA installation/uninstall registration; both HKLM observations remain absent. All72 staged payload hashes equal installed files, with73 installed entries including the uninstaller. ASAR is `e270b1fc9626f6df915449200d00f86cd593e3ca70876832436dd90ef7e6d3da`; native hunter lookup retains its exact original PNG assertion.
+- Installed executable launches twice with the explicit owned profile, sandbox=true, contextIsolation=true, nodeIntegration=false. Settings close succeeds using the repaired strict semantic locator. Earned seed121 Cairn Hound binding and explicit command produce exact reducer state.13 recorded hunter draws load the original1536x1024 image from the installed ASAR file URL using full512 cells.
+- Reload and complete close/relaunch preserve the exact saved campaign. The locally downloaded optional report is explicitly synthetic negative feedback, identifies packaged0.7/0be and records replayIntent no. The native harness checks localStorage unchanged after export; it uses a test-only download destination handler, so normal chooser UX is not qualified. Recorded renderer/request errors are empty; source retains local-only loading and no default telemetry.
+- Verified unique uninstaller runs normally through NSIS TEMP self-copy and exits0. A bounded completion poll requires the entire installation directory absent, not just launcher exit; all staged payload paths are checked absent. All four registry observations become absent. The58 profile-file byte hashes, ownership/sentinel contents, staged payload, absent default production-name updater cache and exact owned cached installer remain preserved by the actual native oracle.
+
+The default updater cache was absent in this disposable runner; this does not qualify a populated consumer cache or filesystem timestamps/global OS activity. Hunter draws are all idle cell0 under reduced motion; this is installed image delivery, not six-pose articulation/smoothness, final-kill craft, full destination geometry or human fun evidence.
+
+## Independent canonical replay and limitations
+
+This reviewer independently verifies the actual UI-earned saved campaign against the pinned source reducer on Linux: createGame121/difficulty0, one legal battle travel, legal Cairn Hound play(index4), then legal attack(a3 to e1). The entire final object and serialized save are byte exact, SHA256 `27968c3637426cd739de234aa59cfd7644d0b397d46973749c876702e3f6f2f8`. Feedback build/run/deck/stats match that actual canonical save and retain the automated-negative label. This is independent reducer replay of native receipts, not a second native GUI trial.
+
+Two reviewer-only preimport path assumptions failed before replay (nonexistent model.ts then types.ts); both original audit sources/failure notes are retained, including a correction to the first note. The successful separately named third audit verifies the actual engine/content/world-rng dependencies and replays all three legal actions. No earlier native evidence was rewritten.
+
+## Original installer and remaining release gates
+
+Transport reports nativeQAStatus passed and original121,167,300 bytes/SHA256 `fd18f4cf543b85a7e54156c47b11330b4b81ba782aa8587745a9bb203463221e`, five24MiB-capped numbered parts; all uploaded wrapper metadata fits the32MiB connector ceiling. At this freeze the reviewer verifies small evidence and transport metadata only, not downloaded part/whole-original bytes. Root owns original recovery and durable preservation; require full API-wrapper/SHA/CRC/part/whole/resource verification in a separate supplement. CI30-day retention alone is not preservation or an official archived milestone.
+
+This is a random QA appId/GUID/executable and explicit local profile on a hosted Windows Server runner. It does not qualify production-identity upgrades/migration, default consumer profile, signing/SmartScreen, physical controllers/audio/listening, Steam Deck, Steamworks/store publication, AAA studio craft or human enjoyment. No such claims are accepted. The reviewer changed only this exterior evidence directory; prior versions/reviews/artifacts and production sources remain intact.

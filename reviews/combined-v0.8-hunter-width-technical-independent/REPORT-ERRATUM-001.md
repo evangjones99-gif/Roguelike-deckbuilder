@@ -1,0 +1,1 @@
+Original REVIEW.md incorrectly copied the R2 count18 into the R3 source-line statement. Actual R3 has17 captured lines; R2 has18. Both maximum errors remain0.00001953125px. REVIEW-r2.md is the corrected current report. Original review and all22 original freeze records remain unchanged; no measured result or source changes.
