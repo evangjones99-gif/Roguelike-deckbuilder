@@ -603,15 +603,24 @@ function finish(s: GameState, events?: ResolvedEvent[]) {
     note(s, "Contract complete. Choose one new card or travel light.");
   }
 }
+/** Existing targeted spell adjustments, shared with live consequence explanations. */
+export function targetedSpellModifiers(
+  s: Pick<GameState, "allies" | "relics">,
+  target: Pick<Unit, "cardId">,
+) {
+  return {
+    widow: s.allies.filter((u) => u.species === "spider").length * 2,
+    relic: s.relics.includes("moon-charm") ? 1 : 0,
+    resistance: target.cardId === "revenant" ? 2 : 0,
+  };
+}
 function targetedSpell(
   s: GameState,
   target: Unit,
   damage: number,
   resolution?: ResolutionTrace,
 ) {
-  const widow = s.allies.filter((u) => u.species === "spider").length * 2;
-  const relic = s.relics.includes("moon-charm") ? 1 : 0;
-  const resistance = target.cardId === "revenant" ? 2 : 0;
+  const { widow, relic, resistance } = targetedSpellModifiers(s, target);
   hitUnit(
     s,
     target,

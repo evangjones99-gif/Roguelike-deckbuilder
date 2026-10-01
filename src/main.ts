@@ -6,7 +6,7 @@ import { attachTactileHand, type TactileHandController, type TactileCardSource, 
 import { compactIntent } from './compact-intent';
 import { HostAudio } from './audio-host';
 import packageInfo from '../package.json';
-import { applyActionWithEvents, createGame, CARDS, legalActions, validateState, recoverLegacySilenceSave, cardTarget, type GameState, type Action, type Unit, type CardDef, type TransitionEvent } from './engine';
+import { applyActionWithEvents, createGame, CARDS, legalActions, validateState, recoverLegacySilenceSave, cardTarget, targetedSpellModifiers, type GameState, type Action, type Unit, type CardDef, type TransitionEvent } from './engine';
 import { createArena } from './arena';
 import type { ArenaUnitRegion } from './battlefield-layout';
 import { renderHuntTitle, renderHuntContract, readHuntContractForm, showHuntContractError, focusHuntContract, attachHuntEntry } from './hunt-entry';
@@ -516,6 +516,7 @@ function consequencePreview(action: Action): { text: string; danger: boolean } {
   const { state: after, events } = applyActionWithEvents(state, action);
   const target = 'target' in action ? action.target : undefined;
   const sourceUnit = action.type === 'attack' ? state.allies.find(u => u.uid === action.unit) : undefined;
+  const playedCard = action.type === 'play' ? CARDS[state.hand[action.index]] : undefined;
   const label = action.type === 'attack' ? sourceUnit ? unitLabel(sourceUnit) : 'Command' : action.type === 'play' ? CARDS[state.hand[action.index]].name : 'Order';
   const parts: string[] = [];
   const who = (uid: string): string => {
@@ -537,6 +538,17 @@ function consequencePreview(action: Action): { text: string; danger: boolean } {
     if (hits.length) parts.push(`${prefix}${lost} health damage${dead ? ' (lethal)' : ''}${blocked ? `, ${blocked} blocked` : ''}`);
     const prior = [...state.allies, ...state.enemies].find(u => u.uid === uid);
     const next = [...after.allies, ...after.enemies].find(u => u.uid === uid);
+    // Explain only an actual targeted spell hit, using the same rule accessor.
+    // Its modifiers precede the zero floor and block; health loss stays event-derived.
+    if (target && prior && playedCard?.type === 'spell' && hits.some(hit => hit.type === 'hit' && hit.kind === 'spell' && hit.source === 'hunter' && hit.cardId === playedCard.id)) {
+      const { widow, relic, resistance } = targetedSpellModifiers(state, prior);
+      if (resistance) {
+        const modifiers = [`spell resistance −${resistance}`];
+        if (widow) modifiers.push(`binding spell bonus +${widow}`);
+        if (relic) modifiers.push(`relic spell bonus +${relic}`);
+        parts.push(modifiers.join(', '));
+      }
+    }
     // Sundering can remove armor before a hit. Read the resolved result rather than reconstructing damage rules.
     if (prior && (next || dead)) {
       const removed = Math.max(0, prior.block - (next?.block || 0));
@@ -579,7 +591,7 @@ function consequencePreview(action: Action): { text: string; danger: boolean } {
   if (after.phase === 'defeat') parts.push('HUNTER DIES · campaign ends');
   else if (state.phase === 'battle' && ['reward', 'victory'].includes(after.phase)) parts.push(after.phase === 'victory' ? 'final contract cleared' : 'contract cleared');
   if (!parts.length) parts.push(action.type === 'play' ? cardRules(CARDS[state.hand[action.index]]) : 'order available');
-  return { text: `${label}${target ? ` → ${compactTargetName(target)}` : ''}: ${parts.join(' · ')}`, danger: after.phase === 'defeat' || retaliation.some(hit => events.some(e => e.type === 'death' && e.target === hit.target)) };
+  return { text: `${label}${target ? ` → ${targetName(target)}` : ''}: ${parts.join(' · ')}`, danger: after.phase === 'defeat' || retaliation.some(hit => events.some(e => e.type === 'death' && e.target === hit.target)) };
 }
 function showConsequenceFor(element: Element | null): boolean {
   if (tactileHand?.isDragging()) return tactilePreviewActive;
