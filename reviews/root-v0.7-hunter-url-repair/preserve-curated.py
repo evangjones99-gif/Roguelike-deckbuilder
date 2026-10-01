@@ -17,7 +17,7 @@ def capture(name, target, manifest):
     declared = {}
     if manifest.endswith('.json'):
         data = json.loads((root / manifest).read_text())
-        records = data['files']
+        records = data.get('files', data)
         if isinstance(records, dict):
             declared = records
         else:
