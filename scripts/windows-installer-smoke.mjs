@@ -103,7 +103,7 @@ try{
   assert.equal(await hashFile(path.join(v.install,'resources/app.asar')),expectedAsar);
   report.executableResources=resource(exe);assert.equal(signature(exe),'NotSigned');
   report.executableSHA256=await hashFile(exe);report.asarSHA256=await hashFile(path.join(v.install,'resources/app.asar'));
-  assert.equal(hash(extractFile(path.join(v.install,'resources/app.asar'),'dist/art/hunter-marek-v07-r3.png')),'4492577d3bacc868e9b66da0abf25915bdeaf68bc8f5c31ae8a1d8db485f3c53');
+  assert.equal(hash(extractFile(path.join(v.install,'resources/app.asar'),path.join('dist','art','hunter-marek-v07-r3.png'))),'4492577d3bacc868e9b66da0abf25915bdeaf68bc8f5c31ae8a1d8db485f3c53');
   mark('actual installed executable binding and command');await launch();
   await page.locator('[data-ui="settings"]').click();await page.locator('#mute').uncheck();await page.locator('#motion').uncheck();
   await page.locator('[data-ui="close"]').click();

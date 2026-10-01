@@ -1,0 +1,61 @@
+{
+  "sourceDirectory": "/workspace/scratch/installer-asar-path-independent-v08-r4",
+  "curatedOnly": true,
+  "scope": "Exact manifest-listed evidence; support dependency symlinks and temporary browser profiles remain at original paths.",
+  "archive": "curated-evidence.tar.gz",
+  "archiveBytes": 13410,
+  "archiveSHA256": "4dc8ffe198c965146fc2f7272b394d3790ddba32f94a4fb194a339d2f2c280ba",
+  "everyMemberStreamVerified": true,
+  "files": [
+    {
+      "path": "MANIFEST.json",
+      "bytes": 1629,
+      "sha256": "917fc451c27de8245bdfdd18884343d0a285fb1e1270b7f3a71e916d5e0dd8b0"
+    },
+    {
+      "path": "REVIEW.md",
+      "bytes": 3033,
+      "sha256": "7df0eb52799359902c80860d49427a387915aa3149bfcccc9510f201484d32ad"
+    },
+    {
+      "path": "frozen-r4/AUTHOR.md",
+      "bytes": 1091,
+      "sha256": "4047cd2a26a3971c67a44244f20292aa8e28c42a09653855919d57ab163835ed"
+    },
+    {
+      "path": "frozen-r4/MANIFEST.json",
+      "bytes": 451,
+      "sha256": "a2c62f888a70bf64f8515ccd28e223c8896e6d859d2ab492cfb1f03d438ab980"
+    },
+    {
+      "path": "frozen-r4/original-r3-smoke.mjs",
+      "bytes": 17907,
+      "sha256": "4d2fbe8ba10afa9bd3af180ddcbd05939b06975a4487c166bf23a33856c78f4c"
+    },
+    {
+      "path": "frozen-r4/proposed-r4-smoke.mjs",
+      "bytes": 17922,
+      "sha256": "854a4e24ea905fc8bb78191c8947b4fafeeee39c98306a768ae5a5e617d4c5b8"
+    },
+    {
+      "path": "reference/actual-asar-filesystem.js",
+      "bytes": 10757,
+      "sha256": "ee09465ac5a38e254468d2d479cc0004a6c270b6447f50d62a30268dd997b49f"
+    },
+    {
+      "path": "reference/native-R3-rejection-receipt.json",
+      "bytes": 917,
+      "sha256": "bac5ebb1b7071e124d5c5fe33a95449f0fcd7b98c42005a2bbb60f524f74b3ae"
+    },
+    {
+      "path": "reference/qualified-windows-path-diagnostic.json",
+      "bytes": 996,
+      "sha256": "fc1dbf8ef77561c709a38dfababeb934b2c10cefdfb67ae9cff0b66c1359a7de"
+    },
+    {
+      "path": "source-comparison.json",
+      "bytes": 677,
+      "sha256": "ee53be813f34e151467da107500579c9628227970ec8bf3a661624457a4c7f14"
+    }
+  ]
+}
