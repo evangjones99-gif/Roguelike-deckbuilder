@@ -1,5 +1,11 @@
 # Hollowpact production continuation
 
+## Current installer QA activation and next game staging
+
+The independently repaired R2 current0.8 installer tooling is selected exactly from installer-v0.8-current-r2-author and installer-v0.8-current-r2-source-independent. Root reruns all27 guard/transfer/current tests; source runtime remains archived23477/76 inputs and ASARc383. The next tooling push deliberately activates isolated hosted Windows NSIS QA with actual39 offline decodes and an earned crypt/binding route. This is controlled research, not an actual installation success yet. Earlier R1 refusal and every historical installer remain retained.
+
+Next game version0.9 is separately staged at runtimeefef7131d1c0cbb5cc0420c70e3d2afd9c9dfaf3013dfb8761e6bb8b00d3b525,77 inputs/55 outputs: accepted contextual scene main/style plus rigid jaw arena/helper and package/lock version metadata only. Strict build/87 rules pass; fresh merged gameplay/visual/native and35 browser gates are in progress. Do not borrow prototype approvals or mutate the candidate during review. Root game files remain0.8 until the reviewed current installer checkout is captured; historical paragraphs remain below.
+
 ## Retained milestone — 0.8.0, production continues
 
 The independently accepted five-archive development checkpoint preserves source `58efb01f4815d8b542711582b87f50168dabde81`, runtime `23477f68c99d6d60b0b3f82b286a8d33bb6da6f2ca92c103fbecf5663634959f` (76 inputs/55 outputs), and matching Linux/Windows ASAR `c383c4437ac5467146174c6ea039b2a8b28af43d609701379e8cf695f59d530c`. See releases/0.8.0/manifest.json and release-v0.8-final-independent. Fresh standalone restoration verifies all4,243 reachable objects,6,405 tree entries/3,481 unique blobs,3,563 indexed review files and five available lossless raw/gzip pairs. All35 older sealed archives remain hash-identical. The source artifact is a self-contained Git bundle v2; its exact1,711,151,088 bytes/SHAfd1310a... and all other archive identities are in the manifest. Metadata/tag identity is separate from the frozen source commit. No public/Steam publication or complete remote mirror is claimed.

@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import {expectedDigest,expectedAsar,hash,layout,noLinks,builderConfig,guardInclude,directoryWitness} from './windows-installer-guards.mjs';
+import {assertCurrentRuntime} from './windows-installer-current-validation.mjs';
 assert.equal(process.platform,'win32','Native Windows preparation required');
 assert.equal(process.arch,'x64');
 assert.equal(process.env.GITHUB_ACTIONS,'true','Hosted CI-only installer research');
@@ -15,9 +16,7 @@ assert.equal(process.env.GITHUB_REF,'refs/heads/codex/lanternbound-production');
 assert.match(process.env.GITHUB_SHA??'',/^[a-f0-9]{40}$/);
 assert.equal(execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),process.env.GITHUB_SHA);
 const runtime=JSON.parse(fs.readFileSync('dist/build-provenance.json','utf8'));
-assert.equal(runtime.sourceDigest,expectedDigest);assert.equal(runtime.version,'0.7.0');
-assert.equal(Object.keys(runtime.hashes).length,29);
-assert.equal(hash(JSON.stringify(runtime.hashes)),expectedDigest);
+assertCurrentRuntime(runtime);
 for(const [file,sha] of Object.entries(runtime.hashes)) {
   // .gitattributes enforces LF; build.mjs hashes exact raw bytes.
   assert.equal(hash(fs.readFileSync(file)),sha,`Source differs from production provenance: ${file}`);

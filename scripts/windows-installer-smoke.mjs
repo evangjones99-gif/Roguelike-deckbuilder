@@ -7,12 +7,14 @@ import {_electron as electron,expect} from '@playwright/test';
 import {extractFile} from '@electron/asar';
 import * as ResEdit from 'resedit';
 import {tsImport} from 'tsx/esm/api';
-import {expectedDigest,expectedAsar,hash,hashFile,checkOwnership,noLinks,commandArguments,checkInstalledRegistry,directoryWitness} from './windows-installer-guards.mjs';
+import {expectedDigest,expectedAsar,expectedVersion,hash,hashFile,checkOwnership,noLinks,commandArguments,checkInstalledRegistry,directoryWitness} from './windows-installer-guards.mjs';
+import {assertCurrentRuntime,packagedAssetWitness,decodeInstalledSounds,assertNativeDecodedSounds,earnedCryptTrace,clickEarnedAction,cryptSeed} from './windows-installer-current-validation.mjs';
 assert.equal(process.platform,'win32','Actual native Windows x64 required; no mock installer pass');
 assert.equal(process.arch,'x64');
 assert.equal(process.env.GITHUB_ACTIONS,'true');assert.equal(process.env.RUNNER_OS,'Windows');
 const request=JSON.parse(fs.readFileSync('build-installer/request.json','utf8'));
 assert.equal(request.sourceDigest,expectedDigest);assert.equal(request.expectedAsar,expectedAsar);
+assert.equal(request.version,expectedVersion);
 assert.equal(request.commit,process.env.GITHUB_SHA);assert.equal(request.ref,'refs/heads/codex/lanternbound-production');
 assert.equal(request.localAppData,process.env.LOCALAPPDATA);
 const v=request.layout,output=path.resolve('reviews/windows-installer',request.version,`run-${request.runId}-${request.attempt}`);
@@ -25,6 +27,7 @@ const report={schema:1,request,status:'running',steps:[],errors:[],limits:[
   'QA-isolated appId/GUID/executable name; same-game runtime, not production-identity install/update qualification',
   'Unsigned Windows Server 2022 hosted-runner automated QA; no physical consumer/SmartScreen/security/hardware acceptance',
   'Test-only native download-path handler; no chooser/listening/human-fun/Steam proof',
+  '39-cue offline Chromium decode proves local delivered PCM, not listening, output-device quality or application-audio cancellation',
   'Explicit isolated user-data profile preserved after uninstall; default production profile behavior untested']};
 const mark=p=>{phase=p;report.steps.push(p);};
 function entries(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{
@@ -85,11 +88,14 @@ try{
   assert.equal(signature(installer),'NotSigned');report.signature='NotSigned';
   const stagedAsar=path.join(staged,'resources/app.asar');assert.equal(await hashFile(stagedAsar),expectedAsar);
   const runtime=JSON.parse(extractFile(stagedAsar,'dist/build-provenance.json').toString());
-  assert.equal(runtime.sourceDigest,expectedDigest);assert.equal(runtime.version,request.version);assert.equal(Object.keys(runtime.hashes).length,29);
-  assert.equal(hash(JSON.stringify(runtime.hashes)),expectedDigest);
+  assertCurrentRuntime(runtime);assert.equal(runtime.version,request.version);
   const build=JSON.parse(fs.readFileSync('dist/build-provenance.json','utf8'));assert.deepEqual(runtime,build);
-  for(const f of ['src/engine.ts','src/content.ts','src/world-rng.ts'])assert.equal(await hashFile(f),runtime.hashes[f]);
-  const {applyAction,legalActions}=await tsImport(pathToFileURL(path.resolve('src/engine.ts')).href,import.meta.url);
+  for(const f of ['src/engine.ts','src/content.ts','src/world-rng.ts','src/encounter-environment.ts'])assert.equal(await hashFile(f),runtime.hashes[f]);
+  const engine=await tsImport(pathToFileURL(path.resolve('src/engine.ts')).href,import.meta.url);
+  const {applyAction,legalActions}=engine;
+  const {encounterEnvironment}=await tsImport(pathToFileURL(path.resolve('src/encounter-environment.ts')).href,import.meta.url);
+  const cryptTrace=earnedCryptTrace(engine,encounterEnvironment);
+  report.packagedAssets=packagedAssetWitness(runtime,parts=>extractFile(stagedAsar,path.join(...parts)));
   const stagedFiles=await snapshot(staged);report.stagedFiles=stagedFiles;
   mark('actual silent per-user NSIS installation');await native('install',installer);
   checkOwnership(v,request.localAppData);assert.ok(fs.existsSync(exe));
@@ -107,6 +113,12 @@ try{
   mark('actual installed executable binding and command');await launch();
   await page.locator('[data-ui="settings"]').click();await page.locator('#mute').uncheck();await page.locator('#motion').uncheck();
   await page.getByRole('button',{name:'Close dialog',exact:true}).click();
+  mark('actual installed ASAR fetch and native39-WAV offline decode');
+  const storageBeforeDecode=await page.evaluate(()=>JSON.stringify({...localStorage}));
+  report.nativeSoundDecode=await page.evaluate(decodeInstalledSounds,report.packagedAssets.sounds);
+  assertNativeDecodedSounds(report.packagedAssets,report.nativeSoundDecode);
+  assert.equal(await page.evaluate(()=>JSON.stringify({...localStorage})),storageBeforeDecode,'Decode changed local state/settings');
+  mark('actual installed executable seed121 binding and command');
   await page.evaluate(()=>{window.__installerHunterDraws=[];const original=CanvasRenderingContext2D.prototype.drawImage;
     window.__installerRestoreDraw=()=>{CanvasRenderingContext2D.prototype.drawImage=original;};
     CanvasRenderingContext2D.prototype.drawImage=function(image,...args){if(this.canvas.id==='arena'&&image instanceof HTMLImageElement&&image.src.endsWith('/art/hunter-marek-v07-r3.png')&&window.__installerHunterDraws.length<64)
@@ -124,9 +136,49 @@ try{
   report.hunterDraws=await page.evaluate(()=>{window.__installerRestoreDraw();return window.__installerHunterDraws;});
   for(const d of report.hunterDraws){assert.equal(new URL(d.url).protocol,'file:');assert.ok(new URL(d.url).pathname.endsWith('/resources/app.asar/dist/art/hunter-marek-v07-r3.png'));
     assert.equal(d.width,1536);assert.equal(d.height,1024);assert.equal(d.source[2],512);assert.equal(d.source[3],512);}
+  const seed121Save=await readSave();fs.writeFileSync(path.join(output,'saved-seed121-campaign.json'),seed121Save+'\n',{flag:'wx'});
+  report.canonical={seed:121,binding:bind,command,exactState:true,saveSHA256:hash(seed121Save)};
+  await page.reload();await page.locator('[data-ui="resume"]').click();assert.equal(await readSave(),seed121Save);
+  mark('actual installed UI-earned seed44 crypt and exact canonical trace');
+  await page.evaluate(()=>{window.__installerCryptDraws=[];const original=CanvasRenderingContext2D.prototype.drawImage;
+    window.__installerRestoreCryptDraw=()=>{CanvasRenderingContext2D.prototype.drawImage=original;};
+    CanvasRenderingContext2D.prototype.drawImage=function(image,...args){
+      if(image instanceof HTMLImageElement&&image.src.endsWith('/art/ossuary-crypt-v08-r2.png')&&window.__installerCryptDraws.length<64)
+        window.__installerCryptDraws.push({url:image.src,width:image.naturalWidth,height:image.naturalHeight,args,canvasId:this.canvas.id});
+      return original.call(this,image,...args);
+    };});
+  await page.locator('[data-ui="home"]').click();await page.locator('[data-ui="new"]').click();
+  await page.locator('#seed').fill(String(cryptSeed));await page.locator('#new-game-form input[value="0"]').check();
+  await page.locator('#new-game-form button[type="submit"]').click();
+  let cryptState=engine.createGame(cryptSeed,0);assert.deepEqual(JSON.parse(await readSave()),cryptState);
+  report.cryptCanonical={seed:cryptSeed,difficulty:0,earnedOnlyViaUI:true,rows:[]};
+  for(const row of cryptTrace.rows){
+    assert.equal(hash(await readSave()),row.beforeSHA256);await clickEarnedAction(page,row.action);
+    cryptState=applyAction(cryptState,row.action);
+    await expect.poll(async()=>hash(await readSave())).toBe(row.afterSHA256);
+    assert.deepEqual(JSON.parse(await readSave()),cryptState);
+    report.cryptCanonical.rows.push(row);
+  }
+  assert.deepEqual(cryptState,cryptTrace.state);assert.equal(encounterEnvironment(cryptState),'crypt');
+  await expect(page.locator('#arena')).toHaveAttribute('aria-label',/ossuary crypt/);
+  await expect.poll(()=>page.evaluate(()=>window.__installerCryptDraws.length)).toBeGreaterThan(0);
+  report.cryptDraws=await page.evaluate(()=>{window.__installerRestoreCryptDraw();return window.__installerCryptDraws;});
+  for(const draw of report.cryptDraws){
+    assert.equal(new URL(draw.url).protocol,'file:');
+    assert.ok(new URL(draw.url).pathname.endsWith('/resources/app.asar/dist/art/ossuary-crypt-v08-r2.png'));
+    assert.equal(draw.width,2069);assert.equal(draw.height,760);assert.ok(draw.args.every(Number.isFinite));
+  }
+  const cryptBind=legalActions(cryptState).find(a=>a.type==='play'&&cryptState.hand[a.index]==='cairnhound');assert.ok(cryptBind);
+  await clickEarnedAction(page,cryptBind);cryptState=applyAction(cryptState,cryptBind);assert.deepEqual(JSON.parse(await readSave()),cryptState);
+  const cryptCommand=legalActions(cryptState).find(a=>a.type==='attack'&&cryptState.enemies.find(e=>e.uid===a.target)?.cardId==='acolyte');assert.ok(cryptCommand);
+  await clickEarnedAction(page,cryptCommand);cryptState=applyAction(cryptState,cryptCommand);assert.deepEqual(JSON.parse(await readSave()),cryptState);
+  assert.equal(encounterEnvironment(cryptState),'crypt');await expect(page.locator('#arena')).toHaveAttribute('aria-label',/ossuary crypt/);
   const saved=await readSave();fs.writeFileSync(path.join(output,'saved-campaign.json'),saved+'\n',{flag:'wx'});
-  report.canonical={binding:bind,command,exactState:true,saveSHA256:hash(saved)};
+  report.cryptCanonical.binding=cryptBind;report.cryptCanonical.command=cryptCommand;
+  report.cryptCanonical.saveSHA256=hash(saved);report.cryptCanonical.exactState=true;
+  await page.screenshot({path:path.join(output,'installed-earned-crypt.png')});
   await page.reload();await page.locator('[data-ui="resume"]').click();assert.equal(await readSave(),saved);
+  await expect(page.locator('#arena')).toHaveAttribute('aria-label',/ossuary crypt/);
   mark('optional local synthetic negative feedback export');
   const destination=path.join(output,'synthetic-negative-feedback.json');
   await app.evaluate(({session},p)=>{globalThis.__qaDownload='pending';session.defaultSession.once('will-download',(_e,item)=>{
@@ -143,6 +195,7 @@ try{
   await app.close();app=undefined;
   mark('full installed process relaunch preserves local save');await launch();await page.locator('[data-ui="resume"]').click();
   assert.equal(await readSave(),saved);await page.screenshot({path:path.join(output,'installed-resumed.png')});
+  await expect(page.locator('#arena')).toHaveAttribute('aria-label',/ossuary crypt/);
   await app.close();app=undefined;assert.deepEqual(report.errors,[]);
   const profileBefore=await snapshot(v.profile);report.profileFilesBeforeUninstall=profileBefore;
   const uninstallers=fs.readdirSync(v.install).filter(f=>/^Uninstall.*\.exe$/i.test(f));assert.equal(uninstallers.length,1);

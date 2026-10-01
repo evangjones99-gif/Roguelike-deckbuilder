@@ -52,6 +52,8 @@ jobs:
         run: |
           node --test scripts/windows-installer-guards.test.mjs scripts/windows-installer-transfer.test.mjs
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          node --test scripts/windows-installer-current-validation.test.mjs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           node scripts/windows-installer-prepare.mjs
       - name: Build unsigned branded NSIS installer without publishing
         id: package
