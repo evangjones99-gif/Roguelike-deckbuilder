@@ -1,5 +1,13 @@
 # Production and continuous improvement
 
+## Current production priority — first five minutes
+
+The owner's newer direction supersedes older full-game AAA and painted-realism wording below. Build a cohesive original pixel-art monster-binding hunter in JavaScript/TypeScript. The craft target is care and satisfying feel. Direct indexed-pixel authoring is welcome; image generation is optional reference material. A small presentation framework may share sprite geometry, anchors and event timelines while the pure rules engine, accessible controls and local saves remain authoritative.
+
+Work repeatedly on the first 300 seconds. Begin with one measurable hypothesis per cycle: quick entry, an understandable legal choice, creature binding and READY feedback, intentional command, clear enemy response, then an earned reason to continue. Timing ranges are observation opportunities, not forced victories or a universal formula. Compare fresh UI-created default Initiate runs and ordinary seeds; fixed Hunter seeds are separate reproducibility cases. Do not inject a successful opening or mistake fewer clicks, agent wins or ratings for human enjoyment. Optional local human feedback is separate from model datasets; no default telemetry.
+
+Independent reviewers must identify actual source/build, methods and unassessed areas and may reject a change. Keep a baseline and repair measured regressions. Archive/tag only major accepted development milestones; Steam/platform/rights gates remain honest backlog items unless they block this slice. Reviewed retirement requires a better verified replacement AND evidence the old material is no longer needed, recorded producer judgment and confirmed push before cleanup.
+
 ## Product promise
 
 Become a capable, scarred contract hunter who binds dangerous monsters and commands them against threats in ruined keeps, flooded crypts and cursed wilderness. Realistic anatomy, weathered materials, ominous lighting, forceful impacts, readable tactics and different deck plans define the promise. Plain-English effects and immediate commanded actions remain useful foundations. Create original creatures and writing from broad dark-fantasy references; do not import franchise assets. HOLLOWPACT is a provisional working title, with name clearance still unverified.

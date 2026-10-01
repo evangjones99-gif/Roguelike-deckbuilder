@@ -1,5 +1,13 @@
 # Commercial craft benchmark
 
+## Newer owner clarification: handcrafted pixel craft and the opening
+
+The current goal is a compelling first five minutes, repeatedly refined. “AAA” describes polish and care, not budget or realism. Pixel art is confirmed, with original gritty hunter and monster silhouettes, deliberate limited palettes and articulated anticipation/contact/recovery. Direct authored pixels and generated references are both allowed. Keep the JavaScript rules and assess a lightweight presentation framework; an engine rewrite is not the goal.
+
+Review the real opening for clear entry, an interesting legal decision, satisfying binding and command feedback, readable response and motivation to continue. Record real elapsed time, exact build and actual methods. Separate visual preference and technical correctness from human enjoyment; agents cannot certify attention loss or fun consensus. Keep broad commercial gates below as backlog requirements, without making them the current opening's critical path.
+
+Retirement needs independent evidence that the replacement is better AND old material is no longer needed, followed by producer judgment and confirmed push. A failed aesthetic trial is research, not a promoted game asset.
+
 The owner wants the game to feel as if an AAA studio made it. This is the review target, not a badge applied to a build. Independent reviewers may reject it and must say what they actually inspected. Ratings from agents are not evidence of human enjoyment, broad market appeal or a production budget.
 
 Use major commercial games as craft references: convincing material/anatomy and monster threat; smooth anticipation/impact/recovery; directed spell and command effects; tactile card interaction; coherent lighting/sound; immediate readable intent; clear controller and mouse navigation. These are design expectations, not claims that a footage teardown or benchmark comparison has been measured here.

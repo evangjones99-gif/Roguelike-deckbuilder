@@ -1,5 +1,17 @@
 # Hollowpact production instructions
 
+## Current owner target: five minutes of fun — 1 October 2026
+
+The primary production goal is the first 300 seconds of satisfying play. Refine that opening repeatedly: enter play quickly, make a meaningful choice, bind a threatening creature, issue a command, understand the response and want another encounter. Broad content expansion and Steam administration are backlog work unless they block this opening. Observe actual elapsed play and preserve human feedback separately from agent correctness, model balance and visual opinions; none of those proves that a player forgot about time.
+
+Pixel art is the confirmed direction. “AAA” means handcrafted polish, strong identity, satisfying interaction and care, not a photorealistic budget. Preserve the gritty original monster-binding contract hunter. Directly authored pixel assets, generated references and a combination are permitted; choose by actual readable anatomy, coherent palette, animation and game comparison, not by the tool used. Retain live text and accessible DOM controls. Keep JavaScript/TypeScript and the pure rules engine; assess a small shared presentation framework before considering a rewrite. Research small-team methods from actual primary sources and disclose what was unavailable.
+
+Battlefield direction: hand along the bottom; allied bound creatures in the near row facing into the field; hostiles in the far row facing the player. Prefer readable rear three-quarter allied poses and front/three-quarter hostile poses. A card becomes its creature through arrival, READY, command anticipation/contact/recovery, reactions and defeat. Do not substitute mirroring a frontal image for authored rear anatomy. Preserve source/target identity, readable attached rules/intents and accessible input; reference games inform feel, not copied art. This describes the intended slice, not a completed-build claim.
+
+Each cycle should choose one concrete opening hypothesis, implement it reversibly, compare a real playable build with its retained baseline and obtain separate independent gameplay, visual and technical findings. Reviewers may reject it. The hourly automation is updated to this target; it is a fallback, not evidence of continuous execution. Continue meaningful foreground work after a verified checkpoint while access permits.
+
+An older version, review, art input or dataset may be retired only after a thorough independent review verifies the replacement is better AND the old material is no longer needed, followed by a recorded producer judgment. Keep useful rollback, unique provenance, rights evidence, reproducibility and historical findings. Confirm the current changes were pushed before cleanup. Never silently rewrite reviews.
+
 ## Owner platform priority — 1 October 2026
 
 Focus on PC for now; the owner explicitly says not to worry about mobile. Prioritize desktop mouse/keyboard card feel, readable combat, visual craft, pacing, performance and native PC validation. Keep earlier narrow-screen findings as historical evidence, but do not make more mobile-specific implementation or acceptance matrices the critical path. Retain accessible input and motion preferences. The repeated scheduled continuation prompt does not undo this newer explicit steering.

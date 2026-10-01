@@ -1,0 +1,1 @@
+Confirmed pixel/JS direction and actual hourly prompt readback; primary-source research; original rejected indexed sprite lab and independent source/visual findings; opening coaching source r1/r2 rejections and r3 accepted source. Research and source-only evidence, no new playable-build or fun claim. All originals retained.
