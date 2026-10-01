@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "scope": "Exact original unsigned QA-isolated installer transfer; parts alone are not runnable",
+  "version": "0.8.0",
+  "sourceDigest": "23477f68c99d6d60b0b3f82b286a8d33bb6da6f2ca92c103fbecf5663634959f",
+  "commit": "c7d2302facc045185aa231dd48d87acf8c2bfa90",
+  "ref": "refs/heads/codex/lanternbound-production",
+  "runId": "36812402583",
+  "attempt": "1",
+  "nativeQAStatus": "failed",
+  "filename": "Hollowpact-QA-Installer-0.8.0-x64.exe",
+  "bytes": 126697246,
+  "sha256": "ad2a90f8af507ea90f1f20229a2c9d4d8a45476bd407ddeaf3e469ca963d6c69",
+  "partBytes": 25165824,
+  "parts": [
+    {
+      "index": 1,
+      "filename": "part-01.bin",
+      "bytes": 25165824,
+      "sha256": "3d62d9f3b5894bde36c68bf526260a4e78df1c25712156b85e1dcfae7b09e0d0"
+    },
+    {
+      "index": 2,
+      "filename": "part-02.bin",
+      "bytes": 25165824,
+      "sha256": "a41dac3d8e1ff4fef917140cc9c60217827eff79ca5177a5df6625bd150240aa"
+    },
+    {
+      "index": 3,
+      "filename": "part-03.bin",
+      "bytes": 25165824,
+      "sha256": "184b29229fce688456714fb2f0bbaddd97037be3b12c480d60fb4e95486c9982"
+    },
+    {
+      "index": 4,
+      "filename": "part-04.bin",
+      "bytes": 25165824,
+      "sha256": "4e7879672b4d7b8a28ab13c3ab41f30c5fa6ef25a84fe1efcfb957bb2e87cf6c"
+    },
+    {
+      "index": 5,
+      "filename": "part-05.bin",
+      "bytes": 25165824,
+      "sha256": "724d74ca5dca1e50a56632a7d8536717ff7be5a8f52ad8a5a6e0e30a145c4df3"
+    },
+    {
+      "index": 6,
+      "filename": "part-06.bin",
+      "bytes": 868126,
+      "sha256": "1dde0bafefcfcc5903922e18b3a3c889a1ebd7ed3589c91ae210d4591fda589f"
+    }
+  ],
+  "reconstruction": "Download each numbered artifact from this same run/attempt; extract exactly its part-NN.bin, verify every size/SHA256, concatenate numeric index order, verify complete bytes/SHA256 before execution or preservation. Failed/unexecuted candidates remain failed/unexecuted."
+}

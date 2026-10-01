@@ -1,0 +1,1 @@
+R2 passed map/reward inspection and focus checks, then rejected a floor10 diagnostic battle whose retained route still said battle. R3 uses the actual node10 boss route before validation. Previous failure/source are retained; no product byte changes for this fixture correction.

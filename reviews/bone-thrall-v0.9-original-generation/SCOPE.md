@@ -1,0 +1,1 @@
+Exact original generation and failed alpha/staging inputs, copied without image editing or raw-source rewriting. Other original input/art bytes remain at original source paths; selected integration files are separately retained in the author supplement. No rights clearance/whole original directory backup claimed.

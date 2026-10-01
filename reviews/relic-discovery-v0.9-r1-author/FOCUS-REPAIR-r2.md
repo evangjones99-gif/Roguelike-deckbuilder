@@ -1,0 +1,1 @@
+Actual R1 UI check found focus returned to the first relic because all three buttons shared the same data-ui identity. R1 source/build/log/failure remain. R2 adds the existing semantic data-focus key per relic. No input-adapter or modal code is changed. Fresh actual Enter/Escape and save checks must pass before acceptance.

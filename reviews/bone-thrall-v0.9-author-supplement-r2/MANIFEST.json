@@ -1,0 +1,543 @@
+{
+  "files": [
+    {
+      "path": "ALPHA-GROUNDING-OBSERVATIONS.json",
+      "bytes": 121272,
+      "sha256": "067eb2c1638ab31d16e2bc9c83b39778c67043acddb676ae1cafd5506b4c9390"
+    },
+    {
+      "path": "AUTHOR.md",
+      "bytes": 8293,
+      "sha256": "28bcd0165e6771e3ea1b9f787de4265de7db05066581a76931e527a85d1dd718"
+    },
+    {
+      "path": "BASELINE-INPUTS.json",
+      "bytes": 20105,
+      "sha256": "23539dd40f038ceb54426397befc3fd80fe22dac76c1f22285744fc2a2aa5741"
+    },
+    {
+      "path": "BASELINE-LATEST-ALPHA-OBSERVATIONS.json",
+      "bytes": 16650,
+      "sha256": "e0dc2eea77848f218c7ed278c61323e2724eca3bcafd78ddbeafbb0665327758"
+    },
+    {
+      "path": "FAILURE-r1.json",
+      "bytes": 499,
+      "sha256": "44218513ae7dd538d9e9d8e73a0380b91fa7faeaa2cd51a10b58760dc93c6f3b"
+    },
+    {
+      "path": "LATEST-DRAW-GROUNDING-OBSERVATIONS.json",
+      "bytes": 20029,
+      "sha256": "46efb66bab25f51c8dd67e0b417bc6e8e10eb58b1f14f87465276d77a93c4814"
+    },
+    {
+      "path": "ORIGINAL-AFTER.json",
+      "bytes": 35074,
+      "sha256": "d74bbd0f63ebcf6e9294ea14f1a562fc827ff99c025a8637b9ccbcd295cd31ca"
+    },
+    {
+      "path": "ORIGINAL-BEFORE.json",
+      "bytes": 35074,
+      "sha256": "d74bbd0f63ebcf6e9294ea14f1a562fc827ff99c025a8637b9ccbcd295cd31ca"
+    },
+    {
+      "path": "RESULTS-RECEIPT.json",
+      "bytes": 676,
+      "sha256": "ca3e89ef06731a2bb15171b55db7a8f46540035dbe99858ff45148af6b1ac567"
+    },
+    {
+      "path": "SOURCE-BUILD-IDENTITY.json",
+      "bytes": 38706,
+      "sha256": "dd5d81e260928c86fc95d9cbb9128799a79bcb7fa55527ed0a22db3d87f9630d"
+    },
+    {
+      "path": "actual-cases-r2.mts",
+      "bytes": 7812,
+      "sha256": "e7f484c18bbf5a93a991614100bdb8e1034f7d1d711e88885b095bf8e91b352d"
+    },
+    {
+      "path": "actual-cases-r3.mts",
+      "bytes": 7858,
+      "sha256": "2ead53eac33041baf7395b7f1e6036b9fd7817edd1cf20efd9cd8f02e6113832"
+    },
+    {
+      "path": "actual-cases-r4.mts",
+      "bytes": 7947,
+      "sha256": "5b9864896405b4f27e43d30acc2af2679cb0fbc57cee096871cba78c6d5fc751"
+    },
+    {
+      "path": "actual-cases.mts",
+      "bytes": 7805,
+      "sha256": "56fc4c1bf9032cd7ee8ab02e01a1dc01c1fbbaa0de5c488239d7b0cbce93e83c"
+    },
+    {
+      "path": "baseline-single-1440-idle.jpg",
+      "bytes": 230055,
+      "sha256": "716b9cfa8786aec4f8fb1a603a37889de88ed79e71a2a79b4f437bd952288a50"
+    },
+    {
+      "path": "browser-r1.stderr.txt",
+      "bytes": 478,
+      "sha256": "c801a38b111502982ca0ee206ccb45ef36afadfa9a06d567389d4c910bdbf14e"
+    },
+    {
+      "path": "browser-r1.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "browser-r2.stderr.txt",
+      "bytes": 20330,
+      "sha256": "8bb43ebdf76d8d16a1272c2f72289f2bb1fdfd331446ce18eb8bc84b82be5d3e"
+    },
+    {
+      "path": "browser-r2.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "browser-r3.stderr.txt",
+      "bytes": 540,
+      "sha256": "413dbac4c601a8fc9d74b7e4e47f961b0f510bf9a35892c317e6002e2c1c3ac1"
+    },
+    {
+      "path": "browser-r3.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "browser-r4.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "browser-r4.stdout.txt",
+      "bytes": 57,
+      "sha256": "132a6b344b626ca2d69ed6f3e7a08417e5c583912597e23fd26a2fbf1a2eb7be"
+    },
+    {
+      "path": "candidate-source/THIRD-PARTY.md",
+      "bytes": 3130,
+      "sha256": "adf09d75a0d1af2a08063bfd3f730fe10e2deea2cf8f87fe7b122320d900df17"
+    },
+    {
+      "path": "candidate-source/public/art/PROVENANCE.json",
+      "bytes": 15127,
+      "sha256": "6821910c12a748ef983eb6d495c1b5e7cb920decb61a755753e3a3197cf12ace"
+    },
+    {
+      "path": "candidate-source/public/art/bone-thrall-v09-r1.png",
+      "bytes": 1610163,
+      "sha256": "3697dd4cc89f1550e0688b34bb421939988c90ab78832ce83d53ddb81b372dfd"
+    },
+    {
+      "path": "candidate-source/src/art.ts",
+      "bytes": 7116,
+      "sha256": "2e9a5429e01498e02b4ae333e7240e7e5abbb1a6d0418d2932a7afccc17b262f"
+    },
+    {
+      "path": "candidate-source/src/main.ts",
+      "bytes": 77170,
+      "sha256": "46f0d3c79e39ca45d727093c31649e3f90a7973b04b1d37ea692ce4055f47134"
+    },
+    {
+      "path": "dossier-baseline-mobile.jpg",
+      "bytes": 19931,
+      "sha256": "73df568f1c2f1190e78a4c7058794085faa2e6d335211cdef436b07a69ea0a8f"
+    },
+    {
+      "path": "dossier-candidate-mobile.jpg",
+      "bytes": 20088,
+      "sha256": "54037c24707db49d712749d223b5bed32db7c3d4c0084834af63a25196b482a8"
+    },
+    {
+      "path": "dossier-results.json",
+      "bytes": 1001,
+      "sha256": "9b8d99aea87fb1d3f1cccf16efd2601b5b096de0244800ee19d99e21d3db378b"
+    },
+    {
+      "path": "dossier.mts",
+      "bytes": 2331,
+      "sha256": "56425154f0c7ffbaf00408ecc85d7a5375f9d0a1c78de6e0ec2578dffbec1b5d"
+    },
+    {
+      "path": "dossier.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "dossier.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "earned-baseline-spawn-mobile.jpg",
+      "bytes": 66914,
+      "sha256": "c4c255d0cea0d5556d70273ef7521c803587a14b39f84dbe13d6768e2a3dba3f"
+    },
+    {
+      "path": "earned-candidate-spawn-mobile.jpg",
+      "bytes": 67104,
+      "sha256": "39f10eb8a0a84aa1061bf154d60c8be7ee92267661c0cc9be6610e25735898ab"
+    },
+    {
+      "path": "earned-spawn-results.json",
+      "bytes": 40539,
+      "sha256": "3c2bae3c281c17a1abf2e4ea165803a8aa0370379a81eba02431c8d75f600279"
+    },
+    {
+      "path": "earned-spawn.mts",
+      "bytes": 3943,
+      "sha256": "1509daf8001791b97a0a24c479e90ae1b8dbf4a90a7b7fb4a2db484b4d3eb9e7"
+    },
+    {
+      "path": "earned-spawn.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "earned-spawn.stdout.txt",
+      "bytes": 134,
+      "sha256": "5655160954bcfdb2835bd0626c89e8e8272c84c063bf294ff4ecfb76588b1e08"
+    },
+    {
+      "path": "generation/GENERATION-PLAN-r1.json",
+      "bytes": 1144,
+      "sha256": "825227160db89f93e7c42545aa22a011655527da8d559e04f076190786038461"
+    },
+    {
+      "path": "generation/INSPECTED-INPUTS.json",
+      "bytes": 3906,
+      "sha256": "00ec6ac1c66bb45f7569279987398b0db05c4b37934f48d96dc383212c9cc13f"
+    },
+    {
+      "path": "generation/RAW-ORIGINAL-PROVENANCE-r1.json",
+      "bytes": 1987,
+      "sha256": "f89113c287b2d81f6f4735c91bf5e565be2b8b508dd8c5ef61c3d8253811dc53"
+    },
+    {
+      "path": "generation/REQUEST-r1.txt",
+      "bytes": 3009,
+      "sha256": "beba1d3531d72e82e86c7e2070756baf8e5296e25d54fc44b69a91951cbd93e6"
+    },
+    {
+      "path": "generation/STAGING-FAILURE-r1.json",
+      "bytes": 339,
+      "sha256": "ad835e73cbb02b5d284cbe0b4f132fef299661f08bbcab44c3db3f9a46b900ec"
+    },
+    {
+      "path": "measure-painted-bounds.py",
+      "bytes": 2533,
+      "sha256": "a0fe388ede1dce714241b9c94731fc34097ee56b7aa5a7bbcf6b406fcdb22d39"
+    },
+    {
+      "path": "measure-painted-bounds.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "measure-painted-bounds.stdout.txt",
+      "bytes": 345,
+      "sha256": "b3d5ddf01ddeb0a356af8399c473f53dec20e2ceaf6b039d1a2c9648fc5be7b2"
+    },
+    {
+      "path": "run-r2/FAILURE-r1.json",
+      "bytes": 129957,
+      "sha256": "f08ba25e9b0770c20f1c3767c9aab23ef3e3614b0dc0eb02a6c0cb10c19ab767"
+    },
+    {
+      "path": "run-r2/baseline-dense-1440-idle.jpg",
+      "bytes": 262598,
+      "sha256": "2a4d1593a6190e9edf112f4825682fc18fe86183a5b7726b1a845bc7752ab99d"
+    },
+    {
+      "path": "run-r2/baseline-mixed-1440-idle.jpg",
+      "bytes": 234471,
+      "sha256": "06972aabbeb271e7f2282e8a44ecb44b9a5d53b326924d6a51f2cfd42134888d"
+    },
+    {
+      "path": "run-r2/baseline-single-1440-idle.jpg",
+      "bytes": 230055,
+      "sha256": "716b9cfa8786aec4f8fb1a603a37889de88ed79e71a2a79b4f437bd952288a50"
+    },
+    {
+      "path": "run-r2/candidate-mixed-1440-idle.jpg",
+      "bytes": 235702,
+      "sha256": "ed3d643b99e68c0affc5f52c367cecee6cab1cd782a97a47f3f8c165e70e9e93"
+    },
+    {
+      "path": "run-r2/candidate-single-1440-idle.jpg",
+      "bytes": 231283,
+      "sha256": "482ce8f72e84ed29792b86b12a780f86d8bb72696e3ce772ac93b0528686c52d"
+    },
+    {
+      "path": "run-r2/checkpoint.json",
+      "bytes": 17,
+      "sha256": "d892a2b3a86df202a444c9eceb4b80821f3f25db14c4b4db77e96994bcc1d54d"
+    },
+    {
+      "path": "run-r3/FAILURE-r1.json",
+      "bytes": 777276,
+      "sha256": "a8c0949154902df44292fc2dee8b3694ce3369b4e22960dfea19b50b1e81edc1"
+    },
+    {
+      "path": "run-r3/baseline-attack-1440-enemy-strike.jpg",
+      "bytes": 89115,
+      "sha256": "f186e157c9a6be19b1cd0ce0ff326ebef64e573dcdd3d861420ba5364f773e6f"
+    },
+    {
+      "path": "run-r3/baseline-attack-1440-idle.jpg",
+      "bytes": 175137,
+      "sha256": "9c3c3a8d4bfaef24c900f74e6184e676d5ed48ab76679960cabe3d68792d6be1"
+    },
+    {
+      "path": "run-r3/baseline-attack-1440-settled.jpg",
+      "bytes": 87579,
+      "sha256": "df07ed14e828b658b36bc0c711c340cde9dfadc5c6ac77c95be68e00e84fad8d"
+    },
+    {
+      "path": "run-r3/baseline-dense-1440-idle.jpg",
+      "bytes": 175145,
+      "sha256": "ebee0d1b1bdb66967bf4887d2d8a267f83819c152a3fb3cd1b1ee2c8d52cd5f4"
+    },
+    {
+      "path": "run-r3/baseline-mixed-1440-idle.jpg",
+      "bytes": 154162,
+      "sha256": "e0f31a3d9a0d286b62646c89529f7e5653c3499e1ab7c6fce1ae02faed7ce752"
+    },
+    {
+      "path": "run-r3/baseline-single-1440-idle.jpg",
+      "bytes": 150318,
+      "sha256": "84ddf880c8438032c6ee2b53e025d0dca43afb1d3d16ead2c2d96bdfe6fc7d2c"
+    },
+    {
+      "path": "run-r3/baseline-unchanged-1440-idle.jpg",
+      "bytes": 150586,
+      "sha256": "e8568c0996d0580b6d4431da95e52a2a9f73338a5447eb45ae4f1035a81fd3d5"
+    },
+    {
+      "path": "run-r3/candidate-attack-1440-enemy-strike.jpg",
+      "bytes": 90133,
+      "sha256": "2c1975262cc8744dda189effb0df7e60797670c9e78b655a8c9072c4f5bcbdad"
+    },
+    {
+      "path": "run-r3/candidate-attack-1440-idle.jpg",
+      "bytes": 175961,
+      "sha256": "16b3b2b28b9ef93c40c1f48915bdd40223ac1940fc6d0f6599ecdacea482908d"
+    },
+    {
+      "path": "run-r3/candidate-attack-1440-settled.jpg",
+      "bytes": 88721,
+      "sha256": "ab27ebe477ab19ab531c2f54b499b978257911dc4e7608b639c95158d37980c5"
+    },
+    {
+      "path": "run-r3/candidate-dense-1440-idle.jpg",
+      "bytes": 175870,
+      "sha256": "dbc7832b3039897e1b9a61dbc60ae5eda90fff92199367cdb2554b4bfcc16b51"
+    },
+    {
+      "path": "run-r3/candidate-mixed-1440-idle.jpg",
+      "bytes": 155031,
+      "sha256": "2fc8eb454121f8d5fd317da2c97286274840bed5a0c94cc26b925dccf2696ff7"
+    },
+    {
+      "path": "run-r3/candidate-single-1440-idle.jpg",
+      "bytes": 151281,
+      "sha256": "f59647024ab8342c24ad7aa6ac8ff7310593a70fecad129e0f7354b260d4e982"
+    },
+    {
+      "path": "run-r3/checkpoint.json",
+      "bytes": 17,
+      "sha256": "97175fa395f1e8adc0c5058e835717784338b329eba32ee6901f14e4980d6875"
+    },
+    {
+      "path": "run-r4/baseline-attack-1440-enemy-strike.jpg",
+      "bytes": 90383,
+      "sha256": "ef30ab2b6e6d985feb8136ce859e1dde1a0f29ba6ccd7b6cb271fc274fb1006e"
+    },
+    {
+      "path": "run-r4/baseline-attack-1440-idle.jpg",
+      "bytes": 144712,
+      "sha256": "781e46fcf17dfdc6f5a89adedbc63f682b7259ea9702fc3d87bb703a855c9a7b"
+    },
+    {
+      "path": "run-r4/baseline-attack-1440-settled.jpg",
+      "bytes": 87509,
+      "sha256": "45f89c8be0162ec97ead9cb66d325fe884998b26223a6fad3e69ad7f334b21c5"
+    },
+    {
+      "path": "run-r4/baseline-attack-390-enemy-strike.jpg",
+      "bytes": 20957,
+      "sha256": "54e45e66ca4e00c13a91b3c6519ef000f745db1048022f4cd67746aeee8dded5"
+    },
+    {
+      "path": "run-r4/baseline-attack-390-idle.jpg",
+      "bytes": 63334,
+      "sha256": "c1a2b647158960fefd30565b53ce9349b53817df670773e053953ac282f2e360"
+    },
+    {
+      "path": "run-r4/baseline-attack-390-settled.jpg",
+      "bytes": 19739,
+      "sha256": "e9a32f2c194c413982f3b4ff25e697f24bef9880d3007370e86c138067a151fc"
+    },
+    {
+      "path": "run-r4/baseline-dense-1440-idle.jpg",
+      "bytes": 144660,
+      "sha256": "79c16ff30481c08779ddc519a8142cdef1e1c617a07d3261645d6fa9fd6e5f7f"
+    },
+    {
+      "path": "run-r4/baseline-dense-390-idle.jpg",
+      "bytes": 63250,
+      "sha256": "95303c8a42af42d991da2bb01a2516d1246b644059fd0c6320c677fb444b0e11"
+    },
+    {
+      "path": "run-r4/baseline-mixed-1440-idle.jpg",
+      "bytes": 126441,
+      "sha256": "fae0aa1f24109823f9455c54cefaf141398365d994ebeb4459a677a6e5f49daa"
+    },
+    {
+      "path": "run-r4/baseline-mixed-390-idle.jpg",
+      "bytes": 48218,
+      "sha256": "b68fa3f1215b1ded74da9052fec9d8de4dc16f4575ff51bd7c208f680bc1d59a"
+    },
+    {
+      "path": "run-r4/baseline-single-1440-idle.jpg",
+      "bytes": 122904,
+      "sha256": "c6da89c5ebf66a0951f06c17c7ecfa27da0d13014005f2669db264c1549134be"
+    },
+    {
+      "path": "run-r4/baseline-single-390-idle.jpg",
+      "bytes": 46231,
+      "sha256": "acd6b37b33497e6e104e50e6200c4ee0c35cf68bf5554304611fed69d1f961b4"
+    },
+    {
+      "path": "run-r4/baseline-unchanged-1440-idle.jpg",
+      "bytes": 123139,
+      "sha256": "3b9849f78805b4c58ac767c7e743ef97f2ff7babd15a7757555799f29d2bb101"
+    },
+    {
+      "path": "run-r4/baseline-unchanged-390-idle.jpg",
+      "bytes": 46436,
+      "sha256": "8bfc4d2a428cb3f9ec2d872b77d518bf558b5eeee208815f7d5729c8b31e9487"
+    },
+    {
+      "path": "run-r4/candidate-attack-1440-enemy-strike.jpg",
+      "bytes": 90187,
+      "sha256": "219a9c0fa76159b60852ccc1e94d29604e9a9ddf394f90519e8c3c6fff55a623"
+    },
+    {
+      "path": "run-r4/candidate-attack-1440-idle.jpg",
+      "bytes": 145326,
+      "sha256": "405a6eb65e7233c6d19c65e5d699075c4f073425826e1ea9ca410e270ec3711d"
+    },
+    {
+      "path": "run-r4/candidate-attack-1440-settled.jpg",
+      "bytes": 88625,
+      "sha256": "898ca6fa3ff26212035915a1a43f8f31c2cfef4dae3d9d5d4ab2577106907503"
+    },
+    {
+      "path": "run-r4/candidate-attack-390-enemy-strike.jpg",
+      "bytes": 21032,
+      "sha256": "a69e3a9868a6dfa1aa8faead9ea6bc1c57b21f82cc9f569244fa7b33d5098adf"
+    },
+    {
+      "path": "run-r4/candidate-attack-390-idle.jpg",
+      "bytes": 63422,
+      "sha256": "655db18c41f765408b8ddc33d978cc290f53bc3c5f0ad5bdc735da13e35aa187"
+    },
+    {
+      "path": "run-r4/candidate-attack-390-settled.jpg",
+      "bytes": 19905,
+      "sha256": "7f2c5adf76b3e9366d78d78e7a59e0dd25fc18ec4d6e6703a5e3fb9ef8a5270d"
+    },
+    {
+      "path": "run-r4/candidate-dense-1440-idle.jpg",
+      "bytes": 145300,
+      "sha256": "dfd7e5b4238e2bad81f7317435982ffb7fc37f07f601e7adc9aa1840ef907cc7"
+    },
+    {
+      "path": "run-r4/candidate-dense-390-idle.jpg",
+      "bytes": 63381,
+      "sha256": "e545f747021ba9c6a81c3a55abacbcdb8dbe8e396812ece06837fdec2992f535"
+    },
+    {
+      "path": "run-r4/candidate-mixed-1440-idle.jpg",
+      "bytes": 127123,
+      "sha256": "b2b4383602f34432c47a5bfa40a70ca42711ba98bab49587ea78a1289cc783c2"
+    },
+    {
+      "path": "run-r4/candidate-mixed-390-idle.jpg",
+      "bytes": 48424,
+      "sha256": "9de5e7369a43571e538717c22f09e5db4ce3b7203b85d1d76c78964b0c67a4af"
+    },
+    {
+      "path": "run-r4/candidate-mixed-390-late-idle.jpg",
+      "bytes": 48424,
+      "sha256": "9de5e7369a43571e538717c22f09e5db4ce3b7203b85d1d76c78964b0c67a4af"
+    },
+    {
+      "path": "run-r4/candidate-mixed-390-late-pending.jpg",
+      "bytes": 16679,
+      "sha256": "abc00deb39d467942eb6908f5ef0aa47ea544721f12312eaae98b2ee864f9751"
+    },
+    {
+      "path": "run-r4/candidate-mixed-390-missing-idle.jpg",
+      "bytes": 49048,
+      "sha256": "14b2fa6883ac741b9d2d643f76d6b8c3a85105d1b6c8d3df55696352ea4c0e04"
+    },
+    {
+      "path": "run-r4/candidate-mixed-390-no-canvas-idle.jpg",
+      "bytes": 46880,
+      "sha256": "253987d468ffef8e384e7a9efb8a18595023f092ea4bc2979297fe31cb0ad26a"
+    },
+    {
+      "path": "run-r4/candidate-single-1440-idle.jpg",
+      "bytes": 123770,
+      "sha256": "1a68864f87451af9c5103769aa2736c37d171234e3cc183f8f42eab0e8a50a99"
+    },
+    {
+      "path": "run-r4/candidate-single-390-idle.jpg",
+      "bytes": 46417,
+      "sha256": "11a591172ac686b1de85c11cce72f566ab4de1582f5dd9f2309e7791c53be557"
+    },
+    {
+      "path": "run-r4/candidate-unchanged-1440-idle.jpg",
+      "bytes": 123139,
+      "sha256": "3b9849f78805b4c58ac767c7e743ef97f2ff7babd15a7757555799f29d2bb101"
+    },
+    {
+      "path": "run-r4/candidate-unchanged-390-idle.jpg",
+      "bytes": 46436,
+      "sha256": "8bfc4d2a428cb3f9ec2d872b77d518bf558b5eeee208815f7d5729c8b31e9487"
+    },
+    {
+      "path": "run-r4/checkpoint.json",
+      "bytes": 18,
+      "sha256": "bea851843c098f69d212a75a4cc11893a2daabf1509647796344c8999d6998b1"
+    },
+    {
+      "path": "run-r4/results.json.gz",
+      "bytes": 126042,
+      "sha256": "16cb9535c6902f1e9268e545bf3701f10c432f97d120f17656f909ca8ceca440"
+    },
+    {
+      "path": "strict-typecheck.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "strict-typecheck.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "totalBytes": 9035120,
+  "sourceInputsFrozen": 77,
+  "buildOutputsFrozen": 56,
+  "originalInputsUnchangedRows": 174,
+  "runtime": "751e1267f83e17d2f31d27cf3043e724d7697e6f29821add0a5c738794f60a17",
+  "rootWrites": false,
+  "mediaPixelEdits": false,
+  "nativeExecution": false,
+  "independentAcceptance": false
+}
