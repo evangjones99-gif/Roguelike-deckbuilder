@@ -1,0 +1,150 @@
+Playtest Feedback – UI, Presentation, and Combat Feel Overhaul
+This build has a strong foundation, but right now the game does not feel polished, immersive, or satisfying enough in presentation, UX, or combat feedback. I want you to treat the points below as root experience problems to solve, not just a list of isolated patch fixes. Improve the overall quality so the game feels more like a modern, polished, high-production card battler / creature battler experience.
+Important instruction
+When responding to this feedback, do not just implement my literal examples one by one. Use them as signals of the underlying issues and redesign the affected systems properly. If needed, review comparable high-quality games for interaction patterns, clarity, pacing, visual hierarchy, and feedback, but do not copy them directly. Use them as inspiration to create a cohesive design for this game.
+1) Main menu lacks excitement and appeal
+The main menu does not create excitement or make me want to start playing. It currently feels too basic and unmemorable.
+Problems
+- The writing feels flat and not very enticing.
+- The imagery/background feels generic and visually weak.
+- The fonts feel bland and do not establish a strong identity.
+- There is no music or strong audio atmosphere.
+- The top bar feels unnecessary and adds clutter rather than value.
+Desired outcome
+Redesign the main menu so it feels inviting, atmospheric, and aspirational — like the start of an adventure or hunt I want to begin immediately. It should have:
+- Stronger visual identity
+- Better typography
+- Better background art / motion / atmosphere
+- Cleaner layout and hierarchy
+- Audio that helps establish mood
+- No unnecessary UI clutter
+Use modern, polished menu presentation as inspiration and aim for a much more premium feel.
+2) “Begin New Contract” screen feels wordy and uninspired
+The contract/start flow also feels too text-heavy and visually dull.
+Problems
+- Too many words on screen at once
+- Weak visual hierarchy
+- UI presentation feels generic and uninspired
+- No satisfying sound feedback when hovering or selecting options
+Desired outcome
+Simplify and redesign this screen so it feels cleaner, clearer, and more premium. Reduce unnecessary text, improve layout and readability, and add satisfying sound/UI feedback for interaction. Every click, hover, or confirmation should feel responsive and intentional.
+3) Remove unnecessary steps and redundant decisions
+The flow currently includes steps that feel pointless, such as choosing a ground/location when there is only one possible option.
+Problems
+- The game asks for input where there is no meaningful choice
+- This slows pacing and makes the flow feel less elegant
+Desired outcome
+Remove or redesign any step that does not offer a meaningful player decision. The overall flow should feel streamlined and deliberate.
+4) Battlefield interaction should be direct and intuitive
+The current combat interaction feels disconnected because creatures/monsters are shown on the battlefield, but I’m selecting separate cards/UI elements on the sides of the screen with labels/bindings. That feels redundant and unintuitive.
+Problems
+- Important units are represented twice on screen
+- Interaction is split between the battlefield and side UI
+- It is not immediately clear why I should interact with the side elements instead of the actual units
+- This makes the experience feel more like managing menus than commanding creatures in battle
+Desired outcome
+Make interaction feel direct, seamless, and visually obvious. If a creature is on the battlefield, I should ideally interact with the creature itself, or at least the interaction should feel clearly tied to the battlefield. Remove redundant UI if it is not serving a distinct purpose.
+For enemy attacks/intents, use a more seamless visual communication system that clearly shows what the enemy plans to do near or above the enemy, rather than making me read disconnected UI elsewhere.
+5) Card handling and summoning need to feel modern and tactile
+The card interactions currently feel static and old-fashioned.
+Problems
+- Cards do not feel alive or tactile
+- Hovering and examining cards is not satisfying
+- Playing/summoning lacks a natural flow
+- There is not enough visual feedback about where a card can be played
+- The battlefield layout itself is not clearly defined
+Desired outcome
+Redesign card handling to feel smooth, readable, and satisfying. I want a modern hand/card interaction system where:
+- Cards in hand feel dynamic, readable, and pleasant to inspect
+- Hovering a card gives clear enlarged/preview feedback
+- Playing a summon should feel natural and intentional, such as dragging or clearly targeting where it will go
+- The battlefield should have clearly defined sides/lanes/slots/placement areas so the combat space is easy to understand
+- When a summon card is hovered over a valid area, the valid summon spaces should highlight clearly
+The whole experience should feel polished, animated, and responsive rather than static.
+6) Spell targeting and combat targeting need much better feedback
+At the moment, spells and target-based actions have too little feedback. It often feels unclear where an action is going or what it will affect until after it happens.
+Problems
+- Targeting lacks clarity
+- There is little or no preview feedback
+- It is hard to read intent before committing an action
+Desired outcome
+Improve targeting so it is clear, readable, and confidence-inspiring. Before confirming a spell or action, I should be able to clearly see:
+- what is being targeted
+- whether the target is valid
+- where the effect will go
+- what the expected outcome will affect
+This should use strong visual feedback, hover states, previews, highlights, and targeting cues.
+7) Combat feedback, VFX, animation, and sound need a major upgrade
+The current combat effects and feedback are not strong enough. Attacks, abilities, and actions do not feel impactful.
+Problems
+- VFX feel weak and unexciting
+- Attacks lack strong audiovisual payoff
+- Hit reactions and impact feedback are not satisfying
+- Sound design does not reinforce actions enough
+- Overall combat presentation feels low energy
+Desired outcome
+Greatly improve combat feel through:
+- better visual effects
+- better attack animations
+- stronger hit feedback
+- stronger sound design
+- more satisfying timing and payoff
+Attacks should feel like they have force, intention, and consequence. When one creature attacks another, the animation, timing, sound, impact, and visual feedback should make the action feel dramatic and rewarding.
+You may explore efficient ways to improve this pipeline, including stronger VFX workflows and better use of animation systems, but focus on the final player experience.
+8) Card visuals and UI styling are too bland
+The cards and the overall UI do not currently look appealing enough for a game centered around creatures, abilities, and collection.
+Problems
+- Cards look visually dull
+- UI elements feel generic
+- The overall interface lacks energy, fantasy, and desirability
+- The presentation does not make me feel like these are cards/creatures I want to collect or use
+Desired outcome
+Redesign the card visuals and UI so they feel more premium, collectible, and exciting. The cards should feel like desirable game objects, not flat placeholders. Improve:
+- frame design
+- readability
+- layout hierarchy
+- visual identity
+- energy/resource presentation
+- rarity/importance signaling
+- overall style cohesion
+If useful, use image generation and iterative review to improve the visual presentation, but make sure the final result feels cohesive and polished rather than generic.
+9) Creatures do not feel integrated, alive, or modern enough
+The creatures currently feel too much like flat sprites and do not sit naturally in the environment.
+Problems
+- Creatures feel visually disconnected from the background
+- They do not feel alive enough
+- Their animation quality feels outdated
+- Motion can feel stiff or jumpy
+- Overall presentation does not feel modern
+Desired outcome
+Make creatures feel more alive, dimensional, and integrated into the battle scene. Improve:
+- how they sit in the environment
+- animation smoothness
+- idle presence
+- attack/movement transitions
+- visual cohesion with the background/world
+If full 3D is not practical, use an efficient approach that still creates a more modern look — for example, improved 2.5D presentation, smoother interpolated motion, better layering, stronger idle animation, and more convincing movement transitions. The goal is for the creatures to feel modern and polished, not like old static sprite pieces.
+10) Overall quality target
+The entire game should move toward a more polished, modern, and visually cohesive standard. Across menus, combat, cards, creatures, audio, and feedback, the game should feel:
+- clearer
+- more intuitive
+- less redundant
+- more immersive
+- more tactile
+- more exciting
+- more premium
+Do a broad UX and presentation pass rather than treating these issues as isolated. The result should feel like a coherent quality upgrade across the whole game.
+Implementation guidance
+Please approach this as a design improvement pass, not just a bugfix pass.
+Priorities
+1. Improve clarity and remove redundant UI
+2. Make interaction more direct and intuitive
+3. Upgrade presentation and atmosphere
+4. Improve combat feel through animation, VFX, sound, and feedback
+5. Modernize card handling and targeting
+6. Unify the art/UI style so everything feels cohesive
+Output expectation
+When you make changes, explain:
+- what root problems you identified
+- what design decisions you made to solve them
+- how those decisions improve UX, readability, immersion, and feel
