@@ -25,7 +25,7 @@ In a GitHub Codespace, open **Ports → 5173 → Open in Browser** (use the port
 
 Five energy and five fresh cards each turn. Play a creature, select its ready binding, then select an enemy to command it. Arrival-turn commands are allowed. Six slots per side, visible enemy intentions, no range rules. Living bindings stay outside deck cycling; fallen ones enter discard. Hunter health carries between fights; bindings reset.
 
-Hover or focus a legal target to read the outcome before committing. Targeted previews name the creature and explain applied spell resistance; cancelling preserves your cards and energy.
+Hover or focus a legal target to read the outcome before committing. Targeted previews name the creature and explain applied spell resistance; cancelling preserves your cards and energy. After an animated creature command, its issued source, target and result stay readable until you deliberately preview another action.
 
 Cairn Hounds punish exposed enemies. Fen Stalkers recover through damaging commands. Briar Colossi protect the hunter. Ash Widows strengthen targeted damage tools. Build around these roles, inspect the final quarry's traits, and select upgrades deliberately. Armored retaliation, delayed reinforcements and dragon breath require different answers.
 

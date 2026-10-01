@@ -40,6 +40,9 @@ const BUILD_ID = import.meta.env.VITE_BUILD_ID || 'development';
 const HUNTER_NAME = 'Marek Voss';
 type ArenaPresentation = ReturnType<typeof createArena> & { busyMs?: () => number; waitForPresentation?: () => Promise<void>; cancelPresentation?: () => void };
 let settlingCombat = false;
+// Automatic focus restoration is not a request to preview the next card.
+let restoringRenderFocus = false;
+let renderingIssuedCommand = false;
 let presentationEpoch = 0;
 let presentationDeadline: ReturnType<typeof setTimeout> | null = null;
 let disposed = false;
@@ -376,6 +379,10 @@ function dispatch(action: Action) {
   if (settlingCombat || disposed) return;
   if (state.phase === 'battle' && arena?.getUnitViewport().layoutPending) { notify('The formation is settling. Your next order is still available.'); return; }
   const previous = state;
+  let issuedCommand: string | null = null;
+  if (action.type === 'attack') {
+    try { issuedCommand = consequencePreview(action).text; } catch { /* Optional text cannot block an order. */ }
+  }
   const { state: next, events } = applyActionWithEvents(state, action);
   if (JSON.stringify(next) === JSON.stringify(previous)) { notify('That action is not available right now.'); return; }
   if (next.phase !== previous.phase || action.type === 'travel') clearToast();
@@ -389,7 +396,25 @@ function dispatch(action: Action) {
   try { hostAudio.transition(previous, next, events, action, !effectFailed && !!arena && mayAnimateCombat(), arena?.getActionPresentationDelayMs() || 0); } catch { /* Optional sound cannot block canonical gameplay. */ }
   const terminalCombat = previous.phase === 'battle' && ['reward', 'victory', 'defeat'].includes(state.phase);
   if (terminalCombat && !effectFailed && holdFinalStrike(previous, events)) return;
-  render();
+  let issuedCueBusyMs = 0;
+  if (issuedCommand && !terminalCombat && !effectFailed && mayAnimateCombat()) {
+    try { issuedCueBusyMs = Number(arena?.busyMs() || 0); } catch { /* No optional cue, no focus override. */ }
+  }
+  renderingIssuedCommand = Number.isFinite(issuedCueBusyMs) && issuedCueBusyMs > 0;
+  try { render(); } finally { renderingIssuedCommand = false; }
+  // Rules have resolved; retain their source/target/result while that command
+  // is still visibly playing. A deliberate new focus/hover can replace this.
+  if (!terminalCombat && state.phase === 'battle' && issuedCommand && !effectFailed && mayAnimateCombat()) {
+    let busy = 0;
+    try { busy = Number(arena?.busyMs() || 0); } catch { /* No presentation attribution without a live cue. */ }
+    const output = document.getElementById('consequence-preview');
+    if (Number.isFinite(busy) && busy > 0 && output) {
+      activePreviewKey = '';
+      output.textContent = `Command issued: ${issuedCommand}`;
+      output.dataset.preview = 'issued-command';
+      output.closest('.battle-guidance')?.classList.remove('danger-preview');
+    }
+  }
   if (terminalCombat) announceOutcome();
   else $('announcer').textContent = `${state.log[state.log.length - 1] || 'Choice made.'} ${state.phase === 'battle' ? `${state.energy} energy left. Hunter health ${state.hp} of ${state.maxHp}.` : ''}`;
 }
@@ -445,7 +470,12 @@ function render() {
   else renderOutcome();
   $('footer').innerHTML = `<span>v${VERSION} <span class="footer-dot">·</span> Playable prototype</span><span>${title ? 'Original dark fantasy · Working title' : `Seed ${state.seed} <span class="footer-dot">·</span> Contract saved locally`}</span><button data-ui="fullscreen" class="text-button">Fullscreen</button>`;
   try { arena?.setSelected(selected?.kind === 'attack' ? selected.uid : null); arena?.render(state); positionFieldControls(arena?.getUnitRegions() || []); } catch { $('arena-wrap').classList.add('arena-fallback'); document.getElementById('field-controls')?.remove(); if (!title && state.phase === 'battle') renderBattle(); }
-  if (!$<HTMLDialogElement>('dialog').open && (changedScreen || !restoreFocus(reference))) focusScene();
+  // Preserve the same focus target without treating this internal restoration
+  // as an intentional request for a different card's consequence.
+  restoringRenderFocus = true;
+  try {
+    if (!$<HTMLDialogElement>('dialog').open && (changedScreen || !restoreFocus(reference))) focusScene();
+  } finally { restoringRenderFocus = false; }
   toolIllustrations.refresh();
 }
 
@@ -595,11 +625,12 @@ function consequencePreview(action: Action): { text: string; danger: boolean } {
 }
 function showConsequenceFor(element: Element | null): boolean {
   if (tactileHand?.isDragging()) return tactilePreviewActive;
-  if (title || settlingCombat || state.phase !== 'battle') return false;
+  if (title || settlingCombat || (restoringRenderFocus && renderingIssuedCommand) || state.phase !== 'battle') return false;
   if (restoringDialogFocus || $<HTMLDialogElement>('dialog').open) return !!activePreviewKey;
   // Reading the preview or inspecting a creature must not erase the last
   // target comparison, or change geometry during the activating press.
-  if (element?.closest('.battle-guidance, [data-ui="inspect-unit"]')) return !!activePreviewKey;
+  if (element?.closest('.battle-guidance, [data-ui="inspect-unit"]')) return !!activePreviewKey
+    || document.getElementById('consequence-preview')?.dataset.preview === 'issued-command';
   const button = element?.closest<HTMLButtonElement>('[data-unit], [data-ui="play-card"]');
   let action: Action | undefined;
   if (button?.dataset.unit && selected) {
@@ -612,6 +643,9 @@ function showConsequenceFor(element: Element | null): boolean {
   const output = document.getElementById('consequence-preview');
   if (!output) return false;
   const key = action ? JSON.stringify(action) : '';
+  // Reading the last issued command or passing over empty field is not a
+  // request to fall back to the automatically focused card.
+  if (!action && output.dataset.preview === 'issued-command') return true;
   if (key === activePreviewKey) return !!action;
   activePreviewKey = key;
   let result: { text: string; danger: boolean } | null = null;
