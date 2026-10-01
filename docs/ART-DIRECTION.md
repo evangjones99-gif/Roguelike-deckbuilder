@@ -1,3 +1,11 @@
+# HOLLOWPACT — current pixel direction
+
+## Owner resolution steering — generated reference to native128, 1 October2026
+
+The owner explicitly rejected the32×32 loss of anatomy and requested128×128 trials, iterated toward a unified attractive pixel style. This supersedes the earlier32/64 studies and the scheduled prompt's generic pixel wording. Generate original references, then use repeatable conversion and deliberate cleanup: shared restrained palette, top-left light, silhouette/material clusters, binary transparency and nearest-neighbour integer display. Judge native size and the actual battlefield; a filter, concept or enlarged preview is not an implemented animation or fully pixel game. The owner cites Pokémon Platinum's readable creature presentation as inspiration, not permission to copy its assets. Preserve live text and the tested JavaScript rules/local saves. Existing32/64 studies remain unselected; make new outputs rather than overwriting their evidence.
+
+The current illustrated renderer and the historical v0.2 specification below are retained baselines. Pixel128 craft is under trial; no complete pixel scene has been selected. Compare geometry, contact, contrast, readable rules and reduced-motion/cancel/save behavior before replacement.
+
 # HOLLOWPACT — v0.2 art direction
 
 Working title; trademark and market clearance unverified. Aligned with the current `src/content.ts`, `src/art.ts`, `src/arena.ts`, local art provenance, and ENGINE-v0.2.md on 30 September 2026. Current presentation is an illustrated 2.5D prototype using generated local cutouts, not rigged 3D characters. Source inspection does not establish final commercial art quality or human enjoyment.

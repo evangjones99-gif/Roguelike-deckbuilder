@@ -1,5 +1,9 @@
 # Hollowpact production instructions
 
+## Owner resolution steering — generated reference to native128, 1 October2026
+
+The owner explicitly rejected the32×32 loss of anatomy and requested128×128 trials, iterated toward a unified attractive pixel style. This supersedes the earlier32/64 studies and the scheduled prompt's generic pixel wording. Generate original references, then use repeatable conversion and deliberate cleanup: shared restrained palette, top-left light, silhouette/material clusters, binary transparency and nearest-neighbour integer display. Judge native size and the actual battlefield; a filter, concept or enlarged preview is not an implemented animation or fully pixel game. The owner cites Pokémon Platinum's readable creature presentation as inspiration, not permission to copy its assets. Preserve live text and the tested JavaScript rules/local saves. Existing32/64 studies remain unselected; make new outputs rather than overwriting their evidence.
+
 ## Current owner target: five minutes of fun — 1 October 2026
 
 The primary production goal is the first 300 seconds of satisfying play. Refine that opening repeatedly: enter play quickly, make a meaningful choice, bind a threatening creature, issue a command, understand the response and want another encounter. Broad content expansion and Steam administration are backlog work unless they block this opening. Observe actual elapsed play and preserve human feedback separately from agent correctness, model balance and visual opinions; none of those proves that a player forgot about time.
