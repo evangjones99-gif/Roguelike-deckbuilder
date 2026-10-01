@@ -1,0 +1,95 @@
+{
+  "exit_code": 0,
+  "failure": null,
+  "initial": {
+    "time_ns": 1790849160872890908,
+    "current": 15908769792,
+    "maximum": 17179869184,
+    "headroom": 1271099392,
+    "free": 9119543296
+  },
+  "final": {
+    "time_ns": 1790849161785010389,
+    "current": 15940583424,
+    "maximum": 17179869184,
+    "headroom": 1239285760,
+    "free": 9088655360
+  },
+  "samples": [
+    {
+      "time_ns": 1790849160873716742,
+      "current": 15908769792,
+      "maximum": 17179869184,
+      "headroom": 1271099392,
+      "free": 9119543296,
+      "delta": 0
+    },
+    {
+      "time_ns": 1790849160974283225,
+      "current": 15936618496,
+      "maximum": 17179869184,
+      "headroom": 1243250688,
+      "free": 9119543296,
+      "delta": 27848704
+    },
+    {
+      "time_ns": 1790849161079123638,
+      "current": 16010162176,
+      "maximum": 17179869184,
+      "headroom": 1169707008,
+      "free": 9119543296,
+      "delta": 101392384
+    },
+    {
+      "time_ns": 1790849161179523434,
+      "current": 16064360448,
+      "maximum": 17179869184,
+      "headroom": 1115508736,
+      "free": 9119543296,
+      "delta": 155590656
+    },
+    {
+      "time_ns": 1790849161279960054,
+      "current": 16120188928,
+      "maximum": 17179869184,
+      "headroom": 1059680256,
+      "free": 9119543296,
+      "delta": 211419136
+    },
+    {
+      "time_ns": 1790849161380400951,
+      "current": 16147353600,
+      "maximum": 17179869184,
+      "headroom": 1032515584,
+      "free": 9119543296,
+      "delta": 238583808
+    },
+    {
+      "time_ns": 1790849161480737804,
+      "current": 15927369728,
+      "maximum": 17179869184,
+      "headroom": 1252499456,
+      "free": 9119543296,
+      "delta": 18599936
+    },
+    {
+      "time_ns": 1790849161583074011,
+      "current": 15979302912,
+      "maximum": 17179869184,
+      "headroom": 1200566272,
+      "free": 9119543296,
+      "delta": 70533120
+    },
+    {
+      "time_ns": 1790849161683390690,
+      "current": 16015134720,
+      "maximum": 17179869184,
+      "headroom": 1164734464,
+      "free": 9119543296,
+      "delta": 106364928
+    }
+  ],
+  "memory_events_before": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "memory_events_after": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "scope": "observed cgroup delta, not exclusive process attribution; all child group processes closed"
+}

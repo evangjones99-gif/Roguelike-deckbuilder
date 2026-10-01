@@ -1,5 +1,13 @@
 # Hollowpact production instructions
 
+## Owner platform priority — 1 October 2026
+
+Focus on PC for now; the owner explicitly says not to worry about mobile. Prioritize desktop mouse/keyboard card feel, readable combat, visual craft, pacing, performance and native PC validation. Keep earlier narrow-screen findings as historical evidence, but do not make more mobile-specific implementation or acceptance matrices the critical path. Retain accessible input and motion preferences. The repeated scheduled continuation prompt does not undo this newer explicit steering.
+
+## Owner tactile interaction clarification — 1 October 2026
+
+“Haptic” means the visible, responsive feel of card hover, dragging, targeting, playing and returning to hand, as in polished card games; it does not request device vibration. Use original materials/art and live readable text. Interaction feedback must preserve canonical card occurrence/revision identity, legal reducer actions, cancellation and mouse/keyboard/controller accessibility. Research comparable games when access permits; disclose blocked acquisition and never claim to have inspected unavailable footage. Generated UI decoration requires actual small-size compositing and independent comparison before selection; generated text is not a substitute for live costs/rules.
+
 ## Owner model preference — 1 October 2026
 
 Use standard `gpt-6.1-sol` with `high` reasoning for newly launched delegated agents. The owner explicitly rejects the 1.5× speed option. Set the model and reasoning override when launching agents; do not claim to have changed the parent chat's model or service speed through tools that do not expose those settings. Preserve active work before replacing agents running under an unverified configuration.

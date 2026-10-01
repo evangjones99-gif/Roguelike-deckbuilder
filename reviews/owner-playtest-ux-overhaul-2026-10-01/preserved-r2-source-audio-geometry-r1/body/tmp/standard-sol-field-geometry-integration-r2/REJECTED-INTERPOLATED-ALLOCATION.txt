@@ -1,0 +1,24 @@
+Reconstructed exact preceding applyAllocation function. Rejected source arithmetic, not a rendered observation.
+
+  function applyAllocation(config: ArenaLayoutConfig, slots: Map<string, number>, start: number, animate: boolean) {
+    const oldHunter = hunterPlacement();
+    layoutConfig = normalizeLayoutConfig(config);
+    const next = fieldLayout();
+    hunterFrom = animate ? oldHunter : next.hunter; hunterTarget = next.hunter; hunterStarted = animate ? start : time - 2;
+    let moved = !sameRect(oldHunter.rect, next.hunter.rect);
+    for (const figure of figures.values()) {
+      const slot = slots.get(figure.uid); if (slot === undefined || (figure.dead !== null && time >= figure.dead)) continue;
+      const oldCell = figureCell(figure), oldPoint = position(figure), oldSize = figureSize(figure);
+      figure.slot = slot; figure.count = figure.side === 'ally' ? layoutConfig.allies : layoutConfig.enemies;
+      const cell = next[figure.side][slot], point = feetFor(figure, cell), size = fitSize(figure, cell.bodyRect);
+      const changed = !sameRect(oldCell, cell) || Math.abs(oldSize - size) > .01;
+      const transition = animate && changed && figure.born < start;
+      figure.cellFrom = transition ? oldCell : cell; figure.cellTarget = cell;
+      figure.layoutFrom = transition ? oldPoint : point; figure.layoutTarget = point;
+      figure.sizeFrom = transition ? oldSize : size; figure.sizeTarget = size;
+      figure.layoutStarted = transition ? start : time - 2;
+      figure.lastPoint = position(figure); moved ||= changed;
+    }
+    if (animate && moved) allocationTransitionEnd = Math.max(allocationTransitionEnd, start + .32);
+    else if (!animate) allocationTransitionEnd = time;
+  }

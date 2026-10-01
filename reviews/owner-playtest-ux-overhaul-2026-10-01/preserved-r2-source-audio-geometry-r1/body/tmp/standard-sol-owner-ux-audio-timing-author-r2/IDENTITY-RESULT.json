@@ -1,0 +1,23 @@
+{
+  "status": "SOURCE_ONLY_NOT_TYPECHECKED_NOT_EXECUTED_NOT_ACCEPTED",
+  "changedFiles": [
+    {
+      "path": "/dev/shm/hollowpact-owner-ux-overhaul-root-r2/src/audio-host.ts",
+      "beforeSHA256": "c054da07280183da53d6636ddc2419cb7fa37a39eb7f8d437cb4d0ad180bb6c1",
+      "afterSHA256": "4e0d8ff4ed9d584ff38bb914cc7ae5b4987b2d73411659281ee84b6a4376547d",
+      "bytes": 5187
+    },
+    {
+      "path": "/dev/shm/hollowpact-owner-ux-overhaul-root-r2/tests/audio-presentation-delay.test.ts",
+      "sha256": "d9c3a480dde1445fb2b4663db1d195386945c79412338404e2e58467335e8895",
+      "bytes": 6593
+    }
+  ],
+  "API": "HostAudio.transition(before,after,events,action,animated,presentationDelayMs=0); contactCuePlan(before,after,events,action,animated,presentationDelayMs=0) -> {cues:RoutedCue[],anchorOffsetSeconds:number}",
+  "contactCuesUnchanged": true,
+  "NodeCalls": 0,
+  "browserCalls": 0,
+  "testExecutions": 0,
+  "canonicalGameplayEdits": 0,
+  "scope": "Author implementation; separate independent acceptance required"
+}

@@ -1,0 +1,75 @@
+/* One battle surface: renderer-aligned controls, attached readouts, tactile hand. */
+.phase-battle.direct-field #scene{min-height:420px}
+.phase-battle.direct-field #scene-ui{position:relative;z-index:2;height:100%;overflow:visible;pointer-events:none}
+.phase-battle.direct-field .battle-ui{display:block;min-height:0;height:100%;padding:0}
+.phase-battle.direct-field .battle-guidance{position:relative;display:flex;justify-content:space-between;align-items:center;min-height:48px;padding:10px 22px;gap:16px;pointer-events:auto;background:linear-gradient(90deg,#10191df2,#10191ddb);border-bottom:1px solid #8d9c7955;z-index:3}
+.phase-battle.direct-field #arena-wrap{z-index:1;left:0;right:0;top:49px;bottom:0;height:auto;border:0;pointer-events:auto;overflow:visible}
+.field-controls{position:absolute;top:0;left:0;pointer-events:none;z-index:2}
+.field-side{position:static;background:none;border:0;padding:0;margin:0}
+.field-actor{position:absolute;pointer-events:none;min-width:0}
+.field-actor[hidden]{display:none}
+.field-actor .field-unit{position:absolute;inset:0;display:block;width:100%;height:100%;padding:0;border:0;background:none;border-radius:8px;box-shadow:none;pointer-events:auto;overflow:visible;transform:none;text-align:center;transition:none}
+.field-actor .field-unit:disabled{opacity:1;cursor:default}
+.field-unit .field-presence{position:absolute;inset:12% 3% 1%;border-radius:48% 48% 20% 20%;border:1px solid transparent;background:none;transition:background .15s,border-color .15s}
+.field-unit:hover:not(:disabled) .field-presence,.field-unit:focus-visible .field-presence{border-color:#d6c59b88;background:linear-gradient(0deg,#d6c59b20,transparent 55%)}
+.field-actor .field-unit:focus-visible{outline:2px solid #f3e3b1;outline-offset:3px}
+.field-unit.ready .field-presence:after{content:'';position:absolute;bottom:0;left:18%;right:18%;height:8%;border:1px solid #b4c6a188;border-radius:50%;background:#8eaf7722}
+.field-unit.selected .field-presence,.field-unit.valid-target .field-presence{border-color:#e4c678;background:linear-gradient(0deg,#e4c67830,transparent 65%)}
+.field-unit.selected .field-presence:after,.field-unit.valid-target .field-presence:after{content:'';position:absolute;bottom:0;left:10%;right:10%;height:9%;border:2px solid #efd994;border-radius:50%;box-shadow:0 0 16px #dbb55877}
+.field-actor .field-name{position:absolute;bottom:31px;left:50%;transform:translateX(-50%);width:max-content;max-width:140px;padding:3px 6px;background:#0b131bed;color:#eee5cf;font:600 12px/1.25 Georgia,serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-radius:3px;pointer-events:none}
+.field-name small{font:10px Arial,sans-serif;color:#c8b37e}
+.field-actor .unit-stats{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;justify-content:center;align-items:center;gap:4px;white-space:nowrap;background:#0b131bed;color:#eee5cf;padding:3px 6px;border-radius:3px;font:12px/1.25 Arial,sans-serif;width:max-content;max-width:145px;pointer-events:none}
+.field-actor .unit-stats .icon{width:12px;height:12px}
+.field-actor .unit-stats small{font-size:9px}
+.field-actor .health-track{position:absolute;bottom:3px;left:15%;right:15%;height:3px;margin:0;width:auto;background:#421c1c;border-radius:2px;overflow:hidden;pointer-events:none}
+.field-actor .health-track i{display:block;height:100%;background:#91ad81}
+.field-actor .enemy .health-track i{background:#ca765e}
+.field-actor .unit-status{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);display:block;width:max-content;max-width:150px;padding:2px 6px;margin:0;background:#0b131bec;color:#b5c6a4;white-space:nowrap;border:0;border-radius:3px;font:10px/1.25 Arial,sans-serif;pointer-events:none}
+.field-actor .unit-status.intent{top:-12px;bottom:auto;color:#f1bca7;max-width:160px;white-space:normal;font-size:11px}
+.field-actor .unit-inspect{position:absolute;right:2px;bottom:7px;left:auto;top:auto;width:23px;height:23px;min-height:0;border:1px solid #8d9c7955;border-radius:50%;background:#10191dec;color:#dfd1ac;z-index:4;pointer-events:auto}
+.field-actor.departing .field-unit{pointer-events:none}
+.field-actor.departing .field-name,.field-actor.departing .unit-stats,.field-actor.departing .unit-status{color:#d6b2a1}
+.phase-battle.direct-field #dock{height:auto;min-height:258px;padding:10px 22px 16px;gap:22px;background:linear-gradient(0deg,#0b1116,#172029);border-top:1px solid #c1a67366}
+.phase-battle.direct-field .hand-area{min-width:0}
+.phase-battle.direct-field .hand-heading{margin-bottom:0}
+.phase-battle.direct-field .hand-cards{height:246px;padding:20px 12px 12px;gap:10px;align-items:flex-end;scroll-padding-inline:12px}
+.phase-battle.direct-field .hand-cards .game-card{height:215px;width:150px;min-width:150px;flex:0 0 150px;border:1px solid #b5a06c77;border-radius:10px 10px 5px 5px;background:linear-gradient(150deg,#26332f,#11191d 72%);box-shadow:0 7px 10px #0008;transform-origin:50% 100%;transition:transform .16s,border-color .16s,box-shadow .16s;z-index:1;overflow:visible}
+.phase-battle.direct-field .hand-cards .game-card.tool{background:linear-gradient(150deg,#343244,#131a21 72%)}
+.phase-battle.direct-field .hand-cards .game-card:hover,.phase-battle.direct-field .hand-cards .game-card:focus-visible{transform:translateY(-11px) scale(1.07);border-color:#ead29b;box-shadow:0 12px 22px #000b,0 0 15px #d7bf6a33;z-index:5}
+.phase-battle.direct-field .hand-cards .game-card.selected{border-color:#f0d084;box-shadow:0 0 0 2px #e4c67855}
+.phase-battle.direct-field .hand-cards .card-art{height:66px;flex-shrink:0}
+.phase-battle.direct-field .hand-cards .card-name{white-space:normal;font-size:14px;line-height:1.15;overflow:visible}
+.phase-battle.direct-field .hand-cards .card-description{font-size:11px;line-height:1.35}
+.phase-battle.direct-field .turn-controls{width:185px;flex-shrink:0}
+.phase-battle.direct-field .end-turn{width:185px}
+@media(max-width:760px){
+ .phase-battle.direct-field #scene{min-height:390px}
+ .phase-battle.direct-field #arena-wrap{top:65px}
+ .phase-battle.direct-field .battle-guidance{min-height:64px;padding:8px 12px;font-size:11px;align-items:flex-start;gap:8px}
+ .phase-battle.direct-field .battle-guidance>span{max-width:none;flex:1;min-width:0}
+ .phase-battle.direct-field .battle-guidance>.text-button{font-size:10px;flex-shrink:0}
+ .field-actor .field-name{font-size:10px;max-width:85px;padding:2px 4px;bottom:27px}
+ .field-actor .unit-stats{font-size:10px;gap:2px;padding:2px 3px;max-width:90px}
+ .field-actor .unit-stats .icon{width:10px;height:10px}
+ .field-actor .unit-stats small{display:none}
+ .field-actor .unit-status.intent{font-size:9px;max-width:88px;padding:2px 3px}
+ .field-actor .unit-status:not(.intent){font-size:9px;max-width:100px}
+ .field-actor .unit-inspect{width:22px;height:22px;right:-9px;bottom:2px}
+ .phase-battle.direct-field #dock{min-height:0;padding:8px 10px 12px;gap:10px}
+ .phase-battle.direct-field .hand-area{flex-basis:100%;max-width:100%}
+ .phase-battle.direct-field .hand-cards{height:241px;padding:20px 10px 12px}
+ .phase-battle.direct-field .turn-controls{width:100%;flex-direction:row;justify-content:space-between;gap:12px}
+ .phase-battle.direct-field .end-turn{width:205px}
+}
+@media(prefers-reduced-motion:reduce){.field-unit .field-presence,.phase-battle.direct-field .hand-cards .game-card{transition:none}}
+[data-reduced-motion=true] .field-unit .field-presence,[data-reduced-motion=true] .phase-battle.direct-field .hand-cards .game-card{transition:none}
+
+/* Override the retained rail's global !important target fill without covering painted bodies. */
+.direct-field .field-actor .unit.field-unit.valid-target{background:none!important;box-shadow:none}
+.direct-field .field-actor .unit.field-unit.selected{background:none;box-shadow:none}
+.phase-battle.direct-field .hand-cards .game-card{color:#eee4cf}
+.phase-battle.direct-field .hand-cards .card-description{color:#d0d8d0}
+.phase-battle.direct-field .hand-cards .card-kind{color:#b7c8c2}
+.phase-battle.direct-field .hand-cards .card-stats{color:#dfd3b5}
+.on-title #topbar,.on-title #footer{display:none}
+.on-title #scene{min-height:100vh}

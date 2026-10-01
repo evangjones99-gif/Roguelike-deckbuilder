@@ -1,0 +1,11 @@
+{
+  "status": "Refused before canonical directory creation; originals retained",
+  "command": "python -I /workspace/scratch/preserve-owner-ux-evidence-r2.py",
+  "exit_code": 1,
+  "sourceUnchanged": "/workspace/scratch/preserve-owner-ux-evidence-r2.py",
+  "failure": "PermissionError: [Errno 1] Operation not permitted: /",
+  "site": "parent(FREEZE), os.open(/, DFLAGS); O_NOATIME directory anchor ownership",
+  "copiedBodies": 0,
+  "canonicalDirectoriesCreated": 0,
+  "correction": "Distinct retry helper uses ordinary nofollow directory anchors; mandatory noatime file reads and exact file FD metadata remain. Directory timestamps not claimed preserved."
+}

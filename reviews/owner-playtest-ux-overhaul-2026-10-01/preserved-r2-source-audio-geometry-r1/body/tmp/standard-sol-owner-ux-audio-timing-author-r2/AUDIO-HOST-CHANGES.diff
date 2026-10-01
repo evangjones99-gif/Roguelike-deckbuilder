@@ -1,0 +1,35 @@
+--- audio-host-before.ts
++++ audio-host-after.ts
+@@ -24,6 +24,14 @@
+  }
+  return cuesForTransition(before,after,events,action).map(cue=>({...cue,offset:times.get(cue.key)??0}));
+ }
++export interface ContactCuePlan { cues:RoutedCue[]; anchorOffsetSeconds:number }
++/** Renderer-owned allocation/queue lead precedes the existing impact offsets.
++ * Keep that lead on the audio anchor: CuePlayer intentionally bounds each cue's
++ * contact offset to .6s, which must not truncate a longer presentation queue. */
++export function contactCuePlan(before:GameState, after:GameState, events:readonly TransitionEvent[], action:Action, animated:boolean, presentationDelayMs=0):ContactCuePlan {
++ const anchorOffsetSeconds=animated&&before.phase==='battle'&&Number.isFinite(presentationDelayMs)&&presentationDelayMs>0 ? presentationDelayMs/1000 : 0;
++ return {cues:contactCues(before,after,events,action,animated),anchorOffsetSeconds};
++}
+ export class HostAudio {
+  readonly player:CuePlayer;
+  private epoch=0;private activating:Promise<boolean>|null=null; private hidden=false;private closed=false;private warmed=false;private nativeBlocked=false;private nativeController=false;
+@@ -45,13 +53,13 @@
+  cancel(reason:string){this.epoch++;this.player.cancel();}
+  visibility(hidden:boolean){this.hidden=hidden;if(hidden)this.cancel('hidden');}
+  ui(back=false){if(this.closed||this.hidden||this.nativeBlocked)return;void this.player.play(back?'ui_back':'ui_confirm',.4).catch(()=>{});}
+- transition(before:GameState,after:GameState,events:readonly TransitionEvent[],action:Action,animated:boolean){
++ transition(before:GameState,after:GameState,events:readonly TransitionEvent[],action:Action,animated:boolean,presentationDelayMs=0){
+   if(this.closed||this.hidden||this.nativeBlocked||!this.player.enabled)return;
+   const canonical=JSON.stringify({before,after,events,action});
+-  const cues=contactCues(before,after,events,action,animated);
++  const plan=contactCuePlan(before,after,events,action,animated,presentationDelayMs);
+   if(JSON.stringify({before,after,events,action})!==canonical)throw new Error('Audio observer mutated rules');
+-  const anchor=this.player.context!.currentTime;
+-  void this.player.playBatchAt(cues,anchor).catch(()=>{});
++  const anchor=this.player.context!.currentTime+plan.anchorOffsetSeconds;
++  void this.player.playBatchAt(plan.cues,anchor).catch(()=>{});
+  }
+  async dispose(){this.closed=true;this.cancel('dispose');await this.player.dispose();}
+ }

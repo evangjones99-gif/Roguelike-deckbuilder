@@ -1,0 +1,7 @@
+{
+  "revision": "r6",
+  "parent": "observe-r5.mjs",
+  "reason": "Preserve r5 failure: locator scrollIntoView waited for stability on already visible animated field body until guard closed browser. Reuse persistent context initial blank page instead of an extra page. Already wholly onscreen controls use actual mouse position without locator scrolling/stability wait; offscreen controls retain scroll assistance. Center ownership, no force, trusted event logging and all budgets unchanged.",
+  "bytes": 10489,
+  "sha256": "171e50727482feb1646ef7ede6e33b58244be95cc81baaf68ff7cb9db9f33939"
+}
