@@ -1,0 +1,9 @@
+# First actual runtime window: strict build and three tests pass
+
+Actual strict TypeScript/Vite build exits0 on frozen source223e355d1d05e6396dc5a08d5d6c899abe9a69014a59cacc202288e4bffc57ae (80 inputs/57 outputs). Embedded build provenance equals the frozen complete source inventory. All80 candidate and79 fe3f baseline source hashes match before and after. Every newly built output is inventoried in RUNTIME-r1.json. No source revision was needed; STATIC R1 remains unchanged.
+
+Allthree supplied meaningful tests pass:84 byte-exact supplied constructor comparisons across both generations and normalization boundaries;22 declared malformed/legacy refusals; and both specialist legal combat prefixes with actual JSON-restored transitions, state validation and complete deck/pile/live-binding card conservation. These are bounded constructor/combat tests, not completed campaign outcomes or UI sessions. Logs are original, not summarized substitutes.
+
+Admission observed1,053,605,888 bytes cgroup headroom against939,524,096 required. Measured minimum build headroom939,249,664 and test headroom973,029,376 both exceed the512MiB operating reserve. Memory events remain identical (historical max256669, zero oom/oom_kill). Own runner sampled every150ms and would terminate only its own process group below reserve. Both subprocesses completed; no server/browser/native process started. No root, media, Git/object, version, telemetry or ML writes ran.
+
+Actual menu rendering, form/cancellation/resume/retry, keyboard/synthetic controller, visual accessibility/readability and human comprehension remain untested. Root must coordinate the next serial browser window. Compilation does not approve the UI, human enjoyment, AAA quality or Steam/native readiness. All source/design negatives and frozen static files remain preserved.

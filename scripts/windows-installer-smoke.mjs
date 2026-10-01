@@ -89,7 +89,7 @@ try{
   assert.equal(signature(installer),'NotSigned');report.signature='NotSigned';
   const stagedAsar=path.join(staged,'resources/app.asar');assert.equal(await hashFile(stagedAsar),expectedAsar);
   report.stagedAsarPayload=await assertPackagedAsar(stagedAsar,path.resolve('.'));
-  const runtime=JSON.parse(extractFile(stagedAsar,'dist/build-provenance.json').toString());
+  const runtime=JSON.parse(extractFile(stagedAsar,path.join('dist','build-provenance.json')).toString());
   assertCurrentRuntime(runtime);assert.equal(runtime.version,request.version);
   const build=JSON.parse(fs.readFileSync('dist/build-provenance.json','utf8'));assert.deepEqual(runtime,build);
   for(const f of ['src/engine.ts','src/content.ts','src/world-rng.ts','src/encounter-environment.ts'])assert.equal(await hashFile(f),runtime.hashes[f]);

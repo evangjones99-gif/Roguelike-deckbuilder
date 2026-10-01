@@ -7,13 +7,18 @@ async function fixture(options={}){
  const dir=path.join(tmp,String(++counter));fs.mkdirSync(dir);const source=path.join(dir,'source');fs.mkdirSync(path.join(source,'desktop'),{recursive:true});fs.mkdirSync(path.join(source,'dist'),{recursive:true});
  const pkg={name:'fixture',version:'0.9.0',description:'test',main:'desktop/main.cjs',repository:{type:'git',url:'https://example.invalid/test'},author:'test',license:'UNLICENSED',type:'module',bugs:{url:'https://example.invalid/test/issues'},homepage:'https://example.invalid/test',private:true};
  const packageBytes=Buffer.from(JSON.stringify(pkg,null,2));const mainBytes=Buffer.from('fixture main\n');fs.writeFileSync(path.join(source,'package.json'),packageBytes);fs.writeFileSync(path.join(source,'desktop/main.cjs'),mainBytes);
- const hashes={'desktop/main.cjs':hash(mainBytes),'package.json':hash(packageBytes)};const runtime={version:pkg.version,sourceDigest:digest(hashes),hashes,node:process.version};const runtimeBytes=Buffer.from(JSON.stringify(runtime,null,2)+'\n');const htmlBytes=Buffer.from('<h1>fixture</h1>\n');fs.writeFileSync(path.join(source,'dist/build-provenance.json'),runtimeBytes);fs.writeFileSync(path.join(source,'dist/index.html'),htmlBytes);
- const canonical=[['desktop/main.cjs',mainBytes],['dist/build-provenance.json',runtimeBytes],['dist/index.html',htmlBytes],['package.json',packageBytes]];
+ const probeBytes=Buffer.from('nested mixed-case desktop probe\n');
+ const nestedSource='desktop/QA/Nested/Probe.CJS';
+ if(options.nested){fs.mkdirSync(path.join(source,'desktop','QA','Nested'),{recursive:true});fs.writeFileSync(path.join(source,...nestedSource.split('/')),probeBytes);}
+ const hashes={'desktop/main.cjs':hash(mainBytes),...(options.nested?{[nestedSource]:hash(probeBytes)}:{}),'package.json':hash(packageBytes)};const runtime={version:pkg.version,sourceDigest:digest(hashes),hashes,node:process.version};const runtimeBytes=Buffer.from(JSON.stringify(runtime,null,2)+'\n');const htmlBytes=Buffer.from('<h1>fixture</h1>\n');fs.writeFileSync(path.join(source,'dist/build-provenance.json'),runtimeBytes);fs.writeFileSync(path.join(source,'dist/index.html'),htmlBytes);
+ const nestedDist=options.nested?[['dist/art/PROVENANCE.json',Buffer.from('{\"original\":true}\n')],['dist/art/Creatures/BoneThrall.JSON',Buffer.from('{\"anatomy\":\"fixture\"}\n')]]:[];
+ for(const [name,bytes]of nestedDist){const file=path.join(source,...name.split('/'));fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,bytes);}
+ const canonical=[['desktop/main.cjs',mainBytes],...(options.nested?[[nestedSource,probeBytes]]:[]),['dist/build-provenance.json',runtimeBytes],['dist/index.html',htmlBytes],...nestedDist,['package.json',packageBytes]];
  const entries=options.transform?options.transform(canonical.map(([name,bytes])=>[name,Buffer.from(bytes)])):canonical;
- const archive=path.join(dir,'app.asar');const streams=entries.map(([name,bytes])=>({path:name,type:'file',unpacked:false,stat:{mode:0o100644,size:bytes.length},streamGenerator:()=>Readable.from(bytes)}));
+ const archive=path.join(dir,'app.asar');const streams=entries.map(([name,bytes])=>({path:path.join(...name.split('/')),type:'file',unpacked:false,stat:{mode:0o100644,size:bytes.length},streamGenerator:()=>Readable.from(bytes)}));
  await createPackageFromStreams(archive,streams);const raw=getRawHeader(archive);
  let offset=0;const leaves=canonical.map(([name,bytes])=>{const block=hash(bytes);const record={path:name,bytes:bytes.length,sha256:block,offset:String(offset),integrity:{algorithm:'SHA256',hash:block,blockSize:4194304,blocks:[block]}};offset+=bytes.length;return record});
- const expected={version:pkg.version,sourceDigest:runtime.sourceDigest,sourceHashes:hashes,sourceInputCount:2,distOutputCount:2,leafCount:4,asarSHA256:await hashFile(archive),asarBytes:fs.statSync(archive).size,rawHeaderStringSHA256:hash(raw.headerString),normalizedManifest:{keys:Object.keys(pkg),sha256:hash(packageBytes),bytes:packageBytes.length,json:pkg},leaves};
+ const expected={version:pkg.version,sourceDigest:runtime.sourceDigest,sourceHashes:hashes,sourceInputCount:Object.keys(hashes).length,distOutputCount:canonical.filter(([name])=>name.startsWith('dist/')).length,leafCount:canonical.length,asarSHA256:await hashFile(archive),asarBytes:fs.statSync(archive).size,rawHeaderStringSHA256:hash(raw.headerString),normalizedManifest:{keys:Object.keys(pkg),sha256:hash(packageBytes),bytes:packageBytes.length,json:pkg},leaves};
  return {archive,source,expected,canonical};
 }
 function rewriteHeader(f,transform){const bytes=fs.readFileSync(f.archive);const raw=getRawHeader(f.archive);const original=raw.header;const next=transform(structuredClone(original));const text=Buffer.from(JSON.stringify(next));const pickle=require('chromium-pickle-js');const head=pickle.createEmpty();head.writeString(text.toString());const hb=head.toBuffer();const size=pickle.createEmpty();size.writeUInt32(hb.length);const rewritten=Buffer.concat([size.toBuffer(),hb,bytes.subarray(8+raw.headerSize)]);const file=f.archive+'.altered.asar';fs.writeFileSync(file,rewritten);f.archive=file;f.expected.asarSHA256=hash(rewritten);f.expected.asarBytes=rewritten.length;f.expected.rawHeaderStringSHA256=hash(text);return f;}
@@ -34,3 +39,25 @@ test('serialized ASAR links/unpacked/executable headers refused before following
 test('unexpected file-header metadata refused with matching rewritten envelope/header',async()=>{const f=rewriteHeader(await fixture(),h=>{h.files.desktop.files['main.cjs'].invented=true;return h});await assert.rejects(assertPackagedAsar(f.archive,f.source,f.expected),/Unexpected file header metadata/)});
 
 test('extra local source or dist leaves refused before accepting stale provenance',async()=>{for(const dir of ['desktop','dist']){const f=await fixture();fs.writeFileSync(path.join(f.source,dir,'extra.bin'),'extra');await assert.rejects(assertPackagedAsar(f.archive,f.source,f.expected),/Closed local runtime source set differs|Closed local dist set differs/)}});
+
+
+test('actual native-path producer preserves nested three-directory mixed-case leaves and POSIX ledger',async()=>{
+ const f=await fixture({nested:true});const result=await assertPackagedAsar(f.archive,f.source,f.expected);
+ assert.equal(result.leafCount,7);assert.equal(result.sourceInputs,3);assert.equal(result.distOutputs,4);
+ assert.ok(result.leaves.some(r=>r.path==='dist/art/PROVENANCE.json'));
+ assert.ok(result.leaves.some(r=>r.path==='dist/art/Creatures/BoneThrall.JSON'));
+ assert.ok(result.leaves.some(r=>r.path==='desktop/QA/Nested/Probe.CJS'));
+ assert.ok(result.leaves.every(r=>!r.path.includes('\\')));
+});
+test('nested wrong-case archive identity and nested altered local payload refuse with exact envelope/header pins',async()=>{
+ const f=await fixture({nested:true,transform:rows=>rows.map(([name,b])=>[name==='dist/art/Creatures/BoneThrall.JSON'?'dist/art/Creatures/bonethrall.JSON':name,b])});
+ await assert.rejects(assertPackagedAsar(f.archive,f.source,f.expected),/Closed ASAR names/);
+ const g=await fixture({nested:true});fs.appendFileSync(path.join(g.source,'dist','art','Creatures','BoneThrall.JSON'),'tampered');
+ await assert.rejects(assertPackagedAsar(g.archive,g.source,g.expected),/Raw dist changed/);
+});
+test('nested extra source and missing archive leaf retain closed inventory refusals',async()=>{
+ const f=await fixture({nested:true});fs.writeFileSync(path.join(f.source,'desktop','QA','Nested','Extra.CJS'),'extra');
+ await assert.rejects(assertPackagedAsar(f.archive,f.source,f.expected),/Closed local runtime source set differs/);
+ const g=await fixture({nested:true,transform:rows=>rows.filter(([name])=>name!=='dist/art/Creatures/BoneThrall.JSON')});
+ await assert.rejects(assertPackagedAsar(g.archive,g.source,g.expected),/Closed ASAR leaf count differs/);
+});

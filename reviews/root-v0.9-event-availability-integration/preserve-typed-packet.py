@@ -12,15 +12,37 @@ def sha(file):
 
 manifest = source / manifest_name
 data = json.loads(manifest.read_text())
-rows = data.get('files', data)
+rows = data.get('rows', data.get('files', data)) if isinstance(data, dict) else data
 if isinstance(rows, dict):
-    rows = [dict(value, path=name) for name, value in rows.items()]
+    adapted = []
+    for name, value in rows.items():
+        if isinstance(value, dict):
+            adapted.append(dict(value, path=name))
+        else:
+            assert isinstance(value, list) and len(value) == 2
+            assert isinstance(value[0], int) and isinstance(value[1], str)
+            adapted.append({'path': name, 'bytes': value[0], 'sha256': value[1]})
+    rows = adapted
+assert isinstance(rows, list)
+if isinstance(data, dict):
+    for alias in data.get('aliases', []):
+        assert isinstance(alias, dict) and 'path' in alias and 'target' in alias
+        rows.append({'path': alias['path'], 'target': alias['target'], 'type': 'symlink'})
 records, excluded = [], []
 for row in rows:
     name = row['path']
     relative = PurePosixPath(name)
     assert not relative.is_absolute() and '..' not in relative.parts
     file = source / name
+    if row.get('type') == 'symlink' and 'referencedSHA256' in row:
+        assert file.is_symlink() and str(file.readlink()) == row['target'], name
+        assert file.is_file() and sha(file) == row['referencedSHA256'], name
+        assert file.stat().st_size == row['referencedBytes'], name
+        records.append({'path': name, 'bytes': row['referencedBytes'],
+                        'sha256': row['referencedSHA256'],
+                        'referenceTarget': str(file.resolve()),
+                        'originalType': 'symlink with declared file-body hash'})
+        continue
     if 'sha256' not in row:
         assert row.get('type') == 'symlink' and file.is_symlink()
         assert str(file.readlink()) == row['target']
@@ -60,6 +82,8 @@ receipt = {'sourceDirectory': str(source), 'archiveBytes': archive.stat().st_siz
            'archiveSHA256': sha(archive), 'everyDeclaredHashedFileRoundTripVerified': True,
            'excludedUnhashedAliases': excluded, 'files': records,
            'scope': 'Only declared hashed regular-file bytes and exact original manifest. '
+                    'Explicitly hashed file-body aliases are captured as regular bytes, '
+                    'with their exact original targets and types recorded. '
                     'Unhashed directory aliases retain their manifest targets; they are '
                     'not traversed or claimed as archived dependency/source backups. '
                     'Original packets and external dependencies remain unchanged.'}

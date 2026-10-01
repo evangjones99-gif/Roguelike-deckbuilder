@@ -29,14 +29,15 @@ export async function assertPackagedAsar(archive,sourceRoot,expected=expectedPay
   }else{
    assert.deepEqual(Object.keys(node),['size','offset','integrity'],'Unexpected file header metadata');
    const name=parts.join('/');assert.ok(name);assert.ok(Number.isSafeInteger(node.size)&&node.size>=0);assert.match(node.offset,/^(0|[1-9][0-9]*)$/);
-   const bytes=extractFile(archive,name,false);assert.equal(bytes.length,node.size);
+   // Header and ledger paths stay POSIX; ASAR lookup traverses host-native separators.
+   const bytes=extractFile(archive,path.join(...parts),false);assert.equal(bytes.length,node.size);
    observed.push({path:name,bytes:bytes.length,sha256:hash(bytes),offset:node.offset,integrity:node.integrity});
   }
  }
  walk(raw.header);
  assert.equal(observed.length,expected.leafCount,'Closed ASAR leaf count differs');
  assert.deepEqual(observed,expected.leaves,'Closed ASAR names/order/size/raw SHA/offset/integrity differ');
- const runtime=JSON.parse(extractFile(archive,'dist/build-provenance.json').toString());
+ const runtime=JSON.parse(extractFile(archive,path.join('dist','build-provenance.json')).toString());
  assert.equal(runtime.version,expected.version);assert.equal(runtime.sourceDigest,expected.sourceDigest);
  assert.equal(Object.keys(runtime.hashes).length,expected.sourceInputCount);
  assert.equal(hash(JSON.stringify(runtime.hashes)),expected.sourceDigest,'Exact ordered source digest differs');
