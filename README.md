@@ -2,11 +2,22 @@
 
 A grim monster-binding roguelike deckbuilder. Play a contract hunter, deploy dangerous creatures, and defeat an armored warlord, a necromancer or an ember dragon. Working title; name clearance remains pending.
 
-**v0.8.0 reviewed development checkpoint.** Optional local creature sound, original crypt encounters and a hunter pose width repair pass separately identified gameplay, visual and technical gates. Five hash-verified archives preserve the exact source bundle, offline web build, portable Linux build and actual-tested original Windows build/evidence. See [release identity](releases/0.8.0/manifest.json) and [independent archive audit](reviews/release-v0.8-final-independent/REVIEW.md). Production continues with scene coherence, articulated biting and corrected final-kill readouts. Sparse animation, repeated creature illustrations, stale health during the retained final-strike hold and human enjoyment remain open; AAA craft and Steam readiness are targets.
+**Current branch: v0.9.0 development build. Latest sealed checkpoint: v0.8.0.** The working game includes visible final-kill feedback, contextual encounter artwork, local creature sound and inspectable relic effects. Separate scoped reviews and hosted Windows installer QA are recorded in [continuation](docs/CONTINUATION.md); sparse animation, repeated creature identities, human enjoyment and consumer platform qualification remain open. Five verified archives preserve the earlier checkpoint's source, web, Linux and original tested Windows build/evidence: [release identity](releases/0.8.0/manifest.json), [archive audit](reviews/release-v0.8-final-independent/REVIEW.md). AAA craft and Steam release remain targets.
 
 ## Run
 
-Node 22 or later. `npm ci`, then `npm run dev`. Open the printed local address. `npm test` checks the renderer-free rules; `npm run build` checks TypeScript and creates an offline web build. `npm run simulate` compares reproducible policies. `npm run test:browser` tests the built production assets with system Chromium; adjust `playwright.config.ts` to your installed browser on other machines.
+Use Node 22 or later. In the repository terminal:
+
+```sh
+git switch codex/lanternbound-production
+git pull --ff-only
+npm ci
+npm run dev -- --host 0.0.0.0
+```
+
+In a GitHub Codespace, open **Ports → 5173 → Open in Browser** (use the port printed by Vite if 5173 is occupied). On a local computer, open the address printed in the terminal. Keep the terminal running while playing. Choose **Begin a new contract → Initiate → Accept the warrant**. Play a creature card, select its ready binding, then select an enemy to command it. Your campaign saves in that browser; use the same browser/address to resume. **Field report** optionally saves your notes as a local JSON file; nothing is sent automatically.
+
+`npm test` checks the renderer-free rules; `npm run build` checks TypeScript and creates an offline web build. `npm run simulate` compares reproducible policies. `npm run test:browser` tests the built production assets with system Chromium; adjust `playwright.config.ts` to your installed browser on other machines.
 
 `npm run desktop` launches current built assets. Package into a fresh independent output directory with the installed Electron builder, for example `npx electron-builder --linux dir --config.directories.output=/tmp/hollowpact-my-new-package`; build current assets first. Retained comparison directories and their aliases are immutable by usage contract. The Windows validation-only ASAR proxy must never be launched or repacked as a complete package. Linux needs the usual Chromium GUI libraries. Actual v0.8 Windows Server2022 portable QA and original binary inspection are [recorded separately](reviews/native-windows-v0.8-23477-binary-independent/REVIEW.md). Consumer installs, physical controllers, Steam Deck, listening and Steam installation still need their own evidence.
 
@@ -26,6 +37,6 @@ Art is original AI-generated illustration with [provenance](public/art/PROVENANC
 
 ## Preserved releases
 
-Commit source and evidence, set a fresh version, build matching desktop artifacts, then `npm run release -- VERSION`. Existing release directories cause an error. Each milestone preserves source, offline web/desktop candidates, SHA-256 hashes, source commit and reviews. Failed reviews block promotion to a stable/commercial build. Old versions and historical findings remain intact.
+Commit source and evidence, set a fresh version, build matching desktop artifacts, then `npm run release -- VERSION`. Existing release directories cause an error. Each milestone preserves source, offline web/desktop candidates, SHA-256 hashes, source commit and reviews. Failed reviews block promotion to a stable/commercial build. The owner now permits selective retirement of older artifacts when a thorough independent review prefers a verified successor and the producer judges removal wise. Record coverage and any loss of container encodings; keep unique inputs, datasets, historical findings/manifests and useful rollback baselines. Retained versions are never silently overwritten.
 
 Project-authored source remains unlicensed pending the owner's distribution choice. [Attribution](THIRD-PARTY.md) records runtime dependencies and asset limitations. Steam publication requires a verified Steamworks account/AppID, depot and install tests, rights/disclosure review, and platform verification. No Steam upload or public launch has occurred.

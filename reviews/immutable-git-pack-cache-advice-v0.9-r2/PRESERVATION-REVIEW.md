@@ -1,0 +1,7 @@
+# Independent canonical cache-evidence preservation
+
+ACCEPT the exact named52-body canonical preservation set. I independently open the actual54,214-byte archive, compute SHA100b2948225890c6ac27a2efa8b42605bd535018f2d57b6ba7a45b3e968af73d, enumerate52 unique regular logical members, reject extra/missing/duplicate bodies, and compare every member's exact byte length/SHA against the declared manifest and actual still-retained scratch original. All167,566 raw bytes roundtrip exactly. Canonical REVIEW.md equals my original execution review byte-for-byte. All55 original/canonical paths retain identical full stat/raw SHA before and after my read-only audit, including atime.
+
+PRESERVATION SHA isccd9134ac93cce8553e80a2676fd50b7e2373e18d4556489968f1ab8511b758f. The retained R1 author pycache is an added root import-diagnostic artifact; it does not retroactively become a member of the earlier author freeze. Historical479e source/refusal evidence remains separately retained. The claim allOriginalBodiesPreserved is accepted only for these explicitly named52 bodies, not every cache/repository artifact, the1.6GB pack or a full source/release archive.
+
+I ran my own small Python archive-control audit only. No target Git body, advice, author tool import, Git command, browser/native/build runtime, cleanup or deletion ran. Earlier source and execution acceptance limitations remain. This archive verifies evidence retention and grants no next cache operation, archive retirement, producer execution, causal recovery, new source pin, platform or commercial qualification.
