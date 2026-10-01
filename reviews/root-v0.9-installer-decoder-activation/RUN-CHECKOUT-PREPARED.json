@@ -1,0 +1,48 @@
+{
+  "runId": 36815685432,
+  "jobId": 110220108358,
+  "headSourceCommit": "8011feac0e1c64ca45c07f7912b9e049c50a0d82",
+  "runtime": "8a33f950ed57093a222baf9b7883a5c1ccf2deb2e8412429ef0fe05d370467cb",
+  "version": "0.9.0",
+  "expectedASAR": "0d82286ca7e49206b5085c3544d377735f3af048129abdd1b261d9d1b4086251",
+  "jobStatus": "in_progress",
+  "stepsThroughPreparation": [
+    {
+      "name": "Set up job",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 1
+    },
+    {
+      "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 2
+    },
+    {
+      "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 3
+    },
+    {
+      "name": "Install locked dependencies and stock Electron",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 4
+    },
+    {
+      "name": "Rules and production build",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 5
+    },
+    {
+      "name": "Guard tests and prepare exact-source isolated installer",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 6
+    }
+  ],
+  "qualification": "API shows exact-head job checkout, dependency setup, rules/build and strict matching-source installer preparation complete successfully. Fixed workflow ref uses github.sha; release current working source freeze. NSIS/gameplay/install/uninstall result still pending, no Windows success claimed."
+}

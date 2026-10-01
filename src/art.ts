@@ -12,10 +12,13 @@ export interface PortraitArt {
   row: number;
   columns: number;
   rows: number;
+  /** Per-asset face framing; original body pixels are unchanged. */
+  focal?: readonly [number, number];
 }
 
 export function portraitFor(species: string): PortraitArt | null {
   const name = species.toLowerCase();
+  if (name === 'thrall') return { url: `${import.meta.env.BASE_URL}art/bone-thrall-v09-r1.png`, column: 0, row: 0, columns: 1, rows: 1, focal: [65, 13] };
   let url: string = ARENA_ART.companions;
   let column = 0;
   let row = 0;
