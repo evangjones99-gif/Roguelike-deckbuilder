@@ -141,3 +141,10 @@ textarea:focus-visible,select:focus-visible{outline:3px solid #cfb47e;outline-of
 @media(max-height:760px) and (min-width:1101px){.game-card.large-card{min-height:252px}}
 @media(max-width:760px){.game-card.large-card,.shop-panel .large-card{height:auto;min-height:253px}}
 .deck-grid .game-card.large-card{min-height:256px}
+
+/* Unavailable bargains retain readable reasons while disabled semantics stay intact. */
+.event-choices .choice-card:disabled{opacity:1;background:#10191d;color:#9da5a1;border-color:#7d8d8059;border-style:dashed}
+.event-choices .choice-card:disabled:hover{transform:none}
+.event-choices .choice-card:disabled>.icon{opacity:.55}
+.event-choices .choice-card:disabled p{color:#9da5a1}
+.event-choices .choice-card:disabled>span{color:#e2d8bd;font-size:12px}
