@@ -30,8 +30,8 @@ const mark=p=>{phase=p;report.steps.push(p);};
 function entries(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{
   assert.ok(!e.isSymbolicLink());const p=path.join(dir,e.name);return e.isDirectory()?entries(p):[p];});}
 async function snapshot(dir){const result={};for(const p of entries(dir).sort())result[path.relative(dir,p).replaceAll('\\','/')]=await hashFile(p);return result;}
-function signature(file){return execFileSync('powershell.exe',['-NoProfile','-NonInteractive','-Command',
-  '(Get-AuthenticodeSignature -LiteralPath $env:HOLLOWPACT_QA_SIGNFILE).Status.ToString()'],
+function signature(file){return execFileSync('pwsh.exe',['-NoProfile','-NonInteractive','-Command',
+  "$ErrorActionPreference='Stop'; Import-Module Microsoft.PowerShell.Security -ErrorAction Stop; (Get-AuthenticodeSignature -LiteralPath $env:HOLLOWPACT_QA_SIGNFILE).Status.ToString()"],
   {encoding:'utf8',env:{...process.env,HOLLOWPACT_QA_SIGNFILE:file}}).trim();}
 function resource(file){const executable=ResEdit.NtExecutable.from(fs.readFileSync(file),{ignoreCert:true});
   const r=ResEdit.NtExecutableResource.from(executable).entries;
