@@ -1,5 +1,8 @@
 # First five minutes
 
+Current observation (1 October 2026): the sampled R5 mouse opening fits complete cards and Help at 1440×900 with 12px stats and a full-size drag copy contained in the viewport. The separate 300-second random-seed 9845209 session reached two bindings, two free commands and an enemy response, with an unfinished encounter. It exposed legacy arrow axes: Right crossed from Binding 1 to Hostile 1. An explicit direct-field row-navigation candidate is source/build accepted; actual comparison is pending. First-five-minute human enjoyment is unestablished. See CONTINUATION.md and the closed evidence capsule for exact source/builds, chronology, failures and limits.
+
+
 The owner chooses original pixel art and JavaScript/TypeScript. The goal is a carefully made opening that is fun enough to keep playing, not a content count or a claim of AAA budget. Keep the gritty monster-binding hunter and tactile card interaction.
 
 The hand sits along the bottom. Allied creatures occupy the near row, preferably in rear three-quarter poses facing into the field; enemies face the player from the far row. Playing a creature card brings that creature to life: arrival, READY, command, anticipation, contact, recovery, reaction and defeat. This is the intended presentation, not a description of the existing accepted build. One shared presentation layer should own sprite geometry/anchors and timelines; the pure rules engine owns outcomes and local save state. Do not delay canonical saves for animation or turn a synthetic demonstration into a fabricated game kill.
