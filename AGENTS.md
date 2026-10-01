@@ -28,6 +28,8 @@ Use standard `gpt-6.1-sol` with `high` reasoning for newly launched delegated ag
 
 ## Immutable retained art aliases
 
+Four historical scratch `dist` media trees are now designated immutable and fresh-stage-only: `first-five-opening-stage-r2`, `first-five-opening-hand-cue-stage-r1`, `first-five-opening-hand-cue-terminal-stage-r1` and `first-five-opening-readout-stage-r1` under `/workspace/scratch`. This designation applies to their existing `dist/art/*.png` and `dist/audio/*.wav` paths, whether physical deduplication has occurred or not. Never rebuild into those historical directories or write, truncate, chmod, set xattrs or change timestamps through their media paths. Reproduction must use retained source and a new stage/new inodes. A separately reviewed storage transaction may preserve these exact paths and bytes while sharing physical media inodes; that does not permit later writes through any alias. Original physical metadata records and any intentional inode/time differences must remain preserved in supplemental reviews. This is a workflow hold, not an OS-enforced read-only claim or permission to retire backups.
+
 Eight generated Playwright trace PNG paths now share retained canonical public/dist art inodes after independent byte-equivalence and transaction review. Never write, truncate, chmod or change xattrs through these aliases. Future art must use new names/inodes or atomic replacement that leaves historical trace pixels intact. The complete bounded proof records and limitations are in `reviews/reviewed-trace-media-alias-recovery-2026-10-01` and its immutable preservation supplement.
 
 ## Standing owner instruction: CONTINUE PRODUCTION
