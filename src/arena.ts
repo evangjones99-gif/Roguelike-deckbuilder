@@ -1,3 +1,4 @@
+import { observeHunter, hunterEventCues, hunterGeometry, paintHunterShadow, paintHunterSheet, HUNTER_ART_URL, hunterSourcePoint, hunterPose, type HunterPresentation } from './hunter-presence';
 import type { Action, GameState, TransitionEvent } from './engine';
 import { ARENA_ART, HOUND_POSES, portraitFor, animationFor, CREATURE_ATTACK_SEQUENCE, CREATURE_IMPACT_MS, CREATURE_REACTION_MS, CREATURE_DEATH_MS, type PortraitArt, type CreaturePose, type CreaturePoseFrame, type CreatureAnimationAtlas } from './art';
 
@@ -21,6 +22,7 @@ type Figure = {
   dead: number | null;
   departing: boolean;
   deathAnchored: boolean;
+  deathSizeBasis: { width: number; height: number; from: number; target: number } | null;
   phase: number;
   lastPoint: Point;
   layoutFrom: Point;
@@ -58,9 +60,9 @@ export function createArena(canvas: HTMLCanvasElement) {
   let frame = 0, lastTimestamp = 0, time = 0;
   let selected: string | null = null;
   let active = false;
-  let rowFormation = false;
   const formationCounts: Record<Side, number> = { ally: 0, enemy: 0 };
   let previous: GameState | null = null;
+  let hunter: HunterPresentation | null = null;
   const figures = new Map<string, Figure>();
   let strikes: Strike[] = [];
   const presentationWaiters = new Set<() => void>();
@@ -95,6 +97,7 @@ export function createArena(canvas: HTMLCanvasElement) {
   }
   for (const url of Object.values(ARENA_ART)) imageFor(url);
   imageFor(HOUND_POSES.url);
+  imageFor(HUNTER_ART_URL);
   const loaded = (image: HTMLImageElement) => image.complete && image.naturalWidth > 0;
   const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
 
@@ -132,28 +135,17 @@ export function createArena(canvas: HTMLCanvasElement) {
 
   function targetPosition(figure: Figure): Point {
     if (figure.dead !== null) return figure.lastPoint;
-    const count = figure.count;
-    if (rowFormation) return { x: width * (figure.slot + 1) / (count + 1), y: height * (figure.side === 'ally' ? .92 : .56) };
-    // Staggered formations occupy two sides of a continuous courtyard floor.
-    // Six companions fit without forcing tiny or overlapping horizontal stamps.
-    const columns = Math.min(3, count);
-    const column = figure.slot % 3;
-    const row = count > 3 && figure.slot >= 3 ? 1 : 0;
-    const offset = (column - (columns - 1) / 2);
-    const sideCenter = figure.side === 'ally' ? .29 : .73;
-    const x = sideCenter + offset * .135 + (row ? .025 : 0);
-    const baseY = figure.side === 'ally' ? .88 : .71;
-    const y = baseY + offset * .065 - (count > 3 && !row ? .16 : 0);
-    return { x: width * x, y: height * y };
+    return figure.side === 'ally'
+      ? { x: width * [.21, .79, .33, .67, .09, .91][figure.slot], y: height * .89 }
+      : { x: width * (figure.slot + 1) / (figure.count + 1), y: height * .50 };
   }
   function targetSize(figure: Figure) {
     const boss = /dragon|crown/.test(figure.unit.species);
     const bulky = /colossus|golem/.test(figure.unit.species);
-    const backRow = figure.count > 3 && figure.slot < 3;
-    const max = rowFormation
-      ? Math.min(height * (figure.side === 'ally' ? .38 : .43), width / (figure.count + 1) * .92)
-      : Math.min(height * (figure.side === 'ally' ? .49 : .54), width * .235);
-    return Math.min(max * (boss ? 1.3 : bulky ? 1.07 : 1) * (!rowFormation && backRow ? .86 : 1), height * .52);
+    const max = Math.min(height * (figure.side === 'ally' ? figure.count <= 2 ? .43 : .38 : .43),
+      figure.side === 'ally' ? width * (figure.count <= 2 ? .23 : figure.count <= 4 ? .14 : .12)
+      : width / (figure.count + 1) * .92);
+    return Math.min(max * (boss ? 1.3 : bulky ? 1.07 : 1), height * .52);
   }
   function layoutBlend(figure: Figure) {
     if (reduced) return 1;
@@ -170,16 +162,25 @@ export function createArena(canvas: HTMLCanvasElement) {
   }
   function reconcileStrikeEndpoints() {
     for (const strike of strikes) {
-      strike.from = strike.source ? combatPoint(strike.source) : { x: width * .34, y: height * .82 };
+      strike.from = strike.source ? sourcePoint(strike.source) : { x: width * .34, y: height * .82 };
       strike.to = combatPoint(strike.target);
     }
   }
 
+  function sourcePoint(uid: string): Point {
+    if (uid === 'hunter') {
+      const sheet = images.get(HUNTER_ART_URL);
+      return sheet && loaded(sheet) ? hunterSourcePoint(hunter,width,height,time,reduced) : hunterGeometry(width,height).torso;
+    }
+    return combatPoint(uid);
+  }
   function pointFor(uid: string): Point {
+    if (uid === 'hunter') return hunterGeometry(width, height).feet;
     const figure = figures.get(uid);
     return figure ? position(figure) : { x: width * .42, y: height * .92 };
   }
   function combatPoint(uid: string): Point {
+    if (uid === 'hunter') return hunterGeometry(width, height).torso;
     const figure = figures.get(uid);
     const point = pointFor(uid);
     return { x: point.x, y: point.y - (figure ? figureSize(figure) * .43 : height * .12) };
@@ -308,6 +309,10 @@ export function createArena(canvas: HTMLCanvasElement) {
       const atContact = motionFor(figure, figure.dead - .00001);
       figure.lastPoint = { x: figure.lastPoint.x + atContact.x, y: figure.lastPoint.y + atContact.y };
       figure.deathAnchored = true;
+      // Freeze the actual collapse-layout size basis once at contact. Later
+      // aspect changes project absolutely from here rather than accumulating
+      // irreversible min-axis shrink across alternating viewport shapes.
+      figure.deathSizeBasis = { width, height, from: figure.sizeFrom, target: figure.sizeTarget };
     }
     figure.lastPoint = position(figure);
     const currentPose = figurePose(figure);
@@ -436,8 +441,22 @@ export function createArena(canvas: HTMLCanvasElement) {
     ordered.forEach(prepareFigure);
     reconcileStrikeEndpoints();
     ordered.sort((a, b) => position(a).y + motionFor(a).y - position(b).y - motionFor(b).y);
+    paintHunterShadow(ctx, hunter, width, height);
     ordered.forEach(paintFloor);
-    ordered.forEach(paintFigure);
+    const paintHunterBody = () => {
+      const sheet = imageFor(HUNTER_ART_URL);
+      if (sheet && loaded(sheet)) paintHunterSheet(ctx, hunter, width, height, time, reduced, sheet);
+    };
+    // The separate observer joins only paint depth, never Unit/formation maps.
+    const hunterFoot = hunterGeometry(width,height).feet.y;
+    let hunterPainted = false;
+    for (const figure of ordered) {
+      if (!hunterPainted && position(figure).y + motionFor(figure).y > hunterFoot) {
+        paintHunterBody(); hunterPainted = true;
+      }
+      paintFigure(figure);
+    }
+    if (!hunterPainted) paintHunterBody();
     paintStrikes();
     if (!reduced) {
       ctx.save();
@@ -452,6 +471,7 @@ export function createArena(canvas: HTMLCanvasElement) {
   }
   function settle() {
     strikes = [];
+    if (hunter) { hunter.cues = []; if (!hunter.dead) hunter.facing = 1; }
     for (const [uid, figure] of figures) {
       if (figure.dead !== null) figures.delete(uid);
       else { figure.born = time - 2; figure.hit = -10; figure.pose = 'idle'; figure.priorPose = null; figure.poseChanged = time - 2; figure.facing = figure.side === 'enemy' ? -1 : 1; figure.layoutFrom = { ...figure.layoutTarget }; figure.sizeFrom = figure.sizeTarget; figure.layoutStarted = time - 2; }
@@ -467,6 +487,7 @@ export function createArena(canvas: HTMLCanvasElement) {
     const dt = lastTimestamp ? clamp((timestamp - lastTimestamp) / 1000, 0, .05) : 0;
     lastTimestamp = timestamp; time += dt;
     strikes = strikes.filter(strike => time - strike.born < .78);
+    if (hunter) hunter.cues = hunter.cues.filter(cue => cue.end > time);
     for (const [uid, figure] of figures) if (figure.dead !== null && time - figure.dead >= deathDuration) figures.delete(uid);
     draw(); resolvePresentationWaiters();
     frame = requestAnimationFrame(tick);
@@ -483,7 +504,7 @@ export function createArena(canvas: HTMLCanvasElement) {
     reduced = next; if (reduced) settle(); resume();
   }
   function createFigure(unit: Unit, side: Side, slot: number, count: number): Figure {
-    const figure: Figure = { uid: unit.uid, unit, art: portraitFor(unit.species), animation: animationFor(unit.species), pose: 'idle', priorPose: null, poseChanged: time - 2, side, facing: side === 'enemy' ? -1 : 1, slot, count, born: reduced ? time - 2 : time, hit: -10, dead: null, departing: false, deathAnchored: false, phase: random() * 6.28, lastPoint: { x: 0, y: 0 }, layoutFrom: { x: 0, y: 0 }, layoutTarget: { x: 0, y: 0 }, layoutStarted: time - 2, sizeFrom: 0, sizeTarget: 0 };
+    const figure: Figure = { uid: unit.uid, unit, art: portraitFor(unit.species), animation: animationFor(unit.species), pose: 'idle', priorPose: null, poseChanged: time - 2, side, facing: side === 'enemy' ? -1 : 1, slot, count, born: reduced ? time - 2 : time, hit: -10, dead: null, departing: false, deathAnchored: false, deathSizeBasis: null, phase: random() * 6.28, lastPoint: { x: 0, y: 0 }, layoutFrom: { x: 0, y: 0 }, layoutTarget: { x: 0, y: 0 }, layoutStarted: time - 2, sizeFrom: 0, sizeTarget: 0 };
     const target = targetPosition(figure), size = targetSize(figure);
     figure.layoutFrom = target; figure.layoutTarget = target;
     figure.sizeFrom = size; figure.sizeTarget = size; figure.lastPoint = target;
@@ -492,14 +513,15 @@ export function createArena(canvas: HTMLCanvasElement) {
 
   function render(state: GameState) {
     if (disposed) return;
+    hunter = observeHunter(state, hunter ?? undefined);
     active = state.phase === 'battle';
     if (active && (!previous || previous.phase !== 'battle')) {
-      figures.clear(); strikes = []; resolvePresentationWaiters(); rowFormation = false;
+      hunter = observeHunter(state);
+      figures.clear(); strikes = []; resolvePresentationWaiters();
       formationCounts.ally = 0; formationCounts.enemy = 0;
     }
     const oldPositions = new Map([...figures].map(([uid, figure]) => [uid, position(figure)]));
     const oldSizes = new Map([...figures].map(([uid, figure]) => [uid, figureSize(figure)]));
-    if (Math.max(state.allies.length, state.enemies.length, formationCounts.ally, formationCounts.enemy) >= 4) rowFormation = true;
     const seen = new Set<string>();
     for (const side of ['ally', 'enemy'] as const) {
       const units = side === 'ally' ? state.allies : state.enemies;
@@ -516,7 +538,7 @@ export function createArena(canvas: HTMLCanvasElement) {
           figures.set(unit.uid, figure);
         } else {
           if (unit.hp < figure.unit.hp) figure.hit = Math.max(figure.hit, time + impactTime);
-          figure.unit = unit; figure.side = side; figure.count = formationCounts[side]; figure.dead = null;
+          figure.unit = unit; figure.side = side; figure.count = formationCounts[side]; figure.dead = null; figure.deathSizeBasis = null;
         }
       });
       // Death leaves a temporary visual gap; survivors do not slide over the
@@ -547,7 +569,7 @@ export function createArena(canvas: HTMLCanvasElement) {
       else {
         const incoming = strikes.filter(strike => strike.target === uid && strike.kind !== 'heal' && strike.kind !== 'ward').at(-1);
         figure.dead = incoming ? Math.max(time, incoming.born + impactTime) : time + .12;
-        figure.deathAnchored = false;
+        figure.deathAnchored = false; figure.deathSizeBasis = null;
         figure.departing = figure.side === 'ally' && !active;
       }
     }
@@ -558,7 +580,7 @@ export function createArena(canvas: HTMLCanvasElement) {
     previous = state; draw(); resolvePresentationWaiters();
   }
   function queueStrike(source: string | null, target: string, kind: Strike['kind'], delay = 0) {
-    const from = source ? combatPoint(source) : { x: width * .34, y: height * .82 };
+    const from = source ? sourcePoint(source) : { x: width * .34, y: height * .82 };
     const to = combatPoint(target);
     const strike: Strike = { source, target, from, to, born: time + delay, kind };
     strikes.push(strike);
@@ -580,7 +602,7 @@ export function createArena(canvas: HTMLCanvasElement) {
         return actorDelays.get(source)!;
       };
       for (const event of events) {
-        const source = event.source === 'hunter' || event.source === 'world' ? null : event.source;
+        const source = event.source === 'world' ? null : event.source;
         if (event.type === 'summon') {
           if (!figures.has(event.target)) {
             const occupied = new Set([...figures.values()].filter(figure => figure.side === event.side && figure.dead === null).map(figure => figure.slot));
@@ -607,9 +629,16 @@ export function createArena(canvas: HTMLCanvasElement) {
           const figure = figures.get(event.target), hit = lastHits.get(event.target);
           if (figure) {
             figure.dead = hit ? hit.born + impactTime : time + .12;
-            figure.deathAnchored = false; figure.departing = false;
+            figure.deathAnchored = false; figure.deathSizeBasis = null; figure.departing = false;
           }
         }
+      }
+      if (hunter) {
+        const gesture = events.find(e => e.target !== 'hunter' && e.type !== 'death' && figures.has(e.target) &&
+          (e.source === 'hunter' || (e.type === 'hit' && e.kind === 'command')));
+        if (gesture) { const dx = combatPoint(gesture.target).x - hunterGeometry(width,height).feet.x;
+          if (Math.abs(dx) > 4) hunter.facing = dx > 0 ? 1 : -1; }
+        hunter.cues.push(...hunterEventCues(events, time, delayFor));
       }
       render(after); return;
     }
@@ -638,6 +667,7 @@ export function createArena(canvas: HTMLCanvasElement) {
   function busyMs() {
     if (disposed || reduced || document.hidden) return 0;
     let end = time;
+    for (const cue of hunter?.cues ?? []) end = Math.max(end, cue.end);
     for (const strike of strikes) end = Math.max(end, strike.born + .73);
     for (const figure of figures.values()) {
       if (figure.dead !== null) end = Math.max(end, figure.dead + deathDuration);
@@ -658,21 +688,42 @@ export function createArena(canvas: HTMLCanvasElement) {
 
   function resize() {
     if (disposed) return;
-    const bounds = canvas.getBoundingClientRect(); width = Math.max(1, bounds.width || 900); height = Math.max(1, bounds.height || 400);
-    ratio = Math.min(window.devicePixelRatio || 1, 1.5);
-    const pixelWidth = Math.round(width * ratio), pixelHeight = Math.round(height * ratio);
-    if (canvas.width === pixelWidth && canvas.height === pixelHeight) return;
+    const bounds = canvas.getBoundingClientRect();
+    const nextWidth = Math.max(1, bounds.width || 900), nextHeight = Math.max(1, bounds.height || 400);
+    const nextRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+    const pixelWidth = Math.round(nextWidth * nextRatio), pixelHeight = Math.round(nextHeight * nextRatio);
+    const geometryChanged = nextWidth !== width || nextHeight !== height;
+    if (!geometryChanged && canvas.width === pixelWidth && canvas.height === pixelHeight && nextRatio === ratio) return;
+    const priorWidth = width, priorHeight = height;
+    const scaleX = nextWidth / priorWidth, scaleY = nextHeight / priorHeight;
+    width = nextWidth; height = nextHeight; ratio = nextRatio;
     canvas.width = pixelWidth; canvas.height = pixelHeight;
     ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
     backDirty = true;
-    // Action endpoints use CSS pixels; settle on layout changes instead of
-    // drawing effects aimed at a previous screen location.
-    for (const figure of figures.values()) if (figure.dead === null) {
-      const target = targetPosition(figure), size = targetSize(figure);
-      figure.layoutFrom = target; figure.layoutTarget = target;
-      figure.sizeFrom = size; figure.sizeTarget = size; figure.lastPoint = target;
+    // A host layout change is not cancellation. Keep all semantic cue, impact,
+    // collapse and waiter times; map their geometry into the new CSS viewport.
+    // Living formations retain their interpolation progress. Removed figures
+    // retain their contact position and shrink uniformly when either axis does,
+    // so a death remnant never stretches or keeps an obsolete screen position.
+    if (geometryChanged) for (const figure of figures.values()) {
+      const reproject = (point: Point): Point => ({ x: point.x * scaleX, y: point.y * scaleY });
+      figure.lastPoint = reproject(figure.lastPoint);
+      figure.layoutFrom = reproject(figure.layoutFrom);
+      if (figure.dead !== null) {
+        figure.layoutTarget = reproject(figure.layoutTarget);
+        // Scheduled deaths also need a stable basis before their contact
+        // frame. prepareFigure finalizes it once when the body anchors.
+        const basis = figure.deathSizeBasis ??= { width: priorWidth, height: priorHeight, from: figure.sizeFrom, target: figure.sizeTarget };
+        const scale = Math.min(width / basis.width, height / basis.height);
+        figure.sizeFrom = basis.from * scale; figure.sizeTarget = basis.target * scale;
+      } else {
+        const target = targetPosition(figure), size = targetSize(figure);
+        const scale = figure.sizeTarget > 0 ? size / figure.sizeTarget : Math.min(scaleX, scaleY);
+        figure.layoutTarget = target;
+        figure.sizeFrom *= scale; figure.sizeTarget = size;
+      }
     }
-    settle(); draw();
+    reconcileStrikeEndpoints(); draw();
   }
   const resizeObserver = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(resize) : null;
   resizeObserver?.observe(canvas);

@@ -1,0 +1,242 @@
+name: Preserve exact v0.6.1 development native archives
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm_draft_preservation:
+        description: Preserve verified partial assets in a draft development release
+        type: boolean
+        default: false
+        required: true
+  # Narrow bootstrap: dispatch requires this workflow to exist on the default branch.
+  # Only an owner-reviewed edit of this exact file on the production branch starts it.
+  push:
+    branches: [codex/lanternbound-production]
+    paths: [.github/workflows/preserve-v061.yml]
+
+permissions: {}
+
+concurrency:
+  group: preserve-development-v0.6.1
+  cancel-in-progress: false
+
+jobs:
+  preserve-v061:
+    if: >-
+      github.repository == 'evangjones99-gif/Roguelike-deckbuilder' &&
+      github.ref == 'refs/heads/codex/lanternbound-production' &&
+      (github.event_name == 'push' ||
+       (github.event_name == 'workflow_dispatch' && inputs.confirm_draft_preservation))
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      # Deliberately no checkout, package install, build or code from PRs/artifacts.
+      - name: Verify immutable identity and preserve exact native assets in draft
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        with:
+          script: |
+            const fs = require('node:fs');
+            const path = require('node:path');
+            const crypto = require('node:crypto');
+            const {execFileSync} = require('node:child_process');
+            const owner = 'evangjones99-gif', repo = 'Roguelike-deckbuilder';
+            const version = '0.6.1', tag = 'v0.6.1';
+            const tagObject = 'cb1c3964d4865ae729807fcb3208b6d856bd25fc';
+            const tagCommit = '83d75e30a90db65db743a4522288607cf45682b1';
+            const manifestSHA = '6999e88dfc4b19626e50734571e997c9fd19b1a5c2e4ce9439159343160fd500';
+            const sumsSHA = '66ea71f543eb0c2bd29bcb80538b41db22eb21c655c28dafaf18aa54fc5542c1';
+            const sourceDigest = '8720a38701aa78ccae894ba4ca7cb8656cc3072d5b023cdd9cc3d9d2b3d4c22d';
+            const nativeRun = 36791619534;
+            const nativeHead = '9e6e7d7e76a2ce606acae24d2f6a27c903b54a5f';
+            const nativeName = 'hollowpact-0.6.1-windows-native-x64.zip';
+            const evidenceName = 'hollowpact-0.6.1-native-evidence-36791619534-1.zip';
+            const directory = path.resolve('preservation');
+            fs.mkdirSync(directory, {recursive: true});
+            const report = {version, tag, tagObject, tagCommit, manifestSHA, nativeRun,
+              status: 'running', coverage: 'partial-native-windows-and-original-evidence', assets: []};
+            const check = (condition, message) => { if (!condition) throw new Error(message); };
+            const hash = data => crypto.createHash('sha256').update(data).digest('hex');
+            const token = core.getInput('github-token', {required: true});
+            async function boundedBody(response, limit) {
+              check(Number.isSafeInteger(limit) && limit > 0 && limit <= 200 * 1024 * 1024, 'Invalid download byte bound');
+              const declared = response.headers.get('content-length');
+              if (declared !== null) check(/^[0-9]+$/.test(declared) && Number.isSafeInteger(Number(declared)) && Number(declared) <= limit, 'Download Content-Length exceeds expected bytes');
+              check(response.body, 'Missing download body');
+              const reader = response.body.getReader();
+              const chunks = []; let bytes = 0;
+              try {
+                for (;;) {
+                  const {done, value} = await reader.read();
+                  if (done) break;
+                  bytes += value.length;
+                  if (bytes > limit) { await reader.cancel(); throw new Error('Download exceeded expected byte bound'); }
+                  chunks.push(Buffer.from(value));
+                }
+              } finally { reader.releaseLock(); }
+              return Buffer.concat(chunks, bytes);
+            }
+            // Tokens go only to api.github.com. Signed redirects are followed without credentials.
+            async function download(endpoint, bytes, purpose) {
+              const prefix = `/repos/${owner}/${repo}`;
+              const artifactPath = `${prefix}/actions/artifacts/`;
+              const assetPath = `${prefix}/releases/assets/`;
+              check(purpose === 'actions-artifact'
+                ? endpoint.startsWith(artifactPath) && /^[1-9][0-9]*\/zip$/.test(endpoint.slice(artifactPath.length))
+                : purpose === 'release-asset' && endpoint.startsWith(assetPath) && /^[1-9][0-9]*$/.test(endpoint.slice(assetPath.length)),
+                'Unsupported download endpoint purpose/path');
+              check(Number.isSafeInteger(bytes) && bytes > 0 && bytes <= 200 * 1024 * 1024, 'Invalid download byte bound');
+              // Actions archive GET negotiates the API redirect with JSON; release assets need binary negotiation.
+              const accept = purpose === 'actions-artifact' ? 'application/vnd.github+json' : 'application/octet-stream';
+              let response;
+              try {
+                response = await fetch(`https://api.github.com${endpoint}`, {
+                  redirect: 'manual', headers: {Authorization: `Bearer ${token}`,
+                    Accept: accept, 'X-GitHub-Api-Version': '2022-11-28'},
+                  signal: AbortSignal.timeout(180000),
+                });
+              } catch { throw new Error(`Download API ${purpose} request failed for ${endpoint}`); }
+              if (response.status === 200) return boundedBody(response, bytes);
+              check(response.status === 302, `Download API ${purpose} status ${response.status} for ${endpoint}`);
+              let location;
+              try { location = new URL(response.headers.get('location')); }
+              catch { throw new Error(`Download API ${purpose} invalid redirect for ${endpoint}`); }
+              const allowed = ['.blob.core.windows.net', '.githubusercontent.com', '.github.com'];
+              check(location.protocol === 'https:' && !location.username && !location.password && (!location.port || location.port === '443') && allowed.some(suffix => location.hostname.endsWith(suffix)), `Unexpected download redirect host for ${purpose} ${endpoint}`);
+              let redirected;
+              try { redirected = await fetch(location, {redirect: 'manual', signal: AbortSignal.timeout(180000)}); }
+              catch { throw new Error(`Signed download ${purpose} request failed for ${endpoint}`); }
+              check(redirected.status === 200, `Signed download ${purpose} status ${redirected.status} for ${endpoint}`);
+              return boundedBody(redirected, bytes);
+            }
+            async function pinnedFile(filename, expectedHash) {
+              const response = await github.rest.repos.getContent({owner, repo, path: `releases/${version}/${filename}`, ref: tagCommit});
+              check(response.data.type === 'file' && response.data.encoding === 'base64', `Unexpected pinned file ${filename}`);
+              const data = Buffer.from(response.data.content, 'base64');
+              check(hash(data) === expectedHash, `Pinned ${filename} hash mismatch`);
+              fs.writeFileSync(path.join(directory, filename), data);
+              return data;
+            }
+            async function artifact(id, name, bytes, expectedHash) {
+              const response = await github.rest.actions.getArtifact({owner, repo, artifact_id: id});
+              const data = response.data;
+              check(data.name === name && data.size_in_bytes === bytes && data.expired === false && data.id === id && data.workflow_run?.id === nativeRun && data.workflow_run.head_sha === nativeHead && data.workflow_run.head_branch === 'codex/lanternbound-production', `Artifact ${id} identity/expiry mismatch`);
+              check(data.digest === `sha256:${expectedHash}`, `Artifact ${id} digest mismatch`);
+              const archive = await download(`/repos/${owner}/${repo}/actions/artifacts/${id}/zip`, bytes, 'actions-artifact');
+              check(archive.length === bytes && hash(archive) === expectedHash, `Artifact ${id} downloaded bytes mismatch`);
+              return archive;
+            }
+            try {
+              check(context.repo.owner === owner && context.repo.repo === repo, 'Repository mismatch');
+              check(context.ref === 'refs/heads/codex/lanternbound-production' &&
+                (context.eventName === 'push' || (context.eventName === 'workflow_dispatch' &&
+                  [true, 'true'].includes(context.payload.inputs?.confirm_draft_preservation))), 'Trigger/ref/confirmation mismatch');
+              const storage = fs.statfsSync(directory);
+              check(storage.bavail * storage.bsize >= 500 * 1024 * 1024, 'Insufficient bounded preservation disk capacity');
+              const reference = await github.rest.git.getRef({owner, repo, ref: `tags/${tag}`});
+              check(reference.data.object.type === 'tag' && reference.data.object.sha === tagObject, 'Existing annotated tag changed');
+              const annotated = await github.rest.git.getTag({owner, repo, tag_sha: tagObject});
+              check(annotated.data.object.type === 'commit' && annotated.data.object.sha === tagCommit, 'Tag target changed');
+              const manifestData = await pinnedFile('manifest.json', manifestSHA);
+              const sumsData = await pinnedFile('SHA256SUMS', sumsSHA);
+              const manifest = JSON.parse(manifestData.toString('utf8'));
+              check(manifest.version === version && manifest.runtimeSourceDigest === sourceDigest && manifest.nativeWindows.runId === nativeRun && manifest.nativeWindows.attempt === 1 && manifest.nativeWindows.headSourceCheckpoint === nativeHead && manifest.steamPublished === false, 'Manifest identity mismatch');
+              const nativeSHA = '06e48cce30ccd2a8fcfcc7a829ec79d3fa6b628541a19effa368852df0bce90b';
+              const evidenceSHA = '1741107cb452d08eb9c2f33a02f8ff1c64076776892b512cd075747adff6f047';
+              check(manifest.artifacts[nativeName] === nativeSHA && manifest.artifacts[evidenceName] === evidenceSHA, 'Official asset hashes differ');
+              check(Object.keys(manifest.artifacts).length === 6 &&
+                ['linux-x64.tar.gz', 'source.zip', 'web.zip', 'windows-x64.zip'].every(suffix =>
+                  /^[a-f0-9]{64}$/.test(manifest.artifacts[`hollowpact-${version}-${suffix}`])), 'Expected six-archive manifest coverage mismatch');
+              check(sumsData.toString('utf8') === Object.entries(manifest.artifacts).map(([filename, digest]) => `${digest}  ${filename}\n`).join(''), 'Exact checksums/manifest mismatch');
+              const workflow = await github.rest.actions.getWorkflowRun({owner, repo, run_id: nativeRun});
+              check(workflow.data.id === nativeRun && workflow.data.status === 'completed' && workflow.data.head_sha === nativeHead && workflow.data.head_branch === 'codex/lanternbound-production' && workflow.data.conclusion === 'success' && workflow.data.run_attempt === 1 && workflow.data.path === '.github/workflows/windows-validation.yml' && workflow.data.head_repository.full_name === `${owner}/${repo}`, 'Native run identity/success mismatch');
+              const wrapper = await artifact(11132128179, 'hollowpact-0.6.1-windows-x64-36791619534-1', 192975515,
+                'ee181194451f10e601742fa4a570303e7ed6e66c79a2a7c58555bb2feb91b8d4');
+              const wrapperPath = path.join(directory, 'native-artifact-wrapper.zip');
+              fs.writeFileSync(wrapperPath, wrapper);
+              // Extract just the exact candidate member. No scripts, executables or paths are run.
+              execFileSync('python3', ['-c', [
+                'import sys, zipfile',
+                'from pathlib import PurePosixPath',
+                'with zipfile.ZipFile(sys.argv[1]) as archive:',
+                ' entries = archive.infolist()',
+                ' assert all(not PurePosixPath(e.filename).is_absolute() and ".." not in PurePosixPath(e.filename).parts and "\\\\" not in e.filename for e in entries)',
+                ' selected = [e for e in entries if PurePosixPath(e.filename).name == sys.argv[3]]',
+                ' bound = int(sys.argv[4])',
+                ' assert len(selected) == 1 and not selected[0].is_dir() and selected[0].file_size == bound',
+                ' with archive.open(selected[0]) as source, open(sys.argv[2], "wb") as output:',
+                '  total = 0',
+                '  while True:',
+                '   chunk = source.read(min(1024 * 1024, bound - total + 1))',
+                '   if not chunk: break',
+                '   total += len(chunk)',
+                '   assert total <= bound',
+                '   output.write(chunk)',
+                '  assert total == bound',
+              ].join('\n'), wrapperPath, path.join(directory, nativeName), nativeName, '183597187'], {timeout: 120000});
+              check(fs.statSync(path.join(directory, nativeName)).size === 183597187 && hash(fs.readFileSync(path.join(directory, nativeName))) === nativeSHA, 'Extracted exact native ZIP hash mismatch');
+              const evidence = await artifact(11131988966, 'hollowpact-0.6.1-windows-evidence-36791619534-1', 9545515, evidenceSHA);
+              fs.writeFileSync(path.join(directory, evidenceName), evidence);
+              const missing = Object.keys(manifest.artifacts).filter(name => ![nativeName, evidenceName].includes(name));
+              const coverage = {version, tag, manifestSHA, runtimeSourceDigest: sourceDigest, nativeRun,
+                preservedArchiveNames: [nativeName, evidenceName], notUploadedArchiveNames: missing,
+                reason: 'These exact native artifacts are available from the successful Windows run. Linux/source/web/repacked Windows bytes remain in the workspace; this workflow does not recreate or invent them.',
+                draft: true, developmentOnly: true, commercialQualityAccepted: false, steamPublished: false};
+              fs.writeFileSync(path.join(directory, 'preservation-coverage.json'), JSON.stringify(coverage, null, 2) + '\n');
+              const marker = `Preservation manifest SHA256: ${manifestSHA}`;
+              const body = [`Preserved development milestone ${tag}; known presentation defects remain.`,
+                'Independent reviewers accepted development evidence only; public/commercial/AAA quality remains rejected. No Steam publication.',
+                'Partial binary coverage: exact native-tested Windows ZIP and original native evidence only. Linux, source, web and repacked Windows archives listed in the manifest are not uploaded by this workflow.',
+                'See preservation-coverage.json and verify assets against manifest.json / SHA256SUMS.', marker].join('\n\n');
+              const releases = await github.paginate(github.rest.repos.listReleases, {owner, repo, per_page: 100});
+              const matches = releases.filter(release => release.tag_name === tag);
+              check(matches.length <= 1, 'Multiple releases use the pinned tag');
+              let release = matches[0];
+              if (release) {
+                check(release.draft === true && release.prerelease === true && release.body?.includes(marker), 'Existing release is not the matching draft; refuse mutation');
+              } else {
+                release = (await github.rest.repos.createRelease({owner, repo, tag_name: tag, target_commitish: tagCommit,
+                  name: 'Hollowpact v0.6.1 — preserved development candidate', body, draft: true, prerelease: true, generate_release_notes: false, make_latest: 'false'})).data;
+              }
+              check(release.draft === true && release.prerelease === true && release.tag_name === tag, 'Create/read response is not the pinned draft prerelease');
+              report.releaseId = release.id; report.releaseURL = release.html_url;
+              const assets = await github.paginate(github.rest.repos.listReleaseAssets, {owner, repo, release_id: release.id, per_page: 100});
+              for (const filename of [nativeName, evidenceName, 'manifest.json', 'SHA256SUMS', 'preservation-coverage.json']) {
+                const data = fs.readFileSync(path.join(directory, filename));
+                const expectedHash = hash(data);
+                const existing = assets.filter(asset => asset.name === filename);
+                check(existing.length <= 1, `Duplicate release asset ${filename}`);
+                let asset = existing[0];
+                if (!asset) {
+                  const current = await github.rest.repos.getRelease({owner, repo, release_id: release.id});
+                  check(current.data.draft === true && current.data.prerelease === true && current.data.tag_name === tag, 'Draft state changed; refuse further upload');
+                  asset = (await github.rest.repos.uploadReleaseAsset({owner, repo, release_id: release.id, name: filename,
+                    data, headers: {'content-type': filename.endsWith('.zip') ? 'application/zip' : 'application/octet-stream', 'content-length': data.length}})).data;
+                }
+                check(asset && typeof asset === 'object' && asset.name === filename && Number.isSafeInteger(asset.id) && asset.id > 0, `Stored ${filename} asset identity mismatch; no overwrite attempted`);
+                check(asset.size === data.length, `Stored ${filename} size mismatch; no overwrite attempted`);
+                const stored = await download(`/repos/${owner}/${repo}/releases/assets/${asset.id}`, data.length, 'release-asset');
+                check(stored.length === data.length && hash(stored) === expectedHash, `Stored ${filename} read-back hash mismatch; no overwrite attempted`);
+                report.assets.push({name: filename, assetId: asset.id, bytes: data.length, sha256: expectedHash, readBackVerified: true});
+              }
+              // A draft must stay a draft; this workflow never publishes or replaces it.
+              const final = await github.rest.repos.getRelease({owner, repo, release_id: release.id});
+              check(final.data.draft === true && final.data.prerelease === true && final.data.tag_name === tag && final.data.body?.includes(marker), 'Draft state changed during preservation');
+              report.status = 'passed-draft-partial-preservation';
+              core.notice(`Verified draft development preservation ${tag}; partial native asset coverage only.`);
+            } catch (error) {
+              report.status = 'failed'; report.error = String(error.message).split(token).join('[redacted]');
+              core.setFailed(report.error);
+            } finally {
+              fs.writeFileSync(path.join(directory, 'report.json'), JSON.stringify(report, null, 2) + '\n');
+            }
+      - name: Retain preservation diagnostic
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: milestone-preservation-v0.6.1-${{ github.run_id }}-${{ github.run_attempt }}
+          path: preservation/report.json
+          if-no-files-found: warn
+          retention-days: 30

@@ -1,0 +1,35 @@
+# v0.6.1 native draft preservation — final R3 AUTHOR proposal
+
+**FROZEN PROPOSAL ONLY. No live release, workflow promotion, trigger or push.** Intended new file is `.github/workflows/preserve-v061.yml`; the original `.github/workflows/preserve-milestones.yml` remains SHA256 `90d317a7207b8a6e66e52b016d4e8024a4244730719b0157863ce0b71d31f81f`. Production runtime/art/release files and Git refs were not touched by this author task.
+
+Final workflow SHA256: `70a5bb168df51a5c3b2caa532af89bdce0911e6f21aa26259c2759e5457776ba`.
+
+Root must independently review and explicitly authorize promotion before copying this exact file to the new workflow path. A push changing that path on `codex/lanternbound-production` intentionally runs the fixed privileged preservation job. The intended bootstrap commit contains only that new workflow file; GitHub path filters themselves permit other changed files in the same matching commit. Manual dispatch has only a confirmation boolean, with all identity and payload values hardcoded. No PR trigger, arbitrary refs/URLs, checkout/build/dependencies, artifact execution, replacement/delete/publication or Steam operation exists.
+
+`README-r2.md` retains the comprehensive author specification, live read metadata, identities, qualifications and original 70-case test description. Its R2 hash reference is historical, not the selected final workflow. Original frozen R2 directory `/workspace/scratch/milestone-storage-v061-proposal` remains unchanged. Both initial R1 and R2 workflow/scripts/test results are retained here, and `r2-to-r3.patch` isolates the new five boolean guard edits.
+
+## Why R3 exists
+
+After R2 freeze, the author found `!data.expired` would accept an absent expiry field and truthy draft/prerelease checks would accept string values. Actual fetched GitHub values were correctly typed, so none of the recorded real metadata/pins changed. `r2-guard-baseline.mjs` executes the exact retained R2 script and confirms all five malformed-metadata probes were accepted by R2; their diagnostics remain in `r2-guard-baseline-results/`. This is a control-flow finding, not evidence that GitHub returned malformed fields.
+
+R3 requires artifact `expired === false` and release `draft === true && prerelease === true` at every create/read/pre-upload/final gate. The same five probes now refuse preservation. No pin, download, original bytes, path, release capability, hash, coverage or publication behavior changed.
+
+## Executed checks
+
+- **75 passing exact-inline-JS VM workflow mocks**, saved in `mock-results/` and `mock-summary.json`: fixed identity/ref/trigger/confirmation, native run/head/attempt, both artifact identity/expiry/digest/size, header/stream/body bounds, token-free redirects and sanitized errors, extraction/hash, existing draft refusal/idempotence, no overwrite/delete, upload failure, separate readback corruption for each of five assets, final draft/tag gates, plus strict metadata booleans.
+- **Five R2 baseline guard probes** reproduce the malformed-field acceptance, preserved separately. This is retained negative evidence, not five additional R3 success cases.
+- **12 real tiny-ZIP extraction subprocess probes** execute the unchanged embedded Python extraction with synthetic filename/byte-count CLI arguments. Pass cases select exact nested originals; refusals cover duplicates, absence, empty archive, size, directory, traversal/absolute/backslash, truncated archive and corrupted CRC. Production CLI arguments remain fixed to the real original native ZIP and 183597187 bytes.
+- YAML parsed using available PyYAML BaseLoader; exact trigger/privilege/timeout/action SHA/no run-step/diagnostic policy and inline-script correspondence checked. Node parses the script and Python compiles the exact extraction source. No actionlint or live runner claim.
+- Existing local manifest/checksums/native ZIP/evidence ZIP were SHA256-checked with bounded 1 MiB reads. The original native ZIP is **183597187 bytes**, SHA256 `06e48cce30ccd2a8fcfcc7a829ec79d3fa6b628541a19effa368852df0bce90b`; original evidence is **9545515 bytes**, SHA256 `1741107cb452d08eb9c2f33a02f8ff1c64076776892b512cd075747adff6f047`. No large artifact copy/download occurred.
+
+Mocks use virtual large-payload objects to exercise real control flow without allocating/downloading huge binaries. Metadata/coverage uses actual crypto. This proves guards and declared payload control flow, not actual server transfer, runner memory, asset byte authenticity or remote storage success. The Python probes use real tiny ZIP bytes. Full wrapper metadata digest is not a new live body verification.
+
+## Required later live proof and limits
+
+Verified GitHub reads discovered full native artifact **11132128179**, **192975515 bytes**, SHA256 `ee181194451f10e601742fa4a570303e7ed6e66c79a2a7c58555bb2feb91b8d4`, and original evidence artifact **11131988966** with the exact evidence digest above. Both belong to successful run **36791619534**, attempt1, head **9e6e7d7e76a2ce606acae24d2f6a27c903b54a5f**. They were unexpired at read, expiring respectively **2026-10-30T23:35:07Z** and **2026-10-30T23:34:42Z**. The immutable existing annotated tag is **cb1c3964d4865ae729807fcb3208b6d856bd25fc**, metadata target **83d75e30a90db65db743a4522288607cf45682b1**; source ZIP's recorded source commit **ac877b3e2bacdf5f15bf847b5ddd1d41ec94c476** is distinct. Exact saved reads and local inputs are retained.
+
+The two exact original archives plus unchanged manifest/SHA256SUMS and explicit coverage are the only five verified upload/readback assets. Four Linux/source/web/repacked-Windows archives are outside this operation's verified remote coverage. Downloads require fixed authenticated GitHub API endpoints, token-free single signed redirects, exact bytes/SHA, bounded extraction and 500 MiB free runner disk. Node downloads buffer at most200 MiB bodies; chunks plus concatenation can coexist, so constant-memory streaming is not claimed. Octokit uses its standard authenticated GitHub API/upload endpoints. No runtime dependencies are installed and no downloaded artifact code executes.
+
+Live authorized activation must still verify `passed-draft-partial-preservation`, all five asset readback digests, actual release/asset IDs and a release remaining the exact-tag draft prerelease. Failures may retain partial/unverified draft assets; retry verifies existing bytes and refuses mismatches without clobbering. The diagnostic itself has 30-day Actions retention and should be retained locally. Admins can delete draft releases; this is neither immutable storage nor a complete remote mirror or independent backup. It establishes no commercial/AAA/human-fun/consumer-install/Steam acceptance.
+
+Reproduction helpers regenerate outputs: copy this frozen directory into a new exterior location before rerunning. `FROZEN-FILES.json` hashes all retained input/proposal/evidence/helper files except itself. Read old manifests as historical identities, not manifests for renamed/current R3 output paths.

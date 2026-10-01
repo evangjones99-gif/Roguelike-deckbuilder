@@ -134,13 +134,76 @@ try {
   const settings = await page.evaluate(key => localStorage.getItem(key), settingsKey);
   assert.deepEqual(JSON.parse(settings), {mute: true, volume: 0.01, motion: false});
   mark('seed 121 first-run tutorial and battle through controls');
+  // Observe the asset actually used by the shipped renderer. A separately
+  // decoded relative URL would miss an accidental root-relative runtime URL.
+  await page.evaluate(() => {
+    window.__nativeHunterDraws = [];
+    const original = CanvasRenderingContext2D.prototype.drawImage;
+    window.__nativeHunterDrawRestore = () => {
+      CanvasRenderingContext2D.prototype.drawImage = original;
+    };
+    CanvasRenderingContext2D.prototype.drawImage = function(image, ...args) {
+      if (this.canvas.id === 'arena' && image instanceof HTMLImageElement && image.src.endsWith('/art/hunter-marek-v07-r3.png') &&
+          window.__nativeHunterDraws.length < 128) {
+        const matrix = this.getTransform(), rect = this.canvas.getBoundingClientRect();
+        const [,,sw,sh,dx,dy,dw,dh] = args;
+        const quad = args.length === 8 ? [[dx,dy],[dx+dw,dy],[dx+dw,dy+dh],[dx,dy+dh]].map(([x,y]) => ({
+          x: (matrix.a*x + matrix.c*y + matrix.e) * rect.width / this.canvas.width,
+          y: (matrix.b*x + matrix.d*y + matrix.f) * rect.height / this.canvas.height,
+        })) : [];
+        window.__nativeHunterDraws.push({url: image.src, width: image.naturalWidth,
+          height: image.naturalHeight, source: args.slice(0, 4), canvas: this.canvas.id,
+          destination: args.slice(4), viewport: {width: rect.width, height: rect.height}, quad});
+      }
+      return original.call(this, image, ...args);
+    };
+  });
   await page.locator('[data-ui="new"]').click();
   await page.locator('#seed').fill('121');
   await page.locator('#new-game-form button[type="submit"]').click();
   await expect(page.locator('[data-ui="learned"]')).toBeVisible();
   await page.locator('[data-ui="learned"]').click();
   await page.locator('[data-action="travel"]').first().click();
+  const beforeBinding = JSON.parse(await readSave());
+  const bindingIndex = beforeBinding.hand.indexOf('cairnhound');
+  assert.ok(bindingIndex >= 0, 'Actual starter hand has no Cairn Hound');
+  const expectedBinding = applyAction(beforeBinding, {type: 'play', index: bindingIndex});
   await page.locator('[data-ui="play-card"][data-card="cairnhound"]').first().click();
+  assert.deepEqual(JSON.parse(await readSave()), expectedBinding, 'Binding differs from exact packaged canonical rules');
+  mark('verify actual packaged hunter sheet draws from a local full cell');
+  await expect.poll(() => page.evaluate(() => window.__nativeHunterDraws.length)).toBeGreaterThan(0);
+  evidence.hunterFigure = await page.evaluate(() => {
+    const draws = window.__nativeHunterDraws;
+    window.__nativeHunterDrawRestore();
+    delete window.__nativeHunterDrawRestore;
+    delete window.__nativeHunterDraws;
+    return {method: 'Test-only observation of actual runtime Canvas2D drawImage; original drawing is delegated unchanged', draws};
+  });
+  for (const draw of evidence.hunterFigure.draws) {
+    assert.equal(new URL(draw.url).protocol, 'file:');
+    assert.ok(new URL(draw.url).pathname.endsWith('/dist/art/hunter-marek-v07-r3.png'),
+      'Runtime hunter URL escaped the packaged dist directory');
+    assert.equal(draw.width, 1536); assert.equal(draw.height, 1024);
+    assert.equal(draw.canvas, 'arena');
+    assert.ok(Number.isFinite(draw.viewport.width) && draw.viewport.width > 0 &&
+      Number.isFinite(draw.viewport.height) && draw.viewport.height > 0);
+    assert.equal(draw.destination.length, 4);
+    assert.ok(draw.destination.every(Number.isFinite));
+    assert.ok(draw.destination[2] > 0 && draw.destination[3] > 0);
+    assert.equal(draw.source.length, 4);
+    assert.equal(draw.source[2], 512); assert.equal(draw.source[3], 512);
+    assert.ok(Number.isInteger(draw.source[0]) && draw.source[0] >= 0 && draw.source[0] % 512 === 0 &&
+      draw.source[0] + 512 <= draw.width && Number.isInteger(draw.source[1]) && draw.source[1] >= 0 &&
+      draw.source[1] % 512 === 0 && draw.source[1] + 512 <= draw.height,
+      'Packaged hunter source cell escapes the original six-cell sheet');
+    assert.equal(draw.quad.length, 4);
+    for (const point of draw.quad) {
+      assert.ok(Number.isFinite(point.x) && Number.isFinite(point.y));
+      assert.ok(point.x >= -0.01 && point.x <= draw.viewport.width + 0.01 &&
+        point.y >= -0.01 && point.y <= draw.viewport.height + 0.01,
+        'Packaged hunter full-cell draw leaves the actual canvas viewport');
+    }
+  }
   mark('verify packaged regional keyboard and nested modal focus');
   const uncommandedSave = await readSave();
   const uncommanded = JSON.parse(uncommandedSave);

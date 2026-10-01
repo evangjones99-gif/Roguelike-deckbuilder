@@ -1,0 +1,128 @@
+{
+  "status": "unshipped prospective diagnostic startingkits; not earned acquisitions or runtimeproposal approval",
+  "declaredAtUTC": "2026-09-30T23:44:39.575127+00:00",
+  "seedRange": [
+    58001,
+    58012
+  ],
+  "seeds": [
+    58001,
+    58002,
+    58003,
+    58004,
+    58005,
+    58006,
+    58007,
+    58008,
+    58009,
+    58010,
+    58011,
+    58012
+  ],
+  "seedScope": "New declaredcohort notfoundin inspected active scripts/tests/docs or frozen0.5MLrecords; no proof of globally untouched external history",
+  "difficulty": 1,
+  "worldGenerations": [
+    1,
+    2
+  ],
+  "policies": [
+    "existing-heuristic-combat",
+    "frozen-0.5-learned-combat"
+  ],
+  "acquisitionArms": [
+    "skip-rewards",
+    "frozen-ML-rewards"
+  ],
+  "kits": [
+    {
+      "id": "default",
+      "title": "Default balanced warrant",
+      "deck": [
+        "cairnhound",
+        "cairnhound",
+        "fenstalker",
+        "ashwidow",
+        "briarcolossus",
+        "scour",
+        "scour",
+        "ironward",
+        "ironward",
+        "sutures",
+        "sunder",
+        "survey"
+      ]
+    },
+    {
+      "id": "pursuit",
+      "title": "Pursuit seal",
+      "deck": [
+        "cairnhound",
+        "cairnhound",
+        "gravehound",
+        "fenstalker",
+        "scour",
+        "scour",
+        "ironward",
+        "ironward",
+        "sunder",
+        "killcommand",
+        "survey",
+        "edict"
+      ],
+      "identity": "Unarmored-target hound commands; armorstrip then freecommands; Ready and Edict amplify limitedbindingcrew. Fragile versusretaliation andbroadbreath; no creaturehealing."
+    },
+    {
+      "id": "vigil",
+      "title": "Iron vigil",
+      "deck": [
+        "briarcolossus",
+        "briarcolossus",
+        "fenstalker",
+        "cairnhound",
+        "scour",
+        "scour",
+        "ironward",
+        "ironward",
+        "sutures",
+        "aegis",
+        "sunder",
+        "survey"
+      ],
+      "identity": "Colossus commandward plusstalker sustain; Aegis andSutures maintain frontline. Higherbindingenergy/setup andlowoffense; block-ignoringRevenant pressure counter."
+    },
+    {
+      "id": "ash",
+      "title": "Ash writ",
+      "deck": [
+        "ashwidow",
+        "ashwidow",
+        "cairnhound",
+        "fenstalker",
+        "scour",
+        "scour",
+        "ironward",
+        "ironward",
+        "sunder",
+        "witchfire",
+        "silence",
+        "survey"
+      ],
+      "identity": "Widow-enhanced targetedtools, Silence deniesreinforcements/breath; Witchfire clearsminions butgetsnowidowtargetbonus. Fragile4bindings, noSutures/Aegis; repeatbreath/setupdraw vulnerability."
+    }
+  ],
+  "episodeCount": 384,
+  "maxAcceptedActions": 700,
+  "noncombat": "ExactfrozenMLoutsidepolicy shared by bothcombatpolicies: camp-first/battle routes, rest/train conditional, forage event, leave shops. skip-rewards arm overrides only rewardwithnull. No optimization acrosskits.",
+  "matchedWorldLimit": "Kind2 matchedcommon node/kind offers/encounters expectedsame; kind1 intentionallyshared RNG means customdeck differences canrerollworld. Reportseparately, never claimidenticalkind1worlds.",
+  "evaluation": "Preserveallresults and fullinitial+acceptedstate/action/actualevent traces; legalmembership,purity,validateState,JSONsave,applyActionWithEvents-equivalence peracceptedaction; baselineconstructor unchanged. Pairedintroducedlosses/HPdamage/turns/actions/minHP/commandtargetdamage andcommonworlddifferences.",
+  "noTraining": true,
+  "sourceHashes": {
+    "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+    "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+    "src/world-rng.ts": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+    "scripts/simulate.ts": "3f9922453359b70dfe9c74fddf8414c864602de810a36bd78ee8cef76917e81b",
+    "scripts/learn-policy.ts": "aa1fa0e68b942e19b75b3f7dfe6a2036d5edc26e96f3976ad1f1688e9388a77d",
+    "reviews/ml-policy-0.5-r1/policy.json": "bd6c70f5bdf5f04d8edcb49f32737a485a62d364665a3c834759ad4c6368ddc6"
+  },
+  "frozenMLNegativeContext": "0.5learned rescued1/96nearceiling butslower3.45actions/0.18turns;26sharedwinslowerHP,maxdrop17. Policyfavorscamps/skips shops; not human/commercialfun andtrainedonlykind2/defaultstarter."
+}

@@ -1,0 +1,48 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+electron.launch: Process failed to launch!
+Call log:
+[2m  - <launching> /workspace/Roguelike-deckbuilder/node_modules/electron/dist/electron --inspect=0 --remote-debugging-port=0 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/tmp/hollowpact-url-rejection-197771-1790814380325 .[22m
+[2m  - <launched> pid=197820[22m
+[2m  - [pid=197820][err] [197820:1001/002620.784350:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory[22m
+[2m  - [pid=197820][err] [197820:1001/002620.812294:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")[22m
+[2m  - [pid=197820][err] Debugger listening on ws://127.0.0.1:44317/ebe328de-d020-4d82-a334-cba58903eafc[22m
+[2m  - [pid=197820][err] For help, see: https://nodejs.org/learn/getting-started/debugging[22m
+[2m  - <ws connecting> ws://127.0.0.1:44317/ebe328de-d020-4d82-a334-cba58903eafc[22m
+[2m  - <ws connected> ws://127.0.0.1:44317/ebe328de-d020-4d82-a334-cba58903eafc[22m
+[2m  - [pid=197820][err] Debugger attached.[22m
+[2m  - [pid=197820][err] [197820:1001/002620.873214:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY[22m
+[2m  - [pid=197820][err] [197820:1001/002620.873230:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.[22m
+[2m  - <ws disconnected> ws://127.0.0.1:44317/ebe328de-d020-4d82-a334-cba58903eafc code=1005 reason=[22m
+[2m  - [pid=197820] <kill>[22m
+[2m  - [pid=197820] <will force kill>[22m
+[2m  - [pid=197820] <process did exit: exitCode=null, signal=SIGTRAP>[22m
+[2m  - [pid=197820] starting temporary directories cleanup[22m
+[2m  - [pid=197820] finished temporary directories cleanup[22m
+
+    at async file:///workspace/Roguelike-deckbuilder/reviews/root-v0.7-native-file-url-rejection/probe.mjs:7:11 {
+  log: [
+    '  - <launching> /workspace/Roguelike-deckbuilder/node_modules/electron/dist/electron --inspect=0 --remote-debugging-port=0 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/tmp/hollowpact-url-rejection-197771-1790814380325 .',
+    '  - <launched> pid=197820',
+    '  - [pid=197820][err] [197820:1001/002620.784350:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory',
+    '  - [pid=197820][err] [197820:1001/002620.812294:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")',
+    '  - [pid=197820][err] Debugger listening on ws://127.0.0.1:44317/ebe328de-d020-4d82-a334-cba58903eafc',
+    '  - [pid=197820][err] For help, see: https://nodejs.org/learn/getting-started/debugging',
+    '  - <ws connecting> ws://127.0.0.1:44317/ebe328de-d020-4d82-a334-cba58903eafc',
+    '  - <ws connected> ws://127.0.0.1:44317/ebe328de-d020-4d82-a334-cba58903eafc',
+    '  - [pid=197820][err] Debugger attached.',
+    '  - [pid=197820][err] [197820:1001/002620.873214:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:257] Missing X server or $DISPLAY',
+    '  - [pid=197820][err] [197820:1001/002620.873230:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.',
+    '  - <ws disconnected> ws://127.0.0.1:44317/ebe328de-d020-4d82-a334-cba58903eafc code=1005 reason=',
+    '  - [pid=197820] <kill>',
+    '  - [pid=197820] <will force kill>',
+    '  - [pid=197820] <process did exit: exitCode=null, signal=SIGTRAP>',
+    '  - [pid=197820] starting temporary directories cleanup',
+    '  - [pid=197820] finished temporary directories cleanup'
+  ],
+  name: 'Error'
+}
+
+Node.js v24.19.0
