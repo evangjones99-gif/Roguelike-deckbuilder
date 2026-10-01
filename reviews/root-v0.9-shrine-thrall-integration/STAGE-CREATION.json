@@ -1,0 +1,496 @@
+{
+  "baselineDigest": "801db1ce4000c15268569cb047e7388148a65105c7b86208611ceb3aff40f029",
+  "animationComponentDigest": "bf950632b1fef8d9d0ec955aaaea4c431e022a5262dd09f8dff5c95d38804ee8",
+  "selectedInputs": [
+    "THIRD-PARTY.md",
+    "public/art/PROVENANCE.json",
+    "src/art.ts",
+    "public/art/bone-thrall-poses-v09-r2.png"
+  ],
+  "stagedSourceDigest": "fe3f5604e93e8e4cc148b8ac13dcf5a94954d43b5a1a0308f7d972dd1bcd593d",
+  "inputs": 79,
+  "temporarySourceStage": "/dev/shm/hollowpact-shrine-thrall-v09-root-r1",
+  "preflightFreeSHM": 9441349632,
+  "preflightCgroupHeadroom": 1468739584,
+  "requiredCgroupHeadroom": 939524096,
+  "sourceBuildWorkingBudget": 402653184,
+  "memoryReserve": 536870912,
+  "mediaAliasContract": "Read-only individual exact media references. No full-builder qualification; manual native ASAR input must regularize files. Frozen originals remain unchanged. Stage is ephemeral memory-backed research, not archival backup. This small build admission does NOT authorize a full source restoration trial.",
+  "records": [
+    {
+      "path": "THIRD-PARTY.md",
+      "sha256": "99d32c9488679831fc1701db606acf2cc5e4e063afba4eefffc5114df3ffd3f2",
+      "source": "/tmp/hollowpact-bone-thrall-variable-pose-v09-author-r1/THIRD-PARTY.md",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "desktop/audio-lifecycle.cjs",
+      "sha256": "b699b009cfd66160765e08fb502faa2b0fb9c64ac03820f71dc7ff989c65f2e6",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/desktop/audio-lifecycle.cjs",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "desktop/icon.png",
+      "sha256": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/desktop/icon.png",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "desktop/main.cjs",
+      "sha256": "dfe5dde98ba3c75365f20db28be970882177d2cc7b11c6ce0d38cbf639c292b8",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/desktop/main.cjs",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "index.html",
+      "sha256": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/index.html",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "e51d5414d74efd35022f3bb0efed99b9b28eff265a9c011204f348079e1d4da7",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/package-lock.json",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "package.json",
+      "sha256": "10943d910af6545a70be222684a9876961358c6962d379b0536efd006e988c93",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/package.json",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/art/PROVENANCE.json",
+      "sha256": "ea905dda83fd1b0f5b3404d51c464fcc1008d60df04be69bb5863aeb496f5e30",
+      "source": "/tmp/hollowpact-bone-thrall-variable-pose-v09-author-r1/public/art/PROVENANCE.json",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/art/abbey-courtyard.png",
+      "sha256": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/art/abbey-courtyard.png",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/art/adversaries-atlas.png",
+      "sha256": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/art/adversaries-atlas.png",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/art/bone-thrall-poses-v09-r2.png",
+      "sha256": "440bdad1f593538aeb1a5e2a44e5f611bbd8339f36146b11a069a72c4c2f93b2",
+      "source": "/tmp/hollowpact-bone-thrall-variable-pose-v09-author-r1/public/art/bone-thrall-poses-v09-r2.png",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/art/bone-thrall-v09-r1.png",
+      "sha256": "3697dd4cc89f1550e0688b34bb421939988c90ab78832ce83d53ddb81b372dfd",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/art/bone-thrall-v09-r1.png",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/art/companions-atlas.png",
+      "sha256": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/art/companions-atlas.png",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/art/hound-poses.png",
+      "sha256": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/art/hound-poses.png",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/art/hunter-marek-v07-r3.png",
+      "sha256": "4492577d3bacc868e9b66da0abf25915bdeaf68bc8f5c31ae8a1d8db485f3c53",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/art/hunter-marek-v07-r3.png",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/art/hunter-portrait.png",
+      "sha256": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/art/hunter-portrait.png",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/art/ossuary-crypt-v08-r2.png",
+      "sha256": "ff9818614003e9432ee1868c2f60b336d0b5dfe63f5c01e380832f1e880c4b00",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/art/ossuary-crypt-v08-r2.png",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/art/pact-seal.png",
+      "sha256": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/art/pact-seal.png",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/art/tool-vignettes.png",
+      "sha256": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/art/tool-vignettes.png",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/art/warleader-poses.png",
+      "sha256": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/art/warleader-poses.png",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/bind_seal-1.wav",
+      "sha256": "8b0085d42be3e3d69545046349b5fe6b103ea36cb5805fa6deb64463e70d9783",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/bind_seal-1.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/bind_seal-2.wav",
+      "sha256": "55078560550519dc0ba3b2c4c8d76ee72be94f4681a6375f6e0f4c5bf4218a26",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/bind_seal-2.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/bind_seal-3.wav",
+      "sha256": "34e5d74e7a289717a7a5145dd7cce1ff94f77f6f2843aae5766a2a27b3f05dba",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/bind_seal-3.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/camp_settle-1.wav",
+      "sha256": "2599245492ec5ded74090654e88f7aafba69e8fe8e4402038ae31d00c29c504c",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/camp_settle-1.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/camp_settle-2.wav",
+      "sha256": "47ea7cf2ab1bd1cbdf5d4f1af50734c2ad0ee7e0b22011b381c5af0770825a90",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/camp_settle-2.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/camp_settle-3.wav",
+      "sha256": "72dc7cddbe11cf82d220450a677a0465e544081a6ba48a16f7fe605ab4584947",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/camp_settle-3.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/dragon_bite-1.wav",
+      "sha256": "bc6a5f675e26aac49fb67a36ae0e5ecfb84d66d72c6b36f8e960b44586c6fd5f",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/dragon_bite-1.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/dragon_bite-2.wav",
+      "sha256": "ab4cedbdb08f802c73ed6e6bee0209f4c6741fdb20792f18654cae053bb5ee19",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/dragon_bite-2.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/dragon_bite-3.wav",
+      "sha256": "ddf44e51d30a2fb307e0ae69455abb41ed43eac61f038d1e303ceac86a399653",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/dragon_bite-3.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/dragon_breath-1.wav",
+      "sha256": "617666747e860c5ace47d6a64eee6757b82f0cf1f884ee3f87400137b49517fe",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/dragon_breath-1.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/dragon_breath-2.wav",
+      "sha256": "5da689bc4a5e6bf6568b3d681574304e056719c1b837609897fcbd489384fd94",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/dragon_breath-2.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/dragon_breath-3.wav",
+      "sha256": "33993012d5833daca49a2642bad4399967fd65ca685dcbe60e246933414b8f56",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/dragon_breath-3.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/hound_bite-1.wav",
+      "sha256": "bdbeb02f109dff3fbd9d7dfa502c00f3e8ea53a441d6cb07aaa6ca0dc54b843d",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/hound_bite-1.wav",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/audio/hound_bite-2.wav",
+      "sha256": "947e438df5cbd647573da7a86991767d1c5b6b09d519f2784593c8f17cc37715",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/hound_bite-2.wav",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/audio/hound_bite-3.wav",
+      "sha256": "2544e1b1767154b4a976a1e04b7267ed1186c60f3ab8e32308d4d490084f5c3f",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/hound_bite-3.wav",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/audio/hunter_wound-1.wav",
+      "sha256": "e9abd091201a2ca8c3a417c2571266ef9f05d85dde1120c3375ec979de5a2a90",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/hunter_wound-1.wav",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/audio/hunter_wound-2.wav",
+      "sha256": "25de0a4fdf7b768a219a2f9221671ed36f72f812afe27c8dabb9599551479f1b",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/hunter_wound-2.wav",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/audio/hunter_wound-3.wav",
+      "sha256": "9de18a01855243f6b01415f25398d9eb77dc66defd9cf7daa76036c7f93a7266",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/hunter_wound-3.wav",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/audio/neutral_hit-1.wav",
+      "sha256": "ee0f62318fb4154fe5d39bb3c56995154f8e0451668dd37be0c57f357f5128ff",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/neutral_hit-1.wav",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/audio/neutral_hit-2.wav",
+      "sha256": "1b378068b10eefbdb44b3762355d530f085cccaa75d26c58660007af2fe8f471",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/neutral_hit-2.wav",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/audio/neutral_hit-3.wav",
+      "sha256": "711ddc0b49ba5666db0b8292225a0a02efefed5a204d26c7c4f2a0be38826f98",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/neutral_hit-3.wav",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/audio/scour_tool-1.wav",
+      "sha256": "4218c65e41ba2c6845eda070493809cfe5132dc2ffa86bb51e9f83429738dcfc",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/scour_tool-1.wav",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/audio/scour_tool-2.wav",
+      "sha256": "15bbace99c04cb185a4ddb4c244983b4f2941f8eda79b12ab7518f2701850121",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/scour_tool-2.wav",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/audio/scour_tool-3.wav",
+      "sha256": "6ba61d67f83c11fda30b40962eced74457029bf53c97583ec69035af15c6d670",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/scour_tool-3.wav",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/audio/summon_arrival-1.wav",
+      "sha256": "0a42eef1fd55409dc68c1dc3ac917148a310ebfb97078e8d74e992133b9bdb63",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/summon_arrival-1.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/summon_arrival-2.wav",
+      "sha256": "16106dea7e679a3b455c6cea80374b85c71f5babbcc6cf63258cdeb5f20d871b",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/summon_arrival-2.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/summon_arrival-3.wav",
+      "sha256": "068fe50e7d86761f71b3bb3459b263df6f1fcc958e767e64a9eb60f782a4e7f5",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/summon_arrival-3.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/ui_back-1.wav",
+      "sha256": "5c16ed5b7e4d9dfe7413a58f0ede66bfa92c3d4fb2ad1743429b54519e2624b1",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/ui_back-1.wav",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/audio/ui_back-2.wav",
+      "sha256": "62d612a3df5b500aa45b48796e4981479ea1ef881adc810263b4469718248749",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/ui_back-2.wav",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/audio/ui_back-3.wav",
+      "sha256": "3edef85d3583003e0cd4d1ac49b56948104b55c555db9d16497118a769e75ce5",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/ui_back-3.wav",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/audio/ui_confirm-1.wav",
+      "sha256": "94500eed8b648120071064bf3ef0ac7382e4a505f1b85f3e08a9db7a84dab25d",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/ui_confirm-1.wav",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/audio/ui_confirm-2.wav",
+      "sha256": "55946b44e3998d5900ae8b86edc2fc82af2d1a5be669bf2f3ceeb7143879408a",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/ui_confirm-2.wav",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/audio/ui_confirm-3.wav",
+      "sha256": "39b1cc1ee9f97f2a9c4118df5d3d64328390d7236ef72ce5f05df51c6770fdf4",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/ui_confirm-3.wav",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "public/audio/warlord_iron-1.wav",
+      "sha256": "e9f2017feed9fa88789e53069f34e56ad3fd6d050e95158dbc51505e37e4d0f9",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/warlord_iron-1.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/warlord_iron-2.wav",
+      "sha256": "84489829dffbac75dfeadea43a2609e83387d658be6b41d6c83fc4002ece7eb9",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/warlord_iron-2.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/warlord_iron-3.wav",
+      "sha256": "a2d325e9f2c012fced81b4c4e084229e30d17381c954e1ab8454ba0ae952a525",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/warlord_iron-3.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/wraith_magic-1.wav",
+      "sha256": "2c76ef03a61832b44d852fa1eeb6b15150ebcd4d3c7b33158dea06fc477f71e4",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/wraith_magic-1.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/wraith_magic-2.wav",
+      "sha256": "edd66253ae5d51e07a761dbd8e3fb9348d0e0066663f4b6756d7ff5a151af0d7",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/wraith_magic-2.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "public/audio/wraith_magic-3.wav",
+      "sha256": "adfb375ae2b98e6d38f22f79ba00ceed1c7050b56ea1bb5a537f54e6e9895a24",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/public/audio/wraith_magic-3.wav",
+      "kind": "individual immutable media alias"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "sha256": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/scripts/build.mjs",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "src/arena.ts",
+      "sha256": "22c52775fc1923a65202e07825b4392be2ca6c8f0a7e5038ea50dea07b182e7f",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/src/arena.ts",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "src/art.ts",
+      "sha256": "cba434912809cf2e644c0e43338f48ea1a50a7bebe1bc1f1cebbb69f1eb995fd",
+      "source": "/tmp/hollowpact-bone-thrall-variable-pose-v09-author-r1/src/art.ts",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "src/audio-host.ts",
+      "sha256": "c054da07280183da53d6636ddc2419cb7fa37a39eb7f8d437cb4d0ad180bb6c1",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/src/audio-host.ts",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "src/audio-player.d.mts",
+      "sha256": "259fe144e9d4f1be8b4a0959ef82d29cf47e697564dec451b63405c8477807fb",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/src/audio-player.d.mts",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "src/audio-player.mjs",
+      "sha256": "1075a68e62133950c9c971a2cac081d12c12ac6b22459f8d955bf37e5e9a5c4a",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/src/audio-player.mjs",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "src/audio-routing.d.mts",
+      "sha256": "d0bef0cc502a1e7973a0bb889c0a62e8ec1115eebe84c3ac02e242f79bcd6acc",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/src/audio-routing.d.mts",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "src/audio-routing.mjs",
+      "sha256": "8aa67961fffee6688bb573c38f3f9623bb55ad0ba1d54912186a5443a682aeb8",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/src/audio-routing.mjs",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "src/content.ts",
+      "sha256": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/src/content.ts",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "src/encounter-environment.ts",
+      "sha256": "82ec3d4a653dea8ceb89b93d8e157d483ab9d358bcd4a3b97942292c25ce2139",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/src/encounter-environment.ts",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "src/engine.ts",
+      "sha256": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/src/engine.ts",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "src/hound-jaw.ts",
+      "sha256": "f42686423ff0b929cd441dd63c1f23756fe145f911e0a3b5cd1b3806aa5c7a9c",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/src/hound-jaw.ts",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "src/hunter-presence.ts",
+      "sha256": "de59baa1c4a4f4913550fe52b704c77abf4a1ead2527482a0c2e72cccda140c5",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/src/hunter-presence.ts",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "src/input.ts",
+      "sha256": "b69d87d1a5a71a15d3b29cdfcdbb3f0b33e739f3aa5d8ba82d9cfb470bbdb415",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/src/input.ts",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "src/main.ts",
+      "sha256": "e4aa139c9cf5dc80f1a4aafa10ab9fbc302da1d926389904bdb3b63cf54d5d52",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/src/main.ts",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "src/style.css",
+      "sha256": "2efb77f760000f60895a81a5cd1389dbfc7ac8e70cffc2fdfedba48225371bf3",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/src/style.css",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "src/tool-art.ts",
+      "sha256": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/src/tool-art.ts",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "src/world-rng.ts",
+      "sha256": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/src/world-rng.ts",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/tsconfig.json",
+      "kind": "regular source copy"
+    },
+    {
+      "path": "vite.config.ts",
+      "sha256": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75",
+      "source": "/tmp/hollowpact-event-availability-v09-root-r2/vite.config.ts",
+      "kind": "regular source copy"
+    }
+  ],
+  "promotion": "NOT selected in root; fresh combined gameplay/visual/native gates required; mobile0fbb withheld for independent selected-preview overflow."
+}

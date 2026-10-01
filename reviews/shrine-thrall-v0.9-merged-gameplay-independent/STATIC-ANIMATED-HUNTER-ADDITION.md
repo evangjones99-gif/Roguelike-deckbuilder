@@ -1,0 +1,1 @@
+Before any browser launch, R3 adds a separately labelled hunter-only fixture within the command/shrine context so actual animated and reduced-motion hunter strikes are both independently observed. The same five paired contexts remain. All prior unexecuted fixtures/harnesses are retained unchanged; no production source edits.

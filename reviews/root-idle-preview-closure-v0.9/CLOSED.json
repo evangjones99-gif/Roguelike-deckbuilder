@@ -1,0 +1,117 @@
+{
+  "before": {
+    "current": 16196952064,
+    "limit": 17179869184,
+    "events": "low 0\nhigh 0\nmax 256669\noom 0\noom_kill 0\noom_group_kill 0\n"
+  },
+  "scope": "Graceful shutdown of seven exact root-owned obsolete preview children after reviewers confirm none of these ports are needed. Baseline4632 and candidate4670 remain. All stages/source/output/logs retained; only runtime hosts stop. No global process kill, cache hint, source deletion or memory guard waiver.",
+  "hosts": [
+    {
+      "pid": 315194,
+      "uid": 1000,
+      "cwd": "/tmp/hollowpact-scene-jaw-v09-root-r1",
+      "cmdline": "node /tmp/hollowpact-scene-jaw-v09-root-r1/node_modules/.bin/vite preview --host 0.0.0.0 --port 4173 --strictPort",
+      "startTicks": "3676485",
+      "state": "S",
+      "port": 4173,
+      "retainedStage": "/tmp/hollowpact-scene-jaw-v09-root-r1",
+      "provenanceSHA256": "ecd7f0032c66e9421e60ae665453e2aab68086601e098d3e82865278a57aba84",
+      "runtimeSourceDigest": "efef7131d1c0cbb5cc0420c70e3d2afd9c9dfaf3013dfb8761e6bb8b00d3b525",
+      "restartCommand": "npm run preview -- --port 4173 --strictPort",
+      "processClosed": true
+    },
+    {
+      "pid": 322550,
+      "uid": 1000,
+      "cwd": "/tmp/hollowpact-relic-discovery-v09-root-r1",
+      "cmdline": "node /tmp/hollowpact-relic-discovery-v09-root-r1/node_modules/.bin/vite preview --host 0.0.0.0 --port 4597 --strictPort",
+      "startTicks": "3698809",
+      "state": "S",
+      "port": 4597,
+      "retainedStage": "/tmp/hollowpact-relic-discovery-v09-root-r1",
+      "provenanceSHA256": "b5f4c111276ebcbb5be250412391bd0c907350eb1cd544f91e546a284b3ff162",
+      "runtimeSourceDigest": "14fdade55845c4e6a2b0714dc63bd2522605c47140f3521ae9baa99b87034d97",
+      "restartCommand": "npm run preview -- --port 4597 --strictPort",
+      "processClosed": true
+    },
+    {
+      "pid": 334285,
+      "uid": 1000,
+      "cwd": "/tmp/hollowpact-final-kill-v09-root-r1",
+      "cmdline": "node /tmp/hollowpact-final-kill-v09-root-r1/node_modules/.bin/vite preview --host 0.0.0.0 --port 4610 --strictPort",
+      "startTicks": "3737422",
+      "state": "S",
+      "port": 4610,
+      "retainedStage": "/tmp/hollowpact-final-kill-v09-root-r1",
+      "provenanceSHA256": "15ba7c95728060573e9d6a720db5164c26c638ae6edea172364e6a362c6cacc6",
+      "runtimeSourceDigest": "8a33f950ed57093a222baf9b7883a5c1ccf2deb2e8412429ef0fe05d370467cb",
+      "restartCommand": "npm run preview -- --port 4610 --strictPort",
+      "processClosed": true
+    },
+    {
+      "pid": 345445,
+      "uid": 1000,
+      "cwd": "/tmp/hollowpact-relic-discovery-v09-root-r2",
+      "cmdline": "node /tmp/hollowpact-relic-discovery-v09-root-r2/node_modules/.bin/vite preview --host 0.0.0.0 --port 4601 --strictPort",
+      "startTicks": "3843388",
+      "state": "S",
+      "port": 4601,
+      "retainedStage": "/tmp/hollowpact-relic-discovery-v09-root-r2",
+      "provenanceSHA256": "25c46caed117d2104b0bd45d593d1da7ddd01a2f50a5965e6c361393042c9fff",
+      "runtimeSourceDigest": "fcb15810c0af49642bc320f17c312fa01bc393c6dd316f2e27f83309ca0d798d",
+      "restartCommand": "npm run preview -- --port 4601 --strictPort",
+      "processClosed": true
+    },
+    {
+      "pid": 350474,
+      "uid": 1000,
+      "cwd": "/tmp/hollowpact-relic-bone-v09-root-r1",
+      "cmdline": "node /tmp/hollowpact-relic-bone-v09-root-r1/node_modules/.bin/vite preview --host 0.0.0.0 --port 4605 --strictPort",
+      "startTicks": "3874986",
+      "state": "S",
+      "port": 4605,
+      "retainedStage": "/tmp/hollowpact-relic-bone-v09-root-r1",
+      "provenanceSHA256": "6ea7773468225c546fd8fe421066f4dbd77ef8f55ac2caded8a131e8707ef5f7",
+      "runtimeSourceDigest": "4bfa417ad790dd88a18868e10e7574666ae8bfc3187bdab1df4947c31231de61",
+      "restartCommand": "npm run preview -- --port 4605 --strictPort",
+      "processClosed": true
+    },
+    {
+      "pid": 369788,
+      "uid": 1000,
+      "cwd": "/tmp/hollowpact-fallback-cards-v09-root-r1",
+      "cmdline": "node /tmp/hollowpact-fallback-cards-v09-root-r1/node_modules/.bin/vite preview --host 0.0.0.0 --host 127.0.0.1 --port 4630 --strictPort",
+      "startTicks": "4037302",
+      "state": "S",
+      "port": 4630,
+      "retainedStage": "/tmp/hollowpact-fallback-cards-v09-root-r1",
+      "provenanceSHA256": "86f11e0e3d38e255e65c33134179043061ca39fb443f173779a14cca0f6716f7",
+      "runtimeSourceDigest": "201d90d522c4f170cfc54d22910e718603ff2a88393ac3151ecd4ea6faf6df18",
+      "restartCommand": "npm run preview -- --port 4630 --strictPort",
+      "processClosed": true
+    },
+    {
+      "pid": 375459,
+      "uid": 1000,
+      "cwd": "/tmp/hollowpact-event-availability-v09-root-r1",
+      "cmdline": "node /tmp/hollowpact-event-availability-v09-root-r1/node_modules/.bin/vite preview --host 0.0.0.0 --host 127.0.0.1 --port 4631 --strictPort",
+      "startTicks": "4097107",
+      "state": "S",
+      "port": 4631,
+      "retainedStage": "/tmp/hollowpact-event-availability-v09-root-r1",
+      "provenanceSHA256": "afb778ec1e375bcb83179543641d76947ab35c80c7c1e8361b2b64de4755026b",
+      "runtimeSourceDigest": "bc4c2d1903c77385a90563c276eacba197603111f150ceb0db32663d3bd65f1b",
+      "restartCommand": "npm run preview -- --port 4631 --strictPort",
+      "processClosed": true
+    }
+  ],
+  "after": {
+    "current": 15458111488,
+    "limit": 17179869184,
+    "events": "low 0\nhigh 0\nmax 256669\noom 0\noom_kill 0\noom_group_kill 0\n"
+  },
+  "observedHeadroomBefore": 982917120,
+  "observedHeadroomAfter": 1721757696,
+  "observedDifference": 738840576,
+  "qualification": "Measured cgroup interval difference, not exclusive attribution to each RSS value; no full historical byte rehash. All seven stage provenance bodies still exact."
+}
