@@ -1,0 +1,57 @@
+{
+  "scope": "Only two redundant uncompressed working datasets relocated with original-path symlinks; exact lossless durable gzip originals AND canonical copies preserved. All93 original study record contents and original manifest unchanged. Temporary uncompressed comparisons are recoverable from durable compressed bytes, not another durable backup. inode/lstat/location change is explicit. No old version/art/report/dataset content deleted.",
+  "pairs": [
+    {
+      "rawPath": "/workspace/scratch/hound-animation-v08/renderer-comparison-r3.json",
+      "gzipPath": "/workspace/scratch/hound-animation-v08/renderer-comparison-r3.json.gz",
+      "raw": {
+        "bytes": 92205657,
+        "sha256": "a86828b78db64ac203ecae334aafe7de32d1aeda4c3a3cf736ede2ba7afc624c"
+      },
+      "gzip": {
+        "bytes": 3375736,
+        "sha256": "80f7f131c4eeea4a9dd16210de56ce4a982423e49b8517b092d4e753bb13a91e"
+      },
+      "fullyStreamDecompressed": {
+        "bytes": 92205657,
+        "sha256": "a86828b78db64ac203ecae334aafe7de32d1aeda4c3a3cf736ede2ba7afc624c"
+      },
+      "exactRawAndManifestMatch": true,
+      "rawMode": "0o600",
+      "gzipMode": "0o600",
+      "temporaryUncompressedPath": "/tmp/hollowpact-retained-hound-datasets-v08-r1/renderer-comparison-r3.json",
+      "originalPathSymlinkTarget": "/tmp/hollowpact-retained-hound-datasets-v08-r1/renderer-comparison-r3.json",
+      "canonicalDurableGzipPath": "reviews/hound-v0.8-retained-datasets/renderer-comparison-r3.json.gz",
+      "beforeAfterMode": "0o600",
+      "allBeforeAfterAndDecompressedBytesExact": true
+    },
+    {
+      "rawPath": "/workspace/scratch/hound-animation-v08/retaliation-comparison.json",
+      "gzipPath": "/workspace/scratch/hound-animation-v08/retaliation-comparison.json.gz",
+      "raw": {
+        "bytes": 58899964,
+        "sha256": "c4fa713e0056b13359a54a962b99551f220d3d7e7df11e2879661ee0c5755959"
+      },
+      "gzip": {
+        "bytes": 1954630,
+        "sha256": "530c3d791cc05097eb94fc7cd953ad954c4a376d04b42d45da10a7238c2ba564"
+      },
+      "fullyStreamDecompressed": {
+        "bytes": 58899964,
+        "sha256": "c4fa713e0056b13359a54a962b99551f220d3d7e7df11e2879661ee0c5755959"
+      },
+      "exactRawAndManifestMatch": true,
+      "rawMode": "0o600",
+      "gzipMode": "0o600",
+      "temporaryUncompressedPath": "/tmp/hollowpact-retained-hound-datasets-v08-r1/retaliation-comparison.json",
+      "originalPathSymlinkTarget": "/tmp/hollowpact-retained-hound-datasets-v08-r1/retaliation-comparison.json",
+      "canonicalDurableGzipPath": "reviews/hound-v0.8-retained-datasets/retaliation-comparison.json.gz",
+      "beforeAfterMode": "0o600",
+      "allBeforeAfterAndDecompressedBytesExact": true
+    }
+  ],
+  "originalManifestSHA256": "311d199ac05c59b1b7c8ddb8c3ca3107115ec4a226d3dc5bc7c9ead37549a2be",
+  "all93BeforeAfterRecordsExact": true,
+  "reclaimedDurableRawWorkingBytes": 151105621,
+  "freeDurableBytes": 183132160
+}
