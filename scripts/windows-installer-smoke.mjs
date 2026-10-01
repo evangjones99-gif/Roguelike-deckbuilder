@@ -106,7 +106,7 @@ try{
   assert.equal(hash(extractFile(path.join(v.install,'resources/app.asar'),path.join('dist','art','hunter-marek-v07-r3.png'))),'4492577d3bacc868e9b66da0abf25915bdeaf68bc8f5c31ae8a1d8db485f3c53');
   mark('actual installed executable binding and command');await launch();
   await page.locator('[data-ui="settings"]').click();await page.locator('#mute').uncheck();await page.locator('#motion').uncheck();
-  await page.locator('[data-ui="close"]').click();
+  await page.getByRole('button',{name:'Close dialog',exact:true}).click();
   await page.evaluate(()=>{window.__installerHunterDraws=[];const original=CanvasRenderingContext2D.prototype.drawImage;
     window.__installerRestoreDraw=()=>{CanvasRenderingContext2D.prototype.drawImage=original;};
     CanvasRenderingContext2D.prototype.drawImage=function(image,...args){if(this.canvas.id==='arena'&&image instanceof HTMLImageElement&&image.src.endsWith('/art/hunter-marek-v07-r3.png')&&window.__installerHunterDraws.length<64)
