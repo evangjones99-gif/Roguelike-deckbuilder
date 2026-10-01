@@ -3,6 +3,7 @@ import { HostAudio } from './audio-host';
 import packageInfo from '../package.json';
 import { applyActionWithEvents, createGame, CARDS, legalActions, validateState, recoverLegacySilenceSave, cardTarget, type GameState, type Action, type Unit, type CardDef } from './engine';
 import { createArena } from './arena';
+import { encounterEnvironment } from './encounter-environment';
 import { portraitFor, toolArtFor } from './art';
 import { createToolIllustrations } from './tool-art';
 import { ENEMIES, RELICS, SHOP_PRICES, EVENT_CHOICES, bossForSeed } from './content';
@@ -44,7 +45,7 @@ let title = true;
 // CSS custom-property URLs resolve at their consuming stylesheet; use a document-based absolute URL.
 const ART_BASE = new URL(`${import.meta.env.BASE_URL}art/`, document.baseURI).href;
 const toolIllustrations = createToolIllustrations();
-document.documentElement.style.setProperty('--courtyard-art', `url("${ART_BASE}abbey-courtyard.png")`);
+document.documentElement.style.setProperty('--scene-art', `url("${ART_BASE}abbey-courtyard.png")`);
 document.documentElement.style.setProperty('--hunter-art', `url("${ART_BASE}hunter-portrait.png")`);
 let selected: Selection = null;
 let selectionOrigin: string | null = null;
@@ -320,6 +321,8 @@ function render() {
   const changedScreen = screen !== renderedScreen;
   renderedScreen = screen;
   setMotion();
+  const environment = title ? 'courtyard' : encounterEnvironment(state) ?? 'courtyard';
+  $('scene').style.setProperty('--scene-art', `url("${ART_BASE}${environment === 'crypt' ? 'ossuary-crypt-v08-r2.png' : 'abbey-courtyard.png'}")`);
   $('app').className = title ? 'on-title' : `phase-${state.phase}${state.phase === 'battle' && Math.max(state.allies.length, state.enemies.length) >= 3 ? ' dense-battle' : ''}`;
   renderHeader(); renderHud();
   $('dock').hidden = title || state.phase !== 'battle';

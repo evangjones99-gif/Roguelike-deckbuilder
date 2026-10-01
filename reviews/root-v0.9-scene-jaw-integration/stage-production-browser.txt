@@ -1,0 +1,50 @@
+
+Running 35 tests using 1 worker
+
+(node:315623) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/browser/draw-privacy-v0.5.spec.ts:4:1 › draw inspection reveals counts but no category order from the hidden pile (11.2s)
+  ✓   2 tests/browser/game.spec.ts:8:1 › first-time tutorial, summon/command, save/resume and settings (7.6s)
+  ✘   3 tests/browser/game.spec.ts:44:1 › complete seeded run through actual controls matches rules and reaches victory (53.9s)
+
+
+  1) tests/browser/game.spec.ts:44:1 › complete seeded run through actual controls matches rules and reaches victory 
+
+    Test was interrupted.
+
+    Error: locator.click: Test ended.
+    Call log:
+      - waiting for locator('[data-unit="a40"]')
+        - locator resolved to <button data-unit="a40" aria-pressed="false" data-focus="unit-a40" class="unit ally   ready" aria-label="Cairn Hound + · binding 3. 10 of 10 health, 4 attack. Ready; select, then choose an enemy.">…</button>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+
+
+      159 | async function clickAction(page:import('@playwright/test').Page,a:Action) {
+      160 |   if(a.type==='play') {await page.locator(`[data-ui="play-card"][data-index="${a.index}"]`).click();if(a.target)await page.locator(`[data-unit="${a.target}"]`).click();}
+    > 161 |   else if(a.type==='attack') {await page.locator(`[data-unit="${a.unit}"]`).click();await page.locator(`[data-unit="${a.target}"]`).click();}
+          |                                                                             ^
+      162 |   else if(a.type==='camp'&&a.choice==='train') {await page.locator('[data-ui="train"]').click();await page.locator(`[data-action="camp"][data-choice="train"][data-index="${a.index}"]`).click();}
+      163 |   else if(a.type==='travel'||a.type==='camp'||a.type==='event') await page.locator(`[data-action="${a.type}"][data-choice="${a.choice}"]`).click();
+      164 |   else if(a.type==='reward') await page.locator(`[data-action="reward"][data-card="${a.card??''}"]`).click();
+        at clickAction (/workspace/Roguelike-deckbuilder/tests/browser/game.spec.ts:161:77)
+        at /workspace/Roguelike-deckbuilder/tests/browser/game.spec.ts:57:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/run-315623-1790826320840/game-complete-seeded-run-t-ac4e8-s-rules-and-reaches-victory/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/run-315623-1790826320840/game-complete-seeded-run-t-ac4e8-s-rules-and-reaches-victory/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/run-315623-1790826320840/game-complete-seeded-run-t-ac4e8-s-rules-and-reaches-victory/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/run-315623-1790826320840/game-complete-seeded-run-t-ac4e8-s-rules-and-reaches-victory/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 interrupted
+    tests/browser/game.spec.ts:44:1 › complete seeded run through actual controls matches rules and reaches victory 
+  32 did not run
+  2 passed (1.3m)

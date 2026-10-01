@@ -1,0 +1,40 @@
+{
+  "status": "PASS-root-retention",
+  "originalPath": "/workspace/retained-native-experiments/windows-run-36806506465/hollowpact-0.8.0-windows-native-x64.zip",
+  "target": "/workspace/Roguelike-deckbuilder/releases/0.8.0/hollowpact-0.8.0-windows-native-x64.zip",
+  "sourceSHA256": "1ce6c74baea02686183e833c28738e04d19f80d5826218a0d732eff304dce563",
+  "followedMode": "0o600",
+  "originalParent": {
+    "type": "directory",
+    "bytes": 4096,
+    "mode": "0o700",
+    "uid": 1000,
+    "gid": 1000,
+    "device": 27,
+    "inode": 667869,
+    "nlink": 2,
+    "atime_ns": 1790827154706826563,
+    "mtime_ns": 1790824259866576777,
+    "ctime_ns": 1790827154422831037,
+    "blocks": 8,
+    "xattrs": {}
+  },
+  "officialRetained": {
+    "type": "file",
+    "bytes": 191814688,
+    "mode": "0o600",
+    "uid": 1000,
+    "gid": 1000,
+    "device": 27,
+    "inode": 1448700,
+    "nlink": 1,
+    "atime_ns": 1790824465155127690,
+    "mtime_ns": 1790824465083129168,
+    "ctime_ns": 1790824465083129168,
+    "blocks": 374648,
+    "xattrs": {}
+  },
+  "freeAfterBytes": 409042944,
+  "observedFreeDelta": 191729664,
+  "independentPostgate": "pending"
+}

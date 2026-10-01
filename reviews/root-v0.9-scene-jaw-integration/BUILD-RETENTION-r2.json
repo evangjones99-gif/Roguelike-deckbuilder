@@ -1,0 +1,13 @@
+{
+  "oldArchive": "/workspace/Roguelike-deckbuilder/releases/0.8.0/hollowpact-0.8.0-web.zip",
+  "sourceDigest": "efef7131d1c0cbb5cc0420c70e3d2afd9c9dfaf3013dfb8761e6bb8b00d3b525",
+  "changedOrNewOutputs": [
+    "build-provenance.json",
+    "index.html",
+    "assets/index-BowiHx-4.css",
+    "assets/index-BBXBTFOu.js"
+  ],
+  "unchangedPayloads": 51,
+  "correction": "R1 assumed web/ prefix, but actual sealed archive prefixes dist/. Its full55 payload tar and erroneous comparison receipt remain; R2 normalizes actual dist/ and correctly identifies four changed/new outputs. No source/archive bytes changed, and R1 was not used as a regression or unchanged-media claim.",
+  "scope": "Exact four changed/new bodies in R2 delta; all51 unchanged bodies compared fullSHA against actual unchanged official0.8 web ZIP. Full current55 ledger in ROOT-ACCEPTANCE."
+}

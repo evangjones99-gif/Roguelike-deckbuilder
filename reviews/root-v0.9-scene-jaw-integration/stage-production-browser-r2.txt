@@ -1,0 +1,13 @@
+Error: ENOENT: no such file or directory, open 'reviews/screenshots-v0.2/full-fixture.json'
+
+   at tool-art-v0.5.spec.ts:6
+
+  4 |
+  5 | const families = { scour: 'hook', harpoon: 'hook', ironward: 'plate', aegis: 'plate', sutures: 'sewing', edict: 'pack' };
+> 6 | const fixture = JSON.parse(readFileSync('reviews/screenshots-v0.2/full-fixture.json', 'utf8'));
+    |                            ^
+  7 | // Valid diagnostic inventory rearrangement, not a naturally reached six-tool hand.
+  8 | const inventory = [...fixture.hand, ...fixture.draw, ...fixture.discard];
+  9 | fixture.hand = Object.keys(families).map(id => {
+    at /tmp/hollowpact-scene-jaw-v09-root-r1/tests/browser/tool-art-v0.5.spec.ts:6:28
+

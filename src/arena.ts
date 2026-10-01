@@ -1,3 +1,4 @@
+import { drawHoundJaw, houndJawClosure } from './hound-jaw';
 import { encounterEnvironment } from './encounter-environment';
 import { observeHunter, hunterEventCues, hunterGeometry, paintHunterShadow, paintHunterSheet, HUNTER_ART_URL, hunterSourcePoint, hunterPose, type HunterPresentation } from './hunter-presence';
 import type { Action, GameState, TransitionEvent } from './engine';
@@ -256,7 +257,7 @@ export function createArena(canvas: HTMLCanvasElement) {
     const duration = (figure.animation?.blendMs?.[figure.pose] ?? 70) / 1000;
     return reduced || duration <= 0 ? 1 : clamp((time - figure.poseChanged) / duration, 0, 1);
   }
-  function drawPose(image: HTMLImageElement, atlas: CreatureAnimationAtlas, frame: CreaturePoseFrame, size: number, alpha: number) {
+  function drawPose(image: HTMLImageElement, atlas: CreatureAnimationAtlas, frame: CreaturePoseFrame, size: number, alpha: number, jawClosure = 0) {
     const cellWidth = image.naturalWidth / atlas.columns, cellHeight = image.naturalHeight / atlas.rows;
     const crop = frame.crop ?? { x: 0, y: 0, width: 1, height: 1 };
     const sw = cellWidth * crop.width, sh = cellHeight * crop.height;
@@ -265,7 +266,11 @@ export function createArena(canvas: HTMLCanvasElement) {
     // merely to force an image-generator output into the preferred 3:2 sheet.
     const h = size * (frame.scale ?? 1), w = h * sw / sh;
     ctx.save(); ctx.globalAlpha *= alpha;
-    ctx.drawImage(image, sx, sy, sw, sh, -w * (frame.anchorX ?? atlas.anchorX), -h * (frame.anchorY ?? atlas.anchorY), w, h);
+    if (jawClosure > 0 && atlas === HOUND_POSES && frame.column === 2 && frame.row === 0 && cellWidth === 512 && cellHeight === 512) {
+      drawHoundJaw(ctx, image, jawClosure, frame.column*cellWidth, frame.row*cellHeight,
+        cellWidth*crop.x, cellHeight*crop.y, sw, sh,
+        -w*(frame.anchorX ?? atlas.anchorX), -h*(frame.anchorY ?? atlas.anchorY), w, h);
+    } else ctx.drawImage(image, sx, sy, sw, sh, -w * (frame.anchorX ?? atlas.anchorX), -h * (frame.anchorY ?? atlas.anchorY), w, h);
     ctx.restore();
   }
 
@@ -390,7 +395,9 @@ export function createArena(canvas: HTMLCanvasElement) {
       const current = poseFrame(figure.animation, figure.pose, time - figure.poseChanged);
       const prior = figure.priorPose && blend < 1 ? poseFrame(figure.animation, figure.priorPose, 0) : null;
       if (prior) drawPose(atlasImage, figure.animation, prior, size, 1 - blend);
-      if (current) drawPose(atlasImage, figure.animation, current, size, prior ? blend : 1);
+      const gesture = !reduced && figure.animation === HOUND_POSES && figure.pose === 'attack' ? activeGesture(figure) : null;
+      const jawClosure = gesture?.kind === 'physical' ? houndJawClosure(time-gesture.born) : 0;
+      if (current) drawPose(atlasImage, figure.animation, current, size, prior ? blend : 1, jawClosure);
     } else if (image && loaded(image) && figure.art) {
       const columns = figure.art.columns, rows = figure.art.rows;
       const sw = image.naturalWidth / columns, sh = image.naturalHeight / rows;
