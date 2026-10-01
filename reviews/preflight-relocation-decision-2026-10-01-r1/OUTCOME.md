@@ -1,0 +1,1 @@
+Independent full-encoding/storage/path-need preference, interrupted-action source refusal and repaired exact-path source gate, plus producer judgment. No deletion executed in this checkpoint; current push and actual metadata/closure/outcome remain required. Formal releases and original encoding retained.
