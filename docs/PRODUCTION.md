@@ -26,6 +26,8 @@ Acceptance dimensions: meaningful choices, pacing, onboarding, readability, visu
 
 ## Standing continuous-production requirement
 
+Hunter v0.7.0 is preserved as a reviewed development checkpoint: source fdb43bd2e2833e2460ffc3776071b9ed82ad79cc, runtime0be4f01d416e6fc4cca3f19b6916b5b65993b9fd426a926a1ede6d8487834a35, five exact local archives and a separately frozen independent archival audit. All30 older sealed archive hashes remain intact. The final playable hunter, cue-preserving resize and desktop relative-art URI pass their separately identified scoped gates; actual Windows CI and portable Linux tests retain platform limitations. Normal secure/default Linux launch, consumer installation, human fun and AAA/Steam readiness are not established. Current facts and next repairs are in CONTINUATION.md; historical paragraphs below describe earlier checkpoints, not current package identity.
+
 AGENTS.md records the owner’s repeated instruction to continue foreground production after every milestone. Build and review checkpoints must lead directly into the next meaningful improvement. Do not substitute scheduling or a final status announcement for ongoing authorized work. Real execution/access limits must be reported honestly; no claim of infinite background activity is permitted.
 
 ## Review and promotion cycle

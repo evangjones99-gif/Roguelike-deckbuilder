@@ -1,0 +1,19 @@
+{
+  "sourceCommit": "fdb43bd2e2833e2460ffc3776071b9ed82ad79cc",
+  "runtimeSourceDigest": "0be4f01d416e6fc4cca3f19b6916b5b65993b9fd426a926a1ede6d8487834a35",
+  "inputs": 29,
+  "sourceZIPBytes": 1880764416,
+  "sourceZIP_SHA256": "ceab0be0f85a036f453171a4c44704160318cd69aa8534be8226c60f60a63c98",
+  "measuredLinuxTarBytes": 146084745,
+  "measuredLinuxTarSHA256": "f64988074d4b5ddc1f1a2ba7ad298ae8fa6f7befd89f2f2594541fe2432af3c5",
+  "nativeZIPBytes": 185715968,
+  "nativeEvidenceBytes": 12263556,
+  "distBytes": 20971012,
+  "webZIPAndCopyBound": 41942024,
+  "metadataOverheadBound": 8388608,
+  "reserveBytes": 33554432,
+  "requiredBytes": 2308713749,
+  "durableFreeBytes": 2383704064,
+  "passed": true,
+  "scope": "Actual compressed Linux output measured; exact clean-source Git ZIP and original native archives; conservative double uncompressed dist bound with metadata overhead. R1 conservative capacity rejection remains unchanged. No version directory created before this pass."
+}

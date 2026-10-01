@@ -19,7 +19,8 @@ def capture(name, target, manifest):
         data = json.loads((root / manifest).read_text())
         records = data.get('files', data)
         if isinstance(records, dict):
-            declared = records
+            declared = {name: value['sha256'] if isinstance(value, dict) else value
+                        for name, value in records.items()}
         else:
             declared = {r['path']: r['sha256'] for r in records}
     else:
