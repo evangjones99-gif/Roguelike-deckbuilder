@@ -1,0 +1,23 @@
+{
+  "initial": {
+    "time_ns": 1790947492473778956,
+    "current": 15781355520,
+    "maximum": 17179869184,
+    "headroom": 1398513664,
+    "free": 75898880
+  },
+  "work": 134217728,
+  "reserve": 536870912,
+  "command": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "90s",
+    "python3",
+    "-B",
+    "/workspace/scratch/native-checkpoint-ignored-logs-push-root-r1.py"
+  ],
+  "stage": "/workspace/Roguelike-deckbuilder",
+  "admitted": true,
+  "memory_events_before": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

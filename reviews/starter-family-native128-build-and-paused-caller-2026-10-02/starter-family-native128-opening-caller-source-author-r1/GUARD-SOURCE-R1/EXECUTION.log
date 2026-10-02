@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/starter-family-native128-opening-caller-source-author-r1/prepare.py", line 65, in <module>
+    assert sum(q.stat().st_size for q in P.rglob('*') if q.is_file())+4096<147456
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

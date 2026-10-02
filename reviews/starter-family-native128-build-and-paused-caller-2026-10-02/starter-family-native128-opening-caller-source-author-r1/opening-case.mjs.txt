@@ -1,0 +1,26 @@
+  // Deliberate opening-session protocol replacement; no second Scour or corpse waits.
+  const beforeCancel=await rawSave();await heldCancelPure();assert.equal(await rawSave(),beforeCancel);await checkpoint('C-cancelled');
+  const first=await firstDrop();await checkpoint('C-firstDrop');await page.waitForTimeout(350);assert.equal(await rawSave(),first.after.raw,'Queued or repeated spend after one legal release');row.noQueuedActionAfterRelease=true;
+  const turn2=await openingEndTurn('C-endTurn');
+  if(turn2.phase!=='battle')throw Error('Opening entered actual terminal phase before starter hand; preserved outcome, no forced turn');
+  row.firstStarterHand=await starterSnapshot('first actual turn2 family hand');
+  await hoverStarter('ashwidow','first naturally drawn Ash Widow hover');await hoverStarter('fenstalker','first naturally drawn Fen Stalker hover');
+  await uiSnapshot('turn2 starter hand live costs rules portraits');await shot('turn2-starter-hand');
+  let second=JSON.parse(await rawSave());const chosen=second.hand.includes('ashwidow')?'ashwidow':second.hand.includes('fenstalker')?'fenstalker':null;
+  const legalCard=chosen?page.locator('.hand-cards .game-card[data-card="'+chosen+'"][aria-disabled="false"]'):null;
+  if(chosen&&second.phase==='battle'&&second.allies.length<2&&second.energy>=2&&await legalCard.count()===1){
+   const before=await rawSave(),previous=second.allies.map(u=>u.uid);row.secondBinding={chosen,...stamp(),beforeSHA256:hash(before),occurrence:await legalCard.getAttribute('data-index')};
+   await click(legalCard,'ordinary legal second binding '+chosen);second=await checkpoint('C-starterBound');
+   const added=second.allies.filter(u=>!previous.includes(u.uid));assert.equal(added.length,1);assert.equal(added[0].cardId,chosen);assert(second.allies.length<=2);assert.equal(second.energy,JSON.parse(before).energy-2);assert.equal(second.stats.cardsPlayed,JSON.parse(before).stats.cardsPlayed+1);
+   row.secondBinding.afterUID=added[0].uid;row.secondBinding.afterSHA256=hash(await rawSave());row.secondBinding.observedOnly=true;
+  }else{row.starterGaps.push({label:'second binding',status:'LEGAL_SECOND_BINDING_NOT_AVAILABLE',chosen,...stamp()});await checkpoint('C-starterBound');}
+  await starterSnapshot('after actual second binding or honest gap');await uiSnapshot('second ally live readouts and hand');await shot('second-starter-field');
+  // Keep optional turn3 observable but leave enough finite shared driver budget for B and closure.
+  const elapsed=Date.now()-started,limit=name.startsWith('A-')?25000:48000;
+  if(elapsed<limit&&second.phase==='battle'&&await page.locator('[data-action="endTurn"]:visible:not([disabled])').count()===1){
+   const turn3=await openingEndTurn('C-nextEndTurn');
+   if(turn3.phase==='battle')await hoverStarter('briarcolossus','first naturally drawn Briar Colossus hover');
+   else row.starterGaps.push({label:'Briar hand',status:'ACTUAL_TERMINAL_PHASE',phase:turn3.phase,...stamp()});
+  }else row.starterGaps.push({label:'optional next Endturn and Briar',status:'NOT_ATTEMPTED_FINITE_BUDGET_OR_LEGAL_PHASE',elapsedMs:elapsed,limitMs:limit,...stamp()});
+  row.nativeContinuityObserved=row.starterObservations.every(o=>o.nativeClass);row.first300={elapsedPrefixMs:Date.now()-row.sessionStartedWallMs,remainingUnobservedMs:Math.max(0,300000-(Date.now()-row.sessionStartedWallMs)),completed300:false,humanAttentionOrFunObserved:false};
+  row.coverage={secondAlly:!!row.secondBinding?.afterUID,FenBody:false,BriarBody:false,thirdBinding:false,continuousPixels:false,transientHeldDisabledToReady:false};row.supplemental={reload:'NOT_ATTEMPTED',reducedMotion:'NOT_ATTEMPTED',corpseExpiry:'NOT_ATTEMPTED',thirdBinding:'NOT_ATTEMPTED_SOURCE_LAYOUT_LIMIT2'};row.completed=true;persist();

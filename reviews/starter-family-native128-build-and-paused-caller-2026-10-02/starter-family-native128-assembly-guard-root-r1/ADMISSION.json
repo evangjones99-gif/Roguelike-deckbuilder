@@ -1,0 +1,21 @@
+{
+  "initial": {
+    "time_ns": 1790947531362289688,
+    "current": 15782154240,
+    "maximum": 17179869184,
+    "headroom": 1397714944,
+    "free": 75587584
+  },
+  "work": 67108864,
+  "reserve": 536870912,
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/starter-family-native128-build-controls-source-author-r1/assemble.py",
+    "--activation",
+    "/workspace/scratch/starter-family-native128-activation-root-r1.json"
+  ],
+  "stage": "/workspace/scratch/native128-empty-intent-stage-r1",
+  "admitted": true,
+  "memory_events_before": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

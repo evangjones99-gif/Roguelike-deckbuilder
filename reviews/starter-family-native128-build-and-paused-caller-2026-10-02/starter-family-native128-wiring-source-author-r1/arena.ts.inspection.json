@@ -1,0 +1,25 @@
+{
+  "path": "/workspace/scratch/native128-empty-intent-stage-r1/src/arena.ts",
+  "bytes": 78520,
+  "sha256": "ce8ba9e8cd80ca5acd3e9eb6956a4879fc14abd465b66d7a4f358ca9052d2835",
+  "relevantLines": [
+    "import { native128Layout, native128In, drawNative128, drawNativeCourtyard, type CoherentNative128 } from './coherent-native128';",
+    "import { ARENA_ART, HOUND_POSES, portraitFor, animationFor, CREATURE_ATTACK_SEQUENCE, CREATURE_IMPACT_MS, CREATURE_REACTION_MS, CREATURE_DEATH_MS, type PortraitArt, type CreaturePose, type CreaturePoseFrame, type CreatureAnimationAtlas } from './art';",
+    "export function createArena(canvas: HTMLCanvasElement, native?: CoherentNative128, reflectNative: (active: boolean) => void = () => {}) {",
+    "const fieldLayout = (config = layoutConfig) => (nativeMode ? native128Layout(width, height, ratio, config) : null) ?? createBattlefieldLayout(width, height, config);",
+    "const available = visible && native?.ready && native.supports(state) && native128Layout(width, height, ratio, config);",
+    "sprite: NonNullable<ReturnType<CoherentNative128['unit']>>;",
+    "placement: NonNullable<ReturnType<typeof native128In>> };",
+    "const sprite = native.unit(resolvedUnit, figure.side), placement = native128In(figureCell(figure).bodyRect, ratio);",
+    "const nativePlacement = nativeMode ? native128In(figureCell(figure).bodyRect, ratio) : null;",
+    "if ([...figures.values()].some(figure => !native.unit(figure.unit, figure.side) || !native128In(figureCell(figure).bodyRect, ratio))) { setNativeMode(false); return false; }",
+    "placement: native128In(figureCell(figure).bodyRect, ratio), sprite: native.unit(figure.unit, figure.side) }));",
+    "const hunterBody = native.hunter(), hunterPlace = native128In(fieldLayout().hunter.rect, ratio);",
+    "nativeDefeats.forEach(corpse => drawNative128(ctx, corpse.sprite, corpse.placement));",
+    ".forEach(body => drawNative128(ctx, body.sprite!, body.placement!));",
+    "drawNative128(ctx, hunterBody, hunterPlace);",
+    "bodies.filter(body => body.figure.side === 'ally').forEach(body => drawNative128(ctx, body.sprite!, body.placement!));",
+    "const figure: Figure = { uid: unit.uid, unit, art: portraitFor(unit.species), animation: animationFor(unit.species), pose: 'idle', priorPose: null, poseChanged: time - 2, side, facing: side === 'enemy' ? -1 : 1, slot, count, born, hit: -10, dead: null, nativeDefeatConsumed: false, departing: false, deathAnchored: false, deathSizeBasis: null, phase: random() * 6.28, lastPoint: { x: 0, y: 0 }, layoutFrom: { x: 0, y: 0 }, layoutTarget: { x: 0, y: 0 }, layoutStarted: time - 2, sizeFrom: 0, sizeTarget: 0, cellFrom: cell, cellTarget: cell };",
+    "if (nativeMode && !native128Layout(width, height, ratio, layoutConfig)) setNativeMode(false);"
+  ]
+}

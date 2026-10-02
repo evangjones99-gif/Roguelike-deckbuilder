@@ -1,0 +1,73 @@
+{
+  "pins": {
+    "/workspace/scratch/starter-family-native128-build-controls-source-author-r1/PLAN.json": "753be1feac8d1e112f10a1f29c795c4648386670d171d8983795e31156e59f8c",
+    "/workspace/scratch/starter-family-native128-wiring-source-independent-r2/GATE.json": "d9e11d101944af80ada2f36cf7137633742aeff1d601d6bdf823ef924ade9beb",
+    "/workspace/scratch/starter-family-native128-materialized-source-root-r1/main.ts": "d1e71626b4c70679f4ba692b62ccb2aea0dbe5ce74e9a1426b6208fc26a45fe2",
+    "/workspace/scratch/starter-family-native128-materialized-source-root-r1/coherent-native128.ts": "17b0ae71bd36d9803d5dd4ddea2e8070a200bbe11ea08ada4ad142bd292c42a9",
+    "/workspace/scratch/starter-family-native128-materialized-source-root-r1/art.ts": "28f20bc5118668b0d1570c38078847026b4109f8518726b09d4d4390024e34ab",
+    "/workspace/scratch/starter-family-native128-materialized-source-root-r1/coherent-native128-manual-crop-view-manifest.json": "1e0699b76dc3543b5374df5ff8e33aa81254c6d05c94fe7483247d183308b8af",
+    "/workspace/scratch/native128-empty-intent-stage-r1/src/arena.ts": "ce8ba9e8cd80ca5acd3e9eb6956a4879fc14abd465b66d7a4f358ca9052d2835",
+    "/workspace/scratch/native128-empty-intent-stage-r1/src/engine.ts": "7dca47973c0d78a130730450215569fa7747a1cb043764b16217c1b9c0ce6bf8",
+    "/workspace/scratch/native128-empty-intent-stage-r1/src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+    "/workspace/scratch/opening-turn-payoff-wording-actual-caller-source-final-r1/driver-paired-r1.mjs": "5ccf263b626e3f90fa246a5edc798fb41cb09be0fe73d30d4a520289fb1ec229"
+  },
+  "candidateUnbuiltSource": "65b31b3f21e34a624bdac962e4919c7dc1791e502eb6cfdb1612103b8036fe9c",
+  "candidateExpectedInputCount": 104,
+  "candidateOutputCountPredicted": 70,
+  "baselineSource": "76e5ba02635900ad242b047f9aa5e11adbc67b9e99f9cb67b35884405d21bc40",
+  "baselineOutputs": "2547c159b14f634a2ec17473bded94af60c38e6f4aba8ea208f32dba9875f3a8",
+  "retainedOrdinaryObservedDraws": {
+    "initial": {
+      "path": "/workspace/scratch/opening-turn-payoff-wording-actual-comparison-root-r1/A-cue-C0-OPAQUE-SAVE.json",
+      "sha256": "940a9aaad96fab565f7f1d5bcb327815719124b73fb3976292ad2f54ac11f731",
+      "turn": 1,
+      "hand": [
+        "survey",
+        "scour",
+        "cairnhound",
+        "scour",
+        "ironward"
+      ],
+      "draw": [
+        "sunder",
+        "briarcolossus",
+        "fenstalker",
+        "sutures",
+        "ashwidow",
+        "ironward",
+        "cairnhound"
+      ],
+      "energy": 5,
+      "allies": []
+    },
+    "afterOrdinaryEndTurn": {
+      "path": "/workspace/scratch/opening-turn-payoff-wording-actual-comparison-root-r1/A-cue-C-endTurn-OPAQUE-SAVE.json",
+      "sha256": "f8b2b2a13c0fa3434d6c2651bf12c6dbeedc1699d2b2f6a69401add5e5f1928a",
+      "turn": 2,
+      "hand": [
+        "cairnhound",
+        "ironward",
+        "ashwidow",
+        "sutures",
+        "fenstalker"
+      ],
+      "draw": [
+        "sunder",
+        "briarcolossus"
+      ],
+      "energy": 5,
+      "allies": [
+        {
+          "uid": "a3",
+          "cardId": "cairnhound",
+          "hp": 7
+        }
+      ]
+    }
+  },
+  "rulesAndDeckIdenticalToCandidateExpectedMaps": true,
+  "sourceBlocker": "Native layout rejects >2 allies/enemies; engine legal summon cap remains6. Assets READY alone cannot prevent layout fallback.",
+  "latch": "If fallback turns nativeMode false during battle, nativeMode||previous.phase!==battle prevents same-battle recovery even after slots free; no reentry repair proposed.",
+  "futureBuildAndCallerGatesRequired": true,
+  "sourceInspectionOnly": true
+}

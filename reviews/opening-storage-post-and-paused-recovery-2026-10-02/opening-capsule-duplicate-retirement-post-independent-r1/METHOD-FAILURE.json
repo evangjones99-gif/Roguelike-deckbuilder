@@ -1,0 +1,7 @@
+{
+  "phase": "first independent guarded reader",
+  "failure": "Git status128: unable to create threaded lstat: Resource temporarily unavailable under inherited48MiB virtual address ceiling",
+  "preserved": "guard-r1 complete admission/log/result; source unchanged",
+  "correction": "read-loader-r2 only command-local core.preloadIndex=false/index.threads=1; no Git config/index write, same proof/actual RSS<24MiB; normal guard-r2",
+  "bootstrapQualification": "Small source creation, preliminary reads and this compact seal outside sampled own guard."
+}

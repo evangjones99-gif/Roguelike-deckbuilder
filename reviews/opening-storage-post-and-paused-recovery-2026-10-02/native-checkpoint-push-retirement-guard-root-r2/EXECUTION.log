@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/native-checkpoint-push-and-reviewed-retirement-root-r2.py", line 24, in <module>
+    paths={line[3:] for line in status.splitlines()};assert paths==expected,paths
+                                                            ^^^^^^^^^^^^^^^
+AssertionError: {'docs/PRODUCTION.md', 'GENTS.md', 'reviews/reviewed-opening-capsule-duplicate-retirement-2026-10-02/', 'reviews/opening-native-aftermath-and-starter-art-2026-10-02/', 'docs/CONTINUATION.md'}

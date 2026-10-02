@@ -1,0 +1,50 @@
+{
+  "decision": "ACCEPT_EXACT_TWO_ENCODING_RETIREMENT_POST_STATE_AND_REPAIRED_DURABILITY_REJECT_COMPLETE_PRE_ACTION_PUBLICATION_PROCESS",
+  "actualTwoEncodingCoverageAccepted": true,
+  "canonicalBodiesAndMetadataAccepted": true,
+  "postStateAccepted": true,
+  "laterSupportingLogPublicationRepaired": true,
+  "fullProceduralAcceptance": false,
+  "preActionCompletePublicationAccepted": false,
+  "allPublicationPushedBeforeDeletion": false,
+  "currentCanonicalDurabilityAccepted": true,
+  "noFurtherRetirementAuthorized": true,
+  "methodSHA256": "b1131f6cede49fceb01fcdfb87a251c95519561355acddd03045fba8e4fe7d71",
+  "methodSourceGateSHA256": "4408a05e44ebe6f6c678920b6359653aa0b154aa03b818b1288c6e2a767c00d8",
+  "producerDecisionSHA256": "67ee3cc4693359db655f1914a6507a0ae956afd497b6f70aec0f9dece5de2f61",
+  "actionHEAD": "8a19a23d7dbfc65ff9b4475d72cee3d661687b44",
+  "repairHEAD": "9726c5fd285bbaca7d5a7c656217d5b70b78ccfe",
+  "initialTrackedSupportingFiles": 139,
+  "currentNativeTrackedFiles": 87,
+  "currentRetirementTrackedFiles": 77,
+  "missingBeforeActionLogs": 25,
+  "missingBeforeActionLogBytes": 14460,
+  "freshCanonicalFullSHABytes": 12168472,
+  "grossPrivateBlocksBytes": 12173312,
+  "sharedObservedNetFreeDeltaBytes": 12161024,
+  "proof": {
+    "path": "/workspace/scratch/opening-capsule-duplicate-retirement-post-independent-r1/PROOF.json",
+    "bytes": 13955,
+    "sha256": "b433f1b7fd5a94cb70c5fcc6fbb909126b4684fe5cee24c5f0096d3111d2fd4f"
+  },
+  "normalOwnGuard": {
+    "path": "/workspace/scratch/opening-capsule-duplicate-retirement-post-independent-r1/guard-r2/RESULT.json",
+    "bytes": 1046,
+    "sha256": "b3471f3993bf5c3ac435b892a163f3df9f26db568ccf2d3c06909d0bf313b0f3"
+  },
+  "preservedFailedReaderGuard": {
+    "path": "/workspace/scratch/opening-capsule-duplicate-retirement-post-independent-r1/guard-r1/RESULT.json",
+    "bytes": 853,
+    "sha256": "dd70f089710e0ad4cba16310bf6448154125dcc485f52cdf1b816587b4c27001"
+  },
+  "ownRSSBytes": 11534336,
+  "limits": [
+    "Reject claim all reviewed publication controls were pushed before cleanup:25 ignored execution logs were added only after both unlinks. Clean8a19 receipt and method checks did not prove full publication membership. Later repair does not retroactively satisfy mandatory precondition.",
+    "Exact two current canonical container bodies fully SHA/size/full metadata/xattrs verified without extraction; old two names absent, eight related controls present, method has only two explicit unlink targets. No global all-material/FD/consumer absence certificate.",
+    "Old literal scratch readers require explicit append-only mapping or separately reviewed missing-path reconstruction; old inode/time/write-isolation rollback lost as recorded.",
+    "Git ls-tree/show of25 small logs only; no oldpack/ZIP/full other TAR replay/network call. Remote confirmation inherited from Root actual receipts, independently local commit membership/ancestry/HEAD/clean inspected.",
+    "Shared net free delta nonexclusive; original combined initial disk admission70,217,728B passed64MiB, PRE free63,762,432B is recorded, not a new64MiB admission. No future browser resource guarantee.",
+    "Root group cleanup/normal sampled guards are observed closure only, no full external actor attribution; earlier cue author provides engineering/storage review, no gameplay/art/selection approval."
+  ],
+  "TOOL_GUARD_CLOSED": true
+}

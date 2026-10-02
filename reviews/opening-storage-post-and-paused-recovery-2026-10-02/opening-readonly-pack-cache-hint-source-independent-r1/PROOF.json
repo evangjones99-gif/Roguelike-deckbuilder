@@ -1,0 +1,245 @@
+{
+  "apiCallCounts": {
+    "os.close": 13,
+    "os.fsync": 4,
+    "os.open": 7,
+    "os.posix_fadvise": 1,
+    "os.pwrite": 1,
+    "os.read": 1,
+    "os.write": 1
+  },
+  "conditions": [
+    "Root confirms fresh current push and independently verified acceptance before one actual attempt.",
+    "All known repository writers/maintenance/affected lock owners held; unknown writer/lock absence is declared within known scope, not OS/global proof.",
+    "Fresh immutable <=120second Root declaration, one exact-target hint, no retry and no automatic browser/build.",
+    "Future outer ordinary64MiB work+512reserve/disk64 finite20seconds; internal24+64 light-only profile is not permission to lower runtime/build thresholds.",
+    "Fresh native/runtime admission and separate disk recovery remain required; no causal reclaim guarantee."
+  ],
+  "currentParentIdentityChain": [
+    {
+      "device": 27,
+      "gid": 1000,
+      "inode": 9223372036854775855,
+      "mode": 16877,
+      "name": "workspace",
+      "uid": 1000
+    },
+    {
+      "device": 27,
+      "gid": 1000,
+      "inode": 9223372036855894697,
+      "mode": 16832,
+      "name": "Roguelike-deckbuilder",
+      "uid": 1000
+    },
+    {
+      "device": 27,
+      "gid": 1000,
+      "inode": 9223372036855894714,
+      "mode": 16832,
+      "name": ".git",
+      "uid": 1000
+    },
+    {
+      "device": 27,
+      "gid": 1000,
+      "inode": 9223372036855894783,
+      "mode": 16832,
+      "name": "objects",
+      "uid": 1000
+    },
+    {
+      "device": 27,
+      "gid": 1000,
+      "inode": 9223372036855894884,
+      "mode": 16832,
+      "name": "pack",
+      "uid": 1000
+    }
+  ],
+  "currentStatOnly": true,
+  "currentTargetMetadata": {
+    "st_atime_ns": 1790929399420164786,
+    "st_blocks": 3149016,
+    "st_ctime_ns": 1790929399396165151,
+    "st_dev": 27,
+    "st_gid": 1000,
+    "st_ino": 659415,
+    "st_mode": 33024,
+    "st_mtime_ns": 1790929399396165151,
+    "st_nlink": 1,
+    "st_size": 1612289309,
+    "st_uid": 1000
+  },
+  "currentTargetXattrs": {},
+  "exactSourceInverse": true,
+  "historicalGrantsCurrentAuthorization": false,
+  "history": [
+    {
+      "bytes": 634,
+      "historicalControl": {
+        "allowSingleHintAttemptOnly": true,
+        "historicalWholePackHashUnavailableAcknowledged": true,
+        "pinSHA256": "0743769386ae0db3829b6f9aa8363e646f211018cb850a4c6eee5bd87b08c965",
+        "requiresSeparateBundleAndRetirementSourceGatesBeforeExecution": true,
+        "reviewPath": "/workspace/scratch/git-immutable-pack-cache-hint-source-independent-r3/REVIEW.md",
+        "reviewSHA256": "2f00f719af38effdd00bf4d52cb283a0f5cc9421858ba0a21a990791a71c90cd",
+        "scope": "One immutable old Git pack FD cache hint; metadata-only preservation; no whole-pack SHA proof",
+        "sourceSHA256": "f988ae79dc96996ef96b8017d55104079f2528f454199aa6c1652fed92ad96c4"
+      },
+      "historicalControlKeys": [
+        "sourceSHA256",
+        "pinSHA256",
+        "scope",
+        "allowSingleHintAttemptOnly",
+        "historicalWholePackHashUnavailableAcknowledged",
+        "reviewPath",
+        "reviewSHA256",
+        "requiresSeparateBundleAndRetirementSourceGatesBeforeExecution"
+      ],
+      "path": "/workspace/scratch/git-immutable-pack-cache-hint-source-independent-r3/INDEPENDENT-ACCEPTANCE.json",
+      "sha256": "5aad0aaf5aa7e476e445bae7f822dc4432625ae9f8f0321b83b367946bebb835"
+    },
+    {
+      "bytes": 2648,
+      "historicalReviewText": "# Independent R3 single-advice source gate\nConditional ACCEPT exact sourcef988ae79dc96996ef96b8017d55104079f2528f454199aa6c1652fed92ad96c4 for one separately admitted new-output advisory attempt. Independently read actual R3 and accepted R2 bodies, verify both source SHA and R3 freeze, and prove byte-for-byte that the entire delta is the one OUTPUT literal run-r2\u2192run-r3 replacement. AST parses. All original target pins, no-body/write FD path, metadata/anchors/locks/control/declaration checks,24MiB work+64MiB reserve, current-process metrics,64MiB virtual ceiling+8MiB room, receipt ordering and one advice call remain unchanged. All four inspected original paths preserve exact raw hashes/stat before and after.\nThe reported later803,622,912\u2192120,463,360B capacity regression is a distinct intervening observation whose actor/inode cause is unproven. My source-review headroom119,009,280B exceeds tiny92,274,688B admission only; it does not admit a heavy producer/browser. The earlier completed R2 is retained and this source is not an overwritten/resumed failed run or old approval reused. This review performs no author import/main/guard/advice, Git target body read, runtime or deletion. It does not reproduce or attribute the capacity interval.\nExecution remains BLOCKED until the proposed retained0.8 bundle whole-hash/consumed-range-advice source and old-TMP bundle coverage/retirement utility and decision pass separate independent gates. Those packets are not reviewed here. Root must then genuinely hold known repo writers/maintenance and heavy groups, preserve exclusive external early stderr/exit, issue a fresh120second declaration naming this exact source and original metadata pin, and admit only one new run-r3. No intervening Git or heavy operation should consume the intended verification window; every next operation retains its own guard. Unknown affected writer/lock owner, target metadata drift, existing output or missing resource admission refuse.\nR2 limitations remain: absent historical whole-pack SHA expressly acknowledged, no cryptographic signature, no global/atomic reader-writer proof, atime/stat/xattrs rather than fresh all-byte proof, possible cache miss/refill/dirty writeback and no reclaim guarantee. An arm without return remains unknown; later failure lacking AFTER does not prove preservation. No retry, rollback, global flush, broader cache hint, permission/process/lock change, cleanup or old artifact retirement is authorized by this source gate. The producer's precise successor decision and actual verification are still required; no package/pin/platform/Steam/AAA/human-fun claim follows.",
+      "path": "/workspace/scratch/git-immutable-pack-cache-hint-source-independent-r3/REVIEW.md",
+      "sha256": "2f00f719af38effdd00bf4d52cb283a0f5cc9421858ba0a21a990791a71c90cd"
+    },
+    {
+      "bytes": 674,
+      "historicalControl": {
+        "allowSingleHintAttemptOnly": true,
+        "historicalWholePackHashUnavailableAcknowledged": true,
+        "noBlindRetryAfterHandoffFailure": true,
+        "pinSHA256": "0743769386ae0db3829b6f9aa8363e646f211018cb850a4c6eee5bd87b08c965",
+        "requiresSingleFailClosedSameShellHandoffToReviewedVerifier": true,
+        "reviewPath": "/workspace/scratch/git-immutable-pack-cache-hint-source-independent-r4/REVIEW.md",
+        "reviewSHA256": "b6988c16b8970423fb87736989718140f4e90160e84679632e853e67fe677494",
+        "scope": "One immutable old Git pack FD cache hint; metadata-only preservation; no whole-pack SHA proof",
+        "sourceSHA256": "8ccaed4fdda306f30ff4ef4e632e85457e8a2da229e8db6e84ae1e3df7305c84"
+      },
+      "historicalControlKeys": [
+        "sourceSHA256",
+        "pinSHA256",
+        "scope",
+        "allowSingleHintAttemptOnly",
+        "historicalWholePackHashUnavailableAcknowledged",
+        "reviewPath",
+        "reviewSHA256",
+        "requiresSingleFailClosedSameShellHandoffToReviewedVerifier",
+        "noBlindRetryAfterHandoffFailure"
+      ],
+      "path": "/workspace/scratch/git-immutable-pack-cache-hint-source-independent-r4/INDEPENDENT-ACCEPTANCE.json",
+      "sha256": "dc8ec3e74711e826adfbc69954ee095685fa5603904166f097124f8e4c20c072"
+    },
+    {
+      "bytes": 2783,
+      "historicalReviewText": "# Independent R4 cache source and handoff gate\nConditional ACCEPT exact8ccaed4fdda306f30ff4ef4e632e85457e8a2da229e8db6e84ae1e3df7305c84 for one new advisory attempt under the revised fail-closed handoff. Independently verify the full source against R3: the ONLY byte delta is OUTPUT run-r3\u2192run-r4. Freeze and AST verify, and all five inspected original controls retain exact raw SHA/stat. No author import, advice, target Git body, bundle body, runtime or Git command ran here.\nThe retained root refusal explicitly records132,653,056B against603,979,776B body admission, no declaration/wrapper creation, no verifier start/body/advice, and the orchestration mistake continuing to a dependent shell after the first failure. I do not reconstruct the cause of the reported925,593,600\u2192132,653,056 rebound or treat R3 as failed. A single combined execution changes a concrete condition: it removes the tool-return boundary between a successful advisory and the verifier's own fresh admission. This is defensible as one newly reviewed attempt, not a guarantee of free pages or proof of the actor.\nRoot must precreate exclusive external wrappers and independently approved exact-source declarations before this one window. It must genuinely hold known repo/target writers, maintenance and heavy groups, preserve both phases' stdout/stderr/exits, invoke the cache exactly once, and explicitly stop if its exit is nonzero. Only after cache success may the already accepted50a verifier begin in the same shell, with no intervening Git/runtime/tool-return. The verifier must retain576MiB admission and its own resource/metadata/hash checks; cache rc0 does not bypass those. No dependent phase may continue after a failed preflight or missing wrapper/control. If the revised handoff fails, stop and retain the specific failure; do not create another blind hint revision.\nAll R2/R3 source limitations remain: pinned literal read-only pack/anchored FD and24MiB work+64MiB reserve; no whole-pack historical SHA; metadata-only preservation, no global/atomic writer exclusion; dirty-page writeback/cache miss/refill are possible; no causal reclaim guarantee. Fresh120second truthful declaration and real independent review are required. Intent without return is unknown; return without AFTER cannot establish preservation. A precreated verifier declaration can expire and must then refuse rather than silently renew.\nThis acceptance covers cache source and the conditional handoff plan, not an uninspected caller script or actual result. Separate independent actual whole-bundle receipt, old-TMP PREPARED comparison/decision and renewed producer judgment remain required before retirement. No cleanup, unlink, archive coverage, producer/native/game/AAA/Steam/human-fun qualification follows.",
+      "path": "/workspace/scratch/git-immutable-pack-cache-hint-source-independent-r4/REVIEW.md",
+      "sha256": "b6988c16b8970423fb87736989718140f4e90160e84679632e853e67fe677494"
+    },
+    {
+      "bytes": 1034,
+      "historicalControl": {
+        "archiveFullVerificationEstablished": false,
+        "automaticDependentPhaseGranted": false,
+        "cleanupGranted": false,
+        "numericPIDCaptured": false,
+        "ownTargetFDClosed": true,
+        "permitsConsiderationOfSeparateFreshPhaseOnly": true,
+        "qualification": "Normal waited no-child owned helper closure; not global/group absence, whole-pack-byte proof, causal durable recovery or current-all-changes-pushed proof.",
+        "sourceSHA256": "4c588f150191fe6d9294028c5675f5d7df0b269503705eee9e50038efe5e6c92",
+        "status": "ACCEPT actual r3 advisory receipts and metadata, qualified scoped closure"
+      },
+      "historicalControlKeys": [
+        "status",
+        "sourceSHA256",
+        "metrics",
+        "ownTargetFDClosed",
+        "permitsConsiderationOfSeparateFreshPhaseOnly",
+        "automaticDependentPhaseGranted",
+        "cleanupGranted",
+        "archiveFullVerificationEstablished",
+        "numericPIDCaptured",
+        "qualification"
+      ],
+      "path": "/workspace/scratch/standard-sol-pc-immutable-pack-cache-advice-execution-independent-r3/OUTCOME.json",
+      "sha256": "9d536b6aca5abb7d8108dc0589f7ce830d2f37812552074d15377eb46d8ecdf9"
+    },
+    {
+      "bytes": 11232,
+      "historicalControl": {
+        "currentHEAD": "425365835b22bba460c8040aa5761e571550346a",
+        "ownFDsClosed": true,
+        "packLockNamesAbsent": true,
+        "scope": "Independent bounded actual hint receipt/control/target-metadata review; zero pack/archive body bytes, no hint execution"
+      },
+      "historicalControlKeys": [
+        "currentHEAD",
+        "currentTarget",
+        "inputs",
+        "knownLockPathsAbsent",
+        "metrics",
+        "ownFDsClosed",
+        "packLockNamesAbsent",
+        "reviewResource",
+        "scope"
+      ],
+      "path": "/workspace/scratch/standard-sol-pc-immutable-pack-cache-advice-execution-independent-r3/INPUTS.json",
+      "sha256": "8481b4ce82e58da5f6d8ef9f8632181a8047501b2df5995faa290a1243f432d1"
+    },
+    {
+      "bytes": 543,
+      "historicalControl": {
+        "logicalBytes": 16349,
+        "scope": "Actual advisory only; prior packets unchanged"
+      },
+      "historicalControlKeys": [
+        "files",
+        "logicalBytes",
+        "scope"
+      ],
+      "path": "/workspace/scratch/standard-sol-pc-immutable-pack-cache-advice-execution-independent-r3/FROZEN.json",
+      "sha256": "de92d6c1c119811e50371fb6670fda880c44b88debd2888d50d9b7d4cbda567b"
+    },
+    {
+      "bytes": 4083,
+      "historicalReviewText": "ACCEPT \u2014 distinct actual one-shot r3 advisory outcome, bounded receipt/metadata scope.\nI independently read complete wrapper ADMISSION/RESULT/log, all six tool receipts, ROOT outcome, declaration, acceptance, exact technical review, full helper and caller/wrapper sources. Actual command binds source 4c588f150191fe6d9294028c5675f5d7df0b269503705eee9e50038efe5e6c92, pin 43a1186e31a67779c6cf2a72c931a69800e9c3f0edff1eadf8d7213251b1cf03, caller protocol 3cdcdc541d2c2b8698d40cb3e8651fe40f4314342cb2f82580ad5790cf291f00, wrapper 7284b52f785779ffc5d2a2e1b539b19cd331ee7315ae6b7f7c71af1fa856f3cc, and technical source review 1cfe90f33611b7a56abb04a67f7c74ae081f3f2ae95a7ad9eb25c27062b20d4a. Exact current control-body hashes matched. INPUTS.json records the full acceptance/declaration/control/receipt hashes and actual metadata, including truthful ordinary-source access times rather than a fabricated freeze.\nARMED names exactly one read-only whole-FD POSIX_FADV_DONTNEED call; RETURNED records errno0. The8KiB reserved failure slot is unchanged and unused, AFTER complete with ownTargetFDClosed=true, packBodiesRead=false and no byte writes. I independently held no-follow parent directory FDs and a read-only NOATIME target FD, read zero target bytes, checked offset0, full nanosecond metadata, empty xattrs and FD/path continuity. The0400 owned regular nlink1 pack remains dev27/inode659415/1612289309B/3149016 blocks, exact pinned times and all five parent identities. All own FDs closed. This verifies metadata preservation, not old or fresh whole-pack bytes; no historical whole-pack hash exists.\nNormal reviewed wrapper Popen.wait returned0 with failure null. Reviewed helper spawns no children and finally closes its receipt/target/control FDs; complete AFTER and successful caller completion support scoped owned leader/FD closure. Numeric PID/startticks were not captured in this short actual call. I do not adopt wrapper generic all-child-group wording or claim unknown/global reader absence. Root coordinated known affected writer/maintenance holds; those declarations are operational evidence, not atomic exclusion. Visible locks are observation only. Fresh bounded current HEAD/ref reads still identify425365835b22bba460c8040aa5761e571550346a; named lock paths/pack lock names were absent. Retained successful push controls were exact.425 is the prior pushed commit; current uncommitted documentation/research is not claimed pushed.\nROOT records completed files/directories fsynced, consistent with its actual reported closure; I did not independently witness every original fsync or perform a crash test. My new packet is separately fsynced. Observed aggregate headroom gain790908928 B is not exclusive causal, durable or promised future capacity. Review-source fresh headroom was already substantially lower; any next work needs its own fresh admission.\nThis particular attempt is consumed. Accepted result permits consideration only of a separately authorized/admitted64MiB TOTAL+512MiB retained-copy verification window. There is no automatic dependent phase, retry, archive-body permission, retirement, path-need/storage preference, build/browser/gameplay or quality acceptance. Independent full-new-archive verification has not completed; originals remain retained. No hint/Git/Node",
+      "path": "/workspace/scratch/standard-sol-pc-immutable-pack-cache-advice-execution-independent-r3/REVIEW.md",
+      "sha256": "48cc326be6586c120a79fe24633f4938003ea15bc97a2d06ee1f4529e2cec7e7"
+    }
+  ],
+  "limitations": [
+    "Readonly mode0400/nlink1 and visible/proc/locks observation do not provide atomic writer exclusion.",
+    "Exact metadata/xattrs are rechecked; whole pack body hash is not established historically or freshly.",
+    "Receipt leaf files and output directory are fsynced; newly created output directory parent is not explicitly fsynced, so crash durability of the new path itself is not fully proven.",
+    "Armed without RETURNED receipt leaves hint outcome unknown; stop/no retry.",
+    "RLIMIT_AS bounds additional virtual memory; wrapper owns time/process-group stopping, not global backend accounting."
+  ],
+  "newSource": {
+    "bytes": 12875,
+    "path": "/workspace/scratch/git-immutable-pack-cache-hint-opening-root-r1/immutable_pack_hint.py",
+    "sha256": "e93abffe3e8f9260eaa45b4088f2fbe7f005eb480bead7c0bcc962e506aeeda2"
+  },
+  "oldSource": {
+    "bytes": 12856,
+    "path": "/workspace/scratch/git-immutable-pack-cache-hint-ROOT-author-r3/immutable_pack_hint.py",
+    "sha256": "f988ae79dc96996ef96b8017d55104079f2528f454199aa6c1652fed92ad96c4"
+  },
+  "onlySourceChanges": 2,
+  "ownRSSBytes": 12189696,
+  "pin": {
+    "bytes": 1470,
+    "path": "/workspace/scratch/git-immutable-pack-cache-hint-opening-root-r1/METADATA-INTAKE.json",
+    "sha256": "2101bf8f63454050cfa5af12a171c3d5f58cc450f5131bc71ccccba09cf7b376"
+  },
+  "proposal": {
+    "bytes": 1221,
+    "path": "/workspace/scratch/git-immutable-pack-cache-hint-opening-root-r1/PROPOSAL.json",
+    "sha256": "2be1f17e02d2d0422a275575da8ce1b8f7e455ab35f2147a041844e1240b0c5d"
+  },
+  "scope": "One immutable old Git pack FD cache hint; metadata-only preservation; no whole-pack SHA proof",
+  "singleHintCall": "os.posix_fadvise(fd, 0, 0, os.POSIX_FADV_DONTNEED)",
+  "targetBodyOpenedOrRead": false
+}

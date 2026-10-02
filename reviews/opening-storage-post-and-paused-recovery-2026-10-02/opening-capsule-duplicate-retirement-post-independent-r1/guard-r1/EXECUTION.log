@@ -1,0 +1,14 @@
+fatal: unable to create threaded lstat: Resource temporarily unavailable
+Traceback (most recent call last):
+  File "/workspace/scratch/opening-capsule-duplicate-retirement-post-independent-r1/audit.py", line 47, in <module>
+    assert not git('status','--porcelain=v1')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/opening-capsule-duplicate-retirement-post-independent-r1/audit.py", line 20, in git
+    def git(*args):return subprocess.check_output(['git','--no-optional-locks',*args],cwd=R,env={**os.environ,'GIT_OPTIONAL_LOCKS':'0'},timeout=10)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', '--no-optional-locks', 'status', '--porcelain=v1']' returned non-zero exit status 128.
