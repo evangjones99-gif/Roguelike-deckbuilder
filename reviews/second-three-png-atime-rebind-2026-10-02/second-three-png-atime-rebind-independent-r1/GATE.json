@@ -1,0 +1,109 @@
+{
+  "decision": "ACCEPT_EXACT_R4_ATIME_ONLY_REBIND_AND_PINNED_56M_RECOVERY_CONTROLS",
+  "method": {
+    "path": "/workspace/scratch/share-second-three-retained-pngs-root-r4.py",
+    "bytes": 8174,
+    "sha256": "5c03ec5135584a2fc83ebff60bb4ee6f52b1451ebf79ae4125d16704530f3adc"
+  },
+  "proposal": {
+    "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/PROPOSAL.json",
+    "bytes": 43511,
+    "sha256": "45ed75b5078c84e32981ba86b43f62826b00c53278ef8ea2f9888d661b8fd8d5"
+  },
+  "currentHold": {
+    "path": "/workspace/Roguelike-deckbuilder/AGENTS.md",
+    "bytes": 15131,
+    "sha256": "69a82ce96a594a2b2a5244154de8758b200290ba9de46b40a221a52ba4a0cfb7"
+  },
+  "selectedMap": {
+    "path": "/workspace/scratch/target-wait-default-promotion-root-r1/RESULT.json",
+    "bytes": 15350,
+    "sha256": "31a221091d2ffbc6d58dfc1385962c441df9789c66729ef64d20b95208a8fabd"
+  },
+  "publisher": {
+    "path": "/workspace/scratch/publish-atime-rebind-root-r1.py",
+    "bytes": 4040,
+    "sha256": "4a88e8b46d18c8a7d153a1c387878da80406dbb05386161169fb72852c08c427"
+  },
+  "producer": {
+    "path": "/workspace/scratch/judge-second-three-png-sharing-root-r4.py",
+    "bytes": 3818,
+    "sha256": "80ba8af4b96e0522adbc2ccfce908f2394b36606273a8a7a374169f0aee9753c"
+  },
+  "guard": {
+    "path": "/workspace/scratch/guard-source-recovery-56m-root-r2.py",
+    "bytes": 2826,
+    "sha256": "c2b24f58d6abbbe0449fc49515e6bb9eeaf0997bd287642d87a3a1754388fff3"
+  },
+  "priorScopeGate": {
+    "path": "/workspace/scratch/second-three-png-recovery-admission-independent-r1/GATE.json",
+    "bytes": 6087,
+    "sha256": "4edc919f7b2017f4cc1377ba97ee5bce9964b57e44f17fb37ff2a9597f94c2a9"
+  },
+  "review": {
+    "path": "/workspace/scratch/second-three-png-atime-rebind-independent-r1/REVIEW.md",
+    "bytes": 2522,
+    "sha256": "3f774a2d3a70d24a60c82e7c5ab78eae5d10dcc411cb5994c3050ed55b1e1216"
+  },
+  "actionExecutedByReviewer": false,
+  "conditions": [
+    "Only exact three pinned historical PNG recipients and anchors; all prior scope/loss qualifications retained.",
+    "New selective publication/current clean remote-confirmed push and durable producer judgment required before one fresh r4 action.",
+    "Never retry r3; no automatic r4 retry or further timestamp rebinding after initial per-leaf snapshot.",
+    "No timestamp setters; all fields except initial atime, full bytes and xattrs exact; subsequent full snapshot checks preserved.",
+    "No arbitrary scripts via scoped guard: external sole-writer exact source pins required."
+  ],
+  "exactInvocations": [
+    {
+      "guard": "/workspace/scratch/guard-source-recovery-56m-root-r2.py",
+      "stage": "/workspace/Roguelike-deckbuilder",
+      "workMiB": 256,
+      "reserveMiB": 512,
+      "initialDiskMiB": 56,
+      "child": [
+        "python",
+        "/workspace/scratch/publish-atime-rebind-root-r1.py"
+      ]
+    },
+    {
+      "guard": "/workspace/scratch/guard-source-recovery-56m-root-r2.py",
+      "stage": "/workspace/Roguelike-deckbuilder",
+      "workMiB": 64,
+      "reserveMiB": 512,
+      "initialDiskMiB": 56,
+      "child": [
+        "python",
+        "/workspace/scratch/judge-second-three-png-sharing-root-r4.py",
+        "EXACT_SHA256_OF_THIS_GATE"
+      ]
+    },
+    {
+      "guard": "/workspace/scratch/guard-source-recovery-56m-root-r2.py",
+      "stage": "/workspace/Roguelike-deckbuilder",
+      "workMiB": 64,
+      "reserveMiB": 512,
+      "initialDiskMiB": 56,
+      "child": [
+        "python",
+        "/workspace/scratch/share-second-three-retained-pngs-root-r4.py",
+        "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/PROPOSAL.json",
+        "45ed75b5078c84e32981ba86b43f62826b00c53278ef8ea2f9888d661b8fd8d5",
+        "/workspace/scratch/second-three-png-atime-rebind-independent-r1/GATE.json",
+        "EXACT_SHA256_OF_THIS_GATE",
+        "/workspace/scratch/second-three-png-producer-judgment-root-r4.json",
+        "EXACT_NEW_DURABLE_JUDGMENT_SHA256",
+        "/workspace/scratch/atime-rebind-push-root-r1/PUSH-CONFIRMED.json",
+        "EXACT_NEW_CONFIRMED_PUSH_RECEIPT_SHA256"
+      ]
+    }
+  ],
+  "bounds": {
+    "reviewBytes": 32768,
+    "publishedPayloadBytes": 131072,
+    "transactionLogicalModeledBytes": 65536,
+    "transactionQualification": "Prior30KiB logical/45KiB rounded model plus six proposalMetadata snapshots remains below64KiB; not filesystem universal allocation proof.",
+    "strictBuildDiskMiB": 64,
+    "nativeDiskMiB": 70
+  },
+  "reviewResources": "Finite unmetered bootstrap source review/seal only, measured ownRSS<24MiB. No source64 or global56 guard compliance claim."
+}
