@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/native-checkpoint-root-manifest-r2.py", line 42, in <module>
+    tool=q/name/'package.json';tools.append({'path':str(tool),'sha256':sha(tool),'version':json.loads(tool.read_bytes())['version']})
+                                                                       ^^^^^^^^^
+  File "/workspace/scratch/native-checkpoint-root-manifest-r2.py", line 6, in sha
+    h=hashlib.sha256();fd=os.open(p,os.O_RDONLY|os.O_NOATIME|os.O_NOFOLLOW)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/Roguelike-deckbuilder/node_modules/vitest/package.json'

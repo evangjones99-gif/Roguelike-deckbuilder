@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/opening-cue-duplicate-retirement-independent-r1/seal.py", line 31, in <module>
+    put('GATE.json',{'decision':review['decision'],'proposalOnly':True,'replacementAndCurrentKnownPhysicalCopyNeedReviewed':True,'twoScratchPrivateEncodingsConditionallyPreferredForRetirement':True,'historicalBodiesLogicalPathsStillNeededPreservedByCanonicalAndPublishedMapping':True,'completeArchivePairs':[{k:r[k] for k in ['id','scratchPath','canonicalPath','sha256','bytes','distinctPhysicalInodes','freshCanonicalTARMemberSHAAndLengthsMatched','logicalRows']} for r in x['archivePairs']],'PROOF_SHA256':sha(P/'PROOF.json'),'REVIEW_SHA256':sha(P/'REVIEW.json'),'LOCATION_MAP_SHA256':sha(P/'LOCATION-MAP.json'),'CONSUMER_SUPPLEMENT_SHA256':sha(P/'CONSUMER-SUPPLEMENT.json'),'currentNewPushProducerMethodPOSTStillRequired':True,'grossAllocatedCandidateBytes':x['combinedGrossAllocatedCandidateBytes'],'observedNetRecoveryBytes':None,'newNativeBrowserAdmissionAccepted':False,'actionAuthority':False})
+  File "/workspace/scratch/opening-cue-duplicate-retirement-independent-r1/seal.py", line 10, in put
+    b=(json.dumps(x,separators=(',',':'))+'\n').encode();assert size()+len(b)+4096<=CAP
+                                                                ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
