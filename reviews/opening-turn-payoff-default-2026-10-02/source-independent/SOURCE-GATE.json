@@ -1,0 +1,94 @@
+{
+  "decision": "ACCEPT_CONDITIONAL_EXACT_CHECKPOINT_PRESERVATION_SOURCE_ONLY",
+  "plan": {
+    "path": "/workspace/scratch/opening-turn-payoff-opening-checkpoint-source-author-r1/PLAN.json",
+    "sha256": "6b190d0efba84bf1b5c69fdfd3aa097bfd1bdd84ab65f2665f3df4a722524cce"
+  },
+  "method": {
+    "path": "/workspace/scratch/opening-turn-payoff-opening-checkpoint-source-author-r1/preserve-checkpoint.py",
+    "sha256": "367ea7aeeb38186cc546c0bf52ee5e0e65e7705f9dda6d7ccf27c4097c441a69"
+  },
+  "manifest": {
+    "sha256": "5230066863357218bacd7e52e375b9fab4a08bd975c0329b959bf7e1de21792c"
+  },
+  "authorClosure": {
+    "sha256": "dc77f1a14a3bed45cd432fa236b005fdfee5c5d6750d75f163d4e2b0fa689854"
+  },
+  "currentHold": {
+    "path": "/workspace/Roguelike-deckbuilder/AGENTS.md",
+    "sha256": "19e35b29256309ef3fbded5d57ae4e3a582b07dfd0e18f7e8497341e0fe3378e"
+  },
+  "proof": {
+    "path": "/workspace/scratch/opening-turn-payoff-opening-checkpoint-source-independent-r1/PROOF.json",
+    "sha256": "f5a93581cffbdc569afc891325fd317671aea00a3b38026da1d564a97b0739f8"
+  },
+  "review": {
+    "path": "/workspace/scratch/opening-turn-payoff-opening-checkpoint-source-independent-r1/REVIEW.md",
+    "sha256": "73fec580ae323d8f8b63a8d7fcc1d5b9bcd5943aa9e594507d14d8d47255c0e6"
+  },
+  "futureRootArgv": [
+    "python",
+    "/workspace/scratch/opening-turn-payoff-opening-checkpoint-source-author-r1/preserve-checkpoint.py",
+    "/workspace/scratch/opening-turn-payoff-opening-checkpoint-source-author-r1/PLAN.json",
+    "6b190d0efba84bf1b5c69fdfd3aa097bfd1bdd84ab65f2665f3df4a722524cce",
+    "NEW_FRESH_OUTPUT_DIRECTORY"
+  ],
+  "futureGuard": {
+    "workMiB": 128,
+    "reserveMiB": 512,
+    "diskMinimumMiB": 64,
+    "ownRSSMiB": 24,
+    "outputLogicalAndAllocatedMiB": 16,
+    "finiteMethodChecksSeconds": 60
+  },
+  "requiresActualIndependentCompleteReviewBeforePublication": true,
+  "runtimeSelectionGitCleanupAuthorized": false,
+  "existingCapsule": {
+    "sha256": "ce0f8f40bcf0f0b22e5e4d93eef3d4660662826e617900aba09ac208c148dc13",
+    "indexSHA256": "115bbdb35d9cdff98503a3a5c63ced87e49a48d198194c9caa45268254bec0cf",
+    "priorCompleteGateSHA256": "11707477d92cc0a041f3dbbfd77d5ba6ef185a4d5df3bb181f2285d827dfeb05",
+    "sourcePhaseArchiveBodyRead": false
+  },
+  "coverage": {
+    "logicalRows": 490,
+    "newUniqueBodies": 298,
+    "existingReferences": 187,
+    "callerBodies": 40,
+    "fullRuntimeMapCounts": [
+      [
+        89,
+        56
+      ],
+      [
+        89,
+        56
+      ],
+      [
+        88,
+        56
+      ]
+    ],
+    "externalGameMediaOccurrences": 303,
+    "selfContainedRelease": false
+  },
+  "qualifications": [
+    "Actual helper metadata checks cover a subset, not all stat fields/xattrs.",
+    "O_NOATIME fallback and standard-read atime qualified; no time reset.",
+    "Terminal allocated/RSS/elapsed stdout must be retained because RESULT was written before terminal measurements.",
+    "Fresh Root guard/admission required; 17MiB is an estimate, not internal disk admission.",
+    "No gameplay/default/wording/platform/human enjoyment claim."
+  ],
+  "normalSourceGuard": {
+    "resultSHA256": "1bcf2f89edd5bfc6f77bc30a422639d8811fae8500c4b954d962f5d6c6474d45",
+    "exitCode": 0,
+    "failure": null,
+    "auditOwnMaxRSSKiB": 12260
+  },
+  "status": "SOURCE_FINITE_CLOSED_PENDING_ROOT_ACTUAL_AND_INDEPENDENT_COMPLETE",
+  "holdTimeline": {
+    "originalAuditHoldSHA256": "121d70851473627d73099518d5dd6b38a74773405c057a08b5eb87596dce2616",
+    "freshHoldSHA256": "19e35b29256309ef3fbded5d57ae4e3a582b07dfd0e18f7e8497341e0fe3378e",
+    "exactOldSuffixInverseVerified": true,
+    "RootConfirmedChange": "Root-only prepend of two new frozen stages after audit; all earlier hold bytes retained. Original seal refusal preserved; no body audit rerun or unchanged whole-hold claim."
+  }
+}

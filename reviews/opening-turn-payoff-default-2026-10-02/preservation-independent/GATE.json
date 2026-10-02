@@ -1,0 +1,97 @@
+{
+  "decision": "ACCEPT_COMPLETE_EXACT_OPENING_CUE_BYTE_PRESERVATION",
+  "archive": {
+    "path": "/workspace/scratch/opening-turn-payoff-opening-checkpoint-output-root-r1/evidence-f9121c7b6416398241d1b5a160b4781f17a45dff4813260edaf4c3b6df1761af.tar.gz",
+    "sha256": "f9121c7b6416398241d1b5a160b4781f17a45dff4813260edaf4c3b6df1761af",
+    "compressedBytes": 3839783,
+    "allMembersSHAAndLiteralOriginalByteEquality": true,
+    "memberCount": 298,
+    "fullDecodedOriginalBytesCompared": 9934592,
+    "indexSHA256": "fd6e057da394aa127766f434bd70c9b1045c17f92ab0e94fb70dd77ebb6a9ad2",
+    "observationsSHA256": "4b9fecb9012a5970ef0323826de09b2f081e71a2dcdef0691a41dfcb40e8987f",
+    "resultSHA256": "91ccaa2007614c70b10cdfbcdb7950ade02309c003fac033aca003c14300dc50",
+    "existingArchiveFreshFullCompressedSHA": "ce0f8f40bcf0f0b22e5e4d93eef3d4660662826e617900aba09ac208c148dc13",
+    "existing831LogicalIndexFreshFullSHA": "115bbdb35d9cdff98503a3a5c63ced87e49a48d198194c9caa45268254bec0cf",
+    "newReferenceCount": 187,
+    "old697DecodedBodiesNotReread": "Exact full compressed SHA plus exact INDEX and retained prior COMPLETE117074 verify immutable authority; no old master body read."
+  },
+  "rootActual": {
+    "grantSHA256": "f10c78099e4e4fc9598eba7b99e5318382ed46050707ae82292ea56eb6b97a62",
+    "guardResultSHA256": "c49941651ebb2f2aeee9b77998859af8271a7d9fca9a66b1d2f6d6d68c5258d1",
+    "guardAdmissionSHA256": "4b63cb382d87e5059ce317975e510ab254e2b2990716cbe3abdc46b40bbbc519",
+    "terminalStdoutSHA256": "e9e793a1521d15992540f5d25b6ffe47998db0b808e1f3b7c631989f4643fafd",
+    "normalExit": 0,
+    "samples": 4,
+    "terminalElapsedSeconds": 0.2952906920108944,
+    "terminalOwnRSSBytes": 15519744,
+    "logicalOutputBytes": 4084419,
+    "allocatedOutputBytes": 4096000,
+    "observationCount": 598,
+    "zeroPermissionFallback": true
+  },
+  "sourceGate": {
+    "path": "/workspace/scratch/opening-turn-payoff-opening-checkpoint-source-independent-r1/SOURCE-GATE.json",
+    "sha256": "4bfbc6ee637d79b98831fcf0dfe72233e3fec55309695b137956753920e097aa"
+  },
+  "proof": {
+    "path": "/workspace/scratch/opening-turn-payoff-opening-checkpoint-preservation-independent-r1/PROOF.json",
+    "sha256": "b7def347732bcbdfd4558b18b3f1f5178c065f2520f9a7cbccec75ab479688ea"
+  },
+  "review": {
+    "path": "/workspace/scratch/opening-turn-payoff-opening-checkpoint-preservation-independent-r1/REVIEW.md",
+    "sha256": "34627c63b3c5ea276e51789e851facc7cb17439332ffdd7dd6e2e0574888966c"
+  },
+  "method": {
+    "sha256": "367ea7aeeb38186cc546c0bf52ee5e0e65e7705f9dda6d7ccf27c4097c441a69"
+  },
+  "plan": {
+    "sha256": "6b190d0efba84bf1b5c69fdfd3aa097bfd1bdd84ab65f2665f3df4a722524cce"
+  },
+  "currentHold": {
+    "sha256": "19e35b29256309ef3fbded5d57ae4e3a582b07dfd0e18f7e8497341e0fe3378e"
+  },
+  "logicalRows": 490,
+  "all490FreshOriginalHashesMatch": true,
+  "rawSavedPairCount": 12,
+  "originalJPEGCount": 16,
+  "callerBodyCount": 40,
+  "completeReviewRootCount": 7,
+  "runtimeMaps": [
+    [
+      89,
+      56
+    ],
+    [
+      89,
+      56
+    ],
+    [
+      88,
+      56
+    ]
+  ],
+  "externalGameMediaIdentityOccurrences": 303,
+  "selfContainedRelease": false,
+  "existingAuthority": {
+    "priorCompleteGateSHA256": "11707477d92cc0a041f3dbbfd77d5ba6ef185a4d5df3bb181f2285d827dfeb05",
+    "all831IndexAndFullCompressedArchiveRehashed": true,
+    "old697DecodedBodiesNotReplayed": true
+  },
+  "originalsRetained": true,
+  "protectedZIPBodyRead": false,
+  "runtimeDefaultWordingArtSelectionOrCleanupAuthority": false,
+  "limitations": [
+    "Byte-preservation acceptance only, no visual/gameplay/novice/enjoyment/platform improvement claim.",
+    "Existing capsule and both indexes are required; node_modules/held game media remain external.",
+    "Helper metadata checks cover only specified subset; no fullmetadata/xattr/time-reset/durability claim.",
+    "Terminal caps supported by retained stdout, not just earlier RESULT fields.",
+    "Shared cgroup attribution nonexclusive; no universal actor closure claim."
+  ],
+  "normalIndependentGuard": {
+    "resultSHA256": "24fa620237d147cac7631f9ae0630f34ab8463defe6d24f7a43168df15dd4654",
+    "exitCode": 0,
+    "failure": null,
+    "ownMaxRSSKiB": 16092
+  },
+  "status": "TOOL_GUARD_CLOSED_COMPLETE_PRESERVATION_ONLY"
+}

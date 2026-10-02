@@ -1,0 +1,66 @@
+{
+  "status": "TOOL_GUARD_CLOSED_COMPLETE",
+  "gateSHA256": "940a3ec99f960aea7cbd5c9b942da6f595e0a4d45463ac963979eac03cfd425d",
+  "familyLogicalCapBytes": 98304,
+  "logicalBeforeReceiptBytes": 46709,
+  "sealOwnMaxRSSKiB": 10240,
+  "allRows": [
+    {
+      "path": "COMPLETE-GUARD-R1/ADMISSION.json",
+      "sha256": "a8c9add3796072d1e6c694ce2e9c1676109643e3044a1b5b3889abb34c6e4dcc",
+      "bytes": 534
+    },
+    {
+      "path": "COMPLETE-GUARD-R1/EXECUTION.log",
+      "sha256": "6dd9394a552e547a70aa8bc7f0b5a50a9154521c78d9679c3e9b6667a2006773",
+      "bytes": 235
+    },
+    {
+      "path": "COMPLETE-GUARD-R1/RESULT.json",
+      "sha256": "24fa620237d147cac7631f9ae0630f34ab8463defe6d24f7a43168df15dd4654",
+      "bytes": 1051
+    },
+    {
+      "path": "DISCOVERY-QUALIFICATION.txt",
+      "sha256": "e4a16b414b287b39aeda9d414f6103075814c74f1f49b74defad311b62920fb9",
+      "bytes": 543
+    },
+    {
+      "path": "GATE.json",
+      "sha256": "940a3ec99f960aea7cbd5c9b942da6f595e0a4d45463ac963979eac03cfd425d",
+      "bytes": 4276
+    },
+    {
+      "path": "PROOF.json",
+      "sha256": "b7def347732bcbdfd4558b18b3f1f5178c065f2520f9a7cbccec75ab479688ea",
+      "bytes": 7370
+    },
+    {
+      "path": "READER-IDENTITY.json",
+      "sha256": "bfdbd945f2f41df7014a2ac35c9fd6e5b08064a889840b711e88e9f4de6154bb",
+      "bytes": 506
+    },
+    {
+      "path": "REVIEW.md",
+      "sha256": "34627c63b3c5ea276e51789e851facc7cb17439332ffdd7dd6e2e0574888966c",
+      "bytes": 4592
+    },
+    {
+      "path": "archive-phase.py",
+      "sha256": "bd47b3ae4d8201b933abaf469d2eae50dbce8e78a6e45b3d1a7414185b430ad5",
+      "bytes": 6806
+    },
+    {
+      "path": "seal.py",
+      "sha256": "de539a4b50349ee2f966de4311536698bd4a6d32a02782619752cf1d468e9e49",
+      "bytes": 4628
+    },
+    {
+      "path": "verify-complete.py",
+      "sha256": "c630de98644492aec68c89bc7a3a7529e76d36f3778b492cb1d2334b32aabb50",
+      "bytes": 15645
+    }
+  ],
+  "outerSealGuardMovingUntilCloseExcluded": true,
+  "protectedZIPFullStatXattrsStableNoBodyRead": true
+}
