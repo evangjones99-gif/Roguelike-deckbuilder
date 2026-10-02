@@ -1,0 +1,87 @@
+{
+  "exit_code": 0,
+  "failure": null,
+  "initial": {
+    "time_ns": 1790928532250886684,
+    "current": 15633231872,
+    "maximum": 17179869184,
+    "headroom": 1546637312,
+    "free": 203243520
+  },
+  "final": {
+    "time_ns": 1790928533055055267,
+    "current": 15643766784,
+    "maximum": 17179869184,
+    "headroom": 1536102400,
+    "free": 193085440
+  },
+  "samples": [
+    {
+      "time_ns": 1790928532251491905,
+      "current": 15633494016,
+      "maximum": 17179869184,
+      "headroom": 1546375168,
+      "free": 203239424,
+      "delta": 262144
+    },
+    {
+      "time_ns": 1790928532351789721,
+      "current": 15643234304,
+      "maximum": 17179869184,
+      "headroom": 1536634880,
+      "free": 203235328,
+      "delta": 10002432
+    },
+    {
+      "time_ns": 1790928532452095269,
+      "current": 15646085120,
+      "maximum": 17179869184,
+      "headroom": 1533784064,
+      "free": 202883072,
+      "delta": 12853248
+    },
+    {
+      "time_ns": 1790928532552430921,
+      "current": 15648706560,
+      "maximum": 17179869184,
+      "headroom": 1531162624,
+      "free": 200519680,
+      "delta": 15474688
+    },
+    {
+      "time_ns": 1790928532652836992,
+      "current": 15650541568,
+      "maximum": 17179869184,
+      "headroom": 1529327616,
+      "free": 199065600,
+      "delta": 17309696
+    },
+    {
+      "time_ns": 1790928532753183440,
+      "current": 15651590144,
+      "maximum": 17179869184,
+      "headroom": 1528279040,
+      "free": 198025216,
+      "delta": 18358272
+    },
+    {
+      "time_ns": 1790928532853508246,
+      "current": 15654735872,
+      "maximum": 17179869184,
+      "headroom": 1525133312,
+      "free": 195076096,
+      "delta": 21504000
+    },
+    {
+      "time_ns": 1790928532953852586,
+      "current": 15656046592,
+      "maximum": 17179869184,
+      "headroom": 1523822592,
+      "free": 194904064,
+      "delta": 22814720
+    }
+  ],
+  "memory_events_before": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "memory_events_after": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "scope": "observed cgroup delta, not exclusive process attribution; all child group processes closed"
+}

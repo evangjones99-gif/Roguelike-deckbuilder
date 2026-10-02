@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/coherent-native128-prebrowser-audit-independent-r4/audit.py", line 57, in <module>
+    assert driver.index("await auditBytes('before')")<driver.index('browser=await chromium.launch') if "await auditBytes('before')" in driver else driver.index("await byteAudit('before')")<driver.index('browser=await chromium.launch')
+                                                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: substring not found

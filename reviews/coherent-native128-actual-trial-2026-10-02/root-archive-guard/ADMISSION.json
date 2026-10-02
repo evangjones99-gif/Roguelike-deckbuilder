@@ -1,0 +1,30 @@
+{
+  "initial": {
+    "time_ns": 1790928532250886684,
+    "current": 15633231872,
+    "maximum": 17179869184,
+    "headroom": 1546637312,
+    "free": 203243520
+  },
+  "work": 268435456,
+  "reserve": 536870912,
+  "command": [
+    "python",
+    "/workspace/scratch/pixel-cue-evidence-preserver-source-author-r3/build-capsule.py",
+    "--plan",
+    "/workspace/scratch/pixel-cue-evidence-preserver-source-author-r2/PLAN.json",
+    "--plan-sha256",
+    "56c1615aa9c7afb2b0f77e41825ba95f43fb0140e06b632fee1451441506661f",
+    "--supplement-sha256",
+    "999efb99ca48498754ef58543137fedcf0271c80543d34437f14a5d42dbd57ed",
+    "--activation",
+    "/workspace/scratch/pixel-cue-capsule-activation-root-r1.json",
+    "--activation-sha256",
+    "ff925b1f7790c0b2c49381cea547ed6f28bd4e11f3b51f8d8599f97d6e5696f9",
+    "--output",
+    "/workspace/scratch/pixel-cue-evidence-capsule-root-r1"
+  ],
+  "stage": "/workspace",
+  "admitted": true,
+  "memory_events_before": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

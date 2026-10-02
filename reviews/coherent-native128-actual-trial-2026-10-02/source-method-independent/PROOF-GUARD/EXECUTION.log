@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/pixel-cue-evidence-preserver-source-independent-r3/verify.py", line 67, in <module>
+    if 'sha256' in item:assert pin(item['path'])['sha256']==item['sha256']
+                               ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/pixel-cue-evidence-preserver-source-independent-r3/verify.py", line 23, in pin
+    p=pathlib.Path(p);assert p.suffix.lower() not in ['.png','.jpg','.jpeg','.wav','.zip']
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

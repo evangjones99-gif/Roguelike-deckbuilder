@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/default-clear-publication-source-author-r1/publish-selected-r2.py", line 14, in <module>
+    for line in run(['git','status','--porcelain','--untracked-files=all']).splitlines():assert line[3:] in changed or line[3:].startswith(owned+'/'),line
+                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: M src/main.ts

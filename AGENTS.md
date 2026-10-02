@@ -1,3 +1,19 @@
+## Frozen default spent-command cue trial
+
+The private strict-built `/workspace/scratch/opening-turn-payoff-on-stage-r1` is frozen: sourcefef2e994/output27a207a3,89/56, freeze `/workspace/scratch/opening-turn-payoff-on-strict-build-root-r1/final-seal-r1/RUNTIME-FREEZE.json`60de8d27. Never rebuild into it or write through retained media leaves/shared node_modules. Fresh reproductions use new names/inodes. Only the openingTurnCue flag defaults ON; empty-query actual comparison and independent actual-build review remain pending, so it is unselected. This is a workflow hold, not OS protection or a self-contained release.
+
+## Frozen native128 UI repair trial
+
+The private strict-built `/workspace/scratch/coherent-native128-ui-stage-r6` is frozen: sourcea4b4166c/output556c41d6,97/63, exactfreeze `/workspace/scratch/coherent-native128-ui-strict-build-root-r6/final-seal-r1/RUNTIME-FREEZE.json` d22bc5cd. Never rebuild into this stage or write through its held media leaves/shared node_modules path. Fresh reproduction uses new names/inodes. Its only input change is CSS00375362 over the independently rejected pixel trial: bounded HUD portrait, card allocation and End turn contrast. Actual fit remains pending; static defeated pose and flat ground are open. This is a workflow hold, not OS protection or a selected/self-contained release.
+
+## Frozen first-turn cue trial
+
+The private strict-built `/workspace/scratch/opening-turn-payoff-default-stage-r3` is frozen (source0ca167b5/outputsaad0fc73,89/56). Never rebuild into it or write through its held public/desktop/dist media leaves or shared node_modules path. Reproduction uses fresh stages/names/inodes; this workflow hold is not OS-enforced protection or a self-contained release. `openingTurnCue=1` remains private and unselected. Actual comparison completed once with six saved-state pairs, pure cancellation, cue hide/restore and ordinary End turn into turn2; independent actual reviews remain separate from source/build correctness and human enjoyment.
+
+## Frozen coherent native128 R5 trial
+
+The private strict-built `/workspace/scratch/coherent-native128-pixel-stage-r4` is frozen (actual CSS R5; source4f5c7802/outputsc3f10d4e,97/63). Never rebuild into it or write through its retained public/desktop/dist media leaf mounts. Fresh reproductions use new directories/names/inodes; the coordinated hold is not OS-enforced read-only protection or self-contained-release evidence. Its actual R6 comparison completed, but the candidate remains unselected: independent visual/gameplay findings reject clipped costs, low-contrast End turn, oversized HUD portrait and standing defeated body. Preserve all original captures and exact frozen bodies. Repairs use a fresh source/stage; a build or narrow mechanical pass does not certify animation/fit/payoff/fun.
+
 ## Immutable retained native 0.6.1 ZIP aliases
 
 The exact canonical `/workspace/Roguelike-deckbuilder/releases/0.6.1/hollowpact-0.6.1-windows-native-x64.zip` and historical `/workspace/scratch/native-windows-v061/run-36791619534-1/hollowpact-0.6.1-windows-native-x64.zip` leaves are immutable and fresh-stage-only. Preserve both original logical archive paths, complete container bytes and native/release/transfer/rights provenance. Never write, truncate, chmod, set xattrs or explicit timestamps through either path or a shared alias. Reproduction/download/reassembly uses a NEW directory, pathname and inode; extraction reads this held archive into NEW output directories. A separately reviewed exact physical-sharing transaction may preserve both paths/bodies while surrendering the scratch private inode/time/write isolation and changing anchor nlink/ctime. This workflow hold is not OS-enforced read-only protection and grants no transaction, archive retirement, protected-archive access or old-version deletion authority. Independent comparison, producer judgment and confirmed current push are required first.

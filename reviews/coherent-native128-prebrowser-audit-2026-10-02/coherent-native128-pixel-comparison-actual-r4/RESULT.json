@@ -1,0 +1,64 @@
+{
+  "exit_code": 2,
+  "failure": null,
+  "cleanup_errors": [],
+  "checks": {
+    "sampled_resources": true,
+    "final_resources": true,
+    "memory_events_unchanged": true,
+    "whole_within90": true,
+    "no_observed_tracked_live_descendants": true,
+    "driver_rc0": false,
+    "no_lifecycle_or_cleanup_failure": true
+  },
+  "initial": {
+    "time_ns": 1790923575742411424,
+    "current": 15185584128,
+    "maximum": 17179869184,
+    "headroom": 1994285056,
+    "free": 242184192
+  },
+  "final": {
+    "time_ns": 1790923576334145062,
+    "current": 15188463616,
+    "maximum": 17179869184,
+    "headroom": 1991405568,
+    "free": 242151424
+  },
+  "samples": [
+    {
+      "time_ns": 1790923575823928828,
+      "current": 15214178304,
+      "maximum": 17179869184,
+      "headroom": 1965690880,
+      "free": 242176000,
+      "delta": 28594176,
+      "elapsed": 0.08142084200517274
+    },
+    {
+      "time_ns": 1790923576001258988,
+      "current": 15258464256,
+      "maximum": 17179869184,
+      "headroom": 1921404928,
+      "free": 242176000,
+      "delta": 72880128,
+      "elapsed": 0.2587484889954794
+    }
+  ],
+  "memory_events_before": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "memory_events_after": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "owned_observed": {
+    "488408": {
+      "starttime": "13406175",
+      "state": "D",
+      "ppid": 488405,
+      "pgrp": 488408
+    }
+  },
+  "post_wait_descendants": {},
+  "tracked_zombies": {},
+  "live_remaining": {},
+  "normal_wait": false,
+  "whole_seconds": 0.5916496349964291,
+  "scope": "896 total cgroup-delta work plus unchanged512 reserve; observed own descendants across groups retained by PID/starttime; zombies nonlive/unreaped; incomplete identity/write observations remain unknown, no universal unobserved-escape proof"
+}
