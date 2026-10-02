@@ -1,0 +1,56 @@
+{
+  "nodeVersion": "v24.19.0",
+  "results": [
+    {
+      "command": [
+        "node",
+        "--check",
+        "/workspace/scratch/windows-opening-smoke-source-r2/windows-smoke.before.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsedSeconds": 0.030394
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "/workspace/scratch/windows-opening-smoke-source-r2/windows-smoke.proposed.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsedSeconds": 0.028494
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "/workspace/scratch/windows-opening-smoke-source-r2/zero-position-cases.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsedSeconds": 0.024571
+    },
+    {
+      "command": [
+        "node",
+        "/workspace/scratch/windows-opening-smoke-source-r2/zero-position-cases.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"status\":\"PASS_PURE_ASSERTION_CASES\",\"accepted\":4,\"rejected\":34}\n",
+      "stderr": "",
+      "elapsedSeconds": 0.07133
+    }
+  ],
+  "childMaxRssKiB": 39804,
+  "memoryQualification": "OS child peak RSS, not aggregate ancestry/cgroup measurement",
+  "ordinaryWorkBytes": 67108864,
+  "reserveBytes": 536870912,
+  "nativeSmokeImportsExecuted": false,
+  "browserGameElectronExecuted": false,
+  "fullExactInverseVerified": true,
+  "rerunReason": "New current-run smoke artifact value supplied by Root and added to case coverage."
+}

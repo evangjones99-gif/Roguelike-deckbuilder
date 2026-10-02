@@ -1,0 +1,47 @@
+{
+  "run": 37075108377,
+  "job": 111063120179,
+  "jobEnvelopeHead": "812668a3bde673cf9e11d93e5e5fe0e807fadaad",
+  "smokeReportedCommit": "2d1bc344b0e2950603e6640d0d1028fdf0bba0c6",
+  "smokeRuntimeSourceDigest": "64c2a14ada2b24796535f9bb71d8a6acc534685365bcf4f5665b21bf18595353",
+  "identityRelationship": "NOT_RESOLVED",
+  "failedPhase": "decode actual packaged hunt-entry hunter sheet",
+  "recordedPortrait": {
+    "width": 1536,
+    "height": 1024,
+    "protocol": "file:",
+    "url": "file:///D:/a/Roguelike-deckbuilder/Roguelike-deckbuilder/build-desktop/win-unpacked/resources/app.asar/dist/art/hunter-marek-v07-r3.png",
+    "backgroundSize": "300% 200%",
+    "backgroundPosition": "0px 0px"
+  },
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'0px 0px' !== '0% 0%'\n\n    at file:///D:/a/Roguelike-deckbuilder/Roguelike-deckbuilder/scripts/windows-smoke.mjs:134:10",
+  "evidencePins": {
+    "/workspace/scratch/opening-fresh-ci-actual-failures-cycle5-root-r1/windows-decoded-job.log": {
+      "bytes": 51493,
+      "sha256": "e40fcfa98b8690574d9a952cdc0ef0daf5669eb4129309ba61646e6f5b25e968"
+    },
+    "/workspace/scratch/opening-fresh-ci-actual-failures-cycle5-root-r1/ROOT-RECEIPT.json": {
+      "bytes": 11031,
+      "sha256": "7305136b89237d756d01addaf8807f24e763e026511b48210dd021a31537d225"
+    },
+    "/workspace/scratch/windows-opening-smoke-actual-evidence-r2/selected/reviews/windows-native/0.9.0/run-37075108377-1/smoke.json": {
+      "bytes": 11404,
+      "sha256": "a39cdf8e542d6d0334d72ca7011205d1dcbc8043082a302d714df580159e62e5"
+    },
+    "/workspace/scratch/windows-opening-smoke-actual-evidence-r2/ROOT-TRANSFER.json": {
+      "bytes": 10833,
+      "sha256": "caba6299d44ae4a15e86a1386767e4230e14b3c8943bc15c3195f1c521a91042"
+    },
+    "/workspace/scratch/windows-opening-smoke-source-r1/MANIFEST.json": {
+      "bytes": 1673,
+      "sha256": "5a9f80abfafec56f366b59afa285949e76c325783dbb65c040b4f2537c23fa7b"
+    },
+    "/workspace/scratch/windows-opening-smoke-source-r1/hunt-entry.265eb047.css": {
+      "bytes": 8102,
+      "sha256": "c7a511b569c6c50456a0aea1c9a469f3d25c245fc660db4d036fd860b99144f5"
+    }
+  },
+  "historicalOtherArtifactSmokeBodiesUsed": false,
+  "laterSmokeExecuted": false,
+  "decodedLogQualification": "Retained UTF8 decoded log, not original HTTP log archive bytes; separate transfer packet retains actual ZIP and member CRC/SHA evidence."
+}

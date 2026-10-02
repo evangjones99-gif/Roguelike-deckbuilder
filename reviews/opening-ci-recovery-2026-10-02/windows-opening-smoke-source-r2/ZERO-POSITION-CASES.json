@@ -1,0 +1,211 @@
+{
+  "status": "PASS_PURE_ASSERTION_CASES",
+  "cases": [
+    {
+      "value": "0% 0%",
+      "accepted": true,
+      "pass": true
+    },
+    {
+      "value": "0px 0px",
+      "accepted": true,
+      "pass": true
+    },
+    {
+      "value": "0% 0px",
+      "accepted": true,
+      "pass": true
+    },
+    {
+      "value": "0px 0%",
+      "accepted": true,
+      "pass": true
+    },
+    {
+      "value": "1px 0px",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "0px 1px",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "-1px 0px",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "0px -1px",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "0.001px 0px",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "0px 0.001px",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "1% 0%",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "0% 1%",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "-1% 0%",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "0% -1%",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "50% 0%",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "0% 100%",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "100% 100%",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "512px 0px",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "0px 512px",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "left top",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "center center",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "right bottom",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "0em 0em",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "0 0",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "calc(0px) 0px",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "0px 0px, 0px 0px",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "0px",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": " 0px 0px",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "0px 0px ",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "0px  0px",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "0px\t0px",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "0px 0px\n",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "0.0px 0px",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "-0px 0px",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": null,
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": "<undefined>",
+      "accepted": false,
+      "pass": true
+    },
+    {
+      "value": 0,
+      "accepted": false,
+      "pass": true
+    }
+  ],
+  "acceptedCount": 4,
+  "rejectedCount": 34,
+  "reproducesOldObservedFailure": true,
+  "currentRunOnlyObservedValue": {
+    "path": "/workspace/scratch/windows-opening-smoke-actual-evidence-r2/selected/reviews/windows-native/0.9.0/run-37075108377-1/smoke.json",
+    "runId": "37075108377",
+    "smokeReportedCommit": "2d1bc344b0e2950603e6640d0d1028fdf0bba0c6",
+    "runtimeSourceDigest": "64c2a14ada2b24796535f9bb71d8a6acc534685365bcf4f5665b21bf18595353",
+    "backgroundPosition": "0px 0px",
+    "oldAssertionRejects": true,
+    "proposedAssertionAccepts": true
+  },
+  "exactOneBlockScopeVerified": true,
+  "rawEvidenceSerializationPreserved": true,
+  "nativeSmokeImportsExecuted": false,
+  "browserGameElectronExecuted": false
+}

@@ -1,0 +1,572 @@
+﻿2026-10-02T22:56:22.2735890Z Current runner version: '2.337.0'
+2026-10-02T22:56:22.2770209Z ##[group]Runner Image Provisioner
+2026-10-02T22:56:22.2771474Z Hosted Compute Agent
+2026-10-02T22:56:22.2772498Z Version: 20260901.588
+2026-10-02T22:56:22.2773531Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-10-02T22:56:22.2774698Z Build Date: 2026-09-01T19:56:44Z
+2026-10-02T22:56:22.2775876Z Worker ID: {ba9dcb7e-befd-4246-ab65-90926b567b1b}
+2026-10-02T22:56:22.2777143Z Azure Region: eastus
+2026-10-02T22:56:22.2778116Z ##[endgroup]
+2026-10-02T22:56:22.2780196Z ##[group]Operating System
+2026-10-02T22:56:22.2781211Z Microsoft Windows Server 2022
+2026-10-02T22:56:22.2782217Z 10.0.20348
+2026-10-02T22:56:22.2783013Z Datacenter
+2026-10-02T22:56:22.2783796Z ##[endgroup]
+2026-10-02T22:56:22.2784798Z ##[group]Runner Image
+2026-10-02T22:56:22.2785751Z Image: windows-2022
+2026-10-02T22:56:22.2786709Z Version: 20260927.320.1
+2026-10-02T22:56:22.2788980Z Included Software: https://github.com/actions/runner-images/blob/win22/20260927.320/images/windows/Windows2022-Readme.md
+2026-10-02T22:56:22.2791767Z Image Release: https://github.com/actions/runner-images/releases/tag/win22%2F20260927.320
+2026-10-02T22:56:22.2793370Z ##[endgroup]
+2026-10-02T22:56:22.2795106Z ##[group]GITHUB_TOKEN Permissions
+2026-10-02T22:56:22.2797550Z Contents: read
+2026-10-02T22:56:22.2798513Z Metadata: read
+2026-10-02T22:56:22.2799422Z ##[endgroup]
+2026-10-02T22:56:22.2802068Z Secret source: Actions
+2026-10-02T22:56:22.2803481Z Cache mode: write
+2026-10-02T22:56:22.2804492Z Prepare workflow directory
+2026-10-02T22:56:22.3355464Z Prepare all required actions
+2026-10-02T22:56:22.3425901Z Getting action download info
+2026-10-02T22:56:22.5039308Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-02T22:56:22.6316903Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-02T22:56:22.7869841Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-02T22:56:23.1448429Z Complete job name: windows-x64
+2026-10-02T22:56:23.3232578Z ##[group]Run git config --global core.longpaths true
+2026-10-02T22:56:23.3233522Z [36;1mgit config --global core.longpaths true[0m
+2026-10-02T22:56:23.3234318Z [36;1mif ($LASTEXITCODE -ne 0) { throw 'Failed to enable Git long paths' }[0m
+2026-10-02T22:56:23.3235208Z [36;1m$longPaths = git config --global --bool --get core.longpaths[0m
+2026-10-02T22:56:23.3236237Z [36;1mif ($LASTEXITCODE -ne 0 -or $longPaths -ne 'true') { throw 'Git long paths verification failed' }[0m
+2026-10-02T22:56:23.3237153Z [36;1mWrite-Host "Git core.longpaths=$longPaths"[0m
+2026-10-02T22:56:23.3340408Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-02T22:56:23.3341605Z env:
+2026-10-02T22:56:23.3342027Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-10-02T22:56:23.3342525Z ##[endgroup]
+2026-10-02T22:56:24.1512176Z Git core.longpaths=true
+2026-10-02T22:56:24.2481357Z ##[group]Run actions/checkout@v4
+2026-10-02T22:56:24.2482096Z with:
+2026-10-02T22:56:24.2482537Z   persist-credentials: false
+2026-10-02T22:56:24.2483144Z   repository: evangjones99-gif/Roguelike-deckbuilder
+2026-10-02T22:56:24.2487502Z   token: ***
+2026-10-02T22:56:24.2487939Z   ssh-strict: true
+2026-10-02T22:56:24.2488370Z   ssh-user: git
+2026-10-02T22:56:24.2488773Z   clean: true
+2026-10-02T22:56:24.2489212Z   sparse-checkout-cone-mode: true
+2026-10-02T22:56:24.2489726Z   fetch-depth: 1
+2026-10-02T22:56:24.2490144Z   fetch-tags: false
+2026-10-02T22:56:24.2490571Z   show-progress: true
+2026-10-02T22:56:24.2491004Z   lfs: false
+2026-10-02T22:56:24.2491402Z   submodules: false
+2026-10-02T22:56:24.2491849Z   set-safe-directory: true
+2026-10-02T22:56:24.2492334Z   allow-unsafe-pr-checkout: false
+2026-10-02T22:56:24.2492844Z env:
+2026-10-02T22:56:24.2493242Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-10-02T22:56:24.2493764Z ##[endgroup]
+2026-10-02T22:56:24.3883269Z Syncing repository: evangjones99-gif/Roguelike-deckbuilder
+2026-10-02T22:56:24.3887732Z ##[group]Getting Git version info
+2026-10-02T22:56:24.3888579Z Working directory is 'D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder'
+2026-10-02T22:56:24.4895378Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-02T22:56:24.5109789Z git version 2.55.0.windows.5
+2026-10-02T22:56:24.5143584Z ##[endgroup]
+2026-10-02T22:56:24.5154588Z Copying 'C:\Users\runneradmin\.gitconfig' to 'D:\a\_temp\55eadd96-1bb9-4ade-9134-67b8aa61a553\.gitconfig'
+2026-10-02T22:56:24.5172883Z Temporarily overriding HOME='D:\a\_temp\55eadd96-1bb9-4ade-9134-67b8aa61a553' before making global git config changes
+2026-10-02T22:56:24.5174444Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-02T22:56:24.5182993Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder
+2026-10-02T22:56:24.5444370Z Deleting the contents of 'D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder'
+2026-10-02T22:56:24.5450024Z ##[group]Initializing the repository
+2026-10-02T22:56:24.5460093Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder
+2026-10-02T22:56:24.6289333Z Initialized empty Git repository in D:/a/Roguelike-deckbuilder/Roguelike-deckbuilder/.git/
+2026-10-02T22:56:24.6328877Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/evangjones99-gif/Roguelike-deckbuilder
+2026-10-02T22:56:24.6868801Z ##[endgroup]
+2026-10-02T22:56:24.6870207Z ##[group]Disabling automatic garbage collection
+2026-10-02T22:56:24.6880660Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-10-02T22:56:24.7165329Z ##[endgroup]
+2026-10-02T22:56:24.7168011Z ##[group]Setting up auth
+2026-10-02T22:56:24.7178126Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T22:56:24.7443947Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-02T22:56:26.1400274Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T22:56:26.1627386Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-02T22:56:26.6155277Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T22:56:26.6387012Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-02T22:56:27.0975035Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-10-02T22:56:27.1214749Z ##[endgroup]
+2026-10-02T22:56:27.1215564Z ##[group]Fetching the repository
+2026-10-02T22:56:27.1232516Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +2d1bc344b0e2950603e6640d0d1028fdf0bba0c6:refs/remotes/pull/1/merge
+2026-10-02T22:57:02.0046053Z From https://github.com/evangjones99-gif/Roguelike-deckbuilder
+2026-10-02T22:57:02.0046937Z  * [new ref]         2d1bc344b0e2950603e6640d0d1028fdf0bba0c6 -> pull/1/merge
+2026-10-02T22:57:02.0072887Z ##[endgroup]
+2026-10-02T22:57:02.0073416Z ##[group]Determining the checkout info
+2026-10-02T22:57:02.0076390Z ##[endgroup]
+2026-10-02T22:57:02.0092007Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-10-02T22:57:02.0539547Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-10-02T22:57:02.0766616Z ##[group]Checking out the ref
+2026-10-02T22:57:02.0776466Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force refs/remotes/pull/1/merge
+2026-10-02T22:57:03.1869977Z Updating files:   7% (692/9349)
+2026-10-02T22:57:03.2706101Z Updating files:   8% (748/9349)
+2026-10-02T22:57:03.4021283Z Updating files:   9% (842/9349)
+2026-10-02T22:57:03.5502278Z Updating files:  10% (935/9349)
+2026-10-02T22:57:03.6309828Z Updating files:  11% (1029/9349)
+2026-10-02T22:57:03.7457392Z Updating files:  12% (1122/9349)
+2026-10-02T22:57:03.8593208Z Updating files:  13% (1216/9349)
+2026-10-02T22:57:03.9663865Z Updating files:  14% (1309/9349)
+2026-10-02T22:57:04.0329632Z Updating files:  15% (1403/9349)
+2026-10-02T22:57:04.1105775Z Updating files:  16% (1496/9349)
+2026-10-02T22:57:04.1402553Z Updating files:  16% (1556/9349)
+2026-10-02T22:57:04.2483240Z Updating files:  17% (1590/9349)
+2026-10-02T22:57:04.3655097Z Updating files:  18% (1683/9349)
+2026-10-02T22:57:04.4673290Z Updating files:  19% (1777/9349)
+2026-10-02T22:57:04.5117231Z Updating files:  20% (1870/9349)
+2026-10-02T22:57:04.6102213Z Updating files:  21% (1964/9349)
+2026-10-02T22:57:04.7732326Z Updating files:  22% (2057/9349)
+2026-10-02T22:57:04.8829122Z Updating files:  23% (2151/9349)
+2026-10-02T22:57:04.9515838Z Updating files:  24% (2244/9349)
+2026-10-02T22:57:05.0497433Z Updating files:  25% (2338/9349)
+2026-10-02T22:57:05.1114010Z Updating files:  26% (2431/9349)
+2026-10-02T22:57:05.1395124Z Updating files:  26% (2495/9349)
+2026-10-02T22:57:05.2356823Z Updating files:  27% (2525/9349)
+2026-10-02T22:57:05.3338388Z Updating files:  28% (2618/9349)
+2026-10-02T22:57:05.4011151Z Updating files:  29% (2712/9349)
+2026-10-02T22:57:05.5137463Z Updating files:  30% (2805/9349)
+2026-10-02T22:57:05.5954785Z Updating files:  31% (2899/9349)
+2026-10-02T22:57:05.6793776Z Updating files:  32% (2992/9349)
+2026-10-02T22:57:05.7732184Z Updating files:  33% (3086/9349)
+2026-10-02T22:57:05.8200306Z Updating files:  34% (3179/9349)
+2026-10-02T22:57:05.9075500Z Updating files:  35% (3273/9349)
+2026-10-02T22:57:05.9996538Z Updating files:  36% (3366/9349)
+2026-10-02T22:57:06.2690829Z Updating files:  37% (3460/9349)
+2026-10-02T22:57:06.3145550Z Updating files:  37% (3472/9349)
+2026-10-02T22:57:06.4336875Z Updating files:  38% (3553/9349)
+2026-10-02T22:57:06.6002832Z Updating files:  39% (3647/9349)
+2026-10-02T22:57:06.6405582Z Updating files:  40% (3740/9349)
+2026-10-02T22:57:06.8053718Z Updating files:  41% (3834/9349)
+2026-10-02T22:57:06.8356375Z Updating files:  42% (3927/9349)
+2026-10-02T22:57:06.9059039Z Updating files:  43% (4021/9349)
+2026-10-02T22:57:06.9250889Z Updating files:  44% (4114/9349)
+2026-10-02T22:57:06.9522838Z Updating files:  45% (4208/9349)
+2026-10-02T22:57:07.0454935Z Updating files:  46% (4301/9349)
+2026-10-02T22:57:07.1169893Z Updating files:  47% (4395/9349)
+2026-10-02T22:57:07.1325632Z Updating files:  47% (4461/9349)
+2026-10-02T22:57:07.1771578Z Updating files:  48% (4488/9349)
+2026-10-02T22:57:07.2082034Z Updating files:  49% (4582/9349)
+2026-10-02T22:57:07.3872288Z Updating files:  50% (4675/9349)
+2026-10-02T22:57:08.1601421Z Updating files:  51% (4768/9349)
+2026-10-02T22:57:08.2171138Z Updating files:  51% (4813/9349)
+2026-10-02T22:57:08.2532221Z Updating files:  52% (4862/9349)
+2026-10-02T22:57:08.2918118Z Updating files:  53% (4955/9349)
+2026-10-02T22:57:08.3148995Z Updating files:  54% (5049/9349)
+2026-10-02T22:57:08.3813635Z Updating files:  55% (5142/9349)
+2026-10-02T22:57:08.3993180Z Updating files:  56% (5236/9349)
+2026-10-02T22:57:08.4193557Z Updating files:  57% (5329/9349)
+2026-10-02T22:57:08.4394290Z Updating files:  58% (5423/9349)
+2026-10-02T22:57:08.4773413Z Updating files:  59% (5516/9349)
+2026-10-02T22:57:08.5000255Z Updating files:  60% (5610/9349)
+2026-10-02T22:57:08.5388083Z Updating files:  61% (5703/9349)
+2026-10-02T22:57:08.5873534Z Updating files:  62% (5797/9349)
+2026-10-02T22:57:08.6344201Z Updating files:  63% (5890/9349)
+2026-10-02T22:57:08.6557598Z Updating files:  64% (5984/9349)
+2026-10-02T22:57:08.6883346Z Updating files:  65% (6077/9349)
+2026-10-02T22:57:08.7372658Z Updating files:  66% (6171/9349)
+2026-10-02T22:57:08.7662095Z Updating files:  67% (6264/9349)
+2026-10-02T22:57:08.8169463Z Updating files:  68% (6358/9349)
+2026-10-02T22:57:09.3180857Z Updating files:  69% (6451/9349)
+2026-10-02T22:57:09.3209429Z Updating files:  69% (6541/9349)
+2026-10-02T22:57:09.3518903Z Updating files:  70% (6545/9349)
+2026-10-02T22:57:09.3764702Z Updating files:  71% (6638/9349)
+2026-10-02T22:57:09.4528079Z Updating files:  72% (6732/9349)
+2026-10-02T22:57:09.4869687Z Updating files:  73% (6825/9349)
+2026-10-02T22:57:09.5075985Z Updating files:  74% (6919/9349)
+2026-10-02T22:57:09.5306939Z Updating files:  75% (7012/9349)
+2026-10-02T22:57:09.6087003Z Updating files:  76% (7106/9349)
+2026-10-02T22:57:09.7268891Z Updating files:  77% (7199/9349)
+2026-10-02T22:57:09.8313540Z Updating files:  78% (7293/9349)
+2026-10-02T22:57:09.9504336Z Updating files:  79% (7386/9349)
+2026-10-02T22:57:09.9856445Z Updating files:  80% (7480/9349)
+2026-10-02T22:57:10.0051249Z Updating files:  81% (7573/9349)
+2026-10-02T22:57:10.0672135Z Updating files:  82% (7667/9349)
+2026-10-02T22:57:10.0855574Z Updating files:  83% (7760/9349)
+2026-10-02T22:57:10.1165752Z Updating files:  84% (7854/9349)
+2026-10-02T22:57:10.1373402Z Updating files:  85% (7947/9349)
+2026-10-02T22:57:10.1564199Z Updating files:  85% (7967/9349)
+2026-10-02T22:57:10.1780262Z Updating files:  86% (8041/9349)
+2026-10-02T22:57:10.2463490Z Updating files:  87% (8134/9349)
+2026-10-02T22:57:10.8565405Z Updating files:  88% (8228/9349)
+2026-10-02T22:57:10.9354614Z Updating files:  89% (8321/9349)
+2026-10-02T22:57:11.0301621Z Updating files:  90% (8415/9349)
+2026-10-02T22:57:11.1307579Z Updating files:  91% (8508/9349)
+2026-10-02T22:57:11.1452473Z Updating files:  91% (8589/9349)
+2026-10-02T22:57:11.2697144Z Updating files:  92% (8602/9349)
+2026-10-02T22:57:11.3842341Z Updating files:  93% (8695/9349)
+2026-10-02T22:57:11.4692882Z Updating files:  94% (8789/9349)
+2026-10-02T22:57:11.5726896Z Updating files:  95% (8882/9349)
+2026-10-02T22:57:12.1665720Z Updating files:  96% (8976/9349)
+2026-10-02T22:57:12.2245172Z Updating files:  96% (9028/9349)
+2026-10-02T22:57:12.2789930Z Updating files:  97% (9069/9349)
+2026-10-02T22:57:12.3286714Z Updating files:  98% (9163/9349)
+2026-10-02T22:57:12.3558502Z Updating files:  99% (9256/9349)
+2026-10-02T22:57:12.3559274Z Updating files: 100% (9349/9349)
+2026-10-02T22:57:12.3559739Z Updating files: 100% (9349/9349), done.
+2026-10-02T22:57:12.3803348Z Note: switching to 'refs/remotes/pull/1/merge'.
+2026-10-02T22:57:12.3803819Z 
+2026-10-02T22:57:12.3804276Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-02T22:57:12.3805243Z changes and commit them, and you can discard any commits you make in this
+2026-10-02T22:57:12.3806233Z state without impacting any branches by switching back to a branch.
+2026-10-02T22:57:12.3806840Z 
+2026-10-02T22:57:12.3807449Z If you want to create a new branch to retain commits you create, you may
+2026-10-02T22:57:12.3808410Z do so (now or later) by using -c with the switch command. Example:
+2026-10-02T22:57:12.3808924Z 
+2026-10-02T22:57:12.3809189Z   git switch -c <new-branch-name>
+2026-10-02T22:57:12.3809503Z 
+2026-10-02T22:57:12.3809743Z Or undo this operation with:
+2026-10-02T22:57:12.3810055Z 
+2026-10-02T22:57:12.3810245Z   git switch -
+2026-10-02T22:57:12.3810494Z 
+2026-10-02T22:57:12.3810878Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-02T22:57:12.3811481Z 
+2026-10-02T22:57:12.3812122Z HEAD is now at 2d1bc34 Merge 812668a3bde673cf9e11d93e5e5fe0e807fadaad into 98660a7ef214c8a875b25482f64475c8d70e5efc
+2026-10-02T22:57:12.5584542Z ##[endgroup]
+2026-10-02T22:57:12.5830037Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-10-02T22:57:12.6021965Z 2d1bc344b0e2950603e6640d0d1028fdf0bba0c6
+2026-10-02T22:57:12.6050781Z ##[group]Removing auth
+2026-10-02T22:57:12.6058418Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T22:57:12.6277126Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-02T22:57:13.0422651Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T22:57:13.0614912Z http.https://github.com/.extraheader
+2026-10-02T22:57:13.0646990Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2026-10-02T22:57:13.0872238Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-02T22:57:13.5072254Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T22:57:13.5285750Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-02T22:57:13.9456185Z ##[endgroup]
+2026-10-02T22:57:13.9798219Z ##[group]Run actions/setup-node@v4
+2026-10-02T22:57:13.9798598Z with:
+2026-10-02T22:57:13.9798832Z   node-version: 24.19.0
+2026-10-02T22:57:13.9799094Z   cache: npm
+2026-10-02T22:57:13.9799328Z   always-auth: false
+2026-10-02T22:57:13.9799570Z   check-latest: false
+2026-10-02T22:57:13.9802164Z   token: ***
+2026-10-02T22:57:13.9802410Z env:
+2026-10-02T22:57:13.9802637Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-10-02T22:57:13.9802934Z ##[endgroup]
+2026-10-02T22:57:14.1429018Z Attempting to download 24.19.0...
+2026-10-02T22:57:14.1601169Z (node:6216) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-02T22:57:14.1602869Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-02T22:57:14.6053788Z Acquiring 24.19.0 - x64 from https://github.com/actions/node-versions/releases/download/24.19.0-30872449280/node-24.19.0-win32-x64.7z
+2026-10-02T22:57:14.8803543Z Extracting ...
+2026-10-02T22:57:16.6991783Z Adding to the cache ...
+2026-10-02T22:57:20.2824568Z ##[group]Environment details
+2026-10-02T22:57:22.6925675Z node: v24.19.0
+2026-10-02T22:57:22.6926090Z npm: 11.17.0
+2026-10-02T22:57:22.6926431Z yarn: 1.22.22
+2026-10-02T22:57:22.6927133Z ##[endgroup]
+2026-10-02T22:57:22.7720057Z [command]C:\Windows\system32\cmd.exe /D /S /C "C:\hostedtoolcache\windows\node\24.19.0\x64\npm.cmd config get cache"
+2026-10-02T22:57:23.0324782Z C:\npm\cache
+2026-10-02T22:57:23.2611656Z Cache hit for: node-cache-Windows-x64-npm-eb61369279b76f3a02feb9e54a42d0325b59a8bfb80590db8eb465abb4aee256
+2026-10-02T22:57:23.2721961Z (node:6216) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-02T22:57:23.8675986Z Received 56983073 of 56983073 (100.0%), 98.1 MBs/sec
+2026-10-02T22:57:23.8678829Z Cache Size: ~54 MB (56983073 B)
+2026-10-02T22:57:23.8711387Z [command]"C:\Program Files\Git\usr\bin\tar.exe" -xf D:/a/_temp/8c764369-a5f0-484a-aaac-d7b67239144b/cache.tzst -P -C D:/a/Roguelike-deckbuilder/Roguelike-deckbuilder --force-local --use-compress-program "zstd -d"
+2026-10-02T22:57:26.2605327Z Cache restored successfully
+2026-10-02T22:57:26.2647188Z Cache restored from key: node-cache-Windows-x64-npm-eb61369279b76f3a02feb9e54a42d0325b59a8bfb80590db8eb465abb4aee256
+2026-10-02T22:57:26.2914341Z ##[group]Run node -e "const fs=require('node:fs'); const p=require('./package.json'); fs.appendFileSync(process.env.GITHUB_OUTPUT, 'version='+p.version+'\n');"
+2026-10-02T22:57:26.2915561Z [36;1mnode -e "const fs=require('node:fs'); const p=require('./package.json'); fs.appendFileSync(process.env.GITHUB_OUTPUT, 'version='+p.version+'\n');"[0m
+2026-10-02T22:57:26.2957672Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-02T22:57:26.2958055Z env:
+2026-10-02T22:57:26.2958305Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-10-02T22:57:26.2958585Z ##[endgroup]
+2026-10-02T22:57:26.6573583Z ##[group]Run npm ci
+2026-10-02T22:57:26.6573926Z [36;1mnpm ci[0m
+2026-10-02T22:57:26.6613525Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-02T22:57:26.6613927Z env:
+2026-10-02T22:57:26.6614191Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-10-02T22:57:26.6614495Z ##[endgroup]
+2026-10-02T22:57:29.5057810Z npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+2026-10-02T22:57:29.5532432Z npm warn deprecated rimraf@2.6.3: Rimraf versions prior to v4 are no longer supported
+2026-10-02T22:57:29.6256962Z npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+2026-10-02T22:57:29.9914414Z npm warn deprecated boolean@3.2.0: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+2026-10-02T22:57:32.5642265Z 
+2026-10-02T22:57:32.5643243Z added 314 packages, and audited 315 packages in 5s
+2026-10-02T22:57:32.5643703Z 
+2026-10-02T22:57:32.5646682Z 56 packages are looking for funding
+2026-10-02T22:57:32.5647907Z   run `npm fund` for details
+2026-10-02T22:57:32.5659667Z 
+2026-10-02T22:57:32.5660118Z found 0 vulnerabilities
+2026-10-02T22:57:32.5674086Z npm warn allow-scripts 2 packages have install scripts not yet covered by allowScripts:
+2026-10-02T22:57:32.5674887Z npm warn allow-scripts   electron-winstaller@5.4.0 (install: node ./script/select-7z-arch.js)
+2026-10-02T22:57:32.5675589Z npm warn allow-scripts   esbuild@0.28.2 (postinstall: node install.js)
+2026-10-02T22:57:32.5675986Z npm warn allow-scripts
+2026-10-02T22:57:32.5677152Z npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+2026-10-02T22:57:34.3559749Z ##[group]Run node node_modules/electron/install.js
+2026-10-02T22:57:34.3560210Z [36;1mnode node_modules/electron/install.js[0m
+2026-10-02T22:57:34.3598676Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-02T22:57:34.3599040Z env:
+2026-10-02T22:57:34.3599232Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-10-02T22:57:34.3599478Z ##[endgroup]
+2026-10-02T22:57:38.1564648Z ##[group]Run npm test
+2026-10-02T22:57:38.1565299Z [36;1mnpm test[0m
+2026-10-02T22:57:38.1610109Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-02T22:57:38.1610462Z env:
+2026-10-02T22:57:38.1610675Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-10-02T22:57:38.1610920Z ##[endgroup]
+2026-10-02T22:57:38.9862237Z 
+2026-10-02T22:57:38.9862739Z > hollowpact@0.9.0 test
+2026-10-02T22:57:38.9865221Z > tsx --test tests/*.test.ts
+2026-10-02T22:57:38.9865557Z 
+2026-10-02T22:57:39.6052993Z ✔ omitted/zero timing preserves the old pure contact cues and canonical bytes (8.5026ms)
+2026-10-02T22:57:39.6071810Z ✔ renderer allocation and queued lead shift the anchor without altering contact offsets (1.0288ms)
+2026-10-02T22:57:39.6131244Z ✔ invalid timing and nonanimated/noncombat presentation remain immediate (0.9868ms)
+2026-10-02T22:57:39.6149927Z ✔ arrival bind/impact groups and enemy-phase wound/stagger cues keep their relative contact times (1.7342ms)
+2026-10-02T22:57:39.6165019Z ✔ actual player deadline includes an800ms anchor lead beyond its unchanged600ms offset cap (7.9955ms)
+2026-10-02T22:57:39.6219035Z ✔ pending delayed decode cannot escape cancellation or native restoration epoch barriers (3.856ms)
+2026-10-02T22:57:39.6282057Z ✔ hidden and native inactive hosts never start a delayed batch (1.562ms)
+2026-10-02T22:57:39.6315901Z ✔ late cold assets still skip their shifted deadline rather than playing a stale impact (1.1642ms)
+2026-10-02T22:57:39.6337889Z ✔ schema kind1: ironjaw guard and actual Silence retain 14 armor (9.8937ms)
+2026-10-02T22:57:39.6355843Z ✔ schema kind1: raider guard and actual Silence retain 4 armor (1.4388ms)
+2026-10-02T22:57:39.6388279Z ✔ schema kind1: cindermaw guard and actual Silence retain 10 armor (1.3518ms)
+2026-10-02T22:57:39.6404846Z ✔ schema kind2: ironjaw guard and actual Silence retain 14 armor (2.1181ms)
+2026-10-02T22:57:39.6409935Z ✔ schema kind2: raider guard and actual Silence retain 4 armor (1.4627ms)
+2026-10-02T22:57:39.6411644Z ✔ schema kind2: cindermaw guard and actual Silence retain 10 armor (1.2044ms)
+2026-10-02T22:57:39.6418308Z ✔ guard is absent in an attack phase after Silence (1.0428ms)
+2026-10-02T22:57:39.6468374Z ✔ revenant single target: summary agrees with actual block admission (1.4604ms)
+2026-10-02T22:57:39.6473677Z ✔ thrall single target: summary agrees with actual block admission (0.7619ms)
+2026-10-02T22:57:39.6475767Z ✔ loaded revenant area damage uses block and hits every live target (2.2145ms)
+2026-10-02T22:57:39.6516519Z ✔ marked Binding 2 dying first redirects a later bypass hit to hunter (1.1109ms)
+2026-10-02T22:57:39.6527084Z ✔ raise plan respects post-phase timing and cap with 1 existing hostiles (1.2086ms)
+2026-10-02T22:57:39.6528759Z ✔ raise plan respects post-phase timing and cap with 5 existing hostiles (0.8532ms)
+2026-10-02T22:57:39.6532374Z ✔ raise plan respects post-phase timing and cap with 6 existing hostiles (0.7885ms)
+2026-10-02T22:57:39.6534280Z ✔ fatal hunter phase suppresses planned reinforcements (0.734ms)
+2026-10-02T22:57:39.6536107Z ✔ structured loaded facts override misleading labels and formatter is pure (1.7596ms)
+2026-10-02T22:57:42.6869211Z ✔ 24 original cards, four creature families and enhancement texts are complete (3.6977ms)
+2026-10-02T22:57:42.6870852Z ✔ schema 2 saves reject historical schema, presentation menu and malformed inputs (1.5557ms)
+2026-10-02T22:57:42.6879269Z ✔ serialized action replay is exact, pure, and deterministic through terminal state (138.2639ms)
+2026-10-02T22:57:42.6880870Z ✔ invalid indices, targets, phase, budget and board size return original object (0.72ms)
+2026-10-02T22:57:42.6882739Z ✔ living creatures own one card copy outside piles; dead creatures rejoin discard (1.373ms)
+2026-10-02T22:57:42.6921986Z ✔ two identical source copies remain separate when one dies (0.6828ms)
+2026-10-02T22:57:42.6923346Z ✔ Cairn Hound executes exposed targets but does not receive bonus against armor (0.7059ms)
+2026-10-02T22:57:42.6926753Z ✔ Fen Stalker heals only when its command deals health damage (0.6919ms)
+2026-10-02T22:57:42.6928195Z ✔ Briar Colossus grants hunter block after every command, even into armor (0.4605ms)
+2026-10-02T22:57:42.6929536Z ✔ Ash Widow amplifies targeted damage, relic combines, Revenant resists it (0.7547ms)
+2026-10-02T22:57:42.6930999Z ✔ Grave Resonance supports a spell-only opening and loses solo bonus after binding (0.4975ms)
+2026-10-02T22:57:42.6932888Z ✔ ready permits a second command while ordinary commands are once per turn (0.4974ms)
+2026-10-02T22:57:42.7009868Z ✔ Ironjaw armor retaliates through creature block; Sundering Hex prevents retaliation (0.6631ms)
+2026-10-02T22:57:42.7035115Z ✔ retaliation deaths return exactly one source card and no duplicate draws (0.5192ms)
+2026-10-02T22:57:42.7040884Z ✔ announced targets stay stable across bindings and commands; missing creature falls back to hunter (0.6294ms)
+2026-10-02T22:57:42.7045584Z ✔ Revenant strikes ignore hunter armor and have explicit visible text (0.3338ms)
+2026-10-02T22:57:42.7065734Z ✔ Cantor raises announced thralls after enemy resolution; no hidden immediate attacks (0.4824ms)
+2026-10-02T22:57:42.7067393Z ✔ reinforcements respect six slots and cannot carry an unannounced extra enemy (0.4199ms)
+2026-10-02T22:57:42.7069315Z ✔ Silence cancels necromancy; canceled attacks do not become armor; guard remains guard (0.8962ms)
+2026-10-02T22:57:42.7070926Z ✔ killing the raising source before ending the turn prevents its reinforcements (0.4893ms)
+2026-10-02T22:57:42.7072481Z ✔ Cindermaw guard/breath/strike cycle has readable damage windows and expires armor (0.4223ms)
+2026-10-02T22:57:42.7073962Z ✔ boss is forecastable from run seed independently of earlier RNG consumption (1.8405ms)
+2026-10-02T22:57:42.7075484Z ✔ elite formations offer four distinct questions and never guarantee all six relics (72.5975ms)
+2026-10-02T22:57:42.7077221Z ✔ targeted camp upgrade changes precisely the selected duplicate entry (0.5097ms)
+2026-10-02T22:57:42.7088739Z ✔ relic effects support summon endurance, command attack, solo economy and recovery (1.0408ms)
+2026-10-02T22:57:42.7106912Z ✔ rewards, real shop costs and removals cannot be collected twice (1.785ms)
+2026-10-02T22:57:42.7110787Z ✔ crypt events provide paid recovery, card purge or bounded relic oath (0.5063ms)
+2026-10-02T22:57:42.7112374Z ✔ temporary attack bonuses reset between contracts while permanent deck and HP persist (1.374ms)
+2026-10-02T22:57:42.7114260Z ✔ hunter self-damage defeat is immediate and terminal; terminal turn is counted (0.3644ms)
+2026-10-02T22:57:42.7116297Z ✔ all three boss contracts can finish in a valid terminal collection state (77.8849ms)
+2026-10-02T22:57:42.7123009Z ✔ save validation rejects prototype identities, forged passives and illegal reinforcement fields (1.8207ms)
+2026-10-02T22:57:42.7124710Z ✔ every encounter must match its actual node; final combat allows only boss (14.8536ms)
+2026-10-02T22:57:42.7126262Z ✔ 300 seeded legal-random runs validate every intermediate state across difficulties (2769.6756ms)
+2026-10-02T22:57:42.7161085Z {"acceptedObservedStates":769,"seeds":"7811..7818","difficulty":"seed%3","scope":"Actual legal random actions, no human fun inference"}
+2026-10-02T22:57:42.7163171Z ✔ actual bind, ward, healing, control, rally and self-injury produce distinct observer cues (8.2855ms)
+2026-10-02T22:57:42.7164820Z ✔ fully blocked actual hit braces; lethal actual trace falls at its executed impact only (1.8184ms)
+2026-10-02T22:57:42.7166502Z ✔ observation never mutates canonical state, UID allocation, RNG, event snapshots or legal actions (158.919ms)
+2026-10-02T22:57:42.7167992Z ✔ unified hunter placement is deterministic and occupies no creature slot (0.3305ms)
+2026-10-02T22:57:42.7169396Z ✔ command directs hunter without rewriting its real companion hit and timing boundaries stay bounded (0.721ms)
+2026-10-02T22:57:42.7171277Z ✔ all full R3 pose cells fit desktop/mobile with one shared foot plane and target identity stays canonical (2.2825ms)
+2026-10-02T22:57:42.7173902Z ✔ connection-held confirm requires neutral release, then a fresh edge (3.5212ms)
+2026-10-02T22:57:42.7175162Z ✔ confirm does not repeat across selection focus changes or long holds (0.6554ms)
+2026-10-02T22:57:42.7176296Z ✔ button value hysteresis does not chatter near the press threshold (0.4844ms)
+2026-10-02T22:57:42.7177499Z ✔ axis enter/exit deadzones ignore jitter and require threshold on reversal (0.5347ms)
+2026-10-02T22:57:42.7178676Z ✔ direction alone repeats after350ms, then100ms; reentry is immediate (0.4856ms)
+2026-10-02T22:57:42.7180327Z ✔ simultaneous activation buttons produce a single prioritized intent (1.8406ms)
+2026-10-02T22:57:42.7181695Z ✔ presentation gate suppresses confirm and requires release after reopening (0.3831ms)
+2026-10-02T22:57:42.7182976Z ✔ safe pause may open while gated, but is not replayed into a modal (0.3873ms)
+2026-10-02T22:57:42.7184194Z ✔ disconnect, hidden reset and pad-index changes neutralize held input (0.5101ms)
+2026-10-02T22:57:42.7185517Z ✔ unsupported mapping, invalid timing and opposing dpad directions stay inert (0.5364ms)
+2026-10-02T22:57:42.7186885Z ✔ nonfinite axes/buttons are ignored, and decoder never reads a device identity (0.3329ms)
+2026-10-02T22:57:42.7188060Z ✔ decoding does not mutate borrowed browser snapshots (1.5532ms)
+2026-10-02T22:57:42.7189563Z ✔ safe pause works after neutral presentation-lock frames, without arming gameplay (0.3043ms)
+2026-10-02T22:57:42.7191160Z ✔ initial unfocused document does not read controller; focus event needs neutral then a fresh press (1.1591ms)
+2026-10-02T22:57:42.7192858Z ✔ visible-window blur stops reads and requires neutral release before any resumed controller action (0.588ms)
+2026-10-02T22:57:42.7194416Z ✔ blur cancels scheduled RAF; focus reschedules, and disposed adapters cannot resume (0.5196ms)
+2026-10-02T22:57:42.7195859Z ✔ unavailable initial focus API retains event-based keyboard/controller fallback (0.4696ms)
+2026-10-02T22:57:45.7362076Z ✔ events and ordinary reducer remain byte equivalent to archived v0.2 across seeded legal runs (4999.9618ms)
+2026-10-02T22:57:45.7363652Z ✔ invalid actions produce no observations and preserve object identity (0.3105ms)
+2026-10-02T22:57:45.7366740Z ✔ first lethal hunter strike suppresses every later enemy strike (0.5223ms)
+2026-10-02T22:57:45.7369905Z ✔ a later strike resolves to hunter after its announced creature target dies (0.6835ms)
+2026-10-02T22:57:45.7374549Z ✔ one executed area attack finishes its real targets even if hunter dies, then skips later enemies (0.7355ms)
+2026-10-02T22:57:45.7383291Z ✔ fully blocked attacks are observed with zero health loss and real absorbed damage (0.4408ms)
+2026-10-02T22:57:45.7386180Z ✔ piercing and self damage report zero block absorption despite existing wards (0.4833ms)
+2026-10-02T22:57:45.7389989Z ✔ stalker recovery and retaliation remain distinct despite zero net creature HP change (0.4019ms)
+2026-10-02T22:57:45.7394574Z ✔ retaliation death follows command hit and returns exactly one real card copy (0.3559ms)
+2026-10-02T22:57:45.7397764Z ✔ spell area damage records resolved roster targets and each death in order (0.409ms)
+2026-10-02T22:57:45.7406008Z ✔ binding snapshots survive on-bind victory cleanup and cannot mutate returned state (0.3486ms)
+2026-10-02T22:57:45.7408198Z ✔ necromancy emits summons from actual raising source without immediate enemy hits (0.4758ms)
+2026-10-02T22:57:45.7411672Z ✔ healing and wards emit actual gains only, with guard source resolved explicitly (0.7014ms)
+2026-10-02T22:57:45.7417191Z ✔ random legal replays preserve archived states across rewards, crypt, shop and control branches (437.3238ms)
+2026-10-02T22:57:45.7419051Z ✔ Silence reports a truthful noninjury control event and redundant silence emits no second cue (0.4423ms)
+2026-10-02T22:57:45.7423265Z ✔ Edict reports each real attack increase in roster order without invented injuries (0.5708ms)
+2026-10-02T22:57:45.7620434Z ✔ all 119 reachable campaign actions remain valid with unchanged mechanics and payments (91.7974ms)
+2026-10-02T22:57:45.7621912Z ✔ guard armor, fresh intentions and serialized continuation match legacy mechanics (112.7361ms)
+2026-10-02T22:57:45.7623274Z ✔ exact inherited overflow recovery is valid, detached and preserves the original bytes (1.0822ms)
+2026-10-02T22:57:45.7624556Z ✔ normal valid saves and unrelated corruption never enter recovery (3.3277ms)
+2026-10-02T22:57:45.7625751Z ✔ a valid legacy double suffix becomes canonical on the next paid Silence (0.4682ms)
+2026-10-02T22:57:45.7627171Z ✔ generation2 production hash matches frozen research vectors and browser comparison evidence (2.7593ms)
+2026-10-02T22:57:45.7628620Z ✔ generation classification is explicit and old serialization has no new fields (3.2391ms)
+2026-10-02T22:57:45.7629838Z ✔ actual v0.4 fixture provenance and kind1 continuation stay byte exact (1244.8763ms)
+2026-10-02T22:57:45.7631158Z ✔ reachable card acquisition, draw history and shop sculpture cannot reroll common world nodes (200.1218ms)
+2026-10-02T22:57:45.7632547Z ✔ reachable alternate route choices do not advance any shared world cursor (31.8223ms)
+2026-10-02T22:57:45.7633842Z ✔ identity ranking is pure and invariant to catalogue ordering and owned exclusions (8.8734ms)
+2026-10-02T22:57:45.7636504Z ✔ new-generation full serialized/event replays preserve stream positions and query purity (1976.6519ms)
+2026-10-02T22:57:45.7637988Z ✔ explicit kind2 legal-random campaigns validate and serialize every accepted state (644.4083ms)
+2026-10-02T22:57:45.7639409Z ✔ recovery rejects nonserializable programmatic extras and cannot switch generations (1.4918ms)
+2026-10-02T22:57:45.7640829Z ✔ new-run Revenant cancellation says damage is canceled; legacy text remains byte exact (3.023ms)
+2026-10-02T22:57:45.7641731Z ℹ tests 111
+2026-10-02T22:57:45.7642062Z ℹ suites 0
+2026-10-02T22:57:45.7642385Z ℹ pass 111
+2026-10-02T22:57:45.7642714Z ℹ fail 0
+2026-10-02T22:57:45.7643035Z ℹ cancelled 0
+2026-10-02T22:57:45.7643375Z ℹ skipped 0
+2026-10-02T22:57:45.7643698Z ℹ todo 0
+2026-10-02T22:57:45.7644078Z ℹ duration_ms 6601.4611
+2026-10-02T22:57:45.8573445Z ##[group]Run npm run build
+2026-10-02T22:57:45.8573763Z [36;1mnpm run build[0m
+2026-10-02T22:57:45.8613861Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-02T22:57:45.8614231Z env:
+2026-10-02T22:57:45.8614423Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-10-02T22:57:45.8614670Z ##[endgroup]
+2026-10-02T22:57:46.4569583Z 
+2026-10-02T22:57:46.4570088Z > hollowpact@0.9.0 build
+2026-10-02T22:57:46.4570448Z > node scripts/build.mjs
+2026-10-02T22:57:46.4570631Z 
+2026-10-02T22:57:47.3611936Z [36mvite v8.3.1 [32mbuilding client environment for production...[36m[39m
+2026-10-02T22:57:47.3729394Z transforming...
+2026-10-02T22:57:47.4245729Z ✓ 30 modules transformed.
+2026-10-02T22:57:47.4932117Z rendering chunks...
+2026-10-02T22:57:47.5192151Z computing gzip size...
+2026-10-02T22:57:47.5223902Z dist/index.html                   1.65 kB │ gzip:  0.80 kB
+2026-10-02T22:57:47.5224700Z dist/assets/index-CUtnp1BL.css   77.72 kB │ gzip: 16.83 kB
+2026-10-02T22:57:47.5225448Z dist/assets/index-D3SmaLij.js   181.10 kB │ gzip: 62.25 kB
+2026-10-02T22:57:47.5225758Z 
+2026-10-02T22:57:47.5229712Z [32m✓ built in 160ms[39m
+2026-10-02T22:57:47.6533862Z Runtime source digest: 64c2a14ada2b24796535f9bb71d8a6acc534685365bcf4f5665b21bf18595353
+2026-10-02T22:57:47.7214909Z ##[group]Run node -e "const fs=require('node:fs'); const {build}=require('./package.json'); const config={...build,win:{...build.win,signAndEditExecutable:true,signExecutable:false},forceCodeSigning:false}; fs.mkdirSync('build-desktop',{recursive:true}); fs.writeFileSync('build-desktop/windows-native-config.json',JSON.stringify(config,null,2)+'\n');"
+2026-10-02T22:57:47.7217442Z [36;1mnode -e "const fs=require('node:fs'); const {build}=require('./package.json'); const config={...build,win:{...build.win,signAndEditExecutable:true,signExecutable:false},forceCodeSigning:false}; fs.mkdirSync('build-desktop',{recursive:true}); fs.writeFileSync('build-desktop/windows-native-config.json',JSON.stringify(config,null,2)+'\n');"[0m
+2026-10-02T22:57:47.7218991Z [36;1mnpx --no-install electron-builder --win dir --x64 --config build-desktop/windows-native-config.json[0m
+2026-10-02T22:57:47.7259325Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-02T22:57:47.7259708Z env:
+2026-10-02T22:57:47.7259905Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-10-02T22:57:47.7260146Z ##[endgroup]
+2026-10-02T22:57:49.3274648Z   • electron-builder  version=26.15.3 os=10.0.20348
+2026-10-02T22:57:49.3280344Z   • publishing will be skipped  reason=current build is a part of pull request solution=set env PUBLISH_FOR_PULL_REQUEST to true to force code signing
+2026-10-02T22:57:49.3281808Z There are serious security concerns with PUBLISH_FOR_PULL_REQUEST=true (see the  CircleCI documentation (https://circleci.com/docs/1.0/fork-pr-builds/) for details)
+2026-10-02T22:57:49.3283346Z If you have SSH keys, sensitive env vars or AWS credentials stored in your project settings and untrusted forks can make pull requests against your repo, then this option isn't for you.
+2026-10-02T22:57:49.3376939Z   • loaded configuration  file=D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder\build-desktop\windows-native-config.json
+2026-10-02T22:57:50.1559597Z   • executing @electron/rebuild  electronVersion=44.5.1 arch=x64 buildFromSource=false workspaceRoot=D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder projectDir=./ appDir=./
+2026-10-02T22:57:50.1561219Z   • installing native dependencies  arch=x64
+2026-10-02T22:57:50.3399735Z   • completed installing native dependencies
+2026-10-02T22:57:50.3460772Z   • packaging       platform=win32 arch=x64 electron=44.5.1 appOutDir=build-desktop\win-unpacked
+2026-10-02T22:57:50.3853791Z   • downloaded      label=electron progress=100%
+2026-10-02T22:57:54.0206443Z   • downloaded electron zip extracted successfully  output=D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder\build-desktop\win-unpacked
+2026-10-02T22:57:54.0421090Z   • searching for node modules  pm=npm searchDir=D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder
+2026-10-02T22:57:58.0829325Z   • searching for node modules  pm=traversal searchDir=D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder
+2026-10-02T22:57:58.0830634Z   • using manual traversal of node_modules to build dependency tree
+2026-10-02T22:57:58.0848349Z   • no node modules returned while searching directories  searchDirectories=[""]
+2026-10-02T22:57:58.7177008Z   • updating asar integrity executable resource  executablePath=build-desktop\win-unpacked\Hollowpact.exe
+2026-10-02T22:57:58.8233998Z   • downloaded      label=icons-bundle.tar.gz progress=100%
+2026-10-02T22:58:01.1628200Z   • file signing skipped via signExecutable configuration  file=build-desktop\win-unpacked\Hollowpact.exe
+2026-10-02T22:58:01.6473160Z ##[group]Run node scripts/windows-smoke.mjs build-desktop/win-unpacked/Hollowpact.exe
+2026-10-02T22:58:01.6473859Z [36;1mnode scripts/windows-smoke.mjs build-desktop/win-unpacked/Hollowpact.exe[0m
+2026-10-02T22:58:01.6513429Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-02T22:58:01.6513771Z env:
+2026-10-02T22:58:01.6513951Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-10-02T22:58:01.6514197Z ##[endgroup]
+2026-10-02T22:58:04.9510969Z AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+2026-10-02T22:58:04.9511532Z 
+2026-10-02T22:58:04.9511697Z '0px 0px' !== '0% 0%'
+2026-10-02T22:58:04.9511904Z 
+2026-10-02T22:58:04.9512457Z     at file:///D:/a/Roguelike-deckbuilder/Roguelike-deckbuilder/scripts/windows-smoke.mjs:134:10
+2026-10-02T22:58:05.2048355Z ##[error]Process completed with exit code 1.
+2026-10-02T22:58:05.2227177Z ##[group]Run actions/upload-artifact@v4
+2026-10-02T22:58:05.2227523Z with:
+2026-10-02T22:58:05.2227794Z   name: hollowpact-0.9.0-windows-evidence-37075108377-1
+2026-10-02T22:58:05.2228733Z   path: reviews/windows-native/
+build-desktop/windows-transfer/manifest.json
+build-desktop/builder-effective-config.yaml
+build-desktop/windows-native-config.json
+dist/build-provenance.json
+
+2026-10-02T22:58:05.2229574Z   if-no-files-found: warn
+2026-10-02T22:58:05.2229791Z   retention-days: 30
+2026-10-02T22:58:05.2229998Z   compression-level: 6
+2026-10-02T22:58:05.2230202Z   overwrite: false
+2026-10-02T22:58:05.2230414Z   include-hidden-files: false
+2026-10-02T22:58:05.2230626Z env:
+2026-10-02T22:58:05.2230805Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-10-02T22:58:05.2231042Z ##[endgroup]
+2026-10-02T22:58:05.4096892Z (node:7128) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-02T22:58:05.4097757Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-02T22:58:05.4449045Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-10-02T22:58:05.4454123Z The least common ancestor is D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder. This will be the root directory of the artifact
+2026-10-02T22:58:05.4455304Z With the provided path, there will be 57 files uploaded
+2026-10-02T22:58:05.4463440Z Artifact name is valid!
+2026-10-02T22:58:05.4466178Z Root directory input is valid!
+2026-10-02T22:58:05.6883883Z Beginning upload of artifact content to blob storage
+2026-10-02T22:58:06.0041224Z (node:7128) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-02T22:58:06.2156386Z Uploaded bytes 8388608
+2026-10-02T22:58:06.2945007Z Uploaded bytes 10406394
+2026-10-02T22:58:06.3089347Z Finished uploading artifact content to blob storage!
+2026-10-02T22:58:06.3091725Z SHA256 digest of uploaded artifact zip is 60f2507064cbde77603c25a9cd3e5a88b94c4106f79caa36aefa4e7a79ca28b8
+2026-10-02T22:58:06.3093945Z Finalizing artifact upload
+2026-10-02T22:58:06.5424818Z Artifact hollowpact-0.9.0-windows-evidence-37075108377-1.zip successfully finalized. Artifact ID 11255603927
+2026-10-02T22:58:06.5426513Z Artifact hollowpact-0.9.0-windows-evidence-37075108377-1 has been successfully uploaded! Final size is 10406394 bytes. Artifact ID is 11255603927
+2026-10-02T22:58:06.5434128Z Artifact download URL: https://github.com/evangjones99-gif/Roguelike-deckbuilder/actions/runs/37075108377/artifacts/11255603927
+2026-10-02T22:58:07.3231609Z ##[group]Run actions/upload-artifact@v4
+2026-10-02T22:58:07.3231977Z with:
+2026-10-02T22:58:07.3232216Z   name: hollowpact-0.9.0-windows-x64-37075108377-1
+2026-10-02T22:58:07.3233119Z   path: reviews/windows-native/
+build-desktop/hollowpact-*-windows-native-x64.zip
+build-desktop/builder-effective-config.yaml
+build-desktop/windows-native-config.json
+dist/build-provenance.json
+
+2026-10-02T22:58:07.3233967Z   if-no-files-found: warn
+2026-10-02T22:58:07.3234181Z   retention-days: 30
+2026-10-02T22:58:07.3234384Z   compression-level: 6
+2026-10-02T22:58:07.3234580Z   overwrite: false
+2026-10-02T22:58:07.3234781Z   include-hidden-files: false
+2026-10-02T22:58:07.3235001Z env:
+2026-10-02T22:58:07.3235182Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-10-02T22:58:07.3235422Z ##[endgroup]
+2026-10-02T22:58:07.5134082Z (node:1932) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-02T22:58:07.5135279Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-02T22:58:07.5473370Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-10-02T22:58:07.5477509Z The least common ancestor is D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder. This will be the root directory of the artifact
+2026-10-02T22:58:07.5478423Z With the provided path, there will be 57 files uploaded
+2026-10-02T22:58:07.5483244Z Artifact name is valid!
+2026-10-02T22:58:07.5485779Z Root directory input is valid!
+2026-10-02T22:58:07.7389563Z Beginning upload of artifact content to blob storage
+2026-10-02T22:58:08.0494721Z (node:1932) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-02T22:58:08.2430327Z Uploaded bytes 8388608
+2026-10-02T22:58:08.3044650Z Uploaded bytes 10406394
+2026-10-02T22:58:08.3187465Z Finished uploading artifact content to blob storage!
+2026-10-02T22:58:08.3189924Z SHA256 digest of uploaded artifact zip is 3da31f6a1853e02655a0d0ec776d077af667969625cb57192d7cdc8eb8794537
+2026-10-02T22:58:08.3192598Z Finalizing artifact upload
+2026-10-02T22:58:08.5109669Z Artifact hollowpact-0.9.0-windows-x64-37075108377-1.zip successfully finalized. Artifact ID 11255339108
+2026-10-02T22:58:08.5111004Z Artifact hollowpact-0.9.0-windows-x64-37075108377-1 has been successfully uploaded! Final size is 10406394 bytes. Artifact ID is 11255339108
+2026-10-02T22:58:08.5119026Z Artifact download URL: https://github.com/evangjones99-gif/Roguelike-deckbuilder/actions/runs/37075108377/artifacts/11255339108
+2026-10-02T22:58:08.5428589Z Post job cleanup.
+2026-10-02T22:58:08.7252677Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-02T22:58:08.7458896Z git version 2.55.0.windows.5
+2026-10-02T22:58:08.7505009Z Copying 'C:\Users\runneradmin\.gitconfig' to 'D:\a\_temp\8c43cfe1-38c4-474a-8bdf-8c0ac6cd4657\.gitconfig'
+2026-10-02T22:58:08.7792101Z Temporarily overriding HOME='D:\a\_temp\8c43cfe1-38c4-474a-8bdf-8c0ac6cd4657' before making global git config changes
+2026-10-02T22:58:08.7793461Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-02T22:58:08.7808158Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder
+2026-10-02T22:58:08.8102011Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T22:58:08.8319643Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-02T22:58:09.2610435Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T22:58:09.2830312Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-02T22:58:09.7145520Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T22:58:09.7361291Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-02T22:58:10.2010062Z Cleaning up orphan processes
+2026-10-02T22:58:10.2040424Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

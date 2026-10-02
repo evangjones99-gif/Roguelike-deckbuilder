@@ -1,0 +1,595 @@
+{
+  "head": "812668a3bde673cf9e11d93e5e5fe0e807fadaad",
+  "limits": "Sampled runtime limits, not kernel hard guarantees. Shared cgroup values observed only. No exact FileNotFoundError stack/site recorded; npm exit -9 reflects supervisory termination, not a diagnosed npm/bin failure. Decoded UTF8 logs are not original HTTP log-archive bytes. Windows ZIPs are metadata only, not downloaded or reviewed. No repair/source, gameplay, art, default, native support, release or cleanup approval.",
+  "method": {
+    "elapsedSeconds": 0.009966962999897078,
+    "noExtractionOrExecution": true,
+    "peakRSSBytes": 12341248,
+    "streamChunkBytes": 65536
+  },
+  "phases": {
+    "baseline": {
+      "acquiredBodyCountReported": 53,
+      "artifactId": 11255348877,
+      "buildTestEvidence": "No executed build/test command groups or build/test receipts; Root reports skipped. Linux job step API metadata is not included.",
+      "closure": {
+        "argv": [
+          "npm",
+          "ci",
+          "--ignore-scripts",
+          "--no-audit",
+          "--no-fund"
+        ],
+        "cgroupAfter": {
+          "available": true,
+          "current": 1300312064,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+          "max": "max",
+          "path": "/sys/fs/cgroup/system.slice/hosted-compute-agent.service"
+        },
+        "cgroupBefore": {
+          "available": true,
+          "current": 956010496,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+          "max": "max",
+          "path": "/sys/fs/cgroup/system.slice/hosted-compute-agent.service"
+        },
+        "closureObserved": true,
+        "diskQualification": "Owned paths sampled, not kernel quota; overflow fails and is retained.",
+        "elapsedSeconds": 4.1718048800000105,
+        "exit": -9,
+        "firstOverflowBytesRetained": 0,
+        "liveAtClosure": [],
+        "memoryQualification": "Owned process session/descendant census plus supervisor RSS sampled; shared cgroup is observed only, no dedicated hard cgroup guarantee, transient peaks/escaped descendants not certified.",
+        "minHostOrFiniteCgroupHeadroom": 15500247040,
+        "ownedObservedProcesses": 1,
+        "phase": "install",
+        "rawLogBudget": 196608,
+        "rawLogBytes": 733,
+        "rawLogComplete": true,
+        "reason": "supervisor failure: FileNotFoundError",
+        "receivedRawLogBytes": 733,
+        "reserveBytes": 536870912,
+        "sampledAggregatePeakRSS": 289107968,
+        "sampledCPUseconds": 7.6,
+        "samples": 41,
+        "status": "FAILED",
+        "stopSeconds": 170,
+        "wholeSeconds": 180,
+        "workCapBytes": 402653184
+      },
+      "executedGroups": [
+        "2026-10-02T22:56:14.0838466Z ##[group]Runner Image Provisioner",
+        "2026-10-02T22:56:14.0844027Z ##[group]Operating System",
+        "2026-10-02T22:56:14.0846702Z ##[group]Runner Image",
+        "2026-10-02T22:56:14.0851907Z ##[group]GITHUB_TOKEN Permissions",
+        "2026-10-02T22:56:15.8830737Z ##[group]Run timeout --signal=TERM --kill-after=2s 18s python3 -I -B - <<'PY'",
+        "2026-10-02T22:56:16.3904579Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+        "2026-10-02T22:56:20.9535207Z ##[group]Environment details",
+        "2026-10-02T22:56:21.1588928Z ##[group]Run timeout --signal=TERM --kill-after=2s 178s python3 -I -B \"$RUNNER_TEMP/empty-intent-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py\" acquire",
+        "2026-10-02T22:57:02.7507302Z ##[group]Run timeout --signal=TERM --kill-after=2s 58s python3 -I -B \"$RUNNER_TEMP/empty-intent-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py\" assemble",
+        "2026-10-02T22:57:03.3120662Z ##[group]Run timeout --signal=TERM --kill-after=2s 28s python3 -I -B \"$RUNNER_TEMP/empty-intent-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py\" preflight",
+        "2026-10-02T22:57:03.4828986Z ##[group]Run timeout --signal=TERM --kill-after=2s 178s python3 -I -B \"$RUNNER_TEMP/empty-intent-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py\" install",
+        "2026-10-02T22:57:07.7959515Z ##[group]Run fresh_root=\"$RUNNER_TEMP/empty-intent-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}\"",
+        "2026-10-02T22:57:07.8878012Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02"
+      ],
+      "job": 111063078432,
+      "members": {
+        "acquisition-progress.json": {
+          "bytes": 8023,
+          "gitBlobSHA1": "a0b33efa82efcd85de629a3c0a094b55fe2440fa",
+          "sha256": "46c865f1e20a490dea51c96ca53c23f6c7ee4179b73369bd269183d4e7678e08",
+          "zipCRC32": 2626690909
+        },
+        "assembled-membership.json": {
+          "bytes": 202,
+          "gitBlobSHA1": "ae72c1eca05ffc916f65ee0112cb1840700ab82c",
+          "sha256": "3e61dc0ad9825d7ace85decc9bdb1d76bf94385fc386a5c82371fc33c51e6d71",
+          "zipCRC32": 2297268621
+        },
+        "assembly.json": {
+          "bytes": 401,
+          "gitBlobSHA1": "e18eaa8f895f6be2fa72351946790f36e0b936a8",
+          "sha256": "17609685239d4fc078990df5e0262755b06e4558c05e4b10a051e42144541967",
+          "zipCRC32": 368190360
+        },
+        "diagnostic-index.json": {
+          "bytes": 2023,
+          "gitBlobSHA1": "736edb62c41cb25f04bbcb1f1c1559e40fb4e1f2",
+          "sha256": "265c5ddee88f42523243beb2a062b0105a21b2e3d8d5572744c02943e9cc6d0e",
+          "zipCRC32": 2561060167
+        },
+        "initialization.json": {
+          "bytes": 456,
+          "gitBlobSHA1": "12d92fa45d4be5744504657753ef2d61e8503ce2",
+          "sha256": "0e844aa1642685e4558a3e8a3f8717fbcf660dd9766b730225d70683e02dfab1",
+          "zipCRC32": 1193321037
+        },
+        "install-closure.json": {
+          "bytes": 1296,
+          "gitBlobSHA1": "8ac81f3dce99cab23171680684ed11a022a4ec81",
+          "sha256": "3324b9f56271d4f18f4bdf3f8a36452cef9f061a8a151841c505bdccf86225b0",
+          "zipCRC32": 2491224713
+        },
+        "install-failed-post-membership.json": {
+          "bytes": 202,
+          "gitBlobSHA1": "ae72c1eca05ffc916f65ee0112cb1840700ab82c",
+          "sha256": "3e61dc0ad9825d7ace85decc9bdb1d76bf94385fc386a5c82371fc33c51e6d71",
+          "zipCRC32": 2297268621
+        },
+        "install-failure.json": {
+          "bytes": 116,
+          "gitBlobSHA1": "d13be6d9d16cff08937b2b46556fece410dce0ae",
+          "sha256": "91a77fdcf14aa53af77aa0838a0afdd9d175baeedff9f6c6ab2fa7b9bdf7cd6e",
+          "zipCRC32": 1625946711
+        },
+        "install-pre-membership.json": {
+          "bytes": 202,
+          "gitBlobSHA1": "ae72c1eca05ffc916f65ee0112cb1840700ab82c",
+          "sha256": "3e61dc0ad9825d7ace85decc9bdb1d76bf94385fc386a5c82371fc33c51e6d71",
+          "zipCRC32": 2297268621
+        },
+        "install.log": {
+          "bytes": 733,
+          "gitBlobSHA1": "7f4e90f5eafb759895e74c0062bcd1d53fbbbf53",
+          "sha256": "669b02944fb1d9affdfd300f76701307c47a8e9d0de2caf78ade76f64220926b",
+          "zipCRC32": 3364540675
+        },
+        "node-version-closure.json": {
+          "bytes": 1219,
+          "gitBlobSHA1": "a46467645914174e02e349201a518352ebf65f25",
+          "sha256": "91f18f5032d3c5214d8dab29a9b9e2add9d4862de0e26d03f18e4a44bca3a8c2",
+          "zipCRC32": 2662447299
+        },
+        "node-version.log": {
+          "bytes": 9,
+          "gitBlobSHA1": "3648bfc346569dbd2100505f5c60d9d4598ed69e",
+          "sha256": "b7677d3ec37ee1897ba07dc2cfe8292fe421c9ac93396cca5bbece486d1a2a41",
+          "zipCRC32": 3757084140
+        },
+        "npm-debug/2026-10-02T22_57_03_617Z-debug-0.log": {
+          "bytes": 111888,
+          "gitBlobSHA1": "5e11b765017cbef3b099f73368f9e5bcbdcd94dc",
+          "sha256": "e728accb21a50edfc18a5b460c66778a767b9458836ad332a382b664015dfb71",
+          "zipCRC32": 389655805
+        },
+        "npm-version-closure.json": {
+          "bytes": 1217,
+          "gitBlobSHA1": "1bb9bb83d45a6e13c13de072303da5237ed80879",
+          "sha256": "bb6cbd855eb0518e3fd6c25845406fed6dd4dde83ec6bbc1c86fe1354be47630",
+          "zipCRC32": 2898715279
+        },
+        "npm-version.log": {
+          "bytes": 8,
+          "gitBlobSHA1": "6f51726ce2400ff33b0656ef01daffee04dccabb",
+          "sha256": "a38e383f1e9080b0dd9001481f6e56b341000de90a05061b66734350ad3adc41",
+          "zipCRC32": 3809125123
+        },
+        "toolchain.json": {
+          "bytes": 340,
+          "gitBlobSHA1": "f9511ed9e6b70ce1c88c6ef5125ee7712cc2090c",
+          "sha256": "f5454fbd8c6a11a8d91ccf1189187fccda6fe925bf69786f0b4250c161374f28",
+          "zipCRC32": 3470647907
+        }
+      },
+      "run": 37075095591,
+      "zip": {
+        "bytes": 130541,
+        "gitBlobSHA1": "8d203833e6e9921926ab1676643ecec92b7ae913",
+        "sha256": "5d5b86b2155e71553338187868089033df5b34f79d6c6216b5bda80ec4def42c"
+      }
+    },
+    "candidate": {
+      "acquiredBodyCountReported": 57,
+      "artifactId": 11255264103,
+      "buildTestEvidence": "No executed build/test command groups or build/test receipts; Root reports skipped. Linux job step API metadata is not included.",
+      "closure": {
+        "argv": [
+          "npm",
+          "ci",
+          "--ignore-scripts",
+          "--no-audit",
+          "--no-fund"
+        ],
+        "cgroupAfter": {
+          "available": true,
+          "current": 976199680,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+          "max": "max",
+          "path": "/sys/fs/cgroup/system.slice/hosted-compute-agent.service"
+        },
+        "cgroupBefore": {
+          "available": true,
+          "current": 946872320,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+          "max": "max",
+          "path": "/sys/fs/cgroup/system.slice/hosted-compute-agent.service"
+        },
+        "closureObserved": true,
+        "diskQualification": "Owned paths sampled, not kernel quota; overflow fails and is retained.",
+        "elapsedSeconds": 2.069344106000017,
+        "exit": -9,
+        "firstOverflowBytesRetained": 0,
+        "liveAtClosure": [],
+        "memoryQualification": "Owned process session/descendant census plus supervisor RSS sampled; shared cgroup is observed only, no dedicated hard cgroup guarantee, transient peaks/escaped descendants not certified.",
+        "minHostOrFiniteCgroupHeadroom": 15579131904,
+        "ownedObservedProcesses": 1,
+        "phase": "install",
+        "rawLogBudget": 196608,
+        "rawLogBytes": 329,
+        "rawLogComplete": true,
+        "reason": "supervisor failure: FileNotFoundError",
+        "receivedRawLogBytes": 329,
+        "reserveBytes": 536870912,
+        "sampledAggregatePeakRSS": 236666880,
+        "sampledCPUseconds": 3.16,
+        "samples": 29,
+        "status": "FAILED",
+        "stopSeconds": 170,
+        "wholeSeconds": 180,
+        "workCapBytes": 402653184
+      },
+      "executedGroups": [
+        "2026-10-02T22:56:15.5107929Z ##[group]Runner Image Provisioner",
+        "2026-10-02T22:56:15.5115336Z ##[group]Operating System",
+        "2026-10-02T22:56:15.5118242Z ##[group]Runner Image",
+        "2026-10-02T22:56:15.5124986Z ##[group]GITHUB_TOKEN Permissions",
+        "2026-10-02T22:56:16.3809994Z ##[group]Run timeout --signal=TERM --kill-after=2s 18s python3 -I -B - <<'PY'",
+        "2026-10-02T22:56:16.5841517Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+        "2026-10-02T22:56:20.7709715Z ##[group]Environment details",
+        "2026-10-02T22:56:21.0397255Z ##[group]Run timeout --signal=TERM --kill-after=2s 178s python3 -I -B \"$RUNNER_TEMP/opening-cue-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py\" acquire",
+        "2026-10-02T22:56:51.3089946Z ##[group]Run timeout --signal=TERM --kill-after=2s 58s python3 -I -B \"$RUNNER_TEMP/opening-cue-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py\" assemble",
+        "2026-10-02T22:56:51.8320880Z ##[group]Run timeout --signal=TERM --kill-after=2s 28s python3 -I -B \"$RUNNER_TEMP/opening-cue-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py\" preflight",
+        "2026-10-02T22:56:52.0481805Z ##[group]Run timeout --signal=TERM --kill-after=2s 178s python3 -I -B \"$RUNNER_TEMP/opening-cue-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py\" install",
+        "2026-10-02T22:56:54.2984961Z ##[group]Run fresh_root=\"$RUNNER_TEMP/opening-cue-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}\"",
+        "2026-10-02T22:56:54.4108649Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02"
+      ],
+      "job": 111063079212,
+      "members": {
+        "acquisition-progress.json": {
+          "bytes": 8619,
+          "gitBlobSHA1": "cf4b5e5d5bf538690d24a4a4880f2d5804fa51e9",
+          "sha256": "aa012902f2b507865ea2339fec321f5605a4d4f347b22faac396007a5a95f923",
+          "zipCRC32": 830448417
+        },
+        "assembled-membership.json": {
+          "bytes": 203,
+          "gitBlobSHA1": "d1e0dbbe738b74f6ae7b82fc0d467ca77fb2bb67",
+          "sha256": "161ca52a5932a3368a4b44129999b1b259fe5b11e0326216857e55001bfbbc82",
+          "zipCRC32": 2312165638
+        },
+        "assembly.json": {
+          "bytes": 402,
+          "gitBlobSHA1": "b20b2279787e0a2814235649ded91afc5f685914",
+          "sha256": "bbec153748338741e21393bc096ab86467222335df08ed272353a39ba74cdfcb",
+          "zipCRC32": 2412024478
+        },
+        "diagnostic-index.json": {
+          "bytes": 2022,
+          "gitBlobSHA1": "8271b1b4f6abf2e33e70efa6879492deda257190",
+          "sha256": "c986219eee73d47bf9caada3469c14d22887b901520bba2e7950bb0d7a8eccde",
+          "zipCRC32": 4175898840
+        },
+        "initialization.json": {
+          "bytes": 456,
+          "gitBlobSHA1": "cd485b3c965620d968b82b11dcf9ab59c9c29cfe",
+          "sha256": "70a8b774ab3e38a2e85dbce6833b093e6c969792ca9b22a52cda167cb5868e3d",
+          "zipCRC32": 2572646751
+        },
+        "install-closure.json": {
+          "bytes": 1295,
+          "gitBlobSHA1": "8a4e99431445c237e427ded3d65bce58777838d6",
+          "sha256": "7051b6c55513e21689c75a9d39b0a0301dfb69c2511f918e134e9a5f026d36e2",
+          "zipCRC32": 156438531
+        },
+        "install-failed-post-membership.json": {
+          "bytes": 203,
+          "gitBlobSHA1": "d1e0dbbe738b74f6ae7b82fc0d467ca77fb2bb67",
+          "sha256": "161ca52a5932a3368a4b44129999b1b259fe5b11e0326216857e55001bfbbc82",
+          "zipCRC32": 2312165638
+        },
+        "install-failure.json": {
+          "bytes": 116,
+          "gitBlobSHA1": "d13be6d9d16cff08937b2b46556fece410dce0ae",
+          "sha256": "91a77fdcf14aa53af77aa0838a0afdd9d175baeedff9f6c6ab2fa7b9bdf7cd6e",
+          "zipCRC32": 1625946711
+        },
+        "install-pre-membership.json": {
+          "bytes": 203,
+          "gitBlobSHA1": "d1e0dbbe738b74f6ae7b82fc0d467ca77fb2bb67",
+          "sha256": "161ca52a5932a3368a4b44129999b1b259fe5b11e0326216857e55001bfbbc82",
+          "zipCRC32": 2312165638
+        },
+        "install.log": {
+          "bytes": 329,
+          "gitBlobSHA1": "97bfe8d036317fba75b8542e80790aa3c0f68e19",
+          "sha256": "e373ce65a06d21f28b4fbaf9b11847227e40191a905096358a2df88e8738e3ae",
+          "zipCRC32": 1231370151
+        },
+        "node-version-closure.json": {
+          "bytes": 1219,
+          "gitBlobSHA1": "47ece1b166aa165c3c0e70988a0a32458bcfd059",
+          "sha256": "ae6b7309367cb1d6cfc196eaaf7ca6db08faed1355ad19896d59d608b1e1dc14",
+          "zipCRC32": 803306862
+        },
+        "node-version.log": {
+          "bytes": 9,
+          "gitBlobSHA1": "3648bfc346569dbd2100505f5c60d9d4598ed69e",
+          "sha256": "b7677d3ec37ee1897ba07dc2cfe8292fe421c9ac93396cca5bbece486d1a2a41",
+          "zipCRC32": 3757084140
+        },
+        "npm-debug/2026-10-02T22_56_52_222Z-debug-0.log": {
+          "bytes": 87519,
+          "gitBlobSHA1": "3fe723dec500b8f8cc51e492a054cccf6a59cda2",
+          "sha256": "d58c126cfcb154fab2ab52e8df6701515db7ccbecc246d991652020145cdc3fd",
+          "zipCRC32": 3244117199
+        },
+        "npm-version-closure.json": {
+          "bytes": 1216,
+          "gitBlobSHA1": "896b2fe2f7f783f451ece7d24fa52cc4123bf2e9",
+          "sha256": "70320fbfc202825e2efcbe1ce84deb0b98509aa7e35e49f4b64d2868b9179bec",
+          "zipCRC32": 1826512179
+        },
+        "npm-version.log": {
+          "bytes": 8,
+          "gitBlobSHA1": "6f51726ce2400ff33b0656ef01daffee04dccabb",
+          "sha256": "a38e383f1e9080b0dd9001481f6e56b341000de90a05061b66734350ad3adc41",
+          "zipCRC32": 3809125123
+        },
+        "toolchain.json": {
+          "bytes": 340,
+          "gitBlobSHA1": "f9511ed9e6b70ce1c88c6ef5125ee7712cc2090c",
+          "sha256": "f5454fbd8c6a11a8d91ccf1189187fccda6fe925bf69786f0b4250c161374f28",
+          "zipCRC32": 3470647907
+        }
+      },
+      "run": 37075095740,
+      "zip": {
+        "bytes": 106365,
+        "gitBlobSHA1": "293dda60bd30d88582839873bd8fbdb70cb0ca78",
+        "sha256": "2c437380bdf29b63157da7869565e32b430e47e238fc2b1e259941d56896adaa"
+      }
+    }
+  },
+  "rootCapBytes": 1048576,
+  "rootFiles": {
+    "API-CARRIER.json": {
+      "bytes": 279186,
+      "gitBlobSHA1": "316db85dc68df8489f8c8633c4610847913503bc",
+      "sha256": "281e41c4bbd592b4c5bbe97391c5a63c2419ece7f0ba6f5c77639b690804687c"
+    },
+    "ROOT-RECEIPT.json": {
+      "bytes": 11031,
+      "gitBlobSHA1": "de121473720b3d01792906cfb535e56adc892777",
+      "sha256": "7305136b89237d756d01addaf8807f24e763e026511b48210dd021a31537d225"
+    },
+    "baseline-decoded-job.log": {
+      "bytes": 98009,
+      "gitBlobSHA1": "3248f4d239c6666b24f5ab7e0a1f16cfb119222f",
+      "sha256": "d94a06c6f8b82f4b6ef63165f8d8eca9746a807a77e7bac6a66ef1af8741b54d"
+    },
+    "baseline-original.zip": {
+      "bytes": 130541,
+      "gitBlobSHA1": "8d203833e6e9921926ab1676643ecec92b7ae913",
+      "sha256": "5d5b86b2155e71553338187868089033df5b34f79d6c6216b5bda80ec4def42c"
+    },
+    "baseline/acquisition-progress.json": {
+      "bytes": 8023,
+      "gitBlobSHA1": "a0b33efa82efcd85de629a3c0a094b55fe2440fa",
+      "sha256": "46c865f1e20a490dea51c96ca53c23f6c7ee4179b73369bd269183d4e7678e08"
+    },
+    "baseline/assembled-membership.json": {
+      "bytes": 202,
+      "gitBlobSHA1": "ae72c1eca05ffc916f65ee0112cb1840700ab82c",
+      "sha256": "3e61dc0ad9825d7ace85decc9bdb1d76bf94385fc386a5c82371fc33c51e6d71"
+    },
+    "baseline/assembly.json": {
+      "bytes": 401,
+      "gitBlobSHA1": "e18eaa8f895f6be2fa72351946790f36e0b936a8",
+      "sha256": "17609685239d4fc078990df5e0262755b06e4558c05e4b10a051e42144541967"
+    },
+    "baseline/diagnostic-index.json": {
+      "bytes": 2023,
+      "gitBlobSHA1": "736edb62c41cb25f04bbcb1f1c1559e40fb4e1f2",
+      "sha256": "265c5ddee88f42523243beb2a062b0105a21b2e3d8d5572744c02943e9cc6d0e"
+    },
+    "baseline/initialization.json": {
+      "bytes": 456,
+      "gitBlobSHA1": "12d92fa45d4be5744504657753ef2d61e8503ce2",
+      "sha256": "0e844aa1642685e4558a3e8a3f8717fbcf660dd9766b730225d70683e02dfab1"
+    },
+    "baseline/install-closure.json": {
+      "bytes": 1296,
+      "gitBlobSHA1": "8ac81f3dce99cab23171680684ed11a022a4ec81",
+      "sha256": "3324b9f56271d4f18f4bdf3f8a36452cef9f061a8a151841c505bdccf86225b0"
+    },
+    "baseline/install-failed-post-membership.json": {
+      "bytes": 202,
+      "gitBlobSHA1": "ae72c1eca05ffc916f65ee0112cb1840700ab82c",
+      "sha256": "3e61dc0ad9825d7ace85decc9bdb1d76bf94385fc386a5c82371fc33c51e6d71"
+    },
+    "baseline/install-failure.json": {
+      "bytes": 116,
+      "gitBlobSHA1": "d13be6d9d16cff08937b2b46556fece410dce0ae",
+      "sha256": "91a77fdcf14aa53af77aa0838a0afdd9d175baeedff9f6c6ab2fa7b9bdf7cd6e"
+    },
+    "baseline/install-pre-membership.json": {
+      "bytes": 202,
+      "gitBlobSHA1": "ae72c1eca05ffc916f65ee0112cb1840700ab82c",
+      "sha256": "3e61dc0ad9825d7ace85decc9bdb1d76bf94385fc386a5c82371fc33c51e6d71"
+    },
+    "baseline/install.log": {
+      "bytes": 733,
+      "gitBlobSHA1": "7f4e90f5eafb759895e74c0062bcd1d53fbbbf53",
+      "sha256": "669b02944fb1d9affdfd300f76701307c47a8e9d0de2caf78ade76f64220926b"
+    },
+    "baseline/node-version-closure.json": {
+      "bytes": 1219,
+      "gitBlobSHA1": "a46467645914174e02e349201a518352ebf65f25",
+      "sha256": "91f18f5032d3c5214d8dab29a9b9e2add9d4862de0e26d03f18e4a44bca3a8c2"
+    },
+    "baseline/node-version.log": {
+      "bytes": 9,
+      "gitBlobSHA1": "3648bfc346569dbd2100505f5c60d9d4598ed69e",
+      "sha256": "b7677d3ec37ee1897ba07dc2cfe8292fe421c9ac93396cca5bbece486d1a2a41"
+    },
+    "baseline/npm-debug/2026-10-02T22_57_03_617Z-debug-0.log": {
+      "bytes": 111888,
+      "gitBlobSHA1": "5e11b765017cbef3b099f73368f9e5bcbdcd94dc",
+      "sha256": "e728accb21a50edfc18a5b460c66778a767b9458836ad332a382b664015dfb71"
+    },
+    "baseline/npm-version-closure.json": {
+      "bytes": 1217,
+      "gitBlobSHA1": "1bb9bb83d45a6e13c13de072303da5237ed80879",
+      "sha256": "bb6cbd855eb0518e3fd6c25845406fed6dd4dde83ec6bbc1c86fe1354be47630"
+    },
+    "baseline/npm-version.log": {
+      "bytes": 8,
+      "gitBlobSHA1": "6f51726ce2400ff33b0656ef01daffee04dccabb",
+      "sha256": "a38e383f1e9080b0dd9001481f6e56b341000de90a05061b66734350ad3adc41"
+    },
+    "baseline/toolchain.json": {
+      "bytes": 340,
+      "gitBlobSHA1": "f9511ed9e6b70ce1c88c6ef5125ee7712cc2090c",
+      "sha256": "f5454fbd8c6a11a8d91ccf1189187fccda6fe925bf69786f0b4250c161374f28"
+    },
+    "candidate-decoded-job.log": {
+      "bytes": 100471,
+      "gitBlobSHA1": "c71d505b553916133cf4981fc7264844853ead51",
+      "sha256": "025434b3de8ddcc259a7690190fcc918c96226123e35315f4319d4e3bf2d812c"
+    },
+    "candidate-original.zip": {
+      "bytes": 106365,
+      "gitBlobSHA1": "293dda60bd30d88582839873bd8fbdb70cb0ca78",
+      "sha256": "2c437380bdf29b63157da7869565e32b430e47e238fc2b1e259941d56896adaa"
+    },
+    "candidate/acquisition-progress.json": {
+      "bytes": 8619,
+      "gitBlobSHA1": "cf4b5e5d5bf538690d24a4a4880f2d5804fa51e9",
+      "sha256": "aa012902f2b507865ea2339fec321f5605a4d4f347b22faac396007a5a95f923"
+    },
+    "candidate/assembled-membership.json": {
+      "bytes": 203,
+      "gitBlobSHA1": "d1e0dbbe738b74f6ae7b82fc0d467ca77fb2bb67",
+      "sha256": "161ca52a5932a3368a4b44129999b1b259fe5b11e0326216857e55001bfbbc82"
+    },
+    "candidate/assembly.json": {
+      "bytes": 402,
+      "gitBlobSHA1": "b20b2279787e0a2814235649ded91afc5f685914",
+      "sha256": "bbec153748338741e21393bc096ab86467222335df08ed272353a39ba74cdfcb"
+    },
+    "candidate/diagnostic-index.json": {
+      "bytes": 2022,
+      "gitBlobSHA1": "8271b1b4f6abf2e33e70efa6879492deda257190",
+      "sha256": "c986219eee73d47bf9caada3469c14d22887b901520bba2e7950bb0d7a8eccde"
+    },
+    "candidate/initialization.json": {
+      "bytes": 456,
+      "gitBlobSHA1": "cd485b3c965620d968b82b11dcf9ab59c9c29cfe",
+      "sha256": "70a8b774ab3e38a2e85dbce6833b093e6c969792ca9b22a52cda167cb5868e3d"
+    },
+    "candidate/install-closure.json": {
+      "bytes": 1295,
+      "gitBlobSHA1": "8a4e99431445c237e427ded3d65bce58777838d6",
+      "sha256": "7051b6c55513e21689c75a9d39b0a0301dfb69c2511f918e134e9a5f026d36e2"
+    },
+    "candidate/install-failed-post-membership.json": {
+      "bytes": 203,
+      "gitBlobSHA1": "d1e0dbbe738b74f6ae7b82fc0d467ca77fb2bb67",
+      "sha256": "161ca52a5932a3368a4b44129999b1b259fe5b11e0326216857e55001bfbbc82"
+    },
+    "candidate/install-failure.json": {
+      "bytes": 116,
+      "gitBlobSHA1": "d13be6d9d16cff08937b2b46556fece410dce0ae",
+      "sha256": "91a77fdcf14aa53af77aa0838a0afdd9d175baeedff9f6c6ab2fa7b9bdf7cd6e"
+    },
+    "candidate/install-pre-membership.json": {
+      "bytes": 203,
+      "gitBlobSHA1": "d1e0dbbe738b74f6ae7b82fc0d467ca77fb2bb67",
+      "sha256": "161ca52a5932a3368a4b44129999b1b259fe5b11e0326216857e55001bfbbc82"
+    },
+    "candidate/install.log": {
+      "bytes": 329,
+      "gitBlobSHA1": "97bfe8d036317fba75b8542e80790aa3c0f68e19",
+      "sha256": "e373ce65a06d21f28b4fbaf9b11847227e40191a905096358a2df88e8738e3ae"
+    },
+    "candidate/node-version-closure.json": {
+      "bytes": 1219,
+      "gitBlobSHA1": "47ece1b166aa165c3c0e70988a0a32458bcfd059",
+      "sha256": "ae6b7309367cb1d6cfc196eaaf7ca6db08faed1355ad19896d59d608b1e1dc14"
+    },
+    "candidate/node-version.log": {
+      "bytes": 9,
+      "gitBlobSHA1": "3648bfc346569dbd2100505f5c60d9d4598ed69e",
+      "sha256": "b7677d3ec37ee1897ba07dc2cfe8292fe421c9ac93396cca5bbece486d1a2a41"
+    },
+    "candidate/npm-debug/2026-10-02T22_56_52_222Z-debug-0.log": {
+      "bytes": 87519,
+      "gitBlobSHA1": "3fe723dec500b8f8cc51e492a054cccf6a59cda2",
+      "sha256": "d58c126cfcb154fab2ab52e8df6701515db7ccbecc246d991652020145cdc3fd"
+    },
+    "candidate/npm-version-closure.json": {
+      "bytes": 1216,
+      "gitBlobSHA1": "896b2fe2f7f783f451ece7d24fa52cc4123bf2e9",
+      "sha256": "70320fbfc202825e2efcbe1ce84deb0b98509aa7e35e49f4b64d2868b9179bec"
+    },
+    "candidate/npm-version.log": {
+      "bytes": 8,
+      "gitBlobSHA1": "6f51726ce2400ff33b0656ef01daffee04dccabb",
+      "sha256": "a38e383f1e9080b0dd9001481f6e56b341000de90a05061b66734350ad3adc41"
+    },
+    "candidate/toolchain.json": {
+      "bytes": 340,
+      "gitBlobSHA1": "f9511ed9e6b70ce1c88c6ef5125ee7712cc2090c",
+      "sha256": "f5454fbd8c6a11a8d91ccf1189187fccda6fe925bf69786f0b4250c161374f28"
+    },
+    "windows-decoded-job.log": {
+      "bytes": 51493,
+      "gitBlobSHA1": "1992af4ee391b912d151c49a52669c096231d51e",
+      "sha256": "e40fcfa98b8690574d9a952cdc0ef0daf5669eb4129309ba61646e6f5b25e968"
+    }
+  },
+  "rootInclusiveBytes": 1009590,
+  "rootInclusiveFiles": 39,
+  "rootReceipt": {
+    "bytes": 11031,
+    "gitBlobSHA1": "de121473720b3d01792906cfb535e56adc892777",
+    "sha256": "7305136b89237d756d01addaf8807f24e763e026511b48210dd021a31537d225"
+  },
+  "verdict": "ACCEPT_PRESERVED_BYTES_AND_QUALIFIED_ACTUAL_FAILURE_ONLY",
+  "windows": {
+    "assertion": "'0px 0px' !== '0% 0%'",
+    "job": 111063120179,
+    "nativeZIPBodiesAudited": false,
+    "run": 37075108377,
+    "sourceLocationReported": "scripts/windows-smoke.mjs:134:10",
+    "steps": {
+      "Archive candidate and record native resource evidence": "skipped",
+      "Build production runtime": "success",
+      "Complete job": "success",
+      "Enable Git long paths for retained review evidence": "success",
+      "Identify candidate": "success",
+      "Install locked dependencies": "success",
+      "Install stock Electron for native resource comparison": "success",
+      "Launch packaged Windows executable and verify offline interactions": "failure",
+      "Package unsigned Windows executable with resources enabled": "success",
+      "Post Run actions/checkout@v4": "success",
+      "Post Run actions/setup-node@v4": "skipped",
+      "Rules tests": "success",
+      "Run actions/checkout@v4": "success",
+      "Run actions/setup-node@v4": "success",
+      "Set up job": "success",
+      "Split tested native ZIP into bounded transfer parts": "skipped",
+      "Upload native ZIP part 01": "skipped",
+      "Upload native ZIP part 02": "skipped",
+      "Upload native ZIP part 03": "skipped",
+      "Upload native ZIP part 04": "skipped",
+      "Upload native ZIP part 05": "skipped",
+      "Upload native ZIP part 06": "skipped",
+      "Upload native ZIP part 07": "skipped",
+      "Upload native ZIP part 08": "skipped",
+      "Upload native evidence and candidate package": "success",
+      "Upload small native evidence and transfer manifest": "success"
+    }
+  }
+}
