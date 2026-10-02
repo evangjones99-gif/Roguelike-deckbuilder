@@ -1,0 +1,139 @@
+{
+  "sourceOnly": true,
+  "draftRunnerSHA256": "eb6f5be6c633a1b0cd4c8f38b654a94f4088049dcf3e7e0309de969441026ccc",
+  "PythonASTCompilePassed": true,
+  "literalMetadataExact": true,
+  "cases": [
+    {
+      "case": "path_valid_a/b.ts",
+      "accepted": true
+    },
+    {
+      "case": "path_valid_public/art/one.png",
+      "accepted": true
+    },
+    {
+      "case": "path_reject_''",
+      "accepted": false
+    },
+    {
+      "case": "path_reject_'.'",
+      "accepted": false
+    },
+    {
+      "case": "path_reject_'..'",
+      "accepted": false
+    },
+    {
+      "case": "path_reject_'../a'",
+      "accepted": false
+    },
+    {
+      "case": "path_reject_'a/../b'",
+      "accepted": false
+    },
+    {
+      "case": "path_reject_'/a'",
+      "accepted": false
+    },
+    {
+      "case": "path_reject_'a//b'",
+      "accepted": false
+    },
+    {
+      "case": "path_reject_'a/./b'",
+      "accepted": false
+    },
+    {
+      "case": "path_reject_'a/'",
+      "accepted": false
+    },
+    {
+      "case": "path_reject_'a\\\\b'",
+      "accepted": false
+    },
+    {
+      "case": "path_reject_'a\\x00b'",
+      "accepted": false
+    },
+    {
+      "case": "path_reject_'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'",
+      "accepted": false
+    },
+    {
+      "case": "regular_hash_member",
+      "accepted": true
+    },
+    {
+      "case": "ce0f_index_exact_size",
+      "accepted": true
+    },
+    {
+      "case": "member_reject_directory",
+      "accepted": false
+    },
+    {
+      "case": "member_reject_symlink",
+      "accepted": false
+    },
+    {
+      "case": "member_reject_hardlink",
+      "accepted": false
+    },
+    {
+      "case": "member_reject_device",
+      "accepted": false
+    },
+    {
+      "case": "member_reject_FIFO",
+      "accepted": false
+    },
+    {
+      "case": "member_reject_pax",
+      "accepted": false
+    },
+    {
+      "case": "member_reject_sparse",
+      "accepted": false
+    },
+    {
+      "case": "member_reject_traversal",
+      "accepted": false
+    },
+    {
+      "case": "member_reject_oversized",
+      "accepted": false
+    },
+    {
+      "case": "member_reject_uppercase",
+      "accepted": false
+    },
+    {
+      "case": "member_reject_foreign_index",
+      "accepted": false
+    },
+    {
+      "case": "member_reject_wrong_index_size",
+      "accepted": false
+    },
+    {
+      "case": "bounded_stream_exact",
+      "accepted": true
+    },
+    {
+      "case": "bounded_stream_overflow",
+      "accepted": false
+    },
+    {
+      "case": "bounded_stream_unbounded_read",
+      "accepted": false
+    },
+    {
+      "case": "duplicate_JSON",
+      "accepted": false
+    }
+  ],
+  "count": 32,
+  "productionMainNetworkArchiveAssemblyOrNpmBuildTestExecuted": false,
+  "qualification": "Only exact selected pure path/header/bounded-read functions exercised using inert TarInfo metadata and tiny BytesIO fixtures. No TAR bytes read or extracted; no process supervision/commands invoked. Rebind final source seal before final verdict."
+}

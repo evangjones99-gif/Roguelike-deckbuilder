@@ -1,0 +1,45 @@
+{
+  "finalSourceOnly": true,
+  "sourceSealSHA256": "4fbe486e3042d4df7e2f30d082bf5f8ce9449defea62f7db409d8453fdab61bc",
+  "manifestSHA256": "bf734b58262196a0e17ce271acf471e15dbde5be9473e9819d12cd902d5b2a38",
+  "inclusiveSourceFamilyBytes": 196014,
+  "all15ManifestMemberBytesHashesVerified": true,
+  "noExtraOrSymlinkFiles": true,
+  "methodSHA256": "eb6f5be6c633a1b0cd4c8f38b654a94f4088049dcf3e7e0309de969441026ccc",
+  "workflowSHA256": "74dd2faf58c5810f988d669df5d9c246d37707ea05b36541c095db0968aec2d7",
+  "exactFailedWorkflowInverseAndForwardRoundtrip": true,
+  "failedWorkflowSHA256": "ad7eec8597f4a07fcecb62501affe536f01a962969a1bfbc3def6d2e87fa6877",
+  "extraPureCredentialHeadroomCases": 4,
+  "credentialFreeChildEnvironmentPass": true,
+  "finiteCgroupAndHostMinHeadroomPass": true,
+  "officialSetupNodeCommit": "49933ea5288caeca8642d1e84afbd3f7d6820020",
+  "officialPrimaryFiles": {
+    "OFFICIAL-SETUP-ACTION.yml": {
+      "gitBlobSHA1": "ef58e69919a94e6a823d333159fad95e2720c896",
+      "sha256": "8aee59063ebc272d850507febb30930de2684be1b1240cf5f3dff13179fcff0b",
+      "bytes": 2614
+    },
+    "OFFICIAL-SETUP-README.md": {
+      "gitBlobSHA1": "92804e94eafa5f43c4856e93c808220b08929a15",
+      "sha256": "f4f58871b575aa66acf341aa111cd8fbaf7a4b789264fbd49c857ffb838bef59",
+      "bytes": 11569
+    },
+    "OFFICIAL-SETUP-MAIN.ts": {
+      "gitBlobSHA1": "c36d8ec5af7d3c738de3dd7e5ac5faf281942d83",
+      "sha256": "e0349b933b1a9979e97101245894d41401d4d16429cd63bf93019f4210f3bc1c",
+      "bytes": 3680
+    },
+    "OFFICIAL-SETUP-DISTRIBUTION.ts": {
+      "gitBlobSHA1": "62999c3348624ee96ace2239fd4082eb69d56270",
+      "sha256": "b14d0a6d414130f0befb521722f2285c5625f9ba4d01a81af138902fd3554aeb",
+      "bytes": 8530
+    }
+  },
+  "ordinarySourceWorkBytes": 67108864,
+  "reserveBytes": 536870912,
+  "currentCgroupBytes": 475492352,
+  "cgroupMaximumBytes": 17179869184,
+  "verifierPeakRSSBytes": 15859712,
+  "candidateMainNetworkArchiveNpmBuildTestExecuted": false,
+  "qualification": "Final seal binds earlier final-hash grammar/metadata/path receipts despite their draft field labels. Inverse reconstructs the observed failed workflow exactly, without writing or executing it."
+}

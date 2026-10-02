@@ -1,0 +1,22 @@
+{
+  "draftSourceOnly": true,
+  "workflowSHA256": "c8130b49858d08b1364dd04e677af7b84cc612c4cf7f0f67ea66a8e2e90037dc",
+  "runnerSHA256": "2c1607de78b67f40d748fa632b67842cf995b48d492707b549c51a24b9ecb117",
+  "embeddedRunnerByteExact": true,
+  "PythonASTGrammarPassed": true,
+  "allNineRunShellSyntaxPassed": true,
+  "fixedPushManualTriggersPermissionsActionsTokenScope": true,
+  "successAndFailureUploadsSeparated": true,
+  "phaseShellCapsSecondsPlusKill": {
+    "initialize": 20,
+    "acquire": 180,
+    "assemble": 60,
+    "preflight": 30,
+    "install": 180,
+    "build": 60,
+    "test": 60,
+    "seal": 30
+  },
+  "methodOrNpmBuildTestsExecuted": false,
+  "qualification": "Static grammar/contracts only, run strings never executed. Source still unsealed; final hashes/seal must be checked."
+}

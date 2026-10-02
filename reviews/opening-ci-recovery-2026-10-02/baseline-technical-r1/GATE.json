@@ -1,0 +1,120 @@
+{
+  "decision": "REJECT_FROZEN_R1_UNNECESSARY_SHARED_UNUSED_PLAYWRIGHT_SHIM_ADMISSION",
+  "technicalSourceAccepted": false,
+  "sourceSealSHA256": "4fbe486e3042d4df7e2f30d082bf5f8ce9449defea62f7db409d8453fdab61bc",
+  "manifestSHA256": "bf734b58262196a0e17ce271acf471e15dbde5be9473e9819d12cd902d5b2a38",
+  "runnerSHA256": "eb6f5be6c633a1b0cd4c8f38b654a94f4088049dcf3e7e0309de969441026ccc",
+  "workflowSHA256": "74dd2faf58c5810f988d669df5d9c246d37707ea05b36541c095db0968aec2d7",
+  "sourceFamilyBytes": 196014,
+  "sourceFamilyCapBytes": 196608,
+  "all15ManifestMembersAndSealVerified": true,
+  "source98MapSupport30Blob53PinsVerified": true,
+  "independentPureGuardCases": 36,
+  "allNineShellGrammarBlocksPassed": true,
+  "exactFailedWorkflowCompleteInverseVerified": true,
+  "blocker": "provision_audit checks @playwright/test shared unused .bin/playwright ownership although exact lock exposes same command from playwright. This creates potentially false out-of-scope refusal.",
+  "requiredNarrowNewRevision": "Allowlist executable resolution tsc/vite/tsx; retain type-only package metadata/entry hashes. FrozenR1 stays unchanged.",
+  "actualInstalledShimObserved": false,
+  "actualCIOrMainNetworkArchiveNpmBuildTestExecuted": false,
+  "runtimeBuildBrowserVisualDefaultArtGameplayFunAccepted": false,
+  "oldFreezeOutputsAliasesRestored": false,
+  "rootSoleRemoteWriter": true,
+  "ordinaryWorkBytes": 67108864,
+  "reserveBytes": 536870912,
+  "ownReportCapBytes": 131072,
+  "ownBytesIncludingGate": 65903,
+  "filesBeforeGate": [
+    {
+      "name": "BOUNDARY-PROOF.json",
+      "bytes": 3195,
+      "sha256": "207253436829de0df38c65f7cdb8be80410f9bb600ab9184d4b31e92b9133198"
+    },
+    {
+      "name": "FAILED-DRAFT-DIAGNOSTIC-GRAMMAR.json",
+      "bytes": 1528,
+      "sha256": "cd678aac4533dbf668e7e75abeb6b1b69ceb6929d2431f2602174ef1d8d5b792"
+    },
+    {
+      "name": "FAILED-DRAFT-GUARD-PROOF.json",
+      "bytes": 503,
+      "sha256": "f65b143fd216e05f9279f0c87b50ffd2c8fe5dac78c50a2dd9c6fa39fe5a6270"
+    },
+    {
+      "name": "FAILED-DRAFT-PATH-GUARD.py",
+      "bytes": 296,
+      "sha256": "b92aa9f8fbb5aa25df519cffab36ca9b167318ccf55895c015aed19a0432722f"
+    },
+    {
+      "name": "FINAL-SEAL-PROOF.json",
+      "bytes": 2191,
+      "sha256": "def4a9dbf7c363f3bf6b6ade3d8c14ac178a871a6e49ae96ff5d566102570bae"
+    },
+    {
+      "name": "METADATA-PROOF.json",
+      "bytes": 527,
+      "sha256": "b70b43717f8e2cdb4c94c1436af30c7fc3124338170d844b4de08b7af9f73c24"
+    },
+    {
+      "name": "OFFICIAL-SETUP-ACTION.yml",
+      "bytes": 2614,
+      "sha256": "8aee59063ebc272d850507febb30930de2684be1b1240cf5f3dff13179fcff0b"
+    },
+    {
+      "name": "OFFICIAL-SETUP-DISTRIBUTION.ts",
+      "bytes": 8530,
+      "sha256": "b14d0a6d414130f0befb521722f2285c5625f9ba4d01a81af138902fd3554aeb"
+    },
+    {
+      "name": "OFFICIAL-SETUP-MAIN.ts",
+      "bytes": 3680,
+      "sha256": "e0349b933b1a9979e97101245894d41401d4d16429cd63bf93019f4210f3bc1c"
+    },
+    {
+      "name": "OFFICIAL-SETUP-README.md",
+      "bytes": 11569,
+      "sha256": "f4f58871b575aa66acf341aa111cd8fbaf7a4b789264fbd49c857ffb838bef59"
+    },
+    {
+      "name": "REVIEW.md",
+      "bytes": 6659,
+      "sha256": "9f4a9bea0ccd1e27c78709397de0f7f44fe5bbc1f1ee4ab350f83e4f12039076"
+    },
+    {
+      "name": "REVIEWER-HARNESS-FAILURES.json",
+      "bytes": 742,
+      "sha256": "d30aa594ffc45b7b646286d31cb36a359c8c72fdf54257d420067238cc54cef7"
+    },
+    {
+      "name": "SHARED-SHIM-BLOCKER.json",
+      "bytes": 1804,
+      "sha256": "00809cab8717cba872c2ab33e36065ec585ba7bfbacb8de6499c263e6b1da00b"
+    },
+    {
+      "name": "WORKFLOW-PROOF.json",
+      "bytes": 794,
+      "sha256": "56fb3a5fb28130cfcddc9c3537793ebc53b968b4c8e02afb92cac9fcd5c9aa7f"
+    },
+    {
+      "name": "boundary_check.py",
+      "bytes": 3477,
+      "sha256": "cd44205e05be993cf7b8162be05220fa57cdc5ab49aeabd9b62787e0a6631e69"
+    },
+    {
+      "name": "final_seal_check.py",
+      "bytes": 5748,
+      "sha256": "ae8a5902055227eb7b374ee35eeb63becdd32ba051d49a5f9d92fed13e35cef4"
+    },
+    {
+      "name": "metadata_check.py",
+      "bytes": 3026,
+      "sha256": "df27968f22836a324935161d7463ab5e1903a6f78ab723a4fe01e1c487bc93ca"
+    },
+    {
+      "name": "workflow_check.py",
+      "bytes": 4429,
+      "sha256": "b4239aaa5aa6502407f088ef7e550fb06e61aeb31e3a1fb84d2580c95b0e5e1f"
+    }
+  ],
+  "utcNS": 1790968178037837734,
+  "qualification": "Source rejection before actual CI; other final static and guard checks passed. Sampled runtime limits remain qualified, not a hard cgroup or historical strict-build certificate."
+}

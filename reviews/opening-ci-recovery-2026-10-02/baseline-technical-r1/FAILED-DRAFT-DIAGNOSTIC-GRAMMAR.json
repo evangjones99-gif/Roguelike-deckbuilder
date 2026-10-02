@@ -1,0 +1,8 @@
+{
+  "workflowSHA256ObservedAtFailure": "ad7eec8597f4a07fcecb62501affe536f01a962969a1bfbc3def6d2e87fa6877",
+  "exit": 2,
+  "stderr": "bash: line 18: warning: here-document at line 5 delimited by end-of-file (wanted `PY')\nbash: line 19: syntax error: unexpected end of file\n",
+  "runLiteral": "fresh_root=\"$RUNNER_TEMP/empty-intent-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}\"\nif timeout --signal=TERM --kill-after=2s 28s python3 -I -B \"$fresh_root/control/runner.py\" diagnose; then\n  printf 'path=%s\\n' \"$fresh_root/failure-artifact\" >> \"$GITHUB_OUTPUT\"\nelse\n  timeout --signal=TERM --kill-after=2s 8s python3 -I -B - <<'PY'\n  import json, os, pathlib, re\n  rid, attempt = os.environ[\"GITHUB_RUN_ID\"], os.environ[\"GITHUB_RUN_ATTEMPT\"]\n  assert re.fullmatch(r\"[0-9]{1,20}\",rid) and re.fullmatch(r\"[0-9]{1,10}\",attempt)\n  temp=pathlib.Path(os.environ[\"RUNNER_TEMP\"])\n  assert temp.is_absolute() and temp.is_dir() and not temp.is_symlink()\n  out=temp/(\"empty-intent-diagnostic-\"+rid+\"-\"+attempt)\n  out.mkdir(mode=0o700)\n  with (out/\"diagnostic-blocker.json\").open(\"x\") as f:\n      json.dump({\"status\":\"DIAGNOSTIC_ASSEMBLY_BLOCKED\", \"completeLogsUploaded\":False, \"originalsDeleted\":False, \"platformWorkflowLogs\":\"Retain independently; hosted lifetime external\", \"buildApproval\":False},f)\n  with open(os.environ[\"GITHUB_OUTPUT\"],\"a\") as f:\n      f.write(\"path=\"+str(out)+\"\\n\")\n  PY\nfi\n",
+  "executed": "bash -n grammar only",
+  "candidateMethodExecuted": false
+}

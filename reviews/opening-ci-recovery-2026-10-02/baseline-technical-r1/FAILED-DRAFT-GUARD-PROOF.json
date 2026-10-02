@@ -1,0 +1,10 @@
+{
+  "draftSHA256ObservedAfterFailure": "249609d0067a84ba8e3e31e6fa137a3d13d1d664ec46dc1261685a33eb3f8da0",
+  "case": "safe_path dot",
+  "expected": "reject",
+  "observed": "accepted; assertion failed",
+  "cause": "PurePosixPath dot has empty parts, all(parts) vacuously true",
+  "scope": "No fixed metadata admits dot; member_header separate regex would reject. Requested narrow canonical-path guard correction before seal.",
+  "candidateMainExecuted": false,
+  "exactOldDraftBodyRetainedHere": false
+}

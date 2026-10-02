@@ -1,0 +1,35 @@
+{
+  "sourceOnly": true,
+  "sourceSealSHA256": "617c0a6007c8ae9734fe0f547645745558a6cdc1666a1b46dad12bb37f0e0629",
+  "manifestSHA256": "61edf83a446e27e1bf8615e93f9a1377a57bb4d663eedeffd9c1b22c90a5c554",
+  "sourceFamilyBytes": 184882,
+  "allManifestMembersAndSealVerified": true,
+  "parentR1SealVerified": true,
+  "parentRejectedGateSHA256": "bf2935466cf5c1460686617a95acbf810f02ad64affac886a07c8b8260161d45",
+  "unchangedPayloadsByteExact": [
+    "METADATA.json",
+    "PRIMARY-ACTIONS.json",
+    "ORIGINAL-BUILD-GRAMMAR.mjs",
+    "source_checks.py"
+  ],
+  "onlyChangedMethodAST": "provision_audit",
+  "allOtherWorkflowFieldsAndRunStringsByteExactAfterLiteralMethodSubstitution": true,
+  "fullInverseForwardRoundtrips": [
+    "runner.py",
+    "rebuild-opening-baseline.yml"
+  ],
+  "methodSHA256": "2c1607de78b67f40d748fa632b67842cf995b48d492707b549c51a24b9ecb117",
+  "workflowSHA256": "c8130b49858d08b1364dd04e677af7b84cc612c4cf7f0f67ea66a8e2e90037dc",
+  "source98Support30Blob53PinsInheritedExact": true,
+  "independentPathHeaderStreamCases": 32,
+  "sharedShimSyntheticCases": 4,
+  "credentialAndHeadroomCasesInheritedUnchanged": 4,
+  "allNineShellGrammarPassed": true,
+  "candidateMainNetworkArchiveNpmBuildTestExecuted": false,
+  "ordinaryWorkBytes": 67108864,
+  "reserveBytes": 536870912,
+  "initialCgroupCurrent": 479821824,
+  "cgroupMaximum": 17179869184,
+  "verifierPeakRSSBytes": 18968576,
+  "qualification": "Narrow R2 source repair only. Exact same acquisition, inputs, archive guards, resource/time/disk/log/process/output/action restrictions as reviewed R1. Prior rejected R1/failures and primary-source references remain immutable external authority; no actual new CI/build result."
+}

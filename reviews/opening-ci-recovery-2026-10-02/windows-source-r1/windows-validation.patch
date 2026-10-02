@@ -1,0 +1,16 @@
+--- a/.github/workflows/windows-validation.yml
++++ b/.github/workflows/windows-validation.yml
+@@ -23,6 +23,13 @@
+     env:
+       CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+     steps:
++      - name: Enable Git long paths for retained review evidence
++        run: |
++          git config --global core.longpaths true
++          if ($LASTEXITCODE -ne 0) { throw 'Failed to enable Git long paths' }
++          $longPaths = git config --global --bool --get core.longpaths
++          if ($LASTEXITCODE -ne 0 -or $longPaths -ne 'true') { throw 'Git long paths verification failed' }
++          Write-Host "Git core.longpaths=$longPaths"
+       - uses: actions/checkout@v4
+         with:
+           persist-credentials: false
