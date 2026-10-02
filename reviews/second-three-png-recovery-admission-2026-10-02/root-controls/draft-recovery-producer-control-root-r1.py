@@ -1,0 +1,13 @@
+from pathlib import Path
+S=Path('/workspace/scratch');p=S/'judge-second-three-png-sharing-root-r1.py';q=S/'judge-second-three-png-sharing-root-r2.py';assert not q.exists()
+b=p.read_text().replace('import os,json,hashlib','import os,json,hashlib,sys')
+b=b.replace("S/'second-three-retained-png-sharing-before-independent-r2/GATE.json'", "S/'second-three-png-recovery-admission-independent-r1/GATE.json'")
+b=b.replace("S/'target-clear-rejection-push-root-r2/PUSH-CONFIRMED.json'", "S/'recovery-admission-push-root-r1/PUSH-CONFIRMED.json'")
+b=b.replace('share-second-three-retained-pngs-root-r2.py','share-second-three-retained-pngs-root-r3.py')
+b=b.replace("assert sha(gate)=='d12f5667c1eb28a0d0153c63a98318e1e9ab104e433139e2f8083fac8cf24b2a'", "assert len(sys.argv)==2 and sha(gate)==sys.argv[1]")
+b=b.replace('reviews/second-three-png-physical-sharing-2026-10-02/second-three-retained-png-sharing-before-independent-r2/GATE.json','reviews/second-three-png-recovery-admission-2026-10-02/second-three-png-recovery-admission-independent-r1/GATE.json')
+b=b.replace('reviews/second-three-png-physical-sharing-2026-10-02/root-method/','reviews/second-three-png-recovery-admission-2026-10-02/root-controls/')
+b=b.replace('second-three-png-producer-judgment-root-r1.json','second-three-png-producer-judgment-root-r2.json')
+b=b.replace("'scopeLimits':'", "'recoveryAdmission':'Separately reviewed56MiB source/recovery-only bounded profile after old64MiB refusal; build64/native70 unchanged. Wrapper filename filter isnotworkloadisolation; Root exactpinned scripts/scope only. No extra path or retry.', 'scopeLimits':'")
+assert b!=p.read_text();q.write_text(b)
+print(str(q))

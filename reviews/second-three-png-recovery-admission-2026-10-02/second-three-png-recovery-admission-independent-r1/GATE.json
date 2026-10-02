@@ -1,0 +1,144 @@
+{
+  "decision": "ACCEPT_PINNED_BOUNDED_56M_SOURCE_RECOVERY_ADMISSION_AND_R3_METHOD",
+  "method": {
+    "path": "/workspace/scratch/share-second-three-retained-pngs-root-r3.py",
+    "bytes": 7828,
+    "sha256": "af73daa64cb87e5595d2e1f6d6742baa611bc472a114b381832eaf0de55adf74"
+  },
+  "proposal": {
+    "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/PROPOSAL.json",
+    "sha256": "45ed75b5078c84e32981ba86b43f62826b00c53278ef8ea2f9888d661b8fd8d5",
+    "bytes": 43511
+  },
+  "currentHold": {
+    "path": "/workspace/Roguelike-deckbuilder/AGENTS.md",
+    "sha256": "69a82ce96a594a2b2a5244154de8758b200290ba9de46b40a221a52ba4a0cfb7",
+    "bytes": 15131
+  },
+  "selectedMap": {
+    "path": "/workspace/scratch/target-wait-default-promotion-root-r1/RESULT.json",
+    "sha256": "31a221091d2ffbc6d58dfc1385962c441df9789c66729ef64d20b95208a8fabd",
+    "bytes": 15350
+  },
+  "admissionGuard": {
+    "path": "/workspace/scratch/guard-source-recovery-56m-root-r2.py",
+    "bytes": 2826,
+    "sha256": "c2b24f58d6abbbe0449fc49515e6bb9eeaf0997bd287642d87a3a1754388fff3"
+  },
+  "admissionProposal": {
+    "path": "/workspace/scratch/bounded-source-recovery-admission-proposal-root-r2.json",
+    "bytes": 1532,
+    "sha256": "52319131ed1be6e2322c39d32c00baa43f66edeb271f2aa21fbcdfe53d179a82"
+  },
+  "publisher": {
+    "path": "/workspace/scratch/publish-reviewed-recovery-admission-root-r2.py",
+    "bytes": 5786,
+    "sha256": "b5fcfa84d67b07e1bb3f8d06648091d140bb0b088d714c8237ab0a3ef50abad3"
+  },
+  "producer": {
+    "path": "/workspace/scratch/judge-second-three-png-sharing-root-r3.py",
+    "bytes": 3631,
+    "sha256": "ee13fd19c0e38195269b5cb794fae24ff6f092cb2bdbf16cbbbf714da6d18c88"
+  },
+  "approvedInvocations": [
+    {
+      "script": {
+        "path": "/workspace/scratch/publish-reviewed-recovery-admission-root-r2.py",
+        "bytes": 5786,
+        "sha256": "b5fcfa84d67b07e1bb3f8d06648091d140bb0b088d714c8237ab0a3ef50abad3"
+      },
+      "workMiB": 256,
+      "diskAdmissionMiB": 56,
+      "reserveMiB": 512,
+      "operation": "newowned reviewfolder/sourcecopies +selectiveGitcommit/push/lsremote/clean; no media action"
+    },
+    {
+      "script": {
+        "path": "/workspace/scratch/judge-second-three-png-sharing-root-r3.py",
+        "bytes": 3631,
+        "sha256": "ee13fd19c0e38195269b5cb794fae24ff6f092cb2bdbf16cbbbf714da6d18c88"
+      },
+      "workMiB": 64,
+      "diskAdmissionMiB": 56,
+      "reserveMiB": 512,
+      "operation": "GateSHA CLIargument exact; checkcurrentpublishedgate/method/push, writedurablefinite judgment only"
+    },
+    {
+      "script": {
+        "path": "/workspace/scratch/share-second-three-retained-pngs-root-r3.py",
+        "bytes": 7828,
+        "sha256": "af73daa64cb87e5595d2e1f6d6742baa611bc472a114b381832eaf0de55adf74"
+      },
+      "workMiB": 64,
+      "diskAdmissionMiB": 56,
+      "reserveMiB": 512,
+      "operation": "exactthreepath sharing onlyafternewpush/durablejudgment/rootgrant"
+    }
+  ],
+  "sourceProof": {
+    "path": "/workspace/scratch/second-three-png-recovery-admission-independent-r1/PROOF.json",
+    "sha256": "380db2fce9dcb52c84643421ecb2f1d9f7e1243ac8329ea14c6bcbe25542b1a5",
+    "bytes": 4286
+  },
+  "durableControlsProof": {
+    "path": "/workspace/scratch/second-three-png-recovery-admission-independent-r1/DURABLE-CONTROLS-PROOF.json",
+    "sha256": "c714c4947ae20d3f80a8a5d527fcba1ab6bd249be7d3284f1207f3cb26b2d2dc",
+    "bytes": 8838
+  },
+  "transactionBound": {
+    "path": "/workspace/scratch/second-three-png-recovery-admission-independent-r1/TRANSACTION-BOUND.json",
+    "sha256": "f18e47b3fb589ee6a364455e92999c703f18d886d3fee220a030faa8f05dc1a9",
+    "bytes": 674
+  },
+  "review": {
+    "path": "/workspace/scratch/second-three-png-recovery-admission-independent-r1/REVIEW.md",
+    "sha256": "97378d99e28555aad4411b91248f8ab3390e696bd09241f96ed36da85d9954b3",
+    "bytes": 5691
+  },
+  "diskAdmissionMiB": 56,
+  "memoryReserveMiB": 512,
+  "liveDiskStopMiB": 1,
+  "ordinaryStrictBuildAdmissionMiB": 64,
+  "nativeAdmissionMiB": 70,
+  "sourceProofMaxBytes": 196608,
+  "publicationCopiedPayloadMaxBytes": 524288,
+  "publicationUpperPayloadWithMaxReviewBytes": 278514,
+  "transactionControlMaxBytes": 65536,
+  "guardNamespaceIsolationClaim": false,
+  "publisherReceiptAloneFullyAncestorDurable": false,
+  "successfulDurableProducerCompletionRequiredBeforeAction": true,
+  "requiresNewCurrentPushProducerAndRootSoleActionGrant": true,
+  "noExtraMediaPathsNoBackupNoAutomaticRetry": true,
+  "actionExecutedByReviewer": false,
+  "sourceGuardsClosed": [
+    {
+      "path": "/workspace/scratch/second-three-png-recovery-admission-independent-r1/bound-guard-r1/RESULT.json",
+      "sha256": "46be9415974674866f2821caaa60a624354acf5864fb4a689fe3e41cf930caf2",
+      "bytes": 853
+    },
+    {
+      "path": "/workspace/scratch/second-three-png-recovery-admission-independent-r1/control-read-guard-r1/RESULT.json",
+      "sha256": "0753a73d19c39bdf3b2edc3aa7fe75821345351df4a1e52c41bec21014b2d0b5",
+      "bytes": 858
+    },
+    {
+      "path": "/workspace/scratch/second-three-png-recovery-admission-independent-r1/durable-control-read-guard-r1/RESULT.json",
+      "sha256": "7d5acd8ad2ae403f58f82bc7b84d6c8df5cd1f6020f95347eb62aef332245740",
+      "bytes": 857
+    },
+    {
+      "path": "/workspace/scratch/second-three-png-recovery-admission-independent-r1/durable-verify-guard-r1/RESULT.json",
+      "sha256": "4dceded1479d98505b27320430f046a97a27fe843385e29c3b2e8d5b19473d74",
+      "bytes": 858
+    },
+    {
+      "path": "/workspace/scratch/second-three-png-recovery-admission-independent-r1/source-guard-r1/RESULT.json",
+      "sha256": "83ab021330aa09ef67db2b904320e3b002e138f4ec61bfaf9cf6a5865219bfce",
+      "bytes": 853
+    }
+  ],
+  "ownSealerRSSKiB": 9728,
+  "resourceQualification": "Exactboundedsource only64aggregate+512reserve/56disk admission, ownRSS<24; sharedsampled delta notexclusive attribution. Bootstrapunmetered; no arbitraryPython/backend/global enforcementclaim.",
+  "state": "REVIEW_SEALED_PENDING_OUTER_GUARD_RESULT_READBACK",
+  "utcNs": 1790906825610609348
+}

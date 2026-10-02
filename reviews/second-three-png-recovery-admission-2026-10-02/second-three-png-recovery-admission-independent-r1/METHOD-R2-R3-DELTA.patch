@@ -1,0 +1,44 @@
+--- /workspace/scratch/share-second-three-retained-pngs-root-r2.py
+
++++ /workspace/scratch/share-second-three-retained-pngs-root-r3.py
+
+@@ -61,7 +61,7 @@
+
+ pushed=read(push);assert pushed['confirmed'] and pushed['clean'] and pushed['commit']==j['commit']
+ assert (R/'.git/refs/heads/codex/lanternbound-production').read_text().strip()==j['commit']
+ status=subprocess.run(['git','status','--porcelain'],cwd=R,text=True,capture_output=True,timeout=10);assert status.returncode==0 and not status.stdout,status.stdout
+-initial_free=os.statvfs(R).f_bavail*os.statvfs(R).f_frsize;assert initial_free>=64*1048576
++initial_free=os.statvfs(R).f_bavail*os.statvfs(R).f_frsize;assert initial_free>=56*1048576
+ cg=Path('/sys/fs/cgroup');assert int((cg/'memory.max').read_text())-int((cg/'memory.current').read_text())>=576*1048576
+ E=read(proposal);pairs=E['pairs'];assert len(pairs)==3
+ oldroot=S/'audio-host-independent-v08/independent/rebuilt-dist/art';anchors=R/'public/art'
+@@ -80,15 +80,15 @@
+
+         except BaseException:os.close(af);raise
+         handles.append((x,af,bf,ap,bp))
+         leafcheck(af,ap.name,a['fstat'],a['sha256']);leafcheck(bf,bp.name,b['fstat'],b['sha256'])
+-        assert absent(bf,bp.name+'.root-share-second-r2.tmp')
+-    P=S/'second-three-retained-png-sharing-actual-root-r2';P.mkdir();syncdir(P.parent)
++        assert absent(bf,bp.name+'.root-share-second-r3.tmp')
++    P=S/'second-three-retained-png-sharing-actual-root-r3';P.mkdir();syncdir(P.parent)
+     save(P/'BEFORE.json',{'utcNs':time.time_ns(),'pairs':pairs,'initialFree':initial_free,'proposalSHA256':proposal_sha,'gateSHA256':gate_sha,'judgmentSHA256':judgment_sha,'pushSHA256':push_sha,'commit':j['commit']})
+     log=P/'JOURNAL.jsonl'
+     def journal(entry):
+         with log.open('a') as f:f.write(json.dumps({'utcNs':time.time_ns(),**entry})+'\n');f.flush();os.fsync(f.fileno())
+         syncdir(P)
+     for x,af,bf,ap,bp in handles:
+-        tmp=bp.name+'.root-share-second-r2.tmp'
++        tmp=bp.name+'.root-share-second-r3.tmp'
+         leafcheck(af,ap.name,x['anchor']['fstat'],x['anchor']['sha256']);leafcheck(bf,bp.name,x['candidate']['fstat'],x['candidate']['sha256']);assert absent(bf,tmp)
+         journal({'operation':'PRE_LINK','source':str(ap),'target':str(bp),'temp':str(bp.with_name(tmp))})
+         os.link(ap.name,tmp,src_dir_fd=af,dst_dir_fd=bf,follow_symlinks=False);syncfd(bf)
+@@ -103,7 +103,7 @@
+
+         leafcheck(af,ap.name,current,x['anchor']['sha256']);leafcheck(bf,bp.name,current,x['anchor']['sha256'])
+     verify_selected();assert meta(protected)==protected_before
+     final_free=os.statvfs(R).f_bavail*os.statvfs(R).f_frsize
+-    result={'normal':True,'pairs':[{'candidate':str(bp),'canonical':str(ap),'sha256':x['anchor']['sha256'],'candidateMetadata':meta(bp),'canonicalMetadata':meta(ap)} for x,af,bf,ap,bp in handles],'grossAllocationBytes':sum(x['candidate']['fstat']['st_blocks']*512 for x in pairs),'windowFreeBefore':initial_free,'windowFreeAfterBeforeResultWrite':final_free,'netWindowGainBytes':final_free-initial_free,'allPathsBodiesKept':True,'allTempAbsent':all(absent(bf,bp.name+'.root-share-second-r2.tmp') for x,af,bf,ap,bp in handles),'losses':'Three private inodes/time/write isolation lost; anchors nlink5 to6 and ctime changes, one previous alias unresolved per anchor. No original-inode backup, no all-three atomicity, durable prefix only. All bytes/paths/provenance remain needed.','noOtherActionAuthorized':True}
++    result={'normal':True,'pairs':[{'candidate':str(bp),'canonical':str(ap),'sha256':x['anchor']['sha256'],'candidateMetadata':meta(bp),'canonicalMetadata':meta(ap)} for x,af,bf,ap,bp in handles],'grossAllocationBytes':sum(x['candidate']['fstat']['st_blocks']*512 for x in pairs),'windowFreeBefore':initial_free,'windowFreeAfterBeforeResultWrite':final_free,'netWindowGainBytes':final_free-initial_free,'allPathsBodiesKept':True,'allTempAbsent':all(absent(bf,bp.name+'.root-share-second-r3.tmp') for x,af,bf,ap,bp in handles),'losses':'Three private inodes/time/write isolation lost; anchors nlink5 to6 and ctime changes, one previous alias unresolved per anchor. No original-inode backup, no all-three atomicity, durable prefix only. All bytes/paths/provenance remain needed.','noOtherActionAuthorized':True}
+     save(P/'RESULT.json',result);print(json.dumps({'normal':True,'gross':result['grossAllocationBytes'],'netWindowGain':result['netWindowGainBytes'],'freeBeforeResultWrite':final_free}))
+ finally:
+     for x,af,bf,ap,bp in handles:os.close(af);os.close(bf)

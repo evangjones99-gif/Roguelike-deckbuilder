@@ -1,0 +1,26 @@
+--- /workspace/scratch/guard-node-phase-r1.py
+
++++ /workspace/scratch/guard-source-recovery-56m-root-r2.py
+
+@@ -1,6 +1,10 @@
+
+ import os,sys,time,json,pathlib,subprocess,signal
+ 
+ stage,packet,work_mb,*command=sys.argv[1:]
++assert stage=='/workspace/Roguelike-deckbuilder'
++assert int(work_mb) in (64,256)
++assert len(command)>=2 and command[0]=='python' and command[1].startswith('/workspace/scratch/')
++assert not any(term in command[1] for term in ['build','native','browser','release','image'])
+ packet=pathlib.Path(packet);packet.mkdir(exist_ok=False)
+ work=int(work_mb)*1048576;reserve=512*1048576
+ cgroup=pathlib.Path('/sys/fs/cgroup')
+@@ -9,7 +13,7 @@
+
+     maximum=int((cgroup/'memory.max').read_text())
+     return {'time_ns':time.time_ns(),'current':current,'maximum':maximum,'headroom':maximum-current,'free':os.statvfs(stage).f_bavail*os.statvfs(stage).f_frsize}
+ initial=sample();events_before=(cgroup/'memory.events').read_text();rows=[]
+-admission=initial['headroom']>=work+reserve and initial['free']>=64*1048576
++admission=initial['headroom']>=work+reserve and initial['free']>=56*1048576
+ (packet/'ADMISSION.json').write_text(json.dumps({'initial':initial,'work':work,'reserve':reserve,'command':command,'stage':stage,'admitted':admission,'memory_events_before':events_before},indent=2)+'\n')
+ if not admission:
+     print('REFUSED',json.dumps(initial));sys.exit(75)

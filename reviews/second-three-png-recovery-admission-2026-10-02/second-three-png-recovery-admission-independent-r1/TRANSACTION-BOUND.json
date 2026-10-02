@@ -1,0 +1,14 @@
+{
+  "method": "Static JSON size model with fixed exactproposal3pairs/paths and conservative20digit nativeinteger representations; action notexecuted.",
+  "upperLogicalFileBytes": {
+    "BEFORE.json": 23030,
+    "JOURNAL.jsonl": 2583,
+    "RESULT.json": 4402
+  },
+  "sumLogicalBytes": 30015,
+  "blockBytes": 4096,
+  "modeledRoundedFilesPlusTwoDirectoryBlocks": 45056,
+  "scopeBoundBytes": 65536,
+  "qualification": "Conservative modeled controlwrites; filesystemmetadata/journal allocator notuniversally bounded bythis model. Fresh56 admission and1MiB observedstop remainrequired, no media backup/copy. Allthreebefore inputs fixed byexactproposalpin.",
+  "ownRSSKiB": 9856
+}
