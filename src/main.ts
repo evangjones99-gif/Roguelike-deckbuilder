@@ -39,7 +39,7 @@ const VERSION = packageInfo.version;
 const BUILD_ID = import.meta.env.VITE_BUILD_ID || 'development';
 const HUNTER_NAME = 'Marek Voss';
 const targetWaitCue = new URLSearchParams(window.location.search).get('targetWaitCue') !== '0';
-const targetClearGhost = new URLSearchParams(window.location.search).get('targetClearGhost') === '1';
+const targetClearGhost = new URLSearchParams(window.location.search).get('targetClearGhost') !== '0';
 type ArenaPresentation = ReturnType<typeof createArena> & { busyMs?: () => number; waitForPresentation?: () => Promise<void>; cancelPresentation?: () => void };
 let settlingCombat = false;
 // Automatic focus restoration is not a request to preview the next card.
