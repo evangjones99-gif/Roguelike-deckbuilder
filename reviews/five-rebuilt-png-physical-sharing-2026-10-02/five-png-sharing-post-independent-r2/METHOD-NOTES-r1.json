@@ -1,0 +1,7 @@
+{
+  "firstPostAttempt": "Original normal64+512 PROOF-GUARD admitted and closed with exit1, no guard resource failure or memory-event change; source stopped at exact action-result metadata equality before writing PROOF. Failed verify.py and exact guard/log remain unchanged.",
+  "diagnostic": "Bounded postguard metadata-only lstat diagnostic outside guard found only st_atime_ns advanced on all five shared inodes, equally visible through canonical and candidate aliases. OwnRSS8781824B. Cause/reader identity not established by this observation; no timestamps were reset.",
+  "correction": "Fresh verify-r2.py records action-to-POST atime changes, requires every other action result field exact, full alias metadata equality, full fresh snapshot stability during O_NOATIME hashes and all prior byte/nlink/xattr/journal/push/current-map checks. This is POST observation qualification; no new sharing action, action retry or timestamp rebinding.",
+  "resourceProfile": "Finite owned mkdir/source editing/earlier bounded displays outside guard; every relied successful fullbody/source/meta proof read remains in the original normal64+512 guard. No relaxed56 reviewer invocation.",
+  "packetCapBytes": 131072
+}

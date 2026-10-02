@@ -1,0 +1,5 @@
+# Rebuilt five PNGs: exact physical sharing proposal
+
+This separately reviewed proposal preserves five immutable historical independently rebuilt media paths and exact bodies while replacing private encodings with held canonical anchors. Source/build/rebuild records, rights/provenance, findings and useful rollback stay. Private inode/time/write isolation would be surrendered; each anchor nlink/ctime changes, including qualified unknown aliases. Fresh-stage holds are coordinated workflow protection, not OS enforcement. Current push and explicit producer judgment must precede Root action. No action, art improvement or R3 default promotion is claimed here.
+
+The exact previous first-five completed POST and three actual controls plus producer/push receipts are preserved alongside this second proposal, independent gate and three method sources. The complete existing R3 opt-in comparison capsule is committed in place separately; no R3 archive/media body is opened or recopied by this Python publisher. All earlier reviews and protected archives stay untouched.
