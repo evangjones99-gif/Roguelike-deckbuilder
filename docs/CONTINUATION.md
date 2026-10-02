@@ -1,3 +1,11 @@
+## Exact binary recovery resumed — 2 October 2026
+
+The read-only fixed-blob transfer atff5ac095 completed actual CIrun37045153855/artifact11244177679. Downloaded ZIP20f99bef and inner8cdf exact sizes/SHA256/GitSHA1 match; independent actual gate74ad55dd accepts byte transfer only. Root stream-verified all1116 hash-addressed TAR bodies and copied two exact metadata files to fresh paths. No logical preservation gate, original filesystem metadata, build/browser/art/default/fun approval follows. Earlier acquisition failures remain preserved historical outcomes.
+
+All70 starter outputs/all104 inputs have acquisition candidates; five literal code outputs303035B are now byte-exact local copies. A fixed successor transfer source covers50 canonical media bodies30524821B plus original4513/ce0f containers16177681B, in two bounded artifacts. Body acquisition/reconstruction and independently reviewed caller bindings remain separate. The exact empty-intent98-input map recomputes76e5, but original2547 output freeze/runtime authority remains missing from inspected evidence; fresh builds must report new measured identities. Selected64c2 and held8bba remain unchanged. One fresh hourly fallback stays enabled, old-chat timer paused, and no cleanup/release/tag occurs.
+
+New exact evidence/source/reviews are in [runtime recovery packet](../reviews/opening-runtime-recovery-2026-10-02/README.md). Older entries below remain historical.
+
 ## Fresh chat resumed; caller source reviewed, runtime recovery blocked — 2 October 2026
 
 The owner restarted production. Exactly one fresh-chat hourly fallback is enabled; the old-chat timer remains paused. Current client timezone Europe/London supersedes the historical timezone field. All agents use gpt-6.1-sol with lead-selected reasoning; no exposed Fast-mode toggle can be verified.

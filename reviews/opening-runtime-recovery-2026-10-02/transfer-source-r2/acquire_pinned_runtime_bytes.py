@@ -1,0 +1,258 @@
+"""Transfer exactly fifty media blobs and two containers; never extract or execute them."""
+import base64
+import hashlib
+import http.client
+import json
+import os
+import pathlib
+import re
+import resource
+import shutil
+import signal
+import ssl
+import sys
+import time
+
+REPOSITORY = "evangjones99-gif/Roguelike-deckbuilder"
+REF = "refs/heads/codex/lanternbound-production"
+WORKFLOW = REPOSITORY + "/.github/workflows/recover-opening-evidence.yml@" + REF
+RESPONSE_CAP = 12 * 1048576
+RECEIPT_CAP = 32 * 1024
+PER_FILE_CAP = 9 * 1048576
+OUTPUT_CAP = 64 * 1048576
+ARTIFACT_CAP = 32 * 1048576
+ZIP_MARGIN = 256 * 1024
+GROUP_BYTES = {"canonical": 30524821, "containers": 16177681}
+GROUP_COUNTS = {"canonical": 50, "containers": 2}
+PINSET_SHA256 = '5bafa78efee56ab5f93d883f6aa75f3fdcf58d8ffd08aad3fde7164b3eb6e33b'
+RAW_PINSET = r'''{"canonical":[{"path":"art/abbey-courtyard.png","sha256":"92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3","bytes":3060309,"gitPath":"public/art/abbey-courtyard.png","gitBlobSHA1":"3e339e35b34624001df92b83e171c21b9a3905d7"},{"path":"art/adversaries-atlas.png","sha256":"5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5","bytes":1924995,"gitPath":"public/art/adversaries-atlas.png","gitBlobSHA1":"71a66f4a34b45675cc49fb33588062a74950d900"},{"path":"art/bone-thrall-v09-r1.png","sha256":"3697dd4cc89f1550e0688b34bb421939988c90ab78832ce83d53ddb81b372dfd","bytes":1610163,"gitPath":"public/art/bone-thrall-v09-r1.png","gitBlobSHA1":"61cc64e9b50b742c7a610b48f6190cb0659cda4a"},{"path":"art/companions-atlas.png","sha256":"1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5","bytes":2013487,"gitPath":"public/art/companions-atlas.png","gitBlobSHA1":"98fa44a4204c36561f6af44a7712e1b605ede483"},{"path":"art/hound-poses.png","sha256":"0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968","bytes":1702748,"gitPath":"public/art/hound-poses.png","gitBlobSHA1":"fadb7c61202c36417caacf5d2b56093963c806af"},{"path":"art/hunter-marek-v07-r3.png","sha256":"4492577d3bacc868e9b66da0abf25915bdeaf68bc8f5c31ae8a1d8db485f3c53","bytes":2128117,"gitPath":"public/art/hunter-marek-v07-r3.png","gitBlobSHA1":"76fe30065a8eab0f29238b0c7ee18b2ecfac9789"},{"path":"art/hunter-portrait.png","sha256":"28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988","bytes":2514707,"gitPath":"public/art/hunter-portrait.png","gitBlobSHA1":"ca75e132ac74534a1cbdcd6c864b3c0ddbcf295e"},{"path":"art/ossuary-crypt-v08-r2.png","sha256":"ff9818614003e9432ee1868c2f60b336d0b5dfe63f5c01e380832f1e880c4b00","bytes":2464574,"gitPath":"public/art/ossuary-crypt-v08-r2.png","gitBlobSHA1":"5ed3505e073a23b0cd7fca5f289e6ee62573c2ec"},{"path":"art/pact-seal.png","sha256":"0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82","bytes":2309728,"gitPath":"public/art/pact-seal.png","gitBlobSHA1":"c3bc8f329f4ad275a98a18926668ec400afe3336"},{"path":"art/tool-vignettes.png","sha256":"0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4","bytes":2917100,"gitPath":"public/art/tool-vignettes.png","gitBlobSHA1":"8b180acff289d0f3070260f056b027b63fb130f7"},{"path":"art/warleader-poses.png","sha256":"3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b","bytes":2215085,"gitPath":"public/art/warleader-poses.png","gitBlobSHA1":"ad4ef631b01a4e5d0708de197088d6d56a261c45"},{"path":"audio/bind_seal-1.wav","sha256":"8b0085d42be3e3d69545046349b5fe6b103ea36cb5805fa6deb64463e70d9783","bytes":182444,"gitPath":"public/audio/bind_seal-1.wav","gitBlobSHA1":"fd21a7bedf879ca859290a1caa8200235116e902"},{"path":"audio/bind_seal-2.wav","sha256":"55078560550519dc0ba3b2c4c8d76ee72be94f4681a6375f6e0f4c5bf4218a26","bytes":182444,"gitPath":"public/audio/bind_seal-2.wav","gitBlobSHA1":"f03eb3ccafc2e42e8fcae99104d77aabdde90df8"},{"path":"audio/bind_seal-3.wav","sha256":"34e5d74e7a289717a7a5145dd7cce1ff94f77f6f2843aae5766a2a27b3f05dba","bytes":182444,"gitPath":"public/audio/bind_seal-3.wav","gitBlobSHA1":"4c48947fd4260cb153c16f0b873feb9d576f4409"},{"path":"audio/camp_settle-1.wav","sha256":"2599245492ec5ded74090654e88f7aafba69e8fe8e4402038ae31d00c29c504c","bytes":153644,"gitPath":"public/audio/camp_settle-1.wav","gitBlobSHA1":"4dc200dc50ffcfceb43a85805e78f7a1ed97488d"},{"path":"audio/camp_settle-2.wav","sha256":"47ea7cf2ab1bd1cbdf5d4f1af50734c2ad0ee7e0b22011b381c5af0770825a90","bytes":153644,"gitPath":"public/audio/camp_settle-2.wav","gitBlobSHA1":"64d859c835cb98dd788980a8a7a46c64fa9864e0"},{"path":"audio/camp_settle-3.wav","sha256":"72dc7cddbe11cf82d220450a677a0465e544081a6ba48a16f7fe605ab4584947","bytes":153644,"gitPath":"public/audio/camp_settle-3.wav","gitBlobSHA1":"4478e919ea7cc08b74cf2606c50d7ed30c9df9d8"},{"path":"audio/dragon_bite-1.wav","sha256":"bc6a5f675e26aac49fb67a36ae0e5ecfb84d66d72c6b36f8e960b44586c6fd5f","bytes":134444,"gitPath":"public/audio/dragon_bite-1.wav","gitBlobSHA1":"ba111dada9d60995aec54eb059e1b341ec83ffce"},{"path":"audio/dragon_bite-2.wav","sha256":"ab4cedbdb08f802c73ed6e6bee0209f4c6741fdb20792f18654cae053bb5ee19","bytes":134444,"gitPath":"public/audio/dragon_bite-2.wav","gitBlobSHA1":"d9e70ef1195e224cca3d6b0e2ebbc7bb74427760"},{"path":"audio/dragon_bite-3.wav","sha256":"ddf44e51d30a2fb307e0ae69455abb41ed43eac61f038d1e303ceac86a399653","bytes":134444,"gitPath":"public/audio/dragon_bite-3.wav","gitBlobSHA1":"2d4e0e1dd5b1ef84403cdcd1b7b42421eb993b41"},{"path":"audio/dragon_breath-1.wav","sha256":"617666747e860c5ace47d6a64eee6757b82f0cf1f884ee3f87400137b49517fe","bytes":364844,"gitPath":"public/audio/dragon_breath-1.wav","gitBlobSHA1":"a4e285c58da922e3338b7ce943ba5ea8211e45a1"},{"path":"audio/dragon_breath-2.wav","sha256":"5da689bc4a5e6bf6568b3d681574304e056719c1b837609897fcbd489384fd94","bytes":364844,"gitPath":"public/audio/dragon_breath-2.wav","gitBlobSHA1":"76e4e3b88a754d9012195e09931d8c4d3fa4dcea"},{"path":"audio/dragon_breath-3.wav","sha256":"33993012d5833daca49a2642bad4399967fd65ca685dcbe60e246933414b8f56","bytes":364844,"gitPath":"public/audio/dragon_breath-3.wav","gitBlobSHA1":"97861dae574b1949ce5ad4419108087b560af703"},{"path":"audio/hound_bite-1.wav","sha256":"bdbeb02f109dff3fbd9d7dfa502c00f3e8ea53a441d6cb07aaa6ca0dc54b843d","bytes":92204,"gitPath":"public/audio/hound_bite-1.wav","gitBlobSHA1":"b5d27c01b20e1b277fffc1176527f8439e9070c3"},{"path":"audio/hound_bite-2.wav","sha256":"947e438df5cbd647573da7a86991767d1c5b6b09d519f2784593c8f17cc37715","bytes":92204,"gitPath":"public/audio/hound_bite-2.wav","gitBlobSHA1":"43c1ed730a4f20140ad07169ee0b14f5ae1016a3"},{"path":"audio/hound_bite-3.wav","sha256":"2544e1b1767154b4a976a1e04b7267ed1186c60f3ab8e32308d4d490084f5c3f","bytes":92204,"gitPath":"public/audio/hound_bite-3.wav","gitBlobSHA1":"6a1c8193d310a0bad7048b25b5879bdf8653fca7"},{"path":"audio/hunter_wound-1.wav","sha256":"e9abd091201a2ca8c3a417c2571266ef9f05d85dde1120c3375ec979de5a2a90","bytes":105648,"gitPath":"public/audio/hunter_wound-1.wav","gitBlobSHA1":"44fe8cac2d7e07746496f155a572420a6b60eae6"},{"path":"audio/hunter_wound-2.wav","sha256":"25de0a4fdf7b768a219a2f9221671ed36f72f812afe27c8dabb9599551479f1b","bytes":105648,"gitPath":"public/audio/hunter_wound-2.wav","gitBlobSHA1":"aff2c91fe072b9a8b01a6008de6644f458946b12"},{"path":"audio/hunter_wound-3.wav","sha256":"9de18a01855243f6b01415f25398d9eb77dc66defd9cf7daa76036c7f93a7266","bytes":105648,"gitPath":"public/audio/hunter_wound-3.wav","gitBlobSHA1":"d496abb32b31d20c679f33b1b5169417eb81a468"},{"path":"audio/neutral_hit-1.wav","sha256":"ee0f62318fb4154fe5d39bb3c56995154f8e0451668dd37be0c57f357f5128ff","bytes":46124,"gitPath":"public/audio/neutral_hit-1.wav","gitBlobSHA1":"dcad0dbcecea89471bf9b338bc7c18c2bfb59889"},{"path":"audio/neutral_hit-2.wav","sha256":"1b378068b10eefbdb44b3762355d530f085cccaa75d26c58660007af2fe8f471","bytes":46124,"gitPath":"public/audio/neutral_hit-2.wav","gitBlobSHA1":"28bf789f997a30a01b4b8e30ee9c04ee8a8aa344"},{"path":"audio/neutral_hit-3.wav","sha256":"711ddc0b49ba5666db0b8292225a0a02efefed5a204d26c7c4f2a0be38826f98","bytes":46124,"gitPath":"public/audio/neutral_hit-3.wav","gitBlobSHA1":"203df04d0bf01f1d4eec29c1430d5c2f18a55d2b"},{"path":"audio/scour_tool-1.wav","sha256":"4218c65e41ba2c6845eda070493809cfe5132dc2ffa86bb51e9f83429738dcfc","bytes":99884,"gitPath":"public/audio/scour_tool-1.wav","gitBlobSHA1":"437bb858f359c94fdad73827bad2bf9c1d481869"},{"path":"audio/scour_tool-2.wav","sha256":"15bbace99c04cb185a4ddb4c244983b4f2941f8eda79b12ab7518f2701850121","bytes":99884,"gitPath":"public/audio/scour_tool-2.wav","gitBlobSHA1":"798341d2e168f9c7eeed81f13006f983f0cc3865"},{"path":"audio/scour_tool-3.wav","sha256":"6ba61d67f83c11fda30b40962eced74457029bf53c97583ec69035af15c6d670","bytes":99884,"gitPath":"public/audio/scour_tool-3.wav","gitBlobSHA1":"3ef1b01aa04d723e683aa867037cead902c08695"},{"path":"audio/summon_arrival-1.wav","sha256":"0a42eef1fd55409dc68c1dc3ac917148a310ebfb97078e8d74e992133b9bdb63","bytes":240044,"gitPath":"public/audio/summon_arrival-1.wav","gitBlobSHA1":"eeaf3058841e99e7016c726b5f8afa3980715506"},{"path":"audio/summon_arrival-2.wav","sha256":"16106dea7e679a3b455c6cea80374b85c71f5babbcc6cf63258cdeb5f20d871b","bytes":240044,"gitPath":"public/audio/summon_arrival-2.wav","gitBlobSHA1":"4322b0daf1228d438ccc78272f0c203ead741b8e"},{"path":"audio/summon_arrival-3.wav","sha256":"068fe50e7d86761f71b3bb3459b263df6f1fcc958e767e64a9eb60f782a4e7f5","bytes":240044,"gitPath":"public/audio/summon_arrival-3.wav","gitBlobSHA1":"9c18d7040953e29c0f3a3dfc0d99d2cfbf32b51b"},{"path":"audio/ui_back-1.wav","sha256":"5c16ed5b7e4d9dfe7413a58f0ede66bfa92c3d4fb2ad1743429b54519e2624b1","bytes":25004,"gitPath":"public/audio/ui_back-1.wav","gitBlobSHA1":"9decbefc0a6cb1e3677f52f39a3dca545199cd58"},{"path":"audio/ui_back-2.wav","sha256":"62d612a3df5b500aa45b48796e4981479ea1ef881adc810263b4469718248749","bytes":25004,"gitPath":"public/audio/ui_back-2.wav","gitBlobSHA1":"5c9bf847c02d432b50140e49d5bba413ceed2614"},{"path":"audio/ui_back-3.wav","sha256":"3edef85d3583003e0cd4d1ac49b56948104b55c555db9d16497118a769e75ce5","bytes":25004,"gitPath":"public/audio/ui_back-3.wav","gitBlobSHA1":"0ce22bbdbd43a58fa121eb767396d21a0b71d70a"},{"path":"audio/ui_confirm-1.wav","sha256":"94500eed8b648120071064bf3ef0ac7382e4a505f1b85f3e08a9db7a84dab25d","bytes":30764,"gitPath":"public/audio/ui_confirm-1.wav","gitBlobSHA1":"3b7225f75c58f84c0c99a5373318e693f658a0f8"},{"path":"audio/ui_confirm-2.wav","sha256":"55946b44e3998d5900ae8b86edc2fc82af2d1a5be669bf2f3ceeb7143879408a","bytes":30764,"gitPath":"public/audio/ui_confirm-2.wav","gitBlobSHA1":"9e9f9418b0acc226898d17533e8f529dd4d91c91"},{"path":"audio/ui_confirm-3.wav","sha256":"39b1cc1ee9f97f2a9c4118df5d3d64328390d7236ef72ce5f05df51c6770fdf4","bytes":30764,"gitPath":"public/audio/ui_confirm-3.wav","gitBlobSHA1":"bfd05b64cb8753df6606581898b186c3a4cda083"},{"path":"audio/warlord_iron-1.wav","sha256":"e9f2017feed9fa88789e53069f34e56ad3fd6d050e95158dbc51505e37e4d0f9","bytes":163244,"gitPath":"public/audio/warlord_iron-1.wav","gitBlobSHA1":"2e078172aa67af0181e1ee96f23124f9bf37ad51"},{"path":"audio/warlord_iron-2.wav","sha256":"84489829dffbac75dfeadea43a2609e83387d658be6b41d6c83fc4002ece7eb9","bytes":163244,"gitPath":"public/audio/warlord_iron-2.wav","gitBlobSHA1":"83c16c56851eacb169b7fc7dc80857139d51cbcb"},{"path":"audio/warlord_iron-3.wav","sha256":"a2d325e9f2c012fced81b4c4e084229e30d17381c954e1ab8454ba0ae952a525","bytes":163244,"gitPath":"public/audio/warlord_iron-3.wav","gitBlobSHA1":"e1b0923df22a4bfc2acdbc9a359e69b06e24c5b9"},{"path":"audio/wraith_magic-1.wav","sha256":"2c76ef03a61832b44d852fa1eeb6b15150ebcd4d3c7b33158dea06fc477f71e4","bytes":249644,"gitPath":"public/audio/wraith_magic-1.wav","gitBlobSHA1":"377bc4e9294d9ea200b5a71113b8446e87dadc16"},{"path":"audio/wraith_magic-2.wav","sha256":"edd66253ae5d51e07a761dbd8e3fb9348d0e0066663f4b6756d7ff5a151af0d7","bytes":249644,"gitPath":"public/audio/wraith_magic-2.wav","gitBlobSHA1":"d28be1d0e09547c74e9cf42193b04a814d21a0a5"},{"path":"audio/wraith_magic-3.wav","sha256":"adfb375ae2b98e6d38f22f79ba00ceed1c7050b56ea1bb5a537f54e6e9895a24","bytes":249644,"gitPath":"public/audio/wraith_magic-3.wav","gitBlobSHA1":"f54d1c2107c5cbe8ff73d4cb280a39fbecdd91cc"}],"containers":[{"id":"4513","gitPath":"reviews/opening-cue-and-grounded-trial-2026-10-02/archive/evidence-451347c174a3fe78e5f7b6ef22736b7cfbbd33b39fd04ea20556730bb3b15a8b.tar.gz","sha256":"451347c174a3fe78e5f7b6ef22736b7cfbbd33b39fd04ea20556730bb3b15a8b","gitBlobSHA1":"db6758d2d335dfff17f8b6c67e07f2eb274ee853","bytes":7848992},{"id":"ce0f","gitPath":"reviews/coherent-native128-actual-trial-2026-10-02/evidence-ce0f8f40bcf0f0b22e5e4d93eef3d4660662826e617900aba09ac208c148dc13.tar.gz","sha256":"ce0f8f40bcf0f0b22e5e4d93eef3d4660662826e617900aba09ac208c148dc13","gitBlobSHA1":"b9a009c7da51d936bbf03990e7a8fee357544d79","bytes":8328689}]}
+'''
+PINSET = json.loads(RAW_PINSET)
+
+
+def require(condition):
+    if not condition:
+        raise ValueError("Fixed immutable transfer requirement failed")
+
+
+def unique_object(pairs):
+    result = {}
+    for key, value in pairs:
+        require(key not in result)
+        result[key] = value
+    return result
+
+
+def expired(_signal, _frame):
+    raise TimeoutError("Whole fixed-list transfer deadline")
+
+
+def validate_pinset():
+    require(hashlib.sha256(RAW_PINSET.encode("utf-8")).hexdigest() == PINSET_SHA256)
+    require(set(PINSET) == set(GROUP_COUNTS))
+    names, blobs, hashes = set(), set(), set()
+    for group in ("canonical", "containers"):
+        rows = PINSET[group]
+        require(len(rows) == GROUP_COUNTS[group])
+        require(sum(row["bytes"] for row in rows) == GROUP_BYTES[group])
+        for row in rows:
+            require(type(row["bytes"]) is int and 0 < row["bytes"] <= PER_FILE_CAP)
+            require(re.fullmatch(r"[0-9a-f]{40}", row["gitBlobSHA1"]) is not None)
+            require(re.fullmatch(r"[0-9a-f]{64}", row["sha256"]) is not None)
+            if group == "canonical":
+                require(set(row) == {"path", "sha256", "bytes", "gitPath", "gitBlobSHA1"})
+                require(re.fullmatch(r"(?:art/[a-z0-9_.-]+\.png|audio/[a-z0-9_.-]+\.wav)", row["path"]) is not None)
+                require(row["gitPath"] == "public/" + row["path"])
+                name = row["path"]
+            else:
+                require(set(row) == {"id", "gitPath", "sha256", "gitBlobSHA1", "bytes"})
+                require(row["id"] in ("4513", "ce0f"))
+                name = "evidence-" + row["sha256"] + ".tar.gz"
+                require(row["gitPath"].startswith("reviews/") and row["gitPath"].endswith("/" + name))
+            require((group, name) not in names and row["gitBlobSHA1"] not in blobs and row["sha256"] not in hashes)
+            names.add((group, name)); blobs.add(row["gitBlobSHA1"]); hashes.add(row["sha256"])
+    require({row["id"] for row in PINSET["containers"]} == {"4513", "ce0f"})
+    require(sum(GROUP_BYTES.values()) + 2 * RECEIPT_CAP <= OUTPUT_CAP)
+    require(all(size + RECEIPT_CAP <= ARTIFACT_CAP - ZIP_MARGIN for size in GROUP_BYTES.values()))
+
+
+def fetch_verified(pin, token):
+    api_path = "/repos/" + REPOSITORY + "/git/blobs/" + pin["gitBlobSHA1"]
+    api_url = "https://api.github.com" + api_path
+    connection = http.client.HTTPSConnection("api.github.com", 443, timeout=10, context=ssl.create_default_context())
+    try:
+        connection.request("GET", api_path, headers={
+            "Authorization": "Bearer " + token,
+            "Accept": "application/vnd.github+json",
+            "X-GitHub-Api-Version": "2022-11-28",
+            "User-Agent": "hollowpact-exact-fixed-runtime-byte-transfer",
+            "Accept-Encoding": "identity",
+        })
+        response = connection.getresponse()
+        require(response.status == 200)  # Never follow redirects or retries.
+        require(response.getheader("Content-Type", "").split(";", 1)[0].strip() == "application/json")
+        require(response.getheader("Content-Encoding", "identity") == "identity")
+        declared = response.getheader("Content-Length")
+        if declared is not None:
+            require(declared.isdecimal() and 0 < int(declared) <= RESPONSE_CAP)
+        raw = bytearray()
+        while True:
+            chunk = response.read(min(65536, RESPONSE_CAP - len(raw) + 1))
+            if not chunk:
+                break
+            require(len(raw) + len(chunk) <= RESPONSE_CAP)
+            raw.extend(chunk)
+        if declared is not None:
+            require(len(raw) == int(declared))
+        response_bytes = len(raw)
+        payload = json.loads(raw, object_pairs_hook=unique_object)
+        del raw
+    finally:
+        connection.close()
+    require(isinstance(payload, dict))
+    require(payload.get("sha") == pin["gitBlobSHA1"] and type(payload.get("size")) is int and payload["size"] == pin["bytes"])
+    require(payload.get("encoding") == "base64" and payload.get("url") == api_url)
+    encoded = payload.get("content")
+    require(isinstance(encoded, str) and 0 < len(encoded) <= RESPONSE_CAP)
+    del payload
+    encoded = encoded.replace("\n", "")  # Only GitHub's LF wrapping is allowed.
+    require(len(encoded) == ((pin["bytes"] + 2) // 3) * 4)
+    body = base64.b64decode(encoded, validate=True)
+    del encoded
+    require(len(body) == pin["bytes"])
+    blob_hash = hashlib.sha1(b"blob " + str(pin["bytes"]).encode("ascii") + b"\0")
+    blob_hash.update(body)
+    require(blob_hash.hexdigest() == pin["gitBlobSHA1"] and hashlib.sha256(body).hexdigest() == pin["sha256"])
+    return body, response_bytes
+
+
+def write_fresh(directory, name, body):
+    fd = os.open(directory / name, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
+    with os.fdopen(fd, "wb") as output:
+        require(output.write(body) == len(body))
+        output.flush()
+        os.fsync(output.fileno())
+
+
+def verify_stored(file, pin):
+    require(file.is_file() and not file.is_symlink())
+    archive_hash = hashlib.sha256()
+    blob_hash = hashlib.sha1(b"blob " + str(pin["bytes"]).encode("ascii") + b"\0")
+    count = 0
+    with file.open("rb") as stored:
+        while chunk := stored.read(65536):
+            count += len(chunk)
+            require(count <= pin["bytes"])
+            archive_hash.update(chunk); blob_hash.update(chunk)
+    require(count == pin["bytes"] and archive_hash.hexdigest() == pin["sha256"] and blob_hash.hexdigest() == pin["gitBlobSHA1"])
+
+
+def sync_directory(directory):
+    fd = os.open(directory, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+    try:
+        os.fsync(fd)
+    finally:
+        os.close(fd)
+
+
+def main():
+    resource.setrlimit(resource.RLIMIT_AS, (128 * 1048576, 128 * 1048576))
+    resource.setrlimit(resource.RLIMIT_CPU, (40, 40))
+    resource.setrlimit(resource.RLIMIT_FSIZE, (PER_FILE_CAP, PER_FILE_CAP))
+    resource.setrlimit(resource.RLIMIT_NOFILE, (32, 32))
+    resource.setrlimit(resource.RLIMIT_CORE, (0, 0))
+    signal.signal(signal.SIGALRM, expired)
+    signal.alarm(180)
+    started = time.monotonic()
+    require(os.environ.get("GITHUB_REPOSITORY") == REPOSITORY)
+    require(os.environ.get("GITHUB_REF") == REF)
+    require(os.environ.get("GITHUB_WORKFLOW_REF") == WORKFLOW)
+    require(os.environ.get("GITHUB_EVENT_NAME") in ("push", "workflow_dispatch"))
+    commit = os.environ.get("GITHUB_SHA", "")
+    run_id = os.environ.get("GITHUB_RUN_ID", "")
+    attempt = os.environ.get("GITHUB_RUN_ATTEMPT", "")
+    require(re.fullmatch(r"[0-9a-f]{40}", commit) is not None)
+    require(re.fullmatch(r"[0-9]{1,20}", run_id) is not None)
+    require(re.fullmatch(r"[0-9]{1,6}", attempt) is not None)
+    validate_pinset()
+    temporary = pathlib.Path(os.environ["RUNNER_TEMP"])
+    require(temporary.is_absolute() and temporary.is_dir() and not temporary.is_symlink())
+    require(shutil.disk_usage(temporary).free >= 192 * 1048576)
+    root = temporary / ("opening-runtime-transfer-" + run_id + "-" + attempt)
+    made_root = False
+    token = os.environ.pop("GITHUB_TOKEN", "")
+    require(0 < len(token) <= 4096 and "\r" not in token and "\n" not in token)
+    # Exactly fifty-two pinned requests, sequential, one attempt, no retry/reroll.
+    total_output = 0
+    group_receipts = []
+    for group in ("canonical", "containers"):
+        directory = root / group
+        made_group = False
+        rows = []
+        expected_files = set()
+        for pin in PINSET[group]:
+            body, api_json_bytes = fetch_verified(pin, token)
+            # No output directory or body write precedes verified bytes.
+            if not made_root:
+                root.mkdir(mode=0o700, exist_ok=False)
+                made_root = True
+            if not made_group:
+                directory.mkdir(mode=0o700, exist_ok=False)
+                made_group = True
+                if group == "canonical":
+                    (directory / "art").mkdir(mode=0o700, exist_ok=False)
+                    (directory / "audio").mkdir(mode=0o700, exist_ok=False)
+            name = pin["path"] if group == "canonical" else "evidence-" + pin["sha256"] + ".tar.gz"
+            require(total_output + len(body) <= OUTPUT_CAP)
+            write_fresh(directory, name, body)
+            total_output += len(body)
+            del body
+            verify_stored(directory / name, pin)
+            rows.append({"outputPath": name, "gitPath": pin["gitPath"], "bytes": pin["bytes"], "gitBlobSHA1": pin["gitBlobSHA1"], "sha256": pin["sha256"], "apiJSONBytes": api_json_bytes, "fullStoredByteReadback": True})
+            expected_files.add(name)
+        require(len(rows) == GROUP_COUNTS[group] and sum(row["bytes"] for row in rows) == GROUP_BYTES[group])
+        receipt = {
+            "status": "EXACT_FIXED_RUNTIME_BYTE_GROUP_VERIFIED_ONLY",
+            "repository": REPOSITORY, "ref": REF, "workflowCommit": commit,
+            "runID": run_id, "runAttempt": attempt, "group": group,
+            "pinsetSHA256": PINSET_SHA256, "files": rows, "bodyBytes": GROUP_BYTES[group],
+            "apiResponseCapBytes": RESPONSE_CAP, "receiptCapBytes": RECEIPT_CAP,
+            "outputCapBytes": OUTPUT_CAP, "perFileCapBytes": PER_FILE_CAP,
+            "artifactBodyAndReceiptCapBytes": ARTIFACT_CAP - ZIP_MARGIN,
+            "reservedTransportZIPOverheadBytes": ZIP_MARGIN,
+            "wholeSecondsBeforeReceipt": time.monotonic() - started,
+            "wholeDeadlineSeconds": 180, "cpuSecondsCap": 40, "addressSpaceCapBytes": 128 * 1048576,
+            "diskFreeFloorBytesBeforeTransfer": 192 * 1048576,
+            "extractedOrExecutedBody": False, "historicalFilesystemMetadataRestored": False,
+            "qualification": "Exact byte transfer only. Official upload action limits are separate step/job timeout; ZIP and hosted lifetime are external. No runtime/build/gameplay/art/default/fun approval."
+        }
+        receipt_body = (json.dumps(receipt, separators=(",", ":")) + "\n").encode("utf-8")
+        require(len(receipt_body) <= RECEIPT_CAP and GROUP_BYTES[group] + len(receipt_body) <= ARTIFACT_CAP - ZIP_MARGIN)
+        require(total_output + len(receipt_body) <= OUTPUT_CAP)
+        write_fresh(directory, "VERIFICATION.json", receipt_body)
+        total_output += len(receipt_body)
+        expected_files.add("VERIFICATION.json")
+        actual_files = {str(file.relative_to(directory)) for file in directory.rglob("*") if file.is_file()}
+        require(actual_files == expected_files)
+        require(sum((directory / name).stat().st_size for name in expected_files) == GROUP_BYTES[group] + len(receipt_body))
+        if group == "canonical":
+            sync_directory(directory / "art"); sync_directory(directory / "audio")
+        sync_directory(directory)
+        group_receipts.append(receipt)
+    token = ""
+    require(len(group_receipts) == 2 and total_output <= OUTPUT_CAP)
+    all_files = [file for file in root.rglob("*") if file.is_file()]
+    require(len(all_files) == 54 and sum(file.stat().st_size for file in all_files) == total_output)
+    sync_directory(root)
+    require(time.monotonic() - started < 180)
+    signal.alarm(0)
+    print("Exactly fifty media bodies and two retained containers verified; no extraction or execution.")
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except Exception:
+        # No traceback/credential/header/server text. Root preserves actual CI failures.
+        print("Fixed-list opening runtime byte transfer refused.", file=sys.stderr)
+        sys.exit(1)

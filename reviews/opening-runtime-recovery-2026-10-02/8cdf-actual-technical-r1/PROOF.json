@@ -1,0 +1,64 @@
+{
+  "decision": "ACCEPT_EXACT_ACTUAL_CI_ZIP_AND_INNER_8CDF_BYTES_ONLY",
+  "runID": 37045153855,
+  "jobID": 110964632125,
+  "artifactID": 11244177679,
+  "headCommit": "ff5ac095f35a605d86e01edf0183b15f2e9c3874",
+  "zip": {
+    "bytes": 5086847,
+    "sha256": "20f99bef9f8453ab9a40f18c8d5ea46ced1a86f485af902d377bbc2b0e8f9202",
+    "gitFramedSHA1": "703d63ee15db7da22b79143565df383bdaa9e121"
+  },
+  "standaloneArchive": {
+    "bytes": 5085419,
+    "sha256": "8cdf546a8429e949fe88611d781aca341566f473135fbcbe44b5373beabd7aa8",
+    "gitFramedSHA1": "f768057141601502417dc8e31ba7e9cf678b616b"
+  },
+  "zipInnerArchive": {
+    "bytes": 5085419,
+    "sha256": "8cdf546a8429e949fe88611d781aca341566f473135fbcbe44b5373beabd7aa8",
+    "gitFramedSHA1": "f768057141601502417dc8e31ba7e9cf678b616b"
+  },
+  "zipReceiptSHA256": "dea31a4de1b640b7c2901a0def6293d60e69472c2ada7c0c21a38392f789b9f5",
+  "CIReceiptByteExactStandalone": true,
+  "ZIPMemberCount": 2,
+  "ZIPCRCSuccessfullyRead": true,
+  "metadata": [
+    {
+      "name": "TRANSPORT.zip",
+      "size": 5086847,
+      "atimeBeforeNS": 1790964489121573294,
+      "atimeAfterNS": 1790964489121573294,
+      "regularBodyMetadataPreserved": true
+    },
+    {
+      "name": "evidence-8cdf546a8429e949fe88611d781aca341566f473135fbcbe44b5373beabd7aa8.tar.gz",
+      "size": 5085419,
+      "atimeBeforeNS": 1790964489133572729,
+      "atimeAfterNS": 1790964489133572729,
+      "regularBodyMetadataPreserved": true
+    },
+    {
+      "name": "CI-VERIFICATION.json",
+      "size": 1028,
+      "atimeBeforeNS": 1790964489149571977,
+      "atimeAfterNS": 1790964489149571977,
+      "regularBodyMetadataPreserved": true
+    },
+    {
+      "name": "ROOT-VERIFICATION.json",
+      "size": 859,
+      "atimeBeforeNS": 1790964580177284078,
+      "atimeAfterNS": 1790964580177284078,
+      "regularBodyMetadataPreserved": true
+    }
+  ],
+  "wholeSecondsBeforeReceipt": 0.5828189930000036,
+  "tarExtractedOrExecuted": false,
+  "tarMemberCoverageVerified": false,
+  "sourceWorkBytes": 67108864,
+  "reserveBytes": 536870912,
+  "initialCgroupCurrent": 183324672,
+  "initialCgroupMaximum": 17179869184,
+  "qualification": "ZIP read/decode only; inner TAR container fully hashed without opening/decompressing/extracting TAR. No runtime/media/gameplay/visual/default/fun approval. Artifact metadata/job success independently read through connected tools; expiry remains external."
+}

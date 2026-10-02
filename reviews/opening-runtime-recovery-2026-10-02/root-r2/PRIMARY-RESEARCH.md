@@ -1,0 +1,9 @@
+# Primary developer source inspected in this recovery cycle
+
+Inspected the complete developer-written [Celeste repository README](https://github.com/NoelFB/Celeste/blob/1b0ce45c75e05649ae91b44a8bb6b196684e4352/README.md) and complete [Player notes](https://github.com/NoelFB/Celeste/blob/1b0ce45c75e05649ae91b44a8bb6b196684e4352/Source/Player/Readme.md) through connected GitHub. Pinned tree1b0ce45c75e05649ae91b44a8bb6b196684e4352; README Git blob67dd22ab0cecd37032ae6ecf6db55b87132fb781, Player notes7aeaba88a7e231382dfb6f76652d20fbd03332f6. No commercial game assets, linked Medium article, live Celeste session or full Player.cs were inspected here.
+
+The notes say Celeste had two programmers. They describe putting reused behavior in components, preserving tightly ordered game-specific behavior, and choosing familiar stable tools. They specifically say, "If we were to make a tactics game then yes - a more modular system makes sense." They would have preferred a separate data-driven animation system, and distinguish correctness tests from constant refinement of nuanced player behavior.
+
+Application to Hollowpact is inference: keep the tested JavaScript/TypeScript rules/save engine; let a small shared presentation component own sprite geometry, anchors and effects. Test rules, identity and cancellation while judging visual craft through the actual game. A new engine or more unit tests cannot establish enjoyable card handling. This cycle's recovery restores exact inputs for that comparison; it implements no new framework, animation or player-facing improvement yet.
+
+Neither source offers a universal five-minute formula, proves pixel art caused success, or establishes human enjoyment of Hollowpact. Earlier design research and actual opening observations remain in docs/FIRST-FIVE-MINUTES.md; this note records only the primary source actually inspected now and its limited application.
