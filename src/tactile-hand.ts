@@ -22,7 +22,7 @@ export interface TactileHandHost {
   /** Root uses semantic UID/renderer hit ownership or explicit deploy area.
    * This lookup and getPreview must never dispatch, select or mutate rules. */
   resolveDestination(source: TactileCardSource, point: TactilePoint): TactileDestination | null;
-  getPreview(source: TactileCardSource, destination: TactileDestination | null): TactilePreview;
+  getPreview(source: TactileCardSource, destination: TactileDestination | null, point: TactilePoint): TactilePreview;
   /** Called at most once per released drag, after fresh identity/legality checks.
    * Revalidate the exact legal action here; return true only if reducer accepts.
    * Never reinterpret a stale source index as the current card at that index. */
@@ -150,7 +150,7 @@ export function attachTactileHand(root: HTMLElement, host: TactileHandHost, opti
     const resolved = guarded(() => host.resolveDestination(session.source, session.point), null);
     const destination = resolved && ['target', 'deploy', 'field'].includes(resolved.kind) && typeof resolved.key === 'string' && resolved.key
       ? Object.freeze({ kind: resolved.kind, key: resolved.key }) : null;
-    const supplied = guarded(() => host.getPreview(session.source, destination), { legal: false, label: 'Return to hand' });
+    const supplied = guarded(() => host.getPreview(session.source, destination, session.point), { legal: false, label: 'Return to hand' });
     const preview = Object.freeze({ legal: destination !== null && supplied?.legal === true, label: typeof supplied?.label === 'string' ? supplied.label.slice(0, 300) : 'Return to hand' });
     return { destination, preview };
   }

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/default-wait-cue-preservation-independent-r1/verify.py", line 56, in <module>
+    for row in (man['bodies'] if 'bodies' in man else [{'name':n,**row} for n,row in man['files'].items()]):
+                                                                                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'items'

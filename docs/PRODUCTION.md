@@ -1,5 +1,9 @@
 # Production and continuous improvement
 
+## Named wait selected; target occlusion next — 2 October2026
+
+The exact tested default-on cue is selected as1d5bf40a /30ddc549 (87/56), with complete READY251c/2c66 code rollback retained. Empty-query versus explicit off-switch actual play and separate technical/gameplay/visual reviews accept narrow named waiting information/fit/save continuity. The whole opening, rapid releases and human enjoyment remain unqualified. Continue immediately into target-aware decorative ghost placement; its private source is unbuilt/unselected and must preserve actual-pointer authority. The new pixel CONTACT is retained after independent pose-continuity rejection. See [OPENING-TARGET-WAIT.md](OPENING-TARGET-WAIT.md); current art remains painted and sealed0.8.0 unchanged.
+
 ## Waiting feedback checkpoint — 2 October2026
 
 The opt-in named waiting cue now has an exact strict build, actual native comparison and three separate independent reviews; see [OPENING-TARGET-WAIT.md](OPENING-TARGET-WAIT.md). It improves sampled information/fit while preserving held saves, exact-once release and six matched checkpoints. It remains unselected pending default verification. Held-card occlusion and missed rapid releases remain open; the default still uses painted art and no human-fun consensus is claimed. Continue the focused first-five-minute loop after this checkpoint.

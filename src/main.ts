@@ -38,6 +38,7 @@ const TUTORIAL_KEY = 'hollowpact.tutorial.v2';
 const VERSION = packageInfo.version;
 const BUILD_ID = import.meta.env.VITE_BUILD_ID || 'development';
 const HUNTER_NAME = 'Marek Voss';
+const targetWaitCue = new URLSearchParams(window.location.search).get('targetWaitCue') !== '0';
 type ArenaPresentation = ReturnType<typeof createArena> & { busyMs?: () => number; waitForPresentation?: () => Promise<void>; cancelPresentation?: () => void };
 let settlingCombat = false;
 // Automatic focus restoration is not a request to preview the next card.
@@ -1106,8 +1107,30 @@ function tactileAction(source: TactileCardSource, destination: TactileDestinatio
   return actions().find((action): action is Extract<Action, { type: 'play' }> => action.type === 'play'
     && action.index === source.handIndex && action.target === target) ?? null;
 }
-function tactilePreview(source: TactileCardSource, destination: TactileDestination | null) {
+function tactileBlockedTargetPreview(source: TactileCardSource, point: TactilePoint) {
+  if (!targetWaitCue || !tactileCurrent(source) || disposed || title || settlingCombat
+    || state.phase !== 'battle' || document.hidden || $<HTMLDialogElement>('dialog').open) return null;
+  const under = document.elementFromPoint(point.x, point.y);
+  if (!under || under.closest('#dialog, #dock, .battle-guidance, [data-ui="inspect-unit"]')) return null;
+  const button = under.closest<HTMLButtonElement>('.field-unit[data-unit]');
+  if (!button?.disabled || !button.closest('#field-controls')) return null;
+  const uid = button.dataset.unit;
+  if (!uid || button.closest<HTMLElement>('[data-actor]')?.dataset.actor !== uid) return null;
+  const region = arena?.getUnitRegions().find(candidate => candidate.uid === uid);
+  if (!region || region.dead || region.departing || region.canonicalIndex === null) return null;
+  const units = region.side === 'ally' ? state.allies : state.enemies;
+  const target = units[region.canonicalIndex];
+  if (!target || target.uid !== uid || target.hp <= 0
+    || !actions().some(action => action.type === 'play' && action.index === source.handIndex && action.target === uid)) return null;
+  // This observes an unavailable owned control, not a cause or a queued play.
+  return { legal: false, label: `${unitLabel(target)} is not ready. Hold the card, or return to hand.` };
+}
+function tactilePreview(source: TactileCardSource, destination: TactileDestination | null, point: TactilePoint) {
   const action = tactileAction(source, destination);
+  if (!action && !destination) {
+    const blocked = tactileBlockedTargetPreview(source, point);
+    if (blocked) return blocked;
+  }
   if (!action) return { legal: false, label: cardTarget(source.cardId) === 'none'
     ? 'Release on the marked friendly apron, or return to hand.' : 'Choose a legal creature target, or return to hand.' };
   const key = JSON.stringify(action);
