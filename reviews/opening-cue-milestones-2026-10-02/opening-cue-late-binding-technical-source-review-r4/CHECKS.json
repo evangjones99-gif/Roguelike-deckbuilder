@@ -1,0 +1,63 @@
+{
+  "ExpectedClosedCandidateAuthorityNullRootGrantAbsent": true,
+  "R1FullLogicalOriginBytes": 100761,
+  "R1LogicalOriginBodies": 15,
+  "allPrimaryTraceAndExternalReferenceHashesExact": true,
+  "elapsedSeconds": 0.12110667899833061,
+  "fullR1BodyComparison": true,
+  "grammar": [
+    {
+      "name": "driver-cue.mjs",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "name": "runtime-guard-cue.mjs",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "inclusivePhysicalBytes": 218693,
+  "inverses": [
+    {
+      "afterLogicalFiles": 21,
+      "beforeLogicalFiles": 15,
+      "closureSidecarsExcludedFromRecursiveDomain": [
+        "R1-INVERSE.json.gz",
+        "R1-SNAPSHOT.json.gz",
+        "R3-INVERSE.json.gz",
+        "SOURCE-SEAL.json"
+      ],
+      "fullForwardExact": true,
+      "fullInverseExact": true,
+      "name": "R1-INVERSE.json.gz"
+    },
+    {
+      "afterLogicalFiles": 22,
+      "beforeLogicalFiles": 17,
+      "closureSidecarsExcludedFromRecursiveDomain": [
+        "R1-INVERSE.json.gz",
+        "R3-INVERSE.json.gz",
+        "SOURCE-SEAL.json"
+      ],
+      "fullForwardExact": true,
+      "fullInverseExact": true,
+      "name": "R3-INVERSE.json.gz"
+    }
+  ],
+  "largestSequentialGrammarChildPeakRSSBytes": 29483008,
+  "manifestSHA256": "92b4698ddb9578fb514bc271c8f408fcf59e7a1650b36be2c77c970ed484c95b",
+  "ownPeakRSSBytes": 15691776,
+  "physicalFiles": 25,
+  "qualification": "Pure standard-library reconstruction/static source inspection and Node grammar/exact predicate stub only; no author methods/helpers/caller/app import or runtime. Recursive closure sidecars separately bound by inclusive seal. No build/output, actual cue/gameplay/art/default/fun/platform or runtime approval.",
+  "runtimeExecuted": false,
+  "sourceCapBytes": 262144,
+  "sourceSealSHA256": "aabc6f5fd7b7c8ebc5c9456c44fbadac532ee27e9c2d260b21395a95df1c231d",
+  "terminalPredicate": {
+    "pureExactPredicateCases": 11
+  },
+  "threeInheritedControlInversesExact": true,
+  "verdict": "ACCEPT_EXACT_INELIGIBLE_SOURCE_TEMPLATE_ONLY"
+}

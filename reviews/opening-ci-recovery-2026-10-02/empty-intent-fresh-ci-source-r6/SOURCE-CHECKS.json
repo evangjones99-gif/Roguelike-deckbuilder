@@ -1,0 +1,149 @@
+{
+  "status": "PASS_SOURCE_ONLY",
+  "cases": [
+    {
+      "name": "fixed_metadata_literal_exact",
+      "pass": true
+    },
+    {
+      "name": "path_accept_src/main.ts",
+      "pass": true
+    },
+    {
+      "name": "path_accept_tests/fixtures/v0.4/content.ts",
+      "pass": true
+    },
+    {
+      "name": "path_reject_'.'",
+      "pass": true
+    },
+    {
+      "name": "path_reject_''",
+      "pass": true
+    },
+    {
+      "name": "path_reject_'../x'",
+      "pass": true
+    },
+    {
+      "name": "path_reject_'/x'",
+      "pass": true
+    },
+    {
+      "name": "path_reject_'a/../b'",
+      "pass": true
+    },
+    {
+      "name": "path_reject_'a//b'",
+      "pass": true
+    },
+    {
+      "name": "path_reject_'a/./b'",
+      "pass": true
+    },
+    {
+      "name": "path_reject_'a\\\\b'",
+      "pass": true
+    },
+    {
+      "name": "path_reject_'x\\x00y'",
+      "pass": true
+    },
+    {
+      "name": "duplicate_json_key",
+      "pass": true
+    },
+    {
+      "name": "regular_hash_member",
+      "pass": true
+    },
+    {
+      "name": "ce0f_index_witness_header",
+      "pass": true
+    },
+    {
+      "name": "archive_reject_traversal",
+      "pass": true
+    },
+    {
+      "name": "archive_reject_symlink",
+      "pass": true
+    },
+    {
+      "name": "archive_reject_hardlink",
+      "pass": true
+    },
+    {
+      "name": "archive_reject_device",
+      "pass": true
+    },
+    {
+      "name": "archive_reject_unknown",
+      "pass": true
+    },
+    {
+      "name": "archive_reject_too_large",
+      "pass": true
+    },
+    {
+      "name": "archive_reject_sparse",
+      "pass": true
+    },
+    {
+      "name": "archive_reject_pax",
+      "pass": true
+    },
+    {
+      "name": "index_wrong_container",
+      "pass": true
+    },
+    {
+      "name": "index_wrong_size",
+      "pass": true
+    },
+    {
+      "name": "stream_exact_bound",
+      "pass": true
+    },
+    {
+      "name": "stream_overflow",
+      "pass": true
+    },
+    {
+      "name": "stream_unbounded_read",
+      "pass": true
+    },
+    {
+      "name": "credential_free_child_environment",
+      "pass": true
+    },
+    {
+      "name": "host_finite_cgroup_min_headroom",
+      "pass": true
+    },
+    {
+      "name": "workflow_embedded_source_exact",
+      "pass": true
+    },
+    {
+      "name": "all_shell_grammar_and_upload_pins",
+      "pass": true
+    },
+    {
+      "name": "setup_token_blank_and_only_acquisition_credential",
+      "pass": true
+    },
+    {
+      "name": "original_build_JS_grammar_only",
+      "pass": true
+    }
+  ],
+  "caseCount": 34,
+  "pythonASTCompiled": true,
+  "candidateMainExecuted": false,
+  "networkExecuted": false,
+  "archiveOpened": false,
+  "npmBuildTestExecuted": false,
+  "methodSHA256": "6dfdf0ca7be2053e3995f361746151e0f0c7447a4303b7c131529f158cc8c4b8",
+  "workflowSHA256": "e4db8c93cc7a679a7639fdc1d64f9288189f796acf0c1feceb5a4d0c90afcaaa"
+}

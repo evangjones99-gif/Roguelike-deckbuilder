@@ -1,3 +1,9 @@
+## Fresh build supervision reviewed; cue comparison pending — 2 October2026
+
+Both Linux attempts at812668a3 failed during installation supervision before build and tests. Their original ZIPs, every member and the independent failure review remain retained. Shared method R6 and candidate method R2 pass exact independent SOURCE review with unchanged runtime limits; actual retries remain separate. R5's source-size failure remains failed. Windows zero-offset assertion repair76408716 starts a fresh native attempt, with no readiness inferred.
+
+Focused caller R4 corrects terminal hidden-markup checks and passes three source reviews, but candidate output authority remains null and runtime stays ineligible. Selected64c2a14a and held8bbaea72 remain unchanged. Read the [exact method checkpoint](../reviews/opening-ci-recovery-2026-10-02/cycle5-method-review-root-r1/README.md) and its referenced evidence before continuing. One fresh hourly fallback remains active; the old timer stays paused. All earlier work, reviews and versions remain. No cleanup, release or tag occurs. Earlier documentation below is retained history.
+
 ## Elapsed opening observation complete; focused cue build pending — 2 October 2026
 
 Retained private B source65b31b3f/output960e723d is fully reconstructed and independently body-verified. A fresh random Initiate seed1402141 completed actual300 launch seconds:13 Orders,6 End turns, reward at225.374s and7 passive reward intervals. Before/after174-body checks, full raw save references, four original captures and normal closure pass separate reviews. This is elapsed agent observation, not active human play or fun. Earlier failures remain failed. Native combat readability is accepted only in sampled stills; painted reward/menu versus slate combat keeps overall cohesion/art/default rejected.
