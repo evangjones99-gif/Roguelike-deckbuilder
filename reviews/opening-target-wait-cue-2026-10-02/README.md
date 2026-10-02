@@ -1,0 +1,13 @@
+# Opening target-wait cue: opt-in playable comparison
+
+Independent preservation gate `4da2f16f6e7e677a97b960a6be678b97898a1895a57035f2b5f3cbb1e33782fe` verifies all236 blobs/253 logical originals,101 needed excluded media bodies, full87/56 maps, six raw checkpoint pairs and all four original JPEGs by bytes. It performed no image decode/view or actual rerun. The separate byte-exact `independent-preservation` supplement retains its methods, first filename-selector failure and corrected proof. This adds preservation evidence without rewriting the original capsule or granting retirement/default selection.
+
+The private `targetWaitCue=1` proposal names a legally targetable creature whose owned field control is temporarily disabled. This changes feedback only; it does not relax release legality, queue a play, select a card, mutate a save or change rules/RNG.
+
+The one matched native UI comparison took27.486917196s (driver26801ms): two fresh seed937240/default Initiate contexts. Both exposed genuine active held ghosts at the owned disabled Reaver, retained the entire save until release, became naturally ready, showed a fresh UID-owned5-damage lethal preview, committed once and produced no queued spend. All six complete checkpoint saved strings match. These are source-informed short diagnostic facts, not a fresh300-second human playtest, attention loss or reliable rapid-drop repair.
+
+Three separate independent reviews accept the narrow named-wait information/fit and technical continuity. The held ghost still hides target art/name/HP; the phrase “not ready” risks confusion with allied READY. Still captures have phaseCertified=false and do not prove continuous timing. The current scene remains painted. The cue remains unselected pending a separately built/tested default successor. Selected251c4fd4 /2c664aa3 and sealed0.8.0 remain unchanged; no new version/tag follows.
+
+The actual supervisor observes150 resource points with unchanged memory events, sampled aggregate delta716,193,792B/minimum headroom790,740,992B, and14 PID/start identities with no matching live descendants; two PPID1 zombies are nonlive/unreaped. This is bounded owned-process evidence, not universal exclusive resource attribution or unobserved-escape proof.
+
+`evidence.tar.gz` is content-addressed: its MANIFEST maps each logical body to an original path/hash and a blobs/SHA body. It includes all four original1440×900q80 game JPEGs (776,624B total), complete source/build/caller/actual/review records and retained method failures. Encoded runtime PNG/WAV bodies are excluded, pinned and still needed at their retained original paths. It is not a self-contained release and grants no cleanup. PRESERVATION.json records the exact archive identity and verified roundtrip.

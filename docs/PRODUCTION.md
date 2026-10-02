@@ -1,5 +1,9 @@
 # Production and continuous improvement
 
+## Waiting feedback checkpoint — 2 October2026
+
+The opt-in named waiting cue now has an exact strict build, actual native comparison and three separate independent reviews; see [OPENING-TARGET-WAIT.md](OPENING-TARGET-WAIT.md). It improves sampled information/fit while preserving held saves, exact-once release and six matched checkpoints. It remains unselected pending default verification. Held-card occlusion and missed rapid releases remain open; the default still uses painted art and no human-fun consensus is claimed. Continue the focused first-five-minute loop after this checkpoint.
+
 ## Completed frozen128 physical sharing — 1 October2026
 
 After confirmed clean push `dc675518`, independently reviewed exact sharing recovered30,347,264B in its measured window while preserving all100 recipient paths/bodies,50 anchors and eight trace aliases. Independent POST gate `f6b90508` accepts preservation/closure, including full89/57 and selected/retained87/56 maps. Original inode/time/write isolation losses and stale proposal authorization text are explicitly qualified; see [supplemental records](../reviews/frozen128-physical-sharing-post-2026-10-01/README.md). No unique material or release was retired, and no further cleanup is authorized. Selected READY251c4fd4 /2c664aa3 remains unchanged. Continue the separate targetWaitCue playable trial and targeted CONTACT art study; neither is selected by this storage finding.

@@ -1,5 +1,9 @@
 # Hollowpact production continuation
 
+## Named waiting feedback: opt-in accepted, default verification next — 2 October2026
+
+See [OPENING-TARGET-WAIT.md](OPENING-TARGET-WAIT.md). Strict-built opt-in df26eacd /b30f0878 completed one native comparison in27.486917196s: both held saves stay pure, both releases commit once, and all six complete checkpoint pairs match. Separate gameplay/visual/technical reviews accept the named cue's narrow information/fit/continuity benefit. The ghost still hides target art/name/HP and rapid-release repair remains unproved; this is not a human300-second enjoyment result. Four original captures and full records are preserved in a1,452,213B capsule; excluded media remain pinned and needed. Selected READY251c4fd4 /2c664aa3 and sealed0.8.0 are unchanged. Continue fresh default-on verification, then occlusion; no version/tag or cleanup authority follows.
+
 ## Completed frozen128 physical sharing — 1 October2026
 
 After confirmed clean push `dc675518`, independently reviewed exact sharing recovered30,347,264B in its measured window while preserving all100 recipient paths/bodies,50 anchors and eight trace aliases. Independent POST gate `f6b90508` accepts preservation/closure, including full89/57 and selected/retained87/56 maps. Original inode/time/write isolation losses and stale proposal authorization text are explicitly qualified; see [supplemental records](../reviews/frozen128-physical-sharing-post-2026-10-01/README.md). No unique material or release was retired, and no further cleanup is authorized. Selected READY251c4fd4 /2c664aa3 remains unchanged. Continue the separate targetWaitCue playable trial and targeted CONTACT art study; neither is selected by this storage finding.
