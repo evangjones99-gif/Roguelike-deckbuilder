@@ -1,0 +1,15 @@
+{
+  "decision": "AUTHORIZE_EXACT_THREE_PATH_PHYSICAL_SHARING_ONCE",
+  "utcNs": 1790904430164160558,
+  "commit": "34f0a2a4c4b19191efd56277e57b25ba0cf3788e",
+  "proposalSHA256": "02bc18528c9146cfd9c32c42cc0d28b75a6d7cc387854507f6c369fb80dcb7f2",
+  "independentGateSHA256": "65f9d3be496ab370c3c0a72aaf2f2f22724c318a0f2b6c78b4ac0414e9e80e02",
+  "methodSHA256": "a084f117d41a95eb78c9b6739b507a1fb0ab0a4570ac50353f182f854bf7d0a0",
+  "holdSHA256": "f9bb313329762de931904873238474de8cfb209c30835856c5c83a7eaadbb463",
+  "selectedMapSHA256": "31a221091d2ffbc6d58dfc1385962c441df9789c66729ef64d20b95208a8fabd",
+  "pushSHA256": "aacb9cd5983c53634822ec8f4033417d1bffd618dc7e710560bd484c71a97472",
+  "producerJudgment": "Prefer exact shared retained bytes for these three redundant historical PNG encodings to admit the pending opening-session comparison. Their original independent inodes, timestamps and write isolation are no longer needed for byte reproduction; all original stats, source/review/provenance and logical paths stay retained. Original inode rollback is intentionally lost; byte rollback is retained through held bodies and historical release encodings. Sequential per-leaf atomic prefix journaling is not all-three/power-loss atomicity and differs from the author backup suggestion. Known three physical canonical entries leave one unresolved existing hardlink each; ctime/nlink changes on unknown aliases are qualified, not hidden. Future writes use fresh stages/inodes under explicit holds, not OS-enforced isolation. Rights clearance stays pending.",
+  "noOtherCleanupAuthorized": true,
+  "allOtherToolsClosed": true,
+  "privatePairPaths": "audio-host-independent-v08/candidate/dist/art/{abbey-courtyard.png,tool-vignettes.png,hunter-portrait.png}"
+}

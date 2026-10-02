@@ -1,0 +1,466 @@
+{
+  "decision": "Conditional second historical exact-three-PNG encoding proposal only; no action/recovery/independent approval/producer judgment.",
+  "files": [
+    {
+      "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/HISTORICAL-CONSUMER.json",
+      "bytes": 4574,
+      "sha256": "eb1580c893c3fe1894da54f9fa76411e569e4112288705d8c7c652a15852c13d"
+    },
+    {
+      "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/PROPOSAL.json",
+      "bytes": 43511,
+      "sha256": "45ed75b5078c84e32981ba86b43f62826b00c53278ef8ea2f9888d661b8fd8d5"
+    },
+    {
+      "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/PROPOSAL.md",
+      "bytes": 2064,
+      "sha256": "092a53912e91dd207fa526f2b60e164580b369c6f8bf00f238fd65ab9d17b541"
+    },
+    {
+      "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/RESOURCE.json",
+      "bytes": 2956,
+      "sha256": "0d1bea8c679e9d8e646d5599693014d41e3e2f011b96b2685e89638f8f4ffd93"
+    },
+    {
+      "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/propose_r2-parentfix.py",
+      "bytes": 12076,
+      "sha256": "88d0360ff6a07ad012d37573b701678bc0f05c4cf6547986d20402d85080cbba"
+    },
+    {
+      "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/propose_r2.py",
+      "bytes": 11637,
+      "sha256": "bcd320108105c6eb3f4a50bd9a39dd480d8e493fde367f1b2ddd7ad863a4190a"
+    },
+    {
+      "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/reader-guard-r1/ADMISSION.json",
+      "bytes": 516,
+      "sha256": "3dcc1eb187012bb14e3726e4ff12b8ac73e2689b2bed9359d24f3ec9a7267421"
+    },
+    {
+      "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/reader-guard-r1/EXECUTION.log",
+      "bytes": 913,
+      "sha256": "eebc367e29faf4f674dd48b7dfaa493a5c8df8df70406c9bf4ab7dc7c52f1173"
+    },
+    {
+      "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/reader-guard-r1/RESULT.json",
+      "bytes": 853,
+      "sha256": "1ec683d2f2efb42c74d4f59799996ccc32397b281fef0724c2aa0495876bec87"
+    },
+    {
+      "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/reader-guard-r2/ADMISSION.json",
+      "bytes": 526,
+      "sha256": "761a35539769f461b1186829c6318423b2a2948f4a1ad28f0144ae3e36089b34"
+    },
+    {
+      "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/reader-guard-r2/EXECUTION.log",
+      "bytes": 281,
+      "sha256": "7673918e7a2ade0aeb2620d352766e9497aa98f24a5c4ebcc5e88dbe6f563f82"
+    },
+    {
+      "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/reader-guard-r2/RESULT.json",
+      "bytes": 853,
+      "sha256": "1d646fbfaf4007617fc8b6647ff6b5bd77774435c82b5788016ddf926bf6d180"
+    },
+    {
+      "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/seal_r2.py",
+      "bytes": 5264,
+      "sha256": "47a0486591b03f024677f5b97eaff001b170f3c4a2551d2f48d2b45caef805c5"
+    }
+  ],
+  "grossCandidateAllocation": 8499200,
+  "candidate": "/workspace/scratch/audio-host-independent-v08/independent/rebuilt-dist/art",
+  "sourceControls": [
+    {
+      "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r1/EVIDENCE.json",
+      "sha256": "02bc18528c9146cfd9c32c42cc0d28b75a6d7cc387854507f6c369fb80dcb7f2",
+      "lstat": {
+        "st_dev": 27,
+        "st_ino": 687415,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 16866,
+        "st_blocks": 40,
+        "st_atime_ns": 1790903834311489511,
+        "st_mtime_ns": 1790903830059707854,
+        "st_ctime_ns": 1790903830059707854
+      },
+      "fstat": {
+        "st_dev": 27,
+        "st_ino": 687415,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 16866,
+        "st_blocks": 40,
+        "st_atime_ns": 1790903834311489511,
+        "st_mtime_ns": 1790903830059707854,
+        "st_ctime_ns": 1790903830059707854
+      },
+      "xattrs": {},
+      "ancestorsNoSymlink": [
+        {
+          "component": "workspace",
+          "metadata": {
+            "st_dev": 27,
+            "st_ino": 9223372036854775855,
+            "st_mode": 16877,
+            "st_nlink": 1,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 4096,
+            "st_blocks": 16,
+            "st_atime_ns": 1790896812905353721,
+            "st_mtime_ns": 1790896808885418923,
+            "st_ctime_ns": 1790896808885418923
+          }
+        },
+        {
+          "component": "scratch",
+          "metadata": {
+            "st_dev": 27,
+            "st_ino": 9223372036855894707,
+            "st_mode": 16877,
+            "st_nlink": 1,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 90112,
+            "st_blocks": 184,
+            "st_atime_ns": 1790905667286415363,
+            "st_mtime_ns": 1790905667274415552,
+            "st_ctime_ns": 1790905667274415552
+          }
+        },
+        {
+          "component": "media-loose-png-recovery-proposal-author-r1",
+          "metadata": {
+            "st_dev": 27,
+            "st_ino": 687410,
+            "st_mode": 16832,
+            "st_nlink": 5,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 4096,
+            "st_blocks": 8,
+            "st_atime_ns": 1790903990764645755,
+            "st_mtime_ns": 1790903990763108741,
+            "st_ctime_ns": 1790903990763108741
+          }
+        }
+      ],
+      "O_NOATIME": true,
+      "parentMethod": "O_PATH|O_DIRECTORY|O_NOFOLLOW; no directory enumeration, held metadata references",
+      "duringReadMetadataExact": true
+    },
+    {
+      "path": "/workspace/scratch/audio-host-independent-v08/independent/REVIEW.md",
+      "sha256": "64c499c9887a0da6757002ed924ad1b21d0f50604fee790123f5aef2dda90ac3",
+      "lstat": {
+        "st_dev": 27,
+        "st_ino": 545208,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 10049,
+        "st_blocks": 24,
+        "st_atime_ns": 1790904183853900365,
+        "st_mtime_ns": 1790814022236737973,
+        "st_ctime_ns": 1790814022236737973
+      },
+      "fstat": {
+        "st_dev": 27,
+        "st_ino": 545208,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 10049,
+        "st_blocks": 24,
+        "st_atime_ns": 1790904183853900365,
+        "st_mtime_ns": 1790814022236737973,
+        "st_ctime_ns": 1790814022236737973
+      },
+      "xattrs": {},
+      "ancestorsNoSymlink": [
+        {
+          "component": "workspace",
+          "metadata": {
+            "st_dev": 27,
+            "st_ino": 9223372036854775855,
+            "st_mode": 16877,
+            "st_nlink": 1,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 4096,
+            "st_blocks": 16,
+            "st_atime_ns": 1790896812905353721,
+            "st_mtime_ns": 1790896808885418923,
+            "st_ctime_ns": 1790896808885418923
+          }
+        },
+        {
+          "component": "scratch",
+          "metadata": {
+            "st_dev": 27,
+            "st_ino": 9223372036855894707,
+            "st_mode": 16877,
+            "st_nlink": 1,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 90112,
+            "st_blocks": 184,
+            "st_atime_ns": 1790905667286415363,
+            "st_mtime_ns": 1790905667274415552,
+            "st_ctime_ns": 1790905667274415552
+          }
+        },
+        {
+          "component": "audio-host-independent-v08",
+          "metadata": {
+            "st_dev": 27,
+            "st_ino": 544089,
+            "st_mode": 16832,
+            "st_nlink": 4,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 4096,
+            "st_blocks": 8,
+            "st_atime_ns": 1790900601215399704,
+            "st_mtime_ns": 1790814039831244743,
+            "st_ctime_ns": 1790814039831244743
+          }
+        },
+        {
+          "component": "independent",
+          "metadata": {
+            "st_dev": 27,
+            "st_ino": 544090,
+            "st_mode": 16832,
+            "st_nlink": 3,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 4096,
+            "st_blocks": 8,
+            "st_atime_ns": 1790900601215399704,
+            "st_mtime_ns": 1790814039759245877,
+            "st_ctime_ns": 1790814039759245877
+          }
+        }
+      ],
+      "O_NOATIME": true,
+      "parentMethod": "O_PATH|O_DIRECTORY|O_NOFOLLOW; no directory enumeration, held metadata references",
+      "duringReadMetadataExact": true
+    },
+    {
+      "path": "/workspace/Roguelike-deckbuilder/AGENTS.md",
+      "sha256": "f9bb313329762de931904873238474de8cfb209c30835856c5c83a7eaadbb463",
+      "lstat": {
+        "st_dev": 27,
+        "st_ino": 524549,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 14487,
+        "st_blocks": 32,
+        "st_atime_ns": 1790904162346244649,
+        "st_mtime_ns": 1790903953063013687,
+        "st_ctime_ns": 1790903953063013687
+      },
+      "fstat": {
+        "st_dev": 27,
+        "st_ino": 524549,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 14487,
+        "st_blocks": 32,
+        "st_atime_ns": 1790904162346244649,
+        "st_mtime_ns": 1790903953063013687,
+        "st_ctime_ns": 1790903953063013687
+      },
+      "xattrs": {},
+      "ancestorsNoSymlink": [
+        {
+          "component": "workspace",
+          "metadata": {
+            "st_dev": 27,
+            "st_ino": 9223372036854775855,
+            "st_mode": 16877,
+            "st_nlink": 1,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 4096,
+            "st_blocks": 16,
+            "st_atime_ns": 1790896812905353721,
+            "st_mtime_ns": 1790896808885418923,
+            "st_ctime_ns": 1790896808885418923
+          }
+        },
+        {
+          "component": "Roguelike-deckbuilder",
+          "metadata": {
+            "st_dev": 27,
+            "st_ino": 9223372036855894697,
+            "st_mode": 16832,
+            "st_nlink": 1,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 4096,
+            "st_blocks": 16,
+            "st_atime_ns": 1790824463235167132,
+            "st_mtime_ns": 1790824463175168333,
+            "st_ctime_ns": 1790824463175168333
+          }
+        }
+      ],
+      "O_NOATIME": true,
+      "parentMethod": "O_PATH|O_DIRECTORY|O_NOFOLLOW; no directory enumeration, held metadata references",
+      "duringReadMetadataExact": true
+    }
+  ],
+  "readerResource": {
+    "maxOwnRSS": 10485760,
+    "final": {
+      "label": "final",
+      "elapsed": 0.033028878999175504,
+      "sharedDelta": 8912896,
+      "headroom": 2216804352,
+      "free": 70467584,
+      "ownMaxRSS": 10485760
+    },
+    "eventsEqual": true
+  },
+  "sealResource": {
+    "rows": [
+      {
+        "time_ns": 1790905760574926425,
+        "sharedDelta": 262144,
+        "headroom": 2216562688,
+        "free": 70385664,
+        "ownMaxRSS": 9961472
+      },
+      {
+        "time_ns": 1790905760576149315,
+        "sharedDelta": 262144,
+        "headroom": 2216562688,
+        "free": 70377472,
+        "ownMaxRSS": 10092544
+      },
+      {
+        "time_ns": 1790905760576256343,
+        "sharedDelta": 262144,
+        "headroom": 2216562688,
+        "free": 70377472,
+        "ownMaxRSS": 10092544
+      },
+      {
+        "time_ns": 1790905760576330112,
+        "sharedDelta": 262144,
+        "headroom": 2216562688,
+        "free": 70377472,
+        "ownMaxRSS": 10092544
+      },
+      {
+        "time_ns": 1790905760576389970,
+        "sharedDelta": 262144,
+        "headroom": 2216562688,
+        "free": 70377472,
+        "ownMaxRSS": 10092544
+      },
+      {
+        "time_ns": 1790905760576452943,
+        "sharedDelta": 524288,
+        "headroom": 2216300544,
+        "free": 70377472,
+        "ownMaxRSS": 10092544
+      },
+      {
+        "time_ns": 1790905760576513201,
+        "sharedDelta": 520192,
+        "headroom": 2216304640,
+        "free": 70377472,
+        "ownMaxRSS": 10223616
+      },
+      {
+        "time_ns": 1790905760576693757,
+        "sharedDelta": 520192,
+        "headroom": 2216304640,
+        "free": 70377472,
+        "ownMaxRSS": 10223616
+      },
+      {
+        "time_ns": 1790905760576755979,
+        "sharedDelta": 520192,
+        "headroom": 2216304640,
+        "free": 70377472,
+        "ownMaxRSS": 10223616
+      },
+      {
+        "time_ns": 1790905760576823438,
+        "sharedDelta": 520192,
+        "headroom": 2216304640,
+        "free": 70377472,
+        "ownMaxRSS": 10223616
+      },
+      {
+        "time_ns": 1790905760576875655,
+        "sharedDelta": 520192,
+        "headroom": 2216304640,
+        "free": 70377472,
+        "ownMaxRSS": 10223616
+      },
+      {
+        "time_ns": 1790905760576920992,
+        "sharedDelta": 520192,
+        "headroom": 2216304640,
+        "free": 70377472,
+        "ownMaxRSS": 10223616
+      },
+      {
+        "time_ns": 1790905760576968221,
+        "sharedDelta": 520192,
+        "headroom": 2216304640,
+        "free": 70377472,
+        "ownMaxRSS": 10223616
+      },
+      {
+        "time_ns": 1790905760577026818,
+        "sharedDelta": 520192,
+        "headroom": 2216304640,
+        "free": 70377472,
+        "ownMaxRSS": 10223616
+      },
+      {
+        "time_ns": 1790905760577068058,
+        "sharedDelta": 520192,
+        "headroom": 2216304640,
+        "free": 70377472,
+        "ownMaxRSS": 10223616
+      }
+    ],
+    "final": {
+      "time_ns": 1790905760577068058,
+      "sharedDelta": 520192,
+      "headroom": 2216304640,
+      "free": 70377472,
+      "ownMaxRSS": 10223616
+    },
+    "eventsBefore": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "eventsAfter": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "ownLimitMiB": 24,
+    "coordinatedAggregateMiB": 64,
+    "reserveMiB": 512,
+    "qualification": "Observed shared delta, not exclusive attribution; two other tiny readers may coexist. All FDs closed; no backend/heavy actor."
+  },
+  "preservedFailure": "reader-guard-r1 rc1 root-owned directory O_NOATIME open failed before any input body read; exact original source/log and outer guard retained. reader-guard-r2 narrow O_PATH parent correction passed.",
+  "outerSealGuard": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/seal-guard-r1/RESULT.json",
+  "outerSealGuardNote": "Completed exact outer RESULT is reported after return; not inside this body.",
+  "packetCapBytes": 131072,
+  "packetBytesBeforeSeal": 86024,
+  "transactionStatus": "NONE; no link/unlink/body/metadata write/storage recovery."
+}

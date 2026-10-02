@@ -1,0 +1,38 @@
+{
+  "state": "CLOSED",
+  "decision": "ACCEPT_EXACT_THREE_PATH_SHARING_AND_R2_ACTION_SOURCE_CONDITIONAL_PUSH_PRODUCER",
+  "review": {
+    "path": "/workspace/scratch/second-three-retained-png-sharing-before-independent-r2/REVIEW.md",
+    "bytes": 6095,
+    "sha256": "6864cdedca8fff823e59f1c68545d7d6d8b509cfd23248b56d986054ed6eb5b9"
+  },
+  "gate": {
+    "path": "/workspace/scratch/second-three-retained-png-sharing-before-independent-r2/GATE.json",
+    "bytes": 3553,
+    "sha256": "d12f5667c1eb28a0d0153c63a98318e1e9ab104e433139e2f8083fac8cf24b2a"
+  },
+  "manifest": {
+    "path": "/workspace/scratch/second-three-retained-png-sharing-before-independent-r2/MANIFEST.json",
+    "bytes": 3931,
+    "sha256": "d5f0e8194f83e95d747e33615f0c4e6d01c6eb8eddb0cc51192ae903aeeeafd2"
+  },
+  "finalGuard": {
+    "path": "/workspace/scratch/second-three-retained-png-sharing-before-independent-r2/seal-guard-r1/RESULT.json",
+    "bytes": 858,
+    "sha256": "dbf56241ec710739b65e345d067ec94446bc8d5fbf88bc6b54f5ae9af5c19286"
+  },
+  "finalGuardExitZero": true,
+  "finalGuardEventsUnchanged": true,
+  "finalGuardSampledDeltaBytes": 147456,
+  "finalGuardMinimumHeadroomBytes": 2221875200,
+  "r1SourceRejectionPreserved": {
+    "path": "/workspace/scratch/second-three-retained-png-sharing-before-independent-r1/R1-GATE.json",
+    "bytes": 1392,
+    "sha256": "7a2d1d45958e8f280356e7e10606f507392d4a85c9ed12a4a20961e6868ad831"
+  },
+  "allReviewReadersGuardsAndToolsClosedAfterThisBoundedReadbackReturns": true,
+  "sharingActionExecutedByReviewer": false,
+  "producerAndNewCurrentPush": "notverified/pending; Rootsoleexactactiongrantstillrequired",
+  "closureRSSKiB": 9344,
+  "closureQualification": "Tiny postguard ownreceipt/hash readback outside separate cgroupguard; ownRSS measured; no Git/action/backend."
+}

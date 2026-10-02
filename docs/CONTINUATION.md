@@ -1,5 +1,14 @@
 # Hollowpact production continuation
 
+## Held-card placement rejected; next protect the whole choice — 2 October2026
+
+The opt-in targetClearGhost R1 actual completed once in27.838516157s on source2b3fcb03/output8235e599 (88/56). It clears the chosen hostile but obscures the bound Cairn's name, health/attack and Command-spent status, with label overlap over the hand. Separate gameplay and visual reviews reject default promotion; technical acceptance covers identity/state purity and sampled geometry only. Six full raw save pairs match and each held release commits once. Preserve the [exact rejection evidence](../reviews/opening-target-clear-rejected-2026-10-02/README.md). Source-informed short diagnostics are not300-second novice pacing or human fun.
+
+Selected named wait1d5bf40a/30ddc549 (87/56) stays unchanged; current scene remains painted. R2 private source work protects each neighboring actor readout and occupied hand/HUD controls, with no release/rules/save change and no claimed improvement until actual comparison.
+
+The separately reviewed exact3-PNG transaction completed after confirmed clean push34f0a2a4 and producer judgment. Independent POST014c9d26 verifies retained paths/bodies/current maps/protected stat; net8482816B was recovered in the measured pre-RESULT window, with inode/time/isolation losses and one unresolved alias per anchor qualified. See [completed storage supplement](../reviews/three-png-physical-sharing-post-2026-10-02/README.md). No further cleanup authority follows. Read-only cache hints preserved bytes/metadata and allowed fresh native memory admission after two refusals; they are not deletion or an enduring capacity guarantee.
+
+
 ## Target placement built; bounded storage proposal pending — 2 October2026
 
 The private targetClearGhost prototype strict-built once as2b3fcb03 /8235e599 (88/56), with independent SOURCE/BUILD gate65622b54; it remains unselected and actual fit is unproved. Default named wait1d5bf40a /30ddc549 remains selected and pushedfd9d6b53. The planned native overlap comparison requires fresh70MiB admission. An exact3-PNG sharing proposal and r2 method have conditional independent BEFORE acceptance; no action/recovery is recorded yet. See [scoped storage records](../reviews/three-png-physical-sharing-2026-10-02/README.md). Retain every historical path/body/provenance/rollback, record inode/time/isolation loss and require producer judgment plus confirmed current push before any exact transaction. Old cross-filesystem public recovery was rejected for zero workspace gain. No other cleanup or quality claim follows.

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/propose_r2.py", line 44, in <module>
+    r1pin,r1body=pin('/workspace/scratch/media-loose-png-recovery-proposal-author-r1/EVIDENCE.json',True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/propose_r2.py", line 23, in pin
+    parent,name=os.path.split(path);pfd,ancestors=parent_hold(parent)
+                                                  ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/propose_r2.py", line 14, in parent_hold
+    fd=os.open('/',os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW|os.O_NOATIME)
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted: '/'

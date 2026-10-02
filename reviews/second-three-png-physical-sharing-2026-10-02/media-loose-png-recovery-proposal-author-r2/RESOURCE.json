@@ -1,0 +1,114 @@
+{
+  "initial": {
+    "label": "initial",
+    "elapsed": 4.9703012336976826e-05,
+    "sharedDelta": 0,
+    "headroom": 2225717248,
+    "free": 70516736,
+    "ownMaxRSS": 9961472
+  },
+  "rows": [
+    {
+      "label": "initial",
+      "elapsed": 4.9703012336976826e-05,
+      "sharedDelta": 0,
+      "headroom": 2225717248,
+      "free": 70516736,
+      "ownMaxRSS": 9961472
+    },
+    {
+      "label": "stream-closed",
+      "elapsed": 0.0002308000111952424,
+      "sharedDelta": 0,
+      "headroom": 2225717248,
+      "free": 70516736,
+      "ownMaxRSS": 10092544
+    },
+    {
+      "label": "stream-closed",
+      "elapsed": 0.000527167008840479,
+      "sharedDelta": 262144,
+      "headroom": 2225455104,
+      "free": 70516736,
+      "ownMaxRSS": 10223616
+    },
+    {
+      "label": "stream-closed",
+      "elapsed": 0.000656507007079199,
+      "sharedDelta": 262144,
+      "headroom": 2225455104,
+      "free": 70516736,
+      "ownMaxRSS": 10223616
+    },
+    {
+      "label": "stream-closed",
+      "elapsed": 0.005332723012543283,
+      "sharedDelta": 3407872,
+      "headroom": 2222309376,
+      "free": 70516736,
+      "ownMaxRSS": 10354688
+    },
+    {
+      "label": "stream-closed",
+      "elapsed": 0.010558709007455036,
+      "sharedDelta": 3407872,
+      "headroom": 2222309376,
+      "free": 70516736,
+      "ownMaxRSS": 10354688
+    },
+    {
+      "label": "stream-closed",
+      "elapsed": 0.014049690013052896,
+      "sharedDelta": 6291456,
+      "headroom": 2219425792,
+      "free": 70516736,
+      "ownMaxRSS": 10354688
+    },
+    {
+      "label": "stream-closed",
+      "elapsed": 0.019183651005732827,
+      "sharedDelta": 6291456,
+      "headroom": 2219425792,
+      "free": 70516736,
+      "ownMaxRSS": 10354688
+    },
+    {
+      "label": "stream-closed",
+      "elapsed": 0.027772487999754958,
+      "sharedDelta": 8912896,
+      "headroom": 2216804352,
+      "free": 70516736,
+      "ownMaxRSS": 10354688
+    },
+    {
+      "label": "stream-closed",
+      "elapsed": 0.031715725010144524,
+      "sharedDelta": 8912896,
+      "headroom": 2216804352,
+      "free": 70516736,
+      "ownMaxRSS": 10354688
+    },
+    {
+      "label": "final",
+      "elapsed": 0.033028878999175504,
+      "sharedDelta": 8912896,
+      "headroom": 2216804352,
+      "free": 70467584,
+      "ownMaxRSS": 10485760
+    }
+  ],
+  "final": {
+    "label": "final",
+    "elapsed": 0.033028878999175504,
+    "sharedDelta": 8912896,
+    "headroom": 2216804352,
+    "free": 70467584,
+    "ownMaxRSS": 10485760
+  },
+  "eventsBefore": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "eventsAfter": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "ownRSSHardLimitMiB": 24,
+  "qualifiedAggregateMiB": 64,
+  "reserveMiB": 512,
+  "qualification": "Own sampled maxRSS plus RLIMIT_DATA24; observed shared cgroup delta is not exclusive attribution. Two other tiny source readers may coexist; no heavy actor. All FDs closed."
+}

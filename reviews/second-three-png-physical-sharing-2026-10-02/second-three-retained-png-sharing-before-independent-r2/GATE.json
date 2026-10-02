@@ -1,0 +1,80 @@
+{
+  "decision": "ACCEPT_EXACT_THREE_PATH_SHARING_AND_R2_ACTION_SOURCE_CONDITIONAL_PUSH_PRODUCER",
+  "method": {
+    "path": "/workspace/scratch/share-second-three-retained-pngs-root-r2.py",
+    "bytes": 7828,
+    "sha256": "3ac77cbd683f43b00910066dc8248d6a77e2576df9111f30c856558555e62d99"
+  },
+  "proposal": {
+    "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/PROPOSAL.json",
+    "sha256": "45ed75b5078c84e32981ba86b43f62826b00c53278ef8ea2f9888d661b8fd8d5",
+    "bytes": 43511
+  },
+  "authorSeal": {
+    "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/FINAL-SEAL.json",
+    "sha256": "dad72be52657ee9538a209b9c1ac0e703dad6b57380463443f15916b8aae1fe7",
+    "bytes": 14935
+  },
+  "currentHold": {
+    "path": "/workspace/Roguelike-deckbuilder/AGENTS.md",
+    "sha256": "69a82ce96a594a2b2a5244154de8758b200290ba9de46b40a221a52ba4a0cfb7",
+    "bytes": 15131
+  },
+  "selectedMap": {
+    "path": "/workspace/scratch/target-wait-default-promotion-root-r1/RESULT.json",
+    "sha256": "31a221091d2ffbc6d58dfc1385962c441df9789c66729ef64d20b95208a8fabd",
+    "bytes": 15350
+  },
+  "r1SourceRejection": {
+    "path": "/workspace/scratch/second-three-retained-png-sharing-before-independent-r1/R1-GATE.json",
+    "bytes": 1392,
+    "sha256": "7a2d1d45958e8f280356e7e10606f507392d4a85c9ed12a4a20961e6868ad831"
+  },
+  "priorProof": {
+    "path": "/workspace/scratch/second-three-retained-png-sharing-before-independent-r1/PROOF.json",
+    "bytes": 43225,
+    "sha256": "e54c1a30d2bb01fde8d7cd78da81e3b51c94520c43da1ae235ce270be19e2a29"
+  },
+  "sourceProof": {
+    "path": "/workspace/scratch/second-three-retained-png-sharing-before-independent-r2/PROOF.json",
+    "sha256": "c70d565e9e466238bda727f1b87b0c14bca106229d77023b2217f208f309676e",
+    "bytes": 14627
+  },
+  "review": {
+    "path": "/workspace/scratch/second-three-retained-png-sharing-before-independent-r2/REVIEW.md",
+    "sha256": "6864cdedca8fff823e59f1c68545d7d6d8b509cfd23248b56d986054ed6eb5b9",
+    "bytes": 6095
+  },
+  "grossPotentialAllocationBytes": 8499200,
+  "allThreeLogicalPathsBodiesAndRightsPreservedByPlan": true,
+  "oldPrivateEncodingIsolationNoLongerNeeded": true,
+  "oldMetadataProvenanceConsumerRecordsStillNeeded": true,
+  "unknownPhysicalAliasesPerAnchor": 1,
+  "knownPhysicalAliasesPerAnchor": 4,
+  "noOldInodeBackupAcceptedVariant": true,
+  "allThreeAtomicity": false,
+  "requiresProducerJudgmentAndNewConfirmedCurrentPush": true,
+  "rootSoleActionGrantStillRequired": true,
+  "actionExecutedByReviewer": false,
+  "sourceGuardsClosed": [
+    {
+      "path": "/workspace/scratch/second-three-retained-png-sharing-before-independent-r2/read-guard-r1/RESULT.json",
+      "sha256": "aca7016e6482ad4ebc438837801637fb99af7a525c45a5b5106a939bd4551725",
+      "bytes": 858
+    },
+    {
+      "path": "/workspace/scratch/second-three-retained-png-sharing-before-independent-r2/verify-guard-r1/RESULT.json",
+      "sha256": "6fa706432c0691731f7fc006e062682dc56dc92e3104e01f3fa3a7d49f16a97b",
+      "bytes": 858
+    },
+    {
+      "path": "/workspace/scratch/second-three-retained-png-sharing-before-independent-r2/verify-guard-r2/RESULT.json",
+      "sha256": "abc6331342232fd62229f7c1ab569b48ab8a06751b511a1bb901c332a6353830",
+      "bytes": 858
+    }
+  ],
+  "ownSealerRSSKiB": 9728,
+  "resourceQualification": "Source64aggregate+512unchangedreserve/disk64 ownRSS24; sharedsampled delta notexclusive attribution. No action/Git/Node/backend.",
+  "state": "SOURCE_REVIEW_SEALED_PENDING_OUTER_GUARD_READBACK",
+  "utcNs": 1790906164247331677
+}
