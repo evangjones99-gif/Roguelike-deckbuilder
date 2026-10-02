@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/settle-json-raw-retirement-proposal-r1/propose.py", line 73, in <module>
+    p,b=pin(path,True);t=b.decode();hits=[line[:400] for line in t.splitlines() if any(k in line for k in ['settle-drag-comparison-actual-r1','VISUAL-RESULT.json','VISUAL-PROGRESS.json'])][:12]
+        ^^^^^^^^^^^^^^
+  File "/workspace/scratch/settle-json-raw-retirement-proposal-r1/propose.py", line 22, in pin
+    ls=meta(os.stat(n,dir_fd=d,follow_symlinks=False));fd=os.open(n,os.O_RDONLY|os.O_NOFOLLOW|os.O_NOATIME,dir_fd=d);fs=meta(os.fstat(fd));assert ls==fs and stat.S_ISREG(fs['st_mode'])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'driver.mjs'

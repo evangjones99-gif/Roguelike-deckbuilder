@@ -1,0 +1,1189 @@
+{
+  "decision": "ACCEPT_EXACT_SECOND_THREE_PNG_R4_POST_WITH_RECORDED_ATIME_REBIND_AND_ISOLATION_LOSSES",
+  "actualControls": {
+    "BEFORE.json": {
+      "sha256": "5761ee21863dab366105bda78ba33c894161d6bc9e736abe981f7fb79575c975",
+      "bytes": 25383
+    },
+    "JOURNAL.jsonl": {
+      "sha256": "7e66fae42051f736f440a0472a63f08fb8249eadffb01da1fee1820a0d6ed1c1",
+      "bytes": 2583
+    },
+    "RESULT.json": {
+      "sha256": "a012a0ad664f83289d0f19af1865deaaf0ddfddcbc0a657ca1a6a7e5494b89e2",
+      "bytes": 3641
+    }
+  },
+  "proposal": {
+    "sha256": "45ed75b5078c84e32981ba86b43f62826b00c53278ef8ea2f9888d661b8fd8d5",
+    "bytes": 43511
+  },
+  "beforeGate": {
+    "sha256": "fedeb00dad977acbc770ae9614e5cc8ed350be4855713c9751eb28a22832e4f9",
+    "bytes": 4616
+  },
+  "judgment": {
+    "sha256": "eca6c758ea9633c061570083362e63fdfd236ab1822132e4ce3a7b314533aba6",
+    "bytes": 2446
+  },
+  "push": {
+    "sha256": "6c7fabe80faccd35098e73909c35e4f7134ad671f0ac5c2e021fadf6ebfa619e",
+    "bytes": 502
+  },
+  "method": {
+    "sha256": "5c03ec5135584a2fc83ebff60bb4ee6f52b1451ebf79ae4125d16704530f3adc",
+    "bytes": 8174
+  },
+  "hold": {
+    "sha256": "69a82ce96a594a2b2a5244154de8758b200290ba9de46b40a221a52ba4a0cfb7",
+    "bytes": 15131
+  },
+  "selectedMap": {
+    "sha256": "31a221091d2ffbc6d58dfc1385962c441df9789c66729ef64d20b95208a8fabd",
+    "bytes": 15350
+  },
+  "commit": "90d128934e5a86c66c4fa92d0eebb1906a3f2b37",
+  "pairs": [
+    {
+      "candidate": "/workspace/scratch/audio-host-independent-v08/independent/rebuilt-dist/art/abbey-courtyard.png",
+      "anchor": "/workspace/Roguelike-deckbuilder/public/art/abbey-courtyard.png",
+      "sha256": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+      "currentMetadata": {
+        "st_dev": 27,
+        "st_ino": 655363,
+        "st_mode": 33152,
+        "st_nlink": 6,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 3060309,
+        "st_blocks": 5984,
+        "st_atime_ns": 1790906218153661911,
+        "st_mtime_ns": 1790792012410051235,
+        "st_ctime_ns": 1790907461902193283
+      },
+      "oldCandidateMetadata": {
+        "st_dev": 27,
+        "st_ino": 544872,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 3060309,
+        "st_blocks": 5984,
+        "st_atime_ns": 1790813785219790792,
+        "st_mtime_ns": 1790813777184746302,
+        "st_ctime_ns": 1790813777184746302
+      },
+      "oldAnchorMetadata": {
+        "st_dev": 27,
+        "st_ino": 655363,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 3060309,
+        "st_blocks": 5984,
+        "st_atime_ns": 1790906218153661911,
+        "st_mtime_ns": 1790792012410051235,
+        "st_ctime_ns": 1790904436827253842
+      }
+    },
+    {
+      "candidate": "/workspace/scratch/audio-host-independent-v08/independent/rebuilt-dist/art/tool-vignettes.png",
+      "anchor": "/workspace/Roguelike-deckbuilder/public/art/tool-vignettes.png",
+      "sha256": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+      "currentMetadata": {
+        "st_dev": 27,
+        "st_ino": 657805,
+        "st_mode": 33152,
+        "st_nlink": 6,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2917100,
+        "st_blocks": 5704,
+        "st_atime_ns": 1790906218169661655,
+        "st_mtime_ns": 1790803009868046413,
+        "st_ctime_ns": 1790907461918192995
+      },
+      "oldCandidateMetadata": {
+        "st_dev": 27,
+        "st_ino": 544878,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2917100,
+        "st_blocks": 5704,
+        "st_atime_ns": 1790813785255858420,
+        "st_mtime_ns": 1790813777192587668,
+        "st_ctime_ns": 1790813777192587668
+      },
+      "oldAnchorMetadata": {
+        "st_dev": 27,
+        "st_ino": 657805,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2917100,
+        "st_blocks": 5704,
+        "st_atime_ns": 1790906218169661655,
+        "st_mtime_ns": 1790803009868046413,
+        "st_ctime_ns": 1790904436833950851
+      }
+    },
+    {
+      "candidate": "/workspace/scratch/audio-host-independent-v08/independent/rebuilt-dist/art/hunter-portrait.png",
+      "anchor": "/workspace/Roguelike-deckbuilder/public/art/hunter-portrait.png",
+      "sha256": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+      "currentMetadata": {
+        "st_dev": 27,
+        "st_ino": 655545,
+        "st_mode": 33152,
+        "st_nlink": 6,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2514707,
+        "st_blocks": 4912,
+        "st_atime_ns": 1790906218161661782,
+        "st_mtime_ns": 1790795201706304533,
+        "st_ctime_ns": 1790907461934192707
+      },
+      "oldCandidateMetadata": {
+        "st_dev": 27,
+        "st_ino": 544876,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2514707,
+        "st_blocks": 4912,
+        "st_atime_ns": 1790813785250913824,
+        "st_mtime_ns": 1790813777191585813,
+        "st_ctime_ns": 1790813777191585813
+      },
+      "oldAnchorMetadata": {
+        "st_dev": 27,
+        "st_ino": 655545,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2514707,
+        "st_blocks": 4912,
+        "st_atime_ns": 1790906218161661782,
+        "st_mtime_ns": 1790795201706304533,
+        "st_ctime_ns": 1790904436840131331
+      }
+    }
+  ],
+  "knownAliases": [
+    {
+      "anchor": "/workspace/Roguelike-deckbuilder/public/art/abbey-courtyard.png",
+      "observedDistinctPhysicalEntries": 5,
+      "nlink": 6,
+      "unresolvedPhysicalEntries": 1,
+      "fullCurrentAnchorMetadata": {
+        "st_dev": 27,
+        "st_ino": 655363,
+        "st_mode": 33152,
+        "st_nlink": 6,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 3060309,
+        "st_blocks": 5984,
+        "st_atime_ns": 1790906218153661911,
+        "st_mtime_ns": 1790792012410051235,
+        "st_ctime_ns": 1790907461902193283
+      }
+    },
+    {
+      "anchor": "/workspace/Roguelike-deckbuilder/public/art/tool-vignettes.png",
+      "observedDistinctPhysicalEntries": 5,
+      "nlink": 6,
+      "unresolvedPhysicalEntries": 1,
+      "fullCurrentAnchorMetadata": {
+        "st_dev": 27,
+        "st_ino": 657805,
+        "st_mode": 33152,
+        "st_nlink": 6,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2917100,
+        "st_blocks": 5704,
+        "st_atime_ns": 1790906218169661655,
+        "st_mtime_ns": 1790803009868046413,
+        "st_ctime_ns": 1790907461918192995
+      }
+    },
+    {
+      "anchor": "/workspace/Roguelike-deckbuilder/public/art/hunter-portrait.png",
+      "observedDistinctPhysicalEntries": 5,
+      "nlink": 6,
+      "unresolvedPhysicalEntries": 1,
+      "fullCurrentAnchorMetadata": {
+        "st_dev": 27,
+        "st_ino": 655545,
+        "st_mode": 33152,
+        "st_nlink": 6,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2514707,
+        "st_blocks": 4912,
+        "st_atime_ns": 1790906218161661782,
+        "st_mtime_ns": 1790795201706304533,
+        "st_ctime_ns": 1790907461934192707
+      }
+    }
+  ],
+  "initialAtimeOnlyRebinding": [
+    {
+      "path": "/workspace/Roguelike-deckbuilder/public/art/abbey-courtyard.png",
+      "proposalAtime": 1790898151007202045,
+      "initialSnapshotAtime": 1790906218153661911,
+      "onlyAtimeRebound": true
+    },
+    {
+      "path": "/workspace/scratch/audio-host-independent-v08/independent/rebuilt-dist/art/abbey-courtyard.png",
+      "proposalAtime": 1790813785219790792,
+      "initialSnapshotAtime": 1790813785219790792,
+      "onlyAtimeRebound": true
+    },
+    {
+      "path": "/workspace/Roguelike-deckbuilder/public/art/tool-vignettes.png",
+      "proposalAtime": 1790898151170562003,
+      "initialSnapshotAtime": 1790906218169661655,
+      "onlyAtimeRebound": true
+    },
+    {
+      "path": "/workspace/scratch/audio-host-independent-v08/independent/rebuilt-dist/art/tool-vignettes.png",
+      "proposalAtime": 1790813785255858420,
+      "initialSnapshotAtime": 1790813785255858420,
+      "onlyAtimeRebound": true
+    },
+    {
+      "path": "/workspace/Roguelike-deckbuilder/public/art/hunter-portrait.png",
+      "proposalAtime": 1790898151106047514,
+      "initialSnapshotAtime": 1790906218161661782,
+      "onlyAtimeRebound": true
+    },
+    {
+      "path": "/workspace/scratch/audio-host-independent-v08/independent/rebuilt-dist/art/hunter-portrait.png",
+      "proposalAtime": 1790813785250913824,
+      "initialSnapshotAtime": 1790813785250913824,
+      "onlyAtimeRebound": true
+    }
+  ],
+  "allNineJournalEntriesOrderedExactly": true,
+  "allTempAbsent": true,
+  "allPathsExactBodiesRetained": true,
+  "window": {
+    "gross": 8499200,
+    "beforeFree": 64778240,
+    "afterBeforeResultWrite": 73240576,
+    "netBeforeResultWrite": 8462336,
+    "differenceFromGross": 36864,
+    "qualification": "Finite observed transaction window; proofs/publication/other actors consume capacity afterward. Not lasting free-space or exclusive actor attribution."
+  },
+  "canonicalMaps": [
+    {
+      "kind": "canonicalInputs",
+      "path": "THIRD-PARTY.md",
+      "sha256": "59bea9fd6f5876e27e1e98cd759c9a8666c662ca88577c0adc7ede183310feaa",
+      "bytes": 3233
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "desktop/audio-lifecycle.cjs",
+      "sha256": "b699b009cfd66160765e08fb502faa2b0fb9c64ac03820f71dc7ff989c65f2e6",
+      "bytes": 2599
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "desktop/icon.png",
+      "sha256": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+      "bytes": 2309728
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "desktop/main.cjs",
+      "sha256": "dfe5dde98ba3c75365f20db28be970882177d2cc7b11c6ce0d38cbf639c292b8",
+      "bytes": 1112
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "index.html",
+      "sha256": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+      "bytes": 1554
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "package-lock.json",
+      "sha256": "e51d5414d74efd35022f3bb0efed99b9b28eff265a9c011204f348079e1d4da7",
+      "bytes": 184665
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "package.json",
+      "sha256": "10943d910af6545a70be222684a9876961358c6962d379b0536efd006e988c93",
+      "bytes": 1787
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/art/PROVENANCE.json",
+      "sha256": "54cf8a498cdd86967fcd99471df9cd8ddc56b96aa967458883c8328136a977fc",
+      "bytes": 15216
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/art/abbey-courtyard.png",
+      "sha256": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+      "bytes": 3060309
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/art/adversaries-atlas.png",
+      "sha256": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5",
+      "bytes": 1924995
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/art/bone-thrall-v09-r1.png",
+      "sha256": "3697dd4cc89f1550e0688b34bb421939988c90ab78832ce83d53ddb81b372dfd",
+      "bytes": 1610163
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/art/companions-atlas.png",
+      "sha256": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+      "bytes": 2013487
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/art/hound-poses.png",
+      "sha256": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+      "bytes": 1702748
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/art/hunter-marek-v07-r3.png",
+      "sha256": "4492577d3bacc868e9b66da0abf25915bdeaf68bc8f5c31ae8a1d8db485f3c53",
+      "bytes": 2128117
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/art/hunter-portrait.png",
+      "sha256": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+      "bytes": 2514707
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/art/ossuary-crypt-v08-r2.png",
+      "sha256": "ff9818614003e9432ee1868c2f60b336d0b5dfe63f5c01e380832f1e880c4b00",
+      "bytes": 2464574
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/art/pact-seal.png",
+      "sha256": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+      "bytes": 2309728
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/art/tool-vignettes.png",
+      "sha256": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+      "bytes": 2917100
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/art/warleader-poses.png",
+      "sha256": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b",
+      "bytes": 2215085
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/bind_seal-1.wav",
+      "sha256": "8b0085d42be3e3d69545046349b5fe6b103ea36cb5805fa6deb64463e70d9783",
+      "bytes": 182444
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/bind_seal-2.wav",
+      "sha256": "55078560550519dc0ba3b2c4c8d76ee72be94f4681a6375f6e0f4c5bf4218a26",
+      "bytes": 182444
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/bind_seal-3.wav",
+      "sha256": "34e5d74e7a289717a7a5145dd7cce1ff94f77f6f2843aae5766a2a27b3f05dba",
+      "bytes": 182444
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/camp_settle-1.wav",
+      "sha256": "2599245492ec5ded74090654e88f7aafba69e8fe8e4402038ae31d00c29c504c",
+      "bytes": 153644
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/camp_settle-2.wav",
+      "sha256": "47ea7cf2ab1bd1cbdf5d4f1af50734c2ad0ee7e0b22011b381c5af0770825a90",
+      "bytes": 153644
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/camp_settle-3.wav",
+      "sha256": "72dc7cddbe11cf82d220450a677a0465e544081a6ba48a16f7fe605ab4584947",
+      "bytes": 153644
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/dragon_bite-1.wav",
+      "sha256": "bc6a5f675e26aac49fb67a36ae0e5ecfb84d66d72c6b36f8e960b44586c6fd5f",
+      "bytes": 134444
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/dragon_bite-2.wav",
+      "sha256": "ab4cedbdb08f802c73ed6e6bee0209f4c6741fdb20792f18654cae053bb5ee19",
+      "bytes": 134444
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/dragon_bite-3.wav",
+      "sha256": "ddf44e51d30a2fb307e0ae69455abb41ed43eac61f038d1e303ceac86a399653",
+      "bytes": 134444
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/dragon_breath-1.wav",
+      "sha256": "617666747e860c5ace47d6a64eee6757b82f0cf1f884ee3f87400137b49517fe",
+      "bytes": 364844
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/dragon_breath-2.wav",
+      "sha256": "5da689bc4a5e6bf6568b3d681574304e056719c1b837609897fcbd489384fd94",
+      "bytes": 364844
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/dragon_breath-3.wav",
+      "sha256": "33993012d5833daca49a2642bad4399967fd65ca685dcbe60e246933414b8f56",
+      "bytes": 364844
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/hound_bite-1.wav",
+      "sha256": "bdbeb02f109dff3fbd9d7dfa502c00f3e8ea53a441d6cb07aaa6ca0dc54b843d",
+      "bytes": 92204
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/hound_bite-2.wav",
+      "sha256": "947e438df5cbd647573da7a86991767d1c5b6b09d519f2784593c8f17cc37715",
+      "bytes": 92204
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/hound_bite-3.wav",
+      "sha256": "2544e1b1767154b4a976a1e04b7267ed1186c60f3ab8e32308d4d490084f5c3f",
+      "bytes": 92204
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/hunter_wound-1.wav",
+      "sha256": "e9abd091201a2ca8c3a417c2571266ef9f05d85dde1120c3375ec979de5a2a90",
+      "bytes": 105648
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/hunter_wound-2.wav",
+      "sha256": "25de0a4fdf7b768a219a2f9221671ed36f72f812afe27c8dabb9599551479f1b",
+      "bytes": 105648
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/hunter_wound-3.wav",
+      "sha256": "9de18a01855243f6b01415f25398d9eb77dc66defd9cf7daa76036c7f93a7266",
+      "bytes": 105648
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/neutral_hit-1.wav",
+      "sha256": "ee0f62318fb4154fe5d39bb3c56995154f8e0451668dd37be0c57f357f5128ff",
+      "bytes": 46124
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/neutral_hit-2.wav",
+      "sha256": "1b378068b10eefbdb44b3762355d530f085cccaa75d26c58660007af2fe8f471",
+      "bytes": 46124
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/neutral_hit-3.wav",
+      "sha256": "711ddc0b49ba5666db0b8292225a0a02efefed5a204d26c7c4f2a0be38826f98",
+      "bytes": 46124
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/scour_tool-1.wav",
+      "sha256": "4218c65e41ba2c6845eda070493809cfe5132dc2ffa86bb51e9f83429738dcfc",
+      "bytes": 99884
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/scour_tool-2.wav",
+      "sha256": "15bbace99c04cb185a4ddb4c244983b4f2941f8eda79b12ab7518f2701850121",
+      "bytes": 99884
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/scour_tool-3.wav",
+      "sha256": "6ba61d67f83c11fda30b40962eced74457029bf53c97583ec69035af15c6d670",
+      "bytes": 99884
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/summon_arrival-1.wav",
+      "sha256": "0a42eef1fd55409dc68c1dc3ac917148a310ebfb97078e8d74e992133b9bdb63",
+      "bytes": 240044
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/summon_arrival-2.wav",
+      "sha256": "16106dea7e679a3b455c6cea80374b85c71f5babbcc6cf63258cdeb5f20d871b",
+      "bytes": 240044
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/summon_arrival-3.wav",
+      "sha256": "068fe50e7d86761f71b3bb3459b263df6f1fcc958e767e64a9eb60f782a4e7f5",
+      "bytes": 240044
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/ui_back-1.wav",
+      "sha256": "5c16ed5b7e4d9dfe7413a58f0ede66bfa92c3d4fb2ad1743429b54519e2624b1",
+      "bytes": 25004
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/ui_back-2.wav",
+      "sha256": "62d612a3df5b500aa45b48796e4981479ea1ef881adc810263b4469718248749",
+      "bytes": 25004
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/ui_back-3.wav",
+      "sha256": "3edef85d3583003e0cd4d1ac49b56948104b55c555db9d16497118a769e75ce5",
+      "bytes": 25004
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/ui_confirm-1.wav",
+      "sha256": "94500eed8b648120071064bf3ef0ac7382e4a505f1b85f3e08a9db7a84dab25d",
+      "bytes": 30764
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/ui_confirm-2.wav",
+      "sha256": "55946b44e3998d5900ae8b86edc2fc82af2d1a5be669bf2f3ceeb7143879408a",
+      "bytes": 30764
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/ui_confirm-3.wav",
+      "sha256": "39b1cc1ee9f97f2a9c4118df5d3d64328390d7236ef72ce5f05df51c6770fdf4",
+      "bytes": 30764
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/warlord_iron-1.wav",
+      "sha256": "e9f2017feed9fa88789e53069f34e56ad3fd6d050e95158dbc51505e37e4d0f9",
+      "bytes": 163244
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/warlord_iron-2.wav",
+      "sha256": "84489829dffbac75dfeadea43a2609e83387d658be6b41d6c83fc4002ece7eb9",
+      "bytes": 163244
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/warlord_iron-3.wav",
+      "sha256": "a2d325e9f2c012fced81b4c4e084229e30d17381c954e1ab8454ba0ae952a525",
+      "bytes": 163244
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/wraith_magic-1.wav",
+      "sha256": "2c76ef03a61832b44d852fa1eeb6b15150ebcd4d3c7b33158dea06fc477f71e4",
+      "bytes": 249644
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/wraith_magic-2.wav",
+      "sha256": "edd66253ae5d51e07a761dbd8e3fb9348d0e0066663f4b6756d7ff5a151af0d7",
+      "bytes": 249644
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "public/audio/wraith_magic-3.wav",
+      "sha256": "adfb375ae2b98e6d38f22f79ba00ceed1c7050b56ea1bb5a537f54e6e9895a24",
+      "bytes": 249644
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "scripts/build.mjs",
+      "sha256": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1",
+      "bytes": 1825
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/arena.ts",
+      "sha256": "77bbca50c42b109372ffb027b1b26826d79b51c89ded3b9aaae5de1a60a4f334",
+      "bytes": 70546
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/art.ts",
+      "sha256": "2e9a5429e01498e02b4ae333e7240e7e5abbb1a6d0418d2932a7afccc17b262f",
+      "bytes": 7116
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/audio-host.ts",
+      "sha256": "4e0d8ff4ed9d584ff38bb914cc7ae5b4987b2d73411659281ee84b6a4376547d",
+      "bytes": 5187
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/audio-player.d.mts",
+      "sha256": "259fe144e9d4f1be8b4a0959ef82d29cf47e697564dec451b63405c8477807fb",
+      "bytes": 667
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/audio-player.mjs",
+      "sha256": "1075a68e62133950c9c971a2cac081d12c12ac6b22459f8d955bf37e5e9a5c4a",
+      "bytes": 5447
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/audio-routing.d.mts",
+      "sha256": "d0bef0cc502a1e7973a0bb889c0a62e8ec1115eebe84c3ac02e242f79bcd6acc",
+      "bytes": 359
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/audio-routing.mjs",
+      "sha256": "8aa67961fffee6688bb573c38f3f9623bb55ad0ba1d54912186a5443a682aeb8",
+      "bytes": 2372
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/battlefield-layout.ts",
+      "sha256": "6bbe1518398964b624bbcc8ce81f7fb36a02c9902fb8286336e9aae34f4d6b58",
+      "bytes": 11927
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/command-field.css",
+      "sha256": "e9b5a6fa56877230f35e5359bb1f256527c37f06f05c89b47b922075a8093d69",
+      "bytes": 8142
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/compact-field-budget.ts",
+      "sha256": "669c0583a50a594f32e0e51332bd4f8357b5ce14f341173512477a87d116cbff",
+      "bytes": 1516
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/compact-intent.ts",
+      "sha256": "6ea39b73ded51171d3f5783324c8bb5179109c4effa100ac1ef5eae18ad8b1d5",
+      "bytes": 3896
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/compact-readout.css",
+      "sha256": "2cf3850fa4bfae4c6e725a2d9d46379e12ce3531f2a93d9f32b6c47cb541401a",
+      "bytes": 8067
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/content.ts",
+      "sha256": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+      "bytes": 10247
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/encounter-environment.ts",
+      "sha256": "82ec3d4a653dea8ceb89b93d8e157d483ab9d358bcd4a3b97942292c25ce2139",
+      "bytes": 1332
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/engine.ts",
+      "sha256": "7dca47973c0d78a130730450215569fa7747a1cb043764b16217c1b9c0ce6bf8",
+      "bytes": 38776
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/hound-jaw.ts",
+      "sha256": "f42686423ff0b929cd441dd63c1f23756fe145f911e0a3b5cd1b3806aa5c7a9c",
+      "bytes": 3644
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/hunt-entry.css",
+      "sha256": "c7a511b569c6c50456a0aea1c9a469f3d25c245fc660db4d036fd860b99144f5",
+      "bytes": 8102
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/hunt-entry.ts",
+      "sha256": "7c53defb4db9f68fc2bfb47de6a64302b8915cdf077fb84b6df69af3142f80fb",
+      "bytes": 10816
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/hunter-presence.ts",
+      "sha256": "4a1432e3971c7efbc0416db554118a3cdd5ea215bff7e9c4ae21d8308fad6f74",
+      "bytes": 7328
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/input.ts",
+      "sha256": "160eb990b87bbbae097a49320a452ae27066dbbfeb3428e5d68461cecc359aa6",
+      "bytes": 18229
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/main.ts",
+      "sha256": "92f650f214b64512a28b734a90c0f223e491eee128892a519c66a49321a86c88",
+      "bytes": 111530
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/style.css",
+      "sha256": "996d5fc00a145ea6750e8dbdf7074f30e0d85e79addc9e9cdcc7f36357eb87ce",
+      "bytes": 52847
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/tactile-hand.css",
+      "sha256": "f52ea7edc3000be93a459e423f0815cba9949c5c8f8af2a47de6c537f0ff83e6",
+      "bytes": 5274
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/tactile-hand.ts",
+      "sha256": "73454b1387bda8177563841014ed12706f1da069ed392dd9d6476c0a64956e1b",
+      "bytes": 21973
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/tool-art.ts",
+      "sha256": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3",
+      "bytes": 2491
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "src/world-rng.ts",
+      "sha256": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+      "bytes": 2465
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "tsconfig.json",
+      "sha256": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c",
+      "bytes": 372
+    },
+    {
+      "kind": "canonicalInputs",
+      "path": "vite.config.ts",
+      "sha256": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75",
+      "bytes": 123
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "CREDITS.md",
+      "sha256": "59bea9fd6f5876e27e1e98cd759c9a8666c662ca88577c0adc7ede183310feaa",
+      "bytes": 3233
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "art/PROVENANCE.json",
+      "sha256": "54cf8a498cdd86967fcd99471df9cd8ddc56b96aa967458883c8328136a977fc",
+      "bytes": 15216
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "art/abbey-courtyard.png",
+      "sha256": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+      "bytes": 3060309
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "art/adversaries-atlas.png",
+      "sha256": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5",
+      "bytes": 1924995
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "art/bone-thrall-v09-r1.png",
+      "sha256": "3697dd4cc89f1550e0688b34bb421939988c90ab78832ce83d53ddb81b372dfd",
+      "bytes": 1610163
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "art/companions-atlas.png",
+      "sha256": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+      "bytes": 2013487
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "art/hound-poses.png",
+      "sha256": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+      "bytes": 1702748
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "art/hunter-marek-v07-r3.png",
+      "sha256": "4492577d3bacc868e9b66da0abf25915bdeaf68bc8f5c31ae8a1d8db485f3c53",
+      "bytes": 2128117
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "art/hunter-portrait.png",
+      "sha256": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+      "bytes": 2514707
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "art/ossuary-crypt-v08-r2.png",
+      "sha256": "ff9818614003e9432ee1868c2f60b336d0b5dfe63f5c01e380832f1e880c4b00",
+      "bytes": 2464574
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "art/pact-seal.png",
+      "sha256": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+      "bytes": 2309728
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "art/tool-vignettes.png",
+      "sha256": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+      "bytes": 2917100
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "art/warleader-poses.png",
+      "sha256": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b",
+      "bytes": 2215085
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "assets/index-B5nL-1Tx.js",
+      "sha256": "b23b6aa214682519c422be2a8f13fca48ebec61c94f2c74b163562f6ff021dff",
+      "bytes": 175632
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "assets/index-CScXCgR1.css",
+      "sha256": "bae7fbce5c7501a21113f38f37221248f1604b8bed60280fbfcdbb18831a308e",
+      "bytes": 77655
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/bind_seal-1.wav",
+      "sha256": "8b0085d42be3e3d69545046349b5fe6b103ea36cb5805fa6deb64463e70d9783",
+      "bytes": 182444
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/bind_seal-2.wav",
+      "sha256": "55078560550519dc0ba3b2c4c8d76ee72be94f4681a6375f6e0f4c5bf4218a26",
+      "bytes": 182444
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/bind_seal-3.wav",
+      "sha256": "34e5d74e7a289717a7a5145dd7cce1ff94f77f6f2843aae5766a2a27b3f05dba",
+      "bytes": 182444
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/camp_settle-1.wav",
+      "sha256": "2599245492ec5ded74090654e88f7aafba69e8fe8e4402038ae31d00c29c504c",
+      "bytes": 153644
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/camp_settle-2.wav",
+      "sha256": "47ea7cf2ab1bd1cbdf5d4f1af50734c2ad0ee7e0b22011b381c5af0770825a90",
+      "bytes": 153644
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/camp_settle-3.wav",
+      "sha256": "72dc7cddbe11cf82d220450a677a0465e544081a6ba48a16f7fe605ab4584947",
+      "bytes": 153644
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/dragon_bite-1.wav",
+      "sha256": "bc6a5f675e26aac49fb67a36ae0e5ecfb84d66d72c6b36f8e960b44586c6fd5f",
+      "bytes": 134444
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/dragon_bite-2.wav",
+      "sha256": "ab4cedbdb08f802c73ed6e6bee0209f4c6741fdb20792f18654cae053bb5ee19",
+      "bytes": 134444
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/dragon_bite-3.wav",
+      "sha256": "ddf44e51d30a2fb307e0ae69455abb41ed43eac61f038d1e303ceac86a399653",
+      "bytes": 134444
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/dragon_breath-1.wav",
+      "sha256": "617666747e860c5ace47d6a64eee6757b82f0cf1f884ee3f87400137b49517fe",
+      "bytes": 364844
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/dragon_breath-2.wav",
+      "sha256": "5da689bc4a5e6bf6568b3d681574304e056719c1b837609897fcbd489384fd94",
+      "bytes": 364844
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/dragon_breath-3.wav",
+      "sha256": "33993012d5833daca49a2642bad4399967fd65ca685dcbe60e246933414b8f56",
+      "bytes": 364844
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/hound_bite-1.wav",
+      "sha256": "bdbeb02f109dff3fbd9d7dfa502c00f3e8ea53a441d6cb07aaa6ca0dc54b843d",
+      "bytes": 92204
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/hound_bite-2.wav",
+      "sha256": "947e438df5cbd647573da7a86991767d1c5b6b09d519f2784593c8f17cc37715",
+      "bytes": 92204
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/hound_bite-3.wav",
+      "sha256": "2544e1b1767154b4a976a1e04b7267ed1186c60f3ab8e32308d4d490084f5c3f",
+      "bytes": 92204
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/hunter_wound-1.wav",
+      "sha256": "e9abd091201a2ca8c3a417c2571266ef9f05d85dde1120c3375ec979de5a2a90",
+      "bytes": 105648
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/hunter_wound-2.wav",
+      "sha256": "25de0a4fdf7b768a219a2f9221671ed36f72f812afe27c8dabb9599551479f1b",
+      "bytes": 105648
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/hunter_wound-3.wav",
+      "sha256": "9de18a01855243f6b01415f25398d9eb77dc66defd9cf7daa76036c7f93a7266",
+      "bytes": 105648
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/neutral_hit-1.wav",
+      "sha256": "ee0f62318fb4154fe5d39bb3c56995154f8e0451668dd37be0c57f357f5128ff",
+      "bytes": 46124
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/neutral_hit-2.wav",
+      "sha256": "1b378068b10eefbdb44b3762355d530f085cccaa75d26c58660007af2fe8f471",
+      "bytes": 46124
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/neutral_hit-3.wav",
+      "sha256": "711ddc0b49ba5666db0b8292225a0a02efefed5a204d26c7c4f2a0be38826f98",
+      "bytes": 46124
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/scour_tool-1.wav",
+      "sha256": "4218c65e41ba2c6845eda070493809cfe5132dc2ffa86bb51e9f83429738dcfc",
+      "bytes": 99884
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/scour_tool-2.wav",
+      "sha256": "15bbace99c04cb185a4ddb4c244983b4f2941f8eda79b12ab7518f2701850121",
+      "bytes": 99884
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/scour_tool-3.wav",
+      "sha256": "6ba61d67f83c11fda30b40962eced74457029bf53c97583ec69035af15c6d670",
+      "bytes": 99884
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/summon_arrival-1.wav",
+      "sha256": "0a42eef1fd55409dc68c1dc3ac917148a310ebfb97078e8d74e992133b9bdb63",
+      "bytes": 240044
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/summon_arrival-2.wav",
+      "sha256": "16106dea7e679a3b455c6cea80374b85c71f5babbcc6cf63258cdeb5f20d871b",
+      "bytes": 240044
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/summon_arrival-3.wav",
+      "sha256": "068fe50e7d86761f71b3bb3459b263df6f1fcc958e767e64a9eb60f782a4e7f5",
+      "bytes": 240044
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/ui_back-1.wav",
+      "sha256": "5c16ed5b7e4d9dfe7413a58f0ede66bfa92c3d4fb2ad1743429b54519e2624b1",
+      "bytes": 25004
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/ui_back-2.wav",
+      "sha256": "62d612a3df5b500aa45b48796e4981479ea1ef881adc810263b4469718248749",
+      "bytes": 25004
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/ui_back-3.wav",
+      "sha256": "3edef85d3583003e0cd4d1ac49b56948104b55c555db9d16497118a769e75ce5",
+      "bytes": 25004
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/ui_confirm-1.wav",
+      "sha256": "94500eed8b648120071064bf3ef0ac7382e4a505f1b85f3e08a9db7a84dab25d",
+      "bytes": 30764
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/ui_confirm-2.wav",
+      "sha256": "55946b44e3998d5900ae8b86edc2fc82af2d1a5be669bf2f3ceeb7143879408a",
+      "bytes": 30764
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/ui_confirm-3.wav",
+      "sha256": "39b1cc1ee9f97f2a9c4118df5d3d64328390d7236ef72ce5f05df51c6770fdf4",
+      "bytes": 30764
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/warlord_iron-1.wav",
+      "sha256": "e9f2017feed9fa88789e53069f34e56ad3fd6d050e95158dbc51505e37e4d0f9",
+      "bytes": 163244
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/warlord_iron-2.wav",
+      "sha256": "84489829dffbac75dfeadea43a2609e83387d658be6b41d6c83fc4002ece7eb9",
+      "bytes": 163244
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/warlord_iron-3.wav",
+      "sha256": "a2d325e9f2c012fced81b4c4e084229e30d17381c954e1ab8454ba0ae952a525",
+      "bytes": 163244
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/wraith_magic-1.wav",
+      "sha256": "2c76ef03a61832b44d852fa1eeb6b15150ebcd4d3c7b33158dea06fc477f71e4",
+      "bytes": 249644
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/wraith_magic-2.wav",
+      "sha256": "edd66253ae5d51e07a761dbd8e3fb9348d0e0066663f4b6756d7ff5a151af0d7",
+      "bytes": 249644
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "audio/wraith_magic-3.wav",
+      "sha256": "adfb375ae2b98e6d38f22f79ba00ceed1c7050b56ea1bb5a537f54e6e9895a24",
+      "bytes": 249644
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "build-provenance.json",
+      "sha256": "c40cdbbac6cbab4b283348e5f00c8983649064322bc7d22deec0dc61eb6e3ab3",
+      "bytes": 8922
+    },
+    {
+      "kind": "canonicalOutputs",
+      "path": "index.html",
+      "sha256": "76cb14f2d139fc0c3572c680df9753523c77a9554661eaefcb3cbdcb9001483d",
+      "bytes": 1655
+    }
+  ],
+  "fullCurrent87Inputs56OutputsExact": true,
+  "sourceDigest": "1d5bf40a5f62c8ce3de1d087956e9190e98b3011cca1b1b7a5488fc8240bd4d3",
+  "outputsDigest": "30ddc549433f7b0b7611e41c0d4fd67e00a3aaa07dd61ba886cc43094f1e5464",
+  "protectedFullStatUnchangedMetadataOnly": {
+    "st_dev": 27,
+    "st_ino": 678628,
+    "st_mode": 33152,
+    "st_nlink": 1,
+    "st_uid": 1000,
+    "st_gid": 1000,
+    "st_size": 1856041104,
+    "st_blocks": 3625096,
+    "st_atime_ns": 1790815508306217040,
+    "st_mtime_ns": 1790815567573263991,
+    "st_ctime_ns": 1790859776790106720
+  },
+  "historical66Source51OutputLedgersPinnedNotNewReplay": true,
+  "previous014cPOSTRetainedAsHistoricalNlink5": true,
+  "rootActualGuard": {
+    "result": {
+      "sha256": "18fd67e8e16f1471d7f3ff1f209a4654b004199ae26750c59e2cab5a6a43fc7f",
+      "bytes": 1229
+    },
+    "admission": {
+      "sha256": "2634117bbdcfdf317533dfc74778ebe203db439393edfbb1729ae2b187089ed0",
+      "bytes": 1071
+    },
+    "points": 5,
+    "samples": 3,
+    "minimumHeadroom": 2198024192,
+    "maximumAggregateDelta": 9797632,
+    "eventsUnchanged": true,
+    "normalRc0": true,
+    "scoped56MiBDiskRecoveryProfileExplicitNotOrdinary64Disk": true,
+    "qualification": "Separately reviewed exact pinned recovery-only56disk floor with64work+512reserve; ordinary build64/native70 thresholds unchanged. Guard finite normal-child-group closure assertion, no exhaustive PID/global/FD/mmap/backend attribution."
+  },
+  "scope": "Only named3 historical independent rebuilt-dist recipients shared. Original privateinode/time/writeisolation lost by specific independent/producer judgment; bytes/paths/provenance/rights/oldnegativefindings/rollbackbytes stay needed. One unresolved alias peranchor has sharedctime/nlink implications. No originalinode rollback or oldinodebackup, no all3atomicity or automaticretry; durableprefix preserved. Holds not OS protection. Currentcleanpush is bound preactionmethod/receipt; no fresh Git inspection by reviewer. Original r3 preactionfailure and atime-onlyrebinding preserved, not silently rewritten. No extra cleanup/gamequality/art/defaultrelease authority.",
+  "reviewerMethodFailure": "Original verify.py SyntaxError unmatched list bracket before any execution/body read/proof write; new verify-r2.py adds missing closing bracket, original script/GUARD log retained unchanged.",
+  "ownVmHWM": 11124736,
+  "CLOSED": "Finite NOATIME|NOFOLLOW regular reads/held O_PATH ancestor validation allFDsclosed; no Git/Node/build/browser/native/images/protectedarchivebody/action/source mutation. NEW proof only.",
+  "utcNs": 1790907553569657863
+}

@@ -1,0 +1,241 @@
+{
+  "decision": "ACCEPT_EXACT_SECOND_THREE_PNG_R4_POST_WITH_RECORDED_ATIME_REBIND_AND_ISOLATION_LOSSES",
+  "actualControls": {
+    "BEFORE.json": {
+      "sha256": "5761ee21863dab366105bda78ba33c894161d6bc9e736abe981f7fb79575c975",
+      "bytes": 25383
+    },
+    "JOURNAL.jsonl": {
+      "sha256": "7e66fae42051f736f440a0472a63f08fb8249eadffb01da1fee1820a0d6ed1c1",
+      "bytes": 2583
+    },
+    "RESULT.json": {
+      "sha256": "a012a0ad664f83289d0f19af1865deaaf0ddfddcbc0a657ca1a6a7e5494b89e2",
+      "bytes": 3641
+    }
+  },
+  "proposal": {
+    "sha256": "45ed75b5078c84e32981ba86b43f62826b00c53278ef8ea2f9888d661b8fd8d5",
+    "bytes": 43511
+  },
+  "beforeGate": {
+    "sha256": "fedeb00dad977acbc770ae9614e5cc8ed350be4855713c9751eb28a22832e4f9",
+    "bytes": 4616
+  },
+  "judgment": {
+    "sha256": "eca6c758ea9633c061570083362e63fdfd236ab1822132e4ce3a7b314533aba6",
+    "bytes": 2446
+  },
+  "push": {
+    "sha256": "6c7fabe80faccd35098e73909c35e4f7134ad671f0ac5c2e021fadf6ebfa619e",
+    "bytes": 502
+  },
+  "method": {
+    "sha256": "5c03ec5135584a2fc83ebff60bb4ee6f52b1451ebf79ae4125d16704530f3adc",
+    "bytes": 8174
+  },
+  "hold": {
+    "sha256": "69a82ce96a594a2b2a5244154de8758b200290ba9de46b40a221a52ba4a0cfb7",
+    "bytes": 15131
+  },
+  "selectedMap": {
+    "sha256": "31a221091d2ffbc6d58dfc1385962c441df9789c66729ef64d20b95208a8fabd",
+    "bytes": 15350
+  },
+  "commit": "90d128934e5a86c66c4fa92d0eebb1906a3f2b37",
+  "knownAliases": [
+    {
+      "anchor": "/workspace/Roguelike-deckbuilder/public/art/abbey-courtyard.png",
+      "observedDistinctPhysicalEntries": 5,
+      "nlink": 6,
+      "unresolvedPhysicalEntries": 1,
+      "fullCurrentAnchorMetadata": {
+        "st_dev": 27,
+        "st_ino": 655363,
+        "st_mode": 33152,
+        "st_nlink": 6,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 3060309,
+        "st_blocks": 5984,
+        "st_atime_ns": 1790906218153661911,
+        "st_mtime_ns": 1790792012410051235,
+        "st_ctime_ns": 1790907461902193283
+      }
+    },
+    {
+      "anchor": "/workspace/Roguelike-deckbuilder/public/art/tool-vignettes.png",
+      "observedDistinctPhysicalEntries": 5,
+      "nlink": 6,
+      "unresolvedPhysicalEntries": 1,
+      "fullCurrentAnchorMetadata": {
+        "st_dev": 27,
+        "st_ino": 657805,
+        "st_mode": 33152,
+        "st_nlink": 6,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2917100,
+        "st_blocks": 5704,
+        "st_atime_ns": 1790906218169661655,
+        "st_mtime_ns": 1790803009868046413,
+        "st_ctime_ns": 1790907461918192995
+      }
+    },
+    {
+      "anchor": "/workspace/Roguelike-deckbuilder/public/art/hunter-portrait.png",
+      "observedDistinctPhysicalEntries": 5,
+      "nlink": 6,
+      "unresolvedPhysicalEntries": 1,
+      "fullCurrentAnchorMetadata": {
+        "st_dev": 27,
+        "st_ino": 655545,
+        "st_mode": 33152,
+        "st_nlink": 6,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2514707,
+        "st_blocks": 4912,
+        "st_atime_ns": 1790906218161661782,
+        "st_mtime_ns": 1790795201706304533,
+        "st_ctime_ns": 1790907461934192707
+      }
+    }
+  ],
+  "initialAtimeOnlyRebinding": [
+    {
+      "path": "/workspace/Roguelike-deckbuilder/public/art/abbey-courtyard.png",
+      "proposalAtime": 1790898151007202045,
+      "initialSnapshotAtime": 1790906218153661911,
+      "onlyAtimeRebound": true
+    },
+    {
+      "path": "/workspace/scratch/audio-host-independent-v08/independent/rebuilt-dist/art/abbey-courtyard.png",
+      "proposalAtime": 1790813785219790792,
+      "initialSnapshotAtime": 1790813785219790792,
+      "onlyAtimeRebound": true
+    },
+    {
+      "path": "/workspace/Roguelike-deckbuilder/public/art/tool-vignettes.png",
+      "proposalAtime": 1790898151170562003,
+      "initialSnapshotAtime": 1790906218169661655,
+      "onlyAtimeRebound": true
+    },
+    {
+      "path": "/workspace/scratch/audio-host-independent-v08/independent/rebuilt-dist/art/tool-vignettes.png",
+      "proposalAtime": 1790813785255858420,
+      "initialSnapshotAtime": 1790813785255858420,
+      "onlyAtimeRebound": true
+    },
+    {
+      "path": "/workspace/Roguelike-deckbuilder/public/art/hunter-portrait.png",
+      "proposalAtime": 1790898151106047514,
+      "initialSnapshotAtime": 1790906218161661782,
+      "onlyAtimeRebound": true
+    },
+    {
+      "path": "/workspace/scratch/audio-host-independent-v08/independent/rebuilt-dist/art/hunter-portrait.png",
+      "proposalAtime": 1790813785250913824,
+      "initialSnapshotAtime": 1790813785250913824,
+      "onlyAtimeRebound": true
+    }
+  ],
+  "allNineJournalEntriesOrderedExactly": true,
+  "allTempAbsent": true,
+  "allPathsExactBodiesRetained": true,
+  "window": {
+    "gross": 8499200,
+    "beforeFree": 64778240,
+    "afterBeforeResultWrite": 73240576,
+    "netBeforeResultWrite": 8462336,
+    "differenceFromGross": 36864,
+    "qualification": "Finite observed transaction window; proofs/publication/other actors consume capacity afterward. Not lasting free-space or exclusive actor attribution."
+  },
+  "fullCurrent87Inputs56OutputsExact": true,
+  "sourceDigest": "1d5bf40a5f62c8ce3de1d087956e9190e98b3011cca1b1b7a5488fc8240bd4d3",
+  "outputsDigest": "30ddc549433f7b0b7611e41c0d4fd67e00a3aaa07dd61ba886cc43094f1e5464",
+  "protectedFullStatUnchangedMetadataOnly": {
+    "st_dev": 27,
+    "st_ino": 678628,
+    "st_mode": 33152,
+    "st_nlink": 1,
+    "st_uid": 1000,
+    "st_gid": 1000,
+    "st_size": 1856041104,
+    "st_blocks": 3625096,
+    "st_atime_ns": 1790815508306217040,
+    "st_mtime_ns": 1790815567573263991,
+    "st_ctime_ns": 1790859776790106720
+  },
+  "historical66Source51OutputLedgersPinnedNotNewReplay": true,
+  "previous014cPOSTRetainedAsHistoricalNlink5": true,
+  "rootActualGuard": {
+    "result": {
+      "sha256": "18fd67e8e16f1471d7f3ff1f209a4654b004199ae26750c59e2cab5a6a43fc7f",
+      "bytes": 1229
+    },
+    "admission": {
+      "sha256": "2634117bbdcfdf317533dfc74778ebe203db439393edfbb1729ae2b187089ed0",
+      "bytes": 1071
+    },
+    "points": 5,
+    "samples": 3,
+    "minimumHeadroom": 2198024192,
+    "maximumAggregateDelta": 9797632,
+    "eventsUnchanged": true,
+    "normalRc0": true,
+    "scoped56MiBDiskRecoveryProfileExplicitNotOrdinary64Disk": true,
+    "qualification": "Separately reviewed exact pinned recovery-only56disk floor with64work+512reserve; ordinary build64/native70 thresholds unchanged. Guard finite normal-child-group closure assertion, no exhaustive PID/global/FD/mmap/backend attribution."
+  },
+  "scope": "Only named3 historical independent rebuilt-dist recipients shared. Original privateinode/time/writeisolation lost by specific independent/producer judgment; bytes/paths/provenance/rights/oldnegativefindings/rollbackbytes stay needed. One unresolved alias peranchor has sharedctime/nlink implications. No originalinode rollback or oldinodebackup, no all3atomicity or automaticretry; durableprefix preserved. Holds not OS protection. Currentcleanpush is bound preactionmethod/receipt; no fresh Git inspection by reviewer. Original r3 preactionfailure and atime-onlyrebinding preserved, not silently rewritten. No extra cleanup/gamequality/art/defaultrelease authority.",
+  "reviewerMethodFailure": "Original verify.py SyntaxError unmatched list bracket before any execution/body read/proof write; new verify-r2.py adds missing closing bracket, original script/GUARD log retained unchanged.",
+  "proof": {
+    "sha256": "be4b6175aba190eae90493e1fc267bdc2637306069d8185e468863bba032a956",
+    "bytes": 39651
+  },
+  "currentThreeBodiesStatsXattrsExact": true,
+  "preservedRootR3PreactionFailure": {
+    "result": {
+      "sha256": "fdcfcc463bd7f21116a07cae9ca9a06c92839667b204a2fb5669c115a0d1982d",
+      "bytes": 1046
+    },
+    "executionLog": {
+      "sha256": "7978dba408ec8aa86b606b059330cefe4cd22fa3f8928ca46d76eef4a696d0f6",
+      "bytes": 624
+    },
+    "rc": 1
+  },
+  "noNewActionCleanupOrGameArtQualityClaim": true,
+  "reviewerGuard64Work512ReserveDisk64": {
+    "result": {
+      "sha256": "79ee60d7ff5a6f2ac8fd6423f07117b12f686b6dd1cff4f7d768c0ef3291ed5d",
+      "bytes": 1046
+    },
+    "originalFailedGuard": {
+      "sha256": "72ce27f61eb36dd9291f571420763dd5315ace9983490bab8e20973296c05464",
+      "bytes": 858
+    },
+    "points": 4,
+    "minHeadroom": 2209570816,
+    "maxAggregateDelta": 6524928,
+    "eventsUnchanged": true,
+    "ownVmHWM": 11124736
+  },
+  "seal64Work512Reserve": {
+    "initial": {
+      "current": 14963159040,
+      "headroom": 2216710144,
+      "free": 73117696,
+      "utcNs": 1790907600833669543
+    },
+    "finalBeforeSmallSealWrites": {
+      "current": 14963421184,
+      "headroom": 2216448000,
+      "free": 73113600,
+      "utcNs": 1790907600836939331
+    },
+    "eventsUnchanged": true,
+    "ownVmHWM": 10194944
+  },
+  "CLOSED": "All finite readers/guards/FDs closed; direct sealer launches no child. No exhaustive global closure/actor attribution."
+}

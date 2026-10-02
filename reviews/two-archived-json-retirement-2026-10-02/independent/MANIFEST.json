@@ -1,0 +1,114 @@
+{
+  "files": [
+    {
+      "relativePath": "GATE.json",
+      "bytes": 4386,
+      "sha256": "9f045cc3007cb2eb4a17e338816d3da346a5f4672722c7f706867ef43e659678"
+    },
+    {
+      "relativePath": "METHOD-NOTES.json",
+      "bytes": 868,
+      "sha256": "58feef44eefc65932d72ff2a74994ef91f9fc4611042de70b693a81c0f6f75d9"
+    },
+    {
+      "relativePath": "PROOF.json",
+      "bytes": 9980,
+      "sha256": "3e69564e191df37a738f6d857ab0e839334c7d4b7054f214c50c1e0e34207571"
+    },
+    {
+      "relativePath": "REVIEW.md",
+      "bytes": 4137,
+      "sha256": "3a2bea931f101a37fea025c969c78073bae3f3c2d5d57b61752c5b5cfa81504e"
+    },
+    {
+      "relativePath": "SOURCE-DECISION.json",
+      "bytes": 3779,
+      "sha256": "362ddad13c81f4b9eb3e5009f4f5268a977944c604e32b1843fef0cea2b26363"
+    },
+    {
+      "relativePath": "proof-guard-r1/ADMISSION.json",
+      "bytes": 422,
+      "sha256": "eab1bf13159df0a3640e5872e2deb4a28670bb16e457c48b6dd89ab42d016690"
+    },
+    {
+      "relativePath": "proof-guard-r1/EXECUTION.log",
+      "bytes": 7639,
+      "sha256": "ddbe67e2fb98ea0b0cfe4f8ee03765dfe88588506d9787665807dcb553b3b865"
+    },
+    {
+      "relativePath": "proof-guard-r1/RESULT.json",
+      "bytes": 858,
+      "sha256": "7f7be6a5fa52f34f8c497712f8aa5b0e976b772305e816d3d6938ac5f8ad1d2d"
+    },
+    {
+      "relativePath": "seal-guard-r1/ADMISSION.json",
+      "bytes": 422,
+      "sha256": "53dd7857012e4909c2f0863f27e381af8714ed7e296d1b3ad574e2315163eafe"
+    },
+    {
+      "relativePath": "seal-guard-r1/EXECUTION.log",
+      "bytes": 485,
+      "sha256": "b9f107e1aba0a80dcca3717704365173481b8a99154591578df552bc3df0d50f"
+    },
+    {
+      "relativePath": "seal-guard-r1/RESULT.json",
+      "bytes": 853,
+      "sha256": "d214b6ad52b8aff606619bdad1872d3ca402fcad9ba003ea14f771f336eab698"
+    },
+    {
+      "relativePath": "source-guard-r2/ADMISSION.json",
+      "bytes": 422,
+      "sha256": "28580211813a1129735a851707de8703570692dc35ac75821e2acc0569672156"
+    },
+    {
+      "relativePath": "source-guard-r2/EXECUTION.log",
+      "bytes": 31099,
+      "sha256": "e0cb366dae154eb62875a9e4f056e0834d23bc5c1c37af9bf319bac4c56ef628"
+    },
+    {
+      "relativePath": "source-guard-r2/RESULT.json",
+      "bytes": 853,
+      "sha256": "8683c561fe656f3bfa333e829ebf0c1e92130e7b287cd8fe6ccd72cbbcfbbc04"
+    }
+  ],
+  "scope": "Exact new96KiB supplement; prior author/capsule/review/PNG packets not copied wholesale here, retained needed at original/published paths. All prior failures preserved.",
+  "sourceGuards": [
+    {
+      "name": "source-guard-r2",
+      "normalRc": 0,
+      "workBytes": 67108864,
+      "reserveBytes": 536870912,
+      "initialFreeBytes": 71184384,
+      "samples": 1,
+      "maxSampledDeltaBytes": 0,
+      "minSampledHeadroomBytes": 2213437440,
+      "eventsUnchanged": true,
+      "reportedClosure": "observed cgroup delta, not exclusive process attribution; all child group processes closed"
+    },
+    {
+      "name": "proof-guard-r1",
+      "normalRc": 0,
+      "workBytes": 67108864,
+      "reserveBytes": 536870912,
+      "initialFreeBytes": 71139328,
+      "samples": 1,
+      "maxSampledDeltaBytes": 262144,
+      "minSampledHeadroomBytes": 2213052416,
+      "eventsUnchanged": true,
+      "reportedClosure": "observed cgroup delta, not exclusive process attribution; all child group processes closed"
+    },
+    {
+      "name": "seal-guard-r1",
+      "normalRc": 0,
+      "workBytes": 67108864,
+      "reserveBytes": 536870912,
+      "initialFreeBytes": 71081984,
+      "samples": 1,
+      "maxSampledDeltaBytes": 0,
+      "minSampledHeadroomBytes": 2212986880,
+      "eventsUnchanged": true,
+      "reportedClosure": "observed cgroup delta, not exclusive process attribution; all child group processes closed"
+    }
+  ],
+  "postGuardReadbackQualification": "Finite unmetered read/hash/manifest+closure writer after all own guards closed; ownRSS measured separately, not a guarded cgroup claim."
+}
