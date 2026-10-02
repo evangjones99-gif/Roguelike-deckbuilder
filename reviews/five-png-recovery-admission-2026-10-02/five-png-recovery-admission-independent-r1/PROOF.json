@@ -1,0 +1,342 @@
+{
+  "newSourcePins": [
+    {
+      "path": "/workspace/scratch/share-five-retained-pngs-root-r2.py",
+      "bytes": 8272,
+      "sha256": "92796922f14a22c4145b572cf0a9c8b4913b269a650fbb156e1289104cf6957e"
+    },
+    {
+      "path": "/workspace/scratch/judge-five-png-sharing-root-r2.py",
+      "bytes": 3840,
+      "sha256": "6df74d829adfea1af04138be52caed7d400df17a8bfbca9b967240544e9dab8f"
+    },
+    {
+      "path": "/workspace/scratch/publish-five-png-recovery-root-r1.py",
+      "bytes": 4127,
+      "sha256": "a0cc8a898cc98d8789f5fce777e5f7f3f4f69cf2b6901cd537ea239cc924d8b7"
+    },
+    {
+      "path": "/workspace/scratch/guard-source-recovery-56m-root-r2.py",
+      "bytes": 2826,
+      "sha256": "c2b24f58d6abbbe0449fc49515e6bb9eeaf0997bd287642d87a3a1754388fff3"
+    }
+  ],
+  "priorActionSource": {
+    "path": "/workspace/scratch/share-five-retained-pngs-root-r1.py",
+    "bytes": 8272,
+    "sha256": "55cc724ef39fd38ef1c56bedcbf4c7a5e870e3c3f119dbe8a478c234658e5e97"
+  },
+  "mechanicalActionDiff": [
+    {
+      "line": 64,
+      "before": "initial_free=os.statvfs(R).f_bavail*os.statvfs(R).f_frsize;assert initial_free>=64*1048576",
+      "after": "initial_free=os.statvfs(R).f_bavail*os.statvfs(R).f_frsize;assert initial_free>=56*1048576"
+    },
+    {
+      "line": 89,
+      "before": "        assert absent(bf,bp.name+'.root-share-five-r1.tmp')",
+      "after": "        assert absent(bf,bp.name+'.root-share-five-r2.tmp')"
+    },
+    {
+      "line": 90,
+      "before": "    P=S/'five-retained-png-sharing-actual-root-r1';P.mkdir();syncdir(P.parent)",
+      "after": "    P=S/'five-retained-png-sharing-actual-root-r2';P.mkdir();syncdir(P.parent)"
+    },
+    {
+      "line": 97,
+      "before": "        tmp=bp.name+'.root-share-five-r1.tmp'",
+      "after": "        tmp=bp.name+'.root-share-five-r2.tmp'"
+    },
+    {
+      "line": 112,
+      "before": "    result={'normal':True,'pairs':[{'candidate':str(bp),'canonical':str(ap),'sha256':x['anchor']['sha256'],'candidateMetadata':meta(bp),'canonicalMetadata':meta(ap)} for x,af,bf,ap,bp in handles],'grossAllocationBytes':sum(x['candidate']['fstat']['st_blocks']*512 for x in pairs),'windowFreeBefore':initial_free,'windowFreeAfterBeforeResultWrite':final_free,'netWindowGainBytes':final_free-initial_free,'allPathsBodiesKept':True,'allTempAbsent':all(absent(bf,bp.name+'.root-share-five-r1.tmp') for x,af,bf,ap,bp in handles),'losses':'Five private inodes/time/write isolation lost; each anchor nlink increases exactly one and ctime changes. Known and unresolved aliases remain qualified by the independent proposal. No original-inode backup or all-five atomicity; durable prefix only. Every byte/path/provenance remains needed.','noOtherActionAuthorized':True}",
+      "after": "    result={'normal':True,'pairs':[{'candidate':str(bp),'canonical':str(ap),'sha256':x['anchor']['sha256'],'candidateMetadata':meta(bp),'canonicalMetadata':meta(ap)} for x,af,bf,ap,bp in handles],'grossAllocationBytes':sum(x['candidate']['fstat']['st_blocks']*512 for x in pairs),'windowFreeBefore':initial_free,'windowFreeAfterBeforeResultWrite':final_free,'netWindowGainBytes':final_free-initial_free,'allPathsBodiesKept':True,'allTempAbsent':all(absent(bf,bp.name+'.root-share-five-r2.tmp') for x,af,bf,ap,bp in handles),'losses':'Five private inodes/time/write isolation lost; each anchor nlink increases exactly one and ctime changes. Known and unresolved aliases remain qualified by the independent proposal. No original-inode backup or all-five atomicity; durable prefix only. Every byte/path/provenance remains needed.','noOtherActionAuthorized':True}"
+    }
+  ],
+  "proposal": {
+    "path": "/workspace/scratch/five-retained-png-recovery-proposal-r1/PROPOSAL.json",
+    "bytes": 52883,
+    "sha256": "b4e8803f2411e932c994b01aa50152fee4b4bd9d2c8757258ae7c686b75745bc"
+  },
+  "priorGate": {
+    "path": "/workspace/scratch/next-five-png-sharing-independent-r1/GATE.json",
+    "bytes": 4103,
+    "sha256": "c5a2f58872df98a604589d46a0ccb2caf9a1c88520831b4b176eb6d0727fa8df"
+  },
+  "priorTenBodyProof": {
+    "path": "/workspace/scratch/next-five-png-sharing-independent-r1/PROOF.json",
+    "bytes": 38587,
+    "sha256": "018f57a381c45ca8e09a3da375a88b48f6134599554f1fbc6ca22ba4bef637b3"
+  },
+  "currentHold": {
+    "path": "/workspace/Roguelike-deckbuilder/AGENTS.md",
+    "bytes": 15909,
+    "sha256": "b674fd4456ad4332c97ad4538fbf8c008842c708964a16e1acde77790bea0906"
+  },
+  "selectedMap": {
+    "path": "/workspace/scratch/target-wait-default-promotion-root-r1/RESULT.json",
+    "bytes": 15350,
+    "sha256": "31a221091d2ffbc6d58dfc1385962c441df9789c66729ef64d20b95208a8fabd"
+  },
+  "priorConfirmedPush": {
+    "path": "/workspace/scratch/five-png-proposal-push-root-r1/PUSH-CONFIRMED.json",
+    "bytes": 503,
+    "sha256": "7be92c57b9a030b4fded77bc56dbfc45c5a4770c8a2397185aa3aa6e6a0e20a7"
+  },
+  "priorConfirmedPushFields": {
+    "commit": "1ea32dc666c5d4c33da1824bf5b9bf5f027ebda1",
+    "remote": "1ea32dc666c5d4c33da1824bf5b9bf5f027ebda1",
+    "confirmed": true,
+    "clean": true,
+    "gateSHA256": "c5a2f58872df98a604589d46a0ccb2caf9a1c88520831b4b176eb6d0727fa8df",
+    "methodSHA256": "55cc724ef39fd38ef1c56bedcbf4c7a5e870e3c3f119dbe8a478c234658e5e97",
+    "holdSHA256": "b674fd4456ad4332c97ad4538fbf8c008842c708964a16e1acde77790bea0906",
+    "copiedBytes": 258486,
+    "noStorageAction": true,
+    "durableReceiptFileAndParentFsync": true
+  },
+  "currentBranchRef": {
+    "path": "/workspace/Roguelike-deckbuilder/.git/refs/heads/codex/lanternbound-production",
+    "bytes": 41,
+    "sha256": "fb1c62984fceb4a3807ea654db21c7938503290f13f977ea1ac340fa58be9650"
+  },
+  "normalProducerRefusal": {
+    "path": "/workspace/scratch/five-png-producer-guard-root-r1/ADMISSION.json",
+    "bytes": 535,
+    "sha256": "0f6e680602fce45486e79bd9c2449512675c4e8ed74d4bf5ec7e23cf9de3f78c"
+  },
+  "refusalFields": {
+    "initial": {
+      "time_ns": 1790910576462485431,
+      "current": 14983790592,
+      "maximum": 17179869184,
+      "headroom": 2196078592,
+      "free": 66977792
+    },
+    "work": 67108864,
+    "reserve": 536870912,
+    "command": [
+      "python",
+      "/workspace/scratch/judge-five-png-sharing-root-r1.py",
+      "c5a2f58872df98a604589d46a0ccb2caf9a1c88520831b4b176eb6d0727fa8df"
+    ],
+    "stage": "/workspace/Roguelike-deckbuilder",
+    "admitted": false,
+    "memory_events_before": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n"
+  },
+  "noProducerOrActionArtifactsObserved": true,
+  "freshTenMetadataOnly": [
+    {
+      "path": "/workspace/Roguelike-deckbuilder/public/art/adversaries-atlas.png",
+      "kind": "anchor",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 655365,
+        "st_mode": 33152,
+        "st_nlink": 4,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 1924995,
+        "st_blocks": 3760,
+        "st_atime_ns": 1790898151023108096,
+        "st_mtime_ns": 1790792012413608633,
+        "st_ctime_ns": 1790898151019108163
+      },
+      "xattrs": {},
+      "bytesNotRead": true,
+      "initialAtimeChanged": false
+    },
+    {
+      "path": "/workspace/scratch/audio-host-independent-v08/candidate/dist/art/adversaries-atlas.png",
+      "kind": "candidate",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 544728,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 1924995,
+        "st_blocks": 3760,
+        "st_atime_ns": 1790813846434302402,
+        "st_mtime_ns": 1790813692133713274,
+        "st_ctime_ns": 1790813692133713274
+      },
+      "xattrs": {},
+      "bytesNotRead": true,
+      "initialAtimeChanged": false
+    },
+    {
+      "path": "/workspace/Roguelike-deckbuilder/public/art/companions-atlas.png",
+      "kind": "anchor",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 655364,
+        "st_mode": 33152,
+        "st_nlink": 4,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2013487,
+        "st_blocks": 3936,
+        "st_atime_ns": 1790898151054482191,
+        "st_mtime_ns": 1790792012411691080,
+        "st_ctime_ns": 1790898151054147960
+      },
+      "xattrs": {},
+      "bytesNotRead": true,
+      "initialAtimeChanged": false
+    },
+    {
+      "path": "/workspace/scratch/audio-host-independent-v08/candidate/dist/art/companions-atlas.png",
+      "kind": "candidate",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 544729,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2013487,
+        "st_blocks": 3936,
+        "st_atime_ns": 1790813846430302465,
+        "st_mtime_ns": 1790813692137868480,
+        "st_ctime_ns": 1790813692137868480
+      },
+      "xattrs": {},
+      "bytesNotRead": true,
+      "initialAtimeChanged": false
+    },
+    {
+      "path": "/workspace/Roguelike-deckbuilder/public/art/hound-poses.png",
+      "kind": "anchor",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 655782,
+        "st_mode": 33152,
+        "st_nlink": 4,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 1702748,
+        "st_blocks": 3328,
+        "st_atime_ns": 1790898151069910075,
+        "st_mtime_ns": 1790796824644099871,
+        "st_ctime_ns": 1790898151069506361
+      },
+      "xattrs": {},
+      "bytesNotRead": true,
+      "initialAtimeChanged": false
+    },
+    {
+      "path": "/workspace/scratch/audio-host-independent-v08/candidate/dist/art/hound-poses.png",
+      "kind": "candidate",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 544730,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 1702748,
+        "st_blocks": 3328,
+        "st_atime_ns": 1790813846434302402,
+        "st_mtime_ns": 1790813692140166121,
+        "st_ctime_ns": 1790813692140166121
+      },
+      "xattrs": {},
+      "bytesNotRead": true,
+      "initialAtimeChanged": false
+    },
+    {
+      "path": "/workspace/Roguelike-deckbuilder/public/art/pact-seal.png",
+      "kind": "anchor",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 655369,
+        "st_mode": 33152,
+        "st_nlink": 3,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2309728,
+        "st_blocks": 4512,
+        "st_atime_ns": 1790898151145175915,
+        "st_mtime_ns": 1790792304269119191,
+        "st_ctime_ns": 1790898151143106078
+      },
+      "xattrs": {},
+      "bytesNotRead": true,
+      "initialAtimeChanged": false
+    },
+    {
+      "path": "/workspace/scratch/audio-host-independent-v08/candidate/dist/art/pact-seal.png",
+      "kind": "candidate",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 544732,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2309728,
+        "st_blocks": 4512,
+        "st_atime_ns": 1790813980700175552,
+        "st_mtime_ns": 1790813692144512898,
+        "st_ctime_ns": 1790813692144512898
+      },
+      "xattrs": {},
+      "bytesNotRead": true,
+      "initialAtimeChanged": false
+    },
+    {
+      "path": "/workspace/Roguelike-deckbuilder/public/art/warleader-poses.png",
+      "kind": "anchor",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 657806,
+        "st_mode": 33152,
+        "st_nlink": 4,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2215085,
+        "st_blocks": 4328,
+        "st_atime_ns": 1790898151190891584,
+        "st_mtime_ns": 1790803195563629229,
+        "st_ctime_ns": 1790898151190262178
+      },
+      "xattrs": {},
+      "bytesNotRead": true,
+      "initialAtimeChanged": false
+    },
+    {
+      "path": "/workspace/scratch/audio-host-independent-v08/candidate/dist/art/warleader-poses.png",
+      "kind": "candidate",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 544734,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2215085,
+        "st_blocks": 4328,
+        "st_atime_ns": 1790813847122509457,
+        "st_mtime_ns": 1790813692151050910,
+        "st_ctime_ns": 1790813692151050910
+      },
+      "xattrs": {},
+      "bytesNotRead": true,
+      "initialAtimeChanged": false
+    }
+  ],
+  "publisherOtherCopiedBodyBytes": 16774,
+  "publisherConservativeCopiedBodyUpperBound": 82310,
+  "publisherCopiedBodyCapBytes": 131072,
+  "transactionLogicalModeledCapBytes": 65536,
+  "transactionQualification": "Five ledger leaf pairs and proposalMetadata snapshots plus finite15 journal rows/temp filenames/results modeled below64KiB; no filesystem/Git/command log or inode allocation overhead universal bound. No new private-inode backup.",
+  "ownMaxRSSBytes": 12189696,
+  "freeAtProofEndBeforeProofWrite": 66912256,
+  "resourceProfile": "Explicitly unmetered finite bootstrap source/AST/diff/metadata/read/seal review only. Not normal64 guard compliance and not global56 workload admission.",
+  "guardQualification": "Filename filter is not exact allowlist or OS scope. Only external sole-writer Root and exact pinned three invocations constrain this exception.",
+  "allInputFDsClosed": true,
+  "mediaBytesNotRehashed": true,
+  "noGitOrActionExecuted": true
+}

@@ -1,0 +1,8 @@
+First finite unmetered verify.py invocation exited1 before media metadata processing or any output proof.
+Traceback (most recent call last):
+  File "/workspace/scratch/five-png-recovery-admission-independent-r1/verify.py", line 19, in <module>
+    q,b=pin(S/n,True);assert q['sha256']==h;ast.parse(b);pins.append(q);bodies[n]=b.decode()
+                             ^^^^^^^^^^^^^^
+AssertionError
+
+The publisher task message concatenated SHA and bytes as ...b74127. Reviewer parsed a65-character expected pin ending...b74. A fresh finite O_NOATIME read found4127B and exact64-character SHA a0cc8a898cc98d8789f5fce777e5f7f3f4f69cf2b6901cd537ea239cc924d8b7. The other three source pins matched. No source mutation, guard, media body read, Git, publisher, judgment or action occurred. Failed verify.py remains unchanged; fresh verify-r2.py corrects only this expected SHA.

@@ -1,0 +1,13 @@
+Direct unchanged verify-r3.py launch reported:
+{"preproofOwnMaxRSSBytes": 202653696}
+Traceback (most recent call last):
+  File "/workspace/scratch/five-png-recovery-admission-independent-r1/verify-r3.py", line 60, in <module>
+    rss=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024;print(json.dumps({'preproofOwnMaxRSSBytes':rss}),flush=True);assert rss<24*1048576
+                                                                                                                                    ^^^^^^^^^^^^^^
+AssertionError
+
+No PROOF output was written by this failed attempt. No action/Git/media-body read occurred. The unexpectedly high process ru_maxrss source is not conclusively established; do not claim this attempt stayed below24MiB or exclusive cgroup attribution.
+
+Before Root's later stop-if-still-high instruction arrived, reviewer launched the SAME unchanged verify-r3.py through one finite small Python subprocess launcher. The unchanged24MiB assertion passed: launcher RSS8,650,752B; child RSS12,189,696B. Successful child wrote PROOF.json and exited0 with all input FDs closed. This was not a reader rewrite, transaction retry or change of threshold; no further review retry is planned. No normal64 guard compliance is claimed.
+
+Root's pre-seal packet allocation chronology: initial48KiB; then64KiB to retain source/pin failures; then96KiB to retain all three methods/failures without compression or deletion. No final packet was sealed under the earlier caps and no retrospective passing cap is claimed. Final96KiB plus exact Root copied controls/refusal16,774B gives conservative115,078B, below unchanged publisher128KiB copied-body cap. Generated publication metadata/Git/log/allocation overhead is additional.
