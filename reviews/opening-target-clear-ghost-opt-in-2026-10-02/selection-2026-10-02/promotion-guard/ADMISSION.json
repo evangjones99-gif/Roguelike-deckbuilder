@@ -1,0 +1,22 @@
+{
+  "initial": {
+    "time_ns": 1790917067662034914,
+    "current": 14979887104,
+    "maximum": 17179869184,
+    "headroom": 2199982080,
+    "free": 77037568
+  },
+  "work": 268435456,
+  "reserve": 536870912,
+  "command": [
+    "python",
+    "/workspace/scratch/target-clear-ghost-publish-author-r1/promote.py",
+    "--select-tested-opt-in",
+    "--coverage-gate",
+    "/workspace/scratch/target-clear-ghost-preservation-independent-r1/GATE.json",
+    "6ec96568886fbeede7c9abacd6365edffa9cb4a7401c9d143ca50a281fd6ac65"
+  ],
+  "stage": "/workspace/Roguelike-deckbuilder",
+  "admitted": true,
+  "memory_events_before": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

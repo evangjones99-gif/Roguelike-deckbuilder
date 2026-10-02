@@ -39,6 +39,7 @@ const VERSION = packageInfo.version;
 const BUILD_ID = import.meta.env.VITE_BUILD_ID || 'development';
 const HUNTER_NAME = 'Marek Voss';
 const targetWaitCue = new URLSearchParams(window.location.search).get('targetWaitCue') !== '0';
+const targetClearGhost = new URLSearchParams(window.location.search).get('targetClearGhost') === '1';
 type ArenaPresentation = ReturnType<typeof createArena> & { busyMs?: () => number; waitForPresentation?: () => Promise<void>; cancelPresentation?: () => void };
 let settlingCombat = false;
 // Automatic focus restoration is not a request to preview the next card.
@@ -1125,6 +1126,78 @@ function tactileBlockedTargetPreview(source: TactileCardSource, point: TactilePo
   // This observes an unavailable owned control, not a cause or a queued play.
   return { legal: false, label: `${unitLabel(target)} is not ready. Hold the card, or return to hand.` };
 }
+function tactileGhostObstacle(source: TactileCardSource, point: TactilePoint) {
+  if (!targetClearGhost || !tactileCurrent(source) || disposed || title || settlingCombat
+    || state.phase !== 'battle' || document.hidden || $<HTMLDialogElement>('dialog').open) return null;
+  const under = document.elementFromPoint(point.x, point.y);
+  if (!under || under.closest('#dialog, #dock, .battle-guidance, [data-ui="inspect-unit"]')) return null;
+  const button = under.closest<HTMLButtonElement>('.field-unit[data-unit]');
+  if (!button?.closest('#field-controls')) return null;
+  const uid = button.dataset.unit;
+  if (!uid || button.closest<HTMLElement>('[data-actor]')?.dataset.actor !== uid) return null;
+  const region = arena?.getUnitRegions().find(candidate => candidate.uid === uid);
+  if (!region || region.dead || region.departing || region.canonicalIndex === null) return null;
+  const units = region.side === 'ally' ? state.allies : state.enemies;
+  const target = units[region.canonicalIndex];
+  if (!target || target.uid !== uid || target.hp <= 0
+    || !actions().some(action => action.type === 'play' && action.index === source.handIndex && action.target === uid)) return null;
+  const canvas = document.getElementById('arena') as HTMLCanvasElement | null;
+  const viewport = arena?.getUnitViewport();
+  if (!canvas || canvas.hidden || !viewport?.canvasAvailable || viewport.width <= 0 || viewport.height <= 0) return null;
+  // Occupied DOM footprints only: do not reserve the entire field or dock.
+  const protectedRects: { key: string; left: number; top: number; width: number; height: number }[] = [];
+  const observe = (element: Element | null, key: string) => {
+    if (!element?.isConnected || element.closest('[hidden]')) return null;
+    const style = getComputedStyle(element);
+    if (style.display === 'none' || style.visibility === 'hidden' || style.visibility === 'collapse' || Number(style.opacity) === 0) return null;
+    const bounds = element.getBoundingClientRect();
+    const left = Math.max(0, bounds.left), top = Math.max(0, bounds.top);
+    const right = Math.min(window.innerWidth, bounds.right), bottom = Math.min(window.innerHeight, bounds.bottom);
+    if (![left, top, right, bottom].every(Number.isFinite) || right <= left || bottom <= top) return null;
+    const rectangle = Object.freeze({ key, left, top, width: right - left, height: bottom - top });
+    protectedRects.push(rectangle);
+    return rectangle;
+  };
+  const targetRects: typeof protectedRects = [];
+  let targetButtonObserved = false;
+  for (const actor of document.querySelectorAll<HTMLElement>('#field-controls .field-actor')) {
+    const actorUid = actor.dataset.actor;
+    const actorButton = actor.querySelector<HTMLButtonElement>('.field-unit[data-unit]');
+    if (!actorUid || actorButton?.dataset.unit !== actorUid
+      || ![...state.allies, ...state.enemies].some(unit => unit.uid === actorUid && unit.hp > 0)) continue;
+    for (const [part, selector] of [
+      ['button', '.field-unit[data-unit]'], ['name', '.field-nameplate'], ['health', '.health-track'], ['stats', '.field-stat-line'],
+      ['status', '.field-ready'], ['intent', '.field-intent'],
+    ] as const) {
+      const element = actor.querySelector(selector);
+      // Empty intent/status placeholders contain no occupied readout.
+      if ((part === 'status' || part === 'intent') && element && !element.textContent?.trim() && element.childElementCount === 0) continue;
+      const rectangle = observe(element, 'actor:' + actorUid + ':' + part);
+      if (rectangle && actorUid === uid) {
+        targetRects.push(rectangle);
+        if (part === 'button' && element === button) targetButtonObserved = true;
+      }
+    }
+  }
+  if (!targetButtonObserved || targetRects.length === 0) return null;
+  for (const selector of [
+    '#hud .hunter-icon', '#hud .hunter-health', '#hud .block-count',
+    '#hud .journey-hud > .eyebrow', '#hud .journey-hud > strong', '#hud .resource',
+    '.battle-guidance > span', '.battle-guidance > button',
+    '#dock .hand-heading > .eyebrow', '#dock .first-binding-cue', '#dock .pile-buttons > button',
+    '#dock .hand-cards > .game-card', '#dock .hand-cards > .empty-hand',
+    '#dock .energy-orb', '#dock [data-action="endTurn"]', '#dock .keyboard-hint',
+  ]) {
+    let index = 0;
+    for (const element of document.querySelectorAll(selector)) observe(element, 'control:' + selector + ':' + index++);
+  }
+  const left = Math.min(...targetRects.map(rectangle => rectangle.left));
+  const top = Math.min(...targetRects.map(rectangle => rectangle.top));
+  const right = Math.max(...targetRects.map(rectangle => rectangle.left + rectangle.width));
+  const bottom = Math.max(...targetRects.map(rectangle => rectangle.top + rectangle.height));
+  return Object.freeze({ key: uid, left, top, width: right - left, height: bottom - top,
+    others: Object.freeze(protectedRects) });
+}
 function tactilePreview(source: TactileCardSource, destination: TactileDestination | null, point: TactilePoint) {
   const action = tactileAction(source, destination);
   if (!action && !destination) {
@@ -1175,6 +1248,7 @@ function attachRootTactileHand() {
     },
     isCurrent: tactileCurrent, isInteractionAllowed: tactileAllowed,
     resolveDestination: tactileDestination, getPreview: tactilePreview, onPreview: setTactilePreview,
+    getGhostObstacle: tactileGhostObstacle,
     commit(source, destination) {
       const action = tactileAction(source, destination); if (!action) return false;
       const before = state;

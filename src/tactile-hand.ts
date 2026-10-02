@@ -1,3 +1,4 @@
+import { placeGhostBesideTarget, type GhostObstacle, type GhostSide } from './tactile-ghost-placement';
 /** Original local card presentation. Root owns identity, legality and reducer.
  * No engine/storage/audio/controller access; no device vibration or art request. */
 export interface TactileCardSource {
@@ -23,6 +24,9 @@ export interface TactileHandHost {
    * This lookup and getPreview must never dispatch, select or mutate rules. */
   resolveDestination(source: TactileCardSource, point: TactilePoint): TactileDestination | null;
   getPreview(source: TactileCardSource, destination: TactileDestination | null, point: TactilePoint): TactilePreview;
+  /** Optional current figure/readout rectangle for decorative placement only.
+   * Never used to resolve or commit the action, even on release. */
+  getGhostObstacle?(source: TactileCardSource, point: TactilePoint): GhostObstacle | null;
   /** Called at most once per released drag, after fresh identity/legality checks.
    * Revalidate the exact legal action here; return true only if reducer accepts.
    * Never reinterpret a stale source index as the current card at that index. */
@@ -38,6 +42,7 @@ type Session = {
   down: TactilePoint; point: TactilePoint; grab: TactilePoint; width: number; height: number;
   dragging: boolean; released: boolean; attempted: boolean; ghost: HTMLElement | null; label: HTMLElement | null;
   previewKey: string;
+  avoidance?: { key: string; side: GhostSide };
 };
 const owners = new WeakMap<HTMLElement, TactileHandController>();
 
@@ -162,8 +167,8 @@ export function attachTactileHand(root: HTMLElement, host: TactileHandHost, opti
       const margin = Math.min(8, Math.max(0, (space - extent) / 2));
       return Math.max(margin, Math.min(Math.max(margin, space - extent - margin), wanted));
     };
-    const x = visibleCoordinate(session.point.x - session.grab.x, session.width, window.innerWidth);
-    const y = visibleCoordinate(session.point.y - session.grab.y, session.height, window.innerHeight);
+    let x = visibleCoordinate(session.point.x - session.grab.x, session.width, window.innerWidth);
+    let y = visibleCoordinate(session.point.y - session.grab.y, session.height, window.innerHeight);
     session.ghost.style.transform = `translate3d(${x}px,${y}px,0)`;
     const { destination, preview } = readPreview(session);
     session.ghost.dataset.legal = String(preview.legal);
@@ -171,10 +176,23 @@ export function attachTactileHand(root: HTMLElement, host: TactileHandHost, opti
       session.label.textContent = preview.label;
       session.label.style.maxWidth = `${Math.max(0, Math.min(260, window.innerWidth - 16))}px`;
       const label = session.label.getBoundingClientRect();
-      const left = Math.max(8, Math.min(window.innerWidth - label.width - 8, x + (session.width - label.width) / 2));
+      let left = Math.max(8, Math.min(window.innerWidth - label.width - 8, x + (session.width - label.width) / 2));
       const below = y + session.height + 8;
       const desiredTop = below + label.height <= window.innerHeight - 8 ? below : y - label.height - 8;
-      const top = Math.max(8, Math.min(window.innerHeight - label.height - 8, desiredTop));
+      let top = Math.max(8, Math.min(window.innerHeight - label.height - 8, desiredTop));
+      const obstacle = guarded(() => host.getGhostObstacle?.(session.source, session.point) ?? null, null);
+      const placement = obstacle && placeGhostBesideTarget({ x, y, labelX: left, labelY: top,
+        width: session.width, height: session.height, labelWidth: label.width, labelHeight: label.height,
+        screenWidth: window.innerWidth, screenHeight: window.innerHeight, obstacle, others: obstacle.others,
+        preferredSide: session.avoidance?.key === obstacle.key ? session.avoidance.side : undefined });
+      if (placement && obstacle) {
+        x = placement.x; y = placement.y; left = placement.labelX; top = placement.labelY;
+        session.ghost.style.transform = `translate3d(${x}px,${y}px,0)`;
+        session.avoidance = placement.side ? { key: obstacle.key, side: placement.side } : undefined;
+        session.ghost.dataset.targetAvoidance = obstacle.key;
+      } else {
+        session.avoidance = undefined; delete session.ghost.dataset.targetAvoidance;
+      }
       // The label follows the visible copy; targeting remains pointer-based.
       session.label.style.transform = `translate3d(${left}px,${top}px,0)`;
     }

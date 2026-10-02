@@ -1,0 +1,50 @@
+{
+  "decision": "ACCEPT_COMPLETED_EXACT_REBUILT_FIVE_PHYSICAL_SHARING_POST_ONLY",
+  "files": [
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-post-independent-r1/GATE.json",
+      "bytes": 4753,
+      "sha256": "fa0c02948e5091af3500f0ef36914240b0b2da6e92bd27a812007f25ba59853d"
+    },
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-post-independent-r1/PROOF-GUARD/ADMISSION.json",
+      "bytes": 484,
+      "sha256": "1f1162e8716a2ea64d7f2a17cb2178bab08d4ab0dd5fdb6559284f85154932a2"
+    },
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-post-independent-r1/PROOF-GUARD/EXECUTION.log",
+      "bytes": 218,
+      "sha256": "06945212d048e35a04b7fc0f17f1d73b283cd1f4a935d2292e0b031f52dbdf83"
+    },
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-post-independent-r1/PROOF-GUARD/RESULT.json",
+      "bytes": 1046,
+      "sha256": "8aa48499e526b6d19c7e244896dd511f64c146d33521840fd7df2d134a8d85a9"
+    },
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-post-independent-r1/PROOF.json",
+      "bytes": 88652,
+      "sha256": "edb6a90d5cec191745d67f469a202220b6038f512927537583dec782028f85ab"
+    },
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-post-independent-r1/REVIEW.md",
+      "bytes": 3303,
+      "sha256": "bd0d33aceafc82e639a93ae3017a6f07776a2a5bed3a4a4c3c3a17008e5b04d1"
+    },
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-post-independent-r1/seal.py",
+      "bytes": 4557,
+      "sha256": "c61e156906d7319976ff546dcaa8e6c378f058d5700ca47fc8065c3ed1b768d6"
+    },
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-post-independent-r1/verify.py",
+      "bytes": 10768,
+      "sha256": "8fe4c4cca3f0bf14586124b8622dc25bcbf9c178941d023ef8069ffbed329fc7"
+    }
+  ],
+  "packetBytesBeforeSeal": 113781,
+  "additionalSealGuardAndSealConservativeBytes": 8192,
+  "packetCapBytes": 131072,
+  "ownMaxRSSBytes": 10223616,
+  "closure": "Await original64+512 SEAL-GUARD normal0; its files not recursively included in seal manifest."
+}

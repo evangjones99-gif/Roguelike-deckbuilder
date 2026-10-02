@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/publish-target-clear-selection-root-r1.py", line 52, in <module>
+    assert line[3:] in allowed or any(line[3:].startswith(p+'/') for p in owned),line
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: M docs/CONTINUATION.md

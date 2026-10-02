@@ -1,5 +1,11 @@
 # Production and continuous improvement
 
+## Target-clear opt-in selected; verify default next — 2 October2026
+
+Exact reviewed R3 source9f57b1b6 / outputsa02d5d62 (88/56) is selected with `targetClearGhost=1` opt-in and defaultOFF. Six complete saved checkpoint pairs match; separate actual gameplay, visual and technical findings accept only sampled sparse readability, including enemy/Cairn/hand clearance. The prior1d5/30dd source/maps/five outputs are retained. Complete comparison preservation is pushed; source-informed28.361-second diagnostics do not establish human enjoyment or novice300 pacing. See [current continuation](CONTINUATION.md) and [comparison records](../reviews/opening-target-clear-ghost-opt-in-2026-10-02/README.md).
+
+Continue immediately into the exact one-line defaultON strict build and A0/B-empty native comparison, followed by the separately authored decorative association tether and coherent native128 art trial. Pixel references and uncompiled helpers remain unselected; current scene is painted. The old rapid-drop and battle-turn1-at300 findings remain open. Workspace execution recovered from the recorded transport outage. No new version/tag or platform/commercial claim follows.
+
 ## Held-card placement rejected; next protect the whole choice — 2 October2026
 
 The opt-in targetClearGhost R1 actual completed once in27.838516157s on source2b3fcb03/output8235e599 (88/56). It clears the chosen hostile but obscures the bound Cairn's name, health/attack and Command-spent status, with label overlap over the hand. Separate gameplay and visual reviews reject default promotion; technical acceptance covers identity/state purity and sampled geometry only. Six full raw save pairs match and each held release commits once. Preserve the [exact rejection evidence](../reviews/opening-target-clear-rejected-2026-10-02/README.md). Source-informed short diagnostics are not300-second novice pacing or human fun.
