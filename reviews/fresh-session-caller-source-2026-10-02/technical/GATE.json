@@ -1,0 +1,42 @@
+{
+  "decision": "ACCEPT_EXACT_SEALED_STARTER_CALLER_RECOVERY_SOURCE_ONLY_RUNTIME_INELIGIBLE",
+  "acceptedSource": true,
+  "runtimeEligible": false,
+  "candidate": "/workspace/scratch/starter-caller-resume-source-r2",
+  "sourceSealSHA256": "4cdd96a6a5c173e0a4558d93d7b4f37adbfc2448abfd8ad08e2dcb63bddfabc1",
+  "manifestSHA256": "b8c74ac46a40b66d6cd7a296c91686700e1927dfc9ea055f3b5aa74936c304bc",
+  "sourceFamilyBytes": 162468,
+  "sourceFamilyCapBytes": 163840,
+  "completeThreeBodyInverseVerified": true,
+  "exactBHistoricalActualBuildGateBound": true,
+  "baselineSevenAssetsVerified": true,
+  "failClosedBeforeExternalImportOrPacketOrChild": true,
+  "independentGrammarOnlyPassed": true,
+  "driverSupervisorRuntimeExecuted": false,
+  "browserBuildMediaApproval": false,
+  "preservedR1SizingFailure": true,
+  "oldStageMetadataRestored": false,
+  "canonicalOrRemoteMutated": false,
+  "proof": {
+    "path": "/workspace/scratch/caller-technical-review-resume-r1/PROOF.json",
+    "bytes": 995,
+    "sha256": "0bd7feddd2548ff556dacfb162090b27845a8fa8c23b9effb7a0bb582fac4465"
+  },
+  "review": {
+    "path": "/workspace/scratch/caller-technical-review-resume-r1/REVIEW.md",
+    "bytes": 5984,
+    "sha256": "2706ee1543d1f22046cf7a52137e7fb476a0af4e6b3532376d6655afe27e167d"
+  },
+  "method": {
+    "path": "/workspace/scratch/caller-technical-review-resume-r1/audit.py",
+    "bytes": 5359,
+    "sha256": "0121cb997069590ef755133cba4b86f62ff36bcabc813315dcbbdf4b6de88800"
+  },
+  "limitations": [
+    "Historical absolute stage/freeze/alias/support bindings remain; fresh reviewed reconstruction is required. Eligibility flags are not a fresh Root grant.",
+    "Archive acquisition failed per preserved Root receipts; no media/browser/dependency reconstruction certified.",
+    "Grammar/source review only; no actual gameplay/visual/animation/fun/default acceptance.",
+    "Earlier donor Expected bytes unavailable and not fabricated; exact R2 to R1 Expected inverse verified.",
+    "Resource receipts are sampled shared cgroup observations, not continuous exclusive peak evidence."
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "gitFetch": {
+    "chunk_id": "5a1005",
+    "wall_time_seconds": 0.00002637,
+    "exit_code": 128,
+    "original_token_count": 95,
+    "output": "origin\thttps://github.com/evangjones99-gif/Roguelike-deckbuilder.git (fetch)\norigin\thttps://github.com/evangjones99-gif/Roguelike-deckbuilder.git (push)\n98660a7 Create read.me\nread.me\n* work\n  remotes/origin/main\nfatal: unable to access 'https://github.com/evangjones99-gif/Roguelike-deckbuilder.git/': Failed to connect to proxy port 8080 after 0 ms: Could not connect to server\n"
+  },
+  "archiveFetch": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "content": "",
+      "encoding": "base64",
+      "sha": "f768057141601502417dc8e31ba7e9cf678b616b",
+      "display_url": "https://github.com/evangjones99-gif/Roguelike-deckbuilder/blob/23e7cdd886910a13a78ef1edb5317631c1d3c3d4/reviews/opening-native-aftermath-and-starter-art-2026-10-02/archive/evidence-8cdf546a8429e949fe88611d781aca341566f473135fbcbe44b5373beabd7aa8.tar.gz",
+      "display_title": "evidence-8cdf546a8429e949fe88611d781aca341566f473135fbcbe44b5373beabd7aa8.tar.gz"
+    },
+    "isError": false
+  },
+  "archiveBlob": {
+    "content": [
+      {
+        "type": "text",
+        "text": "UnicodeDecodeError: 'utf-8' codec can't decode byte 0x8b in position 1: invalid start byte"
+      }
+    ],
+    "structuredContent": {
+      "error": "UnicodeDecodeError: 'utf-8' codec can't decode byte 0x8b in position 1: invalid start byte",
+      "error_code": "UNKNOWN"
+    },
+    "isError": true
+  },
+  "archiveApi": {
+    "content": [
+      {
+        "type": "text",
+        "text": "HTTPError: 400: GitHub Fetch only accepts UTF-8 text. (Response: None)"
+      }
+    ],
+    "structuredContent": {
+      "error": "HTTPError: 400: GitHub Fetch only accepts UTF-8 text. (Response: None)",
+      "error_code": "INVALID_ARGUMENT"
+    },
+    "isError": true
+  }
+}

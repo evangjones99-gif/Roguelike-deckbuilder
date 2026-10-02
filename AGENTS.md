@@ -1,3 +1,13 @@
+## Fresh chat resumed; caller source reviewed, runtime recovery blocked — 2 October 2026
+
+The owner restarted production. Exactly one fresh-chat hourly fallback is enabled; the old-chat timer remains paused. Current client timezone Europe/London supersedes the historical timezone field. All agents use gpt-6.1-sol with lead-selected reasoning; no exposed Fast-mode toggle can be verified.
+
+New [resume status](docs/RESUME-STATUS-2026-10-02.md) and [source/review packet](reviews/fresh-session-caller-source-2026-10-02/README.md) preserve the starter caller R2 at162,468B under a NEW160KiB SOURCE cap. Missing baseline asset pins, exact B engineering-gate binding, pure two-target inspection and Ash-only/current draw evidence are repaired. Grammar/full inverse roundtrips and separate technical/gameplay-protocol/visual-scope SOURCE reviews pass. Runtime stays unsealed/ineligible; no browser/build/art/default/fun acceptance follows. R1 failed144KiB and the first empty-intent memory failure remain failed.
+
+Fresh checkout contains initial README only; configured Git proxy is unreachable. Connected binary acquisition of8cdf failed with empty Contents body/UTF-8 decode/rejected binary Fetch; exact trial stages, alias chains and installed dependencies are absent. Empty-intent R2 driver/supervisor source reconstructs exactly, but inspected inputs lack complete donor Expected/later runtime authority. Preserve these concrete blockers and use fresh exact reconstruction/review/admission before execution. Current16GiB/~32GB resources make old cleanup/cache proposals unnecessary. Selected source64c2a14a and held dist8bbaea72 remain unchanged; no cleanup/release/tag. Handoff4bbaa810 is PROTOCOL.json, not Markdown; historical text is retained with an appended correction.
+
+Earlier pause/pending paragraphs below are historical and remain preserved.
+
 ## Owner pause and fresh-session handoff — 2 October 2026
 
 The owner explicitly requested pausing production, disabling the hourly timer and preparing a fresh-session restart. All agents/tools are closed; the timer is confirmed disabled. Read [fresh-session handoff](docs/FRESH-SESSION-HANDOFF-2026-10-02.md) and its full restart/timer prompts before resuming. Agents use gpt-6.1-sol, with reasoning chosen by the lead as necessary; fixed high everywhere is superseded. Standard speed/Fast off remains the preference, but these tools expose no app speed toggle.
