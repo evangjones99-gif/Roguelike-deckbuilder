@@ -1,0 +1,102 @@
+{
+  "sourceOnly": true,
+  "methodGrammarPassed": true,
+  "embeddedSourceExact": true,
+  "offlineSyntheticTests": [
+    {
+      "name": "correct_exact_synthetic_body",
+      "expectedAccepted": true,
+      "observedAccepted": true
+    },
+    {
+      "name": "LF_wrapping_only",
+      "expectedAccepted": true,
+      "observedAccepted": true
+    },
+    {
+      "name": "reject_sha_000000000000",
+      "expectedAccepted": false,
+      "observedAccepted": false
+    },
+    {
+      "name": "reject_size_34",
+      "expectedAccepted": false,
+      "observedAccepted": false
+    },
+    {
+      "name": "reject_encoding_utf-8",
+      "expectedAccepted": false,
+      "observedAccepted": false
+    },
+    {
+      "name": "reject_url_https://else",
+      "expectedAccepted": false,
+      "observedAccepted": false
+    },
+    {
+      "name": "reject_content_Ym91bmRlZCBz",
+      "expectedAccepted": false,
+      "observedAccepted": false
+    },
+    {
+      "name": "reject_content_Ym9!bmRlZCBz",
+      "expectedAccepted": false,
+      "observedAccepted": false
+    },
+    {
+      "name": "reject_content_Ym91bmRlZCBz",
+      "expectedAccepted": false,
+      "observedAccepted": false
+    },
+    {
+      "name": "reject_correct_metadata_wrong_SHA256",
+      "expectedAccepted": false,
+      "observedAccepted": false
+    },
+    {
+      "name": "reject_same_size_changed_body",
+      "expectedAccepted": false,
+      "observedAccepted": false
+    },
+    {
+      "name": "duplicate_JSON_keys",
+      "rejected": true
+    },
+    {
+      "name": "exact_cap",
+      "expectedAccepted": true,
+      "observedAccepted": true,
+      "maximumReadRequest": 33
+    },
+    {
+      "name": "cap_plus_one",
+      "expectedAccepted": false,
+      "observedAccepted": false,
+      "maximumReadRequest": 33
+    },
+    {
+      "name": "short_content_length",
+      "expectedAccepted": false,
+      "observedAccepted": false,
+      "maximumReadRequest": 33
+    },
+    {
+      "name": "over_declared_length",
+      "expectedAccepted": false,
+      "observedAccepted": false,
+      "maximumReadRequest": 33
+    },
+    {
+      "name": "chunked_under_cap",
+      "expectedAccepted": true,
+      "observedAccepted": true,
+      "maximumReadRequest": 33
+    }
+  ],
+  "networkOrArchiveMethodExecuted": false,
+  "realArchiveBytesAcquired": false,
+  "syntheticFixtureBytes": 33,
+  "methodSHA256": "71d4e9ebbe0ecc18aaa9043b5c2deebc70c1e1a1d6ab1774d397633e91b89416",
+  "workflowSHA256": "6cd47e7a18e6a2a289c29c04a7dfbc4a64268427d7d1d30fc0bff4bee30439f8",
+  "qualification": "Extracted unchanged pure validation and streaming-loop AST tested with tiny fixtures and overridden test identities/caps. No main(), token, HTTP, filesystem archive output, archive extraction or production blob execution."
+}
