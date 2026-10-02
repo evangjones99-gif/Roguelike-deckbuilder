@@ -1,0 +1,127 @@
+{
+  "decision": "ACCEPT CONDITIONAL source eligibility for exact one retained native ZIP physical sharing; publish planned hold/current confirmed push/Root judgment required before action",
+  "replacementBetter": true,
+  "oldIndependentEncodingNoLongerNeeded": true,
+  "proposal": {
+    "path": "/workspace/scratch/retained-native-zip-sharing-source-author-r1/PROPOSAL.json",
+    "sha256": "a796297e764218fa2bc798eed638b67e44aa5d334b97a898d8a00c237b62516c",
+    "bytes": 10868
+  },
+  "method": {
+    "path": "/workspace/scratch/retained-native-zip-sharing-source-author-r1/share-retained-native-zip-root-r1.py",
+    "sha256": "47370c5f55a2a3d0fc69189612e010691d3909be8e8d431e00519f6fbe0d2a05",
+    "bytes": 10486
+  },
+  "publisher": {
+    "path": "/workspace/scratch/retained-native-zip-sharing-source-author-r1/publish-retained-native-zip-sharing-root-r1.py",
+    "sha256": "5b94afe700a988b64f4652b2cfb60829292d87bd68cd569560cdecd4240e337f",
+    "bytes": 9077
+  },
+  "producer": {
+    "path": "/workspace/scratch/retained-native-zip-sharing-source-author-r1/judge-retained-native-zip-sharing-root-r1.py",
+    "sha256": "a4347ae8d2bbc5f4e11782205b5352585d26ae52b9f10b106355995b7247903f",
+    "bytes": 3362
+  },
+  "currentHold": {
+    "path": "/workspace/Roguelike-deckbuilder/AGENTS.md",
+    "sha256": "6f76b3a724bcf4cd9db8587158a8bd454531c8a8b59fc8680bf7661d896ee2d8",
+    "bytes": 16532
+  },
+  "plannedHold": {
+    "path": "/workspace/scratch/retained-native-zip-sharing-source-author-r1/AGENTS.planned.md",
+    "sha256": "5535eb9614b43580396baa35af5e4610b506f3e2cc91645a27b4e1d29d9bbca9",
+    "bytes": 17650
+  },
+  "selectedMap": {
+    "path": "/workspace/scratch/target-clear-ghost-promotion-root-r3/RESULT.json",
+    "sha256": "e0af37d86a6c67bf1936463fb3f2714457d19646d7a71c5fd2840b1dda62d6c6",
+    "bytes": 15559
+  },
+  "currentCallerGate": {
+    "path": "/workspace/scratch/target-clear-default-caller-independent-r1/GATE.json",
+    "sha256": "36ddead7bcd9647706f33c766952732dc3ff7b42455f2c678b125569bde2c31a",
+    "bytes": 6797
+  },
+  "priorFourPOSTGate": {
+    "path": "/workspace/scratch/four-raw-retirement-post-independent-r2/GATE.json",
+    "sha256": "57ac409802290271a2b6ef32f6f8aa5e08738ddb03f17c9750c325cba5dde5b7",
+    "bytes": 4690
+  },
+  "proof": {
+    "path": "/workspace/scratch/retained-native-zip-sharing-independent-r1/PROOF.json",
+    "sha256": "26ee5151f4b10b76bb8c56d05b92316c7a04dc869f3708622cfe0f87981102b8",
+    "bytes": 11569
+  },
+  "review": {
+    "path": "/workspace/scratch/retained-native-zip-sharing-independent-r1/REVIEW.md",
+    "sha256": "3f3fcb6dbcd94be509f9f5bc5461d5a8f24398f3eae5242e613b5a1afa93c86b",
+    "bytes": 4694
+  },
+  "reader": {
+    "path": "/workspace/scratch/retained-native-zip-sharing-independent-r1/verify.py",
+    "sha256": "429205de84ad2c39df981356d22129c4263256aa29b7cab9e7558208a3bc98c0",
+    "bytes": 12220
+  },
+  "sealer": {
+    "path": "/workspace/scratch/retained-native-zip-sharing-independent-r1/seal.py",
+    "sha256": "614787f7c5361edd9d5ee134e687424d0573dfdf6674a89c42ab7e1a6f245cd0",
+    "bytes": 6403
+  },
+  "proofGuard": {
+    "ADMISSION.json": {
+      "path": "/workspace/scratch/retained-native-zip-sharing-independent-r1/PROOF-GUARD/ADMISSION.json",
+      "sha256": "1e94cce868e58ad497b5dd0303c57ca03e052de52daa9c3ed8e7b452b7bd17ec",
+      "bytes": 483
+    },
+    "RESULT.json": {
+      "path": "/workspace/scratch/retained-native-zip-sharing-independent-r1/PROOF-GUARD/RESULT.json",
+      "sha256": "357d53f48abc036a17e44363b63ac2c25e0d5bf1418ae86b4b40950e05c3d93a",
+      "bytes": 1422
+    },
+    "EXECUTION.log": {
+      "path": "/workspace/scratch/retained-native-zip-sharing-independent-r1/PROOF-GUARD/EXECUTION.log",
+      "sha256": "596e6d9d72965e5b67cf6b534e3a0a3b402c3b10781ad9d811706711b7875c62",
+      "bytes": 336
+    }
+  },
+  "candidateGroup": "/workspace/scratch/native-windows-v061/run-36791619534-1",
+  "exactPairPaths": [
+    "/workspace/Roguelike-deckbuilder/releases/0.6.1/hollowpact-0.6.1-windows-native-x64.zip",
+    "/workspace/scratch/native-windows-v061/run-36791619534-1/hollowpact-0.6.1-windows-native-x64.zip"
+  ],
+  "wholeContainerSHA256": "06e48cce30ccd2a8fcfcc7a829ec79d3fa6b628541a19effa368852df0bce90b",
+  "wholeContainerBytes": 183597187,
+  "sourceResourceProfile": "Original guard512MiB work+512reserve/disk64, ownRSS24 for two183MB encoded filecache streams; no other reader claimed exclusive globally. Root coordinated CSSguard closure before this audit.",
+  "ownProofRSSBytes": 14274560,
+  "publisherModel": {
+    "knownBodies": 67,
+    "knownBodyBytes": 242777,
+    "knownGzipBytes": 62428,
+    "knownGzipSHA256": "b37822062a395d2efe7d0911d449aaa93f1418bd34e71b6e9dac2d8677aef41d",
+    "knownFullRoundtrip": true,
+    "futureReviewLogicalCapBytes": 98304,
+    "futureReviewMemberCap": 32,
+    "modeledPublishedAllocationUpperBytes": 512224,
+    "hardPublicationAllocationCapBytes": 524288,
+    "publisherInitialFloorBytes": 68681728,
+    "GitCopyEstimateBytes": 1572864,
+    "estimateNotOSBound": true
+  },
+  "plannedPrependOnly": true,
+  "freshFullCurrentBodies": 144,
+  "protectedZIPFullStatExact": true,
+  "protectedZIPBodyNeverOpened": true,
+  "preference": "Both logical paths and archive bytes remain needed. Verified held canonical container provides identical retained body/provenance with one fewer private physical encoding; duplicate scratch private encoding no longer needed under published fresh-stage workflow.",
+  "necessityLimits": "Both path/container bodies still needed; old separate scratch physical encoding unnecessary under published exact immutable/fresh-stage hold. Known archive readers retain paths. Future download/reassembly/rebuild and reviewer outputs require new stages; no global futurewriter/FD absence proof.",
+  "metadataLoss": "Scratch inode525659/time/write isolation lost; canonical inode1448589 retained, nlink1 becomes2/ctime changes. Shared writes/corruption affect both paths. Original metadata ledger retained, no inode/metadata rollback.",
+  "durabilityLimits": "One atomic candidate pathname replacement after durable hardlink/journal prefix. Failure may leave named temp; no automatic retry/cleanup. Publisher generated-files/parent fsync and AGENTS update do not establish whole-publication power-loss atomicity.",
+  "scopeLimits": "Container equality/provenance only, no unpacked rights/license audit/fresh Windows validation/current game improvement/native capacity guarantee. All versions/archives/parts/wrappers/extracted/art/datasets/reviews retained; no protectedZIP body.",
+  "actionResource": "Root exact action512MiB work+512reserve/disk64; separate independent POST and fresh native grant required. Native70/70.5 unchanged.",
+  "noProductionMethodsExecuted": true,
+  "failures": "No source verifier failure observed. Prior failure receipts/source versions remain unchanged.",
+  "logicalPacketCapBytes": 98304,
+  "allocatedPacketCapBytes": 131072,
+  "publisherReviewMemberCap": 32,
+  "authority": "Source gate only; Root publishes exact proposal/review/methods/hold, confirms current clean push, records judgment, then may perform one exact sharing action. No other sharing/retirement/Git/restore/unzip/Node/native/cachehint authority.",
+  "ownSealRSSBytes": 10092544
+}

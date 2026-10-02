@@ -1,3 +1,7 @@
+## Immutable retained native 0.6.1 ZIP aliases
+
+The exact canonical `/workspace/Roguelike-deckbuilder/releases/0.6.1/hollowpact-0.6.1-windows-native-x64.zip` and historical `/workspace/scratch/native-windows-v061/run-36791619534-1/hollowpact-0.6.1-windows-native-x64.zip` leaves are immutable and fresh-stage-only. Preserve both original logical archive paths, complete container bytes and native/release/transfer/rights provenance. Never write, truncate, chmod, set xattrs or explicit timestamps through either path or a shared alias. Reproduction/download/reassembly uses a NEW directory, pathname and inode; extraction reads this held archive into NEW output directories. A separately reviewed exact physical-sharing transaction may preserve both paths/bodies while surrendering the scratch private inode/time/write isolation and changing anchor nlink/ctime. This workflow hold is not OS-enforced read-only protection and grants no transaction, archive retirement, protected-archive access or old-version deletion authority. Independent comparison, producer judgment and confirmed current push are required first.
+
 # Hollowpact production instructions
 
 ## Owner resolution steering — generated reference to native128, 1 October2026
