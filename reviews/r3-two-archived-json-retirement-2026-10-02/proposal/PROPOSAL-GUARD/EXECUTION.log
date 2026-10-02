@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/r3-two-raw-retirement-source-author-r1/propose.py", line 49, in <module>
+    hits=[e for e in entries if e.get('originalPath')==x['path']];assert len(hits)==1;e=hits[0]
+                     ^^^^^^^
+TypeError: 'NoneType' object is not iterable
