@@ -1,0 +1,148 @@
+{
+  "decision": "ACCEPT_EXACT_DEFAULT_A0_BEMPTY_CALLER_SOURCE_PENDING_FRESH_STRICTER_DISK_ROOT_GRANT_AND_ACTUAL_REVIEWS",
+  "status": "CLOSED",
+  "proof": {
+    "sha256": "ace2a7fe624cf392e5067025ccc38e3279977fcc0d2d9101bfaaa7c5fd555b47",
+    "bytes": 40052
+  },
+  "review": {
+    "sha256": "3c56ee4997c9b3b146f2fdc9700b945fc0e339145b5448d8fdf5799bfb6c524f",
+    "bytes": 3146
+  },
+  "authorManifest": {
+    "sha256": "5de445351d0849ae37ac3e8b91538219db1e3ad29fee980570a08aa206d5d782",
+    "bytes": 6235
+  },
+  "controlPins": {
+    "driver-paired-r1.mjs": "a5a01107ac943d0949b5fe5a293caae1e8f6c1c114b10d11c572c9d6f7ae5b7d",
+    "supervise-paired-r1.py": "d81ec50db664eb41a73f0d65fb2b38d8b6cdb9a679f3e38674c95c07da11ec4e",
+    "EXPECTED-CANDIDATE.json": "a13f90f8a30eb54eae7f37e4f0a021f1e0db4299b95e465244ac55c7bd959cab"
+  },
+  "counts": {
+    "controls": 34,
+    "inputs": 88,
+    "outputs": 56
+  },
+  "freeze": {
+    "sha256": "739f5e87f95f2ca2ad4e60f7b90ea00aa6384d74c1ae2fc8a4e60266e705ce62",
+    "bytes": 15492
+  },
+  "sourceDigest": "c4fa7d2b3201321ec84cc6fc3503f1d7a12feea2901deb4ce7551a665f83387a",
+  "outputsDigest": "8bbaea72d9cb3b9757a2b8cb10ead190495ef61e6496e1ace0f942f635e00cf7",
+  "buildGate": {
+    "sha256": "40df198797d5e70e3d80f4ea9a715170e747f64108cf810511cc3669b962bddb",
+    "bytes": 7013
+  },
+  "completeDonorInverseOnlyLiteralPathsCaseQueryAndScope": true,
+  "nativeInteractionPassiveGeometrySaveAssertionsScoringTimingLifecycleUnchanged": true,
+  "explicitCaseSemantics": [
+    {
+      "name": "A-hold-release",
+      "query": "?targetClearGhost=0",
+      "feedbackEnabled": true
+    },
+    {
+      "name": "B-hold-release",
+      "query": "",
+      "feedbackEnabled": true
+    }
+  ],
+  "ghostPlacementEnabledByCase": {
+    "A-hold-release": false,
+    "B-hold-release": true
+  },
+  "syntaxOnlyReceipt": {
+    "command": [
+      "node",
+      "--max-old-space-size=256",
+      "--check",
+      "/workspace/scratch/target-clear-default-caller-author-r1/driver-paired-r1.mjs"
+    ],
+    "admissionSHA": "7eaf3398fa303c715a41460c70fca86afa92c758f0c425a116f7692fb711bef2",
+    "resultSHA": "2eb8a3a3621349c8aad29142814d5f7a1328cfc9ffd0436221e0e3622384871d",
+    "exit": 0,
+    "failure": null,
+    "prePins": {
+      "driver-paired-r1.mjs": "a5a01107ac943d0949b5fe5a293caae1e8f6c1c114b10d11c572c9d6f7ae5b7d",
+      "supervise-paired-r1.py": "d81ec50db664eb41a73f0d65fb2b38d8b6cdb9a679f3e38674c95c07da11ec4e",
+      "EXPECTED-CANDIDATE.json": "5ace36c03c8aafa59497f621b5ffa46e87b51919bbde4e2b55db78739914cea0"
+    },
+    "postParsePinsExact": true,
+    "driver": "a5a01107ac943d0949b5fe5a293caae1e8f6c1c114b10d11c572c9d6f7ae5b7d",
+    "supervisor": "d81ec50db664eb41a73f0d65fb2b38d8b6cdb9a679f3e38674c95c07da11ec4e",
+    "finalExpected": "a13f90f8a30eb54eae7f37e4f0a021f1e0db4299b95e465244ac55c7bd959cab",
+    "scope": "One grammar-only Node check; no imports/helpers/runtime. Final expected metadata only updated after exact syntax pins verified."
+  },
+  "priorRawReaderNeeded": false,
+  "futureDisk": {
+    "captureEstimate": 1048576,
+    "proofEstimate": 5767168,
+    "totalEstimate": 6815744,
+    "postCaptureReserve": 67108864,
+    "driverInitialThreshold": 73924608,
+    "outerInitialThreshold": 73400320,
+    "RootRequirement": "Fresh free>=73924608 after own grant/source proof writes, plus admitted finite initial native packet overhead margin before launch; outer70MiB alone is insufficient. Neither source gate nor old source free is runtime admission.",
+    "sourceAuthorFinalFree": 71008256,
+    "currentReportedStillBlocked": true,
+    "estimatesNotHardByteCeilings": true
+  },
+  "obligations": {
+    "realCurrentCardUIDPointerDownMoveHeldDisabledIllegalNamedWaitThenNaturalFreshLegalReadyAndPreRelease": true,
+    "completeHeldSavePurityReleaseOnceNoQueueFallbackOnlyRecordedPureNoOp": true,
+    "sixFullRawPairsWhenBothCommitFiveNormalizedAlways": true,
+    "fourOriginalJPEGHeadersLaterNoPhaseCertification": true,
+    "trustedObserverRefsBoundedPassiveNoAppDOMClockInjection": true,
+    "allOccupiedActorHealthHUDHandEndTurnRectsCapsMissingGapAndNoDatasetSuccess": true,
+    "native896Plus512Driver60Outer90OneAttemptScopedPIDStartClosure": true
+  },
+  "limits": [
+    "Source only, grammar64+512 check imports nothing and does not execute helpers/application/browser; Node ownRSS24 is not claimed. Reviewer launches no Node or native.",
+    "Default fit, motion/snap/dense/reducedmotion/cancel/rapidrepair/novice300/humanfun/art/defaultselection/release/retirement acceptance require later evidence or remain outside this narrow pair.",
+    "Natural transient absence is coverage gap, not forced success; mechanicalPass is not geometry/fit approval. Unmatched/missing/capped inventory fails clearance support.",
+    "Percomponent sampled nonincrease and chosen improvement do not certify paint/alpha/shadow/ancestor clipping/continuous phase/aggregate union monotonicity. Four captures phasefalse unchanged.",
+    "Fresh Root grant must use stronger70.5MiB threshold and finite packet/source receipt margin; current71008256B is below and no actual grant/attempt exists.",
+    "Fullcapsule/control/oldR3reviews remain unchanged; no prior save files are dependencies for new typed native pair."
+  ],
+  "failures": "Author no failure. Independent first verifier assumed donor-style preparse sealing, but this new grammar check used the unchanged unsealed DRAFT; method assumption failure script/guard/log preserved. New verifier-r2 confirms exact draft preparse pins plus final eligibility metadata. No native attempt/retry. Prior donor method failures retained separately; no author fixes.",
+  "authorClosure": {
+    "sha256": "659c8242ce6fdcc1dd2563892ba2825bc65e2c1c342c290071af67bdcc6b4ca5",
+    "bytes": 4115
+  },
+  "independentGuard": {
+    "initialReadAssumptionFailureRetained": {
+      "sha256": "bcf081a8d6b3b9a83c1149376d5dc837f2d60dd253716ae8c44ea80c65bafe75",
+      "bytes": 1046
+    },
+    "correctedNormal0": {
+      "sha256": "d1bcafec19c596151f7a95bc4b0ca5bd6da8054d8bb3cfc405074cf40b9d3bad",
+      "bytes": 853
+    },
+    "workBytes": 67108864,
+    "reserveBytes": 536870912,
+    "diskFloorBytes": 67108864,
+    "ownReaderPeak": 13672448,
+    "eventsUnchanged": true,
+    "sharedAccountingQualified": true
+  },
+  "seal": {
+    "initial": {
+      "time_ns": 1790918158778111593,
+      "current": 15035777024,
+      "maximum": 17179869184,
+      "headroom": 2144092160,
+      "free": 70266880
+    },
+    "final": {
+      "time_ns": 1790918158779863253,
+      "current": 15036039168,
+      "maximum": 17179869184,
+      "headroom": 2143830016,
+      "free": 70262784
+    },
+    "ownPeak": 10215424,
+    "eventsUnchanged": true,
+    "noChildLaunched": true
+  },
+  "actualAuthorizedByThisPacket": false,
+  "allReviewerToolsReadersFDsClosed": true
+}
