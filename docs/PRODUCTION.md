@@ -1,3 +1,9 @@
+## Opening guidance selected; pixel payoff repair continues — 2 October 2026
+
+The reviewed first-turn spent-command cue is now in development source64c2a14a; it explains that End turn lets enemies act. Three independent actual reviews accept narrow guidance/fit and engineering; six full saved-state pairs, cancellation, exact-once Scour and ordinary turn2 response pass. Human enjoyment and completed300 seconds remain unobserved. `npm run dev` uses this source; canonical preview/desktop dist stays the older held8bbaea72, with reviewed candidate artifact82e049c9 separately retained. No release/tag or cleanup.
+
+Both wording and rejected grounded-pixel trials are preserved in `reviews/opening-cue-and-grounded-trial-2026-10-02`, archive451347c1 and independent COMPLETE df8ef40e. The pixel scene remains unselected: late defeat body and courtyard depth failed independent gameplay/visual review. A fresh per-Figure nonrenewing defeat repair is strict-built10faa229/abb1a641 (98/64) and independently engineering-verified2e9a4f68. Its actual retained/expired-body comparison is next, alongside strict corrected crops for the generated Ash/Fen/Briar reference. Original failed prototypes, source-review errors, inputs and old archives remain retained. Use the current CONTINUATION/AGENTS entry; older pending statements below are historical.
+
 ## Cue evidence preserved; successor playable checks next — 2 October 2026
 
 The earlier cue comparisons now have complete independent preservation acceptance `940a3ec9`, archive `f9121c7b`, and a new canonical evidence folder `reviews/opening-turn-payoff-default-2026-10-02`. All 16 original screenshots, 12 saved-state pairs and seven review trees are retained. This adds rollback and review evidence; it changes no selected runtime and removes nothing. External media/dependencies and inherited older-capsule authority remain explicit.

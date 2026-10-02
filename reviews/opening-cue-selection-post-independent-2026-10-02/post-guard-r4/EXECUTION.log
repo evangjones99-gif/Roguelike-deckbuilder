@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/wording-development-source-selection-post-independent-r1/verify-post-r4.py", line 84, in <module>
+    assert terminal['terminalElapsedSeconds']<60 and terminal['terminalOwnRSSKiB']<24*1024 and terminal['terminalOutputBytes']<192*1024
+                                                                                               ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'terminalOutputBytes'

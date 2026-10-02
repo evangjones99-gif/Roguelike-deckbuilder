@@ -2,6 +2,7 @@ import './style.css';
 import './command-field.css';
 import './compact-readout.css';
 import './tactile-hand.css';
+import './opening-turn-payoff.css';
 import { attachTactileHand, type TactileHandController, type TactileCardSource, type TactileDestination, type TactilePoint } from './tactile-hand';
 import { compactIntent } from './compact-intent';
 import { HostAudio } from './audio-host';
@@ -40,6 +41,7 @@ const BUILD_ID = import.meta.env.VITE_BUILD_ID || 'development';
 const HUNTER_NAME = 'Marek Voss';
 const targetWaitCue = new URLSearchParams(window.location.search).get('targetWaitCue') !== '0';
 const targetClearGhost = new URLSearchParams(window.location.search).get('targetClearGhost') !== '0';
+const openingTurnCue = new URLSearchParams(window.location.search).get('openingTurnCue') !== '0';
 type ArenaPresentation = ReturnType<typeof createArena> & { busyMs?: () => number; waitForPresentation?: () => Promise<void>; cancelPresentation?: () => void };
 let settlingCombat = false;
 // Automatic focus restoration is not a request to preview the next card.
@@ -795,8 +797,15 @@ function renderBattle() {
   const orderCue = firstOrder ? selected?.kind === 'attack'
     ? '<p class="first-binding-cue"><strong>Choose a hostile.</strong> Your Order costs no energy.</p>'
     : '<p class="first-binding-cue"><strong>READY means one free Order.</strong> Select a binding, then a hostile.</p>' : '';
+  const livingBindings = state.allies.filter(unit => unit.hp > 0);
+  const commandsSpent = openingTurnCue && state.phase === 'battle' && state.floor === 1 && state.turn === 1
+    && livingBindings.length > 0 && livingBindings.every(unit => unit.acted)
+    && !selected && !settlingCombat && !$<HTMLDialogElement>('dialog').open;
+  const spentCue = commandsSpent
+    ? `<p class="first-binding-cue opening-turn-spent-cue"><strong>Commands spent.</strong> ${playable.length > 0
+      ? 'Play a card, or End turn to let enemies act.' : 'Read enemy intents, then End turn.'}</p>` : '';
   const openingCue = firstBinding
-    ? '<p class="first-binding-cue"><strong>Bind your first creature.</strong> Click or drag a BINDING card.</p>' : orderCue;
+    ? '<p class="first-binding-cue"><strong>Bind your first creature.</strong> Click or drag a BINDING card.</p>' : orderCue || spentCue;
   $('dock').innerHTML = `<div class="hand-area"><div class="hand-heading${openingCue ? ' opening-hand-heading' : ''}"><span class="eyebrow">AVAILABLE CARDS <span>${state.hand.length}</span></span>${openingCue}<div class="pile-buttons"><button data-ui="draw">Draw <strong>${state.draw.length}</strong></button><button data-ui="discard">Discard <strong>${state.discard.length}</strong></button></div></div><div class="hand-cards">${state.hand.map((id, index) => renderCard(CARDS[id], { handIndex: index, disabled: !playable.some(a => a.type === 'play' && a.index === index), selected: selected?.kind === 'card' && selected.index === index })).join('')}${!state.hand.length ? '<div class="empty-hand">No cards in hand.<br>Use remaining commands, then end your turn.</div>' : ''}</div></div><div class="turn-controls"><div class="energy-orb">${icon('energy')}<strong>${state.energy}</strong><span>energy</span></div><button class="button end-turn" data-action="endTurn" data-focus="end-turn">End turn ${icon('arrow')}<small>Enemy intents resolve · draw 5 · refill energy</small></button><span class="keyboard-hint" aria-label="${inputMode === 'controller' ? 'Controller' : 'Keyboard'} controls">${inputHints()}</span></div>`;
   const hand = document.querySelector<HTMLElement>('#dock .hand-cards');
   // Natural printed rules can make a later card taller than the first.

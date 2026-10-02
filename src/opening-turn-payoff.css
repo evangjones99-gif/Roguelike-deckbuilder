@@ -1,0 +1,4 @@
+/* Keep the spent cue's space during a drag; existing finish/cancel removes the class. */
+#dock.tactile-dragging .opening-turn-spent-cue {
+  visibility: hidden;
+}

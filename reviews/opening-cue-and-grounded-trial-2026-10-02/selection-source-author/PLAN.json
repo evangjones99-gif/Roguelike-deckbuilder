@@ -1,0 +1,175 @@
+{
+  "status": "ROOT_ONLY_FUTURE_DEVELOPMENT_SOURCE_SELECTION_METHOD_UNEXECUTED",
+  "method": {
+    "path": "/workspace/scratch/wording-development-source-selection-author-r1/select-development-source.py",
+    "sha256": "9c3c231b71c03ce23b5515f2cca5dcc3b341af418216000bc1edab0dc2a3b788",
+    "bytes": 12991
+  },
+  "scope": {
+    "canonicalPaths": [
+      "src/main.ts",
+      "src/opening-turn-payoff.css"
+    ],
+    "sourceBefore": "c4fa7d2b3201321ec84cc6fc3503f1d7a12feea2901deb4ce7551a665f83387a",
+    "sourceAfter": "64c2a14ada2b24796535f9bb71d8a6acc534685365bcf4f5665b21bf18595353",
+    "sourceInputCounts": [
+      88,
+      89
+    ],
+    "canonicalDistRetained": "8bbaea72d9cb3b9757a2b8cb10ead190495ef61e6496e1ace0f942f635e00cf7",
+    "canonicalDistOutputCount": 56,
+    "candidateBuildReferenceOnly": "82e049c9fee16e4a56d80520a0feb19c54546dc86f83953f27d703d53fec7042",
+    "exactInputDelta": {
+      "src/main.ts": [
+        "e7568a5a672cac8cf11d98a4fa8a1bfa9784f9087c8de62f59905b018e44845c",
+        "efecdc20b01faac49a75640268d169409b010dae166f84a135dfe2449bef99bc"
+      ],
+      "src/opening-turn-payoff.css": [
+        null,
+        "a84a4a47ddc671234aea4ff655357f9205dc123a394be250924df1c201777983"
+      ]
+    }
+  },
+  "fullInverse": {
+    "path": "/workspace/scratch/wording-development-source-selection-author-r1/MAIN-INVERSE.json",
+    "sha256": "cf9d5039718c52a04d5afe1a5eed9f19161f49b33b604d42dc3764cf6aba974a",
+    "CSSLogicalInverse": "New CSS was absent before; method never removes it. Complete old88 restoration is not promised after a prefix failure."
+  },
+  "sourceProof": {
+    "path": "/workspace/scratch/wording-development-source-selection-author-r1/SOURCE-PROOF.json",
+    "sha256": "636b12e1724c22de6413ce8d6bb55106469b8af3792cc89dd4329a3350c34734",
+    "methodIdentityQualification": "Initial draft compiled; final hold-binding-only successor separately compiled and full-inverse verified."
+  },
+  "actualReviewGates": [
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-wording-actual-gameplay-independent-r2/GATE.json",
+      "sha256": "cbfcbc0e082c17b663d3bb1fac3f7a415505e0aeb7ca664814ebea36e3cccc52",
+      "decision": "ACCEPT_NARROW_ACTUAL_WORDING_AND_SPENT_COMMAND_CONTEXT_IMPROVEMENT"
+    },
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-wording-actual-visual-independent-r1/GATE.json",
+      "sha256": "cae95281a0aef122085edb29e68b6e88ff7571d69333ad3c8fdd7162fc9f1e17",
+      "decision": "ACCEPT_ACTUAL_DEFAULT_REVISED_SPENT_COMMAND_WORDING_NARROW_STATIC_CLARITY_AND_FIT"
+    },
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-wording-actual-technical-independent-r1/GATE.json",
+      "sha256": "83eab5f5ed24dfe7d5bf7ae353ce44f20d716493b106175ef119aae79cc19e3e",
+      "decision": "ACCEPT_EXACT_NEW_WORDING_OPENING_CUE_ACTUAL_ENGINEERING_NARROW_SCOPE"
+    }
+  ],
+  "checkpointSourcePlan": {
+    "path": "/workspace/scratch/wording-grounded-trials-checkpoint-source-author-r1/PLAN.json",
+    "sha256": "0998d948c57e2fb3d1e01f34e61028d5c80db299df308d3b1e83ab902d4281b7"
+  },
+  "futureCompletePreservationGate": "NOT_YET_AVAILABLE: Root must provide pinned independent COMPLETE gate/archive/INDEX and verify exact checkpoint scope/source plan before this method can execute",
+  "prerequisites": [
+    "Different independent SOURCE method reviewer ACCEPT with exact final method identity",
+    "Root sole canonical writer and no dev server or other canonical source writer",
+    "Root confirmed fresh current clean push with exact receipt/head; helper does not run Git",
+    "Current AGENTS full SHA pinned by Root; exact existing hold suffix preserved even after prepend-only status",
+    "All three actual wording gates rehash ACCEPT; full old canonical88/56 and candidate89/56 rehash before writes",
+    "Complete preservation archive full SHA, INDEX SHA and original old main logical row; external Root scope validation required"
+  ],
+  "successOrder": [
+    "Create exclusive fresh scratch result directory and fsync its parent",
+    "Save full old main literal privately with fsync plus retain existing exact archive rollback reference",
+    "Create exclusive new main temporary inode and fsync source directory",
+    "Exclusively create new 163-byte CSS; fsync source directory",
+    "Recheck exact original main metadata/body then atomic replace main with new temp inode; fsync source directory",
+    "Full resulting89 source bytes/digest match reviewed candidate; all original56 dist bodies/non-atime metadata/xattrs unchanged; hold body unchanged",
+    "Journal durable prefix and write development-only receipt"
+  ],
+  "failureContract": {
+    "noDeletion": true,
+    "preserveTempsReceiptsPrefixes": true,
+    "restoreMainOnlyIfOwnExactInodeMetadataAndHashStillMatch": true,
+    "restoreUsesFreshInodeFromPreservedOldLiteral": true,
+    "preserveUserChanges": true,
+    "newCSSNeverDeletedOrOverwritten": "Partial CSS prefix explicitly retained; restoring main alone is not complete old88 restoration",
+    "mainRecoveryMayFail": "Record failure/recovery error and retained paths; no unconditional rollback claim",
+    "originalMainInodeTimeMetadataNotPreserved": true
+  },
+  "resourceContract": {
+    "sourceAuthorLogicalCapBytes": 98304,
+    "futureOuterGuard": "/workspace/scratch/guard-node-phase-r1.py",
+    "futureWorkMiB": 64,
+    "futureMemoryReserveMiB": 512,
+    "futureInitialDiskMiB": 64,
+    "internalInitialDiskBytes": 67633152,
+    "internalOwnRSSKiB": 24576,
+    "internalElapsedSeconds": 60,
+    "internalLogicalOutputCapBytes": 524288,
+    "scope": "Elapsed/RSS/output checks sampled at bounded phase boundaries. Outer live disk1MiB stop unchanged; full power-loss/global five-file atomicity not claimed."
+  },
+  "unexecutedFutureArgv": [
+    "python3",
+    "/workspace/scratch/guard-node-phase-r1.py",
+    "/workspace/Roguelike-deckbuilder",
+    "NEW_EXCLUSIVE_ROOT_GUARD_DIRECTORY",
+    "64",
+    "python3",
+    "/workspace/scratch/wording-development-source-selection-author-r1/select-development-source.py",
+    "ROOT_GRANT_JSON",
+    "ROOT_GRANT_SHA256",
+    "/workspace/scratch/wording-development-source-selection-actual-root-NEW"
+  ],
+  "grantSchema": {
+    "authorized": true,
+    "developmentSourceSelectionOnly": true,
+    "soleCanonicalWriterConfirmed": true,
+    "noDevServerOrOtherCanonicalSourceWriterConfirmed": true,
+    "canonicalPaths": [
+      "src/main.ts",
+      "src/opening-turn-payoff.css"
+    ],
+    "methodSHA256": "9c3c231b71c03ce23b5515f2cca5dcc3b341af418216000bc1edab0dc2a3b788",
+    "checkpointSourcePlanSHA256": "0998d948c57e2fb3d1e01f34e61028d5c80db299df308d3b1e83ab902d4281b7",
+    "currentHold": {
+      "path": "/workspace/Roguelike-deckbuilder/AGENTS.md",
+      "sha256": "FRESH_ROOT_PIN",
+      "RootVerifiedPrependOnlySameHolds": true
+    },
+    "independentSourceGate": {
+      "path": "FUTURE_OTHER_REVIEWER_GATE",
+      "sha256": "FRESH_PIN",
+      "RootVerifiedExactMethodSourceEligibility": true
+    },
+    "completePreservation": {
+      "RootVerifiedCompleteScopeAndSourcePlan": true,
+      "sourcePlanSHA256": "0998d948c57e2fb3d1e01f34e61028d5c80db299df308d3b1e83ab902d4281b7",
+      "gate": {
+        "path": "FUTURE_COMPLETE_GATE",
+        "sha256": "FRESH_PIN"
+      },
+      "archive": {
+        "path": "FUTURE_ARCHIVE",
+        "sha256": "FRESH_PIN"
+      },
+      "index": {
+        "path": "FUTURE_INDEX",
+        "sha256": "FRESH_PIN"
+      }
+    },
+    "confirmedPush": {
+      "RootVerifiedCurrentCleanAndPushed": true,
+      "head": "FRESH_CURRENT_HEAD",
+      "receipt": {
+        "path": "FRESH_ROOT_RECEIPT",
+        "sha256": "FRESH_PIN"
+      }
+    }
+  },
+  "interpretation": "README npm dev uses canonical source; retained preview/desktop dist stays old8b artifact. No server/preview/desktop invocation performed. No default fun/platform/animation claim.",
+  "untouched": [
+    "dist/package/scripts/engine/tests/retained sources/media/release/tag",
+    "README and four canonical metadata docs: Root later after preservation",
+    "New starter-master provenance2666B stays outside prior sealed checkpoint PLAN"
+  ],
+  "limits": [
+    "Two source files not atomic as a pair",
+    "Root sole-writer contract and observed rechecks are not OS CAS or universal concurrency protection",
+    "No main xattr/time/inode preservation; full old literal/provenance retained",
+    "New CSS direct exclusive creation may be an observed partial prefix on interrupted failure",
+    "Future independent/source and COMPLETE gates remain external prerequisites; current author is not own reviewer"
+  ]
+}

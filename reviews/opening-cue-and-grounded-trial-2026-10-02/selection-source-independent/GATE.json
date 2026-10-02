@@ -1,0 +1,54 @@
+{
+  "decision": "ACCEPT_EXACT_TWO_FILE_WORDING_DEVELOPMENT_SOURCE_SELECTION_METHOD",
+  "developmentSourceSelectionMethodEligible": true,
+  "methodSHA256": "9c3c231b71c03ce23b5515f2cca5dcc3b341af418216000bc1edab0dc2a3b788",
+  "methodPlanSHA256": "82604ccb107cecf084c5823044659e7c66994a4b1797e8a741cedf493acb315f",
+  "authorManifestSHA256": "94f29aee55e4e331ee8a542788de1178086743df9eb2a6d0d0515f8a1025c800",
+  "method": {
+    "path": "/workspace/scratch/wording-development-source-selection-author-r1/select-development-source.py",
+    "bytes": 12991,
+    "sha256": "9c3c231b71c03ce23b5515f2cca5dcc3b341af418216000bc1edab0dc2a3b788"
+  },
+  "methodPlan": {
+    "path": "/workspace/scratch/wording-development-source-selection-author-r1/PLAN.json",
+    "bytes": 8555,
+    "sha256": "82604ccb107cecf084c5823044659e7c66994a4b1797e8a741cedf493acb315f"
+  },
+  "proof": {
+    "path": "/workspace/scratch/wording-development-source-selection-independent-r1/PROOF.json",
+    "bytes": 11610,
+    "sha256": "52ff7863a036e0607d7a9a7dc8fe8d38d2d11ef2cc507885fb15fc8dfd797ccd"
+  },
+  "completePreservationGate": {
+    "path": "/workspace/scratch/wording-grounded-trials-checkpoint-complete-independent-r1/GATE.json",
+    "bytes": 2452,
+    "sha256": "df8ef40e5409409f004d2a2c08d7ca20dfb519f31590c379459c29d2f6983a85"
+  },
+  "exactMethodSuccessorAndMainFullInversesVerified": true,
+  "scope": "Root-only future two-file canonical development-source selection, src/main.ts plus new opening-turn-payoff.css. Dist/public/engine/oldstages unchanged. No helper execution.",
+  "requiredFutureRootGrant": "Exact reviewed method, current hold suffix/fullSHA, three actual gates, independent method gate, completed preservation scope/archive/INDEX, fresh confirmed clean pushed head, sole canonical writer/no dev server. These confirmations remain external Root responsibilities; helper does not run Git.",
+  "partialPrefixAndRecovery": "New CSS and temporaries are retained on failure; old main-only recovery requires own current inode/non-atime metadata/xattrs and candidate hash unchanged. Original inode/time not retained; joint two-file atomicity and complete old88 rollback are not claimed.",
+  "retainedBuildQualification": "New development source64c2 if selected; canonical preview/desktop dist remains8b. No new canonical compiled build/version/tag or runtime acceptance.",
+  "normalGuard": {
+    "path": "/workspace/scratch/wording-development-source-selection-independent-r1/GUARD-R2/RESULT.json",
+    "bytes": 861,
+    "sha256": "475f06c63b58ab98d4250ecec2faacdea39d0383ff3282c5a7620fcc8f5c4904"
+  },
+  "preservedReviewMethodFailure": {
+    "guard": {
+      "path": "/workspace/scratch/wording-development-source-selection-independent-r1/GUARD/RESULT.json",
+      "bytes": 856,
+      "sha256": "f663ced718522f98d9d5cac44fa192e15e9840702e110b43ea7551157065dc9c"
+    },
+    "detail": "Initial manifest reader assumed list rows; actual author manifest is a filename-keyed map. Tiny loader corrected only reader schema; original verifier/guard retained unchanged."
+  },
+  "ownRSSBytes": {
+    "VmHWM": 13398016,
+    "VmRSS": 13398016
+  },
+  "sourceFamilyCapBytes": 98304,
+  "resourceQualification": "64MiB sampled shared cgroup+512MiB reserve/disk64, not exclusive attribution; bootstrap/final sealing outside sampled child guard.",
+  "reviewerRole": "Prior cue author; independent engineering review of a different author selection method, not own-cue visual/gameplay/fun judgment.",
+  "TOOL_GUARD_CLOSED": true,
+  "allProcessesChildrenReadersFDsClosed": true
+}

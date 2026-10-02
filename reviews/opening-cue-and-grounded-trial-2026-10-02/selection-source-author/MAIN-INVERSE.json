@@ -1,0 +1,35 @@
+{
+  "beforeSHA256": "e7568a5a672cac8cf11d98a4fa8a1bfa9784f9087c8de62f59905b018e44845c",
+  "afterSHA256": "efecdc20b01faac49a75640268d169409b010dae166f84a135dfe2449bef99bc",
+  "beforeBytes": 116568,
+  "afterBytes": 117296,
+  "format": "sorted old byte ranges, preserve intervening original bytes; inverse uses cumulative offsets",
+  "patches": [
+    {
+      "oldByteStart": 113,
+      "oldByteEnd": 113,
+      "oldBase64": "",
+      "newBase64": "aW1wb3J0ICcuL29wZW5pbmctdHVybi1wYXlvZmYuY3NzJzsK"
+    },
+    {
+      "oldByteStart": 2280,
+      "oldByteEnd": 2280,
+      "oldBase64": "",
+      "newBase64": "Y29uc3Qgb3BlbmluZ1R1cm5DdWUgPSBuZXcgVVJMU2VhcmNoUGFyYW1zKHdpbmRvdy5sb2NhdGlvbi5zZWFyY2gpLmdldCgnb3BlbmluZ1R1cm5DdWUnKSAhPT0gJzAnOwo="
+    },
+    {
+      "oldByteStart": 60552,
+      "oldByteEnd": 60552,
+      "oldBase64": "",
+      "newBase64": "ICBjb25zdCBsaXZpbmdCaW5kaW5ncyA9IHN0YXRlLmFsbGllcy5maWx0ZXIodW5pdCA9PiB1bml0LmhwID4gMCk7CiAgY29uc3QgY29tbWFuZHNTcGVudCA9IG9wZW5pbmdUdXJuQ3VlICYmIHN0YXRlLnBoYXNlID09PSAnYmF0dGxlJyAmJiBzdGF0ZS5mbG9vciA9PT0gMSAmJiBzdGF0ZS50dXJuID09PSAxCiAgICAmJiBsaXZpbmdCaW5kaW5ncy5sZW5ndGggPiAwICYmIGxpdmluZ0JpbmRpbmdzLmV2ZXJ5KHVuaXQgPT4gdW5pdC5hY3RlZCkKICAgICYmICFzZWxlY3RlZCAmJiAhc2V0dGxpbmdDb21iYXQgJiYgISQ8SFRNTERpYWxvZ0VsZW1lbnQ+KCdkaWFsb2cnKS5vcGVuOwogIGNvbnN0IHNwZW50Q3VlID0gY29tbWFuZHNTcGVudAogICAgPyBgPHAgY2xhc3M9ImZpcnN0LWJpbmRpbmctY3VlIG9wZW5pbmctdHVybi1zcGVudC1jdWUiPjxzdHJvbmc+Q29tbWFuZHMgc3BlbnQuPC9zdHJvbmc+ICR7cGxheWFibGUubGVuZ3RoID4gMAogICAgICA/ICdQbGF5IGEgY2FyZCwgb3IgRW5kIHR1cm4gdG8gbGV0IGVuZW1pZXMgYWN0LicgOiAnUmVhZCBlbmVteSBpbnRlbnRzLCB0aGVuIEVuZCB0dXJuLid9PC9wPmAgOiAnJzsK"
+    },
+    {
+      "oldByteStart": 60586,
+      "oldByteEnd": 60712,
+      "oldBase64": "ICAgID8gJzxwIGNsYXNzPSJmaXJzdC1iaW5kaW5nLWN1ZSI+PHN0cm9uZz5CaW5kIHlvdXIgZmlyc3QgY3JlYXR1cmUuPC9zdHJvbmc+IENsaWNrIG9yIGRyYWcgYSBCSU5ESU5HIGNhcmQuPC9wPicgOiBvcmRlckN1ZTsK",
+      "newBase64": "ICAgID8gJzxwIGNsYXNzPSJmaXJzdC1iaW5kaW5nLWN1ZSI+PHN0cm9uZz5CaW5kIHlvdXIgZmlyc3QgY3JlYXR1cmUuPC9zdHJvbmc+IENsaWNrIG9yIGRyYWcgYSBCSU5ESU5HIGNhcmQuPC9wPicgOiBvcmRlckN1ZSB8fCBzcGVudEN1ZTsK"
+    }
+  ],
+  "fullForwardAndInverseByteEquality": true,
+  "qualification": "Selected c4 to accepted cue contains the cue implementation as well as wording; it is not a one-literal delta."
+}

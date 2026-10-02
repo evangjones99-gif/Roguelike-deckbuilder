@@ -1,0 +1,88 @@
+{
+  "status": "TOOL_GUARD_CLOSED_SOURCE_PROPOSAL",
+  "manifestSHA256": "aac303e5619efd453671e821f57f111f66e6a95e40e20aec638c27e5b00e47a1",
+  "planSHA256": "0998d948c57e2fb3d1e01f34e61028d5c80db299df308d3b1e83ab902d4281b7",
+  "methodSHA256": "5ee7a0a37946e3afcdf1d355cdfbc929ccf37b39edb1b4654e61e14250fb3f1a",
+  "closureSHA256": "57c95240dccbc8cf72e445fefb78ecbd5168f5d7fd4678072ad824629ea699f9",
+  "packetCapBytes": 262144,
+  "logicalBeforeReceiptBytes": 235737,
+  "rows": [
+    {
+      "path": "BASELINE-SUPPORT.json",
+      "bytes": 531,
+      "sha256": "2c1369854d8da8d2693107ee2b8fc787c2c580ca6a8b08791d1846df69c89288"
+    },
+    {
+      "path": "CLOSURE.json",
+      "bytes": 787,
+      "sha256": "57c95240dccbc8cf72e445fefb78ecbd5168f5d7fd4678072ad824629ea699f9"
+    },
+    {
+      "path": "MANIFEST.json",
+      "bytes": 1557,
+      "sha256": "aac303e5619efd453671e821f57f111f66e6a95e40e20aec638c27e5b00e47a1"
+    },
+    {
+      "path": "METHOD-INVERSE.json",
+      "bytes": 1141,
+      "sha256": "deb2d5a427c281103c971f2e4e1f319395db26c842d270da340f72b04c92f21d"
+    },
+    {
+      "path": "PLAN-GUARD-R1/ADMISSION.json",
+      "bytes": 520,
+      "sha256": "c488539761c28f8f8a3933693328a6ac582758961aba7d4276244c063deca828"
+    },
+    {
+      "path": "PLAN-GUARD-R1/EXECUTION.log",
+      "bytes": 727,
+      "sha256": "705f99d74c025f39b1a250fb5dc3358bafd73438ab5001a88560246deafcb808"
+    },
+    {
+      "path": "PLAN-GUARD-R1/RESULT.json",
+      "bytes": 1811,
+      "sha256": "430ee968e3b61373c0e792fdd54627eceef824aaf3c8d24e4d9d6ee196e20f4d"
+    },
+    {
+      "path": "PLAN.json",
+      "bytes": 185794,
+      "sha256": "0998d948c57e2fb3d1e01f34e61028d5c80db299df308d3b1e83ab902d4281b7"
+    },
+    {
+      "path": "PROTOCOL.txt",
+      "bytes": 1062,
+      "sha256": "1168b6a844662543ed13ce0483342082b3aac4fa5d4a4732e1e93ca9f02df52a"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4293,
+      "sha256": "ae304e1bad3cbf6a257a64725843ae4002a0fcd9e69f86c87ccfe4e481bc666b"
+    },
+    {
+      "path": "SCOPE-AND-ALLOCATION.txt",
+      "bytes": 1595,
+      "sha256": "57d05e88acd3565b8db7dfc017ae89dd527942eb790093252237565594451cda"
+    },
+    {
+      "path": "SOURCE-PROOF.json",
+      "bytes": 2938,
+      "sha256": "aea214e21cd7b3dfb24681a0242f721f6e7b074b96faff36f85a28394893e6e7"
+    },
+    {
+      "path": "author-plan.py",
+      "bytes": 21010,
+      "sha256": "49e83218f44416b44567ce6f02c95dfe9cb0ad1e3a623887503b0be65152b8a7"
+    },
+    {
+      "path": "preserve-checkpoint.py",
+      "bytes": 6854,
+      "sha256": "5ee7a0a37946e3afcdf1d355cdfbc929ccf37b39edb1b4654e61e14250fb3f1a"
+    },
+    {
+      "path": "seal.py",
+      "bytes": 4604,
+      "sha256": "ab5eac940e42b70247bbc6376f19140bf2c51bad9fe9b7d4d6d91e63cb9c7474"
+    }
+  ],
+  "sealOwnRSSKiB": 12032,
+  "movingOuterSealGuardExcludedUntilClose": true
+}

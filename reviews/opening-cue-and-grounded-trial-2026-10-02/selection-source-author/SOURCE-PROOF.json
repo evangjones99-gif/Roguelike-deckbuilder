@@ -1,0 +1,91 @@
+{
+  "decision": "AUTHOR_SOURCE_ONLY_FULL_INVERSE_AND_PINS_VERIFIED_NOT_INDEPENDENT_ACCEPTANCE",
+  "method": {
+    "path": "/workspace/scratch/wording-development-source-selection-author-r1/select-development-source.py",
+    "sha256": "313e253d60d58fe648e225917fd746a78310812569d210ff995628398925a55e",
+    "bytes": 12492,
+    "astCompileOnly": true,
+    "executedOrImported": false
+  },
+  "fullBodyDomains": [
+    {
+      "domain": "canonicalInputs",
+      "entries": 88,
+      "fullBodiesMatched": true,
+      "bytesRead": 33478636,
+      "mapSHA256": "c4fa7d2b3201321ec84cc6fc3503f1d7a12feea2901deb4ce7551a665f83387a"
+    },
+    {
+      "domain": "canonicalOutputs",
+      "entries": 56,
+      "fullBodiesMatched": true,
+      "bytesRead": 30812302,
+      "mapSHA256": "8bbaea72d9cb3b9757a2b8cb10ead190495ef61e6496e1ace0f942f635e00cf7"
+    },
+    {
+      "domain": "candidateInputs",
+      "entries": 89,
+      "fullBodiesMatched": true,
+      "bytesRead": 33479527,
+      "mapSHA256": "64c2a14ada2b24796535f9bb71d8a6acc534685365bcf4f5665b21bf18595353"
+    },
+    {
+      "domain": "candidateOutputs",
+      "entries": 56,
+      "fullBodiesMatched": true,
+      "bytesRead": 30812879,
+      "mapSHA256": "82e049c9fee16e4a56d80520a0feb19c54546dc86f83953f27d703d53fec7042"
+    }
+  ],
+  "exactInputDelta": {
+    "src/main.ts": [
+      "e7568a5a672cac8cf11d98a4fa8a1bfa9784f9087c8de62f59905b018e44845c",
+      "efecdc20b01faac49a75640268d169409b010dae166f84a135dfe2449bef99bc"
+    ],
+    "src/opening-turn-payoff.css": [
+      null,
+      "a84a4a47ddc671234aea4ff655357f9205dc123a394be250924df1c201777983"
+    ]
+  },
+  "sourceMap": {
+    "before": "c4fa7d2b3201321ec84cc6fc3503f1d7a12feea2901deb4ce7551a665f83387a",
+    "after": "64c2a14ada2b24796535f9bb71d8a6acc534685365bcf4f5665b21bf18595353"
+  },
+  "builtOutputMap": {
+    "retainedCanonical": "8bbaea72d9cb3b9757a2b8cb10ead190495ef61e6496e1ace0f942f635e00cf7",
+    "candidateReferenceOnly": "82e049c9fee16e4a56d80520a0feb19c54546dc86f83953f27d703d53fec7042"
+  },
+  "actualGates": [
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-wording-actual-gameplay-independent-r2/GATE.json",
+      "sha256": "cbfcbc0e082c17b663d3bb1fac3f7a415505e0aeb7ca664814ebea36e3cccc52",
+      "decision": "ACCEPT_NARROW_ACTUAL_WORDING_AND_SPENT_COMMAND_CONTEXT_IMPROVEMENT"
+    },
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-wording-actual-visual-independent-r1/GATE.json",
+      "sha256": "cae95281a0aef122085edb29e68b6e88ff7571d69333ad3c8fdd7162fc9f1e17",
+      "decision": "ACCEPT_ACTUAL_DEFAULT_REVISED_SPENT_COMMAND_WORDING_NARROW_STATIC_CLARITY_AND_FIT"
+    },
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-wording-actual-technical-independent-r1/GATE.json",
+      "sha256": "83eab5f5ed24dfe7d5bf7ae353ce44f20d716493b106175ef119aae79cc19e3e",
+      "decision": "ACCEPT_EXACT_NEW_WORDING_OPENING_CUE_ACTUAL_ENGINEERING_NARROW_SCOPE"
+    }
+  ],
+  "checkpointPlanSHA256": "0998d948c57e2fb3d1e01f34e61028d5c80db299df308d3b1e83ab902d4281b7",
+  "oldCanonicalMainExactCheckpointLogicalRow": true,
+  "currentHoldSHA256": "19e35b29256309ef3fbded5d57ae4e3a582b07dfd0e18f7e8497341e0fe3378e",
+  "futureCompletePreservationGate": "NOT_YET_AVAILABLE_EXTERNAL_ROOT_GRANT_REQUIRED",
+  "candidateCSS": "/* Keep the spent cue's space during a drag; existing finish/cancel removes the class. */\n#dock.tactile-dragging .opening-turn-spent-cue {\n  visibility: hidden;\n}\n",
+  "canonicalCSSAbsent": true,
+  "NOATIMEFallbackPaths": [],
+  "ownRSSKiB": 20084,
+  "elapsedSeconds": 0.1656295680149924,
+  "capLogicalBytes": 98304,
+  "scopeLimits": [
+    "No action/selection/Git/build/runtime/archive execution",
+    "Source-only method still requires different independent reviewer",
+    "No protected ZIP body or media decode",
+    "No state or game rules acceptance from Python compile"
+  ]
+}
