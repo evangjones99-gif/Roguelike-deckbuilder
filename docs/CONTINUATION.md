@@ -1,5 +1,9 @@
 # Hollowpact production continuation
 
+## Target placement built; bounded storage proposal pending — 2 October2026
+
+The private targetClearGhost prototype strict-built once as2b3fcb03 /8235e599 (88/56), with independent SOURCE/BUILD gate65622b54; it remains unselected and actual fit is unproved. Default named wait1d5bf40a /30ddc549 remains selected and pushedfd9d6b53. The planned native overlap comparison requires fresh70MiB admission. An exact3-PNG sharing proposal and r2 method have conditional independent BEFORE acceptance; no action/recovery is recorded yet. See [scoped storage records](../reviews/three-png-physical-sharing-2026-10-02/README.md). Retain every historical path/body/provenance/rollback, record inode/time/isolation loss and require producer judgment plus confirmed current push before any exact transaction. Old cross-filesystem public recovery was rejected for zero workspace gain. No other cleanup or quality claim follows.
+
 ## Default named wait selected; next clear the held-card target — 2 October2026
 
 Selected development source is now `1d5bf40a5f62c8ce3de1d087956e9190e98b3011cca1b1b7a5488fc8240bd4d3`, outputs `30ddc549433f7b0b7611e41c0d4fd67e00a3aaa07dd61ba886cc43094f1e5464` (87/56). This enables the independently accepted named waiting cue by default; `targetWaitCue=0` is its comparison off switch. One actual native pair completed in27.421373981s with six full matched saved checkpoints, pure held cards and exact-once legal releases. Separate technical/gameplay/visual findings accept only sampled information/fit/continuity. Root verified selected bodies against the tested stage and retained READY251c/2c66 main/hand, all five nonmedia outputs and full maps; no media/version retirement occurred. See [current cue evidence](OPENING-TARGET-WAIT.md).

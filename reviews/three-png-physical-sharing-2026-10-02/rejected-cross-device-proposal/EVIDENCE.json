@@ -1,0 +1,501 @@
+{
+  "decision": "REJECT this candidate as workspace admission recovery; no storage action proposed or authorized.",
+  "controls": [
+    {
+      "path": "/workspace/Roguelike-deckbuilder/AGENTS.md",
+      "sha256": "2b22e63870d787899348003d8b7b9555907d67eea83b2ff17441b0466001f5fc",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 524549,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 13808,
+        "st_blocks": 32,
+        "st_atime_ns": 1790903422046111012,
+        "st_mtime_ns": 1790903032472509615,
+        "st_ctime_ns": 1790903032472509615
+      },
+      "xattrs": {},
+      "duringReadMetadataExact": true,
+      "O_NOATIME": true
+    },
+    {
+      "path": "/workspace/scratch/standard-sol-historical-dist-media-dedup-proposal-r1/PROPOSAL.md",
+      "sha256": "677d67b86135bc3bfc3259b33070f0146860092d3af961932dcdff91263116e4",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 683603,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 5578,
+        "st_blocks": 16,
+        "st_atime_ns": 1790880260647050808,
+        "st_mtime_ns": 1790880182788287558,
+        "st_ctime_ns": 1790880182788287558
+      },
+      "xattrs": {},
+      "duringReadMetadataExact": true,
+      "O_NOATIME": true
+    },
+    {
+      "path": "/workspace/scratch/root-dist-media-hardlink-plan-independent-v09-r1/PLAN.md",
+      "sha256": "583c96a517070ac09075cbc488528daf69d333353b1e6c92635de0850744fcf2",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 676042,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 5182,
+        "st_blocks": 16,
+        "st_atime_ns": 1790834850790807368,
+        "st_mtime_ns": 1790834764797865174,
+        "st_ctime_ns": 1790834764797865174
+      },
+      "xattrs": {},
+      "duringReadMetadataExact": true,
+      "O_NOATIME": true
+    }
+  ],
+  "exactCandidatePairs": [
+    {
+      "historical": {
+        "path": "/dev/shm/hollowpact-owner-tactile-pc-root-r4/public/art/abbey-courtyard.png",
+        "sha256": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+        "metadata": {
+          "st_dev": 26,
+          "st_ino": 109229,
+          "st_mode": 33152,
+          "st_nlink": 1,
+          "st_uid": 1000,
+          "st_gid": 1000,
+          "st_size": 3060309,
+          "st_blocks": 5984,
+          "st_atime_ns": 1790851498179851339,
+          "st_mtime_ns": 1790849079496831622,
+          "st_ctime_ns": 1790851498107852524
+        },
+        "xattrs": {},
+        "duringReadMetadataExact": true,
+        "O_NOATIME": true
+      },
+      "retainedCanonical": {
+        "path": "/workspace/Roguelike-deckbuilder/public/art/abbey-courtyard.png",
+        "sha256": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+        "metadata": {
+          "st_dev": 27,
+          "st_ino": 655363,
+          "st_mode": 33152,
+          "st_nlink": 4,
+          "st_uid": 1000,
+          "st_gid": 1000,
+          "st_size": 3060309,
+          "st_blocks": 5984,
+          "st_atime_ns": 1790898151007202045,
+          "st_mtime_ns": 1790792012410051235,
+          "st_ctime_ns": 1790898151006693818
+        },
+        "xattrs": {},
+        "duringReadMetadataExact": true,
+        "O_NOATIME": true
+      },
+      "exactBodyEqual": true,
+      "sameDevice": false
+    },
+    {
+      "historical": {
+        "path": "/dev/shm/hollowpact-owner-tactile-pc-root-r4/public/art/tool-vignettes.png",
+        "sha256": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+        "metadata": {
+          "st_dev": 26,
+          "st_ino": 109238,
+          "st_mode": 33152,
+          "st_nlink": 1,
+          "st_uid": 1000,
+          "st_gid": 1000,
+          "st_size": 2917100,
+          "st_blocks": 5704,
+          "st_atime_ns": 1790851498199851009,
+          "st_mtime_ns": 1790849079541221887,
+          "st_ctime_ns": 1790851498151851799
+        },
+        "xattrs": {},
+        "duringReadMetadataExact": true,
+        "O_NOATIME": true
+      },
+      "retainedCanonical": {
+        "path": "/workspace/Roguelike-deckbuilder/public/art/tool-vignettes.png",
+        "sha256": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+        "metadata": {
+          "st_dev": 27,
+          "st_ino": 657805,
+          "st_mode": 33152,
+          "st_nlink": 4,
+          "st_uid": 1000,
+          "st_gid": 1000,
+          "st_size": 2917100,
+          "st_blocks": 5704,
+          "st_atime_ns": 1790898151170562003,
+          "st_mtime_ns": 1790803009868046413,
+          "st_ctime_ns": 1790898151170193881
+        },
+        "xattrs": {},
+        "duringReadMetadataExact": true,
+        "O_NOATIME": true
+      },
+      "exactBodyEqual": true,
+      "sameDevice": false
+    },
+    {
+      "historical": {
+        "path": "/dev/shm/hollowpact-owner-tactile-pc-root-r4/public/art/hunter-portrait.png",
+        "sha256": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+        "metadata": {
+          "st_dev": 26,
+          "st_ino": 109235,
+          "st_mode": 33152,
+          "st_nlink": 1,
+          "st_uid": 1000,
+          "st_gid": 1000,
+          "st_size": 2514707,
+          "st_blocks": 4912,
+          "st_atime_ns": 1790851498195851074,
+          "st_mtime_ns": 1790849079524831087,
+          "st_ctime_ns": 1790851498135852063
+        },
+        "xattrs": {},
+        "duringReadMetadataExact": true,
+        "O_NOATIME": true
+      },
+      "retainedCanonical": {
+        "path": "/workspace/Roguelike-deckbuilder/public/art/hunter-portrait.png",
+        "sha256": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+        "metadata": {
+          "st_dev": 27,
+          "st_ino": 655545,
+          "st_mode": 33152,
+          "st_nlink": 4,
+          "st_uid": 1000,
+          "st_gid": 1000,
+          "st_size": 2514707,
+          "st_blocks": 4912,
+          "st_atime_ns": 1790898151106047514,
+          "st_mtime_ns": 1790795201706304533,
+          "st_ctime_ns": 1790898151105752250
+        },
+        "xattrs": {},
+        "duringReadMetadataExact": true,
+        "O_NOATIME": true
+      },
+      "exactBodyEqual": true,
+      "sameDevice": false
+    }
+  ],
+  "knownHistoricalAliases": [
+    {
+      "publicAlias": "/workspace/scratch/first-five-opening-stage-r2/public",
+      "symlinkLstat": {
+        "st_dev": 27,
+        "st_ino": 678489,
+        "st_mode": 41471,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 51,
+        "st_blocks": 0,
+        "st_atime_ns": 1790858742684686969,
+        "st_mtime_ns": 1790858742653867755,
+        "st_ctime_ns": 1790858742653867755
+      },
+      "previousReadlinkObservedTarget": "/dev/shm/hollowpact-owner-tactile-pc-root-r4/public",
+      "selectedLeafIdentities": [
+        {
+          "path": "/workspace/scratch/first-five-opening-stage-r2/public/art/abbey-courtyard.png",
+          "metadata": {
+            "st_dev": 26,
+            "st_ino": 109229,
+            "st_mode": 33152,
+            "st_nlink": 1,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 3060309,
+            "st_blocks": 5984,
+            "st_atime_ns": 1790851498179851339,
+            "st_mtime_ns": 1790849079496831622,
+            "st_ctime_ns": 1790851498107852524
+          }
+        },
+        {
+          "path": "/workspace/scratch/first-five-opening-stage-r2/public/art/tool-vignettes.png",
+          "metadata": {
+            "st_dev": 26,
+            "st_ino": 109238,
+            "st_mode": 33152,
+            "st_nlink": 1,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 2917100,
+            "st_blocks": 5704,
+            "st_atime_ns": 1790851498199851009,
+            "st_mtime_ns": 1790849079541221887,
+            "st_ctime_ns": 1790851498151851799
+          }
+        },
+        {
+          "path": "/workspace/scratch/first-five-opening-stage-r2/public/art/hunter-portrait.png",
+          "metadata": {
+            "st_dev": 26,
+            "st_ino": 109235,
+            "st_mode": 33152,
+            "st_nlink": 1,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 2514707,
+            "st_blocks": 4912,
+            "st_atime_ns": 1790851498195851074,
+            "st_mtime_ns": 1790849079524831087,
+            "st_ctime_ns": 1790851498135852063
+          }
+        }
+      ]
+    },
+    {
+      "publicAlias": "/workspace/scratch/first-five-opening-hand-cue-stage-r1/public",
+      "symlinkLstat": {
+        "st_dev": 27,
+        "st_ino": 679368,
+        "st_mode": 41471,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 51,
+        "st_blocks": 0,
+        "st_atime_ns": 1790866284415548367,
+        "st_mtime_ns": 1790866284415363134,
+        "st_ctime_ns": 1790866284415363134
+      },
+      "previousReadlinkObservedTarget": "/dev/shm/hollowpact-owner-tactile-pc-root-r4/public",
+      "selectedLeafIdentities": [
+        {
+          "path": "/workspace/scratch/first-five-opening-hand-cue-stage-r1/public/art/abbey-courtyard.png",
+          "metadata": {
+            "st_dev": 26,
+            "st_ino": 109229,
+            "st_mode": 33152,
+            "st_nlink": 1,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 3060309,
+            "st_blocks": 5984,
+            "st_atime_ns": 1790851498179851339,
+            "st_mtime_ns": 1790849079496831622,
+            "st_ctime_ns": 1790851498107852524
+          }
+        },
+        {
+          "path": "/workspace/scratch/first-five-opening-hand-cue-stage-r1/public/art/tool-vignettes.png",
+          "metadata": {
+            "st_dev": 26,
+            "st_ino": 109238,
+            "st_mode": 33152,
+            "st_nlink": 1,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 2917100,
+            "st_blocks": 5704,
+            "st_atime_ns": 1790851498199851009,
+            "st_mtime_ns": 1790849079541221887,
+            "st_ctime_ns": 1790851498151851799
+          }
+        },
+        {
+          "path": "/workspace/scratch/first-five-opening-hand-cue-stage-r1/public/art/hunter-portrait.png",
+          "metadata": {
+            "st_dev": 26,
+            "st_ino": 109235,
+            "st_mode": 33152,
+            "st_nlink": 1,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 2514707,
+            "st_blocks": 4912,
+            "st_atime_ns": 1790851498195851074,
+            "st_mtime_ns": 1790849079524831087,
+            "st_ctime_ns": 1790851498135852063
+          }
+        }
+      ]
+    },
+    {
+      "publicAlias": "/workspace/scratch/first-five-opening-hand-cue-terminal-stage-r1/public",
+      "symlinkLstat": {
+        "st_dev": 27,
+        "st_ino": 679724,
+        "st_mode": 41471,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 51,
+        "st_blocks": 0,
+        "st_atime_ns": 1790867305492344827,
+        "st_mtime_ns": 1790867305489522482,
+        "st_ctime_ns": 1790867305489522482
+      },
+      "previousReadlinkObservedTarget": "/dev/shm/hollowpact-owner-tactile-pc-root-r4/public",
+      "selectedLeafIdentities": [
+        {
+          "path": "/workspace/scratch/first-five-opening-hand-cue-terminal-stage-r1/public/art/abbey-courtyard.png",
+          "metadata": {
+            "st_dev": 26,
+            "st_ino": 109229,
+            "st_mode": 33152,
+            "st_nlink": 1,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 3060309,
+            "st_blocks": 5984,
+            "st_atime_ns": 1790851498179851339,
+            "st_mtime_ns": 1790849079496831622,
+            "st_ctime_ns": 1790851498107852524
+          }
+        },
+        {
+          "path": "/workspace/scratch/first-five-opening-hand-cue-terminal-stage-r1/public/art/tool-vignettes.png",
+          "metadata": {
+            "st_dev": 26,
+            "st_ino": 109238,
+            "st_mode": 33152,
+            "st_nlink": 1,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 2917100,
+            "st_blocks": 5704,
+            "st_atime_ns": 1790851498199851009,
+            "st_mtime_ns": 1790849079541221887,
+            "st_ctime_ns": 1790851498151851799
+          }
+        },
+        {
+          "path": "/workspace/scratch/first-five-opening-hand-cue-terminal-stage-r1/public/art/hunter-portrait.png",
+          "metadata": {
+            "st_dev": 26,
+            "st_ino": 109235,
+            "st_mode": 33152,
+            "st_nlink": 1,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 2514707,
+            "st_blocks": 4912,
+            "st_atime_ns": 1790851498195851074,
+            "st_mtime_ns": 1790849079524831087,
+            "st_ctime_ns": 1790851498135852063
+          }
+        }
+      ]
+    },
+    {
+      "publicAlias": "/workspace/scratch/first-five-opening-readout-stage-r1/public",
+      "symlinkLstat": {
+        "st_dev": 27,
+        "st_ino": 680077,
+        "st_mode": 41471,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 51,
+        "st_blocks": 0,
+        "st_atime_ns": 1790868296281987391,
+        "st_mtime_ns": 1790868296278546114,
+        "st_ctime_ns": 1790868296278546114
+      },
+      "previousReadlinkObservedTarget": "/dev/shm/hollowpact-owner-tactile-pc-root-r4/public",
+      "selectedLeafIdentities": [
+        {
+          "path": "/workspace/scratch/first-five-opening-readout-stage-r1/public/art/abbey-courtyard.png",
+          "metadata": {
+            "st_dev": 26,
+            "st_ino": 109229,
+            "st_mode": 33152,
+            "st_nlink": 1,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 3060309,
+            "st_blocks": 5984,
+            "st_atime_ns": 1790851498179851339,
+            "st_mtime_ns": 1790849079496831622,
+            "st_ctime_ns": 1790851498107852524
+          }
+        },
+        {
+          "path": "/workspace/scratch/first-five-opening-readout-stage-r1/public/art/tool-vignettes.png",
+          "metadata": {
+            "st_dev": 26,
+            "st_ino": 109238,
+            "st_mode": 33152,
+            "st_nlink": 1,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 2917100,
+            "st_blocks": 5704,
+            "st_atime_ns": 1790851498199851009,
+            "st_mtime_ns": 1790849079541221887,
+            "st_ctime_ns": 1790851498151851799
+          }
+        },
+        {
+          "path": "/workspace/scratch/first-five-opening-readout-stage-r1/public/art/hunter-portrait.png",
+          "metadata": {
+            "st_dev": 26,
+            "st_ino": 109235,
+            "st_mode": 33152,
+            "st_nlink": 1,
+            "st_uid": 1000,
+            "st_gid": 1000,
+            "st_size": 2514707,
+            "st_blocks": 4912,
+            "st_atime_ns": 1790851498195851074,
+            "st_mtime_ns": 1790849079524831087,
+            "st_ctime_ns": 1790851498135852063
+          }
+        }
+      ]
+    }
+  ],
+  "filesystems": [
+    {
+      "path": "/workspace",
+      "device": 27,
+      "statvfs": {
+        "blockSize": 4096,
+        "freeBytes": 69906432,
+        "totalBytes": 33770192896
+      }
+    },
+    {
+      "path": "/dev/shm/hollowpact-owner-tactile-pc-root-r4/public",
+      "device": 26,
+      "statvfs": {
+        "blockSize": 4096,
+        "freeBytes": 8958226432,
+        "totalBytes": 9441349632
+      }
+    }
+  ],
+  "onePhysicalHistoricalGroup": true,
+  "selectedLogicalBytes": 8492116,
+  "selectedAllocatedBytesOnDevShm": 8499200,
+  "workspaceRecoveryBytes": 0,
+  "crossDeviceHardlinksPossible": false,
+  "coverage": "Exactly three media leaves and their four known historical public symlink aliases. Canonical inode link counts are recorded, but additional aliases are not exhaustively inventoried because the candidate already fails the required filesystem benefit. No broader path/action proposal.",
+  "holdFinding": "AGENTS explicitly freezes the four historical dist media trees, not these old public symlink targets. Canonical public has a hold. A future action involving this historical public tree would require exact public-target and all known alias write holds, independent review and producer judgment; existing dist holds do not supply that designation.",
+  "historicalNeed": "Keep old tree untouched. It remains the media source for all four public aliases and retains independent physical isolation on another device; no claim that this representation is no longer needed follows. The old dist transaction excluded source/public and required reproductions in fresh stages.",
+  "lossAndRollback": "No byte/path/inode/xattr/timestamp changes, relocation, hardlink, unlink or backup retirement intentionally performed. Cross-device sharing would require a different representation and could surrender filesystem placement and writable isolation; not reviewed or recommended. Existing paths/rights/provenance remain.",
+  "discoveryQualification": "Initial small AGENTS/body reads used O_NOATIME; exploratory directory reads used O_DIRECTORY|O_NOATIME. Discovery output listing was truncated, then the focused exact candidate was reread under this guard. Initial readlink/realpath discovery had no prior symlink metadata snapshot, so any incidental symlink-access-time change is unknown and is not claimed absent. No timestamp setter, chmod, xattr write or source body write was used.",
+  "protectedArchive": "Excluded; not read or scanned.",
+  "resourceScope": "Own RSS below24MiB; observed shared delta64MiB plus512MiB reserve and64MiB initial workspace disk. Tiny Root/independent reads may coexist; no exclusive system attribution or complete resource accounting of preliminary discovery calls."
+}

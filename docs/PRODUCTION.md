@@ -1,5 +1,9 @@
 # Production and continuous improvement
 
+## Target placement built; bounded storage proposal pending — 2 October2026
+
+The private targetClearGhost prototype strict-built once as2b3fcb03 /8235e599 (88/56), with independent SOURCE/BUILD gate65622b54; it remains unselected and actual fit is unproved. Default named wait1d5bf40a /30ddc549 remains selected and pushedfd9d6b53. The planned native overlap comparison requires fresh70MiB admission. An exact3-PNG sharing proposal and r2 method have conditional independent BEFORE acceptance; no action/recovery is recorded yet. See [scoped storage records](../reviews/three-png-physical-sharing-2026-10-02/README.md). Retain every historical path/body/provenance/rollback, record inode/time/isolation loss and require producer judgment plus confirmed current push before any exact transaction. Old cross-filesystem public recovery was rejected for zero workspace gain. No other cleanup or quality claim follows.
+
 ## Named wait selected; target occlusion next — 2 October2026
 
 The exact tested default-on cue is selected as1d5bf40a /30ddc549 (87/56), with complete READY251c/2c66 code rollback retained. Empty-query versus explicit off-switch actual play and separate technical/gameplay/visual reviews accept narrow named waiting information/fit/save continuity. The whole opening, rapid releases and human enjoyment remain unqualified. Continue immediately into target-aware decorative ghost placement; its private source is unbuilt/unselected and must preserve actual-pointer authority. The new pixel CONTACT is retained after independent pose-continuity rejection. See [OPENING-TARGET-WAIT.md](OPENING-TARGET-WAIT.md); current art remains painted and sealed0.8.0 unchanged.

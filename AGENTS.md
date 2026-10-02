@@ -32,6 +32,8 @@ Use standard `gpt-6.1-sol` with `high` reasoning for newly launched delegated ag
 
 ## Immutable retained art aliases
 
+The three historical `/workspace/scratch/audio-host-independent-v08/candidate/dist/art/abbey-courtyard.png`, `tool-vignettes.png` and `hunter-portrait.png` leaves are immutable and fresh-stage-only. Preserve their exact historical bodies and consumer evidence; future reproduction uses a new stage and new inodes. Never rebuild into that candidate or write, truncate, chmod, change xattrs or set timestamps through these leaves. A separately reviewed exact physical-sharing transaction may retain their paths/bytes while recording inode/time/write-isolation losses; this workflow hold alone grants no sharing, deletion or retirement authority and is not OS-enforced protection.
+
 The named-wait opt-in `/workspace/scratch/target-wait-cue-stage-r1` and default-on `/workspace/scratch/target-wait-default-stage-r1` builds are frozen. Never rebuild into them or write through their public/desktop/dist media mounts; use fresh stages and fresh output names. These coordinated workflow holds preserve the exact tested87/56 identities and do not assert OS-enforced isolation or self-contained releases.
 
 Existing canonical `public/art/*.png` and `public/audio/*.wav` bodies also remain under the controlled frozen-stage media hold. New art/audio uses fresh names and inodes; do not modify existing bodies or metadata through those paths or retained aliases. This covers current mounts and any separately reviewed exact physical-sharing transaction; it grants no transaction or retirement authority. A future publication must preserve all frozen build identities first.
