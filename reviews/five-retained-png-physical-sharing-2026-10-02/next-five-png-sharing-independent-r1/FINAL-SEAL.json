@@ -1,0 +1,52 @@
+{
+  "decision": "ACCEPT_CONDITIONAL_EXACT_FIVE_PATH_PHYSICAL_SHARING_ONLY",
+  "files": [
+    {
+      "path": "/workspace/scratch/next-five-png-sharing-independent-r1/GATE.json",
+      "bytes": 4103,
+      "sha256": "c5a2f58872df98a604589d46a0ccb2caf9a1c88520831b4b176eb6d0727fa8df"
+    },
+    {
+      "path": "/workspace/scratch/next-five-png-sharing-independent-r1/PROOF-GUARD/ADMISSION.json",
+      "bytes": 454,
+      "sha256": "a8ccb8a6a391e2d2177d4a6b1f1b1dff2ba388e4755f9e82d6235cb813e0c81a"
+    },
+    {
+      "path": "/workspace/scratch/next-five-png-sharing-independent-r1/PROOF-GUARD/EXECUTION.log",
+      "bytes": 140,
+      "sha256": "a0846a5c98738951527618b8cac6e1827b63577dcccdf220255f9af90cf4585b"
+    },
+    {
+      "path": "/workspace/scratch/next-five-png-sharing-independent-r1/PROOF-GUARD/RESULT.json",
+      "bytes": 858,
+      "sha256": "ebbaa6c538a0166d35d8209925c8623ceaa0e6313c0384e10d44d4ba8a012211"
+    },
+    {
+      "path": "/workspace/scratch/next-five-png-sharing-independent-r1/PROOF.json",
+      "bytes": 38587,
+      "sha256": "018f57a381c45ca8e09a3da375a88b48f6134599554f1fbc6ca22ba4bef637b3"
+    },
+    {
+      "path": "/workspace/scratch/next-five-png-sharing-independent-r1/REVIEW.md",
+      "bytes": 6228,
+      "sha256": "8759c1df979fd53be889d82aca006aaf18c2884541a8a6bc152616b5d004d46e"
+    },
+    {
+      "path": "/workspace/scratch/next-five-png-sharing-independent-r1/seal.py",
+      "bytes": 5094,
+      "sha256": "c3fd4df7595a93f0e5d65e463b30cb6bfaa0c73ee92bede56d31e4b95fb07447"
+    },
+    {
+      "path": "/workspace/scratch/next-five-png-sharing-independent-r1/verify.py",
+      "bytes": 8210,
+      "sha256": "f6800de67d84b71b6d102ff824f2ac32b1f1911d6ef36d27fadfd9679980cd7b"
+    }
+  ],
+  "packetBytesBeforeSeal": 63674,
+  "ownMaxRSSBytes": 10092544,
+  "packetCapBytes": 98304,
+  "conservativeAdditionalSealGuardAndSealBytes": 8192,
+  "publisherOtherCopiedBytes": 190906,
+  "publicationConservativeCopiedBodyUpperBound": 289210,
+  "closure": "Root must await this SEAL-GUARD result0 and unchanged memory events before any further stage; seal guard outputs not recursively included in manifest."
+}

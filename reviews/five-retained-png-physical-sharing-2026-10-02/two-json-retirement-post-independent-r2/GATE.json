@@ -1,0 +1,52 @@
+{
+  "decision": "ACCEPT_EXACT_TWO_JSON_RETIREMENT_POST_PRESERVATION_AND_CLOSURE",
+  "method": {
+    "path": "/workspace/scratch/retire-two-archived-json-copies-root-r1.py",
+    "bytes": 8427,
+    "sha256": "b6c0af4994ce1f8430457189918cd03f1f9e31b34d35693c252642fdc9e4f92c"
+  },
+  "beforeGate": {
+    "path": "/workspace/scratch/two-json-raw-retirement-independent-r1/GATE.json",
+    "bytes": 4386,
+    "sha256": "9f045cc3007cb2eb4a17e338816d3da346a5f4672722c7f706867ef43e659678"
+  },
+  "proposal": {
+    "path": "/workspace/scratch/settle-json-raw-retirement-proposal-r1/PROPOSAL.json",
+    "bytes": 14036,
+    "sha256": "2e5142f33be1d86f33415183fa1f2b72d70484ccc9b414e1f242bf024554488c"
+  },
+  "push": {
+    "path": "/workspace/scratch/two-json-retirement-push-root-r1/PUSH-CONFIRMED.json",
+    "bytes": 376,
+    "sha256": "4af4bb4549812f89656a0af5dbc00aaae0688001dfeff1388e06d75d3ad2c993"
+  },
+  "review": {
+    "path": "/workspace/scratch/two-json-retirement-post-independent-r2/REVIEW.md",
+    "bytes": 2809,
+    "sha256": "fda94cee1520002bdb58eb05dcdda80ecce3c8d0b6dfdc27859e3f53443190c6"
+  },
+  "retiredPaths": [
+    "/workspace/scratch/settle-drag-comparison-actual-r1/VISUAL-RESULT.json",
+    "/workspace/scratch/settle-drag-comparison-actual-r1/VISUAL-PROGRESS.json"
+  ],
+  "preservedCapsuleSHA256": "27c7d4e2a117c5fa2625146a5ca78e7965705f8f809e44b6c2d7b9efb52817af",
+  "bothArchivedBodiesExact": true,
+  "bothLogicalMappingsExact": true,
+  "current87_56FullBodiesExact": true,
+  "protectedOriginalFullStatExact": true,
+  "rootTransactionNormalClosed": true,
+  "journalRows": 4,
+  "otherArchivedActualBodiesVerified": 48,
+  "otherLiveActualInventoryFiles": 52,
+  "scopeLimits": [
+    "Unlisted live files do not have an old full-folder body baseline; no universal unchanged claim.",
+    "Raw paths/inodes/time identities lost; old hardcoded readers need fresh reconstruction/new path-scoped reader.",
+    "No automatic durable restore, metadata rollback, two-unlink atomicity, unknown future-consumer/FD/mmap absence, or further retirement approval.",
+    "64KiB accepted cap scopes only fresh r2; original r1 proof/logs retained needed excluded-but-pinned."
+  ],
+  "grossBytes": 6029312,
+  "netRecordedActionWindowBytes": 6008832,
+  "reviewerPerformedStorageAction": false,
+  "backendOrGitOrNodeUsed": false,
+  "acceptedPacketCapBytes": 65536
+}

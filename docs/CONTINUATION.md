@@ -1,5 +1,14 @@
 # Hollowpact production continuation
 
+## Whole-choice held-card placement accepted in its actual opt-in comparison — 2 October2026
+
+Private R3 source `9f57b1b6d0bcbba495d5dff38f14e01ccb813ba577174a06b6b0469c2d445e39` / outputs `a02d5d6292d424bd1bbe26cbdd84a6806eac17ec84adc484549a7972a3e69c3e` (88/56) strict-built and completed one actual native comparison in28.360807105s. Separate gameplay, visual and technical reviewers accept its narrow information/readability improvement. The held Scour and consequence label clear the chosen Ironjaw Reaver and allied Cairn; independent recomputation finds no increase across36 measured occupied actor/readout/HUD/hand regions. All six complete saved checkpoints match, and both actual held releases commit once. All four original1440×900 captures were independently viewed. Sparse geometry and stills do not certify continuous motion, dense encounters, cancellation, reduced motion or human enjoyment.
+
+Root also viewed both ready captures. R3 removes the retained R1 transfer of obstruction to Cairn. The off-pointer card has no tether, and the unavailable target lacks an outline: named target/ordinal and ready outline suffice for this sparse comparison, but stronger association remains the next interaction hypothesis. The scene remains painted. Do not claim a fully pixel game,300-second novice success or a repaired rapid drop.
+
+R3 is currently frozen and private, not selected; named-wait default `1d5bf40a` / `30ddc549` stays selected until preservation and exact promotion verification. Continue into integration and a fresh default-on comparison, then target association and coherent native128 artwork. No new release/tag follows this narrow checkpoint. Current resource recovery considers exact retained physical media sharing; the four older archived raw copies would recover only2,187,264 allocated bytes and are not retired merely because a proposal exists.
+
+
 ## Held-card placement rejected; next protect the whole choice — 2 October2026
 
 The opt-in targetClearGhost R1 actual completed once in27.838516157s on source2b3fcb03/output8235e599 (88/56). It clears the chosen hostile but obscures the bound Cairn's name, health/attack and Command-spent status, with label overlap over the hand. Separate gameplay and visual reviews reject default promotion; technical acceptance covers identity/state purity and sampled geometry only. Six full raw save pairs match and each held release commits once. Preserve the [exact rejection evidence](../reviews/opening-target-clear-rejected-2026-10-02/README.md). Source-informed short diagnostics are not300-second novice pacing or human fun.
