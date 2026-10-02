@@ -1,0 +1,52 @@
+{
+  "parentSource": "/workspace/scratch/starter-first300-observer-source-r3",
+  "parentManifestSHA256": "b4baaf8d582eeec778ea3298851861991a9b490b39399214cece585653bef600",
+  "changes": [
+    {
+      "file": "observe.mjs",
+      "before": "if(remain>0)await bound(page.waitForTimeout(Math.min(remain,workLeft())),'explicit policy/passive interval',Math.min(remain,workLeft())+10);",
+      "after": "if(remain>0)await new Promise(resolve=>setTimeout(resolve,Math.min(remain,workLeft())));"
+    },
+    {
+      "file": "METHOD.md",
+      "before": "# First300 R3:",
+      "after": "# First300 R4:"
+    },
+    {
+      "file": "METHOD.md",
+      "before": "/starter-first300-observer-source-r3/supervise.py",
+      "after": "/starter-first300-observer-source-r4/supervise.py"
+    },
+    {
+      "file": "METHOD.md",
+      "before": "",
+      "after": "\nR4 repairs actual-r4\u2019s283.993-second premature interval timeout. Only the automatic<=10s policy/passive interval now awaits a local Node setTimeout promise instead of racing Playwright wait against10ms of timing slack. It retains the same positive minimum of scheduled interval/remaining actual300/remaining337 work budget. Actual elapsed time remains measured; no invented300 or extra time is credited. The unchanged337 timer and350 outer supervisor remain authoritative. All other Playwright operation timeouts, phase-qualified energy checks, strategy/passivity, query, captures and resource limits remain unchanged. Actual-r4 completed300:false and all earlier unfinished/failure evidence remain failed/preserved through PRIOR-PRESERVATION.json references.\n",
+      "operation": "append"
+    },
+    {
+      "file": "GRANT-TEMPLATE.json",
+      "before": "starter-first300-observer-actual-r4",
+      "after": "starter-first300-observer-actual-r5"
+    }
+  ],
+  "fullInverseRoundtripsVerified": true,
+  "supervisorUnchanged": true,
+  "beforeAfterHashes": {
+    "observe.mjs": {
+      "beforeSHA256": "fd19472b487080a00c65ca9fd1e6ee07baa9632ba7f1ea6aea3ed251e8e82682",
+      "afterSHA256": "baa89e68de40fc90425b168b45cb04282e752bfd0d514a3f197902dd9af6e38c"
+    },
+    "METHOD.md": {
+      "beforeSHA256": "12c9784515cfc6dcbb0ebafe5e3976895a84469c5d5935632e83040d6a2e433a",
+      "afterSHA256": "3f173e692cba0a189e1fd532c28b387c50e81b897736c3ffde38a919feb46984"
+    },
+    "GRANT-TEMPLATE.json": {
+      "beforeSHA256": "4868d5428c8814a3af6777f6df80e29419d132b33cb16ad491b93ebe9b8e838c",
+      "afterSHA256": "9473fd145f6d332db464448a4bdd5acc74b65e144402d25ae3a66e1b10e29efd"
+    },
+    "supervise.py": {
+      "beforeSHA256": "311bbdc8f6b64ce65b2cd71aabbce490e4060b8f7ea7ffe8d1cb74923f598a6a",
+      "afterSHA256": "311bbdc8f6b64ce65b2cd71aabbce490e4060b8f7ea7ffe8d1cb74923f598a6a"
+    }
+  }
+}

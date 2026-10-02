@@ -1,0 +1,73 @@
+--- a/scripts/windows-smoke.mjs
++++ b/scripts/windows-smoke.mjs
+@@ -114,17 +114,27 @@
+   profile = fs.mkdtempSync(path.join(os.tmpdir(), 'hollowpact-windows-'));
+   mark('launch fresh packaged executable with sandbox enabled');
+   await launch();
+-  mark('decode packaged hunter portrait');
+-  evidence.portrait = await page.locator('.title-hunter').evaluate(async element => {
+-    const match = getComputedStyle(element).backgroundImage.match(/^url\(["']?(.*?)["']?\)$/);
+-    if (!match) throw new Error('Hunter portrait background URL absent');
++  mark('decode actual packaged hunt-entry hunter sheet');
++  const titleArt = page.locator('#scene-ui .hunt-entry-art');
++  await expect(titleArt).toBeVisible();
++  await expect(page.locator('#scene-ui [data-ui="new"]')).toBeVisible();
++  evidence.portrait = await titleArt.evaluate(async element => {
++    const style = getComputedStyle(element);
++    const match = style.backgroundImage.match(/^url\(["']?(.*?)["']?\)$/);
++    if (!match) throw new Error('Hunt-entry hunter background URL absent');
+     const image = new Image(); image.src = match[1]; await image.decode();
+-    return {width: image.naturalWidth, height: image.naturalHeight, protocol: new URL(image.src).protocol};
+-  });
+-  assert.deepEqual(evidence.portrait, {width: 1199, height: 1312, protocol: 'file:'});
++    return {width: image.naturalWidth, height: image.naturalHeight, protocol: new URL(image.src).protocol,
++      url: image.src, backgroundSize: style.backgroundSize, backgroundPosition: style.backgroundPosition};
++  });
++  assert.deepEqual({width: evidence.portrait.width, height: evidence.portrait.height, protocol: evidence.portrait.protocol},
++    {width: 1536, height: 1024, protocol: 'file:'});
++  assert.ok(new URL(evidence.portrait.url).pathname.endsWith('/dist/art/hunter-marek-v07-r3.png'),
++    'Title hunter URL escaped the actual packaged sheet');
++  assert.equal(evidence.portrait.backgroundSize, '300% 200%');
++  assert.equal(evidence.portrait.backgroundPosition, '0% 0%');
+   await page.screenshot({path: path.join(outputDir, 'title.png')});
+   mark('set and persist sound, volume and reduced-motion preferences through controls');
+-  await page.locator('[data-ui="settings"]').click();
++  await page.locator('#scene-ui [data-ui="settings"]').click();
+   await page.locator('#mute').uncheck();
+   await page.locator('#motion').uncheck();
+   await page.locator('#volume').press('Home');
+@@ -158,12 +168,32 @@
+       return original.call(this, image, ...args);
+     };
+   });
+-  await page.locator('[data-ui="new"]').click();
++  await page.locator('#scene-ui [data-ui="new"]').click();
++  await expect(page.locator('input[name="difficulty"][value="0"]')).toBeChecked();
++  const seedDisclosure = page.locator('[data-hunt-disclosure="hunt-seed-panel"]');
++  await expect(seedDisclosure).toHaveAttribute('aria-expanded', 'false');
++  await expect(page.locator('#seed')).toBeHidden();
++  await seedDisclosure.click();
++  await expect(seedDisclosure).toHaveAttribute('aria-expanded', 'true');
++  await expect(page.locator('#seed')).toBeVisible();
+   await page.locator('#seed').fill('121');
+   await page.locator('#new-game-form button[type="submit"]').click();
++  await expect(page.locator('#dialog')).not.toBeVisible();
++  await expect(page.locator('[data-action="endTurn"]')).toBeVisible();
++  const enteredSave = await readSave();
++  const entered = JSON.parse(enteredSave);
++  assert.equal(entered.seed, 121);
++  assert.equal(entered.difficulty, 0);
++  assert.equal(entered.phase, 'battle', 'Ordinary first entry did not reach its automatically accepted battle');
++  assert.equal(entered.floor, 1);
++  evidence.entry = {seed: entered.seed, difficulty: entered.difficulty, phase: entered.phase, floor: entered.floor,
++    seedDisclosureOpened: true, forcedTutorialObserved: false, explicitTravelClicked: false, rawSaveSHA256: hash(enteredSave)};
++  mark('open optional How to play through controls without changing combat');
++  await page.locator('#topbar [data-ui="help"]').click();
+   await expect(page.locator('[data-ui="learned"]')).toBeVisible();
+   await page.locator('[data-ui="learned"]').click();
+-  await page.locator('[data-action="travel"]').first().click();
++  assert.equal(await readSave(), enteredSave, 'Optional help changed the complete combat save');
++  assert.equal(await page.evaluate(() => localStorage.getItem('hollowpact.tutorial.v2')), 'yes');
+   const beforeBinding = JSON.parse(await readSave());
+   const bindingIndex = beforeBinding.hand.indexOf('cairnhound');
+   assert.ok(bindingIndex >= 0, 'Actual starter hand has no Cairn Hound');

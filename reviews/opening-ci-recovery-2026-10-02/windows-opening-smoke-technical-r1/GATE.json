@@ -1,0 +1,62 @@
+{
+  "schema": "windows-opening-smoke-independent-technical-v1",
+  "verdict": "ACCEPT_SOURCE_ONLY",
+  "sourceDirectory": "/workspace/scratch/windows-opening-smoke-source-r1",
+  "sourceGateSHA256": "f86651361d2a4f0e036a3be09953ac30b27371e8add4c378764f86de9c9fd0ad",
+  "sourceManifestSHA256": "5a9f80abfafec56f366b59afa285949e76c325783dbb65c040b4f2537c23fa7b",
+  "proposedScriptSHA256": "fb0afaeb947dcbc4d4e6f446479695142bfacc99a6fea19a8def578ac3146181",
+  "sourceInclusiveBytes": 98919,
+  "sourceCapBytes": 131072,
+  "reviewCapBytes": 131072,
+  "parentHead": "265eb047cd041d79a56edfa5b0a6d270e020b8f0",
+  "actualFailureCheckout": "ebbcd78a14ddf42dc2a8a8f7c695fe302035a0c3",
+  "actualFailureRun": 37053546108,
+  "actualFailureJob": 110992548885,
+  "priorNativeResult": "FAIL",
+  "proposedNativeResult": "UNMEASURED",
+  "grammarOnly": true,
+  "fullWholeFileForwardInverseVerified": true,
+  "exactThreeBlockScope": true,
+  "ordinaryOpeningAssertionsSupported": true,
+  "unchangedSecurityAndCanonicalStateChecks": true,
+  "originalEvidenceArtifact": 11247905305,
+  "originalZIPSHA256": "a4287b8dc1e8257e310f21176dd0c328576a9310dae85c086655c6b10909045c",
+  "all57OriginalZIPMemberHashesAndCRCsVerified": true,
+  "noSmokeExecution": true,
+  "noNativeWindowsExecution": true,
+  "noCleanup": true,
+  "noRemoteMutation": true,
+  "sourceAndOriginalEvidenceUnchanged": true,
+  "runtimePromotion": false,
+  "blockingFindings": [],
+  "limits": [
+    "Head and executed PR merge explicitly distinguished; relevant smoke/main blobs byte-identical",
+    "One observed title failure, no later packaged interaction pass",
+    "Whole main fetched for identity, relevant excerpts inspected; no whole-main copy",
+    "Historical ZIP members hashed, historical claims not revalidated",
+    "Read-only access may change atime",
+    "No native rerun, release, human feedback, visual/gameplay/default acceptance"
+  ],
+  "files": {
+    "CHECKS.json": {
+      "bytes": 17864,
+      "sha256": "f98f6f94ffb725cc0aaac378701d84ca937ce87cbf965ae5e6f33bafcfad030b"
+    },
+    "REVIEW.md": {
+      "bytes": 8212,
+      "sha256": "3b7bf864efde1692ee6195d771c3db96e0abe472da14d3ca7f7384d4aa1496a9"
+    },
+    "PRIMARY-SOURCE-IDENTITIES.json": {
+      "bytes": 2738,
+      "sha256": "1d4e994cad9409c664d0693bee5da594eda119bfa6abe70dc1cc15c014d96570"
+    },
+    "verify_source.py": {
+      "bytes": 7214,
+      "sha256": "45652255cf96e263f15f436bdadabd1898de888fd7a246a424cf688a235c9a1f"
+    },
+    "CHECK-WRITER-OBSERVATION.json": {
+      "bytes": 420,
+      "sha256": "62aa6d1b0a1f6d38a529408bb8c499cd74bc66b5eb75c4229a6998e6358cf494"
+    }
+  }
+}

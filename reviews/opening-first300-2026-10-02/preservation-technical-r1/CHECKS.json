@@ -1,0 +1,101 @@
+{
+  "utc": "2026-10-02T20:13:46.796403+00:00",
+  "indexSHA256": "7a7aabe4c4f945259145fa4e278f476dec79e3d4db3b80b651182aef2ff2e9db",
+  "archive": {
+    "bytes": 1358008,
+    "sha256": "bfe66ad23dff2179e894016ce77e110e76c7c4f60b74e2ca00b806d29b67d025",
+    "gitBlobSHA1": "7ad5412f1ebd091935d4b16969d208590352da0b"
+  },
+  "gzipFullStreamValidated": true,
+  "decompressedTARBytes": 3338240,
+  "decompressedTARSHA256": "dde9874e233e495116719bf4259fe7e895bf2743dc64390265be6cd58a235227",
+  "regularUniqueLogicalMembers": 185,
+  "uniqueBodySHA256Count": 177,
+  "logicalBodyBytes": 3142551,
+  "fullNamespaceFamilies": [
+    "empty-intent-fresh-build-feasibility-r1",
+    "opening-baseline-runtime-map-source-r1",
+    "starter-first300-actual-technical-r1",
+    "starter-first300-gameplay-review-r1",
+    "starter-first300-gameplay-review-r2",
+    "starter-first300-gameplay-review-r3",
+    "starter-first300-observer-actual-r2",
+    "starter-first300-observer-actual-r3",
+    "starter-first300-observer-actual-r4",
+    "starter-first300-observer-actual-r5",
+    "starter-first300-observer-root-grant-r2",
+    "starter-first300-observer-root-grant-r3",
+    "starter-first300-observer-root-grant-r4",
+    "starter-first300-observer-root-grant-r5",
+    "starter-first300-observer-source-r1",
+    "starter-first300-observer-source-r2",
+    "starter-first300-observer-source-r3",
+    "starter-first300-observer-source-r4",
+    "starter-first300-observer-technical-r1",
+    "starter-first300-observer-technical-r2",
+    "starter-first300-observer-technical-r3",
+    "starter-first300-observer-technical-r4",
+    "starter-first300-visual-review-r1",
+    "starter-first300-visual-review-r2",
+    "starter-first300-visual-review-r3",
+    "starter-opening-runtime-dependency-evidence-r3",
+    "starter-runtime-recovery-map-source-r2",
+    "starter-static-reconstruction-technical-r1",
+    "starter-static-recovered-authority-r1"
+  ],
+  "allCurrentOriginalBytesDirectlyCompared": true,
+  "allCurrentOriginalPathsRetained": true,
+  "currentMetadataObservationMismatches": [],
+  "normalizedMetadataNotRestoration": true,
+  "orderedParts": 21,
+  "partBytes": 1358008,
+  "partsByteForByteArchiveMatch": true,
+  "originalJPEGCount": 10,
+  "rawSavedStringFiles": 51,
+  "emptyLogMembers": [
+    "starter-first300-observer-actual-r2/PROCESS.log",
+    "starter-first300-observer-actual-r3/PROCESS.log",
+    "starter-first300-observer-actual-r4/PROCESS.log",
+    "starter-first300-observer-actual-r5/PROCESS.log"
+  ],
+  "outcomes": {
+    "r2": {
+      "completed300": false,
+      "mechanicalFailures": [
+        "Error: listen EPERM: operation not permitted 127.0.0.1"
+      ],
+      "browser": "NOT_LAUNCHED",
+      "server": "CLOSE_UNCONFIRMED"
+    },
+    "r3": {
+      "completed300": false,
+      "mechanicalFailures": [
+        "AssertionError [ERR_ASSERTION]: Free Order consumed energy\n\n0 !== 5\n",
+        "AssertionError [ERR_ASSERTION]: Free Order consumed energy\n\n0 !== 5\n"
+      ],
+      "browser": "CLOSED",
+      "server": "CLOSED"
+    },
+    "r4": {
+      "completed300": false,
+      "mechanicalFailures": [
+        "Error: explicit policy/passive interval bounded timeout"
+      ],
+      "browser": "CLOSED",
+      "server": "CLOSED"
+    },
+    "r5": {
+      "completed300": true,
+      "mechanicalFailures": [],
+      "browser": "CLOSED",
+      "server": "CLOSED"
+    }
+  },
+  "rootPhysicalBytesBeforeFutureMetadata": 2812299,
+  "rootPhysicalCapBytes": 12582912,
+  "reviewerMaxRSSKiB": 12344,
+  "ordinaryCapBytes": 67108864,
+  "reserveBytes": 536870912,
+  "extractedOrExecutedArchivedBodies": false,
+  "sourceMeaningApproval": false
+}

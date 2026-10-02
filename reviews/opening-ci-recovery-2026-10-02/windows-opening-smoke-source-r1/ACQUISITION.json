@@ -1,0 +1,73 @@
+{
+  "recordedUTC": "2026-10-02T19:43:16.919395+00:00",
+  "commit": "265eb047cd041d79a56edfa5b0a6d270e020b8f0",
+  "run": 37053546108,
+  "job": 110992548885,
+  "sources": [
+    {
+      "remotePath": "scripts/windows-smoke.mjs",
+      "localPath": "windows-smoke.before.mjs",
+      "gitBlobSHA": "f4b53e0b942305aba8b8e8e4e3b7445d33f7377c",
+      "url": "https://github.com/evangjones99-gif/Roguelike-deckbuilder/blob/265eb047/scripts/windows-smoke.mjs",
+      "bytes": 24304,
+      "sha256": "1e3feeeb54dbc42fed0a6ecdac5135c3dbd52303872376faabdaadb75e62528a",
+      "gitBlobVerified": true
+    },
+    {
+      "remotePath": "src/hunt-entry.ts",
+      "localPath": "hunt-entry.265eb047.ts",
+      "gitBlobSHA": "f3cdeefb038b71491bff984f464305dbdb425fbe",
+      "url": "https://github.com/evangjones99-gif/Roguelike-deckbuilder/blob/265eb047/src/hunt-entry.ts",
+      "bytes": 10816,
+      "sha256": "7c53defb4db9f68fc2bfb47de6a64302b8915cdf077fb84b6df69af3142f80fb",
+      "gitBlobVerified": true
+    },
+    {
+      "remotePath": "src/hunt-entry.css",
+      "localPath": "hunt-entry.265eb047.css",
+      "gitBlobSHA": "3e45d3f4f218a10f3eee9aa117a4e6223b5dbe07",
+      "url": "https://github.com/evangjones99-gif/Roguelike-deckbuilder/blob/265eb047cd041d79a56edfa5b0a6d270e020b8f0/src/hunt-entry.css",
+      "bytes": 8102,
+      "sha256": "c7a511b569c6c50456a0aea1c9a469f3d25c245fc660db4d036fd860b99144f5",
+      "gitBlobVerified": true
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 117296,
+      "sha256": "efecdc20b01faac49a75640268d169409b010dae166f84a135dfe2449bef99bc",
+      "gitBlobSHA": "da6677143ddf68b4ec89ab99cbe29c12a946f7d7",
+      "gitBlobVerified": true,
+      "fullBodyDuplicatedInPacket": false,
+      "url": "https://github.com/evangjones99-gif/Roguelike-deckbuilder/blob/265eb047/src/main.ts"
+    }
+  ],
+  "priorEvidencePath": "/workspace/scratch/windows-checkout-actual-evidence-r1",
+  "priorEvidenceFiles": {
+    "CONNECTED-UTF8.json": {
+      "bytes": 57972,
+      "sha256": "df12e9881743fb0d00adf2fdd6ad4be83edaefab8fa0a91c90330f18ef067f56"
+    },
+    "ROOT-ACQUISITION.json": {
+      "bytes": 541,
+      "sha256": "a87d56b459600661441a7f8a5858f7adce0bfe447058be0d91335aa8e0c50712"
+    },
+    "artifacts.json": {
+      "bytes": 1541,
+      "sha256": "114b32c0f791d29e8333dc91f862edf71fd6caa1add88b080c54995696cbde7d"
+    },
+    "jobs.json": {
+      "bytes": 2956,
+      "sha256": "65d5835974b4095afd15b6cd670a12daf3b120d2847d3ef572fe52bfd492991c"
+    },
+    "run-37053546108-job-110992548885.decoded.log": {
+      "bytes": 51953,
+      "sha256": "d61d2e7f8f4de8c54b6cda5b6904f4122d51c892ae436bcfb091ea46a7f2d908"
+    }
+  },
+  "decodedLogScope": "Exact returned decoded UTF8 payload including original BOM/CRLF; original HTTP binary identity unavailable",
+  "priorRawLogPreserved": true,
+  "nativeSmokeOutcome": "FAIL",
+  "nativeArchiveStep": "SKIPPED",
+  "noRuntimeExecutedByAuthor": true,
+  "initialHashCommandFailed": "exec-server argument list too long; no process started/no source file changes; retried direct raw source literal for main identity and bounded separate metadata command successfully"
+}

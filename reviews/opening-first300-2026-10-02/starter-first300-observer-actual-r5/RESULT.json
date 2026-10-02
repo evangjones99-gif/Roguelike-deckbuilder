@@ -1,0 +1,178 @@
+{
+  "classification": "Source-informed 300-second agent observation, not human play or fun approval",
+  "sourceDigest": "65b31b3f21e34a624bdac962e4919c7dc1791e502eb6cfdb1612103b8036fe9c",
+  "outputsDigest": "960e723da3b98d31e99e2b4ce6ee2195dd9fea1bfce9c8254b3cb65c04b7b49d",
+  "actions": 38,
+  "observations": 97,
+  "captures": [
+    {
+      "path": "/workspace/scratch/starter-first300-observer-actual-r5/01-fresh-menu.jpg",
+      "bytes": 103686,
+      "sha256": "76a4634379f05248cd8c021695c5e1bea3fa70b5949e2d61598fe2098eb80015",
+      "requested": {
+        "utc": "2026-10-02T19:58:38.039Z",
+        "wholeElapsedMs": 2647.03137299791,
+        "launchElapsedMs": 1330.073702
+      },
+      "completed": {
+        "utc": "2026-10-02T19:58:38.209Z",
+        "wholeElapsedMs": 2817.4934139959514,
+        "launchElapsedMs": 1500.53806
+      },
+      "phaseCertified": false,
+      "personallyViewed": false
+    },
+    {
+      "path": "/workspace/scratch/starter-first300-observer-actual-r5/02-cancelled.jpg",
+      "bytes": 109807,
+      "sha256": "57c04ead43dda383923764e0d4b76b1a34bd2f90ba7b88bd7479efe1f530c522",
+      "requested": {
+        "utc": "2026-10-02T19:58:41.110Z",
+        "wholeElapsedMs": 5718.9006309993565,
+        "launchElapsedMs": 4401.941619
+      },
+      "completed": {
+        "utc": "2026-10-02T19:58:41.183Z",
+        "wholeElapsedMs": 5791.536153998226,
+        "launchElapsedMs": 4474.578821
+      },
+      "phaseCertified": false,
+      "personallyViewed": false
+    },
+    {
+      "path": "/workspace/scratch/starter-first300-observer-actual-r5/03-first-order.jpg",
+      "bytes": 100932,
+      "sha256": "10d38394d0e0ef6506a95c8ac483b2da301d052e33a4e0170b5ee6eed9559a20",
+      "requested": {
+        "utc": "2026-10-02T19:59:12.294Z",
+        "wholeElapsedMs": 36902.81646199897,
+        "launchElapsedMs": 35585.857414
+      },
+      "completed": {
+        "utc": "2026-10-02T19:59:12.366Z",
+        "wholeElapsedMs": 36974.083134997636,
+        "launchElapsedMs": 35657.125586
+      },
+      "phaseCertified": false,
+      "personallyViewed": false
+    },
+    {
+      "path": "/workspace/scratch/starter-first300-observer-actual-r5/04-endpoint.jpg",
+      "bytes": 105008,
+      "sha256": "a91e6cd7bc83f11b8d1578a1d13f627e11ad4ebdf33b9a31dad99608026dee96",
+      "requested": {
+        "utc": "2026-10-02T20:03:36.718Z",
+        "wholeElapsedMs": 301326.0505819991,
+        "launchElapsedMs": 300009.091538
+      },
+      "completed": {
+        "utc": "2026-10-02T20:03:36.758Z",
+        "wholeElapsedMs": 301366.34053299576,
+        "launchElapsedMs": 300049.383626
+      },
+      "phaseCertified": false,
+      "personallyViewed": false
+    }
+  ],
+  "completed300": true,
+  "mechanicalFailures": [],
+  "browser": "CLOSED",
+  "server": "CLOSED",
+  "passiveIntervals": 7,
+  "generatedSeedField": "1402141",
+  "actualSeed": 1402141,
+  "terminalCleanups": [
+    {
+      "utc": "2026-10-02T20:02:22.082Z",
+      "wholeElapsedMs": 226690.87841499597,
+      "launchElapsedMs": 225373.919434,
+      "kind": "command-terminal-cleanup",
+      "before": {
+        "path": "save-72a86474f9dd537cf281a91e93406ab5aafd9914020b4262b3b8efe6a44a617a.json",
+        "bytes": 2600,
+        "sha256": "72a86474f9dd537cf281a91e93406ab5aafd9914020b4262b3b8efe6a44a617a"
+      },
+      "after": {
+        "path": "save-0e7122d2edcc9358ee47c200f786a8fe59e616ef2511f561f7617e13ba11dfa7.json",
+        "bytes": 1864,
+        "sha256": "0e7122d2edcc9358ee47c200f786a8fe59e616ef2511f561f7617e13ba11dfa7"
+      },
+      "beforeFields": {
+        "phase": "battle",
+        "energy": 5,
+        "hp": 30,
+        "gold": 65,
+        "turn": 7,
+        "floor": 1,
+        "allies": [
+          {
+            "uid": "a3",
+            "cardId": "cairnhound",
+            "name": "Cairn Hound",
+            "species": "hound",
+            "hp": 5,
+            "maxHp": 7,
+            "attack": 3,
+            "block": 0,
+            "acted": false,
+            "color": "#c4c6b5",
+            "passive": "Commands deal 2 extra damage to enemies with no block."
+          },
+          {
+            "uid": "a4",
+            "cardId": "ashwidow",
+            "name": "Ash Widow",
+            "species": "spider",
+            "hp": 5,
+            "maxHp": 7,
+            "attack": 2,
+            "block": 0,
+            "acted": false,
+            "color": "#af816f",
+            "passive": "Your targeted damaging spells deal 2 extra damage while this creature lives."
+          }
+        ],
+        "enemies": [
+          {
+            "uid": "e2",
+            "cardId": "revenant",
+            "name": "Gloam Revenant",
+            "species": "wraith",
+            "hp": 1,
+            "attack": 5,
+            "color": "#8f9aab",
+            "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy.",
+            "maxHp": 15,
+            "block": 0,
+            "acted": false,
+            "intent": {
+              "target": "hunter",
+              "damage": 5,
+              "label": "Spectral rend · ignores block"
+            }
+          }
+        ]
+      },
+      "afterFields": {
+        "phase": "reward",
+        "energy": 0,
+        "hp": 32,
+        "gold": 90,
+        "turn": 7,
+        "floor": 1,
+        "allies": [],
+        "enemies": []
+      },
+      "energyEqualityChecked": false,
+      "energyCostInference": null,
+      "qualification": "Battle completion resets energy/field; not a command-cost assertion"
+    }
+  ],
+  "launchElapsedAtEndpointMs": 300049.650396,
+  "closeErrors": [],
+  "workerClosureElapsedMs": 301687.4584959969,
+  "workerPayloadCutoffSeconds": 337,
+  "utc": "2026-10-02T20:03:37.079Z",
+  "wholeElapsedMs": 301687.4794029966,
+  "launchElapsedMs": 300370.522113
+}

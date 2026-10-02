@@ -1,0 +1,64 @@
+/* Scoped entry presentation; root owns title topbar/footer visibility and art URL. */
+.hunt-entry{position:relative;isolation:isolate;min-height:100%;min-width:0;max-width:1440px;margin:auto;display:flex;flex-direction:column;justify-content:center;padding:clamp(24px,5vw,68px) clamp(24px,6vw,88px) 24px;color:#e8dfd0}
+.hunt-entry:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#080e13e8 0%,#080e13c0 36%,#080e1330 76%),linear-gradient(0deg,#080e13e8,transparent 45%)}
+.hunt-entry-art{position:absolute;right:0;bottom:68px;width:min(54vw,670px,calc(100vh - 140px));height:auto;aspect-ratio:1;z-index:-1;pointer-events:none;background-image:var(--hunt-hunter-art,none);background-repeat:no-repeat;background-position:0% 0%;background-size:300% 200%;filter:drop-shadow(0 15px 14px #0009);opacity:.9}
+.hunt-entry-copy{position:relative;width:min(52%,610px);min-width:0;padding-block:28px 40px}
+.hunt-kicker{font:12px/1.4 Arial,sans-serif;text-transform:uppercase;letter-spacing:.18em;color:#c7ab7d;margin:0 0 20px}
+.hunt-wordmark{font:700 clamp(42px,7.8vw,104px)/.94 Georgia,"Times New Roman",serif;letter-spacing:.035em;margin:0;color:#ebe0c9;text-shadow:0 5px 20px #000a}
+.hunt-wordmark span{display:block;color:#c3af8e}
+.hunt-invitation{font:clamp(18px,2vw,25px)/1.5 Georgia,"Times New Roman",serif;color:#d6dbd7;margin:25px 0 28px;text-shadow:0 2px 8px #000}
+.hunt-title-actions{display:grid;gap:10px;max-width:350px}
+.hunt-action{position:relative;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:48px;border:1px solid #8a806b;padding:14px 18px;text-align:left;font:600 15px/1.35 Arial,sans-serif;letter-spacing:.015em;cursor:pointer;border-radius:2px;transition:background .16s,border-color .16s,transform .16s,box-shadow .16s}
+.hunt-primary{background:linear-gradient(135deg,#d1b485,#b89662);color:#182025;border-color:#e1c69a;box-shadow:0 3px 20px #0005}
+.hunt-primary:hover{background:linear-gradient(135deg,#e0c699,#c5a36d);box-shadow:0 4px 22px #0008;transform:translateY(-1px)}
+.hunt-secondary{background:#111b21df;color:#d8ded9;border-color:#87918a70}
+.hunt-secondary:hover{border-color:#d0b78a;background:#253033}
+.hunt-action-arrow{font:23px/1 Georgia,serif;flex-shrink:0}
+.hunt-action:has(small){padding-bottom:32px}
+.hunt-action small{position:absolute;left:18px;bottom:10px;font:12px/1.3 Arial,sans-serif;color:#28312e;letter-spacing:0}
+.hunt-hunter-name{display:flex;align-items:center;gap:10px;border:0;background:transparent;color:#c3c9c5;min-height:44px;padding:0;margin:20px 0 0;text-align:left;cursor:pointer;font:15px/1.4 Georgia,serif}
+.hunt-hunter-name small{font:12px/1.4 Arial,sans-serif;color:#a4ada9}
+.hunt-hunter-name:hover span{text-decoration:underline;text-decoration-color:#c5a67c;text-underline-offset:4px}
+.hunt-entry-tools{display:flex;flex-wrap:wrap;gap:2px 16px;position:relative;margin-top:auto;padding-top:15px;border-top:1px solid #b4bdb22b}
+.hunt-entry-tools button{border:0;background:transparent;color:#b9c4c1;font:13px/1.4 Arial,sans-serif;min-height:44px;padding:8px 0;text-align:left;cursor:pointer}
+.hunt-entry-tools button:hover{color:#f0e2c9}
+.hunt-sound-status{color:#97a7a4;font-size:12px}
+.hunt-save-notice{font:13px/1.5 Arial,sans-serif;color:#e2bc8d;max-width:350px;margin:15px 0 0}
+.hunt-entry button:focus-visible,.hunt-contract button:focus-visible,.hunt-contract input:focus-visible{outline:2px solid #f4dfb6;outline-offset:4px}
+.hunt-contract{display:grid;gap:18px;min-width:0;color:#dce2de}
+.hunt-contract-invitation{font:19px/1.45 Georgia,serif;color:#e7dcc4;margin:0}
+.hunt-pressure{border:0;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;min-width:0}
+.hunt-pressure legend{font:12px/1.4 Arial,sans-serif;color:#b8c5c0;margin-bottom:10px}
+.hunt-pressure-choice{display:flex;align-items:center;gap:10px;min-width:0;min-height:88px;padding:14px 12px;cursor:pointer;border:1px solid #74868066;background:linear-gradient(140deg,#1f2e32,#111c21);transition:border-color .16s,background .16s,transform .16s}
+.hunt-pressure-choice input{margin:0;width:17px;height:17px;flex:0 0 17px;accent-color:#d1b17a}
+.hunt-pressure-choice span{display:grid;gap:5px;min-width:0}
+.hunt-pressure-choice strong{font:18px/1.2 Georgia,serif;color:#e9e0cf;font-weight:400}
+.hunt-pressure-choice small{font:12px/1.45 Arial,sans-serif;color:#afc1bc}
+.hunt-pressure-choice:has(input:checked){border-color:#d4b47f;background:linear-gradient(140deg,#3d3d31,#223035);box-shadow:inset 0 0 0 1px #d4b47f32}
+.hunt-pressure-choice:has(input:focus-visible){outline:2px solid #f4dfb6;outline-offset:3px}
+.hunt-pressure-choice:hover{border-color:#b6ae90;transform:translateY(-1px)}
+.hunt-optional-controls{display:flex;flex-wrap:wrap;gap:8px 20px}
+.hunt-disclosure,.hunt-detail-help{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:44px;background:transparent;border:0;border-bottom:1px solid #899d8e55;padding:8px 0;color:#c6d2c9;font:13px/1.4 Arial,sans-serif;text-align:left;cursor:pointer}
+.hunt-disclosure:hover,.hunt-detail-help:hover{color:#f0dec0;border-bottom-color:#d0b483}
+.hunt-disclosure[aria-expanded="true"]{color:#e5cba4}
+.hunt-detail{padding:14px 16px;background:#101b20;border:1px solid #728b8355;min-width:0}
+.hunt-detail[hidden],.hunt-form-error[hidden]{display:none}
+.hunt-detail label{display:block;font:13px/1.4 Arial,sans-serif;color:#d5dfd7;margin-bottom:8px}
+.hunt-detail input[type="text"]{width:100%;min-width:0;box-sizing:border-box;min-height:44px;background:#091216;color:#eee5d4;border:1px solid #81978c80;padding:10px 12px;font:15px/1.3 Arial,sans-serif;border-radius:2px}
+.hunt-detail p{font:13px/1.6 Arial,sans-serif;color:#b3c6bd;margin:8px 0 0}
+.hunt-detail p:first-child{margin-top:0}
+.hunt-detail strong{font-weight:600;color:#dcdcc7}
+.hunt-replace{display:flex;gap:12px;align-items:flex-start;padding:14px;background:#654b2d28;border:1px solid #d0a36b5e;min-height:44px;cursor:pointer;font:14px/1.5 Arial,sans-serif;color:#e0c9a8}
+.hunt-replace input{width:18px;height:18px;flex:0 0 18px;margin:3px 0 0;accent-color:#d1b17a}
+.hunt-replace span{display:grid;gap:4px}
+.hunt-replace small{font:12px/1.5 Arial,sans-serif;color:#c8bfb0}
+.hunt-form-error{font:14px/1.5 Arial,sans-serif;color:#f2bda0;background:#442a2366;border-left:2px solid #db9873;padding:12px;margin:0}
+.hunt-contract-actions{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px}
+@media(max-width:760px){.hunt-entry{padding:24px 24px 12px}.hunt-entry-copy{width:75%;padding-block:28px 30px}.hunt-entry-art{right:0;bottom:74px;width:65%;opacity:.62}.hunt-entry:before{background:linear-gradient(90deg,#080e13ef,#080e1399 65%,#080e1366),linear-gradient(0deg,#080e13f5,transparent 60%)}.hunt-entry-tools{gap:0 18px}.hunt-sound-status{display:block}.hunt-pressure{grid-template-columns:1fr}.hunt-pressure-choice{min-height:65px}.hunt-pressure-choice span{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px 12px}.hunt-pressure-choice strong{font-size:18px}}
+@media(max-width:404px){.hunt-entry-copy{width:100%}.hunt-entry-art{opacity:.3;bottom:86px;width:85%}.hunt-kicker{font-size:12px}.hunt-wordmark{font-size:clamp(42px,12vw,48px)}.hunt-invitation{font-size:19px}.hunt-entry-tools{gap:0 14px}.hunt-contract-actions{grid-template-columns:1fr}.hunt-contract-actions .hunt-secondary{justify-content:center}}
+@media(max-height:600px) and (min-width:761px){.hunt-entry{padding-top:20px}.hunt-entry-copy{padding-block:12px 20px}.hunt-wordmark{font-size:clamp(42px,6.4vw,80px)}.hunt-invitation{margin-block:18px}.hunt-hunter-name{margin-top:12px}}
+@media(prefers-reduced-motion:reduce){.hunt-entry button,.hunt-contract button,.hunt-pressure-choice{transition:none;transform:none!important}}
+.reduced-motion .hunt-entry button,.reduced-motion .hunt-contract button,.reduced-motion .hunt-pressure-choice{transition:none;transform:none!important}
+
+/* The entry heading receives programmatic focus; action controls keep visible rings. */
+.hunt-wordmark:focus{outline:none}

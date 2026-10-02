@@ -1,0 +1,86 @@
+{
+  "repo": "evangjones99-gif/Roguelike-deckbuilder",
+  "ref": "265eb047cd041d79a56edfa5b0a6d270e020b8f0",
+  "merge": "ebbcd78a14ddf42dc2a8a8f7c695fe302035a0c3",
+  "independentConnectedBodiesCompared": true,
+  "files": [
+    {
+      "path": "scripts/windows-smoke.mjs",
+      "local": "windows-smoke.before.mjs",
+      "gitBlobSHA": "f4b53e0b942305aba8b8e8e4e3b7445d33f7377c",
+      "url": "https://github.com/evangjones99-gif/Roguelike-deckbuilder/blob/265eb047cd041d79a56edfa5b0a6d270e020b8f0/scripts/windows-smoke.mjs",
+      "exactMatch": true
+    },
+    {
+      "path": "src/hunt-entry.ts",
+      "local": "hunt-entry.265eb047.ts",
+      "gitBlobSHA": "f3cdeefb038b71491bff984f464305dbdb425fbe",
+      "url": "https://github.com/evangjones99-gif/Roguelike-deckbuilder/blob/265eb047cd041d79a56edfa5b0a6d270e020b8f0/src/hunt-entry.ts",
+      "exactMatch": true
+    },
+    {
+      "path": "src/hunt-entry.css",
+      "local": "hunt-entry.265eb047.css",
+      "gitBlobSHA": "3e45d3f4f218a10f3eee9aa117a4e6223b5dbe07",
+      "url": "https://github.com/evangjones99-gif/Roguelike-deckbuilder/blob/265eb047cd041d79a56edfa5b0a6d270e020b8f0/src/hunt-entry.css",
+      "exactMatch": true
+    }
+  ],
+  "excerpts": [
+    {
+      "firstLine": 65,
+      "lastLine": 77,
+      "exactMatch": true
+    },
+    {
+      "firstLine": 426,
+      "lastLine": 434,
+      "exactMatch": true
+    },
+    {
+      "firstLine": 439,
+      "lastLine": 445,
+      "exactMatch": true
+    },
+    {
+      "firstLine": 485,
+      "lastLine": 495,
+      "exactMatch": true
+    },
+    {
+      "firstLine": 910,
+      "lastLine": 921,
+      "exactMatch": true
+    },
+    {
+      "firstLine": 1307,
+      "lastLine": 1314,
+      "exactMatch": true
+    },
+    {
+      "firstLine": 1353,
+      "lastLine": 1364,
+      "exactMatch": true
+    },
+    {
+      "firstLine": 451,
+      "lastLine": 471,
+      "exactMatch": true
+    }
+  ],
+  "mainMergeExact": true,
+  "scriptMergeExact": true,
+  "handoffUnchangedFromReadOriginal": true,
+  "instructions": {
+    "AGENTS": "1b9000ef77c87e22c1cb20f89a4c4e3bcb0c5169",
+    "handoff": "e502a0d795cbbad49c57d5d0b377144dc3d91633",
+    "fullRead": true
+  },
+  "numericSeedParse": "function parseSeed(input: string): number {\n  if (/^\\d+$/.test(input.trim())) return Number(input) >>> 0;\n  let hash = 2166136261;\n  for (const char of input.trim() || String(Date.now())) hash = Math.imul(hash ^ char.charCodeAt(0), 16777619);\n  return hash >>> 0;\n}",
+  "main": {
+    "gitBlobSHA": "da6677143ddf68b4ec89ab99cbe29c12a946f7d7",
+    "url": "https://github.com/evangjones99-gif/Roguelike-deckbuilder/blob/265eb047cd041d79a56edfa5b0a6d270e020b8f0/src/main.ts",
+    "fullConnectedBodyRead": true,
+    "wholeBodySavedInOwnPacket": false
+  }
+}

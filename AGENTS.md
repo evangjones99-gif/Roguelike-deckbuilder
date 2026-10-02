@@ -1,3 +1,9 @@
+## Elapsed opening observation complete; focused cue build pending — 2 October 2026
+
+Retained private B source65b31b3f/output960e723d is fully reconstructed and independently body-verified. A fresh random Initiate seed1402141 completed actual300 launch seconds:13 Orders,6 End turns, reward at225.374s and7 passive reward intervals. Before/after174-body checks, full raw save references, four original captures and normal closure pass separate reviews. This is elapsed agent observation, not active human play or fun. Earlier failures remain failed. Native combat readability is accepted only in sampled stills; painted reward/menu versus slate combat keeps overall cohesion/art/default rejected.
+
+The main-only cue candidate993aa368 passes three independent SOURCE reviews; exact build and B/C interaction comparison remain pending. Fresh CI provisioning repair and current Windows smoke expectations are independently reviewed for actual attempts; previous failures remain preserved. Selected64c2a14a and held8bbaea72 stay unchanged. Read the [exact observation/build checkpoint](reviews/opening-first300-2026-10-02/README.md) and linked literal methods/reviews before continuing. One fresh hourly fallback stays enabled, old timer paused; no cleanup/release/tag or default asset promotion occurs. All earlier text below is retained history.
+
 ## Exact binary recovery resumed — 2 October 2026
 
 The read-only fixed-blob transfer atff5ac095 completed actual CIrun37045153855/artifact11244177679. Downloaded ZIP20f99bef and inner8cdf exact sizes/SHA256/GitSHA1 match; independent actual gate74ad55dd accepts byte transfer only. Root stream-verified all1116 hash-addressed TAR bodies and copied two exact metadata files to fresh paths. No logical preservation gate, original filesystem metadata, build/browser/art/default/fun approval follows. Earlier acquisition failures remain preserved historical outcomes.

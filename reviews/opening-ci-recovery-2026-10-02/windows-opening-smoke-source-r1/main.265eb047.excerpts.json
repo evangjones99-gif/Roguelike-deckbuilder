@@ -1,0 +1,48 @@
+{
+  "path": "src/main.ts",
+  "ref": "265eb047cd041d79a56edfa5b0a6d270e020b8f0",
+  "gitBlobSHA": "da6677143ddf68b4ec89ab99cbe29c12a946f7d7",
+  "scope": "Exact excerpts of fetched full source; full body is not duplicated in this SOURCE packet",
+  "excerpts": [
+    {
+      "firstLine": 65,
+      "lastLine": 77,
+      "text": "  canonicalRevision++;\n  tactileSourceStates.clear();\n  state = next;\n}\nlet title = true;\n// CSS custom-property URLs resolve at their consuming stylesheet; use a document-based absolute URL.\nconst ART_BASE = new URL(`${import.meta.env.BASE_URL}art/`, document.baseURI).href;\nconst toolIllustrations = createToolIllustrations();\ndocument.documentElement.style.setProperty('--scene-art', `url(\"${ART_BASE}abbey-courtyard.png\")`);\ndocument.documentElement.style.setProperty('--hunter-art', `url(\"${ART_BASE}hunter-portrait.png\")`);\ndocument.documentElement.style.setProperty('--hunt-hunter-art', `url(\"${ART_BASE}hunter-marek-v07-r3.png\")`);\nlet selected: Selection = null;\nlet selectionOrigin: string | null = null;"
+    },
+    {
+      "firstLine": 426,
+      "lastLine": 434,
+      "text": "function start(seed: number, difficulty: number) {\n  cancelPresentation();\n  clearToast();\n  replaceCanonicalState(createGame(seed, difficulty));\n  if (state.phase === 'map' && state.route.length === 1) replaceCanonicalState(applyActionWithEvents(state, { type: 'travel', choice: state.route[0] }).state);\n  title = false; selected = null; selectionOrigin = null; save(); render(); sound('summon');\n  // Begin with a live fight; the full rules remain available through How to play.\n  // Teaching appears in the existing guidance row instead of blocking the first action.\n}"
+    },
+    {
+      "firstLine": 439,
+      "lastLine": 445,
+      "text": "  return hash >>> 0;\n}\n\nfunction renderHeader() {\n  $('topbar').innerHTML = `<button class=\"wordmark\" data-ui=\"home\" aria-label=\"Hollowpact main menu\">${icon('shield')}<span>HOLLOWPACT<small>CONTRACTS \u00b7 CREATURES \u00b7 CONSEQUENCES</small></span></button><nav aria-label=\"Game tools\"><button class=\"nav-button\" data-ui=\"deck\" aria-label=\"Deck\">${icon('book')}<span>Deck${title ? '' : ` <span class=\"subtle\">${state.deck.length}</span>`}</span></button><button class=\"nav-button\" data-ui=\"help\" aria-label=\"How to play\"><span class=\"help-symbol\">?</span><span>How to play</span></button><button class=\"nav-button\" data-ui=\"feedback\" aria-label=\"Field report\">${icon('event')}<span>Field report</span></button><button class=\"icon-button\" data-ui=\"settings\" aria-label=\"Settings\">${icon('settings')}</button></nav>`;\n}\nfunction renderHud() {"
+    },
+    {
+      "firstLine": 485,
+      "lastLine": 495,
+      "text": "\nfunction activeHuntSummary() {\n  const active = !title && !['victory','defeat'].includes(state.phase) ? state : savedRun && !['victory','defeat'].includes(savedRun.phase) ? savedRun : null;\n  return active ? { contract: active.phase === 'map' ? active.floor + 1 : active.floor, hp: active.hp, maxHp: active.maxHp } : null;\n}\nfunction huntAudioHost() { return { uiCue: (back = false) => hostAudio.ui(back), audioEnabled: () => !settings.mute && settings.volume > 0 && !document.hidden }; }\nfunction renderTitle() {\n  $('scene-ui').innerHTML = renderHuntTitle({ saved: activeHuntSummary(), saveNotice, soundEnabled: !settings.mute && settings.volume > 0 });\n  disposeTitleEntry = attachHuntEntry($('scene-ui'), huntAudioHost());\n}\n"
+    },
+    {
+      "firstLine": 910,
+      "lastLine": 921,
+      "text": "}\nfunction openNew() {\n  if (settlingCombat) { cancelPresentation(); render(); }\n  openDialog('A new hunt', renderHuntContract({ seed: String(Math.floor(Math.random() * 9999999)), difficulty: 0, replaceSaved: activeHuntSummary() }));\n  disposeHuntForm = attachHuntEntry($('dialog'), huntAudioHost());\n  focusHuntContract($<HTMLFormElement>('new-game-form'));\n}\n\nfunction openTutorial() {\n  openDialog('Know your tools. Read your quarry.', `<p class=\"dialog-copy\">Keep the hunter alive and defeat the final contract. Select creatures directly on the battlefield. Their readouts show health, attack and readiness.</p><div class=\"tutorial-steps\"><div><span>1</span><section><h3>Spend energy deliberately</h3><p>Start each turn with <strong>5 energy and 5 cards</strong>. A card\u2019s corner shows its cost. Unplayed cards enter discard at turn end. When draw runs out, discard reshuffles.</p></section></div><div><span>2</span><section><h3>Deploy a binding</h3><p>Creature cards occupy one of <strong>6 binding slots</strong>. They remain through the fight. Their cards stay out of your piles while alive; fallen creatures return to discard.</p></section></div><div><span>3</span><section><h3>Give an explicit command</h3><p><strong>Select a ready creature, then an enemy.</strong> One free command per creature each turn, including its arrival turn. Targeted tools also wait for your choice. Use each creature\u2019s <strong>Inspect button (i)</strong> to read traits.</p></section></div><div><span>4</span><section><h3>Read every intent</h3><p>Readouts above enemies show their next target, damage, guard, or reinforcements. Intents resolve in order when you <strong>End turn</strong>. If a marked creature falls, its attacker hits the hunter. Block expires at your next turn; some enemies explicitly ignore it.</p></section></div></div><div class=\"tutorial-shortcuts\"><kbd>E</kbd> End turn <kbd>Esc</kbd> Cancel / pause <kbd>Tab</kbd> Navigate <kbd>Enter</kbd> Choose</div><button class=\"button primary full-width\" data-ui=\"learned\">Accept field orders ${icon('arrow')}</button>`, true);\n}\nfunction openUnit(unit: Unit) {"
+    },
+    {
+      "firstLine": 1307,
+      "lastLine": 1314,
+      "text": "    case 'menu': closeDialog(); cancelPresentation(); clearToast(); title = true; selected = null; render(); break;\n    case 'settings': openSettings(); break;\n    case 'hunter': openHunter(); break;\n    case 'feedback': openFeedback(); break;\n    case 'help': openTutorial(); break;\n    case 'learned': try { localStorage.setItem(TUTORIAL_KEY, 'yes'); } catch { /* Optional preference. */ } closeDialog(); break;\n    case 'close': closeDialog(); break;\n    case 'relic': {"
+    },
+    {
+      "firstLine": 1353,
+      "lastLine": 1364,
+      "text": "document.addEventListener('submit', event => {\n  if ((event.target as HTMLElement).id === 'feedback-form') { event.preventDefault(); exportFeedback(event.target as HTMLFormElement); return; }\n  if ((event.target as HTMLElement).id !== 'new-game-form') return;\n  event.preventDefault();\n  const form = event.target as HTMLFormElement;\n  const result = readHuntContractForm(form, { replacementRequired: activeHuntSummary() !== null });\n  if (!result.ok) { showHuntContractError(form, result.message); return; }\n  closeDialog(); start(parseSeed(result.seed), result.difficulty);\n});\ndocument.addEventListener('input', event => {\n  const input = event.target as HTMLInputElement;\n  if (!['mute','volume','motion'].includes(input.id)) return;"
+    },
+    {
+      "firstLine": 451,
+      "lastLine": 471,
+      "text": "  if (settlingCombat) return;\n  if (!tactileCommitInProgress) tactileHand?.cancel();\n  disposeTitleEntry?.(); disposeTitleEntry = null;\n  const reference = focusReference();\n  const screen = title ? 'title' : state.phase;\n  const changedScreen = screen !== renderedScreen;\n  renderedScreen = screen;\n  setMotion();\n  const environment = title ? 'courtyard' : encounterEnvironment(state) ?? 'courtyard';\n  $('scene').style.setProperty('--scene-art', `url(\"${ART_BASE}${environment === 'crypt' ? 'ossuary-crypt-v08-r2.png' : 'abbey-courtyard.png'}\")`);\n  $('app').className = title ? 'on-title' : `phase-${state.phase}${state.phase === 'battle' && Math.max(state.allies.length, state.enemies.length) >= 3 ? ' dense-battle' : ''}`;\n  renderHeader(); renderHud();\n  $('dock').hidden = title || state.phase !== 'battle';\n  $('arena-wrap').classList.toggle('muted-arena', title || state.phase !== 'battle');\n  $('arena-wrap').setAttribute('aria-hidden', title || state.phase !== 'battle' ? 'true' : 'false');\n  if (title || state.phase !== 'battle') { document.getElementById('field-controls')?.remove(); document.querySelector('[data-tactile-drop-zone]')?.remove(); $('scene').style.height = ''; $('arena-wrap').style.top = ''; }\n  if (title) renderTitle();\n  else if (state.phase === 'battle') renderBattle();\n  else if (state.phase === 'map') renderMap();\n  else if (state.phase === 'reward') renderRewards();\n  else if (state.phase === 'camp') renderCamp();"
+    }
+  ]
+}

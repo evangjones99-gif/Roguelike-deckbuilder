@@ -1,0 +1,20 @@
+{
+  "schema": "first300-source-admission-v4",
+  "inclusiveSourceCapBytes": 65536,
+  "inclusiveSourceBytes": 51279,
+  "ordinaryCapBytes": 67108864,
+  "reserveBytes": 536870912,
+  "ownCapBytes": 25165824,
+  "sourceSizingVerdict": "PASS",
+  "runtimeEligible": false,
+  "rootReview": "PENDING",
+  "independentTechnicalSourceReview": "PENDING",
+  "wholeRuntimeBudgetSeconds": 350,
+  "outerWorkerCutoffSeconds": 337,
+  "actualObservationSeconds": 300,
+  "query": "/?targetClearGhost=1&coherentNative128=1",
+  "manifestSHA256": "1559dee2d28755349448bb4e7b76688caf3c1997ea83eacab1cd8e9d8ef6357f",
+  "grammarOnly": true,
+  "priorActualFailuresRetained": true,
+  "scheduledWaitMethod": "Local Node setTimeout under unchanged outer guards"
+}

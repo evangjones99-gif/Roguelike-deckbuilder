@@ -1,0 +1,18 @@
+{
+  "status": "REVIEW_HARNESS_FAILED_THEN_CORRECTED",
+  "failedHarnessSHA256": "8d726e40bc59a003419771fc8724d1034da6007ca877ffd151e2c2aad5a28904",
+  "operation": "Execute retained pure source checks without their frozen-source receipt writers",
+  "exception": "NameError: child undefined at source_checks.py pure line73",
+  "reason": "Reviewer removed all top-level With nodes, including required synthetic mock context that defines child; candidate method unchanged",
+  "failedSourceLiteral": "if isinstance(n,ast.With):continue",
+  "correctedSourceLiteral": "if isinstance(n,ast.With) and any(isinstance(item.context_expr,ast.Call) and isinstance(item.context_expr.func,ast.Attribute) and item.context_expr.func.attr=='open' for item in n.items):continue",
+  "sourceWriterNeverExecuted": true,
+  "noMainNetworkInstallBuildExecuted": true,
+  "secondFailure": {
+    "harnessSHA256": "e9dd44a1575ce841958accc1a4c294d69e13e54c7fcc3195d72ea7809c2c028e",
+    "exception": "AssertionError at conservative selfRSS maximum plus childRSS maximum <=64MiB check after all checks",
+    "peakBytes": "UNRECORDED; no passing receipt created",
+    "candidateMethodExecuted": false,
+    "repair": "Separate synthetic/grammar child phase from later AST/inverse/transport verifier into sequential new owned source files"
+  }
+}

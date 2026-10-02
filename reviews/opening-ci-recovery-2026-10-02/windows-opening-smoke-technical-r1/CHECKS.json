@@ -1,0 +1,464 @@
+{
+  "verdict": "PASS bounded source grammar/inverse/byte checks only",
+  "admission": {
+    "hostAvailable": 18063798272,
+    "cgroupMax": "17179869184",
+    "cgroupCurrent": 532451328,
+    "minimumHeadroom": 16647417856,
+    "required": 603979776,
+    "freeDisk": 31735754752
+  },
+  "sourceFiles": {
+    "hunt-entry.265eb047.css": {
+      "bytes": 8102,
+      "sha256": "c7a511b569c6c50456a0aea1c9a469f3d25c245fc660db4d036fd860b99144f5"
+    },
+    "windows-smoke.patch": {
+      "bytes": 4611,
+      "sha256": "60f4c634ca55676b9d4ec865ffa634ab35e7b2094f60c86f710d673256a47eb1"
+    },
+    "MANIFEST.json": {
+      "bytes": 1673,
+      "sha256": "5a9f80abfafec56f366b59afa285949e76c325783dbb65c040b4f2537c23fa7b"
+    },
+    "SOURCE-GATE.json": {
+      "bytes": 677,
+      "sha256": "f86651361d2a4f0e036a3be09953ac30b27371e8add4c378764f86de9c9fd0ad"
+    },
+    "hunt-entry.265eb047.ts": {
+      "bytes": 10816,
+      "sha256": "7c53defb4db9f68fc2bfb47de6a64302b8915cdf077fb84b6df69af3142f80fb"
+    },
+    "CHANGE-LEDGER.json": {
+      "bytes": 4847,
+      "sha256": "7e5cab6903ed6e43e64c9cf5523146db8746633352b6269da60da825562ca34f"
+    },
+    "REVIEW.md": {
+      "bytes": 5039,
+      "sha256": "6ca7cc5bce808a5f53667515261ab81ecf8e7c3cc2460d20287510b004f790f1"
+    },
+    "ACQUISITION.json": {
+      "bytes": 3134,
+      "sha256": "2b2a8cb4900ce409e00189d827e301b46bcd33a6e572e618565efaeeb784be27"
+    },
+    "main.265eb047.excerpts.json": {
+      "bytes": 8668,
+      "sha256": "ce31b5add7c731f4146a74c146b11899cd66417b3d83ce33916f2e56d8457c58"
+    },
+    "GRAMMAR.json": {
+      "bytes": 303,
+      "sha256": "c90d7e857f6692c7b7cc5383bd2ed8c7cf9c02203249d3b2bde9c0affacb01b6"
+    },
+    "windows-smoke.proposed.mjs": {
+      "bytes": 26396,
+      "sha256": "fb0afaeb947dcbc4d4e6f446479695142bfacc99a6fea19a8def578ac3146181"
+    },
+    "windows-smoke.before.mjs": {
+      "bytes": 24304,
+      "sha256": "1e3feeeb54dbc42fed0a6ecdac5135c3dbd52303872376faabdaadb75e62528a"
+    },
+    "MAIN-SOURCE-IDENTITY.json": {
+      "bytes": 349,
+      "sha256": "7f6de5aa46efc6405817148844cc8dbb23236282f1a6a14d385aca9d4a8cb5e2"
+    }
+  },
+  "sourceInclusiveBytes": 98919,
+  "sourceGateSHA256": "f86651361d2a4f0e036a3be09953ac30b27371e8add4c378764f86de9c9fd0ad",
+  "manifestSHA256": "5a9f80abfafec56f366b59afa285949e76c325783dbb65c040b4f2537c23fa7b",
+  "roundtrip": {
+    "blocks": 3,
+    "forward": true,
+    "inverse": true,
+    "wholeFile": true,
+    "unifiedPatchExact": true
+  },
+  "gitBlobPins": {
+    "windows-smoke.before.mjs": "f4b53e0b942305aba8b8e8e4e3b7445d33f7377c",
+    "hunt-entry.265eb047.ts": "f3cdeefb038b71491bff984f464305dbdb425fbe",
+    "hunt-entry.265eb047.css": "3e45d3f4f218a10f3eee9aa117a4e6223b5dbe07"
+  },
+  "grammar": [
+    {
+      "file": "windows-smoke.before.mjs",
+      "argv": [
+        "node",
+        "--check",
+        "/workspace/scratch/windows-opening-smoke-source-r1/windows-smoke.before.mjs"
+      ],
+      "exit": 0,
+      "stdoutBytes": 0,
+      "stderrBytes": 0,
+      "stdoutSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "seconds": 0.02788941900143982
+    },
+    {
+      "file": "windows-smoke.proposed.mjs",
+      "argv": [
+        "node",
+        "--check",
+        "/workspace/scratch/windows-opening-smoke-source-r1/windows-smoke.proposed.mjs"
+      ],
+      "exit": 0,
+      "stdoutBytes": 0,
+      "stderrBytes": 0,
+      "stdoutSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "seconds": 0.026284652998583624
+    }
+  ],
+  "preservedOldEvidence": {
+    "run-37053546108-job-110992548885.decoded.log": {
+      "bytes": 51953,
+      "sha256": "d61d2e7f8f4de8c54b6cda5b6904f4122d51c892ae436bcfb091ea46a7f2d908"
+    },
+    "artifacts.json": {
+      "bytes": 1541,
+      "sha256": "114b32c0f791d29e8333dc91f862edf71fd6caa1add88b080c54995696cbde7d"
+    },
+    "jobs.json": {
+      "bytes": 2956,
+      "sha256": "65d5835974b4095afd15b6cd670a12daf3b120d2847d3ef572fe52bfd492991c"
+    },
+    "ROOT-ACQUISITION.json": {
+      "bytes": 541,
+      "sha256": "a87d56b459600661441a7f8a5858f7adce0bfe447058be0d91335aa8e0c50712"
+    },
+    "CONNECTED-UTF8.json": {
+      "bytes": 57972,
+      "sha256": "df12e9881743fb0d00adf2fdd6ad4be83edaefab8fa0a91c90330f18ef067f56"
+    }
+  },
+  "originalArtifact": {
+    "id": 11247905305,
+    "zip": {
+      "bytes": 10406248,
+      "sha256": "a4287b8dc1e8257e310f21176dd0c328576a9310dae85c086655c6b10909045c"
+    },
+    "memberCount": 57,
+    "allMembers": [
+      {
+        "name": "reviews/windows-native/0.4.0/run-36770754936-1/ci-build-provenance.json",
+        "bytes": 2224,
+        "sha256": "25703ae4865844031c62fa7dd23a077e8230285deb39c0ab97bbd585e9da2d7e"
+      },
+      {
+        "name": "reviews/windows-native/0.4.0/run-36770068258-1/failure.json",
+        "bytes": 786,
+        "sha256": "708e7fe63bc5817536ac5fd9c91ac498ae3176dc0db5376e8c016021e75af8a5"
+      },
+      {
+        "name": "reviews/windows-native/0.4.0/run-36770068258-1/packaging-log-excerpt.txt",
+        "bytes": 2588,
+        "sha256": "d94b9c5249d24d654333294a3b045b3fe1821b8839d1ad3d2293fb59858e5afa"
+      },
+      {
+        "name": "reviews/windows-native/0.4.0/run-36770754936-1/ci-builder-config.json",
+        "bytes": 495,
+        "sha256": "2f6ccb600bdb94c377595dbaee779a69c858f7ceda9fe524e5b0a58196e8adc8"
+      },
+      {
+        "name": "reviews/windows-native/0.4.0/run-36770754936-1/ci-smoke.json",
+        "bytes": 10891,
+        "sha256": "f0f20ba6d2f320157f26b5890db4ac245b0057450b82859075ecce06f56bb0b5"
+      },
+      {
+        "name": "reviews/windows-native/0.4.0/run-36770754936-1/failure.json",
+        "bytes": 733,
+        "sha256": "d08d0c37f62eb7cf7298ccebdbbf5f58dc3b33a627331e13ebc486ede73a239a"
+      },
+      {
+        "name": "reviews/windows-native/0.4.0/run-36770754936-1/smoke-log-excerpt.txt",
+        "bytes": 1400,
+        "sha256": "b793d5cb5628c6559e58152f5937e049ed3ba43eea73d0c48a396c93ca4b0055"
+      },
+      {
+        "name": "reviews/windows-native/0.4.0/run-36771113533-1/job-log.txt",
+        "bytes": 39940,
+        "sha256": "887a8ce4f0993b2f55c0359ef3f6d4d6acb4e58b103a657b247d1deebd066881"
+      },
+      {
+        "name": "reviews/windows-native/0.4.0/run-36772521612-1/battle.png",
+        "bytes": 572237,
+        "sha256": "38fe9e749ae1b815f16b3bebdb6181f8a7910f93e66b7ebfa77df5b473841670"
+      },
+      {
+        "name": "reviews/windows-native/0.4.0/run-36772521612-1/ci-build-provenance.json",
+        "bytes": 2224,
+        "sha256": "25703ae4865844031c62fa7dd23a077e8230285deb39c0ab97bbd585e9da2d7e"
+      },
+      {
+        "name": "reviews/windows-native/0.4.0/run-36772521612-1/ci-builder-config.json",
+        "bytes": 495,
+        "sha256": "2f6ccb600bdb94c377595dbaee779a69c858f7ceda9fe524e5b0a58196e8adc8"
+      },
+      {
+        "name": "reviews/windows-native/0.4.0/run-36772521612-1/executable-icon.png",
+        "bytes": 2756,
+        "sha256": "41017fff3707b047a3da927c1933643f36793d16d8178a021d1c25e1efa5c83e"
+      },
+      {
+        "name": "reviews/windows-native/0.4.0/run-36772521612-1/job-log.txt",
+        "bytes": 66414,
+        "sha256": "e5e2042cb00584db567e052e903910f67eb4043a8da9996992113e9e09f50454"
+      },
+      {
+        "name": "reviews/windows-native/0.4.0/run-36772521612-1/native-package.json",
+        "bytes": 472,
+        "sha256": "7008f4df3dd1b1647dcaaa3b084a7bb3f41f1ac263647b285c48fc9983595703"
+      },
+      {
+        "name": "reviews/windows-native/0.4.0/run-36772521612-1/relaunch-resumed.png",
+        "bytes": 571366,
+        "sha256": "6979fb5dd1e3457e5fd18d6b73b57ea6342cb84ac88a8fbeb21bd2b8b9265887"
+      },
+      {
+        "name": "reviews/windows-native/0.4.0/run-36772521612-1/smoke.json",
+        "bytes": 11111,
+        "sha256": "feffa91bdeb75370103353bb617d98c921405e650e8b1b683e3b563d8d8791b2"
+      },
+      {
+        "name": "reviews/windows-native/0.4.0/run-36772521612-1/synthetic-negative-feedback.json",
+        "bytes": 1138,
+        "sha256": "83ca5a0d47a750c744ae5e9ce26dfed7d1b9f3552bb49358c1458e21af5ed1f9"
+      },
+      {
+        "name": "reviews/windows-native/0.4.0/run-36772521612-1/title.png",
+        "bytes": 837494,
+        "sha256": "8c7f4e8fd8dadf43cac1bcc6c0573f2352fb5d7027c511b5d5fdeedd3fbeda54"
+      },
+      {
+        "name": "reviews/windows-native/0.4.0/run-36772521612-1/transfer-manifest.json",
+        "bytes": 2005,
+        "sha256": "2399f02f6cd8dd45f9c093cde8832c76a2eda88b8672035324f34cd1c16de939"
+      },
+      {
+        "name": "reviews/windows-native/0.4.0/run-36772521612-1/transfer-verification.json",
+        "bytes": 2869,
+        "sha256": "6e95ae4340c357a35709dacbd3609973e7a84b7ee0f98ed0bbd209d7360d8647"
+      },
+      {
+        "name": "reviews/windows-native/0.5.0/run-36782560136-1/artifact-transfer.json",
+        "bytes": 3000,
+        "sha256": "09db255a862d632737ddb6d3a834e1738b9cd3b50005c5f63385f00c441a7d86"
+      },
+      {
+        "name": "reviews/windows-native/0.5.0/run-36782560136-1/battle.png",
+        "bytes": 613244,
+        "sha256": "3a0e3bb3532e997a4ece4d07c48dccc4d6ab089da4bdc6dec957001d69f00e42"
+      },
+      {
+        "name": "reviews/windows-native/0.5.0/run-36782560136-1/ci-build-provenance.json",
+        "bytes": 2618,
+        "sha256": "9a542531ed86d559058ba5534b249b0f763e02c4a7850c2f8be516ae6fbc152b"
+      },
+      {
+        "name": "reviews/windows-native/0.5.0/run-36782560136-1/ci-builder-config.json",
+        "bytes": 495,
+        "sha256": "2f6ccb600bdb94c377595dbaee779a69c858f7ceda9fe524e5b0a58196e8adc8"
+      },
+      {
+        "name": "reviews/windows-native/0.5.0/run-36782560136-1/executable-icon.png",
+        "bytes": 2756,
+        "sha256": "41017fff3707b047a3da927c1933643f36793d16d8178a021d1c25e1efa5c83e"
+      },
+      {
+        "name": "reviews/windows-native/0.5.0/run-36782560136-1/job-log.txt",
+        "bytes": 69181,
+        "sha256": "1dc5c1602e84d38db11c57077bb96af365d8c105c9928a95a875325e03faf09b"
+      },
+      {
+        "name": "reviews/windows-native/0.5.0/run-36782560136-1/native-package.json",
+        "bytes": 472,
+        "sha256": "3454c2b15c5f5477e81ab8f8d81d46bab7f48f5e7a54b0d163cf57b87e02e7df"
+      },
+      {
+        "name": "reviews/windows-native/0.5.0/run-36782560136-1/native-package.exact-ci.json",
+        "bytes": 484,
+        "sha256": "619a2ffa124d5dc7af404bc694700580112759e6d24dccdcfd3ad06b1c7e5765"
+      },
+      {
+        "name": "reviews/windows-native/0.5.0/run-36782560136-1/relaunch-resumed.png",
+        "bytes": 612309,
+        "sha256": "e0fc04000a367e62b49bf440f26be02f7739c5ba9b8290c6d1f2b5a38dad53fe"
+      },
+      {
+        "name": "reviews/windows-native/0.5.0/run-36782560136-1/smoke.json",
+        "bytes": 11435,
+        "sha256": "109b83674336959ef6e70c84f8634968083eea660e04c5beda3de4bbcdbea181"
+      },
+      {
+        "name": "reviews/windows-native/0.5.0/run-36782560136-1/synthetic-negative-feedback.json",
+        "bytes": 1189,
+        "sha256": "84e516d2b0614b3e73d7d62d70b4c3c1d3807f850c835ed3fbb9cd91a03b2af3"
+      },
+      {
+        "name": "reviews/windows-native/0.5.0/run-36782560136-1/title.png",
+        "bytes": 837480,
+        "sha256": "17e2182c7c05fb9b89901342cc443bbd425c6fd6803b725bd87fd6c2c24692d7"
+      },
+      {
+        "name": "reviews/windows-native/0.5.0/run-36782560136-1/transfer-manifest.json",
+        "bytes": 2005,
+        "sha256": "2bd08269137efff873bbbf5f2265490023f23b4f7cce3b92f73870bc6f7aa7bb"
+      },
+      {
+        "name": "reviews/windows-native/0.6.0/run-36789372782-1/battle.png",
+        "bytes": 628106,
+        "sha256": "e3c0184e1d03e545a8eefb161f22cef4703461328a8cfa0b4fae5d82e3cd85e1"
+      },
+      {
+        "name": "reviews/windows-native/0.6.0/run-36789372782-1/executable-icon.png",
+        "bytes": 2756,
+        "sha256": "41017fff3707b047a3da927c1933643f36793d16d8178a021d1c25e1efa5c83e"
+      },
+      {
+        "name": "reviews/windows-native/0.6.0/run-36789372782-1/keyboard-command.png",
+        "bytes": 628106,
+        "sha256": "e3c0184e1d03e545a8eefb161f22cef4703461328a8cfa0b4fae5d82e3cd85e1"
+      },
+      {
+        "name": "reviews/windows-native/0.6.0/run-36789372782-1/native-package.exact-ci.json",
+        "bytes": 484,
+        "sha256": "23d0f19db1fe1b5252b2a17d1ce32af786858a45cf8a3ada323d5c222295a181"
+      },
+      {
+        "name": "reviews/windows-native/0.6.0/run-36789372782-1/native-package.json",
+        "bytes": 484,
+        "sha256": "23d0f19db1fe1b5252b2a17d1ce32af786858a45cf8a3ada323d5c222295a181"
+      },
+      {
+        "name": "reviews/windows-native/0.6.0/run-36789372782-1/relaunch-resumed.png",
+        "bytes": 613922,
+        "sha256": "8481fa06613850f39b1369f5b099c2f56fd513af1646a0cfba9fe728c46a0c75"
+      },
+      {
+        "name": "reviews/windows-native/0.6.0/run-36789372782-1/synthetic-negative-feedback.json",
+        "bytes": 1189,
+        "sha256": "c3b39e5da841f7d3ef7963c2aa1793d69298644dab3fcc47db8a00da01b26939"
+      },
+      {
+        "name": "reviews/windows-native/0.6.0/run-36789372782-1/smoke.json",
+        "bytes": 14717,
+        "sha256": "3d4ce00cb84f357d8572d53ab8994bc4a0c70f958dc2fa193341fbf1176f30c1"
+      },
+      {
+        "name": "reviews/windows-native/0.6.0/run-36789372782-1/title.png",
+        "bytes": 834256,
+        "sha256": "3ca2e47e33a2c0ccb6ebc4e5d9ff32191ae7bd7abd67b2b9f7a070b274de24f6"
+      },
+      {
+        "name": "reviews/windows-native/0.6.1/run-36791619534-1/battle.png",
+        "bytes": 628123,
+        "sha256": "ed8093568811cdc2d797a8a83453e0d4ecc8c18cb3e1e7a4d5f860a01521d8ee"
+      },
+      {
+        "name": "reviews/windows-native/0.6.1/run-36791619534-1/ci-build-provenance.json",
+        "bytes": 2706,
+        "sha256": "db010fc714ee12c19278da462b79943bc409eb152b409fc715db41d251b92e4e"
+      },
+      {
+        "name": "reviews/windows-native/0.6.1/run-36791619534-1/executable-icon.png",
+        "bytes": 2756,
+        "sha256": "41017fff3707b047a3da927c1933643f36793d16d8178a021d1c25e1efa5c83e"
+      },
+      {
+        "name": "reviews/windows-native/0.6.1/run-36791619534-1/ci-builder-config.json",
+        "bytes": 495,
+        "sha256": "2f6ccb600bdb94c377595dbaee779a69c858f7ceda9fe524e5b0a58196e8adc8"
+      },
+      {
+        "name": "reviews/windows-native/0.6.1/run-36791619534-1/keyboard-command.png",
+        "bytes": 628123,
+        "sha256": "ed8093568811cdc2d797a8a83453e0d4ecc8c18cb3e1e7a4d5f860a01521d8ee"
+      },
+      {
+        "name": "reviews/windows-native/0.6.1/run-36791619534-1/native-package.json",
+        "bytes": 484,
+        "sha256": "24d1f403b5205d4745bdcffcd5831d4ddae08ab4b4eb14c667784d85673237c2"
+      },
+      {
+        "name": "reviews/windows-native/0.6.1/run-36791619534-1/smoke.json",
+        "bytes": 14725,
+        "sha256": "d6b4466318d31557614c73f38404d6e28f507ce6e0ca7195e871fd7560153ad1"
+      },
+      {
+        "name": "reviews/windows-native/0.6.1/run-36791619534-1/relaunch-resumed.png",
+        "bytes": 613936,
+        "sha256": "66815f1558b66934c32449db5a8513b0f243c92f7fa756531504e04543908176"
+      },
+      {
+        "name": "reviews/windows-native/0.6.1/run-36791619534-1/title.png",
+        "bytes": 834283,
+        "sha256": "cb2956cd2b715c86867ee4f457201aedd267835af7a52bbb9e38facc5acbbe56"
+      },
+      {
+        "name": "reviews/windows-native/0.6.1/run-36791619534-1/synthetic-negative-feedback.json",
+        "bytes": 1189,
+        "sha256": "cd97b299aaaf663b77a120f3bcd3055e3943c7dad575d5864cae7782d67f4cd6"
+      },
+      {
+        "name": "reviews/windows-native/0.9.0/run-37053546108-1/failure.png",
+        "bytes": 850209,
+        "sha256": "e5027f779533b8779e3798c8f12315c2527b913e20a0754a33ee2c3456e52229"
+      },
+      {
+        "name": "reviews/windows-native/0.6.1/run-36791619534-1/transfer-manifest.json",
+        "bytes": 2005,
+        "sha256": "46d8286d4ee631827539b68e50ae74d4add865e48d490d6a423433543bc5272c"
+      },
+      {
+        "name": "reviews/windows-native/0.9.0/run-37053546108-1/smoke.json",
+        "bytes": 11086,
+        "sha256": "a6990ab26758c2bb13821cbc7d1cd4affe87d05b5c1834d49dee891863d0ec78"
+      },
+      {
+        "name": "build-desktop/windows-native-config.json",
+        "bytes": 495,
+        "sha256": "2f6ccb600bdb94c377595dbaee779a69c858f7ceda9fe524e5b0a58196e8adc8"
+      },
+      {
+        "name": "dist/build-provenance.json",
+        "bytes": 9131,
+        "sha256": "c64c879686e46a312b325d265ee99b6b7a7867f225f936178cd9a5e13567bab2"
+      }
+    ],
+    "selectedCopies": {
+      "failure.png": {
+        "bytes": 850209,
+        "sha256": "e5027f779533b8779e3798c8f12315c2527b913e20a0754a33ee2c3456e52229"
+      },
+      "smoke.json": {
+        "bytes": 11086,
+        "sha256": "a6990ab26758c2bb13821cbc7d1cd4affe87d05b5c1834d49dee891863d0ec78"
+      },
+      "build-provenance.json": {
+        "bytes": 9131,
+        "sha256": "c64c879686e46a312b325d265ee99b6b7a7867f225f936178cd9a5e13567bab2"
+      }
+    },
+    "crcCheckedByFullZipRead": true
+  },
+  "actualFailure": {
+    "head": "265eb047cd041d79a56edfa5b0a6d270e020b8f0",
+    "checkedOutMerge": "ebbcd78a14ddf42dc2a8a8f7c695fe302035a0c3",
+    "run": 37053546108,
+    "job": 110992548885,
+    "phase": "decode packaged hunter portrait",
+    "sourceDigest": "64c2a14ada2b24796535f9bb71d8a6acc534685365bcf4f5665b21bf18595353",
+    "archiveSteps": "SKIPPED",
+    "status": "FAIL"
+  },
+  "resource": {
+    "selfPeakRSS": 15204352,
+    "directGrammarChildPeakRSS": 28303360,
+    "conservativePeakSum": 43507712,
+    "ordinaryCap": 67108864,
+    "reserve": 536870912,
+    "finiteSeconds": 30
+  },
+  "noSmokeExecution": true,
+  "noNativeWindowsExecution": true,
+  "sourceAndOriginalEvidenceUnchanged": true,
+  "atimeMayChange": true
+}
