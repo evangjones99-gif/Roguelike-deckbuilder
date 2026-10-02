@@ -1,0 +1,109 @@
+{
+  "scope": "Independent SOURCE review; helper reconstructed as text/AST only, not imported or executed",
+  "sourcePins": {
+    "FINAL-SEAL.json": "44bdfd1eee375b6686e09cd40b38ad37d1c0be7c6aa9656c421b4ebcd227cbc3",
+    "MANIFEST.json": "51bf536706f7f0d3bce4fd3c049c5e1a4817a52bb16b4ce7e1c96a864b3391ff",
+    "preserve-direct-final.py": "5ad10c515b362ac6434ad6041565a13d74551f53e658c1f65c5ab4a08c10dd0f",
+    "preserve-direct-r2.py": "9818bfbbb52ff3f4ad173c6c29071c77531011c95bda404f61636f9b3fad0568",
+    "SOURCE-SPEC-final.json": "13d1c918f57c103929e098a03ce90ba7574161e1e0ae75e598960812e7ec6e0f",
+    "SOURCE-SPEC.json": "c433f479bf32a66beeb2696fb5a009be7746d9353641ea3caee7fbbd77bdcdaf"
+  },
+  "exactInverses": {
+    "r2ToR1LiteralDeltas": 5,
+    "r1ToPriorLiteralDeltas": 7,
+    "authorizeBlockRemovedExactlyOnce": true,
+    "priorMethodSHA256": "5ee7a0a37946e3afcdf1d355cdfbc929ccf37b39edb1b4654e61e14250fb3f1a",
+    "wrapperSpecLoaderDelta": 1
+  },
+  "effectiveContract": {
+    "fixedRoots": 83,
+    "singleFiles": 56,
+    "requiredRoots": 137,
+    "requiredControlPins": 16,
+    "futureOptionalRoots": [
+      "/workspace/scratch/ash-widow-correction-native128-actual-diagnostic-independent-r2",
+      "/workspace/scratch/ash-widow-correction-native128-final-output-root-r2",
+      "/workspace/scratch/ash-widow-correction-native128-final-receipt-root-r2",
+      "/workspace/scratch/ash-widow-correction-native128-final-guard-root-r2",
+      "/workspace/scratch/ash-widow-correction-native128-final-engineering-independent-r2",
+      "/workspace/scratch/ash-widow-correction-native128-native-visual-independent-r2"
+    ],
+    "runtimeAuthorities": [
+      {
+        "stage": "/workspace/scratch/native128-defeat-aftermath-stage-r2",
+        "freezeSHA256": "c5d43c9de9b777f064c48c47263c3edaa2a22cc89569c6a7b4c3ade3b3101a50",
+        "sourceDigest": "10faa229984f1e2d30fe5f715301d52c31066b7849c3a7220e019a3f81694950",
+        "outputsDigest": "abb1a6411776a2d15995edc523de7b72b6ad735348590173dbe8cbeb3c3c555c",
+        "counts": [
+          98,
+          64
+        ]
+      },
+      {
+        "stage": "/workspace/scratch/native128-floor-perspective-stage-r1",
+        "freezeSHA256": "ed6dd947aa1096b5e59270e2bf39542f7352c29140c552fb33d47df1c71d2752",
+        "sourceDigest": "a8913c85dd6dc0c009e7c5de10a3095a4a4f8336e9944eb68f3979371b63305b",
+        "outputsDigest": "c9cd8c8ce61064901e908446a6cefecfc3742657fee39ecdd6d78ba7e1150880",
+        "counts": [
+          98,
+          64
+        ]
+      }
+    ],
+    "output": "/workspace/Roguelike-deckbuilder/reviews/opening-native-aftermath-and-starter-art-2026-10-02/archive",
+    "futureBudget": {
+      "workMiB": 128,
+      "reserveMiB": 512,
+      "ordinaryDiskMiB": 64,
+      "internalInitialDiskMiB": 76,
+      "maxAllOutputLogicalAndAllocatedBytes": 12582912,
+      "wholeStreamCeilingSeconds": 60,
+      "ownRSSKiB": 24576,
+      "finalInputManifestMaxBytes": 1048576,
+      "newStoredArchiveCopies": 1
+    }
+  },
+  "oldArchive": {
+    "authority": {
+      "archive": {
+        "path": "/workspace/Roguelike-deckbuilder/reviews/opening-cue-and-grounded-trial-2026-10-02/archive/evidence-451347c174a3fe78e5f7b6ef22736b7cfbbd33b39fd04ea20556730bb3b15a8b.tar.gz",
+        "sha256": "451347c174a3fe78e5f7b6ef22736b7cfbbd33b39fd04ea20556730bb3b15a8b",
+        "bytes": 7848992
+      },
+      "index": {
+        "path": "/workspace/Roguelike-deckbuilder/reviews/opening-cue-and-grounded-trial-2026-10-02/archive/INDEX.json",
+        "sha256": "64fe0a3ea9e523e6a63c9b7e60cd4ae3df8c88ef15cfba858a86187e21e98d58"
+      },
+      "complete": {
+        "path": "/workspace/Roguelike-deckbuilder/reviews/opening-cue-and-grounded-trial-2026-10-02/archive-complete-independent/GATE.json",
+        "sha256": "df8ef40e5409409f004d2a2c08d7ca20dfb519f31590c379459c29d2f6983a85"
+      }
+    },
+    "bodyAccess": "NONE; stat only; pinned INDEX/COMPLETE JSON read",
+    "stat": {
+      "dev": 27,
+      "ino": 789399,
+      "size": 7848992,
+      "mtime_ns": 1790935586804062404
+    }
+  },
+  "trustedManifestBoundary": [
+    "Root must full-hash every logical regular row, including duplicate-body paths, before final closure",
+    "Root must compare every runtime row SHA/size against pinned full frozen input/output maps",
+    "Root must set manifest runtimeAuthorities literally equal to effective SPEC and verify held-media/installed-dependency bindings",
+    "Helper verifies chosen representative bytes for every NEW unique SHA and full streamed literal-original Tar readback, not every duplicate logical path independently",
+    "Final manifest/grant exact bodies are copied into the new archive directory; prior Tar body coverage is inherited from pinned COMPLETE/INDEX only",
+    "All now-closed required/optional Ash phases must be recorded truthfully; absent future phases NOT_RUN cannot become fabricated acceptance"
+  ],
+  "resource": {
+    "VmHWM": "12416 kB",
+    "VmRSS": "11784 kB"
+  },
+  "limitations": [
+    "No final Root input manifest or archive exists in this SOURCE gate",
+    "No archive COMPLETE, art/default/game quality/300-second/human-fun acceptance",
+    "Normal outer execution, terminal caps/time/resource/owned closure and independent COMPLETE review remain required",
+    "Source guard sparse shared-cgroup samples are qualified aggregate evidence, not exclusive full process ownership",
+    "Ordinary document reads may affect atime; no metadata reset or complete xattr preservation claim"
+  ]
+}

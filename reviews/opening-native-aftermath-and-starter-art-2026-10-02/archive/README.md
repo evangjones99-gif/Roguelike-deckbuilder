@@ -1,0 +1,1 @@
+Original bytes only; logical paths map to new blobs/SHA256 or prior4513 COMPLETE/index inheritance with transitive prior references, not replayed archive bodies. Game media and installed dependencies remain external and pinned. No game/default/art selection authority. Originals, failed reviews, source drafts, and prior capsules remain in place.
