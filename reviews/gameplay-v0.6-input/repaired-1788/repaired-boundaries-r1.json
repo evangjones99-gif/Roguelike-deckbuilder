@@ -1,0 +1,76 @@
+{
+  "scope": "Actual production handlers; only navigator.getGamepads samples emulated. No injected host or adapter. Diagnostic fixtures are unearned validated saves; no physical hardware claim.",
+  "digest": "1788250060f96dc0a1b8ff24092997f47643121a265d17fd6b95bbfc1b98811a",
+  "referenceSHA": "e8836833a56836fa97e79ebced4ee0845ad64e99cf6c85d107faaeb09b8fdad5",
+  "harnessSHA": "ca13cbf31cb75c3e008d7e7ae85d226e763eeab9c2dbdd024be513e27d32726d",
+  "results": [
+    {
+      "name": "composition-shortcuts-and-arrows-1",
+      "fixture": "no-unspent",
+      "kind": 1,
+      "syntheticCompositionEvent": true,
+      "dialogAndFocusAndCanonicalUnchanged": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "a10",
+        "id": "",
+        "text": "Cairn HoundB1 7/73 Spent"
+      },
+      "finalSaveHash": "f4780212bfe37ab51a0944534ade6373bd49aaf2fe6e3932f911a363f02ff4f6",
+      "errors": []
+    },
+    {
+      "name": "blur-held-press-focus-neutral-1",
+      "fixture": "nonfinal-kill",
+      "kind": 1,
+      "syntheticWindowBlurFocus": true,
+      "unfocusedPressIgnored": true,
+      "heldRestoreIgnored": true,
+      "neutralThenFreshCommits": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "a11",
+        "id": "",
+        "text": "Grave HoundB2 11/114Ready"
+      },
+      "finalSaveHash": "da4580e8be00a0032a548fabf2483343bd450518c5558ed44cbc189b86b37f86",
+      "errors": []
+    },
+    {
+      "name": "composition-shortcuts-and-arrows-2",
+      "fixture": "no-unspent",
+      "kind": 2,
+      "syntheticCompositionEvent": true,
+      "dialogAndFocusAndCanonicalUnchanged": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "a10",
+        "id": "",
+        "text": "Cairn HoundB1 7/73 Spent"
+      },
+      "finalSaveHash": "bce7841fce0ab1f95bc1cc18f6c8f68ebbc2f2d4cd95c3a5330a6e6d69251802",
+      "errors": []
+    },
+    {
+      "name": "blur-held-press-focus-neutral-2",
+      "fixture": "nonfinal-kill",
+      "kind": 2,
+      "syntheticWindowBlurFocus": true,
+      "unfocusedPressIgnored": true,
+      "heldRestoreIgnored": true,
+      "neutralThenFreshCommits": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "a11",
+        "id": "",
+        "text": "Grave HoundB2 11/114Ready"
+      },
+      "finalSaveHash": "c70bcf1038054abc5d29cc045ed769725cfa3eb611931741fd5694e460c8b217",
+      "errors": []
+    }
+  ]
+}

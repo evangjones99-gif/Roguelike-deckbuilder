@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/share-second-three-retained-pngs-root-r3.py", line 82, in <module>
+    leafcheck(af,ap.name,a['fstat'],a['sha256']);leafcheck(bf,bp.name,b['fstat'],b['sha256'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/share-second-three-retained-pngs-root-r3.py", line 36, in leafcheck
+    before=md(os.stat(name,dir_fd=fd,follow_symlinks=False));assert before==expected and stat.S_ISREG(before['st_mode'])
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

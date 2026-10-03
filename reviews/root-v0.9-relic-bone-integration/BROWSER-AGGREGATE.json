@@ -1,0 +1,14 @@
+{
+  "runtime": "4bfa417ad790dd88a18868e10e7574666ae8bfc3187bdab1df4947c31231de61",
+  "all78InputsAnd56OutputsReverified": true,
+  "passesByExactLog": {
+    "stage-production-browser-r1.txt": 28,
+    "stage-production-browser-r2.txt": 6,
+    "stage-production-browser-r3.txt": 1
+  },
+  "uniqueProductionTestsPassed": 35,
+  "interruption": "R1 owned parent SIGINT after28 pass, one in-flight interrupted and6 notrun; R2 reruns interrupted+five affected files cases, R3 final remaining backup case. No interrupted case accepted, no behavior/source assertions weakened.",
+  "newHostPortOnlyAdaptation": "BROWSER-HOST-ADAPTATION.json",
+  "transientTraceQualification": "BROWSER-CAPACITY-POSTFLIGHT.json",
+  "noCompleteSingleInvocationClaim": true
+}

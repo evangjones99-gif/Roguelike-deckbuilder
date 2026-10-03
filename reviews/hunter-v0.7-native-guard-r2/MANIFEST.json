@@ -1,0 +1,77 @@
+{
+  "status": "FROZEN R2guard accepted for nativeCI; targeted independent developmentElectron only, no nativeWindows result",
+  "createdUTC": "2026-10-01T00:38:50.113090+00:00",
+  "excluded": "Unique synthetic temporary browser profile directories, retained locally, not curated evidence",
+  "files": [
+    {
+      "path": "REVIEW.md",
+      "bytes": 5295,
+      "sha256": "b961526f4c57b88a24357ac463ca3b783268a5207957983dbc08713af0027e4c"
+    },
+    {
+      "path": "actual-electron-hook.mjs",
+      "bytes": 4306,
+      "sha256": "bbad50eed288cacc16e43730b899b906f8cee52bef44b3b781bb7d90c98803d6"
+    },
+    {
+      "path": "evidence/actual-electron-r2-hook-run.txt",
+      "bytes": 318,
+      "sha256": "3773d85856bf0eb79075fd969209f856ad2a806c1975ecba59edc2e1d3104726"
+    },
+    {
+      "path": "evidence/actual-electron-r2-hook.json",
+      "bytes": 24771,
+      "sha256": "90bde4b0b463f9d8f49f2eb0f5316f198b31ed5d7d070bf5d10c39844aad942c"
+    },
+    {
+      "path": "evidence/actual-electron-r2-hook.png",
+      "bytes": 1320518,
+      "sha256": "aa51235ac6c1e95381e79e9785d08adb7b518ceb9c6ac60c51581b9675d0137f"
+    },
+    {
+      "path": "evidence/adversarial-results.json",
+      "bytes": 1638,
+      "sha256": "bc03ace383b3fdcd9a54c330c2a0045c4e535b1d6ec709d6f10dd7db8a6d3267"
+    },
+    {
+      "path": "evidence/adversarial-run.txt",
+      "bytes": 51,
+      "sha256": "991209f40462ac4a9e392ca1ecea5f2b431a13a6de7e10c3390622425bc84232"
+    },
+    {
+      "path": "evidence/exact-snippets.json",
+      "bytes": 3477,
+      "sha256": "b7a71798a305d390b8d20899bd248f81a6cf6ce1f56fe083d3a757a3d478c422"
+    },
+    {
+      "path": "evidence/source-baseline-preservation.json",
+      "bytes": 1067,
+      "sha256": "8ab748ddf85319b43cc77bdd77e1aa20edbead7af3e9d3cbd2537bbaf00a0ed6"
+    },
+    {
+      "path": "evidence/syntax-check.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "guard-adversarial.mjs",
+      "bytes": 3413,
+      "sha256": "8801fb3a4cb7ea1714aa43629fd8e46ac2d139cad1214892e0786f392021853e"
+    },
+    {
+      "path": "guard-extract.mjs",
+      "bytes": 1250,
+      "sha256": "6f178948bceb156fa1f9c9505ffc6dacc05b185d1cf78b2af7c122ee152bfd0e"
+    },
+    {
+      "path": "windows-smoke-baseline.mjs",
+      "bytes": 20386,
+      "sha256": "ed7551494d735b5f00d3071fe425e0a390d33322e3488b4b7b9a54cbbd9ac370"
+    },
+    {
+      "path": "windows-smoke-guard-r2.mjs",
+      "bytes": 24304,
+      "sha256": "1e3feeeb54dbc42fed0a6ecdac5135c3dbd52303872376faabdaadb75e62528a"
+    }
+  ]
+}

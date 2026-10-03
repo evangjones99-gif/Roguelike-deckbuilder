@@ -1,0 +1,21 @@
+{
+  "initial": {
+    "time_ns": 1790848991771725750,
+    "current": 15859286016,
+    "maximum": 17179869184,
+    "headroom": 1320583168,
+    "free": 9150185472
+  },
+  "work": 402653184,
+  "reserve": 536870912,
+  "command": [
+    "node",
+    "node_modules/tsx/dist/cli.mjs",
+    "--test",
+    "tests/compact-intent.test.ts",
+    "tests/audio-presentation-delay.test.ts"
+  ],
+  "stage": "/dev/shm/hollowpact-owner-ux-overhaul-root-r2",
+  "admitted": true,
+  "memory_events_before": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

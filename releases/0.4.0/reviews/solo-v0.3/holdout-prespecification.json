@@ -1,0 +1,22 @@
+{
+  "status": "written after pilot and before untouched holdout execution",
+  "pilotSeeds": [12001, 12024],
+  "holdoutSeeds": [16001, 16072],
+  "sourceHarnessSHA256": "e46bad1423bc8697fad42db29bffd9a3d1b207bfbe8e9ff56db533d5f3c6be41",
+  "frozenEngineSHA256": "21bafb33832ec2d3ee1ca4ead9486825510bd380b62e143a8736465f1ad4110b",
+  "frozenContentSHA256": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+  "selectedProposal": "Creature-card removal costs 15 gold; spell-card removal stays35. Only a labeled experimental wrapper applies this proposal. Frozen production engine and content remain unchanged.",
+  "successCriteria": [
+    "Veteran solo proposal wins exceed actual legal-remove-first by at least8 outof72 heldoutseeds.",
+    "Proposal leaves at least one fewer unplayed creature card on average at Veteran than legal-remove-first.",
+    "Matched removal-only does not solve Cantor at Veteran: report this residualbuildcheck ratherthan recommending a globalbossnerf.",
+    "Report every boss-preparation pairedreversal, including countercards that worsen outcomes; no superiority claim from equalwins.",
+    "Zero invalid states and zero incomplete simulations; fail immediately otherwise."
+  ],
+  "limitations": [
+    "Policies are deterministic agents with exact rules, not humans or optimalplay.",
+    "Whole-run proposal arms change later RNG paths; use matchedsingle-encounter factorialfixtures to isolate combatresponses.",
+    "Prepared-opening and removal-plus-purchase packets are counterfactualdiagnostics, not earnedprogression or a releaseproposal.",
+    "Holdout improvements demonstrate evidence for furtherbalancereview, notfun or commercialreadiness."
+  ]
+}

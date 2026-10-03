@@ -1,0 +1,23 @@
+{
+  "initial": {
+    "time_ns": 1790948459680998546,
+    "current": 15793090560,
+    "maximum": 17179869184,
+    "headroom": 1386778624,
+    "free": 72425472
+  },
+  "work": 67108864,
+  "reserve": 536870912,
+  "command": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=3s",
+    "50s",
+    "python3",
+    "-B",
+    "/workspace/scratch/hollowpact-owner-pause-handoff-publish-root-r1.py"
+  ],
+  "stage": "/workspace/Roguelike-deckbuilder",
+  "admitted": true,
+  "memory_events_before": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

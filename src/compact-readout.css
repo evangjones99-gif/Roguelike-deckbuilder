@@ -1,0 +1,93 @@
+/* SOURCE-ONLY R3 component draft. Requires shared published cell/body geometry. */
+/* No existing frozen CSS/main/arena file is edited by this packet. */
+.compact-field .field-actor{position:absolute;pointer-events:none;min-width:0}
+.compact-field .field-unit{position:absolute;left:0;top:var(--body-top);width:100%;height:var(--body-height);min-height:0;border:0;padding:0;background:none;box-shadow:none;pointer-events:auto}
+.compact-field .field-intent{position:absolute;left:0;right:0;top:0;display:grid;grid-auto-rows:16px;padding:0;margin:0;background:#0b131bef;color:#f1bca7;font:12px/16px Arial,sans-serif;text-align:center;pointer-events:none;white-space:normal;overflow:visible}
+.compact-field .field-intent>span{display:block;min-width:0}
+/* Identity and stats form one visible, distinct Inspect control below the body. */
+.compact-field .field-inspect{position:absolute;left:0;top:calc(var(--body-top) + var(--body-height));width:100%;height:32px;min-height:0;padding:0 2px;border:1px solid #8d9c7955;background:#0b131bef;color:#eee5cf;font:12px/16px Arial,sans-serif;text-align:center;pointer-events:auto;overflow:visible}
+.compact-field .field-identity{display:block;line-height:15px;white-space:nowrap}
+.compact-field .field-stat-line{display:flex;justify-content:center;align-items:center;gap:5px;height:15px;white-space:nowrap}
+.compact-field .field-stat-line>span{display:inline-flex;align-items:center;gap:2px}
+.compact-field .field-stat-line .icon{width:12px;height:12px}
+.compact-field .field-ready{position:absolute;left:0;right:0;top:calc(var(--body-top) + var(--body-height) + 32px);padding:0;margin:0;background:#0b131bef;color:#b5c6a4;font:12px/16px Arial,sans-serif;text-align:center;pointer-events:none}
+.compact-field .field-unit:focus-visible,.compact-field .field-inspect:focus-visible{outline:2px solid #f3e3b1;outline-offset:2px}
+/* This is a component sketch; font/line extents and real pointer ownership remain unverified. */
+
+/* Integrated renderer geometry owns these coordinates; no CSS-only hit lanes. */
+#app.phase-battle.direct-field{height:auto;min-height:100dvh;overflow:visible}
+.phase-battle.direct-field #scene{flex:0 0 auto;min-height:0}
+.phase-battle.direct-field #arena-wrap{bottom:0;height:auto;overflow:hidden}
+.phase-battle.direct-field #scene-ui{height:100%;overflow:visible}
+.phase-battle.direct-field .battle-guidance{font:12px/18px Arial,sans-serif;min-height:48px;padding:8px 12px;align-items:center}
+.phase-battle.direct-field .battle-guidance>.text-button{font-size:12px}
+.compact-field .field-actor .field-unit{inset:auto;min-height:0;transform:none;background:none!important}
+.compact-field .field-actor .field-intent.unit-status{bottom:auto;max-width:none;transform:none;margin:0;padding:0;border:0;border-radius:3px;font:12px/16px Arial,sans-serif;display:block;white-space:normal;color:#f1bca7}
+.compact-field .field-intent>span{line-height:16px;overflow-wrap:anywhere}
+.compact-field .field-actor .unit-inspect.field-inspect{inset:auto;min-height:32px;border-radius:3px;transform:none;padding:0 2px;font:12px/16px Arial,sans-serif;overflow:visible;z-index:3}
+.compact-field .field-actor .field-stat-line.unit-stats{position:static;width:auto;max-width:none;height:auto;min-height:16px;margin:0;padding:0;transform:none;background:none;display:flex;flex-wrap:wrap;gap:0 5px;color:#eee5cf;font:12px/16px Arial,sans-serif}
+.compact-field .field-actor .field-stat-line.unit-stats>span{height:16px}
+.compact-field .field-actor .field-stat-line.unit-stats .icon{width:12px;height:12px}
+.compact-field .field-actor .health-track{bottom:0;left:0;right:0;height:2px}
+.compact-field .field-actor .field-ready.unit-status{bottom:auto;max-width:none;margin:0;padding:0;transform:none;border:0;color:#b5c6a4;font:12px/16px Arial,sans-serif}
+.phase-battle.direct-field .hand-cards .card-description{font-size:12px;line-height:1.3}
+.phase-battle.direct-field .hand-cards .game-card{height:230px}
+.phase-battle.direct-field .hand-cards{height:262px}
+.phase-battle.direct-field #dock{flex-shrink:0}
+/* Retained no-canvas controls preserve complete intentions at readable size. */
+.phase-battle:not(.direct-field) .unit-status.intent,
+.phase-battle:not(.direct-field) .dense-roster .unit-status.intent{font-size:12px;line-height:1.35;white-space:normal;overflow:visible}
+.compact-field .field-actor .field-stat-line.unit-stats>span{height:auto;min-height:16px;max-width:100%}
+.compact-field .field-stat-line .stat-number{min-width:0;overflow-wrap:anywhere}
+/* A fixed preview strip keeps field/Inspect targets still throughout a press.
+   Longer exact outcomes remain scrollable and keyboard accessible. */
+.phase-battle.direct-field .battle-guidance{height:84px;min-height:84px;max-height:84px;align-items:center}
+.phase-battle.direct-field #consequence-preview{display:block;max-height:68px;overflow:auto;overflow-wrap:anywhere;line-height:18px;padding-right:4px}
+@media(max-width:760px){
+ .phase-battle.direct-field .battle-guidance{height:136px;min-height:136px;max-height:136px}
+ .phase-battle.direct-field #consequence-preview{max-height:120px}
+}
+/* Readout geometry already reserves two 16px rows; draw the border inward. */
+.compact-field .field-actor .unit-inspect.field-inspect{border:0;box-shadow:inset 0 0 0 1px #8d9c7955}
+.compact-field .field-identity{line-height:16px}
+/* Empty binding intent allocation carries no information. Keep its geometry
+   for stable formation ownership, without drawing an empty dark stripe. */
+.compact-field .field-actor .field-intent:empty{background:transparent}
+
+/* Actor-attached readouts: widths come from published renderer rectangles.
+   The natural inner name remains measurable when allocation reserves more rows. */
+.compact-field .field-identity{min-height:var(--identity-height,16px);white-space:normal}
+.compact-field .field-nameplate{display:block;font:12px/16px Arial,sans-serif;overflow-wrap:anywhere}
+
+/* PC opening fit: recover chrome/art whitespace before touching actor geometry.
+   Full printed content sets natural card height; bigger text keeps page overflow. */
+@media(min-width:1101px){
+ /* The inert clone uses the measured press rectangle, not old hand dimensions. */
+ .tactile-ghost.phase-battle.direct-field .hand-cards .game-card.tactile-ghost-card{
+  width:100%;min-width:0;max-width:none;height:100%;min-height:0;flex:none;
+ }
+ .phase-battle.direct-field #topbar{height:44px}
+ .phase-battle.direct-field #hud{height:52px}
+ .phase-battle.direct-field #footer{height:23px}
+ /* Fixed during focus/hover/press: exact longer consequences scroll internally. */
+ .phase-battle.direct-field .battle-guidance{height:40px;min-height:40px;max-height:40px;padding:4px 12px}
+ .phase-battle.direct-field #consequence-preview{max-height:30px}
+ .phase-battle.direct-field #dock[data-tactile-hand]{padding-top:4px;padding-bottom:4px;min-height:0}
+ .phase-battle.direct-field #dock[data-tactile-hand] .hand-cards{
+  height:auto;min-height:calc(var(--tactile-card-height,201px) + 40px);
+  padding-top:32px;padding-bottom:8px;
+ }
+ .phase-battle.direct-field #dock[data-tactile-hand] .hand-cards .game-card{
+  height:auto;min-height:201px;width:170px;min-width:170px;max-width:170px;flex-basis:170px;
+ }
+ .phase-battle.direct-field #dock[data-tactile-hand] .hand-cards .card-art,
+ .tactile-ghost.phase-battle.direct-field .hand-cards .card-art{height:46px}
+ .phase-battle.direct-field #dock[data-tactile-hand] .hand-cards .card-name,
+ .tactile-ghost.phase-battle.direct-field .hand-cards .card-name{overflow:visible;text-overflow:clip;overflow-wrap:anywhere}
+ .phase-battle.direct-field #dock[data-tactile-hand] .hand-cards .card-description,
+ .tactile-ghost.phase-battle.direct-field .hand-cards .card-description{flex:1 0 auto}
+ .phase-battle.direct-field #dock[data-tactile-hand] .hand-cards .card-stats,
+ .tactile-ghost.phase-battle.direct-field .hand-cards .card-stats{flex-shrink:0;font-size:12px}
+ .phase-battle.direct-field #dock[data-tactile-hand] .hand-cards .card-kind,
+ .tactile-ghost.phase-battle.direct-field .hand-cards .card-kind{font-size:10px}
+}

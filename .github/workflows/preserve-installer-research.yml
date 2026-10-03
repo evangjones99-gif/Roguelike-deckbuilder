@@ -1,0 +1,754 @@
+name: Preserve four installer research originals
+
+on:
+  workflow_dispatch:
+  # Narrow reviewed bootstrap; dispatch does not require user parameters.
+  push:
+    branches: [codex/lanternbound-production]
+    paths: [.github/workflows/preserve-installer-research.yml]
+
+permissions: {}
+
+concurrency:
+  group: preserve-pinned-installer-research
+  cancel-in-progress: false
+
+jobs:
+  preserve-installer-research:
+    if: >-
+      github.repository == 'evangjones99-gif/Roguelike-deckbuilder' &&
+      github.ref == 'refs/heads/codex/lanternbound-production' &&
+      (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      # No checkout, dependencies, artifact execution, PR code or arbitrary input.
+      - name: Verify pinned research originals and preserve exact draft research assets
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        with:
+          script: |
+            const PINS = [
+              {
+                "runId": 36802452392,
+                "headSHA": "983066d40f02550890fa0eacbaa182afc65e4a59",
+                "attempt": 1,
+                "version": "0.7.0",
+                "sourceDigest": "0be4f01d416e6fc4cca3f19b6916b5b65993b9fd426a926a1ede6d8487834a35",
+                "runtimeInputCount": 29,
+                "workflowPath": ".github/workflows/windows-installer-validation.yml",
+                "nativeQAStatus": "failed",
+                "originalFilename": "Hollowpact-QA-Installer-0.7.0-x64.exe",
+                "bytes": 121167172,
+                "sha256": "37b7057ba4aa3d1ce1965e9fe388f0d5522ad358f1072bb2a6d7a2a10175d5a5",
+                "tag": "installer-research-run-36802452392",
+                "installerAssetName": "Hollowpact-QA-Installer-0.7.0-x64-run-36802452392-failed.exe",
+                "evidenceAssetName": "original-native-evidence-run-36802452392-attempt-1.zip",
+                "parts": [
+                  {
+                    "index": 1,
+                    "filename": "part-01.bin",
+                    "bytes": 25165824,
+                    "sha256": "8e2499c3325d6d4622324431b65ef8a725c74b11de23ef63be30ab3a4151e18c",
+                    "artifactId": 11136542848,
+                    "artifactName": "hollowpact-isolated-installer-part-01-36802452392-1",
+                    "wrapperBytes": 25165960,
+                    "wrapperSHA256": "099a0536e2447d5e8ea9f49a7ae79d2c73cd3d402a65bf7ae2f5b0148f691e52"
+                  },
+                  {
+                    "index": 2,
+                    "filename": "part-02.bin",
+                    "bytes": 25165824,
+                    "sha256": "89da49622df58eee7d9fbbd0c5886dfa74130f508676709d0ae1a4c324f138e9",
+                    "artifactId": 11136393677,
+                    "artifactName": "hollowpact-isolated-installer-part-02-36802452392-1",
+                    "wrapperBytes": 25165960,
+                    "wrapperSHA256": "a33693402bfc9ed3e60b93c35ac3587a8c15adced46f011ecdf679040f0e5247"
+                  },
+                  {
+                    "index": 3,
+                    "filename": "part-03.bin",
+                    "bytes": 25165824,
+                    "sha256": "86aa2b5506f991ace50a2f8d50f710bb8f7a14bb3ccb060bd006b00f4e500382",
+                    "artifactId": 11136567688,
+                    "artifactName": "hollowpact-isolated-installer-part-03-36802452392-1",
+                    "wrapperBytes": 25165960,
+                    "wrapperSHA256": "31adb1639a98e6b8f80f9624d2d7e10f0d0e1fff9c9858c516ff8354dea04236"
+                  },
+                  {
+                    "index": 4,
+                    "filename": "part-04.bin",
+                    "bytes": 25165824,
+                    "sha256": "549e5231e93c37acc21dce282d0276361309bbf568de818ecec989c71c91febc",
+                    "artifactId": 11136557757,
+                    "artifactName": "hollowpact-isolated-installer-part-04-36802452392-1",
+                    "wrapperBytes": 25165960,
+                    "wrapperSHA256": "a73a5fabcc0bfffc6d0e43f08f2a826566d1834214dcc746b17aca9553d37722"
+                  },
+                  {
+                    "index": 5,
+                    "filename": "part-05.bin",
+                    "bytes": 20503876,
+                    "sha256": "0a3c8d0d1ba8ce5c90fd4f0d1d1d72adcdcaed8842902732bf2af21967aa8419",
+                    "artifactId": 11136274137,
+                    "artifactName": "hollowpact-isolated-installer-part-05-36802452392-1",
+                    "wrapperBytes": 20504012,
+                    "wrapperSHA256": "3d998d3a69209bb284c98153a8d48b78fbcd422c962e1a69c76e35836ea41bad"
+                  }
+                ],
+                "evidence": {
+                  "artifactId": 11136393664,
+                  "artifactName": "hollowpact-isolated-installer-36802452392-1",
+                  "bytes": 17408,
+                  "sha256": "bfbd42bcf612e4f82508db6678d06bfab1681959bbcdd512a3c768e09e72e138",
+                  "members": [
+                    {
+                      "path": "build-installer/qa-config.json",
+                      "bytes": 1138,
+                      "sha256": "eeec5de9b2e77cb3d0e6304e17747d3ed38fef7bc4b83cc20f6ee737f177ca32"
+                    },
+                    {
+                      "path": "reviews/windows-installer/0.7.0/run-36802452392-1/installer-smoke.json",
+                      "bytes": 5504,
+                      "sha256": "4187754329e9fa9170dd4de81c4b37ea0bde6212e721cfb5df04d84537284af8"
+                    },
+                    {
+                      "path": "build-installer/installer-transfer/manifest.json",
+                      "bytes": 1760,
+                      "sha256": "a8cca280e012424538fb1b863935a10e1266e6d23f4fe0babfc4b7addf38b0c5"
+                    },
+                    {
+                      "path": "build-installer/qa-only.nsh",
+                      "bytes": 3181,
+                      "sha256": "457e86b455b6f1c228e7ac1dfdf5e5c283fd31f392c5fcac1ea33b5e15941480"
+                    },
+                    {
+                      "path": "build-installer/request.json",
+                      "bytes": 1879,
+                      "sha256": "2114b732960636163cfb2057123e78d2ce2d017222a75f6dbaa2a4c72000ab94"
+                    },
+                    {
+                      "path": "dist/build-provenance.json",
+                      "bytes": 2914,
+                      "sha256": "6eef51987f91daee501895b6cae6e032998201508ca1698a41d22ec21b1be7cb"
+                    }
+                  ]
+                }
+              },
+              {
+                "runId": 36803389350,
+                "headSHA": "51bafcdbe7e02b268bb3a939a4f3e1ed556c0f9d",
+                "attempt": 1,
+                "version": "0.7.0",
+                "sourceDigest": "0be4f01d416e6fc4cca3f19b6916b5b65993b9fd426a926a1ede6d8487834a35",
+                "runtimeInputCount": 29,
+                "workflowPath": ".github/workflows/windows-installer-validation.yml",
+                "nativeQAStatus": "failed",
+                "originalFilename": "Hollowpact-QA-Installer-0.7.0-x64.exe",
+                "bytes": 121166857,
+                "sha256": "cea7d317f6e32397f39f06c721faf7b5fbc214ff95bff08df7a8cddd3e2b0a49",
+                "tag": "installer-research-run-36803389350",
+                "installerAssetName": "Hollowpact-QA-Installer-0.7.0-x64-run-36803389350-failed.exe",
+                "evidenceAssetName": "original-native-evidence-run-36803389350-attempt-1.zip",
+                "parts": [
+                  {
+                    "index": 1,
+                    "filename": "part-01.bin",
+                    "bytes": 25165824,
+                    "sha256": "cbb8f233bd979d595c184dcb00ca70d8c2e73151fbb56e2d9520d1f67409ef5a",
+                    "artifactId": 11136627142,
+                    "artifactName": "hollowpact-isolated-installer-part-01-36803389350-1",
+                    "wrapperBytes": 25165960,
+                    "wrapperSHA256": "e8010ace3e7ee5b373b3f2ddd36ada9e7bbd71ae3a20180a3124e190fdde9b7c"
+                  },
+                  {
+                    "index": 2,
+                    "filename": "part-02.bin",
+                    "bytes": 25165824,
+                    "sha256": "0a2d9ba24d859ce2f2761500878311fc8bec025c5aec8f1eb689f42af0017794",
+                    "artifactId": 11136816328,
+                    "artifactName": "hollowpact-isolated-installer-part-02-36803389350-1",
+                    "wrapperBytes": 25165960,
+                    "wrapperSHA256": "bcb5ad0c32472af21be0e4e659358075e72db22038afb2a0b1820fc73232e5bd"
+                  },
+                  {
+                    "index": 3,
+                    "filename": "part-03.bin",
+                    "bytes": 25165824,
+                    "sha256": "dfa086af592d5ead5c8eab9221eaef14cd1e85ceef836be4c43dfa506b1c7748",
+                    "artifactId": 11136886048,
+                    "artifactName": "hollowpact-isolated-installer-part-03-36803389350-1",
+                    "wrapperBytes": 25165960,
+                    "wrapperSHA256": "306f59c59e7931f7b79def716d6aaac5cdb7dc1a6a31fc7da278c19482e17622"
+                  },
+                  {
+                    "index": 4,
+                    "filename": "part-04.bin",
+                    "bytes": 25165824,
+                    "sha256": "1d00da94348a3d72baca2550f08a996480d1eb3b9b439177b09d4ccdca54b88a",
+                    "artifactId": 11136931035,
+                    "artifactName": "hollowpact-isolated-installer-part-04-36803389350-1",
+                    "wrapperBytes": 25165960,
+                    "wrapperSHA256": "9f13f25a2a056fc2f74fe0fa9699b2cb6ebd4b51d5d5a2fd7d12964b04bda9d0"
+                  },
+                  {
+                    "index": 5,
+                    "filename": "part-05.bin",
+                    "bytes": 20503561,
+                    "sha256": "d767aa07eae7e6342a4d0189c4b8bf300bb115d91a15a944bff08951d9481dd8",
+                    "artifactId": 11136671932,
+                    "artifactName": "hollowpact-isolated-installer-part-05-36803389350-1",
+                    "wrapperBytes": 20503697,
+                    "wrapperSHA256": "2d4c58ea708b37f290a2ebfe3ded5effa865a232e4160031d76663253d1bd9cb"
+                  }
+                ],
+                "evidence": {
+                  "artifactId": 11136612212,
+                  "artifactName": "hollowpact-isolated-installer-36803389350-1",
+                  "bytes": 34767,
+                  "sha256": "209d7612ed637b9e272ed4ac3d485d9cbce85edc15acce38a7efe02d622ed7a3",
+                  "members": [
+                    {
+                      "path": "build-installer/qa-config.json",
+                      "bytes": 1138,
+                      "sha256": "b5ad81de8913360a7f2e07ce8e217ffce092d9c7fe88f1ccb8761c504cdb07d9"
+                    },
+                    {
+                      "path": "build-installer/installer-transfer/manifest.json",
+                      "bytes": 1760,
+                      "sha256": "8988ca8e83c2324b518cc2be2b41804d4b20d5b1d9da4a41e3564553e7b69c9c"
+                    },
+                    {
+                      "path": "reviews/windows-installer/0.7.0/run-36803389350-1/installer-smoke.json",
+                      "bytes": 22863,
+                      "sha256": "160a6d434029b69f142c2bc37f7607c5d5adff8834ce697641fcbf7bb6e21bf2"
+                    },
+                    {
+                      "path": "build-installer/qa-only.nsh",
+                      "bytes": 3181,
+                      "sha256": "3b5e1e98cf60c61dbacfc4b525d8468300cc645897f467ee992e52929efd0d98"
+                    },
+                    {
+                      "path": "build-installer/request.json",
+                      "bytes": 1879,
+                      "sha256": "99d0db426061b3dc79ff8f1895f0e5ba129de5422b2f63f7e0b2bf2e71c734f3"
+                    },
+                    {
+                      "path": "dist/build-provenance.json",
+                      "bytes": 2914,
+                      "sha256": "6eef51987f91daee501895b6cae6e032998201508ca1698a41d22ec21b1be7cb"
+                    }
+                  ]
+                }
+              },
+              {
+                "runId": 36804006841,
+                "headSHA": "e857337d9e59e5409470e56d1fab092087043eec",
+                "attempt": 1,
+                "version": "0.7.0",
+                "sourceDigest": "0be4f01d416e6fc4cca3f19b6916b5b65993b9fd426a926a1ede6d8487834a35",
+                "runtimeInputCount": 29,
+                "workflowPath": ".github/workflows/windows-installer-validation.yml",
+                "nativeQAStatus": "failed",
+                "originalFilename": "Hollowpact-QA-Installer-0.7.0-x64.exe",
+                "bytes": 121167696,
+                "sha256": "ce3ac00345bd02062c8d9753081dcdcff5386e424388ad4d52ce33eb5f5d478c",
+                "tag": "installer-research-run-36804006841",
+                "installerAssetName": "Hollowpact-QA-Installer-0.7.0-x64-run-36804006841-failed.exe",
+                "evidenceAssetName": "original-native-evidence-run-36804006841-attempt-1.zip",
+                "parts": [
+                  {
+                    "index": 1,
+                    "filename": "part-01.bin",
+                    "bytes": 25165824,
+                    "sha256": "36280a587260190c35a0263a9789a54da94bb77fb7bbbe345307e2a7219c8075",
+                    "artifactId": 11136119896,
+                    "artifactName": "hollowpact-isolated-installer-part-01-36804006841-1",
+                    "wrapperBytes": 25165960,
+                    "wrapperSHA256": "f6939c860c95917df3e0634b115d3aa750106b1949e97d84acbdd97c30631725"
+                  },
+                  {
+                    "index": 2,
+                    "filename": "part-02.bin",
+                    "bytes": 25165824,
+                    "sha256": "94064d1f4f15060ac2a2035467649ba8556f11e79c02bd6db4d411254c7be818",
+                    "artifactId": 11136004977,
+                    "artifactName": "hollowpact-isolated-installer-part-02-36804006841-1",
+                    "wrapperBytes": 25165960,
+                    "wrapperSHA256": "51efbeeb7297277e3b80df067a8a1a9a2ce1ee814d2cf91602296c12a1fd09f2"
+                  },
+                  {
+                    "index": 3,
+                    "filename": "part-03.bin",
+                    "bytes": 25165824,
+                    "sha256": "26fed9ba5a1c9723e188add1a2951c22bb0e5cd5817035cdd14db59c5eb51996",
+                    "artifactId": 11136024901,
+                    "artifactName": "hollowpact-isolated-installer-part-03-36804006841-1",
+                    "wrapperBytes": 25165960,
+                    "wrapperSHA256": "5443adf236f41955ff3b05a73c34f8b8e01c4a8a9a4b5b4dd7200e6355185337"
+                  },
+                  {
+                    "index": 4,
+                    "filename": "part-04.bin",
+                    "bytes": 25165824,
+                    "sha256": "a47c13f48ebba9e416256866124cceb38f1d4ee831a08511be0f62ec16687987",
+                    "artifactId": 11137360249,
+                    "artifactName": "hollowpact-isolated-installer-part-04-36804006841-1",
+                    "wrapperBytes": 25165960,
+                    "wrapperSHA256": "21e8c2d9b4db484ce0cbe3a01d1f269b85d8f5e42f96d1b31a86f2e12b9c0e43"
+                  },
+                  {
+                    "index": 5,
+                    "filename": "part-05.bin",
+                    "bytes": 20504400,
+                    "sha256": "b0395e6d46590ef27439ff15a58a1848aca248fac9e6522a6ccfc1c29e06e062",
+                    "artifactId": 11137515161,
+                    "artifactName": "hollowpact-isolated-installer-part-05-36804006841-1",
+                    "wrapperBytes": 20504536,
+                    "wrapperSHA256": "d973d2c173f29c7c0e2e1c277d9ef4c62ed281ad22a2aa647359b7e035422106"
+                  }
+                ],
+                "evidence": {
+                  "artifactId": 11136154720,
+                  "artifactName": "hollowpact-isolated-installer-36804006841-1",
+                  "bytes": 243150,
+                  "sha256": "aae384281c4c69de219fe119ac866106f2b6831a16029ddee827ccf4b27b5c75",
+                  "members": [
+                    {
+                      "path": "reviews/windows-installer/0.7.0/run-36804006841-1/failure.png",
+                      "bytes": 207828,
+                      "sha256": "ce7ff7b7b93f09bc2b06355b103ea288d3584cf76ecd96c12e178fbdf30694ac"
+                    },
+                    {
+                      "path": "reviews/windows-installer/0.7.0/run-36804006841-1/installer-smoke.json",
+                      "bytes": 23204,
+                      "sha256": "64a42e89a3da9680647386852499ef394d90b24185edd792d7fcef908d4c7a1b"
+                    },
+                    {
+                      "path": "build-installer/installer-transfer/manifest.json",
+                      "bytes": 1760,
+                      "sha256": "afc3acbe93ac65d23ea7eade6ba80d29143bf2a80ab4a02806c157661bb379a5"
+                    },
+                    {
+                      "path": "build-installer/qa-config.json",
+                      "bytes": 1138,
+                      "sha256": "d255125868cea789a3e0367373da0d4a3a6e58198beb334bfe6c3a43a520fe94"
+                    },
+                    {
+                      "path": "build-installer/qa-only.nsh",
+                      "bytes": 3181,
+                      "sha256": "90eab800a0d123686aec27a732975798b9e0daab1a775d95939e61e58daeea4e"
+                    },
+                    {
+                      "path": "build-installer/request.json",
+                      "bytes": 1879,
+                      "sha256": "ecdebebabeb0cce6744428678b9397f7e4a75b36d1f0756e9059bf45d2124f91"
+                    },
+                    {
+                      "path": "dist/build-provenance.json",
+                      "bytes": 2914,
+                      "sha256": "6eef51987f91daee501895b6cae6e032998201508ca1698a41d22ec21b1be7cb"
+                    }
+                  ]
+                }
+              },
+              {
+                "runId": 36804825248,
+                "headSHA": "7c22cb2ba876c3359053156f761e4c4f60504376",
+                "attempt": 1,
+                "version": "0.7.0",
+                "sourceDigest": "0be4f01d416e6fc4cca3f19b6916b5b65993b9fd426a926a1ede6d8487834a35",
+                "runtimeInputCount": 29,
+                "workflowPath": ".github/workflows/windows-installer-validation.yml",
+                "nativeQAStatus": "passed",
+                "originalFilename": "Hollowpact-QA-Installer-0.7.0-x64.exe",
+                "bytes": 121167300,
+                "sha256": "fd18f4cf543b85a7e54156c47b11330b4b81ba782aa8587745a9bb203463221e",
+                "tag": "installer-research-run-36804825248",
+                "installerAssetName": "Hollowpact-QA-Installer-0.7.0-x64-run-36804825248-isolated-QA-pass.exe",
+                "evidenceAssetName": "original-native-evidence-run-36804825248-attempt-1.zip",
+                "parts": [
+                  {
+                    "index": 1,
+                    "filename": "part-01.bin",
+                    "bytes": 25165824,
+                    "sha256": "914de9291043e87afec53b408fd15ed94c58a6d66c02ca2ac12d5e0be5963af7",
+                    "artifactId": 11136913551,
+                    "artifactName": "hollowpact-isolated-installer-part-01-36804825248-1",
+                    "wrapperBytes": 25165960,
+                    "wrapperSHA256": "a6d2603bcfd1ff162924565cf9da9b6ea9fae13b5e761289caf2d3a2a79cd8ad"
+                  },
+                  {
+                    "index": 2,
+                    "filename": "part-02.bin",
+                    "bytes": 25165824,
+                    "sha256": "c91be258d2c6cfe6b345caa200869f7a5139df5c7f9a109144fdb6dd8db74557",
+                    "artifactId": 11136978453,
+                    "artifactName": "hollowpact-isolated-installer-part-02-36804825248-1",
+                    "wrapperBytes": 25165960,
+                    "wrapperSHA256": "bdec3bf2e1e435e19827c3164315810fd39996f7402819388ab4fdb62e6ad341"
+                  },
+                  {
+                    "index": 3,
+                    "filename": "part-03.bin",
+                    "bytes": 25165824,
+                    "sha256": "e13bf9b4c403fac293e5cd9b99285a76834aa519a070bd57b047b451fc85cae3",
+                    "artifactId": 11136659674,
+                    "artifactName": "hollowpact-isolated-installer-part-03-36804825248-1",
+                    "wrapperBytes": 25165960,
+                    "wrapperSHA256": "045b2f0f29c6bc3ef439a6980d04c74927b3ab3ab14100dc330fa676f50361c8"
+                  },
+                  {
+                    "index": 4,
+                    "filename": "part-04.bin",
+                    "bytes": 25165824,
+                    "sha256": "4e225077e3ef245df1e0b958be50f1fd3e32bb10b0ea9a1ab1e18e4bfe6762ce",
+                    "artifactId": 11137775732,
+                    "artifactName": "hollowpact-isolated-installer-part-04-36804825248-1",
+                    "wrapperBytes": 25165960,
+                    "wrapperSHA256": "7b167dda252c2670d4e4aa011aa6eeee4938dfd45fdcff637ce256a692596e41"
+                  },
+                  {
+                    "index": 5,
+                    "filename": "part-05.bin",
+                    "bytes": 20504004,
+                    "sha256": "b9b7a28602b4bff1518234c783c5ecf730cd8e1713a56166c03f259f5aa9cd3f",
+                    "artifactId": 11137356263,
+                    "artifactName": "hollowpact-isolated-installer-part-05-36804825248-1",
+                    "wrapperBytes": 20504140,
+                    "wrapperSHA256": "f79df48bdf003516af8f43df565d96b3017eaa13bc54ad7460f4ef9fcd5519d9"
+                  }
+                ],
+                "evidence": {
+                  "artifactId": 11136808864,
+                  "artifactName": "hollowpact-isolated-installer-36804825248-1",
+                  "bytes": 663266,
+                  "sha256": "aa375ed2eac293a45eaaf9558f7bbde8df4ad09f42681ce60ac1b2a75689eeba",
+                  "members": [
+                    {
+                      "path": "reviews/windows-installer/0.7.0/run-36804825248-1/saved-campaign.json",
+                      "bytes": 1606,
+                      "sha256": "a21a8dafd6bd2113210a9922224187a66c5349ade17cb0c90cfcd468a790890f"
+                    },
+                    {
+                      "path": "reviews/windows-installer/0.7.0/run-36804825248-1/installed-resumed.png",
+                      "bytes": 615300,
+                      "sha256": "e63970e060dbc45753478b69894dad9bf8f41e56d228caca8a42b6fb035c84a4"
+                    },
+                    {
+                      "path": "reviews/windows-installer/0.7.0/run-36804825248-1/installer-smoke.json",
+                      "bytes": 32580,
+                      "sha256": "a775ccdd566a10f3057dd2643e3eeddd295fb60c86ba405beebaa4ca3e120fe3"
+                    },
+                    {
+                      "path": "reviews/windows-installer/0.7.0/run-36804825248-1/synthetic-negative-feedback.json",
+                      "bytes": 1156,
+                      "sha256": "e1c32b03b266e30244f1545742bee80acd9867436a363164be25fb5bde907574"
+                    },
+                    {
+                      "path": "build-installer/installer-transfer/manifest.json",
+                      "bytes": 1760,
+                      "sha256": "0c31d06c9f21229960109c31e9e43c7eeafd3ede4970a768b552e7f90e956e05"
+                    },
+                    {
+                      "path": "build-installer/qa-config.json",
+                      "bytes": 1138,
+                      "sha256": "2cd4828257d23238c2291fe2beb289c7e53177c6d4e538f097e0bda3bae48d97"
+                    },
+                    {
+                      "path": "build-installer/qa-only.nsh",
+                      "bytes": 3181,
+                      "sha256": "b55651be94cb77f012b18cbe76a1c8283c47792f3720d0f6d80de5fe2aa38d10"
+                    },
+                    {
+                      "path": "build-installer/request.json",
+                      "bytes": 1879,
+                      "sha256": "eccc4c31d40a2738a531de783f9db61a05379b76147567b9aa91c91ccea3d7ae"
+                    },
+                    {
+                      "path": "dist/build-provenance.json",
+                      "bytes": 2914,
+                      "sha256": "6eef51987f91daee501895b6cae6e032998201508ca1698a41d22ec21b1be7cb"
+                    }
+                  ]
+                }
+              }
+            ];
+            const ZIP_VERIFIER = "import hashlib,json,stat,sys,zipfile\n\n# This fixed source is embedded verbatim in the no-checkout workflow. No archive\n# member is treated as executable code or extracted via an arbitrary path.\nmode,archive_path,request_path,output_path=sys.argv[1:]\nspec=json.load(open(request_path,encoding='utf-8'))\nwith zipfile.ZipFile(archive_path) as archive:\n entries=archive.infolist()\n if mode=='part':\n  expected=[{'path':spec['filename'],'bytes':spec['bytes'],'sha256':spec['sha256']}]\n elif mode=='evidence':\n  expected=spec['evidence']['members']\n else:raise AssertionError('unsupported fixed verifier purpose')\n assert 1<=len(expected)<=9 and len(entries)==len(expected)\n declared={x['path']:x for x in expected}\n assert len(declared)==len(expected)\n assert set(e.filename for e in entries)==set(declared)\n read_json={};summary=[]\n for entry in entries:\n  request=declared[entry.filename]\n  assert not entry.is_dir() and not entry.flag_bits&1\n  assert entry.compress_type in (zipfile.ZIP_STORED,zipfile.ZIP_DEFLATED)\n  assert entry.filename==request['path'] and not entry.filename.startswith('/')\n  assert '\\\\' not in entry.filename and '..' not in entry.filename.split('/')\n  unixmode=entry.external_attr>>16\n  assert not unixmode or stat.S_IFMT(unixmode) in (0,stat.S_IFREG)\n  assert entry.file_size==request['bytes'] and 0<entry.file_size<=25165824\n  assert 0<=entry.compress_size<=33554432\n  output=open(output_path,'xb') if mode=='part' else None\n  chunks=[];total=0;digest=hashlib.sha256()\n  try:\n   with archive.open(entry) as source:\n    while True:\n     chunk=source.read(min(1048576,request['bytes']-total+1))\n     if not chunk:break\n     total+=len(chunk);assert total<=request['bytes'];digest.update(chunk)\n     if output:output.write(chunk)\n     elif entry.filename.endswith('.json'):\n      assert total<=262144;chunks.append(chunk)\n   assert total==request['bytes'] and digest.hexdigest()==request['sha256']\n  finally:\n   if output:output.close()\n  if mode=='evidence' and entry.filename.endswith('.json'):\n   read_json[entry.filename]=json.loads(b''.join(chunks).decode('utf-8-sig'))\n  summary.append({'path':entry.filename,'bytes':total,'sha256':digest.hexdigest(),'crcVerified':True})\n if mode=='evidence':\n  manifest=read_json['build-installer/installer-transfer/manifest.json']\n  assert manifest['schema']==1 and manifest['nativeQAStatus']==spec['nativeQAStatus']\n  for field,key in [('commit','headSHA'),('version','version'),('sourceDigest','sourceDigest'),('filename','originalFilename'),('bytes','bytes'),('sha256','sha256')]:assert manifest[field]==spec[key]\n  assert manifest['ref']=='refs/heads/codex/lanternbound-production'\n  assert manifest['runId']==str(spec['runId']) and manifest['attempt']=='1'\n  assert manifest['partBytes']==25165824\n  assert manifest['parts']==[{k:p[k] for k in ('index','filename','bytes','sha256')} for p in spec['parts']]\n  smoke=read_json[f\"reviews/windows-installer/0.7.0/run-{spec['runId']}-1/installer-smoke.json\"]\n  assert smoke['status']==spec['nativeQAStatus'] and smoke['installerSHA256']==spec['sha256']\n  provenance=read_json['dist/build-provenance.json']\n  assert provenance['version']=='0.7.0' and provenance['sourceDigest']==spec['sourceDigest']\n  assert len(provenance['hashes'])==29\nprint(json.dumps({'purpose':mode,'allExactMembersCRCSizeSHAPass':True,'members':summary}))\n";
+            const fs = require('node:fs');
+            const path = require('node:path');
+            const crypto = require('node:crypto');
+            const {execFileSync} = require('node:child_process');
+            const owner = 'evangjones99-gif', repo = 'Roguelike-deckbuilder';
+            const branch = 'codex/lanternbound-production';
+            const directory = path.resolve('installer-research-preservation');
+            const token = core.getInput('github-token', {required: true});
+            const report = {schema: 1, status: 'running', scope: 'four-installer-research-drafts-three-failed-one-isolated-QA-pass',
+              officialGameRelease: false, newNativeGameplayVerificationPerformed: false, newUninstallVerificationPerformed: false,
+              commercialQualityAccepted: false, steamPublished: false, phase: 'context', cases: []};
+            function fail(message) { const e = new Error(message); e.safeMessage = message; throw e; }
+            function check(condition, message) { if (!condition) fail(message); }
+            const hash = data => crypto.createHash('sha256').update(data).digest('hex');
+            function digestFile(filename) {
+              const h = crypto.createHash('sha256'), fd = fs.openSync(filename, 'r'), b = Buffer.alloc(1048576);
+              try { for (;;) { const n = fs.readSync(fd, b, 0, b.length, null); if (!n) break; h.update(b.subarray(0, n)); } }
+              finally { fs.closeSync(fd); }
+              return h.digest('hex');
+            }
+            async function api(label, method, params, allowMissing = false) {
+              try { return (await method({...params, request: {timeout: 180000}})).data; }
+              catch (error) { if (allowMissing && error.status === 404) return null; fail(`Fixed GitHub API operation failed: ${label}`); }
+            }
+            function validateRun(data, pin) {
+              check(data.id === pin.runId && data.head_sha === pin.headSHA && data.head_branch === branch &&
+                data.status === 'completed' && data.conclusion === (pin.nativeQAStatus === 'passed' ? 'success' : 'failure') && data.run_attempt === 1 &&
+                data.event === 'push' && data.path === '.github/workflows/windows-installer-validation.yml' &&
+                data.repository?.full_name === `${owner}/${repo}` && data.head_repository?.full_name === `${owner}/${repo}`,
+                'Pinned installer research run identity/status mismatch');
+            }
+            function validateArtifact(data, pin, expected) {
+              check(data.id === expected.artifactId && data.name === expected.artifactName &&
+                data.size_in_bytes === (expected.wrapperBytes ?? expected.bytes) && data.expired === false &&
+                data.digest === `sha256:${expected.wrapperSHA256 ?? expected.sha256}` &&
+                data.workflow_run?.id === pin.runId && data.workflow_run.head_sha === pin.headSHA &&
+                data.workflow_run.head_branch === branch && data.workflow_run.repository_id === 1398513166 &&
+                data.workflow_run.head_repository_id === 1398513166, 'Pinned artifact identity/digest/expiry mismatch');
+            }
+            function validRedirect(raw) {
+              let url; try { url = new URL(raw); } catch { return false; }
+              return url.protocol === 'https:' && !url.username && !url.password && (!url.port || url.port === '443') &&
+                (/^productionresults[a-z0-9]*\.blob\.core\.windows\.net$/.test(url.hostname) ||
+                 ['release-assets.githubusercontent.com', 'objects.githubusercontent.com'].includes(url.hostname));
+            }
+            function validateEndpoint(endpoint, purpose) {
+              const prefix = `/repos/${owner}/${repo}`;
+              const ok = purpose === 'actions-artifact'
+                ? new RegExp(`^${prefix}/actions/artifacts/[1-9][0-9]*/zip$`).test(endpoint)
+                : purpose === 'release-asset' && new RegExp(`^${prefix}/releases/assets/[1-9][0-9]*$`).test(endpoint);
+              check(ok, 'Unsupported fixed binary-download endpoint');
+            }
+            async function binaryResponse(endpoint, purpose, bytes) {
+              validateEndpoint(endpoint, purpose);
+              check(Number.isSafeInteger(bytes) && bytes > 0 && bytes <= 128 * 1024 * 1024, 'Invalid bounded download size');
+              let response;
+              try { response = await fetch(`https://api.github.com${endpoint}`, {redirect: 'manual',
+                headers: {Authorization: `Bearer ${token}`, Accept: purpose === 'actions-artifact' ? 'application/vnd.github+json' : 'application/octet-stream',
+                  'X-GitHub-Api-Version': '2022-11-28'}, signal: AbortSignal.timeout(180000)}); }
+              catch { fail('Fixed binary API request failed'); }
+              if (response.status === 302) {
+                const location = response.headers.get('location');
+                check(validRedirect(location), 'Refused binary redirect host/protocol');
+                // The token is sent ONLY to the fixed API origin. The signed GET has no headers.
+                try { response = await fetch(location, {redirect: 'manual', signal: AbortSignal.timeout(180000)}); }
+                catch { fail('Allowed signed binary GET failed'); }
+              }
+              check(response.status === 200 && response.body, 'Binary response status/body mismatch');
+              const declared = response.headers.get('content-length');
+              check(declared === null || (/^[0-9]+$/.test(declared) && Number(declared) <= bytes), 'Binary Content-Length exceeds pin');
+              return response;
+            }
+            async function consumeBinary(response, bytes, expectedSHA, destination = null) {
+              const reader = response.body.getReader(), digest = crypto.createHash('sha256');
+              let total = 0, fd = destination ? fs.openSync(destination, 'wx', 0o600) : null;
+              try {
+                for (;;) {
+                  const {done, value} = await reader.read(); if (done) break;
+                  total += value.length;
+                  if (total > bytes) { await reader.cancel(); fail('Binary exceeded exact byte bound'); }
+                  digest.update(value);
+                  if (fd !== null) { let offset = 0; while (offset < value.length) offset += fs.writeSync(fd, value, offset, value.length - offset); }
+                }
+                check(total === bytes && digest.digest('hex') === expectedSHA, 'Binary complete size/SHA mismatch');
+              } finally { if (fd !== null) fs.closeSync(fd); reader.releaseLock(); }
+            }
+            async function downloadArtifact(pin, expected, destination) {
+              const data = await api('get pinned artifact', github.rest.actions.getArtifact,
+                {owner, repo, artifact_id: expected.artifactId});
+              validateArtifact(data, pin, expected);
+              const bytes = expected.wrapperBytes ?? expected.bytes, sha = expected.wrapperSHA256 ?? expected.sha256;
+              const response = await binaryResponse(`/repos/${owner}/${repo}/actions/artifacts/${expected.artifactId}/zip`, 'actions-artifact', bytes);
+              await consumeBinary(response, bytes, sha, destination);
+            }
+            function verifyZIP(purpose, archive, spec, output, work) {
+              const specPath = path.join(work, `spec-${purpose}-${path.basename(archive)}.json`);
+              fs.writeFileSync(specPath, JSON.stringify(spec), {flag: 'wx', mode: 0o600});
+              try {
+                const data = execFileSync('python3', ['-c', ZIP_VERIFIER, purpose, archive, specPath, output],
+                  {timeout: 120000, maxBuffer: 128 * 1024, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe']});
+                check(JSON.parse(data).allExactMembersCRCSizeSHAPass === true, 'Fixed ZIP verifier refused members');
+              } catch { fail('Exact ZIP member/CRC/size/SHA verifier failed'); }
+            }
+            function concatenate(pin, work, output) {
+              const fd = fs.openSync(output, 'wx', 0o600), digest = crypto.createHash('sha256'); let total = 0;
+              try {
+                for (const part of pin.parts) {
+                  const input = fs.openSync(path.join(work, part.filename), 'r'), partDigest = crypto.createHash('sha256');
+                  const buffer = Buffer.alloc(1048576); let partTotal = 0;
+                  try {
+                    for (;;) {
+                      const n = fs.readSync(input, buffer, 0, buffer.length, null); if (!n) break;
+                      partTotal += n; total += n;
+                      check(partTotal <= part.bytes && total <= pin.bytes, 'Concatenation exceeded fixed byte cap');
+                      const chunk = buffer.subarray(0, n); partDigest.update(chunk); digest.update(chunk);
+                      let offset = 0; while (offset < n) offset += fs.writeSync(fd, chunk, offset, n - offset);
+                    }
+                  } finally { fs.closeSync(input); }
+                  check(partTotal === part.bytes && partDigest.digest('hex') === part.sha256, 'Part changed before concatenation');
+                }
+                check(total === pin.bytes && digest.digest('hex') === pin.sha256, 'Whole original NSIS size/SHA mismatch');
+              } finally { fs.closeSync(fd); }
+            }
+            function coverage(pin) {
+              return {schema: 1, researchTag: pin.tag, sourceCommit: pin.headSHA, nativeRunId: pin.runId,
+                nativeRunAttempt: 1, originalGameVersionLabel: '0.7.0', runtimeSourceDigest: pin.sourceDigest,
+                runtimeInputCount: 29, statusOfOriginalNativeQA: pin.nativeQAStatus, officialGameRelease: false,
+                newNativeGameplayVerificationPerformed: false, newUninstallVerificationPerformed: false, consumerGameQualityAccepted: false, commercialQualityAccepted: false, steamPublished: false,
+                requestedDurableAssets: [{name: pin.installerAssetName, originalFilename: pin.originalFilename, bytes: pin.bytes, sha256: pin.sha256},
+                  {name: pin.evidenceAssetName, bytes: pin.evidence.bytes, sha256: pin.evidence.sha256},
+                  {name: 'preservation-coverage.json', purpose: 'this deterministic coverage/identity receipt'}],
+                originalCIInputs: {parts: pin.parts, evidence: pin.evidence},
+                notMirroredByThisWorkflow: ['the five original Actions ZIP part wrappers', 'the five numbered raw part files',
+                  'full job logs', 'all other game release/source/Linux/web archives', 'review discussions or unrelated datasets'],
+                readBackPolicy: 'Every stored asset requires complete byte-count/SHA read-back; actual asset IDs/results appear in the separate workflow diagnostic.',
+                limitations: pin.nativeQAStatus === 'passed' ? 'The original isolated QA lifecycle passed on a hosted Windows runner; this storage job performs no new install/gameplay/uninstall test. Original embedded game label is preserved. No consumer install, human enjoyment, physical controller/Deck, signing, store/rights, AAA or Steam publication acceptance.' : 'Original native QA failed. The original embedded game label is preserved; no complete lifecycle acceptance. No consumer install, human enjoyment, physical controller/Deck, signing, store/rights, AAA or Steam publication acceptance.'};
+            }
+            function releaseIdentity(pin) {
+              const marker = `Pinned research inputs SHA256: ${hash(Buffer.from(JSON.stringify(pin)))}`;
+              return {name: `Hollowpact installer research — ${pin.nativeQAStatus === 'passed' ? 'isolated QA pass' : 'FAILED QA'} — run ${pin.runId}`,
+                body: [pin.nativeQAStatus === 'passed' ? 'Isolated installer QA lifecycle passed; research preservation only, not consumer release acceptance.' : 'FAILED installer QA research; retained for diagnosis, not a playable release endorsement.',
+                  `Run ${pin.runId}, attempt 1, source ${pin.headSHA}, runtime ${pin.sourceDigest} (29 inputs).`,
+                  'This draft prerelease preserves the exact original NSIS installer, the original small CI evidence ZIP, and a deterministic partial-coverage receipt.',
+                  'The five input artifact wrappers/raw parts and full job logs are NOT mirrored here. Three selected origins failed; one passed a scoped isolated hosted-Windows QA lifecycle. This storage workflow runs no new gameplay/uninstall checks. No consumer release, commercial quality, rights/store/signing or Steam publication acceptance.', marker].join('\n\n')};
+            }
+            function validateRelease(data, pin) {
+              const identity = releaseIdentity(pin);
+              check(data && Number.isSafeInteger(data.id) && data.id > 0 && data.tag_name === pin.tag &&
+                data.target_commitish === pin.headSHA && data.draft === true && data.prerelease === true &&
+                data.name === identity.name && data.body === identity.body, 'Existing research release is not the exact pinned draft');
+            }
+            function validateTag(data, pin) {
+              check(data?.ref === `refs/tags/${pin.tag}` && data.object?.type === 'commit' && data.object.sha === pin.headSHA,
+                'Existing research tag type/target differs');
+            }
+            async function refFor(pin) {
+              return api('get fixed research tag', github.rest.git.getRef, {owner, repo, ref: `tags/${pin.tag}`}, true);
+            }
+            async function assertCurrentDraft(plan) {
+              const data = await api('read current research draft', github.rest.repos.getRelease,
+                {owner, repo, release_id: plan.release.id}); validateRelease(data, plan.pin);
+              validateTag(await refFor(plan.pin), plan.pin);
+            }
+            async function verifyStored(asset, expected) {
+              check(Number.isSafeInteger(asset.id) && asset.id > 0 && asset.name === expected.name && asset.size === expected.bytes &&
+                asset.state === 'uploaded', 'Existing/stored research asset identity/size/state differs');
+              const response = await binaryResponse(`/repos/${owner}/${repo}/releases/assets/${asset.id}`, 'release-asset', expected.bytes);
+              await consumeBinary(response, expected.bytes, expected.sha256);
+            }
+            // BEGIN EXECUTION: no test branch, downloaded code execution, checkout or dependency install.
+            try {
+              check(context.repo.owner === owner && context.repo.repo === repo && context.ref === `refs/heads/${branch}` &&
+                ['push', 'workflow_dispatch'].includes(context.eventName), 'Fixed repository/branch/trigger mismatch');
+              check(PINS.length === 4 && PINS.filter(p => p.nativeQAStatus === 'failed').length === 3 && PINS.filter(p => p.nativeQAStatus === 'passed').length === 1 && PINS.every(p => p.parts.length === 5 && ['failed', 'passed'].includes(p.nativeQAStatus) &&
+                p.parts.every((x, i) => x.index === i + 1 && x.filename === `part-${String(i + 1).padStart(2, '0')}.bin`) &&
+                p.bytes > 120000000 && p.bytes < 128 * 1024 * 1024 && p.sourceDigest === '0be4f01d416e6fc4cca3f19b6916b5b65993b9fd426a926a1ede6d8487834a35'), 'Fixed research pin schema/caps mismatch');
+              fs.mkdirSync(directory, {mode: 0o700});
+              const storage = fs.statfsSync(directory); check(storage.bavail * storage.bsize >= 2048 * 1024 * 1024, 'Insufficient bounded runner capacity');
+              report.phase = 'readonly-identity-preflight';
+              const releases = await api('bounded release listing', github.rest.repos.listReleases, {owner, repo, per_page: 100, page: 1});
+              check(Array.isArray(releases) && releases.length < 100, 'Release listing cap reached; refuse ambiguity');
+              const plans = [];
+              // Check every pinned origin and every existing draft before any remote write.
+              for (const pin of PINS) {
+                const run = await api('get fixed research run', github.rest.actions.getWorkflowRun, {owner, repo, run_id: pin.runId}); validateRun(run, pin);
+                const list = await api('list fixed run artifacts', github.rest.actions.listWorkflowRunArtifacts,
+                  {owner, repo, run_id: pin.runId, per_page: 100, page: 1});
+                const expected = [...pin.parts, pin.evidence];
+                check(list.total_count === 6 && list.artifacts?.length === 6, 'Fixed run artifact count differs');
+                for (const e of expected) { const matches = list.artifacts.filter(x => x.id === e.artifactId); check(matches.length === 1, 'Missing/duplicate fixed artifact'); validateArtifact(matches[0], pin, e); }
+                const matches = releases.filter(x => x.tag_name === pin.tag); check(matches.length <= 1, 'Multiple releases on fixed research tag');
+                const release = matches[0] || null, reference = await refFor(pin);
+                if (release) { validateRelease(release, pin); validateTag(reference, pin); }
+                else check(reference === null, 'Foreign/orphan existing research tag; refuse adoption');
+                const work = path.join(directory, String(pin.runId)); fs.mkdirSync(work, {mode: 0o700});
+                plans.push({pin, release, work, assets: [], expected: []});
+              }
+              report.phase = 'reconstruct-all-four-without-remote-writes';
+              for (const plan of plans) {
+                const {pin, work} = plan;
+                for (const part of pin.parts) {
+                  const wrapper = path.join(work, `original-wrapper-${part.index}.zip`);
+                  await downloadArtifact(pin, part, wrapper);
+                  verifyZIP('part', wrapper, part, path.join(work, part.filename), work);
+                }
+                const original = path.join(work, pin.installerAssetName); concatenate(pin, work, original);
+                const evidence = path.join(work, pin.evidenceAssetName); await downloadArtifact(pin, pin.evidence, evidence);
+                verifyZIP('evidence', evidence, pin, '-', work);
+                const receipt = path.join(work, 'preservation-coverage.json'); fs.writeFileSync(receipt, JSON.stringify(coverage(pin), null, 2) + '\n', {flag: 'wx', mode: 0o600});
+                plan.expected = [{name: pin.installerAssetName, path: original, bytes: pin.bytes, sha256: pin.sha256},
+                  {name: pin.evidenceAssetName, path: evidence, bytes: pin.evidence.bytes, sha256: pin.evidence.sha256},
+                  {name: 'preservation-coverage.json', path: receipt, bytes: fs.statSync(receipt).size, sha256: digestFile(receipt)}];
+                if (plan.release) {
+                  plan.assets = await api('bounded existing draft assets', github.rest.repos.listReleaseAssets,
+                    {owner, repo, release_id: plan.release.id, per_page: 10, page: 1});
+                  check(Array.isArray(plan.assets) && plan.assets.length <= 3 && plan.assets.every(a => plan.expected.some(e => e.name === a.name)) &&
+                    new Set(plan.assets.map(a => a.name)).size === plan.assets.length, 'Unexpected/duplicate existing research assets');
+                  for (const asset of plan.assets) await verifyStored(asset, plan.expected.find(e => e.name === asset.name));
+                  await assertCurrentDraft(plan);
+                }
+              }
+              report.phase = 'draft-only-storage';
+              for (const plan of plans) {
+                const {pin} = plan;
+                const caseReport = {runId: pin.runId, sourceCommit: pin.headSHA, runtimeSourceDigest: pin.sourceDigest,
+                  originalNativeQAStatus: pin.nativeQAStatus, status: 'storing', tag: pin.tag, assets: []}; report.cases.push(caseReport);
+                if (!plan.release) {
+                  check(await refFor(pin) === null, 'Research tag appeared since preflight; refuse adoption');
+                  await api('create fixed research ref', github.rest.git.createRef, {owner, repo, ref: `refs/tags/${pin.tag}`, sha: pin.headSHA});
+                  caseReport.newResearchTagCreated = true; validateTag(await refFor(pin), pin);
+                  plan.release = await api('create fixed research draft', github.rest.repos.createRelease,
+                    {owner, repo, tag_name: pin.tag, target_commitish: pin.headSHA, ...releaseIdentity(pin), draft: true,
+                      prerelease: true, generate_release_notes: false, make_latest: 'false'});
+                  validateRelease(plan.release, pin);
+                }
+                caseReport.releaseId = plan.release.id;
+                for (const expected of plan.expected) {
+                  await assertCurrentDraft(plan);
+                  let asset = plan.assets.find(a => a.name === expected.name);
+                  if (!asset) {
+                    check(fs.statSync(expected.path).size === expected.bytes && digestFile(expected.path) === expected.sha256, 'Local exact original changed before upload');
+                    asset = await api('upload exact research asset', github.rest.repos.uploadReleaseAsset,
+                      {owner, repo, release_id: plan.release.id, name: expected.name, data: fs.readFileSync(expected.path),
+                        headers: {'content-type': 'application/octet-stream', 'content-length': expected.bytes}});
+                  }
+                  await verifyStored(asset, expected); await assertCurrentDraft(plan);
+                  caseReport.assets.push({name: expected.name, assetId: asset.id, bytes: expected.bytes, sha256: expected.sha256, fullReadBackVerified: true});
+                }
+                await assertCurrentDraft(plan);
+                const finalAssets = await api('bounded final research assets', github.rest.repos.listReleaseAssets,
+                  {owner, repo, release_id: plan.release.id, per_page: 10, page: 1});
+                check(Array.isArray(finalAssets) && finalAssets.length === 3 &&
+                  caseReport.assets.every(expected => finalAssets.filter(a => a.id === expected.assetId && a.name === expected.name &&
+                    a.size === expected.bytes && a.state === 'uploaded').length === 1), 'Final draft asset set changed');
+                await assertCurrentDraft(plan); caseReport.status = 'passed-research-partial-preservation';
+              }
+              check(report.cases.length === 4 && report.cases.every(x => x.assets.length === 3), 'Final fixed coverage differs');
+              report.status = 'passed-four-installer-research-draft-preservation'; report.phase = 'complete';
+              core.notice('Verified four installer research drafts: three failed origins, one scoped isolated-QA pass; partial coverage, no consumer game release acceptance.');
+            } catch (error) {
+              report.status = 'failed';
+              // Do not serialize arbitrary SDK/fetch exception messages, credentials or signed URLs.
+              report.error = error.safeMessage || `Unexpected operation failure in fixed phase ${report.phase}`;
+              core.setFailed(report.error);
+            } finally {
+              if (fs.existsSync(directory)) fs.writeFileSync(path.join(directory, 'report.json'), JSON.stringify(report, null, 2) + '\n', {flag: 'wx', mode: 0o600});
+            }
+      - name: Retain bounded preservation diagnostic
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: installer-research-preservation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: installer-research-preservation/report.json
+          if-no-files-found: warn
+          retention-days: 30

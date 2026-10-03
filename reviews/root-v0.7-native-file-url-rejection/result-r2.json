@@ -1,0 +1,159 @@
+{
+  "scope": "Actual development Electron app loadFile from current frozen dist, not an ASAR/package or clean consumer install. Locally started installed Xorg dummy virtual display :97/softwareGPU/--no-sandbox, no Windows/Deck/hardware claim.",
+  "runtime": {
+    "version": "0.7.0",
+    "sourceDigest": "004102e32dcc9f52038bcc0976a8d33909c44b2e972ef6ea06b88a2fd0bb4f9e",
+    "hashes": {
+      "THIRD-PARTY.md": "be972c6a3525d82e3341db897d191ad956bc670f8101b40cc13827b1720a7ee1",
+      "desktop/icon.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+      "desktop/main.cjs": "1e54b1170ff4169285ff1757c0e768db2f144f7be919b4911a47394426cb75ae",
+      "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+      "package-lock.json": "c33b9b1b9bd9674f42f814b5b94b20b9f1f1c2c903d2767fb7be17d1c5e64c58",
+      "package.json": "2ec86bfea9677abfbc52649667180c30f6fb88f88345f3824cf11d16498b9b67",
+      "public/art/PROVENANCE.json": "4bbc6d3501873cbef6342fcd36979670f86d5220ce57970b86787157b4fca844",
+      "public/art/abbey-courtyard.png": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+      "public/art/adversaries-atlas.png": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5",
+      "public/art/companions-atlas.png": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+      "public/art/hound-poses.png": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+      "public/art/hunter-marek-v07-r3.png": "4492577d3bacc868e9b66da0abf25915bdeaf68bc8f5c31ae8a1d8db485f3c53",
+      "public/art/hunter-portrait.png": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+      "public/art/pact-seal.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+      "public/art/tool-vignettes.png": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+      "public/art/warleader-poses.png": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b",
+      "scripts/build.mjs": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1",
+      "src/arena.ts": "33db02dc1b7471dddd670332dbdaa113d27ff44e1c8d55a39d4a82b504587780",
+      "src/art.ts": "26b515016ecf52996acf91ae704da608224d2d1475a883f9675aa0079abbfb1c",
+      "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+      "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+      "src/hunter-presence.ts": "15039e09eb5abf7ef6d62bdb10229e34156bfa3434f16db18b7c2dcdd4931374",
+      "src/input.ts": "b69d87d1a5a71a15d3b29cdfcdbb3f0b33e739f3aa5d8ba82d9cfb470bbdb415",
+      "src/main.ts": "a7890d0ba20b2ce501e6d8cda189b97ceb246eff13ac59884fa016529b342290",
+      "src/style.css": "adcb097532528d44383896c03987061831d8fe79e25d644d0b1b6088402b3bef",
+      "src/tool-art.ts": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3",
+      "src/world-rng.ts": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+      "tsconfig.json": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c",
+      "vite.config.ts": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75"
+    },
+    "node": "v24.19.0"
+  },
+  "profile": "/tmp/hollowpact-url-rejection-198233-1790814537615",
+  "observed": {
+    "baseURI": "file:///workspace/Roguelike-deckbuilder/dist/index.html",
+    "resolvedHunterURL": "file:///art/hunter-marek-v07-r3.png",
+    "loaded": false,
+    "notice": "Some battlefield artwork could not load. Combat controls remain available.",
+    "canonical": {
+      "schema": 3,
+      "engineKind": 2,
+      "seed": 121,
+      "rng": 2496303052,
+      "phase": "battle",
+      "hp": 65,
+      "maxHp": 65,
+      "block": 0,
+      "energy": 5,
+      "gold": 65,
+      "floor": 1,
+      "turn": 1,
+      "deck": [
+        "cairnhound",
+        "cairnhound",
+        "fenstalker",
+        "ashwidow",
+        "briarcolossus",
+        "scour",
+        "scour",
+        "ironward",
+        "ironward",
+        "sutures",
+        "sunder",
+        "survey"
+      ],
+      "draw": [
+        "briarcolossus",
+        "sunder",
+        "ironward",
+        "ironward",
+        "cairnhound",
+        "scour",
+        "scour"
+      ],
+      "discard": [],
+      "hand": [
+        "survey",
+        "sutures",
+        "fenstalker",
+        "ashwidow",
+        "cairnhound"
+      ],
+      "allies": [],
+      "enemies": [
+        {
+          "uid": "e1",
+          "cardId": "raider",
+          "name": "Ironjaw Reaver",
+          "species": "warlord",
+          "hp": 16,
+          "attack": 4,
+          "color": "#a6a59c",
+          "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation.",
+          "maxHp": 16,
+          "block": 0,
+          "acted": false,
+          "intent": {
+            "target": "e1",
+            "damage": 0,
+            "label": "Raise shield · gain 4 block"
+          }
+        },
+        {
+          "uid": "e2",
+          "cardId": "revenant",
+          "name": "Gloam Revenant",
+          "species": "wraith",
+          "hp": 15,
+          "attack": 5,
+          "color": "#8f9aab",
+          "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy.",
+          "maxHp": 15,
+          "block": 0,
+          "acted": false,
+          "intent": {
+            "target": "hunter",
+            "damage": 5,
+            "label": "Spectral rend · ignores block"
+          }
+        }
+      ],
+      "rewards": [],
+      "relics": [],
+      "route": [
+        "battle"
+      ],
+      "log": [
+        "A scarred hunter. One final contract. No pact is harmless.",
+        "The keep has teeth."
+      ],
+      "nextUid": 3,
+      "difficulty": 0,
+      "stats": {
+        "cardsPlayed": 0,
+        "damageDealt": 0,
+        "turns": 1,
+        "battles": 1
+      }
+    }
+  },
+  "failed": [
+    {
+      "url": "file:///art/hunter-marek-v07-r3.png",
+      "error": "net::ERR_FILE_NOT_FOUND"
+    },
+    {
+      "url": "file:///art/hunter-marek-v07-r3.png",
+      "error": "net::ERR_FILE_NOT_FOUND"
+    }
+  ],
+  "errors": [],
+  "localOnly": true
+}

@@ -1,0 +1,52 @@
+{
+  "version": "0.7.0",
+  "status": "development-prerelease",
+  "sourceCommit": "fdb43bd2e2833e2460ffc3776071b9ed82ad79cc",
+  "runtimeSourceDigest": "0be4f01d416e6fc4cca3f19b6916b5b65993b9fd426a926a1ede6d8487834a35",
+  "sourceArchiveScope": "All tracked top-level entries except releases/. Canonical reviews, art inputs, datasets and game/build sources are included. Prior milestones remain unchanged at their original paths and commits.",
+  "createdAt": "2026-10-01T01:20:07.436Z",
+  "platforms": [
+    "web",
+    "linux-x64",
+    "windows-x64"
+  ],
+  "artifacts": {
+    "hollowpact-0.7.0-linux-x64.tar.gz": "f64988074d4b5ddc1f1a2ba7ad298ae8fa6f7befd89f2f2594541fe2432af3c5",
+    "hollowpact-0.7.0-native-evidence-36797759232-1.zip": "ef69c5e33c0e9b229b85883000d14a3f15a2bfcfb7ba75f18e9c0076f547e14e",
+    "hollowpact-0.7.0-source.zip": "ceab0be0f85a036f453171a4c44704160318cd69aa8534be8226c60f60a63c98",
+    "hollowpact-0.7.0-web.zip": "df1f2faf2e3a81ad3f25fe8a37954b767345aa845baeddd1eeb421109bef9758",
+    "hollowpact-0.7.0-windows-native-x64.zip": "256babeb74761b0608ae8be249f30f475522c70f86c0fd377f1bef737fb35fbe"
+  },
+  "steamPublished": false,
+  "reviews": "See reviews/INDEX.json and canonical reviews/ in the source commit/archive. Prior full local milestone copies remain unchanged. This manifest does not certify commercial quality.",
+  "nativeWindows": {
+    "runId": 36797759232,
+    "jobId": 110165002124,
+    "attempt": 1,
+    "headSourceCheckpoint": "bdf27374358eb176e62f832cb50261cb3334d8df",
+    "actualPRMergeCheckout": "debf73893c4e1d9acc163784a425bb0c12492ec4",
+    "originalArchiveSHA256": "256babeb74761b0608ae8be249f30f475522c70f86c0fd377f1bef737fb35fbe",
+    "originalEvidenceSHA256": "ef69c5e33c0e9b229b85883000d14a3f15a2bfcfb7ba75f18e9c0076f547e14e",
+    "files": 72,
+    "matchingLinuxWindowsASAR_SHA256": "e270b1fc9626f6df915449200d00f86cd593e3ca70876832436dd90ef7e6d3da",
+    "review": "reviews/hunter-v0.7-native-package/REVIEW.md",
+    "qualification": "Unsigned portable directory on one Windows2022 CI host;13 automated phases and8 idle hunter draws. No consumer installer, physical controller, native all-pose coverage, human enjoyment, listening, Steam Deck or Steam certification."
+  },
+  "nativeLinux": {
+    "files": 74,
+    "executableSHA256": "9155dd17c16f0edeaadb74db4fd91e2730511cca83e8b130d59bab57aa4d4e4b",
+    "asarSHA256": "e270b1fc9626f6df915449200d00f86cd593e3ca70876832436dd90ef7e6d3da",
+    "review": "reviews/hunter-v0.7-linux-packaged-r2/REVIEW.md",
+    "qualification": "Actual portable executable on Linux/Xorg dummy display97/software rendering/--no-sandbox,42 hunter draws and earned seed121 binding/command/relaunch/local export. No clean consumer install or hardware benchmark."
+  },
+  "acceptance": {
+    "gameplay": "reviews/hunter-v0.7-production-gameplay/REVIEW.md plus separate count correction and URI supplement",
+    "visual": "reviews/hunter-v0.7-production-visual/REVIEW.md and hunter-v0.7-uri-visual/REVIEW.md",
+    "technical": "reviews/hunter-v0.7-production-technical/REVIEW.md and hunter-v0.7-uri-technical/REVIEW.md",
+    "scope": "Scoped reviewed DEVELOPMENT preservation. Sparse hard-cut poses, mirrored equipment, seated incapacitation, environment/species variety and human fun remain open. No AAA/commercial/Steam approval."
+  },
+  "archiveLayout": "Five archives: sourceZIP, webZIP, LinuxTAR, exact original actual-tested WindowsZIP and exact original native evidenceZIP. The source/web/Linux producer initial metadata is retained separately; no redundant repacked Windows archive.",
+  "remoteStorage": "Complete five-archive set local only. Native CI artifacts expire30days; no full remote mirror/public release claimed.",
+  "retainedFailedAttempt": "All releases/0.6.0 incomplete artifacts and prior0.1\u20130.6.1 milestones remain unchanged; no v0.6.0 tag.",
+  "archiveVerification": "reviews/root-v0.7-release-verification/root-verification.json; independent final archival acceptance required before tag."
+}

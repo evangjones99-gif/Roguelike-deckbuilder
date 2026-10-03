@@ -1,0 +1,9 @@
+{
+  "tool": "image_gen.imagegen",
+  "prompt": "Use only the TOP-LEFT armored warleader of the supplied 2x2 reference atlas. Create one transparent 1536x1024 RGBA sprite sheet of the SAME ORIGINAL CHARACTER in six full-body poses arranged exactly 3 columns x 2 rows, 512-square cells: top row ready idle, braced cleaver wind-up, heavy cleaver contact strike; bottom row controlled recovery, supported hit recoil, grounded non-graphic collapsed death. Fixed right-facing three-quarter camera and identical anatomical scale, skull-like faceguard, pale scarred exposed arms, angular dirty blackened plate, skull ornaments, ragged deep-red cape/tabard and the SAME chipped broad cleaver/axe in every pose. The other three creatures in the reference MUST NOT APPEAR. Each cell has a common floor origin at horizontal center 256 and ground line 464, standing head near 64. Include the ENTIRE cape, all limbs and FULL weapon with at least 32 transparent pixels at EVERY CELL EDGE. Fit wind-up weapon inside the cell; no clipping. Corpse shoulder/hip/head must rest on the floor, limbs bent with weight, cleaver beside its forearm; do not shrink it, float it, rotate a rigid standing body, dismember it or add blood spray. Restrained left torch warmth plus cool overcast fill, harsh realistic materials and convincing heavy anatomy, no cute eyes or toy proportions. Completely transparent backgrounds: no scenery, floor, shadow, halo rectangle, text, cell lines or labels. Keep camera/light/gear identity consistent; pose changes must come from convincing shoulders, hips, knees, elbows and weapon grip. Threatening original dark-fantasy game character, clear readable cinematic illustration at combat sprite size. This is a new animation atlas; preserve the reference character identity.",
+  "referenced_image_paths": [
+    "/workspace/Roguelike-deckbuilder/public/art/adversaries-atlas.png"
+  ],
+  "transparent_background": true,
+  "runtimePromotion": false
+}

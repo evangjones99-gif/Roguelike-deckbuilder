@@ -1,0 +1,136 @@
+{
+  "decision": "ACCEPT independent POST of exact two R3 loose JSON retirement; no further action authority",
+  "proposal": {
+    "path": "/workspace/scratch/r3-two-raw-retirement-source-author-r1/PROPOSAL.json",
+    "sha256": "46a18623e87d07c6840de918225d38ac9937e050ac546ab842973488bcd1a7c0",
+    "bytes": 37131
+  },
+  "beforeGate": {
+    "path": "/workspace/scratch/r3-two-raw-retirement-independent-r1/GATE.json",
+    "sha256": "5cc2ae0219710f2551e59ca6d8063d7587e5d8514eac2413ceb1ca9e486691a6",
+    "bytes": 10451
+  },
+  "confirmedPush": {
+    "path": "/workspace/scratch/r3-two-raw-retirement-push-root-r1/PUSH-CONFIRMED.json",
+    "sha256": "3b6e3672426d3fb209699ec7654ade9e0239ee3d33b67849fd205bc196325fa8",
+    "bytes": 594
+  },
+  "producer": {
+    "path": "/workspace/scratch/r3-two-raw-retirement-producer-root-r1.json",
+    "sha256": "b7a5371df6efd47ddb876962057eb8594ac26841624ff05d99cad5ba7815301a",
+    "bytes": 1330
+  },
+  "actionResult": {
+    "path": "/workspace/scratch/r3-two-archived-json-retirement-actual-root-r1/RESULT.json",
+    "sha256": "3493ceecb6396448d04d79cefb43dee58d92831749cb0dc67f4d3d39be4673c0",
+    "bytes": 1372
+  },
+  "actionBefore": {
+    "path": "/workspace/scratch/r3-two-archived-json-retirement-actual-root-r1/BEFORE.json",
+    "sha256": "4056764ad5e181f1495269addf73a41814d168dbf3fbced41022f61f4b279545",
+    "bytes": 5915
+  },
+  "actionJournal": {
+    "path": "/workspace/scratch/r3-two-archived-json-retirement-actual-root-r1/JOURNAL.jsonl",
+    "sha256": "40defcf24657ec83444369dca5dba6fdf88c862075f2d4e3961891f189363ec9",
+    "bytes": 912
+  },
+  "proof": {
+    "path": "/workspace/scratch/r3-two-raw-retirement-post-independent-r1/PROOF.json",
+    "sha256": "635dee74776186a3043c3fbf6b26545eaae537f807b70c330f805d1ac879dc57",
+    "bytes": 29587
+  },
+  "proofGuard": {
+    "ADMISSION.json": {
+      "path": "/workspace/scratch/r3-two-raw-retirement-post-independent-r1/PROOF-GUARD/ADMISSION.json",
+      "sha256": "29450ec25e56f8696b4aeeed6552875bb8c0b7e6751b550fb50714ab7d054737",
+      "bytes": 481
+    },
+    "RESULT.json": {
+      "path": "/workspace/scratch/r3-two-raw-retirement-post-independent-r1/PROOF-GUARD/RESULT.json",
+      "sha256": "7c4fddd720cffb7feecf21e88965e8898f42e39a9f072faf98d5c63365609ca5",
+      "bytes": 1047
+    },
+    "EXECUTION.log": {
+      "path": "/workspace/scratch/r3-two-raw-retirement-post-independent-r1/PROOF-GUARD/EXECUTION.log",
+      "sha256": "9f0e76d10cff91a45c2e9eacedaa9b71242cf5889cdbaa1586d855a82ae262b9",
+      "bytes": 256
+    }
+  },
+  "review": {
+    "path": "/workspace/scratch/r3-two-raw-retirement-post-independent-r1/REVIEW.md",
+    "sha256": "8bb84b94cc9273ebda8002298e9aa9be50ddb946293480fee457d084a1865fc7",
+    "bytes": 2536
+  },
+  "reader": {
+    "path": "/workspace/scratch/r3-two-raw-retirement-post-independent-r1/verify.py",
+    "sha256": "44ec3316a13a0d9f8d31aad07ca24c260dd68af689c3fe6f3dee1c09cb26fc97",
+    "bytes": 10458
+  },
+  "sealer": {
+    "path": "/workspace/scratch/r3-two-raw-retirement-post-independent-r1/seal.py",
+    "sha256": "1390f0bf23d2453f5de9941f79906970794a85199c360c0d674c7af41e879c2e",
+    "bytes": 6008
+  },
+  "method": {
+    "path": "/workspace/scratch/r3-two-raw-retirement-source-author-r1/retire-r3-two-archived-json-root-r1.py",
+    "sha256": "569514e3f6ce24d9310fd08f55970849e12ee3a2407092a27657480601c61c1a",
+    "bytes": 9427
+  },
+  "currentHold": {
+    "path": "/workspace/Roguelike-deckbuilder/AGENTS.md",
+    "sha256": "6f76b3a724bcf4cd9db8587158a8bd454531c8a8b59fc8680bf7661d896ee2d8",
+    "bytes": 16532
+  },
+  "selectedMap": {
+    "path": "/workspace/scratch/target-clear-ghost-promotion-root-r3/RESULT.json",
+    "sha256": "e0af37d86a6c67bf1936463fb3f2714457d19646d7a71c5fd2840b1dda62d6c6",
+    "bytes": 15559
+  },
+  "twoKnownLoosePathsAbsent": [
+    "/workspace/scratch/target-clear-ghost-comparison-actual-r3/VISUAL-RESULT.json",
+    "/workspace/scratch/target-clear-ghost-comparison-actual-r3/VISUAL-PROGRESS.json"
+  ],
+  "fullArchiveBlobBodies": 303,
+  "exactLogicalRows": 318,
+  "twoOriginalLogicalBodies": [
+    {
+      "originalPath": "/workspace/scratch/target-clear-ghost-comparison-actual-r3/VISUAL-RESULT.json",
+      "logicalPath": "e8/VISUAL-RESULT.json",
+      "blobMember": "blobs/0e67a072f9b497fe0e1752cc62bf3907ae7392b0d3c506607d2f698b16601393",
+      "sha256": "0e67a072f9b497fe0e1752cc62bf3907ae7392b0d3c506607d2f698b16601393",
+      "bytes": 2501899
+    },
+    {
+      "originalPath": "/workspace/scratch/target-clear-ghost-comparison-actual-r3/VISUAL-PROGRESS.json",
+      "logicalPath": "e8/VISUAL-PROGRESS.json",
+      "blobMember": "blobs/84eca12da09f97f34923f9ccc3b850d12c876f56c12b88f5ad706a23f8b1bc09",
+      "sha256": "84eca12da09f97f34923f9ccc3b850d12c876f56c12b88f5ad706a23f8b1bc09",
+      "bytes": 2501872
+    }
+  ],
+  "selectedFullBodies": 144,
+  "selectedCounts": {
+    "inputs": 88,
+    "outputs": 56
+  },
+  "knownRetainedFilesFullBodiesAndFreshStableMetadata": 26,
+  "originalJPEGs": 4,
+  "protectedZIPFullStatExact": true,
+  "protectedZIPBodyNeverOpened": true,
+  "journalEntries": 4,
+  "perLeafDurablePrefixVerified": true,
+  "grossAllocationBytes": 5005312,
+  "historicalPreResultWindowGainBytes": 4984832,
+  "gainLimit": "Historical free-space action-window arithmetic, not exclusive actor attribution or final net/native admission guarantee",
+  "metadataLimit": "Fresh retained-file metadata stable during this proof; original removed inodes/timestamps unavailable, not automatic metadata rollback.",
+  "historicalReaderLimit": "Hardcoded historical gameplay/preservation readers require exact NEW reconstructed paths and NEW adapted readers/mapping before replay; restore unexecuted.",
+  "coverageLimit": "Known old2 absent and declared rawpacket retainedfiles verified; full303 archivebody/318logical mappings exact. Not all unlisted global paths/metadata current or134 external dependency bodies replayed. Historical hardcoded gameplay/preservation require NEW exact restore paths/new adapted readers/mapping; no globalFD/mmap/future dependency absence or metadata rollback/two-unlink atomicity.",
+  "nativeAdmission": "Root-reported 72925184 bytes below native 73924608 and outer 73400320; no native authority or attempt from this review.",
+  "atomicityLimit": "Two per-leaf durable journal pairs; no all-two atomicity, automatic rollback, universal future consumer or exclusive global FD/mmap claim.",
+  "failures": "No POST verifier failure observed; all earlier source/proof failures and receipts retained unchanged.",
+  "proofOwnMaxRSSBytes": 12914688,
+  "allocationBytes": 98304,
+  "authority": "POST verification only; no further cleanup/restoration/Git/publication/promotion/native/build authority.",
+  "sealOwnMaxRSSBytes": 10223616
+}

@@ -1,0 +1,203 @@
+{
+  "decision": "ACCEPT_OPT_IN_FEEDBACK_ONLY_SOURCE_SEMANTICS_PENDING_BUILD_AND_ACTUAL",
+  "authorManifestSHA256": "a90a0a816ce6da776eb1c59053b6752d16d5ddd17a0880e4c64f47721065ef6e",
+  "author24ControlBodies": {
+    "ADMISSION.json": {
+      "bytes": 1867,
+      "sha256": "60e2f25a273df21c329305b53fd522b69c92f61d871176175a6041e8bc5837e2"
+    },
+    "EXECUTION.log": {
+      "bytes": 7689,
+      "sha256": "d585b59fa258d56b48682e62aa028ac928f227e583c227b44a2d76ab16b5bc42"
+    },
+    "METHOD-FAILURES.md": {
+      "bytes": 1260,
+      "sha256": "01340b44930c941b5b75e51cb767f276f95cbc02e768d355f49ae7dcc7403c7f"
+    },
+    "RATIONALE.md": {
+      "bytes": 2972,
+      "sha256": "d0e80863ca7b0a7d3359643c47567e3267ead3bd8eb86cb5d70af89db5408bf4"
+    },
+    "RESULT.json": {
+      "bytes": 853,
+      "sha256": "a37097f93137b90c790fd55ca6ca656971b7f36edbd8bc006a5cfc5c0b014804"
+    },
+    "SOURCE-CLOSURE.json": {
+      "bytes": 1818,
+      "sha256": "00660f388589302a000912a7df5b3e1c0f0fa7c102247ac19516271b15b6cd93"
+    },
+    "SOURCE-PROPOSAL.json": {
+      "bytes": 1497,
+      "sha256": "61610d152ab1d407a7704b55dfed75f6751b988bb1933136df01368c43ea0bce"
+    },
+    "SOURCE.diff": {
+      "bytes": 4494,
+      "sha256": "8b59911e2472be07177506fb79754950b5752ab01b29d70382abc1e2d10500db"
+    },
+    "author-guard-r1/ADMISSION.json": {
+      "bytes": 9598,
+      "sha256": "12701cfd4c36c98c74e6059f21dc86c73dbb9a5fcb36ed60bc604d0a670a66be"
+    },
+    "author-guard-r1/EXECUTION.log": {
+      "bytes": 287,
+      "sha256": "c387fe5ff7aa9e543a5440037dcade0606ed7a6985d26d71406e51d5343d997e"
+    },
+    "author-guard-r1/RESULT.json": {
+      "bytes": 858,
+      "sha256": "74013731459f1bcb1f5f9a0ac7d0dfe8df23d124d2979ace30f05d3e1de20444"
+    },
+    "baseline/src/main.ts": {
+      "bytes": 109879,
+      "sha256": "276999ac8c8feeb148d326b5adcfca7d175db99c743e5722501a34256fd54b9a"
+    },
+    "baseline/src/tactile-hand.ts": {
+      "bytes": 21937,
+      "sha256": "8335b61df0ddec91b413bcf5c109b7741e589bdc8ab63a7346602654851a7bb5"
+    },
+    "candidate/src/main.ts": {
+      "bytes": 111530,
+      "sha256": "caaf5095f12a402cae61161dd3f6cb1a7440a56d3d130072bd0f43242f569f26"
+    },
+    "candidate/src/tactile-hand.ts": {
+      "bytes": 21973,
+      "sha256": "73454b1387bda8177563841014ed12706f1da069ed392dd9d6476c0a64956e1b"
+    },
+    "inspection-r2/ADMISSION.json": {
+      "bytes": 1202,
+      "sha256": "984d63b9acd261062a20e7be085095d4b8a3aee6aac4931c1185a013f39f3c86"
+    },
+    "inspection-r2/EXECUTION.log": {
+      "bytes": 34432,
+      "sha256": "351e63d7bfe0ea4ad3b7c75bdca63bc7856f98729f6cf09323eab022e3f20356"
+    },
+    "inspection-r2/RESULT.json": {
+      "bytes": 853,
+      "sha256": "bbeb3290afa0f8a3ed120cb4d5d3b3ec6e42ad48b6dce26850b623433299445d"
+    },
+    "inspection-r3/ADMISSION.json": {
+      "bytes": 1271,
+      "sha256": "d1e5d5cfc2520bd6c1a391f788b4e0286f586c9d8ea2010d652ca90a423ecb9f"
+    },
+    "inspection-r3/EXECUTION.log": {
+      "bytes": 20500,
+      "sha256": "19e6ff0bcc5a59ea5acfa9fa21627a49707ae5f834a94cbd9d40757dd615f8f7"
+    },
+    "inspection-r3/RESULT.json": {
+      "bytes": 1041,
+      "sha256": "b708001865612ec5f1364b1b233851de392acbbc70244cde030b2100718992de"
+    },
+    "verification-guard-r1/ADMISSION.json": {
+      "bytes": 2517,
+      "sha256": "7b1d9eb087111ea5ea3466ce92b123ced34e1ebefb5c49084a162c5776937a90"
+    },
+    "verification-guard-r1/EXECUTION.log": {
+      "bytes": 372,
+      "sha256": "b85c6c28a7bfa4619e8648760a674299e2c0076ad20034778f1e8d63142903bc"
+    },
+    "verification-guard-r1/RESULT.json": {
+      "bytes": 853,
+      "sha256": "9963fc0ba602c634d983715be370726efe414e8a799d1cca02c0fae44e73d912"
+    }
+  },
+  "authorBodyBytes": 361553,
+  "baselineMainSHA256": "276999ac8c8feeb148d326b5adcfca7d175db99c743e5722501a34256fd54b9a",
+  "baselineHandSHA256": "8335b61df0ddec91b413bcf5c109b7741e589bdc8ab63a7346602654851a7bb5",
+  "candidateMainSHA256": "caaf5095f12a402cae61161dd3f6cb1a7440a56d3d130072bd0f43242f569f26",
+  "candidateHandSHA256": "73454b1387bda8177563841014ed12706f1da069ed392dd9d6476c0a64956e1b",
+  "diffSHA256": "8b59911e2472be07177506fb79754950b5752ab01b29d70382abc1e2d10500db",
+  "exactFullInverseRestoresBothBaselineBodies": true,
+  "canonicalPrePostMainHandUnchanged": true,
+  "query": "Immutableconst targetWaitCue; only URL value1 enabled, allother valuesoff. No dynamic global/state toggle.",
+  "helperContract": {
+    "sourceAuthority": "Current revision/index/cardID/key/state identity required plus disposed/title/settlingCombat/battle/visibility/modal guards. Module additionally guards connected owned hand/card and current admission. No new lift permission.",
+    "targetAuthority": "Current elementFromPoint at immutable actual native clientpoint. Excludes dialog/dock/guidance/inspect; actualdisabled .field-unit under #field-controls, nearest actorUID match, immutable regionUID side/canonicalIndex, alive/current canonical UID/hp and currentlegalplay action for same handindex/UID. Missing/mismatched/dead/departing/offfield/hunter/fallback/illegal/insufficientenergy targets stay ordinaryfeedback. Actualbuttondisabled observation not an assertion of why it is disabled.",
+    "previewBranch": "Alternative is considered only absent action AND absent destination. Returns legalfalse; module forces null destination illegal regardless suppliedlegal. Existing valid consequence/action/cache path unchanged. Original fresh release/destination/commit validation remains sole reducerauthority.",
+    "pointerAndCallbacks": "Thirdargument is existing readonly TactilePoint, runtime Object.freeze from nativeclientcoords; samepoint goes to resolveDestination and getPreview under guardedcallback. No mutation/invention/clamping of targetingpoint. Existing callbacks taking fewerarguments remain TypeScript structurally compatible; onlyknown mainhost/singleinternal invocation updated. Exceptions retain illegalguardedfallback; no compile/syntax assurance claimed.",
+    "labelSafety": "Current canonical unitLabel includes name and binding/hostileordinal; existing ghost and consequence sinks textContent, cap300characters, no HTMLinjection. Queryoff keeps originalgenericfeedback. No rules/save/RNG/selection/API/timer/queue mutation.",
+    "lifecycle": "Exact inverse confirms no pointer/session/admission/release/suppression/commit/cancel/timer changes. Onlypointparameter/pass-through and readonlyhelper feedback additions."
+  },
+  "retainedByteExactSections": {
+    "currentAdmissionDestinationAction": {
+      "sha256": "105b093fca5ef383ff1a2b2698940738ea04a79fe3cf7dfc7c99659810545294",
+      "bytes": 5863,
+      "byteExact": true
+    },
+    "rootPreviewCommit": {
+      "sha256": "89a84e1d1df2ef51920daf16d6a88bc0d1f8b06113ff1f64361d5ef8da45b417",
+      "bytes": 3042,
+      "byteExact": true
+    },
+    "pointerLifecycle": {
+      "sha256": "ff4f8dd76c52ff890455358871bd2027527acb2fa3c5a8c197f74a22bacb98b4",
+      "bytes": 1503,
+      "byteExact": true
+    },
+    "cancelLifecycle": {
+      "sha256": "debc4e61d592374bcb2575a29a30cfc7fbd0c5d57cd1ade5ce213c3a31cc2b1d",
+      "bytes": 363,
+      "byteExact": true
+    }
+  },
+  "guardedReads": {
+    "arenaContractSHA256": "77bbca50c42b109372ffb027b1b26826d79b51c89ded3b9aaae5de1a60a4f334",
+    "battlefieldLayoutSHA256": "6bbe1518398964b624bbcc8ce81f7fb36a02c9902fb8286336e9aae34f4d6b58",
+    "unitLabelSHA256": "3de026cbf69a7059b7b861aa6b5605ad1e6d9dc6d864a99fa0c8c482cd2c974e"
+  },
+  "authorResourceReceipts": [
+    {
+      "path": "/workspace/scratch/blocked-target-feedback-source-author-r1/RESULT.json",
+      "points": 3,
+      "minimumHeadroom": 1490161664,
+      "maximumAggregateDelta": 36864,
+      "exit0": true,
+      "eventsUnchanged": true
+    },
+    {
+      "path": "/workspace/scratch/blocked-target-feedback-source-author-r1/inspection-r2/RESULT.json",
+      "points": 3,
+      "minimumHeadroom": 1490165760,
+      "maximumAggregateDelta": 0,
+      "exit0": true,
+      "eventsUnchanged": true
+    },
+    {
+      "path": "/workspace/scratch/blocked-target-feedback-source-author-r1/inspection-r3/RESULT.json",
+      "points": 4,
+      "minimumHeadroom": 1483755520,
+      "maximumAggregateDelta": 6438912,
+      "exit0": true,
+      "eventsUnchanged": true
+    },
+    {
+      "path": "/workspace/scratch/blocked-target-feedback-source-author-r1/author-guard-r1/RESULT.json",
+      "points": 3,
+      "minimumHeadroom": 1488236544,
+      "maximumAggregateDelta": 221184,
+      "exit0": true,
+      "eventsUnchanged": true
+    },
+    {
+      "path": "/workspace/scratch/blocked-target-feedback-source-author-r1/verification-guard-r1/RESULT.json",
+      "points": 3,
+      "minimumHeadroom": 1488048128,
+      "maximumAggregateDelta": 0,
+      "exit0": true,
+      "eventsUnchanged": true
+    }
+  ],
+  "authorMethodFailuresPreserved": "All authored methodfailure bodies/logs retained and hashed: template-string assemblyReferenceError before tool execution; two source discoveryreads outsideguards; outputtruncation; ownsealer inheritedru_maxrss assertion beforemanifest then correctedactualVmHWM accounting. These are source method qualifications, not runtime attempts.",
+  "reviewerReadMethodFailurePreserved": "Initial cat mistakenly requested nonexistentEXACT-DELTA.patch/AUTHOR-CLOSURE.json; exited1, no source/proof/runtime mutation. ActualSOURCE.diff/SOURCE-CLOSURE.json read subsequently.",
+  "limits": "Original tactileAllowed rejects/cancels layoutPending and settlingCombat; helper also suppresses settlingCombat, so cue may never appear in some blocked intervals. Region/button snapshots can change after synchronousread; textobservations are discrete and cannot guarantee eventualplay. Waitingcue is illegal feedback, not automatic retry/queue or a diagnosis of priorno-op. Longlabel fit/ghostocclusion, actuallabelname/readiness transitions, rawsave/cancel/earlyreturn/exactly-once behavior require matchingstrictbuild/nativecomparison. No improvedpickup/rapidrepair/cause/artquality/humanfun/defaultpromotion claim.",
+  "checksNotRun": [
+    "Node",
+    "TypeScript",
+    "tests",
+    "browser",
+    "build",
+    "images",
+    "runtimecomparison"
+  ],
+  "readMethod": "NOATIME|NOFOLLOW capped1MiB regularbody reads, noimages; allFDsclosed. NEWproofs only, noauthor/canonical/frozenstage mutation.",
+  "reviewerOwnHWM": 14274560,
+  "utcNs": 1790897957729499592
+}

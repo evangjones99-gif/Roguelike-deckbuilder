@@ -1,0 +1,59 @@
+{
+  "neededOriginalWorkingPacket": "/workspace/scratch/two-json-retirement-post-independent-r1",
+  "originalFiles": [
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r1/PROOF.json",
+      "bytes": 49586,
+      "sha256": "3e56c6d46315ffcbbb15b8308b439710577477d9f51b606378c02c3e1a59b36f"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r1/proof-guard-r1/ADMISSION.json",
+      "bytes": 422,
+      "sha256": "3db2fef1cf69335e95b6f6fdae11f9e01ae05f0fa9657d24797fca777d65fd65"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r1/proof-guard-r1/EXECUTION.log",
+      "bytes": 131,
+      "sha256": "e64defa89526c847e0e7cb0aebf4fcc0b3c5daed976e6c8f16ad927cc3861767"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r1/proof-guard-r1/RESULT.json",
+      "bytes": 1046,
+      "sha256": "162f05b004898e9f047d296fb8a952ab3d076be36cdd7d0811acb8f3420b23e2"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r1/source-guard-r1/ADMISSION.json",
+      "bytes": 422,
+      "sha256": "9ee4a97b703a146e388917ea625cf66d0fb44bb99750bc7aa56160c3b3f73630"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r1/source-guard-r1/EXECUTION.log",
+      "bytes": 11049,
+      "sha256": "c55c7e0ec70b45e81abfcf4b41ab54f61d7827917cf28b1db1abae537a1a7248"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r1/source-guard-r1/RESULT.json",
+      "bytes": 858,
+      "sha256": "f6639764051b0eeaf19cf623f207d156adbd79211a68ca60805199d30d3a4e0d"
+    }
+  ],
+  "originalBytes": 63514,
+  "capIssue": "Substantive r1 proof/logs left insufficient cap headroom for sealing; no source/capture/storage-check failure. New r2 accepted cap separately scoped64KiB. Original proof/logs never removed, rewritten or restored; inode/time loss from rewrite not incurred.",
+  "compressedReceipt": {
+    "path": "/workspace/scratch/two-json-retirement-post-independent-r2/PROOF.json.gz",
+    "bytes": 9792,
+    "sha256": "3d6535e8f2c00a76e43abb138d4c3d9e938f823414a30460fbbe658303034ef8"
+  },
+  "fullOriginalProof": {
+    "path": "/workspace/scratch/two-json-retirement-post-independent-r1/PROOF.json",
+    "bytes": 49586,
+    "sha256": "3e56c6d46315ffcbbb15b8308b439710577477d9f51b606378c02c3e1a59b36f"
+  },
+  "fullRoundtripExact": true,
+  "resources": {
+    "readerOwnRSSKiB": 13600,
+    "sealerOwnRSSKiB": 10368,
+    "sharedCgroupQualification": "Normal64+512 guards may cross-charge coordinated tiny caller reader; no exclusive actor attribution.",
+    "unmeteredTinyOperations": "Packet-parent creation; bounded closed-log displays; later finalmanifest/closure writer."
+  }
+}

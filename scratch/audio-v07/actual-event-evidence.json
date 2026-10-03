@@ -1,0 +1,299 @@
+{
+  "seed": 1,
+  "difficulty": 1,
+  "scope": "Actual pure reducer schema3 hound transitions plus canonical recomputation of preserved legacy multitarget fixtures. No runtime audio integration or listening.",
+  "rows": [
+    {
+      "action": {
+        "type": "travel",
+        "choice": "battle"
+      },
+      "events": [
+        {
+          "type": "summon",
+          "source": "world",
+          "target": "e1",
+          "cardId": "raider",
+          "unit": {
+            "uid": "e1",
+            "cardId": "raider",
+            "name": "Ironjaw Reaver",
+            "species": "warlord",
+            "hp": 18,
+            "attack": 5,
+            "color": "#a6a59c",
+            "passive": "While armored, commands reflect 1 damage through creature block. Spells never trigger retaliation.",
+            "maxHp": 18,
+            "block": 0,
+            "acted": false
+          },
+          "side": "enemy"
+        },
+        {
+          "type": "summon",
+          "source": "world",
+          "target": "e2",
+          "cardId": "revenant",
+          "unit": {
+            "uid": "e2",
+            "cardId": "revenant",
+            "name": "Gloam Revenant",
+            "species": "wraith",
+            "hp": 17,
+            "attack": 6,
+            "color": "#8f9aab",
+            "passive": "Strikes ignore block. Targeted damaging spells deal 2 less damage to this enemy.",
+            "maxHp": 17,
+            "block": 0,
+            "acted": false
+          },
+          "side": "enemy"
+        }
+      ],
+      "cues": [
+        {
+          "cue": "summon_arrival",
+          "key": "arrival/e1",
+          "gain": 0.6,
+          "offset": 0
+        },
+        {
+          "cue": "summon_arrival",
+          "key": "arrival/e2",
+          "gain": 0.6,
+          "offset": 0.035
+        }
+      ],
+      "validState": true,
+      "inputUnchanged": true,
+      "observerInputsAndRngUnchanged": true
+    },
+    {
+      "action": {
+        "type": "play",
+        "index": 3
+      },
+      "events": [
+        {
+          "type": "summon",
+          "source": "hunter",
+          "target": "a3",
+          "cardId": "cairnhound",
+          "unit": {
+            "uid": "a3",
+            "cardId": "cairnhound",
+            "name": "Cairn Hound",
+            "species": "hound",
+            "hp": 7,
+            "maxHp": 7,
+            "attack": 3,
+            "block": 0,
+            "acted": false,
+            "color": "#c4c6b5",
+            "passive": "Commands deal 2 extra damage to enemies with no block."
+          },
+          "side": "ally"
+        },
+        {
+          "type": "ward",
+          "source": "a3",
+          "target": "hunter",
+          "amount": 2
+        }
+      ],
+      "cues": [
+        {
+          "cue": "bind_seal",
+          "key": "bind/a3",
+          "gain": 0.6,
+          "offset": 0
+        },
+        {
+          "cue": "summon_arrival",
+          "key": "arrival/a3",
+          "gain": 0.8,
+          "offset": 0.035
+        },
+        {
+          "cue": "bind_seal",
+          "key": "seal/a3/",
+          "gain": 0.45,
+          "offset": 0.07
+        }
+      ],
+      "validState": true,
+      "inputUnchanged": true,
+      "observerInputsAndRngUnchanged": true
+    },
+    {
+      "action": {
+        "type": "attack",
+        "unit": "a3",
+        "target": "e1"
+      },
+      "events": [
+        {
+          "type": "hit",
+          "source": "a3",
+          "kind": "command",
+          "cardId": "cairnhound",
+          "target": "e1",
+          "damage": 5,
+          "blocked": 0,
+          "hpLost": 5,
+          "beforeHp": 18,
+          "afterHp": 13
+        }
+      ],
+      "cues": [
+        {
+          "cue": "hound_bite",
+          "key": "strike/a3/command/cairnhound",
+          "gain": 0.8,
+          "offset": 0
+        }
+      ],
+      "validState": true,
+      "inputUnchanged": true,
+      "observerInputsAndRngUnchanged": true
+    },
+    {
+      "action": {
+        "type": "endTurn"
+      },
+      "events": [
+        {
+          "type": "ward",
+          "source": "e1",
+          "target": "e1",
+          "amount": 4
+        },
+        {
+          "type": "hit",
+          "source": "e2",
+          "kind": "enemy",
+          "cardId": "revenant",
+          "target": "hunter",
+          "damage": 6,
+          "blocked": 0,
+          "hpLost": 6,
+          "beforeHp": 65,
+          "afterHp": 59
+        }
+      ],
+      "cues": [
+        {
+          "cue": "bind_seal",
+          "key": "seal/e1/",
+          "gain": 0.45,
+          "offset": 0
+        },
+        {
+          "cue": "wraith_magic",
+          "key": "strike/e2/enemy/revenant",
+          "gain": 0.8,
+          "offset": 0.035
+        },
+        {
+          "cue": "hunter_wound",
+          "key": "wound/0",
+          "gain": 0.7,
+          "offset": 0.07
+        }
+      ],
+      "validState": true,
+      "inputUnchanged": true,
+      "observerInputsAndRngUnchanged": true
+    }
+  ],
+  "multitarget": [
+    {
+      "name": "dragon-area-seven-hits",
+      "schema": 2,
+      "scope": "Preserved legacy schema2 fixture recomputed with current frozen dual-generation reducer",
+      "canonicalStateAndEventsMatch": true,
+      "observerInputAndRngUnchanged": true,
+      "eventCount": 7,
+      "cues": [
+        {
+          "cue": "dragon_breath",
+          "key": "strike/e33/enemy/brood",
+          "gain": 0.8,
+          "offset": 0
+        },
+        {
+          "cue": "hunter_wound",
+          "key": "wound/0",
+          "gain": 0.7,
+          "offset": 0.035
+        }
+      ]
+    },
+    {
+      "name": "dragon-one-target-bite",
+      "schema": 2,
+      "scope": "Preserved legacy schema2 fixture recomputed with current frozen dual-generation reducer",
+      "canonicalStateAndEventsMatch": true,
+      "observerInputAndRngUnchanged": true,
+      "eventCount": 1,
+      "cues": [
+        {
+          "cue": "dragon_breath",
+          "key": "strike/e33/enemy/brood",
+          "gain": 0.8,
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "name": "dragon-area-fully-blocked",
+      "schema": 2,
+      "scope": "Preserved legacy schema2 fixture recomputed with current frozen dual-generation reducer",
+      "canonicalStateAndEventsMatch": true,
+      "observerInputAndRngUnchanged": true,
+      "eventCount": 7,
+      "cues": [
+        {
+          "cue": "dragon_breath",
+          "key": "strike/e33/enemy/brood",
+          "gain": 0.4,
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "name": "two-dragons-fourteen-hits",
+      "schema": 2,
+      "scope": "Preserved legacy schema2 fixture recomputed with current frozen dual-generation reducer",
+      "canonicalStateAndEventsMatch": true,
+      "observerInputAndRngUnchanged": true,
+      "eventCount": 17,
+      "cues": [
+        {
+          "cue": "dragon_breath",
+          "key": "strike/e33/enemy/brood",
+          "gain": 0.8,
+          "offset": 0
+        },
+        {
+          "cue": "hunter_wound",
+          "key": "wound/0",
+          "gain": 0.7,
+          "offset": 0.035
+        },
+        {
+          "cue": "dragon_breath",
+          "key": "strike/e34/enemy/brood",
+          "gain": 0.8,
+          "offset": 0.07
+        },
+        {
+          "cue": "hunter_wound",
+          "key": "wound/1",
+          "gain": 0.7,
+          "offset": 0.10500000000000001
+        }
+      ]
+    }
+  ]
+}

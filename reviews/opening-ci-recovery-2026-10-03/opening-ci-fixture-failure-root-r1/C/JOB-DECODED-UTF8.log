@@ -1,0 +1,1056 @@
+﻿2026-10-03T01:21:09.9988443Z Current runner version: '2.337.0'
+2026-10-03T01:21:10.0015040Z ##[group]Runner Image Provisioner
+2026-10-03T01:21:10.0016024Z Hosted Compute Agent
+2026-10-03T01:21:10.0016633Z Version: 20260901.588
+2026-10-03T01:21:10.0017265Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-10-03T01:21:10.0018150Z Build Date: 2026-09-01T19:56:44Z
+2026-10-03T01:21:10.0018867Z Worker ID: {3cd7627f-71c5-492a-a308-7c40791ad820}
+2026-10-03T01:21:10.0019611Z Azure Region: eastus
+2026-10-03T01:21:10.0020193Z ##[endgroup]
+2026-10-03T01:21:10.0021914Z ##[group]Operating System
+2026-10-03T01:21:10.0022695Z Ubuntu
+2026-10-03T01:21:10.0023291Z 24.04.5
+2026-10-03T01:21:10.0023848Z LTS
+2026-10-03T01:21:10.0024383Z ##[endgroup]
+2026-10-03T01:21:10.0024927Z ##[group]Runner Image
+2026-10-03T01:21:10.0025567Z Image: ubuntu-24.04
+2026-10-03T01:21:10.0026153Z Version: 20260927.320.1
+2026-10-03T01:21:10.0027456Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-03T01:21:10.0029046Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+2026-10-03T01:21:10.0030108Z ##[endgroup]
+2026-10-03T01:21:10.0031755Z ##[group]GITHUB_TOKEN Permissions
+2026-10-03T01:21:10.0034179Z Contents: read
+2026-10-03T01:21:10.0034800Z Metadata: read
+2026-10-03T01:21:10.0035453Z ##[endgroup]
+2026-10-03T01:21:10.0037726Z Secret source: Actions
+2026-10-03T01:21:10.0038727Z Cache mode: write
+2026-10-03T01:21:10.0039811Z Prepare workflow directory
+2026-10-03T01:21:10.0382645Z Prepare all required actions
+2026-10-03T01:21:10.0433145Z Getting action download info
+2026-10-03T01:21:10.2931803Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-03T01:21:10.4587573Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-03T01:21:10.6801058Z Complete job name: fresh-cue-candidate
+2026-10-03T01:21:10.7522235Z ##[group]Run timeout --signal=TERM --kill-after=2s 18s python3 -I -B - <<'PY'
+2026-10-03T01:21:10.7525437Z [36;1mtimeout --signal=TERM --kill-after=2s 18s python3 -I -B - <<'PY'[0m
+2026-10-03T01:21:10.7526279Z [36;1mimport hashlib, json, os, pathlib, re[0m
+2026-10-03T01:21:10.7526979Z [36;1mrepo = "evangjones99-gif/Roguelike-deckbuilder"[0m
+2026-10-03T01:21:10.7527725Z [36;1mref = "refs/heads/codex/lanternbound-production"[0m
+2026-10-03T01:21:10.7528489Z [36;1massert os.environ.get("GITHUB_REPOSITORY") == repo[0m
+2026-10-03T01:21:10.7529211Z [36;1massert os.environ.get("GITHUB_REF") == ref[0m
+2026-10-03T01:21:10.7530258Z [36;1massert os.environ.get("GITHUB_WORKFLOW_REF") == repo + "/.github/workflows/rebuild-opening-cue-candidate.yml@" + ref[0m
+2026-10-03T01:21:10.7531672Z [36;1massert os.environ.get("GITHUB_EVENT_NAME") in ("push", "workflow_dispatch")[0m
+2026-10-03T01:21:10.7532723Z [36;1mrid, attempt = os.environ["GITHUB_RUN_ID"], os.environ["GITHUB_RUN_ATTEMPT"][0m
+2026-10-03T01:21:10.7533756Z [36;1massert re.fullmatch(r"[0-9]{1,20}", rid) and re.fullmatch(r"[0-9]{1,10}", attempt)[0m
+2026-10-03T01:21:10.7534661Z [36;1mtemp = pathlib.Path(os.environ["RUNNER_TEMP"])[0m
+2026-10-03T01:21:10.7535492Z [36;1massert temp.is_absolute() and temp.is_dir() and not temp.is_symlink()[0m
+2026-10-03T01:21:10.7536368Z [36;1mroot = temp / ("opening-cue-fresh-" + rid + "-" + attempt)[0m
+2026-10-03T01:21:10.7537050Z [36;1mroot.mkdir(mode=0o700)[0m
+2026-10-03T01:21:10.7537608Z [36;1m(root / "control").mkdir(mode=0o700)[0m
+2026-10-03T01:21:10.7538214Z [36;1m(root / "proof").mkdir(mode=0o700)[0m
+2026-10-03T01:21:10.7538924Z [36;1mfor config_name in ("npm-user.npmrc", "npm-global.npmrc"):[0m
+2026-10-03T01:21:10.7539677Z [36;1m    config = root / "control" / config_name[0m
+2026-10-03T01:21:10.7540497Z [36;1m    fd = os.open(config, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)[0m
+2026-10-03T01:21:10.7541440Z [36;1m    with os.fdopen(fd, "wb") as f:[0m
+2026-10-03T01:21:10.7542333Z [36;1m        f.flush()[0m
+2026-10-03T01:21:10.7542837Z [36;1m        os.fsync(f.fileno())[0m
+2026-10-03T01:21:10.7543556Z [36;1m    assert config.read_bytes() == b"" and config.stat().st_nlink == 1[0m
+2026-10-03T01:21:10.7544644Z [36;1massert (root / "control/npm-user.npmrc").stat().st_ino != (root / "control/npm-global.npmrc").stat().st_ino[0m
+2026-10-03T01:21:10.7545947Z [36;1msource = r'''"""Reviewed fixed-input fresh CI method; local main/network/build execution is not admitted."""[0m
+2026-10-03T01:21:10.7546883Z [36;1mimport base64[0m
+2026-10-03T01:21:10.7547351Z [36;1mimport errno[0m
+2026-10-03T01:21:10.7547815Z [36;1mimport gzip[0m
+2026-10-03T01:21:10.7548284Z [36;1mimport hashlib[0m
+2026-10-03T01:21:10.7548775Z [36;1mimport http.client[0m
+2026-10-03T01:21:10.7549266Z [36;1mimport io[0m
+2026-10-03T01:21:10.7549718Z [36;1mimport json[0m
+2026-10-03T01:21:10.7550275Z [36;1mimport os[0m
+2026-10-03T01:21:10.7550786Z [36;1mfrom pathlib import Path, PurePosixPath[0m
+2026-10-03T01:21:10.7551632Z [36;1mimport platform[0m
+2026-10-03T01:21:10.7552113Z [36;1mimport re[0m
+2026-10-03T01:21:10.7552564Z [36;1mimport resource[0m
+2026-10-03T01:21:10.7553055Z [36;1mimport selectors[0m
+2026-10-03T01:21:10.7553538Z [36;1mimport shutil[0m
+2026-10-03T01:21:10.7554016Z [36;1mimport signal[0m
+2026-10-03T01:21:10.7554466Z [36;1mimport ssl[0m
+2026-10-03T01:21:10.7554906Z [36;1mimport stat[0m
+2026-10-03T01:21:10.7555357Z [36;1mimport subprocess[0m
+2026-10-03T01:21:10.7555846Z [36;1mimport sys[0m
+2026-10-03T01:21:10.7556297Z [36;1mimport tarfile[0m
+2026-10-03T01:21:10.7556755Z [36;1mimport time[0m
+2026-10-03T01:21:10.7557202Z [36;1mimport zlib[0m
+2026-10-03T01:21:10.7557633Z [36;1m[0m
+2026-10-03T01:21:10.7558136Z [36;1mREPO = "evangjones99-gif/Roguelike-deckbuilder"[0m
+2026-10-03T01:21:10.7558862Z [36;1mREF = "refs/heads/codex/lanternbound-production"[0m
+2026-10-03T01:21:10.7559950Z [36;1mWORKFLOW = REPO + "/.github/workflows/rebuild-opening-cue-candidate.yml@" + REF[0m
+2026-10-03T01:21:10.7560777Z [36;1mMIB = 1048576[0m
+2026-10-03T01:21:10.7561670Z [36;1mMETA_SHA = "bbc8830505d51278a76f9913ff7d1564c6632fdc32e746b2b6e09417ecbddf17"[0m
+2026-10-03T01:21:10.7695197Z [36;1mMETA_LITERAL = "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"[0m
+2026-10-03T01:21:10.7829666Z [36;1mDISK_CAP = 2 * 1024 * MIB[0m
+2026-10-03T01:21:10.7830309Z [36;1mPROOF_CAP = MIB[0m
+2026-10-03T01:21:10.7830793Z [36;1mFILE_CAP = 9 * MIB[0m
+2026-10-03T01:21:10.7831480Z [36;1mRESPONSE_CAP = 12 * MIB[0m
+2026-10-03T01:21:10.7832014Z [36;1mARTIFACT_CAP = 32 * MIB[0m
+2026-10-03T01:21:10.7832531Z [36;1mLOG_CAP = 192 * 1024[0m
+2026-10-03T01:21:10.7833039Z [36;1mARCHIVE_STREAM_CAP = 64 * MIB[0m
+2026-10-03T01:21:10.7833596Z [36;1mARCHIVE_MEMBER_CAP = 6000[0m
+2026-10-03T01:21:10.7834163Z [36;1m[0m
+2026-10-03T01:21:10.7834582Z [36;1mdef need(ok, reason):[0m
+2026-10-03T01:21:10.7835086Z [36;1m    if not ok:[0m
+2026-10-03T01:21:10.7835567Z [36;1m        raise ValueError(reason)[0m
+2026-10-03T01:21:10.7836095Z [36;1m[0m
+2026-10-03T01:21:10.7836507Z [36;1mdef unique(pairs):[0m
+2026-10-03T01:21:10.7836987Z [36;1m    d = {}[0m
+2026-10-03T01:21:10.7837439Z [36;1m    for k, v in pairs:[0m
+2026-10-03T01:21:10.7838006Z [36;1m        need(k not in d, "duplicate JSON key")[0m
+2026-10-03T01:21:10.7838613Z [36;1m        d[k] = v[0m
+2026-10-03T01:21:10.7839083Z [36;1m    return d[0m
+2026-10-03T01:21:10.7839518Z [36;1m[0m
+2026-10-03T01:21:10.7839932Z [36;1mdef load_json(data):[0m
+2026-10-03T01:21:10.7840525Z [36;1m    return json.loads(data, object_pairs_hook=unique)[0m
+2026-10-03T01:21:10.7841274Z [36;1m[0m
+2026-10-03T01:21:10.7841693Z [36;1mdef metadata():[0m
+2026-10-03T01:21:10.7842242Z [36;1m    d = zlib.decompressobj(16 + zlib.MAX_WBITS)[0m
+2026-10-03T01:21:10.7843048Z [36;1m    b = d.decompress(base64.b64decode(META_LITERAL, validate=True), 65537)[0m
+2026-10-03T01:21:10.7844098Z [36;1m    need(len(b) <= 65536 and d.eof and not d.unused_data and not d.unconsumed_tail, "metadata bound")[0m
+2026-10-03T01:21:10.7845142Z [36;1m    need(hashlib.sha256(b).hexdigest() == META_SHA, "metadata identity")[0m
+2026-10-03T01:21:10.7845880Z [36;1m    m = load_json(b)[0m
+2026-10-03T01:21:10.7846704Z [36;1m    need(len(m["source"]) == 104 and len(m["support"]) == 30 and len(m["blobPins"]) == 57, "fixed input counts")[0m
+2026-10-03T01:21:10.7847974Z [36;1m    need(len({x["path"] for x in m["source"] + m["support"]}) == 134, "fixed paths unique")[0m
+2026-10-03T01:21:10.7848810Z [36;1m    for x in m["source"] + m["support"]:[0m
+2026-10-03T01:21:10.7849408Z [36;1m        safe_path(x["path"])[0m
+2026-10-03T01:21:10.7850222Z [36;1m        need(re.fullmatch(r"[0-9a-f]{64}", x["sha256"]) and 0 <= x["bytes"] <= FILE_CAP, "input pin")[0m
+2026-10-03T01:21:10.7851334Z [36;1m    hashes = dict(sorted((x["path"], x["sha256"]) for x in m["source"]))[0m
+2026-10-03T01:21:10.7852393Z [36;1m    digest = hashlib.sha256(json.dumps(hashes, separators=(",", ":")).encode()).hexdigest()[0m
+2026-10-03T01:21:10.7853820Z [36;1m    need(digest == m["sourceDigest"] == "993aa3681596c2488d4d394744e5beda2778ffcba3e1649736612304d20b50c5", "fixed C source104 digest")[0m
+2026-10-03T01:21:10.7855353Z [36;1m    need(hashes["src/main.ts"] == "87a9bd7c2319522f77db7ea9e2edc306bb6124b019306dc220087f6b9b7762f4", "fixed C main")[0m
+2026-10-03T01:21:10.7856694Z [36;1m    hashes["src/main.ts"] = "d1e71626b4c70679f4ba692b62ccb2aea0dbe5ce74e9a1426b6208fc26a45fe2"[0m
+2026-10-03T01:21:10.7858521Z [36;1m    need(hashlib.sha256(json.dumps(hashes, separators=(",", ":")).encode()).hexdigest() == "65b31b3f21e34a624bdac962e4919c7dc1791e502eb6cfdb1612103b8036fe9c", "B to C only main changes")[0m
+2026-10-03T01:21:10.7860065Z [36;1m    support = dict(sorted((x["path"], x["sha256"]) for x in m["support"]))[0m
+2026-10-03T01:21:10.7861734Z [36;1m    need(hashlib.sha256(json.dumps(support, separators=(",", ":")).encode()).hexdigest() == "b21a0766a30f581221ad009e448f4f9c103efe017682e462ce1548263ada327e", "fixed original support30")[0m
+2026-10-03T01:21:10.7863720Z [36;1m    need(sum(x["path"].startswith("public/") for x in m["source"]) == 65 and m["expectedOutputCount"] == 70, "fixed public65 output70")[0m
+2026-10-03T01:21:10.7865426Z [36;1m    need(len({x["sha256"] for x in m["blobPins"]}) == 57 and [x.get("id") for x in m["blobPins"][-3:]] == ["8cdf", "4513", "ce0f"], "fixed unique blobs and archive suffix")[0m
+2026-10-03T01:21:10.7866517Z [36;1m    return m[0m
+2026-10-03T01:21:10.7866960Z [36;1m[0m
+2026-10-03T01:21:10.7867369Z [36;1mdef safe_path(name):[0m
+2026-10-03T01:21:10.7867883Z [36;1m    p = PurePosixPath(name)[0m
+2026-10-03T01:21:10.7868635Z [36;1m    need(isinstance(name, str) and 0 < len(name) <= 240 and not p.is_absolute()[0m
+2026-10-03T01:21:10.7869648Z [36;1m         and bool(p.parts) and name == str(p) and all(x not in ("", ".", "..") for x in p.parts)[0m
+2026-10-03T01:21:10.7870593Z [36;1m         and "\\" not in name and "\x00" not in name, "noncanonical path")[0m
+2026-10-03T01:21:10.7871427Z [36;1m    return p[0m
+2026-10-03T01:21:10.7871874Z [36;1m[0m
+2026-10-03T01:21:10.7872280Z [36;1mdef context():[0m
+2026-10-03T01:21:10.7873100Z [36;1m    need(os.environ.get("GITHUB_REPOSITORY") == REPO and os.environ.get("GITHUB_REF") == REF[0m
+2026-10-03T01:21:10.7874066Z [36;1m         and os.environ.get("GITHUB_WORKFLOW_REF") == WORKFLOW[0m
+2026-10-03T01:21:10.7875049Z [36;1m         and os.environ.get("GITHUB_EVENT_NAME") in ("push", "workflow_dispatch"), "fixed CI context")[0m
+2026-10-03T01:21:10.7876198Z [36;1m    rid, attempt = os.environ.get("GITHUB_RUN_ID", ""), os.environ.get("GITHUB_RUN_ATTEMPT", "")[0m
+2026-10-03T01:21:10.7877321Z [36;1m    need(re.fullmatch(r"[0-9]{1,20}", rid) and re.fullmatch(r"[0-9]{1,10}", attempt), "run identity")[0m
+2026-10-03T01:21:10.7878211Z [36;1m    temp = Path(os.environ["RUNNER_TEMP"])[0m
+2026-10-03T01:21:10.7879059Z [36;1m    need(temp.is_absolute() and temp.is_dir() and not temp.is_symlink(), "runner temp")[0m
+2026-10-03T01:21:10.7879974Z [36;1m    root = temp / ("opening-cue-fresh-" + rid + "-" + attempt)[0m
+2026-10-03T01:21:10.7880797Z [36;1m    need(root.is_dir() and not root.is_symlink(), "fresh owned root")[0m
+2026-10-03T01:21:10.7881617Z [36;1m    return root[0m
+2026-10-03T01:21:10.7882073Z [36;1m[0m
+2026-10-03T01:21:10.7882533Z [36;1mdef exclusive(path, data, mode=0o600):[0m
+2026-10-03T01:21:10.7883393Z [36;1m    path.parent.mkdir(parents=True, exist_ok=True)[0m
+2026-10-03T01:21:10.7884239Z [36;1m    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, mode)[0m
+2026-10-03T01:21:10.7885027Z [36;1m    with os.fdopen(fd, "wb") as f:[0m
+2026-10-03T01:21:10.7885611Z [36;1m        f.write(data)[0m
+2026-10-03T01:21:10.7886108Z [36;1m        f.flush()[0m
+2026-10-03T01:21:10.7886604Z [36;1m        os.fsync(f.fileno())[0m
+2026-10-03T01:21:10.7887262Z [36;1m    need(path.read_bytes() == data, "full write readback")[0m
+2026-10-03T01:21:10.7887908Z [36;1m[0m
+2026-10-03T01:21:10.7888376Z [36;1mdef receipt(root, name, obj, cap=64*1024):[0m
+2026-10-03T01:21:10.7889176Z [36;1m    b = (json.dumps(obj, sort_keys=True, separators=(",", ":")) + "\n").encode()[0m
+2026-10-03T01:21:10.7889962Z [36;1m    need(len(b) <= cap, "receipt cap")[0m
+2026-10-03T01:21:10.7890582Z [36;1m    exclusive(root / "proof" / name, b)[0m
+2026-10-03T01:21:10.7891277Z [36;1m[0m
+2026-10-03T01:21:10.7891705Z [36;1mdef alarm(seconds):[0m
+2026-10-03T01:21:10.7892205Z [36;1m    def stop(_sig, _frame):[0m
+2026-10-03T01:21:10.7892816Z [36;1m        raise TimeoutError("whole phase deadline")[0m
+2026-10-03T01:21:10.7893480Z [36;1m    signal.signal(signal.SIGALRM, stop)[0m
+2026-10-03T01:21:10.7894084Z [36;1m    signal.alarm(seconds)[0m
+2026-10-03T01:21:10.7894590Z [36;1m[0m
+2026-10-03T01:21:10.7895017Z [36;1mdef mutation_roots(root, phase):[0m
+2026-10-03T01:21:10.7895841Z [36;1m    # Lexical scope only: never resolve/follow symlinks for a disappearance allowance.[0m
+2026-10-03T01:21:10.7896649Z [36;1m    paths=[][0m
+2026-10-03T01:21:10.7897209Z [36;1m    if phase in ("npm-version","install","build","test"):[0m
+2026-10-03T01:21:10.7897981Z [36;1m        paths=[root/"npm-cache",root/"proof/npm-debug"][0m
+2026-10-03T01:21:10.7898635Z [36;1m    if phase=="install":[0m
+2026-10-03T01:21:10.7899378Z [36;1m        paths.append(root/"stage/node_modules")[0m
+2026-10-03T01:21:10.7900018Z [36;1m    if phase=="build":[0m
+2026-10-03T01:21:10.7900686Z [36;1m        paths += [root/"stage/dist",root/"stage/node_modules/.vite-temp"][0m
+2026-10-03T01:21:10.7901534Z [36;1m    return paths[0m
+2026-10-03T01:21:10.7902007Z [36;1m[0m
+2026-10-03T01:21:10.7902429Z [36;1mdef bounded_path(root, path):[0m
+2026-10-03T01:21:10.7903076Z [36;1m    value=os.fspath(path) if path is not None else None[0m
+2026-10-03T01:21:10.7903726Z [36;1m    if value is None:[0m
+2026-10-03T01:21:10.7904230Z [36;1m        return None[0m
+2026-10-03T01:21:10.7904768Z [36;1m    lexical=Path(os.path.abspath(value))[0m
+2026-10-03T01:21:10.7905389Z [36;1m    if lexical.is_relative_to(root):[0m
+2026-10-03T01:21:10.7906023Z [36;1m        text=lexical.relative_to(root).as_posix()[0m
+2026-10-03T01:21:10.7906825Z [36;1m        return {"ownedRelativePrefix":text[:240],"complete":len(text)<=240,[0m
+2026-10-03T01:21:10.7907731Z [36;1m                "pathSHA256":hashlib.sha256(text.encode()).hexdigest()}[0m
+2026-10-03T01:21:10.7908835Z [36;1m    return {"outsideOwnedRoot":True,"pathSHA256":hashlib.sha256(value.encode(errors="replace")).hexdigest()}[0m
+2026-10-03T01:21:10.7909768Z [36;1m[0m
+2026-10-03T01:21:10.7910269Z [36;1mdef supervisor_fault(root, phase, site, error):[0m
+2026-10-03T01:21:10.7910880Z [36;1m    frames=[][0m
+2026-10-03T01:21:10.7911475Z [36;1m    tb=error.__traceback__[0m
+2026-10-03T01:21:10.7912003Z [36;1m    while tb is not None:[0m
+2026-10-03T01:21:10.7912712Z [36;1m        frames.append({"file":Path(tb.tb_frame.f_code.co_filename).name[:80],[0m
+2026-10-03T01:21:10.7913640Z [36;1m                       "function":tb.tb_frame.f_code.co_name[:80],"line":tb.tb_lineno})[0m
+2026-10-03T01:21:10.7914385Z [36;1m        frames=frames[-6:][0m
+2026-10-03T01:21:10.7914911Z [36;1m        tb=tb.tb_next[0m
+2026-10-03T01:21:10.7915597Z [36;1m    return {"phase":phase,"site":site,"exceptionType":type(error).__name__,[0m
+2026-10-03T01:21:10.7916672Z [36;1m            "errno":getattr(error,"errno",None),"path":bounded_path(root,getattr(error,"filename",None)),[0m
+2026-10-03T01:21:10.7917830Z [36;1m            "frames":frames,"rawExceptionMessageRetained":False}[0m
+2026-10-03T01:21:10.7918484Z [36;1m[0m
+2026-10-03T01:21:10.7919139Z [36;1mdef sampled_inventory(root, scan_root, phase, races, limit, cap, directories):[0m
+2026-10-03T01:21:10.7919967Z [36;1m    root=Path(os.path.abspath(root))[0m
+2026-10-03T01:21:10.7920616Z [36;1m    scan_root=Path(os.path.abspath(scan_root))[0m
+2026-10-03T01:21:10.7921500Z [36;1m    need(scan_root.is_relative_to(root),"owned inventory root")[0m
+2026-10-03T01:21:10.7922214Z [36;1m    initial=scan_root.lstat()[0m
+2026-10-03T01:21:10.7922898Z [36;1m    need(stat.S_ISDIR(initial.st_mode),"regular inventory root")[0m
+2026-10-03T01:21:10.7923627Z [36;1m    allowed=mutation_roots(root,phase)[0m
+2026-10-03T01:21:10.7924215Z [36;1m    misses=total=count=0[0m
+2026-10-03T01:21:10.7924760Z [36;1m    def missing(error, path, site):[0m
+2026-10-03T01:21:10.7925346Z [36;1m        nonlocal misses[0m
+2026-10-03T01:21:10.7925917Z [36;1m        lexical=Path(os.path.abspath(path))[0m
+2026-10-03T01:21:10.7926760Z [36;1m        if (not isinstance(error,FileNotFoundError) or error.errno!=errno.ENOENT or[0m
+2026-10-03T01:21:10.7927844Z [36;1m                races is None or not any(lexical!=p and lexical.is_relative_to(p) for p in allowed)):[0m
+2026-10-03T01:21:10.7928682Z [36;1m            raise error[0m
+2026-10-03T01:21:10.7929181Z [36;1m        misses+=1[0m
+2026-10-03T01:21:10.7929791Z [36;1m        races["missedEntries"]=races.get("missedEntries",0)+1[0m
+2026-10-03T01:21:10.7930501Z [36;1m        sites=races.setdefault("sites",{})[0m
+2026-10-03T01:21:10.7931115Z [36;1m        sites[site]=sites.get(site,0)+1[0m
+2026-10-03T01:21:10.7931904Z [36;1m        examples=races.setdefault("firstExamples",[])[0m
+2026-10-03T01:21:10.7932536Z [36;1m        if len(examples)<8:[0m
+2026-10-03T01:21:10.7933426Z [36;1m            examples.append({"site":site,"path":bounded_path(root,lexical)})[0m
+2026-10-03T01:21:10.7934514Z [36;1m        need(misses<=256 and races["missedEntries"]<=4096,"finite sampling disappearance cap")[0m
+2026-10-03T01:21:10.7935361Z [36;1m    def walk_error(error):[0m
+2026-10-03T01:21:10.7936098Z [36;1m        # os.walk otherwise silently skips permission and other scandir errors.[0m
+2026-10-03T01:21:10.7936885Z [36;1m        if error.filename is None:[0m
+2026-10-03T01:21:10.7937443Z [36;1m            raise error[0m
+2026-10-03T01:21:10.7938019Z [36;1m        missing(error,error.filename,"scandir")[0m
+2026-10-03T01:21:10.7938908Z [36;1m    for directory, dirs, files in os.walk(scan_root,followlinks=False,onerror=walk_error):[0m
+2026-10-03T01:21:10.7939752Z [36;1m        for name in dirs+files:[0m
+2026-10-03T01:21:10.7940294Z [36;1m            count+=1[0m
+2026-10-03T01:21:10.7940836Z [36;1m            need(count<=limit,"disk entry cap")[0m
+2026-10-03T01:21:10.7941619Z [36;1m            path=Path(directory)/name[0m
+2026-10-03T01:21:10.7942185Z [36;1m            try:[0m
+2026-10-03T01:21:10.7942675Z [36;1m                st=path.lstat()[0m
+2026-10-03T01:21:10.7943242Z [36;1m            except OSError as error:[0m
+2026-10-03T01:21:10.7943846Z [36;1m                missing(error,path,"lstat")[0m
+2026-10-03T01:21:10.7944428Z [36;1m                continue[0m
+2026-10-03T01:21:10.7945222Z [36;1m            # Symlink sizes are measured without following targets, as in the prior disk scan.[0m
+2026-10-03T01:21:10.7946089Z [36;1m            if not stat.S_ISDIR(st.st_mode):[0m
+2026-10-03T01:21:10.7946682Z [36;1m                total+=st.st_size[0m
+2026-10-03T01:21:10.7947459Z [36;1m            need(total<=cap,"owned disk budget" if directories else "proof byte cap")[0m
+2026-10-03T01:21:10.7948243Z [36;1m    final=scan_root.lstat()[0m
+2026-10-03T01:21:10.7949109Z [36;1m    need(stat.S_ISDIR(final.st_mode) and (initial.st_dev,initial.st_ino)==(final.st_dev,final.st_ino),[0m
+2026-10-03T01:21:10.7950044Z [36;1m         "stable inventory root identity")[0m
+2026-10-03T01:21:10.7950789Z [36;1m    return total[0m
+2026-10-03T01:21:10.7951369Z [36;1m[0m
+2026-10-03T01:21:10.7951947Z [36;1mdef disk_inventory(root, limit=100000, phase=None, races=None):[0m
+2026-10-03T01:21:10.7952898Z [36;1m    return sampled_inventory(root,root,phase,races,limit,DISK_CAP,True)[0m
+2026-10-03T01:21:10.7953645Z [36;1m[0m
+2026-10-03T01:21:10.7954128Z [36;1mdef proof_bytes(root, phase=None, races=None):[0m
+2026-10-03T01:21:10.7954996Z [36;1m    return sampled_inventory(root,root/"proof",phase,races,100000,PROOF_CAP,False)[0m
+2026-10-03T01:21:10.7955803Z [36;1m[0m
+2026-10-03T01:21:10.7956245Z [36;1mdef hash_file(path, cap=FILE_CAP):[0m
+2026-10-03T01:21:10.7956817Z [36;1m    st = path.lstat()[0m
+2026-10-03T01:21:10.7957615Z [36;1m    need(stat.S_ISREG(st.st_mode) and st.st_nlink == 1 and st.st_size <= cap, "regular owned file")[0m
+2026-10-03T01:21:10.7958471Z [36;1m    h = hashlib.sha256()[0m
+2026-10-03T01:21:10.7959027Z [36;1m    with path.open("rb") as f:[0m
+2026-10-03T01:21:10.7959639Z [36;1m        for b in iter(lambda: f.read(65536), b""):[0m
+2026-10-03T01:21:10.7960245Z [36;1m            h.update(b)[0m
+2026-10-03T01:21:10.7960859Z [36;1m    return {"bytes": st.st_size, "sha256": h.hexdigest()}[0m
+2026-10-03T01:21:10.7961619Z [36;1m[0m
+2026-10-03T01:21:10.7962045Z [36;1mdef verify_pin(path, pin):[0m
+2026-10-03T01:21:10.7962579Z [36;1m    got = hash_file(path)[0m
+2026-10-03T01:21:10.7963283Z [36;1m    need(got == {"bytes": pin["bytes"], "sha256": pin["sha256"]}, "body identity")[0m
+2026-10-03T01:21:10.7964026Z [36;1m    return got[0m
+2026-10-03T01:21:10.7964477Z [36;1m[0m
+2026-10-03T01:21:10.7964917Z [36;1mdef fetch_blob(pin, token, deadline):[0m
+2026-10-03T01:21:10.7965818Z [36;1m    need(0 < pin["bytes"] <= FILE_CAP and re.fullmatch(r"[0-9a-f]{40}", pin["gitBlobSHA1"]), "Git pin")[0m
+2026-10-03T01:21:10.7966772Z [36;1m    need(time.monotonic() < deadline, "fetch deadline")[0m
+2026-10-03T01:21:10.7968163Z [36;1m    c = http.client.HTTPSConnection("api.github.com", 443, timeout=min(15, max(0.1, deadline-time.monotonic())), context=ssl.create_default_context())[0m
+2026-10-03T01:21:10.7969286Z [36;1m    try:[0m
+2026-10-03T01:21:10.7969954Z [36;1m        c.request("GET", "/repos/" + REPO + "/git/blobs/" + pin["gitBlobSHA1"], headers={[0m
+2026-10-03T01:21:10.7970994Z [36;1m            "Authorization": "Bearer " + token, "Accept": "application/vnd.github+json",[0m
+2026-10-03T01:21:10.7972200Z [36;1m            "X-GitHub-Api-Version": "2022-11-28", "User-Agent": "fixed-opening-cue-byte-recovery"})[0m
+2026-10-03T01:21:10.7973053Z [36;1m        r = c.getresponse()[0m
+2026-10-03T01:21:10.7973847Z [36;1m        need(r.status == 200 and r.getheader("Location") is None, "blob status/no redirects")[0m
+2026-10-03T01:21:10.7974923Z [36;1m        need(r.getheader("Content-Encoding") in (None, "identity"), "response encoding")[0m
+2026-10-03T01:21:10.7975804Z [36;1m        length = r.getheader("Content-Length")[0m
+2026-10-03T01:21:10.7976432Z [36;1m        if length is not None:[0m
+2026-10-03T01:21:10.7977235Z [36;1m            need(length.isdecimal() and int(length) <= RESPONSE_CAP, "response declared cap")[0m
+2026-10-03T01:21:10.7978050Z [36;1m        raw = bytearray()[0m
+2026-10-03T01:21:10.7978564Z [36;1m        while True:[0m
+2026-10-03T01:21:10.7979204Z [36;1m            need(time.monotonic() < deadline, "response whole deadline")[0m
+2026-10-03T01:21:10.7979931Z [36;1m            if c.sock is not None:[0m
+2026-10-03T01:21:10.7980671Z [36;1m                c.sock.settimeout(min(15, max(0.1, deadline-time.monotonic())))[0m
+2026-10-03T01:21:10.7981654Z [36;1m            part = r.read(min(65536, RESPONSE_CAP + 1 - len(raw)))[0m
+2026-10-03T01:21:10.7982327Z [36;1m            if not part:[0m
+2026-10-03T01:21:10.7982835Z [36;1m                break[0m
+2026-10-03T01:21:10.7983332Z [36;1m            raw.extend(part)[0m
+2026-10-03T01:21:10.7983968Z [36;1m            need(len(raw) <= RESPONSE_CAP, "response byte cap")[0m
+2026-10-03T01:21:10.7984793Z [36;1m        if length is not None:[0m
+2026-10-03T01:21:10.7985422Z [36;1m            need(len(raw) == int(length), "response length")[0m
+2026-10-03T01:21:10.7986067Z [36;1m        j = load_json(raw)[0m
+2026-10-03T01:21:10.7986765Z [36;1m        need(j.get("sha") == pin["gitBlobSHA1"] and type(j.get("size")) is int[0m
+2026-10-03T01:21:10.7987634Z [36;1m             and j["size"] == pin["bytes"] and j.get("encoding") == "base64"[0m
+2026-10-03T01:21:10.7988473Z [36;1m             and isinstance(j.get("content"), str), "Git API identity")[0m
+2026-10-03T01:21:10.7989182Z [36;1m        content = j["content"][0m
+2026-10-03T01:21:10.7990070Z [36;1m        need(len(content) <= RESPONSE_CAP and re.fullmatch(r"[A-Za-z0-9+/=\n\r]*", content), "base64 grammar")[0m
+2026-10-03T01:21:10.7991360Z [36;1m        body = base64.b64decode(content.replace("\n", "").replace("\r", ""), validate=True)[0m
+2026-10-03T01:21:10.7992548Z [36;1m        need(len(body) == pin["bytes"] and hashlib.sha256(body).hexdigest() == pin["sha256"], "body SHA256/size")[0m
+2026-10-03T01:21:10.7993877Z [36;1m        need(hashlib.sha1(("blob " + str(len(body)) + "\x00").encode() + body).hexdigest() == pin["gitBlobSHA1"], "Git framed SHA1")[0m
+2026-10-03T01:21:10.7994838Z [36;1m        return body[0m
+2026-10-03T01:21:10.7995323Z [36;1m    finally:[0m
+2026-10-03T01:21:10.7995774Z [36;1m        c.close()[0m
+2026-10-03T01:21:10.7996243Z [36;1m[0m
+2026-10-03T01:21:10.7996648Z [36;1mdef acquire(root, m):[0m
+2026-10-03T01:21:10.7997296Z [36;1m    resource.setrlimit(resource.RLIMIT_AS, (128*MIB, 128*MIB))[0m
+2026-10-03T01:21:10.7998083Z [36;1m    resource.setrlimit(resource.RLIMIT_CPU, (40, 40))[0m
+2026-10-03T01:21:10.7998718Z [36;1m    alarm(180)[0m
+2026-10-03T01:21:10.7999388Z [36;1m    need(shutil.disk_usage(root).free >= 4*1024*MIB, "initial 4GiB free")[0m
+2026-10-03T01:21:10.8000195Z [36;1m    token = os.environ.pop("GITHUB_TOKEN", "")[0m
+2026-10-03T01:21:10.8001439Z [36;1m    need(bool(token) and "\n" not in token and "\r" not in token, "scoped acquisition token")[0m
+2026-10-03T01:21:10.8002326Z [36;1m    out = root / "downloads"[0m
+2026-10-03T01:21:10.8002901Z [36;1m    out.mkdir()[0m
+2026-10-03T01:21:10.8003385Z [36;1m    start = time.monotonic()[0m
+2026-10-03T01:21:10.8003904Z [36;1m    rows = [][0m
+2026-10-03T01:21:10.8004347Z [36;1m    try:[0m
+2026-10-03T01:21:10.8004806Z [36;1m        for pin in m["blobPins"]:[0m
+2026-10-03T01:21:10.8005442Z [36;1m            body = fetch_blob(pin, token, start+180)[0m
+2026-10-03T01:21:10.8006113Z [36;1m            path = out / (pin["sha256"] + ".blob")[0m
+2026-10-03T01:21:10.8006734Z [36;1m            exclusive(path, body)[0m
+2026-10-03T01:21:10.8007318Z [36;1m            verify_pin(path, pin)[0m
+2026-10-03T01:21:10.8008197Z [36;1m            rows.append({"sha256": pin["sha256"], "gitBlobSHA1": pin["gitBlobSHA1"], "bytes": pin["bytes"]})[0m
+2026-10-03T01:21:10.8009077Z [36;1m            del body[0m
+2026-10-03T01:21:10.8009753Z [36;1m            need(disk_inventory(root) <= DISK_CAP, "acquisition owned disk")[0m
+2026-10-03T01:21:10.8010479Z [36;1m    finally:[0m
+2026-10-03T01:21:10.8010932Z [36;1m        token = ""[0m
+2026-10-03T01:21:10.8012120Z [36;1m        receipt(root, "acquisition-progress.json", {"verified": rows, "expected": 57, "complete": len(rows)==57, "elapsed":time.monotonic()-start})[0m
+2026-10-03T01:21:10.8013255Z [36;1m    need(len(rows)==57, "all fixed blobs")[0m
+2026-10-03T01:21:10.8013963Z [36;1m[0m
+2026-10-03T01:21:10.8014381Z [36;1mclass BoundedStream:[0m
+2026-10-03T01:21:10.8014908Z [36;1m    def __init__(self, stream, cap):[0m
+2026-10-03T01:21:10.8015579Z [36;1m        self.stream, self.cap, self.count = stream, cap, 0[0m
+2026-10-03T01:21:10.8092663Z [36;1m    def read(self, size=-1):[0m
+2026-10-03T01:21:10.8093470Z [36;1m        need(size >= 0, "unbounded archive read")[0m
+2026-10-03T01:21:10.8094399Z [36;1m        b = self.stream.read(min(size, self.cap-self.count+1))[0m
+2026-10-03T01:21:10.8095561Z [36;1m        self.count += len(b)[0m
+2026-10-03T01:21:10.8096322Z [36;1m        need(self.count <= self.cap, "whole decompressed stream cap")[0m
+2026-10-03T01:21:10.8097060Z [36;1m        return b[0m
+2026-10-03T01:21:10.8097525Z [36;1m[0m
+2026-10-03T01:21:10.8097972Z [36;1mdef member_header(member, archive):[0m
+2026-10-03T01:21:10.8098562Z [36;1m    safe_path(member.name)[0m
+2026-10-03T01:21:10.8099449Z [36;1m    need(member.isfile() and not member.issparse() and not member.linkname and not member.pax_headers[0m
+2026-10-03T01:21:10.8100471Z [36;1m         and member.type in (tarfile.REGTYPE, tarfile.AREGTYPE)[0m
+2026-10-03T01:21:10.8101553Z [36;1m         and 0 <= member.size <= FILE_CAP, "nonregular/extended archive member")[0m
+2026-10-03T01:21:10.8102451Z [36;1m    need(re.fullmatch(r"blobs/[0-9a-f]{64}", member.name)[0m
+2026-10-03T01:21:10.8103474Z [36;1m         or (archive == "ce0f" and member.name == "INDEX.json" and member.size == 928223), "unknown archive member")[0m
+2026-10-03T01:21:10.8104366Z [36;1m[0m
+2026-10-03T01:21:10.8104789Z [36;1mdef assemble(root, m):[0m
+2026-10-03T01:21:10.8105460Z [36;1m    resource.setrlimit(resource.RLIMIT_AS, (128*MIB, 128*MIB))[0m
+2026-10-03T01:21:10.8106255Z [36;1m    resource.setrlimit(resource.RLIMIT_CPU, (40, 40))[0m
+2026-10-03T01:21:10.8106896Z [36;1m    alarm(60)[0m
+2026-10-03T01:21:10.8107374Z [36;1m    stage = root / "stage"[0m
+2026-10-03T01:21:10.8107896Z [36;1m    stage.mkdir()[0m
+2026-10-03T01:21:10.8108479Z [36;1m    needed = {key:{} for key in ("8cdf", "4513", "ce0f")}[0m
+2026-10-03T01:21:10.8109172Z [36;1m    for x in m["source"] + m["support"]:[0m
+2026-10-03T01:21:10.8109757Z [36;1m        if "archive" in x:[0m
+2026-10-03T01:21:10.8110443Z [36;1m            needed[x["archive"]].setdefault(x["sha256"], []).append(x)[0m
+2026-10-03T01:21:10.8111129Z [36;1m        else:[0m
+2026-10-03T01:21:10.8112035Z [36;1m            path = root / "downloads" / (x["blob"] + ".blob")[0m
+2026-10-03T01:21:10.8112760Z [36;1m            verify_pin(path, x)[0m
+2026-10-03T01:21:10.8113402Z [36;1m            exclusive(stage / x["path"], path.read_bytes())[0m
+2026-10-03T01:21:10.8114042Z [36;1m    reports = [][0m
+2026-10-03T01:21:10.8114517Z [36;1m    total_stream = 0[0m
+2026-10-03T01:21:10.8115044Z [36;1m    for pin in m["blobPins"][-3:]:[0m
+2026-10-03T01:21:10.8115623Z [36;1m        key = pin["id"][0m
+2026-10-03T01:21:10.8116231Z [36;1m        path = root / "downloads" / (pin["sha256"] + ".blob")[0m
+2026-10-03T01:21:10.8116891Z [36;1m        verify_pin(path, pin)[0m
+2026-10-03T01:21:10.8117493Z [36;1m        seen, chosen, index = set(), set(), False[0m
+2026-10-03T01:21:10.8118323Z [36;1m        with path.open("rb") as compressed, gzip.GzipFile(fileobj=compressed) as gz:[0m
+2026-10-03T01:21:10.8119265Z [36;1m            stream = BoundedStream(gz, ARCHIVE_STREAM_CAP-total_stream)[0m
+2026-10-03T01:21:10.8120084Z [36;1m            with tarfile.open(fileobj=stream, mode="r|") as tf:[0m
+2026-10-03T01:21:10.8120768Z [36;1m                for member in tf:[0m
+2026-10-03T01:21:10.8121522Z [36;1m                    member_header(member, key)[0m
+2026-10-03T01:21:10.8122435Z [36;1m                    need(member.name not in seen and len(seen) < ARCHIVE_MEMBER_CAP, "duplicate/member count")[0m
+2026-10-03T01:21:10.8123334Z [36;1m                    seen.add(member.name)[0m
+2026-10-03T01:21:10.8123962Z [36;1m                    if member.name == "INDEX.json":[0m
+2026-10-03T01:21:10.8124680Z [36;1m                        data = tf.extractfile(member).read(member.size + 1)[0m
+2026-10-03T01:21:10.8125958Z [36;1m                        need(len(data)==928223 and hashlib.sha1(b"blob 928223\x00"+data).hexdigest()=="46980a8ab7289c6f013390ac5f283cde389cffdd", "ce0f INDEX witness")[0m
+2026-10-03T01:21:10.8127115Z [36;1m                        index = True[0m
+2026-10-03T01:21:10.8127733Z [36;1m                    elif member.name[6:] in needed[key]:[0m
+2026-10-03T01:21:10.8128556Z [36;1m                        sha = member.name[6:][0m
+2026-10-03T01:21:10.8129262Z [36;1m                        data = tf.extractfile(member).read(member.size + 1)[0m
+2026-10-03T01:21:10.8130287Z [36;1m                        need(len(data)==member.size and hashlib.sha256(data).hexdigest()==sha, "selected archive body")[0m
+2026-10-03T01:21:10.8131370Z [36;1m                        for x in needed[key][sha]:[0m
+2026-10-03T01:21:10.8132105Z [36;1m                            need(x["bytes"]==len(data), "selected archive size")[0m
+2026-10-03T01:21:10.8132869Z [36;1m                            exclusive(stage / x["path"], data)[0m
+2026-10-03T01:21:10.8133517Z [36;1m                        chosen.add(sha)[0m
+2026-10-03T01:21:10.8134378Z [36;1m            # Drain padding/remainder through the same bound and validate gzip trailer.[0m
+2026-10-03T01:21:10.8135210Z [36;1m            while stream.read(65536):[0m
+2026-10-03T01:21:10.8135767Z [36;1m                pass[0m
+2026-10-03T01:21:10.8136293Z [36;1m        total_stream += stream.count[0m
+2026-10-03T01:21:10.8137094Z [36;1m        need(total_stream <= ARCHIVE_STREAM_CAP, "combined decompressed stream cap")[0m
+2026-10-03T01:21:10.8138153Z [36;1m        need(chosen == set(needed[key]) and (key != "ce0f" or index), "selected member completeness")[0m
+2026-10-03T01:21:10.8139538Z [36;1m        reports.append({"archive":key,"members":len(seen),"selectedUnique":len(chosen),"decompressedBytes":stream.count,"indexWitness":index})[0m
+2026-10-03T01:21:10.8140668Z [36;1m    membership(root, m, "assembled")[0m
+2026-10-03T01:21:10.8141986Z [36;1m    receipt(root, "assembly.json", {"archives":reports,"restoredOriginalFilesystemMetadata":False,"sourceFiles":104,"supportFiles":30})[0m
+2026-10-03T01:21:10.8143092Z [36;1m[0m
+2026-10-03T01:21:10.8143703Z [36;1mdef regular_inventory(directory, cap=10000, file_cap=ARTIFACT_CAP):[0m
+2026-10-03T01:21:10.8144905Z [36;1m    need(directory.is_dir() and not directory.is_symlink(), "inventory root regular directory")[0m
+2026-10-03T01:21:10.8145780Z [36;1m    rows = {}[0m
+2026-10-03T01:21:10.8146401Z [36;1m    for base, dirs, files in os.walk(directory, followlinks=False):[0m
+2026-10-03T01:21:10.8147103Z [36;1m        for name in dirs:[0m
+2026-10-03T01:21:10.8147776Z [36;1m            need(not (Path(base)/name).is_symlink(), "directory symlink")[0m
+2026-10-03T01:21:10.8148496Z [36;1m        for name in files:[0m
+2026-10-03T01:21:10.8149035Z [36;1m            path = Path(base)/name[0m
+2026-10-03T01:21:10.8149681Z [36;1m            key = path.relative_to(directory).as_posix()[0m
+2026-10-03T01:21:10.8150316Z [36;1m            safe_path(key)[0m
+2026-10-03T01:21:10.8150911Z [36;1m            need(len(rows)<cap, "inventory count cap")[0m
+2026-10-03T01:21:10.8151736Z [36;1m            rows[key] = hash_file(path, file_cap)[0m
+2026-10-03T01:21:10.8152375Z [36;1m    return dict(sorted(rows.items()))[0m
+2026-10-03T01:21:10.8152932Z [36;1m[0m
+2026-10-03T01:21:10.8153368Z [36;1mdef membership(root, m, label):[0m
+2026-10-03T01:21:10.8153931Z [36;1m    stage = root / "stage"[0m
+2026-10-03T01:21:10.8154696Z [36;1m    need(stage.is_dir() and not stage.is_symlink(), "membership root regular directory")[0m
+2026-10-03T01:21:10.8155490Z [36;1m    observed = {}[0m
+2026-10-03T01:21:10.8156242Z [36;1m    # Exclude only fresh installation/output directories from the 134 pinned inputs.[0m
+2026-10-03T01:21:10.8157188Z [36;1m    for base, dirs, files in os.walk(stage, followlinks=False):[0m
+2026-10-03T01:21:10.8157881Z [36;1m        if Path(base)==stage:[0m
+2026-10-03T01:21:10.8158560Z [36;1m            dirs[:] = [x for x in dirs if x not in ("node_modules", "dist")][0m
+2026-10-03T01:21:10.8159274Z [36;1m        for name in dirs:[0m
+2026-10-03T01:21:10.8159971Z [36;1m            need(not (Path(base)/name).is_symlink(), "input directory symlink")[0m
+2026-10-03T01:21:10.8160710Z [36;1m        for name in files:[0m
+2026-10-03T01:21:10.8161363Z [36;1m            p = Path(base)/name[0m
+2026-10-03T01:21:10.8162241Z [36;1m            observed[p.relative_to(stage).as_posix()] = hash_file(p)[0m
+2026-10-03T01:21:10.8163238Z [36;1m    expected = {x["path"]:{"bytes":x["bytes"],"sha256":x["sha256"]} for x in m["source"]+m["support"]}[0m
+2026-10-03T01:21:10.8164212Z [36;1m    need(observed==expected, "exact134 membership and bytes")[0m
+2026-10-03T01:21:10.8165057Z [36;1m    hashes = dict(sorted((x["path"],x["sha256"]) for x in m["source"]))[0m
+2026-10-03T01:21:10.8166070Z [36;1m    digest = hashlib.sha256(json.dumps(hashes,separators=(",", ":")).encode()).hexdigest()[0m
+2026-10-03T01:21:10.8166998Z [36;1m    need(digest==m["sourceDigest"], "runtime104 digest")[0m
+2026-10-03T01:21:10.8168733Z [36;1m    receipt(root, label+"-membership.json", {"sourceDigest":digest,"sourceCount":104,"supportCount":30,"supportDigest":hashlib.sha256(json.dumps(dict(sorted((x["path"],x["sha256"]) for x in m["support"])),separators=(",", ":")).encode()).hexdigest()})[0m
+2026-10-03T01:21:10.8170375Z [36;1m[0m
+2026-10-03T01:21:10.8170795Z [36;1mdef child_env(root):[0m
+2026-10-03T01:21:10.8171492Z [36;1m    user_config=root/"control/npm-user.npmrc"[0m
+2026-10-03T01:21:10.8172183Z [36;1m    global_config=root/"control/npm-global.npmrc"[0m
+2026-10-03T01:21:10.8172991Z [36;1m    need(user_config != global_config, "distinct owned npm config paths")[0m
+2026-10-03T01:21:10.8173796Z [36;1m    for config in (user_config,global_config):[0m
+2026-10-03T01:21:10.8174806Z [36;1m        verify_pin(config,{"bytes":0,"sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"})[0m
+2026-10-03T01:21:10.8176060Z [36;1m    # Never pass GitHub, Actions runtime, registry tokens, arbitrary NODE_OPTIONS or npmrc.[0m
+2026-10-03T01:21:10.8177145Z [36;1m    e = {k:os.environ[k] for k in ("PATH","HOME","LANG","LC_ALL","TMPDIR") if k in os.environ}[0m
+2026-10-03T01:21:10.8178093Z [36;1m    e.update({"CI":"true", "NODE_OPTIONS":"--max-old-space-size=256",[0m
+2026-10-03T01:21:10.8179256Z [36;1m        "npm_config_cache":str(root/"npm-cache"), "npm_config_logs_dir":str(root/"proof"/"npm-debug"),[0m
+2026-10-03T01:21:10.8180434Z [36;1m        "npm_config_userconfig":str(user_config), "npm_config_globalconfig":str(global_config),[0m
+2026-10-03T01:21:10.8181761Z [36;1m        "npm_config_registry":"https://registry.npmjs.org", "npm_config_fetch_retries":"0",[0m
+2026-10-03T01:21:10.8182897Z [36;1m        "npm_config_fetch_timeout":"30000", "npm_config_audit":"false", "npm_config_fund":"false",[0m
+2026-10-03T01:21:10.8183932Z [36;1m        "npm_config_update_notifier":"false", "npm_config_progress":"false",[0m
+2026-10-03T01:21:10.8184922Z [36;1m        "ELECTRON_SKIP_BINARY_DOWNLOAD":"1", "PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD":"1",[0m
+2026-10-03T01:21:10.8185755Z [36;1m        "PUPPETEER_SKIP_DOWNLOAD":"1"})[0m
+2026-10-03T01:21:10.8186332Z [36;1m    return e[0m
+2026-10-03T01:21:10.8186768Z [36;1m[0m
+2026-10-03T01:21:10.8187180Z [36;1mdef proc_snapshot():[0m
+2026-10-03T01:21:10.8187680Z [36;1m    result = {}[0m
+2026-10-03T01:21:10.8188216Z [36;1m    entries = list(Path("/proc").iterdir())[0m
+2026-10-03T01:21:10.8188871Z [36;1m    need(len(entries)<=10000, "proc census cap")[0m
+2026-10-03T01:21:10.8189495Z [36;1m    for p in entries:[0m
+2026-10-03T01:21:10.8190028Z [36;1m        if not p.name.isdecimal():[0m
+2026-10-03T01:21:10.8190590Z [36;1m            continue[0m
+2026-10-03T01:21:10.8191063Z [36;1m        try:[0m
+2026-10-03T01:21:10.8191691Z [36;1m            text = (p/"stat").read_text()[0m
+2026-10-03T01:21:10.8192316Z [36;1m            s = text[text.rfind(")")+2:].split()[0m
+2026-10-03T01:21:10.8193149Z [36;1m            result[int(p.name)] = {"state":s[0],"ppid":int(s[1]),"pgrp":int(s[2]),"sid":int(s[3]),[0m
+2026-10-03T01:21:10.8194240Z [36;1m                "cpuTicks":int(s[11])+int(s[12]),"start":int(s[19]),"rss":max(0,int(s[21]))*os.sysconf("SC_PAGE_SIZE")}[0m
+2026-10-03T01:21:10.8195298Z [36;1m        except (FileNotFoundError, ProcessLookupError, PermissionError):[0m
+2026-10-03T01:21:10.8196217Z [36;1m            continue[0m
+2026-10-03T01:21:10.8196698Z [36;1m    return result[0m
+2026-10-03T01:21:10.8197157Z [36;1m[0m
+2026-10-03T01:21:10.8197558Z [36;1mdef mem_available():[0m
+2026-10-03T01:21:10.8198176Z [36;1m    for line in Path("/proc/meminfo").read_text().splitlines():[0m
+2026-10-03T01:21:10.8199398Z [36;1m        if line.startswith("MemAvailable:"):[0m
+2026-10-03T01:21:10.8200279Z [36;1m            return int(line.split()[1])*1024[0m
+2026-10-03T01:21:10.8200935Z [36;1m    raise ValueError("MemAvailable absent")[0m
+2026-10-03T01:21:10.8201674Z [36;1m[0m
+2026-10-03T01:21:10.8202093Z [36;1mdef cgroup_observation():[0m
+2026-10-03T01:21:10.8202917Z [36;1m    # Shared hosted runner cgroup is evidence, never a dedicated per-job enforcement claim.[0m
+2026-10-03T01:21:10.8203880Z [36;1m    rows = Path("/proc/self/cgroup").read_text().splitlines()[0m
+2026-10-03T01:21:10.8204671Z [36;1m    row = next((x[3:] for x in rows if x.startswith("0::")), None)[0m
+2026-10-03T01:21:10.8205353Z [36;1m    if row is None:[0m
+2026-10-03T01:21:10.8205871Z [36;1m        return {"available":False}[0m
+2026-10-03T01:21:10.8206493Z [36;1m    p = Path("/sys/fs/cgroup") / row.lstrip("/")[0m
+2026-10-03T01:21:10.8207081Z [36;1m    try:[0m
+2026-10-03T01:21:10.8207766Z [36;1m        return {"available":True,"path":str(p),"max":(p/"memory.max").read_text().strip(),[0m
+2026-10-03T01:21:10.8208887Z [36;1m            "current":int((p/"memory.current").read_text()),"events":(p/"memory.events").read_text().strip()}[0m
+2026-10-03T01:21:10.8209844Z [36;1m    except (FileNotFoundError, PermissionError):[0m
+2026-10-03T01:21:10.8210485Z [36;1m        return {"available":False}[0m
+2026-10-03T01:21:10.8211023Z [36;1m[0m
+2026-10-03T01:21:10.8211552Z [36;1mdef effective_available():[0m
+2026-10-03T01:21:10.8212085Z [36;1m    host=mem_available()[0m
+2026-10-03T01:21:10.8212615Z [36;1m    cg=cgroup_observation()[0m
+2026-10-03T01:21:10.8213419Z [36;1m    if cg.get("available") and cg["max"].isdecimal():[0m
+2026-10-03T01:21:10.8214180Z [36;1m        return min(host,max(0,int(cg["max"])-cg["current"]))[0m
+2026-10-03T01:21:10.8214833Z [36;1m    return host[0m
+2026-10-03T01:21:10.8215273Z [36;1m[0m
+2026-10-03T01:21:10.8215823Z [36;1mdef run_phase(root, name, argv, stop_s, whole_s, memory_cap):[0m
+2026-10-03T01:21:10.8216510Z [36;1m    stage = root/"stage"[0m
+2026-10-03T01:21:10.8217286Z [36;1m    need(effective_available()>=memory_cap+512*MIB, "phase work+reserve availability")[0m
+2026-10-03T01:21:10.8218286Z [36;1m    need(shutil.disk_usage(root).free>=4*1024*MIB, "phase4GiB free")[0m
+2026-10-03T01:21:10.8219018Z [36;1m    before = cgroup_observation()[0m
+2026-10-03T01:21:10.8219586Z [36;1m    start = time.monotonic()[0m
+2026-10-03T01:21:10.8220129Z [36;1m    control = {"reason":None}[0m
+2026-10-03T01:21:10.8220683Z [36;1m    site="phase initialization"[0m
+2026-10-03T01:21:10.8221393Z [36;1m    fault=None[0m
+2026-10-03T01:21:10.8222227Z [36;1m    races={"missedEntries":0,"sites":{},"firstExamples":[],"perScanMissCap":256,"perPhaseMissCap":4096,[0m
+2026-10-03T01:21:10.8223872Z [36;1m           "qualification":"Exact ENOENT beneath phase-owned mutation roots only; transient missing entries are not measured. Final closed-phase scan has no missing allowance."}[0m
+2026-10-03T01:21:10.8225194Z [36;1m    def interrupt(sig, _frame):[0m
+2026-10-03T01:21:10.8225834Z [36;1m        control["reason"] = "supervisor signal " + str(sig)[0m
+2026-10-03T01:21:10.8226585Z [36;1m    oldterm = signal.signal(signal.SIGTERM, interrupt)[0m
+2026-10-03T01:21:10.8227311Z [36;1m    oldint = signal.signal(signal.SIGINT, interrupt)[0m
+2026-10-03T01:21:10.8227955Z [36;1m    p = None[0m
+2026-10-03T01:21:10.8228602Z [36;1m    handles, identities, cpu, sel = {}, {}, {}, selectors.DefaultSelector()[0m
+2026-10-03T01:21:10.8229347Z [36;1m    samples = peak = 0[0m
+2026-10-03T01:21:10.8229908Z [36;1m    min_available = effective_available()[0m
+2026-10-03T01:21:10.8230489Z [36;1m    seen_log = 0[0m
+2026-10-03T01:21:10.8231322Z [36;1m    received_log = 0[0m
+2026-10-03T01:21:10.8231834Z [36;1m    overflow_first_bytes = 0[0m
+2026-10-03T01:21:10.8232372Z [36;1m    log_complete = True[0m
+2026-10-03T01:21:10.8232877Z [36;1m    term_at = None[0m
+2026-10-03T01:21:10.8233354Z [36;1m    alive = {}[0m
+2026-10-03T01:21:10.8233807Z [36;1m    exited = None[0m
+2026-10-03T01:21:10.8234321Z [36;1m    status = "FAILED"[0m
+2026-10-03T01:21:10.8234811Z [36;1m    closure = False[0m
+2026-10-03T01:21:10.8235303Z [36;1m    last_disk = start[0m
+2026-10-03T01:21:10.8236078Z [36;1m    fd = os.open(root/"proof"/(name+".log"), os.O_WRONLY|os.O_CREAT|os.O_EXCL|os.O_NOFOLLOW,0o600)[0m
+2026-10-03T01:21:10.8236947Z [36;1m    def bind_handle(pid, start_identity):[0m
+2026-10-03T01:21:10.8237565Z [36;1m        identity=(pid,start_identity)[0m
+2026-10-03T01:21:10.8238145Z [36;1m        if identity in handles:[0m
+2026-10-03T01:21:10.8238678Z [36;1m            return[0m
+2026-10-03T01:21:10.8239151Z [36;1m        try:[0m
+2026-10-03T01:21:10.8239632Z [36;1m            h=os.pidfd_open(pid)[0m
+2026-10-03T01:21:10.8240207Z [36;1m        except ProcessLookupError:[0m
+2026-10-03T01:21:10.8240768Z [36;1m            return[0m
+2026-10-03T01:21:10.8241350Z [36;1m        try:[0m
+2026-10-03T01:21:10.8241848Z [36;1m            current=proc_snapshot().get(pid)[0m
+2026-10-03T01:21:10.8242446Z [36;1m            if current is None:[0m
+2026-10-03T01:21:10.8242975Z [36;1m                os.close(h)[0m
+2026-10-03T01:21:10.8243492Z [36;1m                return[0m
+2026-10-03T01:21:10.8244185Z [36;1m            need(current["start"]==start_identity, "pidfd initial identity race")[0m
+2026-10-03T01:21:10.8244957Z [36;1m        except BaseException:[0m
+2026-10-03T01:21:10.8245489Z [36;1m            os.close(h)[0m
+2026-10-03T01:21:10.8245992Z [36;1m            raise[0m
+2026-10-03T01:21:10.8246474Z [36;1m        handles[identity]=h[0m
+2026-10-03T01:21:10.8246991Z [36;1m    def observe():[0m
+2026-10-03T01:21:10.8247728Z [36;1m        nonlocal peak, samples, min_available, alive[0m
+2026-10-03T01:21:10.8248405Z [36;1m        snap = proc_snapshot()[0m
+2026-10-03T01:21:10.8249407Z [36;1m        owned = {pid for pid,v in snap.items() if p is not None and (v["sid"]==p.pid or (pid in identities and identities[pid]==v["start"]))}[0m
+2026-10-03T01:21:10.8250399Z [36;1m        change = True[0m
+2026-10-03T01:21:10.8250894Z [36;1m        while change:[0m
+2026-10-03T01:21:10.8251661Z [36;1m            new = {pid for pid,v in snap.items() if v["ppid"] in owned}[0m
+2026-10-03T01:21:10.8252388Z [36;1m            change = not new.issubset(owned)[0m
+2026-10-03T01:21:10.8252963Z [36;1m            owned |= new[0m
+2026-10-03T01:21:10.8253648Z [36;1m        alive = {pid:snap[pid] for pid in owned if snap[pid]["state"] != "Z"}[0m
+2026-10-03T01:21:10.8254385Z [36;1m        for pid in owned:[0m
+2026-10-03T01:21:10.8254902Z [36;1m            v = snap[pid][0m
+2026-10-03T01:21:10.8255455Z [36;1m            identities[pid]=v["start"][0m
+2026-10-03T01:21:10.8256194Z [36;1m            cpu[(pid,v["start"])]=max(cpu.get((pid,v["start"]),0),v["cpuTicks"])[0m
+2026-10-03T01:21:10.8256918Z [36;1m            if v["state"]!="Z":[0m
+2026-10-03T01:21:10.8257490Z [36;1m                bind_handle(pid,v["start"])[0m
+2026-10-03T01:21:10.8258128Z [36;1m        own = snap.get(os.getpid(),{}).get("rss",0)[0m
+2026-10-03T01:21:10.8258826Z [36;1m        rss = own + sum(v["rss"] for v in alive.values())[0m
+2026-10-03T01:21:10.8259465Z [36;1m        peak=max(peak,rss)[0m
+2026-10-03T01:21:10.8259983Z [36;1m        samples+=1[0m
+2026-10-03T01:21:10.8260488Z [36;1m        avail=effective_available()[0m
+2026-10-03T01:21:10.8261109Z [36;1m        min_available=min(min_available,avail)[0m
+2026-10-03T01:21:10.8261902Z [36;1m        if rss>memory_cap:[0m
+2026-10-03T01:21:10.8262509Z [36;1m            control["reason"]="sampled aggregate RSS cap"[0m
+2026-10-03T01:21:10.8263146Z [36;1m        if avail<512*MIB:[0m
+2026-10-03T01:21:10.8263976Z [36;1m            control["reason"]="sampled host/cgroup available reserve cap"[0m
+2026-10-03T01:21:10.8264918Z [36;1m        if sum(cpu.values())/os.sysconf("SC_CLK_TCK") > (150 if name=="install" else 55):[0m
+2026-10-03T01:21:10.8265771Z [36;1m            control["reason"]="sampled aggregate CPU cap"[0m
+2026-10-03T01:21:10.8266407Z [36;1m    def terminate(sig):[0m
+2026-10-03T01:21:10.8267182Z [36;1m        # pidfd pins the observed process identity; never signal a recycled numeric PGID.[0m
+2026-10-03T01:21:10.8268061Z [36;1m        for identity,h in list(handles.items()):[0m
+2026-10-03T01:21:10.8268654Z [36;1m            try:[0m
+2026-10-03T01:21:10.8269168Z [36;1m                signal.pidfd_send_signal(h,sig)[0m
+2026-10-03T01:21:10.8269795Z [36;1m            except ProcessLookupError:[0m
+2026-10-03T01:21:10.8270365Z [36;1m                pass[0m
+2026-10-03T01:21:10.8270831Z [36;1m    try:[0m
+2026-10-03T01:21:10.8271641Z [36;1m        site="child launch/environment"[0m
+2026-10-03T01:21:10.8272851Z [36;1m        p = subprocess.Popen(argv,cwd=stage,env=child_env(root),stdout=subprocess.PIPE,stderr=subprocess.STDOUT,start_new_session=True,close_fds=True)[0m
+2026-10-03T01:21:10.8274096Z [36;1m        site="initial process census/pidfd binding"[0m
+2026-10-03T01:21:10.8274817Z [36;1m        identities[p.pid]=proc_snapshot()[p.pid]["start"][0m
+2026-10-03T01:21:10.8275519Z [36;1m        bind_handle(p.pid,identities[p.pid])[0m
+2026-10-03T01:21:10.8276169Z [36;1m        os.set_blocking(p.stdout.fileno(),False)[0m
+2026-10-03T01:21:10.8276851Z [36;1m        sel.register(p.stdout,selectors.EVENT_READ)[0m
+2026-10-03T01:21:10.8277465Z [36;1m        while True:[0m
+2026-10-03T01:21:10.8277966Z [36;1m            now=time.monotonic()[0m
+2026-10-03T01:21:10.8278615Z [36;1m            site="process census/pidfd/resource observation"[0m
+2026-10-03T01:21:10.8279268Z [36;1m            observe()[0m
+2026-10-03T01:21:10.8279796Z [36;1m            if now-start>=stop_s and alive:[0m
+2026-10-03T01:21:10.8280692Z [36;1m                control["reason"] = control["reason"] or "phase stop deadline"[0m
+2026-10-03T01:21:10.8281603Z [36;1m            if now-last_disk>=0.1:[0m
+2026-10-03T01:21:10.8282147Z [36;1m                try:[0m
+2026-10-03T01:21:10.8282669Z [36;1m                    site="owned disk sampling"[0m
+2026-10-03T01:21:10.8283337Z [36;1m                    disk_inventory(root,phase=name,races=races)[0m
+2026-10-03T01:21:10.8284014Z [36;1m                    site="proof byte sampling"[0m
+2026-10-03T01:21:10.8284890Z [36;1m                    need(proof_bytes(root,phase=name,races=races)<=850*1024,"proof log/receipt soft cap")[0m
+2026-10-03T01:21:10.8285766Z [36;1m                except ValueError as e:[0m
+2026-10-03T01:21:10.8286442Z [36;1m                    control["reason"]="sampled disk/log cap: "+str(e)[0m
+2026-10-03T01:21:10.8287100Z [36;1m                last_disk=now[0m
+2026-10-03T01:21:10.8287705Z [36;1m            if control["reason"] and term_at is None:[0m
+2026-10-03T01:21:10.8288374Z [36;1m                site="owned process termination"[0m
+2026-10-03T01:21:10.8289003Z [36;1m                terminate(signal.SIGTERM)[0m
+2026-10-03T01:21:10.8289578Z [36;1m                term_at=now[0m
+2026-10-03T01:21:10.8290175Z [36;1m            if term_at is not None and now-term_at>=1:[0m
+2026-10-03T01:21:10.8290855Z [36;1m                site="owned process forced termination"[0m
+2026-10-03T01:21:10.8291636Z [36;1m                terminate(signal.SIGKILL)[0m
+2026-10-03T01:21:10.8292257Z [36;1m            site="raw log select/read/write"[0m
+2026-10-03T01:21:10.8292866Z [36;1m            for key,_ in sel.select(0.05):[0m
+2026-10-03T01:21:10.8293464Z [36;1m                b=os.read(key.fd,4096)[0m
+2026-10-03T01:21:10.8294020Z [36;1m                if not b:[0m
+2026-10-03T01:21:10.8294575Z [36;1m                    sel.unregister(key.fileobj)[0m
+2026-10-03T01:21:10.8295210Z [36;1m                elif seen_log+len(b)<=LOG_CAP:[0m
+2026-10-03T01:21:10.8296000Z [36;1m                    received_log+=len(b)[0m
+2026-10-03T01:21:10.8296687Z [36;1m                    need(os.write(fd,b)==len(b),"complete raw log write")[0m
+2026-10-03T01:21:10.8297380Z [36;1m                    seen_log+=len(b)[0m
+2026-10-03T01:21:10.8297938Z [36;1m                else:[0m
+2026-10-03T01:21:10.8298450Z [36;1m                    received_log+=len(b)[0m
+2026-10-03T01:21:10.8299057Z [36;1m                    overflow_first_bytes=len(b)[0m
+2026-10-03T01:21:10.8299751Z [36;1m                    need(len(b)<=64*1024,"finite first overflow residue")[0m
+2026-10-03T01:21:10.8300576Z [36;1m                    exclusive(root/"proof"/(name+"-overflow-first.log"),b)[0m
+2026-10-03T01:21:10.8301442Z [36;1m                    sel.unregister(key.fileobj)[0m
+2026-10-03T01:21:10.8302057Z [36;1m                    log_complete=False[0m
+2026-10-03T01:21:10.8302967Z [36;1m                    control["reason"]="raw log cap; first delivered overflow chunk retained; unread tail exists"[0m
+2026-10-03T01:21:10.8304063Z [36;1m            # Census occurs before poll/reap so orphaned descendants stay tracked.[0m
+2026-10-03T01:21:10.8304891Z [36;1m            site="launcher poll/closure observation"[0m
+2026-10-03T01:21:10.8305507Z [36;1m            exited=p.poll()[0m
+2026-10-03T01:21:10.8306178Z [36;1m            if exited is not None and not alive and not sel.get_map():[0m
+2026-10-03T01:21:10.8306866Z [36;1m                closure=True[0m
+2026-10-03T01:21:10.8307386Z [36;1m                break[0m
+2026-10-03T01:21:10.8307901Z [36;1m            if now-start>=whole_s-0.5:[0m
+2026-10-03T01:21:10.8308673Z [36;1m                control["reason"]=control["reason"] or "whole phase closure deadline"[0m
+2026-10-03T01:21:10.8309466Z [36;1m                terminate(signal.SIGKILL)[0m
+2026-10-03T01:21:10.8310042Z [36;1m                observe()[0m
+2026-10-03T01:21:10.8310629Z [36;1m                closure=not alive and p.poll() is not None[0m
+2026-10-03T01:21:10.8311526Z [36;1m                break[0m
+2026-10-03T01:21:10.8312055Z [36;1m        if closure:[0m
+2026-10-03T01:21:10.8312616Z [36;1m            site="closed-phase strict owned disk scan"[0m
+2026-10-03T01:21:10.8313252Z [36;1m            disk_inventory(root)[0m
+2026-10-03T01:21:10.8313855Z [36;1m            site="closed-phase strict proof scan"[0m
+2026-10-03T01:21:10.8314680Z [36;1m            need(proof_bytes(root)<=850*1024,"closed-phase proof log/receipt soft cap")[0m
+2026-10-03T01:21:10.8315664Z [36;1m            need(time.monotonic()-start<whole_s,"strict scan whole phase deadline")[0m
+2026-10-03T01:21:10.8316784Z [36;1m        status="PASS" if exited==0 and closure and control["reason"] is None and log_complete else "FAILED"[0m
+2026-10-03T01:21:10.8317700Z [36;1m    except BaseException as e:[0m
+2026-10-03T01:21:10.8318311Z [36;1m        fault=supervisor_fault(root,name,site,e)[0m
+2026-10-03T01:21:10.8319050Z [36;1m        control["reason"]="supervisor failure: "+type(e).__name__[0m
+2026-10-03T01:21:10.8319741Z [36;1m        if p is not None:[0m
+2026-10-03T01:21:10.8320513Z [36;1m            # Known pidfds are safe even if census failed. Unobserved closure is never PASS.[0m
+2026-10-03T01:21:10.8321457Z [36;1m            terminate(signal.SIGKILL)[0m
+2026-10-03T01:21:10.8322018Z [36;1m            try:[0m
+2026-10-03T01:21:10.8322488Z [36;1m                observe()[0m
+2026-10-03T01:21:10.8323044Z [36;1m                terminate(signal.SIGKILL)[0m
+2026-10-03T01:21:10.8323642Z [36;1m            except BaseException:[0m
+2026-10-03T01:21:10.8324290Z [36;1m                alive={p.pid:{"closure":"census unavailable"}}[0m
+2026-10-03T01:21:10.8325012Z [36;1m            until=min(start+whole_s,time.monotonic()+1)[0m
+2026-10-03T01:21:10.8325689Z [36;1m            while alive and time.monotonic()<until:[0m
+2026-10-03T01:21:10.8326305Z [36;1m                time.sleep(0.02)[0m
+2026-10-03T01:21:10.8326838Z [36;1m                try:[0m
+2026-10-03T01:21:10.8327328Z [36;1m                    observe()[0m
+2026-10-03T01:21:10.8328048Z [36;1m                    terminate(signal.SIGKILL)[0m
+2026-10-03T01:21:10.8328661Z [36;1m                except BaseException:[0m
+2026-10-03T01:21:10.8329216Z [36;1m                    break[0m
+2026-10-03T01:21:10.8329722Z [36;1m            try:[0m
+2026-10-03T01:21:10.8330330Z [36;1m                exited=p.wait(timeout=max(0.01,until-time.monotonic()))[0m
+2026-10-03T01:21:10.8331084Z [36;1m            except subprocess.TimeoutExpired:[0m
+2026-10-03T01:21:10.8331870Z [36;1m                pass[0m
+2026-10-03T01:21:10.8332432Z [36;1m            closure=not alive and p.poll() is not None[0m
+2026-10-03T01:21:10.8333038Z [36;1m    finally:[0m
+2026-10-03T01:21:10.8333494Z [36;1m        os.fsync(fd)[0m
+2026-10-03T01:21:10.8333974Z [36;1m        os.close(fd)[0m
+2026-10-03T01:21:10.8334489Z [36;1m        sel.close()[0m
+2026-10-03T01:21:10.8335042Z [36;1m        if p is not None and p.stdout is not None:[0m
+2026-10-03T01:21:10.8335663Z [36;1m            p.stdout.close()[0m
+2026-10-03T01:21:10.8336222Z [36;1m        for h in handles.values():[0m
+2026-10-03T01:21:10.8336774Z [36;1m            os.close(h)[0m
+2026-10-03T01:21:10.8337329Z [36;1m        signal.signal(signal.SIGTERM,oldterm)[0m
+2026-10-03T01:21:10.8337973Z [36;1m        signal.signal(signal.SIGINT,oldint)[0m
+2026-10-03T01:21:10.8338919Z [36;1m        result={"phase":name,"argv":argv,"status":status,"exit":exited,"elapsedSeconds":time.monotonic()-start,[0m
+2026-10-03T01:21:10.8340214Z [36;1m            "stopSeconds":stop_s,"wholeSeconds":whole_s,"sampledAggregatePeakRSS":peak,"workCapBytes":memory_cap,[0m
+2026-10-03T01:21:10.8341839Z [36;1m            "reserveBytes":512*MIB,"minHostOrFiniteCgroupHeadroom":min_available,"samples":samples,"ownedObservedProcesses":len(identities),[0m
+2026-10-03T01:21:10.8343260Z [36;1m            "sampledCPUseconds":sum(cpu.values())/os.sysconf("SC_CLK_TCK"),"closureObserved":closure,[0m
+2026-10-03T01:21:10.8345338Z [36;1m            "liveAtClosure":sorted(alive),"rawLogBytes":seen_log,"receivedRawLogBytes":received_log,"rawLogBudget":LOG_CAP,"firstOverflowBytesRetained":overflow_first_bytes,"rawLogComplete":log_complete,"reason":control["reason"],[0m
+2026-10-03T01:21:10.8347150Z [36;1m            "supervisorFault":fault,"samplingDisappearance":races,[0m
+2026-10-03T01:21:10.8348864Z [36;1m            "memoryQualification":"Owned process session/descendant census plus supervisor RSS sampled; shared cgroup is observed only, no dedicated hard cgroup guarantee, transient peaks/escaped descendants not certified.",[0m
+2026-10-03T01:21:10.8350783Z [36;1m            "diskQualification":"Owned paths sampled, not kernel quota; overflow fails and is retained.",[0m
+2026-10-03T01:21:10.8351967Z [36;1m            "cgroupBefore":before,"cgroupAfter":cgroup_observation()}[0m
+2026-10-03T01:21:10.8352764Z [36;1m        receipt(root,name+"-closure.json",result,16*1024)[0m
+2026-10-03T01:21:10.8353542Z [36;1m    need(status=="PASS", name+" failed; retained closure/log")[0m
+2026-10-03T01:21:10.8354200Z [36;1m[0m
+2026-10-03T01:21:10.8354664Z [36;1mdef canonical_bin_map(value, package_name):[0m
+2026-10-03T01:21:10.8355525Z [36;1m    # npm accepts a string for one package-named command, or a command-to-path object.[0m
+2026-10-03T01:21:10.8356339Z [36;1m    if isinstance(value,str):[0m
+2026-10-03T01:21:10.8356953Z [36;1m        value={package_name.rsplit("/",1)[-1]:value}[0m
+2026-10-03T01:21:10.8357812Z [36;1m    need(isinstance(value,dict) and len(value)<=32,"bounded bin representation")[0m
+2026-10-03T01:21:10.8358582Z [36;1m    result={}[0m
+2026-10-03T01:21:10.8359086Z [36;1m    for command,path in value.items():[0m
+2026-10-03T01:21:10.8360069Z [36;1m        need(isinstance(command,str) and re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,63}",command),"canonical bin command")[0m
+2026-10-03T01:21:10.8361319Z [36;1m        need(isinstance(path,str) and len(path)<=240,"bounded bin path")[0m
+2026-10-03T01:21:10.8362085Z [36;1m        while path.startswith("./"):[0m
+2026-10-03T01:21:10.8362804Z [36;1m            path=path[2:][0m
+2026-10-03T01:21:10.8363323Z [36;1m        safe_path(path)[0m
+2026-10-03T01:21:10.8363842Z [36;1m        result[command]=path[0m
+2026-10-03T01:21:10.8364369Z [36;1m    return result[0m
+2026-10-03T01:21:10.8364841Z [36;1m[0m
+2026-10-03T01:21:10.8365220Z [36;1m[0m
+2026-10-03T01:21:10.8365649Z [36;1mdef observed_bin(value,cap=8192):[0m
+2026-10-03T01:21:10.8366517Z [36;1m    # Keep ordinary actual mappings exact; oversized/malformed data stays explicitly bounded.[0m
+2026-10-03T01:21:10.8367541Z [36;1m    b=json.dumps(value,sort_keys=True,separators=(",", ":")).encode()[0m
+2026-10-03T01:21:10.8368249Z [36;1m    if len(b)<=cap:[0m
+2026-10-03T01:21:10.8368791Z [36;1m        return {"complete":True,"value":value}[0m
+2026-10-03T01:21:10.8370057Z [36;1m    return {"complete":False,"serializedBytes":len(b),"serializedSHA256":hashlib.sha256(b).hexdigest(),"prefix":b[:min(1024,cap)].decode("utf-8",errors="replace")}[0m
+2026-10-03T01:21:10.8371405Z [36;1m[0m
+2026-10-03T01:21:10.8371789Z [36;1m[0m
+2026-10-03T01:21:10.8372273Z [36;1mdef native_inventory(root,package,name,index):[0m
+2026-10-03T01:21:10.8373189Z [36;1m    # This larger finite count applies only to the three pinned selected Linux x64 packages.[0m
+2026-10-03T01:21:10.8374428Z [36;1m    need(name in ("@typescript/typescript-linux-x64","@rolldown/binding-linux-x64-gnu","@esbuild/linux-x64"),[0m
+2026-10-03T01:21:10.8375409Z [36;1m         "fixed selected native package")[0m
+2026-10-03T01:21:10.8376247Z [36;1m    need(package==root/"stage/node_modules"/name,"fixed selected native package path")[0m
+2026-10-03T01:21:10.8377052Z [36;1m    rows={}[0m
+2026-10-03T01:21:10.8377745Z [36;1m    observed={"package":name,"status":"FAILED","fileCountObserved":0,"hashedBytes":0,[0m
+2026-10-03T01:21:10.8378745Z [36;1m              "fileCountCap":4096,"perFileBytesCap":128*MIB,"firstBoundedNames":[],[0m
+2026-10-03T01:21:10.8379838Z [36;1m              "diagnosticOnlyNotAdmission":True,"completeInventory":False}[0m
+2026-10-03T01:21:10.8380620Z [36;1m    site="native inventory root"[0m
+2026-10-03T01:21:10.8381300Z [36;1m    def walk_error(error):[0m
+2026-10-03T01:21:10.8381828Z [36;1m        raise error[0m
+2026-10-03T01:21:10.8382296Z [36;1m    try:[0m
+2026-10-03T01:21:10.8383008Z [36;1m        need(package.is_dir() and not package.is_symlink(),"inventory root regular directory")[0m
+2026-10-03T01:21:10.8384068Z [36;1m        for base,dirs,files in os.walk(package,followlinks=False,onerror=walk_error):[0m
+2026-10-03T01:21:10.8384905Z [36;1m            site="native directory symlink guard"[0m
+2026-10-03T01:21:10.8385509Z [36;1m            for entry in dirs:[0m
+2026-10-03T01:21:10.8386192Z [36;1m                need(not (Path(base)/entry).is_symlink(),"directory symlink")[0m
+2026-10-03T01:21:10.8386912Z [36;1m            for entry in files:[0m
+2026-10-03T01:21:10.8387474Z [36;1m                path=Path(base)/entry[0m
+2026-10-03T01:21:10.8388117Z [36;1m                rel=path.relative_to(package).as_posix()[0m
+2026-10-03T01:21:10.8388800Z [36;1m                observed["fileCountObserved"]+=1[0m
+2026-10-03T01:21:10.8389463Z [36;1m                if len(observed["firstBoundedNames"])<16:[0m
+2026-10-03T01:21:10.8390407Z [36;1m                    observed["firstBoundedNames"].append({"namePrefix":rel[:160],"complete":len(rel)<=160,[0m
+2026-10-03T01:21:10.8391805Z [36;1m                         "nameSHA256":hashlib.sha256(rel.encode()).hexdigest()})[0m
+2026-10-03T01:21:10.8392615Z [36;1m                site="native canonical path/count guard"[0m
+2026-10-03T01:21:10.8393241Z [36;1m                safe_path(rel)[0m
+2026-10-03T01:21:10.8393961Z [36;1m                need(observed["fileCountObserved"]<=4096,"inventory count cap")[0m
+2026-10-03T01:21:10.8394831Z [36;1m                need(rel not in rows,"duplicate native inventory path")[0m
+2026-10-03T01:21:10.8395567Z [36;1m                site="native regular per-file hash"[0m
+2026-10-03T01:21:10.8396399Z [36;1m                rows[rel]=hash_file(path,128*MIB)[0m
+2026-10-03T01:21:10.8397083Z [36;1m                observed["hashedBytes"]+=rows[rel]["bytes"][0m
+2026-10-03T01:21:10.8397756Z [36;1m        observed["completeInventory"]=True[0m
+2026-10-03T01:21:10.8398417Z [36;1m        observed["status"]="PASS_INVENTORY_BYTES_ONLY"[0m
+2026-10-03T01:21:10.8399077Z [36;1m    except BaseException as error:[0m
+2026-10-03T01:21:10.8399857Z [36;1m        observed["fault"]=supervisor_fault(root,"provision-native",site,error)[0m
+2026-10-03T01:21:10.8400868Z [36;1m        receipt(root,"native-inventory-"+str(index).zfill(2)+".json",observed,16*1024)[0m
+2026-10-03T01:21:10.8401800Z [36;1m        raise[0m
+2026-10-03T01:21:10.8402521Z [36;1m    receipt(root,"native-inventory-"+str(index).zfill(2)+".json",observed,16*1024)[0m
+2026-10-03T01:21:10.8403343Z [36;1m    return dict(sorted(rows.items()))[0m
+2026-10-03T01:21:10.8403897Z [36;1m[0m
+2026-10-03T01:21:10.8404321Z [36;1mdef provision_audit(root,m):[0m
+2026-10-03T01:21:10.8404863Z [36;1m    stage=root/"stage"[0m
+2026-10-03T01:21:10.8405712Z [36;1m    need((stage/"node_modules").is_dir() and not (stage/"node_modules").is_symlink(),"owned modules root")[0m
+2026-10-03T01:21:10.8406971Z [36;1m    need((stage/"node_modules/.bin").is_dir() and not (stage/"node_modules/.bin").is_symlink(),"owned bin directory")[0m
+2026-10-03T01:21:10.8408089Z [36;1m    lock=load_json((stage/"package-lock.json").read_bytes())["packages"][0m
+2026-10-03T01:21:10.8409114Z [36;1m    installed=load_json((stage/"node_modules/.package-lock.json").read_bytes())["packages"][0m
+2026-10-03T01:21:10.8409947Z [36;1m    rows=[][0m
+2026-10-03T01:21:10.8410512Z [36;1m    for index,(name,pin) in enumerate(m["tools"].items(),1):[0m
+2026-10-03T01:21:10.8411309Z [36;1m        key="node_modules/"+name[0m
+2026-10-03T01:21:10.8411872Z [36;1m        package=stage/key[0m
+2026-10-03T01:21:10.8412788Z [36;1m        need(package.is_dir() and not package.is_symlink(),"owned selected tool package")[0m
+2026-10-03T01:21:10.8414065Z [36;1m        need(all(not ancestor.is_symlink() for ancestor in package.parents if ancestor!=stage.parent),"owned tool ancestors")[0m
+2026-10-03T01:21:10.8415188Z [36;1m        package_json=hash_file(package/"package.json",64*1024)[0m
+2026-10-03T01:21:10.8415988Z [36;1m        actual=load_json((package/"package.json").read_bytes())[0m
+2026-10-03T01:21:10.8418791Z [36;1m        receipt(root,"dependency-observed-"+str(index).zfill(2)+".json",{"package":name,"packageJSON":package_json,"actualName":observed_bin(actual.get("name"),256),"actualVersion":observed_bin(actual.get("version"),256),"actualBin":observed_bin(actual.get("bin")),"requiredPinnedBins":pin.get("bin"),"expectedVersion":pin["version"],"lockPinsExpected":{k:pin[k] for k in ("version","resolved","integrity")},"diagnosticOnlyNotAdmission":True},16*1024)[0m
+2026-10-03T01:21:10.8421687Z [36;1m        need(actual["version"]==pin["version"],"tool version")[0m
+2026-10-03T01:21:10.8422433Z [36;1m        for k in ("version","resolved","integrity"):[0m
+2026-10-03T01:21:10.8423289Z [36;1m            need(lock[key][k]==pin[k] and installed[key][k]==pin[k],"installed lock identity")[0m
+2026-10-03T01:21:10.8424066Z [36;1m        files={}[0m
+2026-10-03T01:21:10.8424628Z [36;1m        executable=name in ("typescript","vite","tsx")[0m
+2026-10-03T01:21:10.8425516Z [36;1m        resolution="Type-only metadata and entry hashes; no shared npm shim admission."[0m
+2026-10-03T01:21:10.8426349Z [36;1m        unused_commands=[][0m
+2026-10-03T01:21:10.8426873Z [36;1m        if "bin" in pin:[0m
+2026-10-03T01:21:10.8427390Z [36;1m            if executable:[0m
+2026-10-03T01:21:10.8428035Z [36;1m                actual_bins=canonical_bin_map(actual.get("bin"),name)[0m
+2026-10-03T01:21:10.8428827Z [36;1m                required_bins=canonical_bin_map(pin["bin"],name)[0m
+2026-10-03T01:21:10.8429943Z [36;1m                need(all(actual_bins.get(command)==path for command,path in required_bins.items()),"required executable bin mapping")[0m
+2026-10-03T01:21:10.8431551Z [36;1m                # Unused additional commands are metadata only: never execute or substitute them.[0m
+2026-10-03T01:21:10.8432570Z [36;1m                unused_commands=sorted(set(actual_bins)-set(required_bins))[0m
+2026-10-03T01:21:10.8433727Z [36;1m                need(not set(unused_commands)&{"node","npm","tsc","vite","tsx"},"unused bin command conflicts with fixed execution scope")[0m
+2026-10-03T01:21:10.8434823Z [36;1m            for command,rel in pin["bin"].items():[0m
+2026-10-03T01:21:10.8435433Z [36;1m                safe_path(rel)[0m
+2026-10-03T01:21:10.8435985Z [36;1m                entry=package/rel[0m
+2026-10-03T01:21:10.8436995Z [36;1m                need(entry.resolve(strict=True).is_relative_to(package.resolve(strict=True)),"owned selected entry containment")[0m
+2026-10-03T01:21:10.8438035Z [36;1m                for parent in entry.parents:[0m
+2026-10-03T01:21:10.8438947Z [36;1m                    need(parent.is_dir() and not parent.is_symlink(),"selected entry parent regular directory")[0m
+2026-10-03T01:21:10.8439855Z [36;1m                    if parent==package:[0m
+2026-10-03T01:21:10.8440427Z [36;1m                        break[0m
+2026-10-03T01:21:10.8440993Z [36;1m                files[rel]=hash_file(entry)[0m
+2026-10-03T01:21:10.8441696Z [36;1m                if executable:[0m
+2026-10-03T01:21:10.8442298Z [36;1m                    shim=stage/"node_modules/.bin"/command[0m
+2026-10-03T01:21:10.8443474Z [36;1m                    need(shim.is_symlink() and shim.resolve(strict=True)==(package/rel).resolve(strict=True),"owned actual executable npm bin resolution")[0m
+2026-10-03T01:21:10.8445148Z [36;1m                    resolution="Owned selected executable .bin matches package entry; build resolves tsc/vite package.json directly; npm test uses tsx."[0m
+2026-10-03T01:21:10.8446791Z [36;1m        if name.startswith(("@typescript/typescript-linux-","@rolldown/binding-linux-","@esbuild/linux-")):[0m
+2026-10-03T01:21:10.8447855Z [36;1m            inventory=native_inventory(root,package,name,index)[0m
+2026-10-03T01:21:10.8448522Z [36;1m            natives={}[0m
+2026-10-03T01:21:10.8449065Z [36;1m            for rel,r in inventory.items():[0m
+2026-10-03T01:21:10.8449718Z [36;1m                with (package/rel).open("rb") as binary:[0m
+2026-10-03T01:21:10.8450372Z [36;1m                    header=binary.read(20)[0m
+2026-10-03T01:21:10.8450982Z [36;1m                    if header[:4]==b"\x7fELF":[0m
+2026-10-03T01:21:10.8452159Z [36;1m                        need(len(header)==20 and header[4:6]==b"\x02\x01" and int.from_bytes(header[18:20],"little")==62,"actual ELF64 x86_64 platform")[0m
+2026-10-03T01:21:10.8453194Z [36;1m                        natives[rel]=r[0m
+2026-10-03T01:21:10.8453863Z [36;1m            need(bool(natives),"Linux x64 native package body")[0m
+2026-10-03T01:21:10.8454538Z [36;1m            files.update(natives)[0m
+2026-10-03T01:21:10.8456366Z [36;1m        rows.append({"package":name,"version":actual["version"],"integrity":pin["integrity"],"resolved":pin["resolved"],"entryAndNativeHashes":files,"packageJSON":hash_file(package/"package.json"),"binResolution":resolution,"unusedBinCommandsNotExecuted":unused_commands})[0m
+2026-10-03T01:21:10.8459814Z [36;1m    receipt(root,"dependencies.json",{"platform":platform.platform(),"machine":platform.machine(),"libc":platform.libc_ver(),"nodeExpected":m["expectedNodeVersion"],"selectedPackages":rows,"completeDependencyMerkle":False,"nativeExecutionUsability":"Determined by subsequent original build/tests, never presumed from bytes."})[0m
+2026-10-03T01:21:10.8462079Z [36;1m[0m
+2026-10-03T01:21:10.8462497Z [36;1mdef preflight(root,m):[0m
+2026-10-03T01:21:10.8463309Z [36;1m    need(platform.system()=="Linux" and platform.machine()=="x86_64", "exact Linux x64 runner")[0m
+2026-10-03T01:21:10.8464314Z [36;1m    run_phase(root,"node-version",["node","--version"],8,10,384*MIB)[0m
+2026-10-03T01:21:10.8465427Z [36;1m    need((root/"proof/node-version.log").read_text().strip()==m["expectedNodeVersion"], "exact actual Node version")[0m
+2026-10-03T01:21:10.8466680Z [36;1m    run_phase(root,"npm-version",["npm","--version"],8,10,384*MIB)[0m
+2026-10-03T01:21:10.8469299Z [36;1m    receipt(root,"toolchain.json",{"nodeVersion":(root/"proof/node-version.log").read_text().strip(),"npmVersion":(root/"proof/npm-version.log").read_text().strip(),"nodeExecutable":shutil.which("node"),"npmExecutable":shutil.which("npm"),"platform":platform.platform(),"machine":platform.machine(),"setupNodeCommit":"49933ea5288caeca8642d1e84afbd3f7d6820020","nodePin":m["expectedNodeVersion"]})[0m
+2026-10-03T01:21:10.8471910Z [36;1m[0m
+2026-10-03T01:21:10.8472342Z [36;1mdef phase(root,m,name):[0m
+2026-10-03T01:21:10.8472886Z [36;1m    membership(root,m,name+"-pre")[0m
+2026-10-03T01:21:10.8473445Z [36;1m    if name=="install":[0m
+2026-10-03T01:21:10.8474369Z [36;1m        need(not (root/"stage/node_modules").exists() and not (root/"stage/dist").exists(),"fresh dependency/output dirs")[0m
+2026-10-03T01:21:10.8475645Z [36;1m        run_phase(root,name,["npm","ci","--ignore-scripts","--no-audit","--no-fund"],170,180,384*MIB)[0m
+2026-10-03T01:21:10.8476527Z [36;1m        membership(root,m,name+"-post")[0m
+2026-10-03T01:21:10.8477125Z [36;1m        provision_audit(root,m)[0m
+2026-10-03T01:21:10.8477678Z [36;1m    elif name=="build":[0m
+2026-10-03T01:21:10.8478283Z [36;1m        need(not (root/"stage/dist").exists(),"new dist")[0m
+2026-10-03T01:21:10.8479044Z [36;1m        run_phase(root,name,["npm","run","build"],55,60,384*MIB)[0m
+2026-10-03T01:21:10.8479753Z [36;1m        membership(root,m,name+"-post")[0m
+2026-10-03T01:21:10.8480333Z [36;1m    elif name=="test":[0m
+2026-10-03T01:21:10.8481262Z [36;1m        tests=sorted(x["path"] for x in m["support"] if re.fullmatch(r"tests/[^/]+\.test\.ts",x["path"]))[0m
+2026-10-03T01:21:10.8482227Z [36;1m        need(len(tests)==8,"eight original top level tests")[0m
+2026-10-03T01:21:10.8483683Z [36;1m        receipt(root,"test-scope.json",{"files":tests,"argv":["npm","test"],"browserExecuted":False,"countsAndSkipsSource":"raw test.log only, no synthesized counts"})[0m
+2026-10-03T01:21:10.8485011Z [36;1m        run_phase(root,name,["npm","test"],55,60,768*MIB)[0m
+2026-10-03T01:21:10.8485685Z [36;1m        membership(root,m,name+"-post")[0m
+2026-10-03T01:21:10.8486245Z [36;1m[0m
+2026-10-03T01:21:10.8486629Z [36;1m[0m
+2026-10-03T01:21:10.8487039Z [36;1mdef seal_output(root,m):[0m
+2026-10-03T01:21:10.8487545Z [36;1m    alarm(30)[0m
+2026-10-03T01:21:10.8488035Z [36;1m    membership(root,m,"seal-pre")[0m
+2026-10-03T01:21:10.8488597Z [36;1m    dist=root/"stage/dist"[0m
+2026-10-03T01:21:10.8489154Z [36;1m    rows=regular_inventory(dist,100)[0m
+2026-10-03T01:21:10.8490005Z [36;1m    need(len(rows)==m["expectedOutputCount"],"actual output count differs expected70")[0m
+2026-10-03T01:21:10.8491027Z [36;1m    public={x["path"][7:]:x for x in m["source"] if x["path"].startswith("public/")}[0m
+2026-10-03T01:21:10.8492001Z [36;1m    need(len(public)==65,"source public65")[0m
+2026-10-03T01:21:10.8492629Z [36;1m    for path,pin in public.items():[0m
+2026-10-03T01:21:10.8493498Z [36;1m        need(rows.get(path)=={"bytes":pin["bytes"],"sha256":pin["sha256"]},"copied public byte coherence")[0m
+2026-10-03T01:21:10.8494522Z [36;1m    hashes=dict(sorted((x["path"],x["sha256"]) for x in m["source"]))[0m
+2026-10-03T01:21:10.8495422Z [36;1m    provenance=load_json((dist/"build-provenance.json").read_bytes())[0m
+2026-10-03T01:21:10.8496432Z [36;1m    need(provenance["sourceDigest"]==m["sourceDigest"] and provenance["hashes"]==hashes[0m
+2026-10-03T01:21:10.8497524Z [36;1m         and provenance["node"]==m["expectedNodeVersion"],"NEW build provenance")[0m
+2026-10-03T01:21:10.8498495Z [36;1m    need(rows["CREDITS.md"]["sha256"]==hashes["THIRD-PARTY.md"],"credits copy")[0m
+2026-10-03T01:21:10.8499520Z [36;1m    generated=set(rows)-set(public)-{"CREDITS.md","build-provenance.json","index.html"}[0m
+2026-10-03T01:21:10.8500676Z [36;1m    js=[x for x in generated if re.fullmatch(r"assets/[^/]+\.js",x)][0m
+2026-10-03T01:21:10.8501665Z [36;1m    css=[x for x in generated if re.fullmatch(r"assets/[^/]+\.css",x)][0m
+2026-10-03T01:21:10.8502585Z [36;1m    need(len(js)==len(css)==1 and len(generated)==2,"actual generated JS/CSS scope")[0m
+2026-10-03T01:21:10.8503382Z [36;1m    html=(dist/"index.html").read_text()[0m
+2026-10-03T01:21:10.8504067Z [36;1m    refs=re.findall(r'(?:src|href)=["\']([^"\']+)["\']',html)[0m
+2026-10-03T01:21:10.8504721Z [36;1m    local=set()[0m
+2026-10-03T01:21:10.8505188Z [36;1m    for ref in refs:[0m
+2026-10-03T01:21:10.8505708Z [36;1m        if ref.startswith("data:"):[0m
+2026-10-03T01:21:10.8506267Z [36;1m            continue[0m
+2026-10-03T01:21:10.8506943Z [36;1m        need(not re.match(r"[a-zA-Z]+:|//",ref),"unexpected external output ref")[0m
+2026-10-03T01:21:10.8507803Z [36;1m        local.add(ref.removeprefix("./").removeprefix("/"))[0m
+2026-10-03T01:21:10.8508708Z [36;1m    need(set(js+css)<=local and all(x in rows for x in local),"index asset coherence")[0m
+2026-10-03T01:21:10.8509732Z [36;1m    need(m["sourceDigest"].encode() in (dist/js[0]).read_bytes(),"compiled source ID")[0m
+2026-10-03T01:21:10.8511007Z [36;1m    digest=hashlib.sha256(json.dumps(dict(sorted((k,v["sha256"]) for k,v in rows.items())),separators=(",", ":")).encode()).hexdigest()[0m
+2026-10-03T01:21:10.8514171Z [36;1m    receipt(root,"fresh-output-map.json",{"outputs":rows,"outputsDigest":digest,"sourceDigest":m["sourceDigest"],"node":provenance["node"],"outputCount":len(rows),"oldFreezeRestored":False,"oldAliasMetadataRestored":False,"historicalOutputsDigest":m["historicalOldOutputsDigest"],"equalsHistoricalDigestObserved":digest==m["historicalOldOutputsDigest"],"browserGameplayVisualApproval":False})[0m
+2026-10-03T01:21:10.8516895Z [36;1m    need(proof_bytes(root)<=PROOF_CAP,"success proof cap")[0m
+2026-10-03T01:21:10.8517576Z [36;1m    out=root/"success-artifact"[0m
+2026-10-03T01:21:10.8518264Z [36;1m    out.mkdir()[0m
+2026-10-03T01:21:10.8518755Z [36;1m    for key in rows:[0m
+2026-10-03T01:21:10.8519349Z [36;1m        exclusive(out/"dist"/key,(dist/key).read_bytes())[0m
+2026-10-03T01:21:10.8520067Z [36;1m    for key in regular_inventory(root/"proof"):[0m
+2026-10-03T01:21:10.8520835Z [36;1m        exclusive(out/"proof"/key,(root/"proof"/key).read_bytes())[0m
+2026-10-03T01:21:10.8521699Z [36;1m    inventory=regular_inventory(out)[0m
+2026-10-03T01:21:10.8522653Z [36;1m    need(sum(x["bytes"] for x in inventory.values())+256*1024<=ARTIFACT_CAP,"success artifact32MiB withZIPmargin")[0m
+2026-10-03T01:21:10.8523710Z [36;1m    need(disk_inventory(root)<=DISK_CAP,"final disk budget")[0m
+2026-10-03T01:21:10.8524364Z [36;1m[0m
+2026-10-03T01:21:10.8524772Z [36;1mdef diagnostic(root):[0m
+2026-10-03T01:21:10.8525272Z [36;1m    alarm(20)[0m
+2026-10-03T01:21:10.8525752Z [36;1m    out=root/"failure-artifact"[0m
+2026-10-03T01:21:10.8526292Z [36;1m    out.mkdir()[0m
+2026-10-03T01:21:10.8526765Z [36;1m    rows={}[0m
+2026-10-03T01:21:10.8527567Z [36;1m    # Preserve all bounded regular proof logs; oversized failures retain only an explicit inventory.[0m
+2026-10-03T01:21:10.8528628Z [36;1m    for base,dirs,files in os.walk(root/"proof",followlinks=False):[0m
+2026-10-03T01:21:10.8529335Z [36;1m        for name in dirs:[0m
+2026-10-03T01:21:10.8529984Z [36;1m            need(not (Path(base)/name).is_symlink(),"proof symlink")[0m
+2026-10-03T01:21:10.8530665Z [36;1m        for name in files:[0m
+2026-10-03T01:21:10.8531330Z [36;1m            path=Path(base)/name[0m
+2026-10-03T01:21:10.8531892Z [36;1m            st=path.lstat()[0m
+2026-10-03T01:21:10.8532518Z [36;1m            need(stat.S_ISREG(st.st_mode),"proof regular file")[0m
+2026-10-03T01:21:10.8533193Z [36;1m            h=hashlib.sha256()[0m
+2026-10-03T01:21:10.8533761Z [36;1m            with path.open("rb") as f:[0m
+2026-10-03T01:21:10.8534443Z [36;1m                for b in iter(lambda:f.read(65536),b""):[0m
+2026-10-03T01:21:10.8535231Z [36;1m                    h.update(b)[0m
+2026-10-03T01:21:10.8536074Z [36;1m            rows[path.relative_to(root/"proof").as_posix()]={"bytes":st.st_size,"sha256":h.hexdigest()}[0m
+2026-10-03T01:21:10.8536983Z [36;1m            need(len(rows)<=200,"proof file count")[0m
+2026-10-03T01:21:10.8537753Z [36;1m    complete=sum(x["bytes"] for x in rows.values())<=PROOF_CAP-32*1024[0m
+2026-10-03T01:21:10.8538474Z [36;1m    if complete:[0m
+2026-10-03T01:21:10.8538955Z [36;1m        for key in rows:[0m
+2026-10-03T01:21:10.8539569Z [36;1m            exclusive(out/key,(root/"proof"/key).read_bytes())[0m
+2026-10-03T01:21:10.8540602Z [36;1m    manifest={"status":"FAILED_OR_INCOMPLETE","allProofBytesUploaded":complete,"proofInventory":rows,[0m
+2026-10-03T01:21:10.8542402Z [36;1m        "overCapPolicy":"No deletion/truncation; owned runner originals retained. If over cap, full proof upload is blocked; no complete-log claim. Hosted retention is external.",[0m
+2026-10-03T01:21:10.8543778Z [36;1m        "runtimeBuildGameplayApproval":False}[0m
+2026-10-03T01:21:10.8544600Z [36;1m    b=(json.dumps(manifest,sort_keys=True,separators=(",", ":"))+"\n").encode()[0m
+2026-10-03T01:21:10.8545458Z [36;1m    need(len(b)<=32*1024,"diagnostic inventory cap")[0m
+2026-10-03T01:21:10.8546144Z [36;1m    exclusive(out/"diagnostic-index.json",b)[0m
+2026-10-03T01:21:10.8547070Z [36;1m    need(sum(x["bytes"] for x in regular_inventory(out).values())<=PROOF_CAP,"diagnostic artifact1MiB")[0m
+2026-10-03T01:21:10.8547924Z [36;1m[0m
+2026-10-03T01:21:10.8548328Z [36;1mdef main():[0m
+2026-10-03T01:21:10.8549253Z [36;1m    need(len(sys.argv)==2 and sys.argv[1] in ("acquire","assemble","preflight","install","build","test","seal","diagnose"),"fixed phase")[0m
+2026-10-03T01:21:10.8550280Z [36;1m    root=context()[0m
+2026-10-03T01:21:10.8550774Z [36;1m    m=metadata()[0m
+2026-10-03T01:21:10.8551360Z [36;1m    mode=sys.argv[1][0m
+2026-10-03T01:21:10.8552010Z [36;1m    if mode!="acquire":[0m
+2026-10-03T01:21:10.8552767Z [36;1m        need(not os.environ.get("GITHUB_TOKEN"),"token absent outside acquisition")[0m
+2026-10-03T01:21:10.8553547Z [36;1m    if mode=="diagnose":[0m
+2026-10-03T01:21:10.8554065Z [36;1m        diagnostic(root)[0m
+2026-10-03T01:21:10.8554568Z [36;1m        return[0m
+2026-10-03T01:21:10.8555011Z [36;1m    try:[0m
+2026-10-03T01:21:10.8555444Z [36;1m        if mode=="acquire":[0m
+2026-10-03T01:21:10.8555970Z [36;1m            acquire(root,m)[0m
+2026-10-03T01:21:10.8556507Z [36;1m        elif mode=="assemble":[0m
+2026-10-03T01:21:10.8557046Z [36;1m            assemble(root,m)[0m
+2026-10-03T01:21:10.8557583Z [36;1m        elif mode=="preflight":[0m
+2026-10-03T01:21:10.8558142Z [36;1m            preflight(root,m)[0m
+2026-10-03T01:21:10.8558729Z [36;1m        elif mode in ("install","build","test"):[0m
+2026-10-03T01:21:10.8559345Z [36;1m            phase(root,m,mode)[0m
+2026-10-03T01:21:10.8559871Z [36;1m        else:[0m
+2026-10-03T01:21:10.8560356Z [36;1m            seal_output(root,m)[0m
+2026-10-03T01:21:10.8560915Z [36;1m    except BaseException as e:[0m
+2026-10-03T01:21:10.8561645Z [36;1m        if mode in ("install","build","test"):[0m
+2026-10-03T01:21:10.8562230Z [36;1m            try:[0m
+2026-10-03T01:21:10.8562779Z [36;1m                membership(root,m,mode+"-failed-post")[0m
+2026-10-03T01:21:10.8563449Z [36;1m            except BaseException as changed:[0m
+2026-10-03T01:21:10.8564586Z [36;1m                receipt(root,mode+"-failed-post-discrepancy.json",{"status":"INPUT_RECHECK_FAILED","exceptionType":type(changed).__name__},4096)[0m
+2026-10-03T01:21:10.8565954Z [36;1m        # Exception details may contain paths/HTTP content; never print credentials/body.[0m
+2026-10-03T01:21:10.8567701Z [36;1m        receipt(root,mode+"-failure.json",{"phase":mode,"status":"FAILED","exceptionType":type(e).__name__,"message":str(e) if isinstance(e,ValueError) else "details omitted; raw owned phase evidence retained"},4096)[0m
+2026-10-03T01:21:10.8569566Z [36;1m        print("Fixed fresh phase failed: "+mode+" ("+type(e).__name__+")",file=sys.stderr)[0m
+2026-10-03T01:21:10.8570382Z [36;1m        raise SystemExit(1)[0m
+2026-10-03T01:21:10.8570889Z [36;1m[0m
+2026-10-03T01:21:10.8571428Z [36;1mif __name__ == "__main__":[0m
+2026-10-03T01:21:10.8571937Z [36;1m    main()[0m
+2026-10-03T01:21:10.8572363Z [36;1m'''[0m
+2026-10-03T01:21:10.8572785Z [36;1mb = source.encode()[0m
+2026-10-03T01:21:10.8573696Z [36;1massert hashlib.sha256(b).hexdigest() == "c0345015a5f59a12e3f1397d3599090db773cdaa02fa57eadb6ea62eb358dfcd"[0m
+2026-10-03T01:21:10.8574973Z [36;1mfd = os.open(root / "control/runner.py", os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)[0m
+2026-10-03T01:21:10.8575855Z [36;1mwith os.fdopen(fd, "wb") as f:[0m
+2026-10-03T01:21:10.8576394Z [36;1m    f.write(b)[0m
+2026-10-03T01:21:10.8576851Z [36;1m    f.flush()[0m
+2026-10-03T01:21:10.8577323Z [36;1m    os.fsync(f.fileno())[0m
+2026-10-03T01:21:10.8577955Z [36;1massert (root / "control/runner.py").read_bytes() == b[0m
+2026-10-03T01:21:10.8578735Z [36;1mwith (root / "proof/initialization.json").open("x") as f:[0m
+2026-10-03T01:21:10.8581984Z [36;1m    json.dump({"methodSHA256": "c0345015a5f59a12e3f1397d3599090db773cdaa02fa57eadb6ea62eb358dfcd", "metadataSHA256": "bbc8830505d51278a76f9913ff7d1564c6632fdc32e746b2b6e09417ecbddf17", "run": rid, "attempt": attempt, "freshDirectories": True, "ownedEmptyNpmConfigFiles": ["control/npm-user.npmrc", "control/npm-global.npmrc"], "npmConfigBytes": 0, "npmConfigSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "distinctConfigInodes": True}, f)[0m
+2026-10-03T01:21:10.8584972Z [36;1mPY[0m
+2026-10-03T01:21:10.8906496Z shell: /usr/bin/bash --noprofile --norc -euo pipefail {0}
+2026-10-03T01:21:10.8908410Z ##[endgroup]
+2026-10-03T01:21:10.9713723Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+2026-10-03T01:21:10.9715095Z with:
+2026-10-03T01:21:10.9715817Z   node-version: 24.19.0
+2026-10-03T01:21:10.9716635Z   architecture: x64
+2026-10-03T01:21:10.9717457Z   check-latest: false
+2026-10-03T01:21:10.9718296Z   always-auth: false
+2026-10-03T01:21:10.9719104Z ##[endgroup]
+2026-10-03T01:21:11.1270928Z Attempting to download 24.19.0...
+2026-10-03T01:21:11.1361453Z (node:2164) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-03T01:21:11.1363882Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-03T01:21:11.2381940Z Acquiring 24.19.0 - x64 from https://github.com/actions/node-versions/releases/download/24.19.0-30872449280/node-24.19.0-linux-x64.tar.gz
+2026-10-03T01:21:11.5693100Z Extracting ...
+2026-10-03T01:21:11.5807946Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/74b351a5-936d-4454-bbfc-35aa8effc2c5 -f /home/runner/work/_temp/4da0f21d-ab34-488f-9442-8dcfb5eca090
+2026-10-03T01:21:12.8473283Z Adding to the cache ...
+2026-10-03T01:21:15.0964858Z ##[group]Environment details
+2026-10-03T01:21:15.3764710Z node: v24.19.0
+2026-10-03T01:21:15.3765492Z npm: 11.17.0
+2026-10-03T01:21:15.3765990Z yarn: 1.22.22
+2026-10-03T01:21:15.3767202Z ##[endgroup]
+2026-10-03T01:21:15.4140192Z ##[group]Run timeout --signal=TERM --kill-after=2s 178s python3 -I -B "$RUNNER_TEMP/opening-cue-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py" acquire
+2026-10-03T01:21:15.4142455Z [36;1mtimeout --signal=TERM --kill-after=2s 178s python3 -I -B "$RUNNER_TEMP/opening-cue-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py" acquire[0m
+2026-10-03T01:21:15.4225013Z shell: /usr/bin/bash --noprofile --norc -euo pipefail {0}
+2026-10-03T01:21:15.4225508Z env:
+2026-10-03T01:21:15.4228870Z   GITHUB_TOKEN: ***
+2026-10-03T01:21:15.4229160Z ##[endgroup]
+2026-10-03T01:21:33.4882927Z ##[group]Run timeout --signal=TERM --kill-after=2s 58s python3 -I -B "$RUNNER_TEMP/opening-cue-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py" assemble
+2026-10-03T01:21:33.4884437Z [36;1mtimeout --signal=TERM --kill-after=2s 58s python3 -I -B "$RUNNER_TEMP/opening-cue-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py" assemble[0m
+2026-10-03T01:21:33.4952366Z shell: /usr/bin/bash --noprofile --norc -euo pipefail {0}
+2026-10-03T01:21:33.4952776Z ##[endgroup]
+2026-10-03T01:21:34.0417516Z ##[group]Run timeout --signal=TERM --kill-after=2s 28s python3 -I -B "$RUNNER_TEMP/opening-cue-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py" preflight
+2026-10-03T01:21:34.0418722Z [36;1mtimeout --signal=TERM --kill-after=2s 28s python3 -I -B "$RUNNER_TEMP/opening-cue-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py" preflight[0m
+2026-10-03T01:21:34.0482555Z shell: /usr/bin/bash --noprofile --norc -euo pipefail {0}
+2026-10-03T01:21:34.0482936Z ##[endgroup]
+2026-10-03T01:21:34.2732837Z ##[group]Run timeout --signal=TERM --kill-after=2s 178s python3 -I -B "$RUNNER_TEMP/opening-cue-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py" install
+2026-10-03T01:21:34.2734075Z [36;1mtimeout --signal=TERM --kill-after=2s 178s python3 -I -B "$RUNNER_TEMP/opening-cue-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py" install[0m
+2026-10-03T01:21:34.2798885Z shell: /usr/bin/bash --noprofile --norc -euo pipefail {0}
+2026-10-03T01:21:34.2799262Z ##[endgroup]
+2026-10-03T01:21:41.2192511Z ##[group]Run timeout --signal=TERM --kill-after=2s 58s python3 -I -B "$RUNNER_TEMP/opening-cue-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py" build
+2026-10-03T01:21:41.2193689Z [36;1mtimeout --signal=TERM --kill-after=2s 58s python3 -I -B "$RUNNER_TEMP/opening-cue-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py" build[0m
+2026-10-03T01:21:41.2257366Z shell: /usr/bin/bash --noprofile --norc -euo pipefail {0}
+2026-10-03T01:21:41.2257771Z ##[endgroup]
+2026-10-03T01:21:43.4213047Z ##[group]Run timeout --signal=TERM --kill-after=2s 58s python3 -I -B "$RUNNER_TEMP/opening-cue-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py" test
+2026-10-03T01:21:43.4214206Z [36;1mtimeout --signal=TERM --kill-after=2s 58s python3 -I -B "$RUNNER_TEMP/opening-cue-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py" test[0m
+2026-10-03T01:21:43.4277784Z shell: /usr/bin/bash --noprofile --norc -euo pipefail {0}
+2026-10-03T01:21:43.4278169Z ##[endgroup]
+2026-10-03T01:21:51.7575595Z Fixed fresh phase failed: test (ValueError)
+2026-10-03T01:21:51.7682904Z ##[error]Process completed with exit code 1.
+2026-10-03T01:21:51.7743538Z ##[group]Run fresh_root="$RUNNER_TEMP/opening-cue-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+2026-10-03T01:21:51.7744260Z [36;1mfresh_root="$RUNNER_TEMP/opening-cue-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"[0m
+2026-10-03T01:21:51.7744938Z [36;1mif timeout --signal=TERM --kill-after=2s 28s python3 -I -B "$fresh_root/control/runner.py" diagnose; then[0m
+2026-10-03T01:21:51.7745550Z [36;1m  printf 'path=%s\n' "$fresh_root/failure-artifact" >> "$GITHUB_OUTPUT"[0m
+2026-10-03T01:21:51.7745924Z [36;1melse[0m
+2026-10-03T01:21:51.7746246Z [36;1m  timeout --signal=TERM --kill-after=2s 8s python3 -I -B - <<'PY'[0m
+2026-10-03T01:21:51.7746633Z [36;1mimport json, os, pathlib, re[0m
+2026-10-03T01:21:51.7747030Z [36;1mrid, attempt = os.environ["GITHUB_RUN_ID"], os.environ["GITHUB_RUN_ATTEMPT"][0m
+2026-10-03T01:21:51.7747572Z [36;1massert re.fullmatch(r"[0-9]{1,20}",rid) and re.fullmatch(r"[0-9]{1,10}",attempt)[0m
+2026-10-03T01:21:51.7748068Z [36;1mtemp=pathlib.Path(os.environ["RUNNER_TEMP"])[0m
+2026-10-03T01:21:51.7748500Z [36;1massert temp.is_absolute() and temp.is_dir() and not temp.is_symlink()[0m
+2026-10-03T01:21:51.7748953Z [36;1mout=temp/("opening-cue-diagnostic-"+rid+"-"+attempt)[0m
+2026-10-03T01:21:51.7749294Z [36;1mout.mkdir(mode=0o700)[0m
+2026-10-03T01:21:51.7749606Z [36;1mwith (out/"diagnostic-blocker.json").open("x") as f:[0m
+2026-10-03T01:21:51.7750525Z [36;1m    json.dump({"status":"DIAGNOSTIC_ASSEMBLY_BLOCKED", "completeLogsUploaded":False, "originalsDeleted":False, "platformWorkflowLogs":"Retain independently; hosted lifetime external", "buildApproval":False},f)[0m
+2026-10-03T01:21:51.7751898Z [36;1mwith open(os.environ["GITHUB_OUTPUT"],"a") as f:[0m
+2026-10-03T01:21:51.7752238Z [36;1m    f.write("path="+str(out)+"\n")[0m
+2026-10-03T01:21:51.7752503Z [36;1mPY[0m
+2026-10-03T01:21:51.7752687Z [36;1mfi[0m
+2026-10-03T01:21:51.7816569Z shell: /usr/bin/bash --noprofile --norc -euo pipefail {0}
+2026-10-03T01:21:51.7816934Z ##[endgroup]
+2026-10-03T01:21:51.8993690Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-10-03T01:21:51.8994142Z with:
+2026-10-03T01:21:51.8994401Z   name: opening-cue-fresh-failure-37085756358-1
+2026-10-03T01:21:51.8994891Z   path: /home/runner/work/_temp/opening-cue-fresh-37085756358-1/failure-artifact/
+2026-10-03T01:21:51.8995303Z   if-no-files-found: error
+2026-10-03T01:21:51.8995542Z   compression-level: 0
+2026-10-03T01:21:51.8995766Z   overwrite: false
+2026-10-03T01:21:51.8995994Z   include-hidden-files: false
+2026-10-03T01:21:51.8996251Z   retention-days: 30
+2026-10-03T01:21:51.8996461Z ##[endgroup]
+2026-10-03T01:21:52.0752641Z (node:2531) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-03T01:21:52.0754401Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-03T01:21:52.0910411Z With the provided path, there will be 39 files uploaded
+2026-10-03T01:21:52.0916054Z Artifact name is valid!
+2026-10-03T01:21:52.0917085Z Root directory input is valid!
+2026-10-03T01:21:52.2864295Z Beginning upload of artifact content to blob storage
+2026-10-03T01:21:52.3436982Z (node:2531) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-03T01:21:52.3791581Z Uploaded bytes 187320
+2026-10-03T01:21:52.3939716Z Finished uploading artifact content to blob storage!
+2026-10-03T01:21:52.3940979Z SHA256 digest of uploaded artifact zip is c3e702ef553d57729f8903cd91537694c01377f7392ae1fe93c02845e8a7d7c8
+2026-10-03T01:21:52.3942382Z Finalizing artifact upload
+2026-10-03T01:21:52.6176591Z Artifact opening-cue-fresh-failure-37085756358-1.zip successfully finalized. Artifact ID 11259509822
+2026-10-03T01:21:52.6178814Z Artifact opening-cue-fresh-failure-37085756358-1 has been successfully uploaded! Final size is 187320 bytes. Artifact ID is 11259509822
+2026-10-03T01:21:52.6187941Z Artifact download URL: https://github.com/evangjones99-gif/Roguelike-deckbuilder/actions/runs/37085756358/artifacts/11259509822
+2026-10-03T01:21:52.6416307Z Cleaning up orphan processes
+2026-10-03T01:21:52.6807381Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

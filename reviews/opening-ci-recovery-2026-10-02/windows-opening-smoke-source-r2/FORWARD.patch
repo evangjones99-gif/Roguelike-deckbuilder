@@ -1,0 +1,13 @@
+--- a/scripts/windows-smoke.mjs
++++ b/scripts/windows-smoke.mjs
+@@ -131,7 +131,9 @@
+   assert.ok(new URL(evidence.portrait.url).pathname.endsWith('/dist/art/hunter-marek-v07-r3.png'),
+     'Title hunter URL escaped the actual packaged sheet');
+   assert.equal(evidence.portrait.backgroundSize, '300% 200%');
+-  assert.equal(evidence.portrait.backgroundPosition, '0% 0%');
++  // CSSOM may serialize either zero axis in px; the same first cell stays selected.
++  assert.ok(['0% 0%', '0px 0px', '0% 0px', '0px 0%'].includes(evidence.portrait.backgroundPosition),
++    'Title hunter crop must stay at zero on both axes');
+   await page.screenshot({path: path.join(outputDir, 'title.png')});
+   mark('set and persist sound, volume and reduced-motion preferences through controls');
+   await page.locator('#scene-ui [data-ui="settings"]').click();

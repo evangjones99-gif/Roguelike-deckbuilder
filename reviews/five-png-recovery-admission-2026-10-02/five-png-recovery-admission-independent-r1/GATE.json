@@ -1,0 +1,164 @@
+{
+  "decision": "ACCEPT_CONDITIONAL_EXACT_FIVE_PNG_PINNED_56M_RECOVERY_ADMISSION_ONLY",
+  "method": {
+    "path": "/workspace/scratch/share-five-retained-pngs-root-r2.py",
+    "bytes": 8272,
+    "sha256": "92796922f14a22c4145b572cf0a9c8b4913b269a650fbb156e1289104cf6957e"
+  },
+  "proposal": {
+    "path": "/workspace/scratch/five-retained-png-recovery-proposal-r1/PROPOSAL.json",
+    "bytes": 52883,
+    "sha256": "b4e8803f2411e932c994b01aa50152fee4b4bd9d2c8757258ae7c686b75745bc"
+  },
+  "currentHold": {
+    "path": "/workspace/Roguelike-deckbuilder/AGENTS.md",
+    "bytes": 15909,
+    "sha256": "b674fd4456ad4332c97ad4538fbf8c008842c708964a16e1acde77790bea0906"
+  },
+  "selectedMap": {
+    "path": "/workspace/scratch/target-wait-default-promotion-root-r1/RESULT.json",
+    "bytes": 15350,
+    "sha256": "31a221091d2ffbc6d58dfc1385962c441df9789c66729ef64d20b95208a8fabd"
+  },
+  "publisher": {
+    "path": "/workspace/scratch/publish-five-png-recovery-root-r1.py",
+    "bytes": 4127,
+    "sha256": "a0cc8a898cc98d8789f5fce777e5f7f3f4f69cf2b6901cd537ea239cc924d8b7"
+  },
+  "producer": {
+    "path": "/workspace/scratch/judge-five-png-sharing-root-r2.py",
+    "bytes": 3840,
+    "sha256": "6df74d829adfea1af04138be52caed7d400df17a8bfbca9b967240544e9dab8f"
+  },
+  "guard": {
+    "path": "/workspace/scratch/guard-source-recovery-56m-root-r2.py",
+    "bytes": 2826,
+    "sha256": "c2b24f58d6abbbe0449fc49515e6bb9eeaf0997bd287642d87a3a1754388fff3"
+  },
+  "priorPhysicalScopeGate": {
+    "path": "/workspace/scratch/next-five-png-sharing-independent-r1/GATE.json",
+    "bytes": 4103,
+    "sha256": "c5a2f58872df98a604589d46a0ccb2caf9a1c88520831b4b176eb6d0727fa8df"
+  },
+  "priorTenBodyProof": {
+    "path": "/workspace/scratch/next-five-png-sharing-independent-r1/PROOF.json",
+    "bytes": 38587,
+    "sha256": "018f57a381c45ca8e09a3da375a88b48f6134599554f1fbc6ca22ba4bef637b3"
+  },
+  "sourceProof": {
+    "path": "/workspace/scratch/five-png-recovery-admission-independent-r1/PROOF.json",
+    "bytes": 13197,
+    "sha256": "517bb22d2209484f0438719e61a423ddb44a2e07d2424aad62e60dbc686c9adc"
+  },
+  "review": {
+    "path": "/workspace/scratch/five-png-recovery-admission-independent-r1/REVIEW.md",
+    "bytes": 5332,
+    "sha256": "48b0a17ff4d2ae7104258d6c0df36bd58114bf45685ff4af8bc0903dfb628a51"
+  },
+  "successfulUnchangedReader": {
+    "path": "/workspace/scratch/five-png-recovery-admission-independent-r1/verify-r3.py",
+    "bytes": 7365,
+    "sha256": "f8d831a59a48b23ec81c6f950129b15041277482db0759e1d99aec0130793ba6"
+  },
+  "successfulFiniteLauncher": {
+    "path": "/workspace/scratch/five-png-recovery-admission-independent-r1/verify-launcher.py",
+    "bytes": 262,
+    "sha256": "44fbe39b1414bf86a36372230d1dcc743364b0a0e76ae0a686bf4e699907588d"
+  },
+  "priorCurrentConfirmedPush": {
+    "path": "/workspace/scratch/five-png-proposal-push-root-r1/PUSH-CONFIRMED.json",
+    "bytes": 503,
+    "sha256": "7be92c57b9a030b4fded77bc56dbfc45c5a4770c8a2397185aa3aa6e6a0e20a7"
+  },
+  "normalProducerRefusal": {
+    "path": "/workspace/scratch/five-png-producer-guard-root-r1/ADMISSION.json",
+    "bytes": 535,
+    "sha256": "0f6e680602fce45486e79bd9c2449512675c4e8ed74d4bf5ec7e23cf9de3f78c"
+  },
+  "replacementBetter": true,
+  "oldRedundantPrivatePhysicalEncodingsNoLongerNeeded": true,
+  "everyLogicalPathBodyStillNeeded": true,
+  "exactInvocations": [
+    {
+      "stage": "/workspace/Roguelike-deckbuilder",
+      "initialDiskMiB": 56,
+      "reserveMiB": 512,
+      "guard": "/workspace/scratch/guard-source-recovery-56m-root-r2.py",
+      "workMiB": 256,
+      "child": [
+        "python",
+        "/workspace/scratch/publish-five-png-recovery-root-r1.py"
+      ]
+    },
+    {
+      "stage": "/workspace/Roguelike-deckbuilder",
+      "initialDiskMiB": 56,
+      "reserveMiB": 512,
+      "guard": "/workspace/scratch/guard-source-recovery-56m-root-r2.py",
+      "workMiB": 64,
+      "child": [
+        "python",
+        "/workspace/scratch/judge-five-png-sharing-root-r2.py",
+        "EXACT_SHA256_OF_THIS_GATE"
+      ]
+    },
+    {
+      "stage": "/workspace/Roguelike-deckbuilder",
+      "initialDiskMiB": 56,
+      "reserveMiB": 512,
+      "guard": "/workspace/scratch/guard-source-recovery-56m-root-r2.py",
+      "workMiB": 64,
+      "child": [
+        "python",
+        "/workspace/scratch/share-five-retained-pngs-root-r2.py",
+        "/workspace/scratch/five-retained-png-recovery-proposal-r1/PROPOSAL.json",
+        "b4e8803f2411e932c994b01aa50152fee4b4bd9d2c8757258ae7c686b75745bc",
+        "/workspace/scratch/five-png-recovery-admission-independent-r1/GATE.json",
+        "EXACT_SHA256_OF_THIS_GATE",
+        "/workspace/scratch/five-png-producer-judgment-root-r2.json",
+        "EXACT_NEW_DURABLE_JUDGMENT_SHA256",
+        "/workspace/scratch/five-png-recovery-push-root-r1/PUSH-CONFIRMED.json",
+        "EXACT_NEW_CONFIRMED_PUSH_RECEIPT_SHA256"
+      ]
+    }
+  ],
+  "bounds": {
+    "finalPacketCapBytes": 98304,
+    "allocationChronologyBytes": [
+      49152,
+      65536,
+      98304
+    ],
+    "priorCapsNotSealedOrClaimedPassed": true,
+    "publisherOtherCopiedBodyBytes": 16774,
+    "publisherConservativeCopiedBodyUpperBound": 115078,
+    "publisherCopiedBodyCapBytes": 131072,
+    "transactionLogicalModeledBytes": 65536,
+    "allocationQualification": "Copied/logical-body bounds exclude generated publisher metadata, Git, command logs, inode/directory/allocation overhead; no universal filesystem capacity or exact net gain proof",
+    "strictBuildDiskMiB": 64,
+    "nativeDiskMiB": 70,
+    "liveDiskStopMiB": 1,
+    "workReserveUnchanged": true
+  },
+  "conditions": [
+    "Only exact three invocation source hashes under external sole-writer Root; wrapper filename filter is not exact allowlist or OS scope",
+    "Fresh supplement publication/current confirmed clean push and durable Root judgment before one r2 action",
+    "Prior exact five physical scope/loss qualifications retained; no four-raw retirement or other cleanup",
+    "Action freshfull10 body/stat/xattr and143 current selected body checks before/after, protected ZIP stat and all prior preconditions remain strict",
+    "No active private inode/time-sensitive consumer or writable-isolation need; future reproduction uses new stages/inodes",
+    "No automatic action retry; interrupted prefix must be diagnosed; POST independent normal64 admission after recovery"
+  ],
+  "limitations": [
+    "No OS read-only hold/global alias/Fds/mmap/future consumer absence claim",
+    "Five private inode/time/write isolation lost; no original inode backup/metadata rollback/all-five atomicity",
+    "Publisher receipt file/P directory fsynced; outer scratch directory entry not separately fsynced",
+    "Media bodies not rehashed by supplemental reviewer; prior independent10 proof exact/published and freshmetadata checked",
+    "Prior ordinary64 refusal remains failure; finite review explicitly unmetered, no normal64/global56 compliance",
+    "Direct source r2 RSS assertion failed without value; r3 high-water202653696B failure preserved, cause not established; successful unchanged fresh child12189696B and launcher8650752B scoped to those processes only",
+    "No release/commercial rights/game improvement or exact net recovery claim"
+  ],
+  "actionExecutedByReviewer": false,
+  "reviewResourceProfile": "Explicitly unmetered finite source/AST/diff/metadata/read/seal only; rejected resource attempts preserved separately, unchanged24MiB assertion in successful fresh child",
+  "allSuccessfulProofInputFDsClosed": true,
+  "sealClosure": "Await sealer and its finite launcher exit0 before later work; no guard invoked by reviewer"
+}

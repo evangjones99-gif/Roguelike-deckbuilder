@@ -1,0 +1,64 @@
+{
+  "sourceDirectory": "/workspace/scratch/hunter-containment-source-reproduction-v08-addendum-r1",
+  "archive": "curated-evidence.tar.gz",
+  "archiveBytes": 7657,
+  "archiveSHA256": "f0f11ed086ed9b8718d4d9ba63e4fb477a64631f32d766964546254377236c24",
+  "everyDeclaredByteRoundTripVerified": true,
+  "scope": "Only exact manifest/addendum-declared file bytes. Individually hashed media references captured as regular bytes; reference targets recorded. No directory/dependency links followed; source paths and originals remain unchanged.",
+  "files": [
+    {
+      "path": "ADDENDUM.md",
+      "bytes": 2417,
+      "sha256": "d1095fb3819a4ac4b0341b905b6488e778b8a001ad08ec1367a38cb5e8bd2754",
+      "referenceTarget": null
+    },
+    {
+      "path": "FROZEN-FILES.json",
+      "bytes": 1285,
+      "sha256": "ea821d5d71145895f18aa8a2ecd62f2271a8fadb81b159fb873c83f17dfc9e07",
+      "referenceTarget": null
+    },
+    {
+      "path": "REBUILD-READBACK.json",
+      "bytes": 1100,
+      "sha256": "a36c905812e88f08ee9ef46aa27953d05756a01bce869c9334f44786c2ed6484",
+      "referenceTarget": null
+    },
+    {
+      "path": "SOURCE-PATH-MAP.json",
+      "bytes": 39423,
+      "sha256": "f38b0b16c0f256d1ba2d249c1ed27c1e521ab65dbfde4975e5fb5a0e8ce309eb",
+      "referenceTarget": null
+    },
+    {
+      "path": "reconstructed-baseline.json",
+      "bytes": 3551,
+      "sha256": "eea1efa000ada38d091ec49a7dfc460ad602bd2b6445c41e33fca68502e0fa82",
+      "referenceTarget": null
+    },
+    {
+      "path": "reconstructed-candidate.json",
+      "bytes": 3572,
+      "sha256": "39fdf362a01e979ad7d9f0ad1850dcfa09d860a402e230c2f3c54b5126195c93",
+      "referenceTarget": null
+    },
+    {
+      "path": "reproduce.py",
+      "bytes": 2289,
+      "sha256": "531f7b558e424ecc3827c9b3122ad79b3d8ffc9d7522cc808987944b2d04286b",
+      "referenceTarget": null
+    },
+    {
+      "path": "standalone-baseline-build.log",
+      "bytes": 436,
+      "sha256": "5ebf5e3e9e8cec145d08f97333a05b4833b4524813a31a725ffb91cb86c7c485",
+      "referenceTarget": null
+    },
+    {
+      "path": "standalone-candidate-build.log",
+      "bytes": 436,
+      "sha256": "698cebc2b38dfbb687ce61ae5f317009d2ba3f56d8884b92eb0650e0b96dde1f",
+      "referenceTarget": null
+    }
+  ]
+}

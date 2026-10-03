@@ -1,0 +1,20 @@
+{
+  "repository": "/workspace/Roguelike-deckbuilder",
+  "sourceSHA256": "479e98a13cdcf58f181f3747fea3a093faf00a61bce1fa9abd861c26c8a1f9b5",
+  "allowlistSHA256": "3e6280ec7a1825f0b43e92f87f4bcd44ef37d9397064563bb037ebdf5f834bd6",
+  "finishReviewSHA256": "8dfecded2b70774c6562d30532419a07fd1afc04b6eb4c195c2bc08fc21d2e2b",
+  "scope": "Only pinned1020 immutable loose encodings; no bodies read; no other files advised",
+  "affectedReadersClosed": true,
+  "affectedWritersAndMaintenanceHeld": true,
+  "affectedInodeAliasesQuiescent": true,
+  "noUnknownAffectedLockOwner": true,
+  "runtimeProcessesClosed": true,
+  "issuedUnixSeconds": 1790836399.0573997,
+  "closureScope": "Root and all known agents hold Git object/ref/index writes and have closed relevant Git readers and browser/native/build subprocesses. Existing read-only Python frozen HTTP previews remain live and do not access .git loose objects or their inode aliases. This is coordinated affected-owner closure, not global runtime/mapping exclusion. Tool live affected-FD checks must independently pass.",
+  "observedGitProcesses": {
+    "total": 257,
+    "zombie": 257,
+    "nonZombie": 0
+  },
+  "indexLockObservation": "Existing Sep30 zero-byte codex-index-refresh.lock retained; fuser exit1 reports no active FD owner. No known affected object/pack maintenance or unknown affected lock owner. No locks deleted and no processes killed."
+}

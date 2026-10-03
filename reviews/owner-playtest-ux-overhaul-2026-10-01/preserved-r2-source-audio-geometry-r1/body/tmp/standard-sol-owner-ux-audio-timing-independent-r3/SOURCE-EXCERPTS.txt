@@ -1,0 +1,187 @@
+
+arena.ts
+569:   function getUnitViewport(): ArenaUnitViewport {
+570:     return { width, height, canvasAvailable: !disposed, requiredHeight: fieldLayout().requiredHeight,
+571:       layoutPending: !!pendingAllocation || time < allocationTransitionEnd, hunterRect: hunterPlacement().rect };
+572:   }
+573:   function getUnitRegions(): readonly ArenaUnitRegion[] {
+574:     if (disposed) return Object.freeze([]);
+575:     const busy = busyMs() > 0;
+576:     // During terminal presentation the old figures still have useful readouts,
+577:     // but are never legal controls. The reducer owns actual action legality.
+578:     if (!active && !busy) return Object.freeze([]);
+579:     const canonical = new Set([...(previous?.allies ?? []), ...(previous?.enemies ?? [])].map(unit => unit.uid));
+580:     const result: ArenaUnitRegion[] = [];
+581:     for (const figure of figures.values()) {
+582:       const dead = figure.dead !== null;
+583:       if (time < figure.born) continue;
+584:       if ((dead || figure.departing) && !busy) continue;
+865:   function reusedArrivalHold(after: GameState, events: readonly TransitionEvent[] = []): number {
+866:     // Current rules cannot kill and reuse their own arrival side in one trace:
+867:     // allied binds may burn enemies, enemy phases hit bindings/the hunter.
+868:     // A legal reused slot therefore holds a previously scheduled old corpse.
+869:     const arrivals = new Map<string, Side>();
+870:     for (const event of events) if (event.type === 'summon') arrivals.set(event.target, event.side);
+871:     for (const side of ['ally', 'enemy'] as const)
+872:       for (const unit of side === 'ally' ? after.allies : after.enemies)
+873:         if (!figures.has(unit.uid)) arrivals.set(unit.uid, side);
+874:     let end = time;
+875:     for (const [uid, side] of arrivals) {
+876:       const slot = actionAllocationSlots.get(uid); if (slot === undefined) continue;
+877:       for (const old of figures.values()) if (old.uid !== uid && old.side === side && old.slot === slot && old.dead !== null)
+878:         end = Math.max(end, old.dead + deathDuration);
+879:     }
+880:     return Math.max(0, end - time);
+903:     const allocationLead = prepareActionAllocation(before, after, events);
+904:     // One action anchor controls birth, gestures, impacts, and the host's audio
+905:     // anchor. No later per-arrival hold may silently move only the painted body.
+906:     const lead = Math.max(allocationLead, reusedArrivalHold(after, events));
+907:     lastActionLeadMs = Math.ceil(lead * 1000); lastActionCueStart = time + lead;
+908:     if (events) {
+909:       const actorDelays = new Map<string, number>();
+910:       const lastHits = new Map<string, Strike>();
+911:       const terminal = after.phase !== 'battle';
+912:       const delayFor = (source: string, retaliation = false) => {
+913:         if (retaliation) return lead + .04;
+914:         if (action.type !== 'endTurn' || !before.enemies.some(unit => unit.uid === source)) return lead;
+915:         if (!actorDelays.has(source)) actorDelays.set(source, actorDelays.size * (terminal ? .009 : .05));
+916:         return lead + actorDelays.get(source)!;
+917:       };
+918:       for (const event of events) {
+919:         const source = event.source === 'world' ? null : event.source;
+920:         if (event.type === 'summon') {
+921:           if (!figures.has(event.target)) {
+922:             const units = event.side === 'ally' ? after.allies : after.enemies;
+923:             const canonicalSlot = units.findIndex(unit => unit.uid === event.target);
+924:             const occupied = new Set([...figures.values()].filter(figure => figure.side === event.side && figure.dead === null).map(figure => figure.slot));
+925:             const slot = actionAllocationSlots.get(event.target) ?? ([0, 1, 2, 3, 4, 5].find(candidate => !occupied.has(candidate)) ?? (canonicalSlot >= 0 ? canonicalSlot : 0));
+926:             const birth = lastActionCueStart;
+927:             figures.set(event.target, createFigure(event.unit, event.side, slot, Math.max(units.length, slot + 1), birth));
+928:           }
+929:           queueStrike(source, event.target, 'ward', delayFor(event.source));
+950:         } else if (event.type === 'death' && event.target !== 'hunter') {
+951:           const figure = figures.get(event.target), hit = lastHits.get(event.target);
+952:           if (figure) {
+953:             figure.dead = hit ? hit.born + impactTime : time + lead + .12;
+954:             figure.unit = { ...figure.unit, hp: 0, block: 0 };
+955:             figure.deathAnchored = false; figure.deathSizeBasis = null; figure.departing = false;
+956:           }
+957:         }
+958:       }
+959:       // A future rule that kills and reuses its own same-side slot needs an
+960:       // explicit multi-phase timing contract. Fail optional presentation rather
+961:       // than silently desynchronizing the already published common audio lead.
+962:       for (const event of events) if (event.type === 'summon') {
+963:         const arrival = figures.get(event.target); if (!arrival) continue;
+964:         const overlapsHold = [...figures.values()].some(old => old.uid !== arrival.uid && old.side === arrival.side &&
+965:           old.slot === arrival.slot && old.dead !== null && old.dead + deathDuration > arrival.born + .000001);
+966:         if (overlapsHold) throw new Error('Accepted arrival needs an unsupported same-action slot hold');
+967:       }
+518:   function paintFigure(figure: Figure) {
+519:     if (time < figure.born) return;
+520:     const point = position(figure);
+1008:   function cueBusyMs() {
+1009:     if (disposed || reduced || document.hidden) return 0;
+1010:     let end = time;
+1011:     for (const cue of hunter?.cues ?? []) end = Math.max(end, cue.end);
+1012:     for (const strike of strikes) end = Math.max(end, strike.born + .73);
+1013:     for (const figure of figures.values()) {
+1014:       if (figure.dead !== null) end = Math.max(end, figure.dead + deathDuration);
+1015:       else if (!figure.departing) end = Math.max(end, figure.born + .38, figure.hit + CREATURE_REACTION_MS / 1000, figure.layoutStarted + .32);
+1016:     }
+1017:     return Math.max(0, Math.ceil((end - time) * 1000));
+1018:   }
+1019:   function busyMs() {
+1020:     if (disposed || reduced || document.hidden) return 0;
+1021:     return Math.max(cueBusyMs(), Math.max(0, Math.ceil(((pendingAllocation?.cueStart ?? allocationTransitionEnd) - time) * 1000)));
+
+main.ts
+359: function dispatch(action: Action) {
+360:   if (settlingCombat || disposed) return;
+361:   if (state.phase === 'battle' && arena?.getUnitViewport().layoutPending) { notify('The formation is settling. Your next order is still available.'); return; }
+362:   const previous = state;
+363:   const { state: next, events } = applyActionWithEvents(state, action);
+364:   if (JSON.stringify(next) === JSON.stringify(previous)) { notify('That action is not available right now.'); return; }
+365:   if (next.phase !== previous.phase || action.type === 'travel') clearToast();
+366:   // Persist the canonical result before optional animation/audio runs.
+367:   state = next;
+368:   selected = null;
+369:   selectionOrigin = null;
+370:   save();
+371:   let effectFailed = false;
+372:   try { arena?.playAction?.(action, previous, next, events); } catch { effectFailed = true; }
+373:   try { hostAudio.transition(previous, next, events, action, !effectFailed && !!arena && mayAnimateCombat(), arena?.getActionPresentationDelayMs() || 0); } catch { /* Optional sound cannot block canonical gameplay. */ }
+374:   const terminalCombat = previous.phase === 'battle' && ['reward', 'victory', 'defeat'].includes(state.phase);
+375:   if (terminalCombat && !effectFailed && holdFinalStrike(previous, events)) return;
+
+engine.ts
+242: export function cardTarget(id: string): "enemy" | "ally" | "none" {
+243:   const c = CARDS[id];
+244:   return !c || c.type === "summon"
+245:     ? "none"
+246:     : ["damage", "siphon", "pack", "shred", "control", "solo"].includes(
+247:           c.effect!,
+248:         )
+249:       ? "enemy"
+250:       : ["heal", "ready"].includes(c.effect!)
+251:         ? "ally"
+252:         : "none";
+709:       case "aoe":
+710:         for (const e of s.enemies)
+711:           hitUnit(
+712:             s,
+713:             e,
+714:             v + (s.relics.includes("moon-charm") ? 1 : 0),
+715:             true,
+716:             false,
+717:             spellTrace,
+718:           );
+820:   if (s.hp > 0)
+821:     for (const raisedPlan of reinforcements)
+822:       if (s.enemies.length < 6) {
+823:         const raised = enemy(s, raisedPlan.id);
+824:         s.enemies.push(raised);
+825:         events?.push({
+826:           type: "summon",
+827:           source: raisedPlan.source,
+828:           target: raised.uid,
+829:           cardId: raised.cardId,
+830:           unit: structuredClone(raised),
+831:           side: "enemy",
+832:         });
+833:         note(s, raised.name + " rises. It will act next turn.");
+847:     5 + (s.relics.includes("grave-coin") && s.allies.length === 0 ? 1 : 0);
+848:   draw(s, 5);
+849:   intentions(s);
+850:   note(s, "Turn " + s.turn + ".");
+851: }
+852: export function legalActions(s: GameState): Action[] {
+853:   if (s.phase === "map")
+854:     return s.route.map((choice) => ({ type: "travel", choice }));
+855:   if (s.phase === "battle") {
+856:     const actions: Action[] = [];
+857:     s.hand.forEach((id, index) => {
+858:       const c = CARDS[id];
+859:       if (c.cost > s.energy || (c.type === "summon" && s.allies.length >= 6))
+860:         return;
+861:       const t = cardTarget(id);
+862:       if (t === "none") actions.push({ type: "play", index });
+863:       else
+864:         for (const u of t === "enemy" ? s.enemies : s.allies)
+865:           actions.push({ type: "play", index, target: u.uid });
+866:     });
+867:     for (const u of s.allies)
+868:       if (!u.acted)
+869:         for (const e of s.enemies)
+870:           actions.push({ type: "attack", unit: u.uid, target: e.uid });
+871:     actions.push({ type: "endTurn" });
+
+content.ts
+165:   spell(
+166:     "witchfire",
+167:     "Witchfire",
+168:     2,
+169:     "aoe",
+170:     4,
+171:     "Deal 4 damage to every enemy.",
+172:     "#b58463",

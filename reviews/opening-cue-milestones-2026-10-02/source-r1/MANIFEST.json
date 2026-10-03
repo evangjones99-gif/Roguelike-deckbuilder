@@ -1,0 +1,49 @@
+{
+  "kind": "presentation-only-proposed-candidate",
+  "parentDirectory": "/workspace/scratch/starter-static-recovered-stage-r1",
+  "parentMainSha256": "d1e71626b4c70679f4ba692b62ccb2aea0dbe5ce74e9a1426b6208fc26a45fe2",
+  "candidateMainSha256": "87a9bd7c2319522f77db7ea9e2edc306bb6124b019306dc220087f6b9b7762f4",
+  "inheritedParentSourceAggregate": "65b31b3f21e34a624bdac962e4919c7dc1791e502eb6cfdb1612103b8036fe9c",
+  "inheritedParentOutputsAggregate": "960e723da3b98d31e99e2b4ce6ee2195dd9fea1bfce9c8254b3cb65c04b7b49d",
+  "changedGameSourceFiles": [
+    "src/main.ts"
+  ],
+  "newGameSourceFiles": [],
+  "verification": {
+    "forwardStrictExactApplication": true,
+    "inverseStrictExactApplication": true,
+    "inverseRestoredSha256": "d1e71626b4c70679f4ba692b62ccb2aea0dbe5ce74e9a1426b6208fc26a45fe2",
+    "nodeSyntaxParentExit": 0,
+    "nodeSyntaxCandidateExit": 0,
+    "typecheckBuildGameplayVisualAcceptance": "PENDING"
+  },
+  "filesExcludingManifest": {
+    "FORWARD.patch": {
+      "bytes": 5445,
+      "sha256": "f7a35bf1d5409540d17ca9a1b67812707aa4cc8a92bd86c5439c13dd4c5a39c8"
+    },
+    "GRAMMAR.json": {
+      "bytes": 1112,
+      "sha256": "2a588ab68fbc59deb87999fefb5a06fedfc976362042d5e5257be504c78626b4"
+    },
+    "INVERSE.patch": {
+      "bytes": 5445,
+      "sha256": "af73b544b46324136731541ae21f92e4bd3557fcdeb41367d2cd012f4d210b88"
+    },
+    "REVIEW.md": {
+      "bytes": 6681,
+      "sha256": "e6973428391d9db9c1d6d40d28f87db986267fd0d67676e2fb35e4248916bab4"
+    },
+    "src/main.ts": {
+      "bytes": 118998,
+      "sha256": "87a9bd7c2319522f77db7ea9e2edc306bb6124b019306dc220087f6b9b7762f4"
+    }
+  },
+  "budget": {
+    "sourcePacketLimitBytes": 196608,
+    "ownedTotalLimitBytes": 25165824,
+    "ordinaryRssLimitBytes": 67108864,
+    "reserveRssLimitBytes": 536870912,
+    "nodeObservedChildMaxRssKiB": 26748
+  }
+}

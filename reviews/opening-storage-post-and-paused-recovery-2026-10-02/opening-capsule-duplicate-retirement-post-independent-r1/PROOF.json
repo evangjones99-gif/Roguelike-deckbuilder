@@ -1,0 +1,291 @@
+{
+  "decision": "ACCEPT_EXACT_TWO_ENCODING_RETIREMENT_POST_STATE_AND_REPAIRED_DURABILITY_REJECT_COMPLETE_PRE_ACTION_PUBLICATION_PROCESS",
+  "actualTwoEncodingCoverageAccepted": true,
+  "canonicalFullCompressedSHAAndMetadataAccepted": true,
+  "fullProceduralAcceptance": false,
+  "allPublicationPushedBeforeDeletion": false,
+  "laterSupportingLogPublicationRepaired": true,
+  "priorPublicationGateUnchanged": {
+    "path": "/workspace/scratch/retirement-publication-independent-r1/GATE.json",
+    "bytes": 3760,
+    "sha256": "af480c78e0780f5c090a7d3c6e9f79d2be81fb5b33b7596e18cdfe0cb075879b"
+  },
+  "methodSHA256": "b1131f6cede49fceb01fcdfb87a251c95519561355acddd03045fba8e4fe7d71",
+  "producerDecisionSHA256": "67ee3cc4693359db655f1914a6507a0ae956afd497b6f70aec0f9dece5de2f61",
+  "PRE": {
+    "path": "/workspace/scratch/opening-capsule-duplicate-retirement-action-root-r2/PRE.json",
+    "bytes": 3210,
+    "sha256": "c3f385e56ee6bf40a6736808bf6ba536e7f322d6aff6d6053a5bff4dd123c6b4"
+  },
+  "POSTs": [
+    {
+      "path": "/workspace/scratch/opening-capsule-duplicate-retirement-action-root-r2/f912-POST.json",
+      "bytes": 1330,
+      "sha256": "1ff38baefaf9e4517cf1c7dc8f43142170ecc6f9d35d16a0d31e0a2a28a18203"
+    },
+    {
+      "path": "/workspace/scratch/opening-capsule-duplicate-retirement-action-root-r2/ce0f-POST.json",
+      "bytes": 1309,
+      "sha256": "443e914ad248a3b3883cb7da1410556469f2db4b097d0af77291b6cf051bbad1"
+    }
+  ],
+  "RESULT": {
+    "path": "/workspace/scratch/opening-capsule-duplicate-retirement-action-root-r2/RESULT.json",
+    "bytes": 879,
+    "sha256": "8858f1f5d2f9fd037f28b8912a8119ce2f9ef0e48ac3172284d99da71e9bf3a0"
+  },
+  "canonicalBodies": [
+    {
+      "path": "/workspace/Roguelike-deckbuilder/reviews/opening-turn-payoff-default-2026-10-02/archive/evidence-f9121c7b6416398241d1b5a160b4781f17a45dff4813260edaf4c3b6df1761af.tar.gz",
+      "bytes": 3839783,
+      "sha256": "f9121c7b6416398241d1b5a160b4781f17a45dff4813260edaf4c3b6df1761af",
+      "currentFullMetadataMatchesPRE": true,
+      "oldPathAbsent": true
+    },
+    {
+      "path": "/workspace/Roguelike-deckbuilder/reviews/coherent-native128-actual-trial-2026-10-02/evidence-ce0f8f40bcf0f0b22e5e4d93eef3d4660662826e617900aba09ac208c148dc13.tar.gz",
+      "bytes": 8328689,
+      "sha256": "ce0f8f40bcf0f0b22e5e4d93eef3d4660662826e617900aba09ac208c148dc13",
+      "currentFullMetadataMatchesPRE": true,
+      "oldPathAbsent": true
+    }
+  ],
+  "relatedScratchControlsStillPresent": [
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-opening-checkpoint-output-root-r1/INDEX.json",
+      "bytes": 94125,
+      "sha256": "fd6e057da394aa127766f434bd70c9b1045c17f92ab0e94fb70dd77ebb6a9ad2"
+    },
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-opening-checkpoint-output-root-r1/RESULT.json",
+      "bytes": 588,
+      "sha256": "91ccaa2007614c70b10cdfbcdb7950ade02309c003fac033aca003c14300dc50"
+    },
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-opening-checkpoint-output-root-r1/READ-OBSERVATIONS.json",
+      "bytes": 149641,
+      "sha256": "4b9fecb9012a5970ef0323826de09b2f081e71a2dcdef0691a41dfcb40e8987f"
+    },
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-opening-checkpoint-output-root-r1/README.md",
+      "bytes": 282,
+      "sha256": "d148a65d41873b682b84351d38fc3a6a892e4ab3c809bd4b3f0c542e2dbee2a8"
+    },
+    {
+      "path": "/workspace/scratch/pixel-cue-evidence-capsule-root-r1/INDEX.json",
+      "bytes": 928223,
+      "sha256": "115bbdb35d9cdff98503a3a5c63ced87e49a48d198194c9caa45268254bec0cf"
+    },
+    {
+      "path": "/workspace/scratch/pixel-cue-evidence-capsule-root-r1/RESULT.json",
+      "bytes": 685,
+      "sha256": "dc297cdbd3d771f98c35a398c8fa9687da63fc986315e0cad0f11009d8572948"
+    },
+    {
+      "path": "/workspace/scratch/pixel-cue-evidence-capsule-root-r1/READ-OBSERVATIONS.json",
+      "bytes": 875380,
+      "sha256": "3487b20a345604e8e46b9810586ba57f6ddb9798cfb69cbc18659bcb274356fd"
+    },
+    {
+      "path": "/workspace/scratch/pixel-cue-evidence-capsule-root-r1/README.md",
+      "bytes": 2279,
+      "sha256": "6a13d2f15fe41abd8b4b997587bca57e602e754e0b2a9fbf1c4ed94241202ce7"
+    }
+  ],
+  "freshOriginalPushReceipt": {
+    "path": "/workspace/scratch/native-checkpoint-current-push-receipt-root-r1.json",
+    "bytes": 18013,
+    "sha256": "f96339f3fb9e67559cb53d515735e21f8ad6b71ca17be47940875a757441eec5"
+  },
+  "laterRepairPushReceipt": {
+    "path": "/workspace/scratch/native-checkpoint-ignored-logs-current-push-receipt-root-r1.json",
+    "bytes": 6979,
+    "sha256": "b0d31b31fa964452f4fcb8cae74dd8d40d741a8b86149b28d3a37c56b6fd8342"
+  },
+  "grant": {
+    "path": "/workspace/scratch/opening-capsule-duplicate-retirement-action-grant-root-r2.json",
+    "bytes": 771,
+    "sha256": "39b2a849ab5be289ea56cb650dccfd2d3a88d22e6b1ba1165c728b4a752b0bf8"
+  },
+  "observedOrdering": [
+    {
+      "id": "f912",
+      "postUtcNs": 1790947429830514252,
+      "secondsAfterFirstPush": 0.111486375
+    },
+    {
+      "id": "ce0f",
+      "postUtcNs": 1790947429837003224,
+      "secondsAfterFirstPush": 0.117975347
+    }
+  ],
+  "firstHEAD": "8a19a23d7dbfc65ff9b4475d72cee3d661687b44",
+  "repairHEAD": "9726c5fd285bbaca7d5a7c656217d5b70b78ccfe",
+  "initialTrackedNativeAndRetirementFiles": 139,
+  "currentTrackedNativeFiles": 87,
+  "currentTrackedRetirementFiles": 77,
+  "unpublishedBeforeActionLogCount": 25,
+  "unpublishedBeforeActionLogBytes": 14460,
+  "repairedLogs": [
+    {
+      "path": "reviews/opening-native-aftermath-and-starter-art-2026-10-02/archive-resource-closure/EXECUTION.log",
+      "bytes": 848,
+      "sha256": "a76c8b3273b6590d86ee0ce62dbcad304968e4f72992f7e8e46124ef69711bb4"
+    },
+    {
+      "path": "reviews/opening-native-aftermath-and-starter-art-2026-10-02/archive-source-independent/REVIEW-R2-GUARD/EXECUTION.log",
+      "bytes": 126,
+      "sha256": "a400e6346f451874383102c43f9c3874cad3230039e29587e5b493d9a3c11c39"
+    },
+    {
+      "path": "reviews/opening-native-aftermath-and-starter-art-2026-10-02/archive-source-independent/REVIEW-GUARD/EXECUTION.log",
+      "bytes": 308,
+      "sha256": "f76ff1b6a8bf5da6b93d47946b382f16feb9ec6fa79c5b4f3f964f2032ae45b1"
+    },
+    {
+      "path": "reviews/opening-native-aftermath-and-starter-art-2026-10-02/archive-source-independent/SEAL-GUARD/EXECUTION.log",
+      "bytes": 220,
+      "sha256": "1bd53647404f2c3b1d3580c1de2ef60a92bf8d50f1b2d95246f2f6ec6ecbefd6"
+    },
+    {
+      "path": "reviews/opening-native-aftermath-and-starter-art-2026-10-02/root-manifest-history/native-checkpoint-manifest-guard-root-r1/EXECUTION.log",
+      "bytes": 347,
+      "sha256": "f7a45e6f099900c60dc919c5be5b564e9c9597a78dfc20373397bcb19a6bb529"
+    },
+    {
+      "path": "reviews/opening-native-aftermath-and-starter-art-2026-10-02/root-manifest-history/native-checkpoint-manifest-guard-root-r3/EXECUTION.log",
+      "bytes": 347,
+      "sha256": "9726de732644ae7a12102b3a6ea8a00f1d4b303cd15ef1a0c35090fe54761aa3"
+    },
+    {
+      "path": "reviews/opening-native-aftermath-and-starter-art-2026-10-02/root-manifest-history/native-checkpoint-manifest-guard-root-r2/EXECUTION.log",
+      "bytes": 696,
+      "sha256": "aa02725f8b9f8721a50d2083374d22394f3095fa6ff47e2340fe1aa129c31eb0"
+    },
+    {
+      "path": "reviews/opening-native-aftermath-and-starter-art-2026-10-02/root-manifest-independent/audit-guard/EXECUTION.log",
+      "bytes": 348,
+      "sha256": "e6dcf952e4fcc4322429310db9313971fb7dacac7c0e3f90bea86d8f97abcafe"
+    },
+    {
+      "path": "reviews/opening-native-aftermath-and-starter-art-2026-10-02/root-manifest-independent/audit-r2-guard/EXECUTION.log",
+      "bytes": 244,
+      "sha256": "749935f8db945f53d0f5b2dd1ac7a9467aa1178e077c3b97001118875f341c64"
+    },
+    {
+      "path": "reviews/opening-native-aftermath-and-starter-art-2026-10-02/root-manifest-independent/seal-guard/EXECUTION.log",
+      "bytes": 399,
+      "sha256": "7308b87a72a78fe206ec883c785720d503dc3ab7f4929ab9bdb861f4e0dfb039"
+    },
+    {
+      "path": "reviews/opening-native-aftermath-and-starter-art-2026-10-02/archive-complete-independent/audit-guard/EXECUTION.log",
+      "bytes": 275,
+      "sha256": "36c0e568429e0b91d0be08107865580649630d8a6c49a00a0216c87042776bd7"
+    },
+    {
+      "path": "reviews/opening-native-aftermath-and-starter-art-2026-10-02/archive-complete-independent/probe-guard/EXECUTION.log",
+      "bytes": 4540,
+      "sha256": "cfdb2740146cf3b58d290474e45b2a4bd8e7d5a2f944bae6cd9fdcf01aa81bc0"
+    },
+    {
+      "path": "reviews/opening-native-aftermath-and-starter-art-2026-10-02/archive-complete-independent/seal-guard/EXECUTION.log",
+      "bytes": 1026,
+      "sha256": "58aab05849782d427010ebd3c506ef8cc09d2f2e2d2fbb6295d4589b04beea52"
+    },
+    {
+      "path": "reviews/reviewed-opening-capsule-duplicate-retirement-2026-10-02/native-checkpoint-publication-resource/EXECUTION.log",
+      "bytes": 191,
+      "sha256": "b93f28e55b165d5735d8df38e10002fe31ecbbf295721d0f440d33f678ab4dcb"
+    },
+    {
+      "path": "reviews/reviewed-opening-capsule-duplicate-retirement-2026-10-02/method-rejected-r1/review-guard/EXECUTION.log",
+      "bytes": 316,
+      "sha256": "61e8a5877982f9dc1922ef17aeb9bba85aae830f3ccd3c75ea15e920aac89928"
+    },
+    {
+      "path": "reviews/reviewed-opening-capsule-duplicate-retirement-2026-10-02/method-rejected-r1/seal-guard/EXECUTION.log",
+      "bytes": 448,
+      "sha256": "52d846ead6e4253e3b2725d1f2dbd53bc738ede20cc4ec2df20f5cba92c82ad1"
+    },
+    {
+      "path": "reviews/reviewed-opening-capsule-duplicate-retirement-2026-10-02/native-checkpoint-publication-independent/GUARD-R2/EXECUTION.log",
+      "bytes": 144,
+      "sha256": "9c42bb5ed8077d6c6a3decfaa4a62f9bfb7863951d7c1c714a6dd6d29ec5ab78"
+    },
+    {
+      "path": "reviews/reviewed-opening-capsule-duplicate-retirement-2026-10-02/native-checkpoint-publication-independent/GUARD/EXECUTION.log",
+      "bytes": 520,
+      "sha256": "fe242d5c1b952c8bc356c7f24980fad31fe62a8733e4f8c8a57ec4139c2c222b"
+    },
+    {
+      "path": "reviews/reviewed-opening-capsule-duplicate-retirement-2026-10-02/proposal-r1/PROOF-GUARD-R2/EXECUTION.log",
+      "bytes": 440,
+      "sha256": "ec46e11e7fbf90247c602edfeff9b53085f1fb7113a70156db310d426471c98a"
+    },
+    {
+      "path": "reviews/reviewed-opening-capsule-duplicate-retirement-2026-10-02/proposal-r1/PROOF-GUARD/EXECUTION.log",
+      "bytes": 219,
+      "sha256": "9713c244364eaca22c323acffb4a28d44f7163b64a8757df49ccc910a5b357fa"
+    },
+    {
+      "path": "reviews/reviewed-opening-capsule-duplicate-retirement-2026-10-02/proposal-r1/PROOF-GUARD-R3/EXECUTION.log",
+      "bytes": 124,
+      "sha256": "181a32c92ef0a1ebf60be314a1301d7763e6be442f2efc5ad81b387d1c825c11"
+    },
+    {
+      "path": "reviews/reviewed-opening-capsule-duplicate-retirement-2026-10-02/proposal-r1/SEAL-GUARD/EXECUTION.log",
+      "bytes": 1336,
+      "sha256": "818bf24f092acf1a072175b94f81267b890b60cd115c502e4d3878f3792bb772"
+    },
+    {
+      "path": "reviews/reviewed-opening-capsule-duplicate-retirement-2026-10-02/proposal-r2/SEAL-GUARD/EXECUTION.log",
+      "bytes": 280,
+      "sha256": "ebed74b64a39f7793e429c232ab0bd9a4d522485dec2f119d0b8c7a1f534889f"
+    },
+    {
+      "path": "reviews/reviewed-opening-capsule-duplicate-retirement-2026-10-02/method-accepted-r2/review-guard/EXECUTION.log",
+      "bytes": 265,
+      "sha256": "60d24b88c33d09dece3b08b8e65df8113caa185a51bb3565473d11cf0b49340a"
+    },
+    {
+      "path": "reviews/reviewed-opening-capsule-duplicate-retirement-2026-10-02/method-accepted-r2/seal-guard/EXECUTION.log",
+      "bytes": 453,
+      "sha256": "a51efed7e93933c4ce2223715b410fc412c1bc19af2841214d8da00127e6b261"
+    }
+  ],
+  "grossPrivateBlocks": 12173312,
+  "observedNetFreeDelta": 12161024,
+  "RootResourceGuards": [
+    {
+      "result": {
+        "path": "/workspace/scratch/native-checkpoint-push-retirement-guard-root-r3/RESULT.json",
+        "bytes": 7850,
+        "sha256": "76bf91846a1dfe1a804f46b0e77d49919f79dbc63d082c4197576f2533cac9b2"
+      },
+      "samples": 38,
+      "initialFree": 70217728,
+      "maximumObservedDelta": 33181696,
+      "minimumObservedHeadroom": 1361559552
+    },
+    {
+      "result": {
+        "path": "/workspace/scratch/native-checkpoint-ignored-logs-push-guard-root-r1/RESULT.json",
+        "bytes": 3688,
+        "sha256": "68b234eaa82716844b06acb4c923886943cacd8c6698899034232e791bef720a"
+      },
+      "samples": 16,
+      "initialFree": 75898880,
+      "maximumObservedDelta": 13721600,
+      "minimumObservedHeadroom": 1384792064
+    }
+  ],
+  "ownRSSBytes": 11534336,
+  "limits": [
+    "Reject claim all reviewed publication controls were pushed before cleanup:25 ignored execution logs were added only after both unlinks. Clean8a19 receipt and method checks did not prove full publication membership. Later repair does not retroactively satisfy mandatory precondition.",
+    "Exact two current canonical container bodies fully SHA/size/full metadata/xattrs verified without extraction; old two names absent, eight related controls present, method has only two explicit unlink targets. No global all-material/FD/consumer absence certificate.",
+    "Old literal scratch readers require explicit append-only mapping or separately reviewed missing-path reconstruction; old inode/time/write-isolation rollback lost as recorded.",
+    "Git ls-tree/show of25 small logs only; no oldpack/ZIP/full other TAR replay/network call. Remote confirmation inherited from Root actual receipts, independently local commit membership/ancestry/HEAD/clean inspected.",
+    "Shared net free delta nonexclusive; original combined initial disk admission70,217,728B passed64MiB, PRE free63,762,432B is recorded, not a new64MiB admission. No future browser resource guarantee.",
+    "Root group cleanup/normal sampled guards are observed closure only, no full external actor attribution; earlier cue author provides engineering/storage review, no gameplay/art/selection approval."
+  ]
+}

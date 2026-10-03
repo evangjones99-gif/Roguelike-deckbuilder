@@ -1,0 +1,333 @@
+{
+  "commit": "23e7cdd886910a13a78ef1edb5317631c1d3c3d4",
+  "scope": "36 text files only; no media, dependencies, runtime or complete Git checkout",
+  "initialPatchExtraNewlineDetectedAndCorrected": [
+    "package.json",
+    "AGENTS.md",
+    "src/tactile-ghost-placement.ts",
+    "src/style.css",
+    "src/main.ts",
+    "src/compact-field-budget.ts",
+    "src/audio-player.mjs",
+    "src/tactile-hand.ts",
+    "src/opening-turn-payoff.css",
+    "src/audio-host.ts",
+    "src/input.ts",
+    "src/tactile-hand.css",
+    "src/arena.ts",
+    "src/art.ts",
+    "src/battlefield-layout.ts",
+    "src/world-rng.ts",
+    "src/audio-routing.mjs",
+    "src/audio-routing.d.mts",
+    "src/hound-jaw.ts",
+    "src/hunt-entry.css",
+    "src/content.ts",
+    "src/encounter-environment.ts",
+    "src/hunter-presence.ts",
+    "src/tool-art.ts",
+    "src/command-field.css",
+    "src/hunt-entry.ts",
+    "src/engine.ts",
+    "src/compact-readout.css",
+    "src/audio-player.d.mts",
+    "src/compact-intent.ts",
+    "docs/FIRST-FIVE-MINUTES.md",
+    "docs/FRESH-SESSION-HANDOFF-2026-10-02.md",
+    "docs/CONTINUATION.md",
+    "docs/PRODUCTION.md",
+    "docs/HOLLOWPACT-FRESH-SESSION-PROMPT.md",
+    "docs/HOLLOWPACT-HOURLY-PROMPT.txt"
+  ],
+  "allGitBlobIdentitiesMatch": true,
+  "files": [
+    {
+      "path": "package.json",
+      "bytes": 1787,
+      "sha256": "10943d910af6545a70be222684a9876961358c6962d379b0536efd006e988c93",
+      "gitBlob": "b2b64d689a58628af7a1137a7868cfdf1d1a065b",
+      "expectedGitBlob": "b2b64d689a58628af7a1137a7868cfdf1d1a065b",
+      "equal": true
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 29118,
+      "sha256": "b38f929755ecb191c1ba549d5f24111157f7ef189a00bd6b0b7f7bf07acc5623",
+      "gitBlob": "f159e1a7835726456514e160d557af40ac33046e",
+      "expectedGitBlob": "f159e1a7835726456514e160d557af40ac33046e",
+      "equal": true
+    },
+    {
+      "path": "src/tactile-ghost-placement.ts",
+      "bytes": 4893,
+      "sha256": "c659a829fbc99e59bd80e5e4a74b1468a83b2bc4bfd81b579277ea247f689d90",
+      "gitBlob": "607437de1f9d1514f20d015c5a321dd509750969",
+      "expectedGitBlob": "607437de1f9d1514f20d015c5a321dd509750969",
+      "equal": true
+    },
+    {
+      "path": "src/style.css",
+      "bytes": 52847,
+      "sha256": "996d5fc00a145ea6750e8dbdf7074f30e0d85e79addc9e9cdcc7f36357eb87ce",
+      "gitBlob": "4a95fb24fa6e38f64872f23ff223d90b51b2378f",
+      "expectedGitBlob": "4a95fb24fa6e38f64872f23ff223d90b51b2378f",
+      "equal": true
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 117296,
+      "sha256": "efecdc20b01faac49a75640268d169409b010dae166f84a135dfe2449bef99bc",
+      "gitBlob": "da6677143ddf68b4ec89ab99cbe29c12a946f7d7",
+      "expectedGitBlob": "da6677143ddf68b4ec89ab99cbe29c12a946f7d7",
+      "equal": true
+    },
+    {
+      "path": "src/compact-field-budget.ts",
+      "bytes": 1516,
+      "sha256": "669c0583a50a594f32e0e51332bd4f8357b5ce14f341173512477a87d116cbff",
+      "gitBlob": "05a0cb767a83591cd04710759a9e280bd59f78ca",
+      "expectedGitBlob": "05a0cb767a83591cd04710759a9e280bd59f78ca",
+      "equal": true
+    },
+    {
+      "path": "src/audio-player.mjs",
+      "bytes": 5447,
+      "sha256": "1075a68e62133950c9c971a2cac081d12c12ac6b22459f8d955bf37e5e9a5c4a",
+      "gitBlob": "5904de093f2bb89c8f906db5bd69e22c5baddb6d",
+      "expectedGitBlob": "5904de093f2bb89c8f906db5bd69e22c5baddb6d",
+      "equal": true
+    },
+    {
+      "path": "src/tactile-hand.ts",
+      "bytes": 23347,
+      "sha256": "67b0b19ad8e13fb0d4c61753699b64e474187f7a6b6981a3002ff9a4492a24b9",
+      "gitBlob": "e1ef6d149942573775fa034a8340c620904d2d62",
+      "expectedGitBlob": "e1ef6d149942573775fa034a8340c620904d2d62",
+      "equal": true
+    },
+    {
+      "path": "src/opening-turn-payoff.css",
+      "bytes": 163,
+      "sha256": "a84a4a47ddc671234aea4ff655357f9205dc123a394be250924df1c201777983",
+      "gitBlob": "0e7e14c2fe87c58c3940f0e6597db15666250511",
+      "expectedGitBlob": "0e7e14c2fe87c58c3940f0e6597db15666250511",
+      "equal": true
+    },
+    {
+      "path": "src/audio-host.ts",
+      "bytes": 5187,
+      "sha256": "4e0d8ff4ed9d584ff38bb914cc7ae5b4987b2d73411659281ee84b6a4376547d",
+      "gitBlob": "ab4c08d55f67f3a0f18bd1a9fad268e4642d4312",
+      "expectedGitBlob": "ab4c08d55f67f3a0f18bd1a9fad268e4642d4312",
+      "equal": true
+    },
+    {
+      "path": "src/input.ts",
+      "bytes": 18229,
+      "sha256": "160eb990b87bbbae097a49320a452ae27066dbbfeb3428e5d68461cecc359aa6",
+      "gitBlob": "0de3830060ae3e95ffa9a318688603a586f1fd88",
+      "expectedGitBlob": "0de3830060ae3e95ffa9a318688603a586f1fd88",
+      "equal": true
+    },
+    {
+      "path": "src/tactile-hand.css",
+      "bytes": 5274,
+      "sha256": "f52ea7edc3000be93a459e423f0815cba9949c5c8f8af2a47de6c537f0ff83e6",
+      "gitBlob": "8a0291aec5be4d4901694577fd4848823f0d41a8",
+      "expectedGitBlob": "8a0291aec5be4d4901694577fd4848823f0d41a8",
+      "equal": true
+    },
+    {
+      "path": "src/arena.ts",
+      "bytes": 70546,
+      "sha256": "77bbca50c42b109372ffb027b1b26826d79b51c89ded3b9aaae5de1a60a4f334",
+      "gitBlob": "46f25ae204fa280681e7bb2f601c8e7c6b110571",
+      "expectedGitBlob": "46f25ae204fa280681e7bb2f601c8e7c6b110571",
+      "equal": true
+    },
+    {
+      "path": "src/art.ts",
+      "bytes": 7116,
+      "sha256": "2e9a5429e01498e02b4ae333e7240e7e5abbb1a6d0418d2932a7afccc17b262f",
+      "gitBlob": "29b82671597fbef429b90ec73a0909645f6f1002",
+      "expectedGitBlob": "29b82671597fbef429b90ec73a0909645f6f1002",
+      "equal": true
+    },
+    {
+      "path": "src/battlefield-layout.ts",
+      "bytes": 11927,
+      "sha256": "6bbe1518398964b624bbcc8ce81f7fb36a02c9902fb8286336e9aae34f4d6b58",
+      "gitBlob": "6f1874792a49744c31a91c0df4176f9e5b2ca7bf",
+      "expectedGitBlob": "6f1874792a49744c31a91c0df4176f9e5b2ca7bf",
+      "equal": true
+    },
+    {
+      "path": "src/world-rng.ts",
+      "bytes": 2465,
+      "sha256": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+      "gitBlob": "5a771bc612a6871e013c20140d7b9fab887efde7",
+      "expectedGitBlob": "5a771bc612a6871e013c20140d7b9fab887efde7",
+      "equal": true
+    },
+    {
+      "path": "src/audio-routing.mjs",
+      "bytes": 2372,
+      "sha256": "8aa67961fffee6688bb573c38f3f9623bb55ad0ba1d54912186a5443a682aeb8",
+      "gitBlob": "42a7a7d2e96d24c50d65371d422608b0e10fbbf5",
+      "expectedGitBlob": "42a7a7d2e96d24c50d65371d422608b0e10fbbf5",
+      "equal": true
+    },
+    {
+      "path": "src/audio-routing.d.mts",
+      "bytes": 359,
+      "sha256": "d0bef0cc502a1e7973a0bb889c0a62e8ec1115eebe84c3ac02e242f79bcd6acc",
+      "gitBlob": "726b84957149383b9289db10c18b5cbdbf0f3712",
+      "expectedGitBlob": "726b84957149383b9289db10c18b5cbdbf0f3712",
+      "equal": true
+    },
+    {
+      "path": "src/hound-jaw.ts",
+      "bytes": 3644,
+      "sha256": "f42686423ff0b929cd441dd63c1f23756fe145f911e0a3b5cd1b3806aa5c7a9c",
+      "gitBlob": "0a059324a6fb3853eceae7fae842d2888df18604",
+      "expectedGitBlob": "0a059324a6fb3853eceae7fae842d2888df18604",
+      "equal": true
+    },
+    {
+      "path": "src/hunt-entry.css",
+      "bytes": 8102,
+      "sha256": "c7a511b569c6c50456a0aea1c9a469f3d25c245fc660db4d036fd860b99144f5",
+      "gitBlob": "3e45d3f4f218a10f3eee9aa117a4e6223b5dbe07",
+      "expectedGitBlob": "3e45d3f4f218a10f3eee9aa117a4e6223b5dbe07",
+      "equal": true
+    },
+    {
+      "path": "src/content.ts",
+      "bytes": 10247,
+      "sha256": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+      "gitBlob": "187e7076f19ab78e11c42ae9f7293b8f96acdcc2",
+      "expectedGitBlob": "187e7076f19ab78e11c42ae9f7293b8f96acdcc2",
+      "equal": true
+    },
+    {
+      "path": "src/encounter-environment.ts",
+      "bytes": 1332,
+      "sha256": "82ec3d4a653dea8ceb89b93d8e157d483ab9d358bcd4a3b97942292c25ce2139",
+      "gitBlob": "5367749420ff39dbd742999708df9920dff0a00f",
+      "expectedGitBlob": "5367749420ff39dbd742999708df9920dff0a00f",
+      "equal": true
+    },
+    {
+      "path": "src/hunter-presence.ts",
+      "bytes": 7328,
+      "sha256": "4a1432e3971c7efbc0416db554118a3cdd5ea215bff7e9c4ae21d8308fad6f74",
+      "gitBlob": "c03a27ba84e005bcd86ee5ad5efdb6ac9f485e64",
+      "expectedGitBlob": "c03a27ba84e005bcd86ee5ad5efdb6ac9f485e64",
+      "equal": true
+    },
+    {
+      "path": "src/tool-art.ts",
+      "bytes": 2491,
+      "sha256": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3",
+      "gitBlob": "23089f1f6b0ee66cf9252beeeb9e30085e098297",
+      "expectedGitBlob": "23089f1f6b0ee66cf9252beeeb9e30085e098297",
+      "equal": true
+    },
+    {
+      "path": "src/command-field.css",
+      "bytes": 8142,
+      "sha256": "e9b5a6fa56877230f35e5359bb1f256527c37f06f05c89b47b922075a8093d69",
+      "gitBlob": "80391ff97b90add7b361e6a715d2e4b673c77e85",
+      "expectedGitBlob": "80391ff97b90add7b361e6a715d2e4b673c77e85",
+      "equal": true
+    },
+    {
+      "path": "src/hunt-entry.ts",
+      "bytes": 10816,
+      "sha256": "7c53defb4db9f68fc2bfb47de6a64302b8915cdf077fb84b6df69af3142f80fb",
+      "gitBlob": "f3cdeefb038b71491bff984f464305dbdb425fbe",
+      "expectedGitBlob": "f3cdeefb038b71491bff984f464305dbdb425fbe",
+      "equal": true
+    },
+    {
+      "path": "src/engine.ts",
+      "bytes": 38776,
+      "sha256": "7dca47973c0d78a130730450215569fa7747a1cb043764b16217c1b9c0ce6bf8",
+      "gitBlob": "858e6a98c3422799cdeb1d0553fb3ed9378253a9",
+      "expectedGitBlob": "858e6a98c3422799cdeb1d0553fb3ed9378253a9",
+      "equal": true
+    },
+    {
+      "path": "src/compact-readout.css",
+      "bytes": 8067,
+      "sha256": "2cf3850fa4bfae4c6e725a2d9d46379e12ce3531f2a93d9f32b6c47cb541401a",
+      "gitBlob": "1cb38de5cb9830950def8f91aa25a1b9c5aa6fbf",
+      "expectedGitBlob": "1cb38de5cb9830950def8f91aa25a1b9c5aa6fbf",
+      "equal": true
+    },
+    {
+      "path": "src/audio-player.d.mts",
+      "bytes": 667,
+      "sha256": "259fe144e9d4f1be8b4a0959ef82d29cf47e697564dec451b63405c8477807fb",
+      "gitBlob": "43cef9da5deab22ccc07c3bad9238804f3456abf",
+      "expectedGitBlob": "43cef9da5deab22ccc07c3bad9238804f3456abf",
+      "equal": true
+    },
+    {
+      "path": "src/compact-intent.ts",
+      "bytes": 3896,
+      "sha256": "6ea39b73ded51171d3f5783324c8bb5179109c4effa100ac1ef5eae18ad8b1d5",
+      "gitBlob": "9338acbb99dd8d6cc994706cf679bc19d695bdee",
+      "expectedGitBlob": "9338acbb99dd8d6cc994706cf679bc19d695bdee",
+      "equal": true
+    },
+    {
+      "path": "docs/FIRST-FIVE-MINUTES.md",
+      "bytes": 9032,
+      "sha256": "f005dc567ca2da51be759b2c61619a629254b347bc453f32843fee2d370ff740",
+      "gitBlob": "8b8d7c859bb4caa9649236d78c13d22a61e52554",
+      "expectedGitBlob": "8b8d7c859bb4caa9649236d78c13d22a61e52554",
+      "equal": true
+    },
+    {
+      "path": "docs/FRESH-SESSION-HANDOFF-2026-10-02.md",
+      "bytes": 22941,
+      "sha256": "309b987eafc8f7f1326a79f13078e260f36b759e2633666cab5cf5bc96b6ca86",
+      "gitBlob": "e502a0d795cbbad49c57d5d0b377144dc3d91633",
+      "expectedGitBlob": "e502a0d795cbbad49c57d5d0b377144dc3d91633",
+      "equal": true
+    },
+    {
+      "path": "docs/CONTINUATION.md",
+      "bytes": 209957,
+      "sha256": "a4acdd6bc535b656df5f603aaeced3168afb4a65b724340519fd5c531f639cc5",
+      "gitBlob": "bd3ad039545c90a45bad9644769941187e22540d",
+      "expectedGitBlob": "bd3ad039545c90a45bad9644769941187e22540d",
+      "equal": true
+    },
+    {
+      "path": "docs/PRODUCTION.md",
+      "bytes": 45762,
+      "sha256": "9e804d62738878a1f7ea533c7cda666b5f121a069908816a0edd78202105a8d6",
+      "gitBlob": "7137f874c34c05c469657809c8120c63f18f56ce",
+      "expectedGitBlob": "7137f874c34c05c469657809c8120c63f18f56ce",
+      "equal": true
+    },
+    {
+      "path": "docs/HOLLOWPACT-FRESH-SESSION-PROMPT.md",
+      "bytes": 8654,
+      "sha256": "04037e94964f2c70a11bcc97e7d51d9e2ab011ce74c4bf1e445d44b6898bf52f",
+      "gitBlob": "11f83570b2ec80f0b3e601ffab6407f935509011",
+      "expectedGitBlob": "11f83570b2ec80f0b3e601ffab6407f935509011",
+      "equal": true
+    },
+    {
+      "path": "docs/HOLLOWPACT-HOURLY-PROMPT.txt",
+      "bytes": 5285,
+      "sha256": "5f64db8f7323dda59a64c75184e176fb2ef658c1bea7d925c032d924b0b2883f",
+      "gitBlob": "5bc3164a759cb843a8a0e1c720f870c5a3745b94",
+      "expectedGitBlob": "5bc3164a759cb843a8a0e1c720f870c5a3745b94",
+      "equal": true
+    }
+  ]
+}

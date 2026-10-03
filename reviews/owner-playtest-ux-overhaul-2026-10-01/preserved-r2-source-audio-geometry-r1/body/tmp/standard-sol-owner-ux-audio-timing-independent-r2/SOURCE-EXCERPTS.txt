@@ -1,0 +1,217 @@
+
+main.ts
+326: function holdFinalStrike(previous: GameState, events: readonly TransitionEvent[]): boolean {
+327:   if (!mayAnimateCombat() || !arena) return false;
+328:   let busy = 0;
+329:   try { busy = Number((arena as ArenaPresentation).busyMs?.() || 0); } catch { return false; }
+330:   if (!Number.isFinite(busy) || busy <= 0) return false;
+331:   const epoch = ++presentationEpoch;
+332:   settlingCombat = true;
+333:   $('app').classList.add('settling-combat');
+334:   $('scene-ui').setAttribute('aria-busy', 'true');
+335:   const hint = document.querySelector<HTMLElement>('.keyboard-hint');
+336:   if (hint) hint.innerHTML = inputHints();
+337:   // Rules and saves already reflect the result. The old field exists only for the final impact.
+338:   updateFinalStrikeReadout(previous, events);
+339:   document.querySelectorAll<HTMLButtonElement>('#scene-ui button, #arena-wrap button, #dock button').forEach(button => { button.disabled = true; });
+340:   const guidance = document.querySelector<HTMLElement>('.battle-guidance>span');
+341:   if (guidance) guidance.textContent = state.phase === 'defeat' ? 'The pact breaks. The final impact is resolving.' : 'Contract cleared. Final strike resolving.';
+342:   const cancel = document.querySelector<HTMLElement>('.battle-guidance>button');
+343:   if (cancel) cancel.hidden = true;
+344:   const caption = document.querySelector<HTMLElement>('.arena-caption>small');
+345:   if (caption) caption.textContent = state.phase === 'defeat' ? 'PACT BROKEN' : 'WARRANT CLOSED';
+346:   const endButton = document.querySelector<HTMLElement>('[data-action="endTurn"]');
+347:   if (endButton) endButton.textContent = state.phase === 'defeat' ? 'Contract failed' : 'Contract cleared';
+348:   document.querySelectorAll('.unit.selected, .unit.valid-target').forEach(unit => unit.classList.remove('selected', 'valid-target'));
+349:   $('announcer').textContent = state.phase === 'defeat' ? 'The hunter has fallen.' : 'Contract cleared.';
+350:   // The renderer includes any allocation lead and held death. A fixed 1.2s
+351:   // ceiling could cut a legitimate final strike before its visible contact.
+352:   presentationDeadline = setTimeout(() => finishPresentation(epoch), Math.ceil(busy) + 30);
+353:   try {
+354:     const waiting = (arena as ArenaPresentation).waitForPresentation?.();
+355:     if (waiting) void waiting.then(() => finishPresentation(epoch), () => finishPresentation(epoch));
+356:   } catch { finishPresentation(epoch); }
+357:   return true;
+358: }
+359: function dispatch(action: Action) {
+360:   if (settlingCombat || disposed) return;
+361:   if (state.phase === 'battle' && arena?.getUnitViewport().layoutPending) { notify('The formation is settling. Your next order is still available.'); return; }
+362:   const previous = state;
+363:   const { state: next, events } = applyActionWithEvents(state, action);
+364:   if (JSON.stringify(next) === JSON.stringify(previous)) { notify('That action is not available right now.'); return; }
+365:   if (next.phase !== previous.phase || action.type === 'travel') clearToast();
+366:   // Persist the canonical result before optional animation/audio runs.
+367:   state = next;
+368:   selected = null;
+369:   selectionOrigin = null;
+370:   save();
+371:   let effectFailed = false;
+372:   try { arena?.playAction?.(action, previous, next, events); } catch { effectFailed = true; }
+373:   try { hostAudio.transition(previous, next, events, action, !effectFailed && !!arena && mayAnimateCombat(), arena?.getActionPresentationDelayMs() || 0); } catch { /* Optional sound cannot block canonical gameplay. */ }
+374:   const terminalCombat = previous.phase === 'battle' && ['reward', 'victory', 'defeat'].includes(state.phase);
+375:   if (terminalCombat && !effectFailed && holdFinalStrike(previous, events)) return;
+376:   render();
+377:   if (terminalCombat) announceOutcome();
+
+arena.ts
+821:   function prepareActionAllocation(before: GameState, after: GameState, events: readonly TransitionEvent[] = []): number {
+822:     const forecast = after.phase === 'battle' ? after : before;
+823:     const desired = desiredAllocation(forecast), slots = new Map<string, number>();
+824:     const occupied: Record<Side, Set<number>> = { ally: new Set(), enemy: new Set() };
+825:     // Every held body reserves its original slot until its collapse finishes.
+826:     // A full side may reuse a resolved victim's slot, but the new birth is
+827:     // delayed below until that victim's complete hold has ended.
+828:     for (const figure of figures.values()) {
+829:       slots.set(figure.uid, figure.slot); occupied[figure.side].add(figure.slot);
+830:     }
+831:     const arrivals = events.filter((event): event is Extract<TransitionEvent, { type: 'summon' }> => event.type === 'summon');
+832:     for (const side of ['ally', 'enemy'] as const) {
+833:       const reclaimed = new Set<number>();
+834:       const willDie = (figure: Figure) => figure.dead !== null || events.some(event => event.type === 'death' && event.target === figure.uid);
+835:       const victims = [...figures.values()].filter(figure => figure.side === side && willDie(figure) &&
+836:         ![...figures.values()].some(other => other.uid !== figure.uid && other.side === side && other.slot === figure.slot && !willDie(other)));
+837:       const units = [...(side === 'ally' ? after.allies : after.enemies), ...arrivals.filter(event => event.side === side).map(event => event.unit)];
+838:       for (const unit of units) if (!slots.has(unit.uid)) {
+839:         const free = [0, 1, 2, 3, 4, 5].find(slot => !occupied[side].has(slot));
+840:         const victim = victims.find(figure => !reclaimed.has(figure.slot));
+841:         const slot = free ?? victim?.slot;
+842:         if (slot === undefined) throw new Error('No legal presentation slot for accepted arrival');
+843:         if (free === undefined) reclaimed.add(slot);
+844:         slots.set(unit.uid, slot); occupied[side].add(slot);
+845:       }
+846:     }
+847:     actionAllocationSlots = slots;
+848:     const extent = (side: Side) => Math.max(0, ...[...slots].filter(([uid]) => figures.get(uid)?.side === side || arrivals.some(event => event.target === uid && event.side === side) || (side === 'ally' ? after.allies : after.enemies).some(unit => unit.uid === uid)).map(([, slot]) => slot + 1));
+849:     const config = normalizeLayoutConfig({ allies: Math.max(layoutConfig.allies, extent('ally')),
+850:       enemies: Math.max(layoutConfig.enemies, extent('enemy')),
+851:       intentRows: Math.max(layoutConfig.intentRows, desired.config.intentRows), statsRows: Math.max(layoutConfig.statsRows, desired.config.statsRows) });
+852:     const expanding = !sameLayoutConfig(config, layoutConfig);
+853:     if (!expanding && !pendingAllocation) return 0;
+854:     if (pendingAllocation) {
+855:       pendingAllocation.config = config; pendingAllocation.slots = slots;
+856:       return Math.max(0, pendingAllocation.cueStart - time);
+857:     }
+858:     if (!allocationChanges(config, slots)) { applyAllocation(config, slots, time, false); return 0; }
+859:     const start = time + cueBusyMs() / 1000;
+860:     pendingAllocation = { config, slots, start, cueStart: start + .32 };
+861:     advanceAllocation(); publishRegions();
+862:     return Math.max(0, start + .32 - time);
+873:   function playAction(action: Action, before: GameState, after: GameState, events?: readonly TransitionEvent[]) {
+874:     if (disposed) return;
+875:     if (reduced || document.hidden || before.phase !== 'battle') { lastActionLeadMs = 0; render(after); return; }
+876:     try {
+877:     const lead = prepareActionAllocation(before, after, events); lastActionLeadMs = Math.ceil(lead * 1000);
+878:     if (events) {
+879:       const actorDelays = new Map<string, number>();
+880:       const lastHits = new Map<string, Strike>();
+881:       const terminal = after.phase !== 'battle';
+882:       const delayFor = (source: string, retaliation = false) => {
+883:         if (retaliation) return lead + .04;
+884:         if (action.type !== 'endTurn' || !before.enemies.some(unit => unit.uid === source)) return lead;
+885:         if (!actorDelays.has(source)) actorDelays.set(source, actorDelays.size * (terminal ? .009 : .05));
+886:         return lead + actorDelays.get(source)!;
+887:       };
+888:       for (const event of events) {
+889:         const source = event.source === 'world' ? null : event.source;
+890:         if (event.type === 'summon') {
+891:           if (!figures.has(event.target)) {
+892:             const units = event.side === 'ally' ? after.allies : after.enemies;
+893:             const canonicalSlot = units.findIndex(unit => unit.uid === event.target);
+894:             const occupied = new Set([...figures.values()].filter(figure => figure.side === event.side && figure.dead === null).map(figure => figure.slot));
+895:             const slot = actionAllocationSlots.get(event.target) ?? ([0, 1, 2, 3, 4, 5].find(candidate => !occupied.has(candidate)) ?? (canonicalSlot >= 0 ? canonicalSlot : 0));
+896:             const held = [...figures.values()].filter(figure => figure.side === event.side && figure.slot === slot && figure.dead !== null);
+897:             const birth = Math.max(time + lead, ...held.map(figure => figure.dead! + deathDuration));
+898:             figures.set(event.target, createFigure(event.unit, event.side, slot, Math.max(units.length, slot + 1), birth));
+899:           }
+900:           const arrival = figures.get(event.target);
+901:           queueStrike(source, event.target, 'ward', Math.max(delayFor(event.source), (arrival?.born ?? time) - time));
+902:         } else if (event.type === 'hit') {
+903:           // The trace proves this hit executed. Its pre-action intent identifies
+922:         } else if (event.type === 'death' && event.target !== 'hunter') {
+923:           const figure = figures.get(event.target), hit = lastHits.get(event.target);
+924:           if (figure) {
+925:             figure.dead = hit ? hit.born + impactTime : time + lead + .12;
+926:             figure.unit = { ...figure.unit, hp: 0, block: 0 };
+927:             figure.deathAnchored = false; figure.deathSizeBasis = null; figure.departing = false;
+928:           }
+929:         }
+930:       }
+931:       // Event order never lets a new identity paint over a held old body.
+932:       // This also handles traces where a summon precedes its victim's death.
+933:       for (const event of events) if (event.type === 'summon') {
+934:         const arrival = figures.get(event.target); if (!arrival) continue;
+935:         const held = [...figures.values()].filter(figure => figure.uid !== arrival.uid && figure.side === arrival.side && figure.slot === arrival.slot && figure.dead !== null);
+936:         arrival.born = Math.max(arrival.born, ...held.map(figure => figure.dead! + deathDuration));
+937:         for (const strike of strikes) if (strike.target === arrival.uid && strike.kind === 'ward') strike.born = Math.max(strike.born, arrival.born);
+938:       }
+979:   function cueBusyMs() {
+980:     if (disposed || reduced || document.hidden) return 0;
+981:     let end = time;
+982:     for (const cue of hunter?.cues ?? []) end = Math.max(end, cue.end);
+983:     for (const strike of strikes) end = Math.max(end, strike.born + .73);
+984:     for (const figure of figures.values()) {
+985:       if (figure.dead !== null) end = Math.max(end, figure.dead + deathDuration);
+986:       else if (!figure.departing) end = Math.max(end, figure.born + .38, figure.hit + CREATURE_REACTION_MS / 1000, figure.layoutStarted + .32);
+987:     }
+988:     return Math.max(0, Math.ceil((end - time) * 1000));
+989:   }
+990:   function busyMs() {
+991:     if (disposed || reduced || document.hidden) return 0;
+992:     return Math.max(cueBusyMs(), Math.max(0, Math.ceil(((pendingAllocation?.cueStart ?? allocationTransitionEnd) - time) * 1000)));
+993:   }
+994:   function resolvePresentationWaiters() {
+995:     if (busyMs() !== 0) return;
+996:     const pending = [...presentationWaiters]; presentationWaiters.clear();
+997:     pending.forEach(resolve => resolve());
+998:   }
+999:   function waitForPresentation(): Promise<void> {
+1000:     if (!busyMs()) return Promise.resolve();
+1001:     return new Promise(resolve => presentationWaiters.add(resolve));
+1002:   }
+1003:   function cancelPresentation() { settle(); draw(); }
+
+audio-host.ts
+7: export function contactCues(before:GameState, after:GameState, events:readonly TransitionEvent[], action:Action, animated:boolean):RoutedCue[] {
+8:  const delays=new Map<string,number>(), times=new Map<string,number>(); let wounds=0;
+9:  const delayFor=(source:string, retaliation=false)=>{
+10:   if(retaliation)return .04;
+11:   if(action.type!=='endTurn'||!before.enemies.some(u=>u.uid===source))return 0;
+12:   if(!delays.has(source))delays.set(source,delays.size*(after.phase!=='battle'?.009:.05));return delays.get(source)!;
+13:  };
+14:  for(const event of events){
+15:   // Same branch order and source admission as current arena.playAction(); death adds no fabricated attack.
+16:   if(event.type==='death')continue;
+17:   const delay=animated && before.phase==='battle' ? CREATURE_IMPACT_MS/1000+delayFor(event.source,event.type==='hit'&&event.kind==='retaliation') : 0;
+18:   if(event.type==='hit'){
+19:    const key=`strike/${event.source}/${event.kind}/${('cardId' in event?event.cardId:'')||''}`;if(!times.has(key))times.set(key,delay);
+20:    if(event.damage>0&&event.target==='hunter'&&event.hpLost>0&&wounds<2)times.set(`wound/${wounds++}`,delay);
+21:   }else if(event.type==='summon'){times.set(`bind/${event.target}`,delay);times.set(`arrival/${event.target}`,delay);}
+22:   else if(event.type==='control'||event.type==='ward'){const key=`seal/${event.source}/${('cardId' in event?event.cardId:'')||''}`;if(!times.has(key))times.set(key,delay);}
+23:   // Buff/heal also reserve caster position in renderer order even without an authored corresponding cue.
+24:  }
+25:  return cuesForTransition(before,after,events,action).map(cue=>({...cue,offset:times.get(cue.key)??0}));
+26: }
+27: export interface ContactCuePlan { cues:RoutedCue[]; anchorOffsetSeconds:number }
+28: /** Renderer-owned allocation/queue lead precedes the existing impact offsets.
+29:  * Keep that lead on the audio anchor: CuePlayer intentionally bounds each cue's
+30:  * contact offset to .6s, which must not truncate a longer presentation queue. */
+31: export function contactCuePlan(before:GameState, after:GameState, events:readonly TransitionEvent[], action:Action, animated:boolean, presentationDelayMs=0):ContactCuePlan {
+32:  const anchorOffsetSeconds=animated&&before.phase==='battle'&&Number.isFinite(presentationDelayMs)&&presentationDelayMs>0 ? presentationDelayMs/1000 : 0;
+33:  return {cues:contactCues(before,after,events,action,animated),anchorOffsetSeconds};
+34: }
+49:  nativeSetup(){this.nativeController=true;}
+50:  controllerGesture(){if(this.nativeController)this.gesture();}
+51:  nativeLifecycle(blocked:boolean){this.cancel(blocked?'native-inactive':'native-restore-barrier');this.nativeBlocked=blocked;return this.epoch;}
+52:  settings(mute:boolean,volume:number){this.player.settings(mute,volume);if(mute||volume<=0)this.epoch++;}
+53:  cancel(reason:string){this.epoch++;this.player.cancel();}
+54:  visibility(hidden:boolean){this.hidden=hidden;if(hidden)this.cancel('hidden');}
+55:  ui(back=false){if(this.closed||this.hidden||this.nativeBlocked)return;void this.player.play(back?'ui_back':'ui_confirm',.4).catch(()=>{});}
+56:  transition(before:GameState,after:GameState,events:readonly TransitionEvent[],action:Action,animated:boolean,presentationDelayMs=0){
+57:   if(this.closed||this.hidden||this.nativeBlocked||!this.player.enabled)return;
+58:   const canonical=JSON.stringify({before,after,events,action});
+59:   const plan=contactCuePlan(before,after,events,action,animated,presentationDelayMs);
+60:   if(JSON.stringify({before,after,events,action})!==canonical)throw new Error('Audio observer mutated rules');
+61:   const anchor=this.player.context!.currentTime+plan.anchorOffsetSeconds;
+62:   void this.player.playBatchAt(plan.cues,anchor).catch(()=>{});
+63:  }
+64:  async dispose(){this.closed=true;this.cancel('dispose');await this.player.dispose();}

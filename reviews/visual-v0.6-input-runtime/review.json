@@ -1,0 +1,1114 @@
+{
+  "scope": "Independent actual frozen input candidate keyboard/control focus. Synthetic standard gamepad via navigator.getGamepads override and real adapter polling; no physical-device, enjoyment, or uncontended FPS claim.",
+  "digest": "d33ce538e38d98eba6ec06f90660252d53d3f3fc0122c7316b229f043489b52c",
+  "results": [
+    {
+      "kind": "keyboard-layout",
+      "width": 1024,
+      "provenance": {
+        "version": "0.6.0",
+        "sourceDigest": "d33ce538e38d98eba6ec06f90660252d53d3f3fc0122c7316b229f043489b52c",
+        "hashes": {
+          "THIRD-PARTY.md": "e8562cda5387e7bf560e460d86119ea9ea48e08243fef16fe3da12623b1bcf8d",
+          "desktop/icon.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+          "desktop/main.cjs": "1e54b1170ff4169285ff1757c0e768db2f144f7be919b4911a47394426cb75ae",
+          "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+          "package-lock.json": "973af171d21c940e8f762207c25db9936bab2b749d272f9899ff8b48ab16e0f3",
+          "package.json": "13ca889a9d4ba9bbf13bc12a6aa6b23ecbb221900cada9a36507dc05b1d02573",
+          "public/art/PROVENANCE.json": "5ba821b8b5f6d7b316389e72f7b8afd97304645789f3b0add7719dea6bf85ce5",
+          "public/art/abbey-courtyard.png": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+          "public/art/adversaries-atlas.png": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5",
+          "public/art/companions-atlas.png": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+          "public/art/hound-poses.png": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+          "public/art/hunter-portrait.png": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+          "public/art/pact-seal.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+          "public/art/tool-vignettes.png": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+          "public/art/warleader-poses.png": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b",
+          "scripts/build.mjs": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1",
+          "src/arena.ts": "2e2a5d65a58db91d09ef0e8746a98264fca129520a988ccbb3b5233569f32b79",
+          "src/art.ts": "379e6b60f78cafd20170bcbcc4168a490cd2663388131957ad9766df852430b7",
+          "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+          "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+          "src/input.ts": "4ae4ca1a2dadb41f3a51b8eba35dd41efed5ececb00d912edfbec2e346f9f69d",
+          "src/main.ts": "dba47ae29bca37d099d04fd0d3d2bcb05948d4d7426b5ab7a331448206d46496",
+          "src/style.css": "357345b6276e4a26515cb19964c416056c00efe64215241cdcb50883d1be49a2",
+          "src/tool-art.ts": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3",
+          "src/world-rng.ts": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+          "tsconfig.json": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c",
+          "vite.config.ts": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75"
+        },
+        "node": "v24.19.0"
+      },
+      "errors": [],
+      "checks": [
+        {
+          "name": "hand shortcut",
+          "focus": {
+            "tag": "BUTTON",
+            "card": "scour",
+            "ui": "play-card",
+            "index": "0",
+            "id": "",
+            "disabled": false,
+            "text": "Scour, 1 energy. Deal 6 damage to an enemy.",
+            "rect": {
+              "x": 20,
+              "y": 476,
+              "width": 155,
+              "height": 201
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "name": "hand next",
+          "focus": {
+            "tag": "BUTTON",
+            "card": "scour+",
+            "ui": "play-card",
+            "index": "1",
+            "id": "",
+            "disabled": false,
+            "text": "Scour +, 1 energy. Deal 8 damage to an enemy.",
+            "rect": {
+              "x": 185,
+              "y": 476,
+              "width": 155,
+              "height": 201
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "name": "binding shortcut",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a10",
+            "id": "",
+            "disabled": false,
+            "text": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+            "rect": {
+              "x": 16,
+              "y": 184,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "name": "held Enter cannot follow moved focus",
+          "selectedFocus": {
+            "tag": "BUTTON",
+            "unit": "e30",
+            "id": "",
+            "disabled": false,
+            "text": "Ironjaw Reaver · hostile 1. 16 of 16 health, 4 attack. 4 damage → hunter Select as target.",
+            "rect": {
+              "x": 764,
+              "y": 184,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          },
+          "readOnly": true
+        },
+        {
+          "name": "target next and consequence",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e31",
+            "id": "",
+            "disabled": false,
+            "text": "Gloam Revenant · hostile 2. 15 of 15 health, 5 attack. 5 damage → hunter Select as target.",
+            "rect": {
+              "x": 764,
+              "y": 224,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          },
+          "preview": "Cairn Hound · binding 1 → hostile 2: 5 health damage",
+          "unchanged": true
+        },
+        {
+          "name": "cancel restores exact binding",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a10",
+            "id": "",
+            "disabled": false,
+            "text": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+            "rect": {
+              "x": 16,
+              "y": 184,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          },
+          "unchanged": true
+        },
+        {
+          "name": "modal blocks battle shortcut/endturn",
+          "focus": {
+            "tag": "H2",
+            "id": "dialog-title",
+            "disabled": false,
+            "text": "Cairn Hound · binding 1",
+            "rect": {
+              "x": 302,
+              "y": 126.859375,
+              "width": 216.328125,
+              "height": 26
+            },
+            "outline": {
+              "color": "rgb(16, 16, 16)",
+              "width": "1px",
+              "style": "auto"
+            }
+          },
+          "modalFocused": {
+            "tag": "H2",
+            "id": "dialog-title",
+            "disabled": false,
+            "text": "Cairn Hound · binding 1",
+            "rect": {
+              "x": 302,
+              "y": 126.859375,
+              "width": 216.328125,
+              "height": 26
+            },
+            "outline": {
+              "color": "rgb(16, 16, 16)",
+              "width": "1px",
+              "style": "auto"
+            }
+          },
+          "unchanged": true,
+          "open": true
+        },
+        {
+          "name": "dossier return origin",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a10",
+            "id": "",
+            "disabled": false,
+            "text": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+            "rect": {
+              "x": 16,
+              "y": 184,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          },
+          "originBeforeInspect": "a10"
+        },
+        {
+          "name": "card inspect opens",
+          "open": true,
+          "title": "Scour +"
+        },
+        {
+          "name": "card inspect return",
+          "focus": {
+            "tag": "BUTTON",
+            "card": "scour+",
+            "ui": "play-card",
+            "index": "1",
+            "id": "",
+            "disabled": false,
+            "text": "Scour +, 1 energy. Deal 8 damage to an enemy.",
+            "rect": {
+              "x": 185,
+              "y": 476,
+              "width": 155,
+              "height": 201
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "name": "disabled cards skipped by regional navigation",
+          "disabled": 0
+        }
+      ]
+    },
+    {
+      "kind": "keyboard-layout",
+      "width": 1280,
+      "provenance": {
+        "version": "0.6.0",
+        "sourceDigest": "d33ce538e38d98eba6ec06f90660252d53d3f3fc0122c7316b229f043489b52c",
+        "hashes": {
+          "THIRD-PARTY.md": "e8562cda5387e7bf560e460d86119ea9ea48e08243fef16fe3da12623b1bcf8d",
+          "desktop/icon.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+          "desktop/main.cjs": "1e54b1170ff4169285ff1757c0e768db2f144f7be919b4911a47394426cb75ae",
+          "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+          "package-lock.json": "973af171d21c940e8f762207c25db9936bab2b749d272f9899ff8b48ab16e0f3",
+          "package.json": "13ca889a9d4ba9bbf13bc12a6aa6b23ecbb221900cada9a36507dc05b1d02573",
+          "public/art/PROVENANCE.json": "5ba821b8b5f6d7b316389e72f7b8afd97304645789f3b0add7719dea6bf85ce5",
+          "public/art/abbey-courtyard.png": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+          "public/art/adversaries-atlas.png": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5",
+          "public/art/companions-atlas.png": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+          "public/art/hound-poses.png": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+          "public/art/hunter-portrait.png": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+          "public/art/pact-seal.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+          "public/art/tool-vignettes.png": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+          "public/art/warleader-poses.png": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b",
+          "scripts/build.mjs": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1",
+          "src/arena.ts": "2e2a5d65a58db91d09ef0e8746a98264fca129520a988ccbb3b5233569f32b79",
+          "src/art.ts": "379e6b60f78cafd20170bcbcc4168a490cd2663388131957ad9766df852430b7",
+          "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+          "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+          "src/input.ts": "4ae4ca1a2dadb41f3a51b8eba35dd41efed5ececb00d912edfbec2e346f9f69d",
+          "src/main.ts": "dba47ae29bca37d099d04fd0d3d2bcb05948d4d7426b5ab7a331448206d46496",
+          "src/style.css": "357345b6276e4a26515cb19964c416056c00efe64215241cdcb50883d1be49a2",
+          "src/tool-art.ts": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3",
+          "src/world-rng.ts": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+          "tsconfig.json": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c",
+          "vite.config.ts": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75"
+        },
+        "node": "v24.19.0"
+      },
+      "errors": [],
+      "checks": [
+        {
+          "name": "hand shortcut",
+          "focus": {
+            "tag": "BUTTON",
+            "card": "scour",
+            "ui": "play-card",
+            "index": "0",
+            "id": "",
+            "disabled": false,
+            "text": "Scour, 1 energy. Deal 6 damage to an enemy.",
+            "rect": {
+              "x": 28,
+              "y": 476,
+              "width": 155,
+              "height": 201
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "name": "hand next",
+          "focus": {
+            "tag": "BUTTON",
+            "card": "scour+",
+            "ui": "play-card",
+            "index": "1",
+            "id": "",
+            "disabled": false,
+            "text": "Scour +, 1 energy. Deal 8 damage to an enemy.",
+            "rect": {
+              "x": 193,
+              "y": 476,
+              "width": 155,
+              "height": 201
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "name": "binding shortcut",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a10",
+            "id": "",
+            "disabled": false,
+            "text": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+            "rect": {
+              "x": 16,
+              "y": 184,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "name": "held Enter cannot follow moved focus",
+          "selectedFocus": {
+            "tag": "BUTTON",
+            "unit": "e30",
+            "id": "",
+            "disabled": false,
+            "text": "Ironjaw Reaver · hostile 1. 16 of 16 health, 4 attack. 4 damage → hunter Select as target.",
+            "rect": {
+              "x": 1020,
+              "y": 184,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          },
+          "readOnly": true
+        },
+        {
+          "name": "target next and consequence",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e31",
+            "id": "",
+            "disabled": false,
+            "text": "Gloam Revenant · hostile 2. 15 of 15 health, 5 attack. 5 damage → hunter Select as target.",
+            "rect": {
+              "x": 1020,
+              "y": 224,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          },
+          "preview": "Cairn Hound · binding 1 → hostile 2: 5 health damage",
+          "unchanged": true
+        },
+        {
+          "name": "cancel restores exact binding",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a10",
+            "id": "",
+            "disabled": false,
+            "text": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+            "rect": {
+              "x": 16,
+              "y": 184,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          },
+          "unchanged": true
+        },
+        {
+          "name": "modal blocks battle shortcut/endturn",
+          "focus": {
+            "tag": "H2",
+            "id": "dialog-title",
+            "disabled": false,
+            "text": "Cairn Hound · binding 1",
+            "rect": {
+              "x": 430,
+              "y": 126.859375,
+              "width": 216.328125,
+              "height": 26
+            },
+            "outline": {
+              "color": "rgb(16, 16, 16)",
+              "width": "1px",
+              "style": "auto"
+            }
+          },
+          "modalFocused": {
+            "tag": "H2",
+            "id": "dialog-title",
+            "disabled": false,
+            "text": "Cairn Hound · binding 1",
+            "rect": {
+              "x": 430,
+              "y": 126.859375,
+              "width": 216.328125,
+              "height": 26
+            },
+            "outline": {
+              "color": "rgb(16, 16, 16)",
+              "width": "1px",
+              "style": "auto"
+            }
+          },
+          "unchanged": true,
+          "open": true
+        },
+        {
+          "name": "dossier return origin",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a10",
+            "id": "",
+            "disabled": false,
+            "text": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+            "rect": {
+              "x": 16,
+              "y": 184,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          },
+          "originBeforeInspect": "a10"
+        },
+        {
+          "name": "card inspect opens",
+          "open": true,
+          "title": "Scour +"
+        },
+        {
+          "name": "card inspect return",
+          "focus": {
+            "tag": "BUTTON",
+            "card": "scour+",
+            "ui": "play-card",
+            "index": "1",
+            "id": "",
+            "disabled": false,
+            "text": "Scour +, 1 energy. Deal 8 damage to an enemy.",
+            "rect": {
+              "x": 193,
+              "y": 476,
+              "width": 155,
+              "height": 201
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "name": "disabled cards skipped by regional navigation",
+          "disabled": 0
+        }
+      ]
+    },
+    {
+      "kind": "keyboard-layout",
+      "width": 1920,
+      "provenance": {
+        "version": "0.6.0",
+        "sourceDigest": "d33ce538e38d98eba6ec06f90660252d53d3f3fc0122c7316b229f043489b52c",
+        "hashes": {
+          "THIRD-PARTY.md": "e8562cda5387e7bf560e460d86119ea9ea48e08243fef16fe3da12623b1bcf8d",
+          "desktop/icon.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+          "desktop/main.cjs": "1e54b1170ff4169285ff1757c0e768db2f144f7be919b4911a47394426cb75ae",
+          "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+          "package-lock.json": "973af171d21c940e8f762207c25db9936bab2b749d272f9899ff8b48ab16e0f3",
+          "package.json": "13ca889a9d4ba9bbf13bc12a6aa6b23ecbb221900cada9a36507dc05b1d02573",
+          "public/art/PROVENANCE.json": "5ba821b8b5f6d7b316389e72f7b8afd97304645789f3b0add7719dea6bf85ce5",
+          "public/art/abbey-courtyard.png": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+          "public/art/adversaries-atlas.png": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5",
+          "public/art/companions-atlas.png": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+          "public/art/hound-poses.png": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+          "public/art/hunter-portrait.png": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+          "public/art/pact-seal.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+          "public/art/tool-vignettes.png": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+          "public/art/warleader-poses.png": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b",
+          "scripts/build.mjs": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1",
+          "src/arena.ts": "2e2a5d65a58db91d09ef0e8746a98264fca129520a988ccbb3b5233569f32b79",
+          "src/art.ts": "379e6b60f78cafd20170bcbcc4168a490cd2663388131957ad9766df852430b7",
+          "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+          "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+          "src/input.ts": "4ae4ca1a2dadb41f3a51b8eba35dd41efed5ececb00d912edfbec2e346f9f69d",
+          "src/main.ts": "dba47ae29bca37d099d04fd0d3d2bcb05948d4d7426b5ab7a331448206d46496",
+          "src/style.css": "357345b6276e4a26515cb19964c416056c00efe64215241cdcb50883d1be49a2",
+          "src/tool-art.ts": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3",
+          "src/world-rng.ts": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+          "tsconfig.json": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c",
+          "vite.config.ts": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75"
+        },
+        "node": "v24.19.0"
+      },
+      "errors": [],
+      "checks": [
+        {
+          "name": "hand shortcut",
+          "focus": {
+            "tag": "BUTTON",
+            "card": "scour",
+            "ui": "play-card",
+            "index": "0",
+            "id": "",
+            "disabled": false,
+            "text": "Scour, 1 energy. Deal 6 damage to an enemy.",
+            "rect": {
+              "x": 202.5,
+              "y": 451,
+              "width": 170,
+              "height": 218
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "name": "hand next",
+          "focus": {
+            "tag": "BUTTON",
+            "card": "scour+",
+            "ui": "play-card",
+            "index": "1",
+            "id": "",
+            "disabled": false,
+            "text": "Scour +, 1 energy. Deal 8 damage to an enemy.",
+            "rect": {
+              "x": 385.5,
+              "y": 451,
+              "width": 170,
+              "height": 218
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "name": "binding shortcut",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a10",
+            "id": "",
+            "disabled": false,
+            "text": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+            "rect": {
+              "x": 16,
+              "y": 216,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "name": "held Enter cannot follow moved focus",
+          "selectedFocus": {
+            "tag": "BUTTON",
+            "unit": "e30",
+            "id": "",
+            "disabled": false,
+            "text": "Ironjaw Reaver · hostile 1. 16 of 16 health, 4 attack. 4 damage → hunter Select as target.",
+            "rect": {
+              "x": 1660,
+              "y": 216,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          },
+          "readOnly": true
+        },
+        {
+          "name": "target next and consequence",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e31",
+            "id": "",
+            "disabled": false,
+            "text": "Gloam Revenant · hostile 2. 15 of 15 health, 5 attack. 5 damage → hunter Select as target.",
+            "rect": {
+              "x": 1660,
+              "y": 256,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          },
+          "preview": "Cairn Hound · binding 1 → hostile 2: 5 health damage",
+          "unchanged": true
+        },
+        {
+          "name": "cancel restores exact binding",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a10",
+            "id": "",
+            "disabled": false,
+            "text": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+            "rect": {
+              "x": 16,
+              "y": 216,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          },
+          "unchanged": true
+        },
+        {
+          "name": "modal blocks battle shortcut/endturn",
+          "focus": {
+            "tag": "H2",
+            "id": "dialog-title",
+            "disabled": false,
+            "text": "Cairn Hound · binding 1",
+            "rect": {
+              "x": 750,
+              "y": 126.859375,
+              "width": 216.328125,
+              "height": 26
+            },
+            "outline": {
+              "color": "rgb(16, 16, 16)",
+              "width": "1px",
+              "style": "auto"
+            }
+          },
+          "modalFocused": {
+            "tag": "H2",
+            "id": "dialog-title",
+            "disabled": false,
+            "text": "Cairn Hound · binding 1",
+            "rect": {
+              "x": 750,
+              "y": 126.859375,
+              "width": 216.328125,
+              "height": 26
+            },
+            "outline": {
+              "color": "rgb(16, 16, 16)",
+              "width": "1px",
+              "style": "auto"
+            }
+          },
+          "unchanged": true,
+          "open": true
+        },
+        {
+          "name": "dossier return origin",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a10",
+            "id": "",
+            "disabled": false,
+            "text": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+            "rect": {
+              "x": 16,
+              "y": 216,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          },
+          "originBeforeInspect": "a10"
+        },
+        {
+          "name": "card inspect opens",
+          "open": true,
+          "title": "Scour +"
+        },
+        {
+          "name": "card inspect return",
+          "focus": {
+            "tag": "BUTTON",
+            "card": "scour+",
+            "ui": "play-card",
+            "index": "1",
+            "id": "",
+            "disabled": false,
+            "text": "Scour +, 1 energy. Deal 8 damage to an enemy.",
+            "rect": {
+              "x": 385.5,
+              "y": 451,
+              "width": 170,
+              "height": 218
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "name": "disabled cards skipped by regional navigation",
+          "disabled": 0
+        }
+      ]
+    },
+    {
+      "kind": "synthetic-pad-main-host",
+      "provenance": {
+        "version": "0.6.0",
+        "sourceDigest": "d33ce538e38d98eba6ec06f90660252d53d3f3fc0122c7316b229f043489b52c",
+        "hashes": {
+          "THIRD-PARTY.md": "e8562cda5387e7bf560e460d86119ea9ea48e08243fef16fe3da12623b1bcf8d",
+          "desktop/icon.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+          "desktop/main.cjs": "1e54b1170ff4169285ff1757c0e768db2f144f7be919b4911a47394426cb75ae",
+          "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+          "package-lock.json": "973af171d21c940e8f762207c25db9936bab2b749d272f9899ff8b48ab16e0f3",
+          "package.json": "13ca889a9d4ba9bbf13bc12a6aa6b23ecbb221900cada9a36507dc05b1d02573",
+          "public/art/PROVENANCE.json": "5ba821b8b5f6d7b316389e72f7b8afd97304645789f3b0add7719dea6bf85ce5",
+          "public/art/abbey-courtyard.png": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+          "public/art/adversaries-atlas.png": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5",
+          "public/art/companions-atlas.png": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+          "public/art/hound-poses.png": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+          "public/art/hunter-portrait.png": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+          "public/art/pact-seal.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+          "public/art/tool-vignettes.png": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+          "public/art/warleader-poses.png": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b",
+          "scripts/build.mjs": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1",
+          "src/arena.ts": "2e2a5d65a58db91d09ef0e8746a98264fca129520a988ccbb3b5233569f32b79",
+          "src/art.ts": "379e6b60f78cafd20170bcbcc4168a490cd2663388131957ad9766df852430b7",
+          "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+          "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+          "src/input.ts": "4ae4ca1a2dadb41f3a51b8eba35dd41efed5ececb00d912edfbec2e346f9f69d",
+          "src/main.ts": "dba47ae29bca37d099d04fd0d3d2bcb05948d4d7426b5ab7a331448206d46496",
+          "src/style.css": "357345b6276e4a26515cb19964c416056c00efe64215241cdcb50883d1be49a2",
+          "src/tool-art.ts": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3",
+          "src/world-rng.ts": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+          "tsconfig.json": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c",
+          "vite.config.ts": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75"
+        },
+        "node": "v24.19.0"
+      },
+      "errors": [],
+      "checks": [
+        {
+          "name": "RB hand to bindings",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a10",
+            "id": "",
+            "disabled": false,
+            "text": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+            "rect": {
+              "x": 16,
+              "y": 184,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          }
+        },
+        {
+          "name": "held A selects only; focus becomes actual target",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e30",
+            "id": "",
+            "disabled": false,
+            "text": "Ironjaw Reaver · hostile 1. 16 of 16 health, 4 attack. 4 damage → hunter Select as target.",
+            "rect": {
+              "x": 1020,
+              "y": 184,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          },
+          "unchanged": true
+        },
+        {
+          "name": "Dpad next exact target",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "e31",
+            "id": "",
+            "disabled": false,
+            "text": "Gloam Revenant · hostile 2. 15 of 15 health, 5 attack. 5 damage → hunter Select as target.",
+            "rect": {
+              "x": 1020,
+              "y": 224,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          },
+          "preview": "Cairn Hound · binding 1 → hostile 2: 5 health damage",
+          "unchanged": true
+        },
+        {
+          "name": "B cancels to originating binding",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a10",
+            "id": "",
+            "disabled": false,
+            "text": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+            "rect": {
+              "x": 16,
+              "y": 184,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          },
+          "unchanged": true
+        },
+        {
+          "name": "X dossier",
+          "open": true,
+          "title": "Cairn Hound · binding 1"
+        },
+        {
+          "name": "Y cannot end turn inside dossier",
+          "unchanged": true
+        },
+        {
+          "name": "Start pause",
+          "open": true,
+          "title": "Campaign paused",
+          "unchanged": true
+        },
+        {
+          "name": "B closes pause",
+          "focus": {
+            "tag": "BUTTON",
+            "unit": "a10",
+            "id": "",
+            "disabled": false,
+            "text": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+            "rect": {
+              "x": 16,
+              "y": 184,
+              "width": 244,
+              "height": 37
+            },
+            "outline": {
+              "color": "rgb(207, 180, 126)",
+              "width": "3px",
+              "style": "solid"
+            }
+          },
+          "open": false
+        },
+        {
+          "name": "Dpad adjusts focused range",
+          "before": "0",
+          "after": "10",
+          "canonicalUnchanged": true
+        },
+        {
+          "name": "neutral release then intentional second A commits selected attack",
+          "target": "e30",
+          "savedMatchesExpected": true
+        }
+      ]
+    },
+    {
+      "kind": "terminal-held-key-boundary",
+      "motion": true,
+      "provenance": {
+        "version": "0.6.0",
+        "sourceDigest": "d33ce538e38d98eba6ec06f90660252d53d3f3fc0122c7316b229f043489b52c",
+        "hashes": {
+          "THIRD-PARTY.md": "e8562cda5387e7bf560e460d86119ea9ea48e08243fef16fe3da12623b1bcf8d",
+          "desktop/icon.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+          "desktop/main.cjs": "1e54b1170ff4169285ff1757c0e768db2f144f7be919b4911a47394426cb75ae",
+          "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+          "package-lock.json": "973af171d21c940e8f762207c25db9936bab2b749d272f9899ff8b48ab16e0f3",
+          "package.json": "13ca889a9d4ba9bbf13bc12a6aa6b23ecbb221900cada9a36507dc05b1d02573",
+          "public/art/PROVENANCE.json": "5ba821b8b5f6d7b316389e72f7b8afd97304645789f3b0add7719dea6bf85ce5",
+          "public/art/abbey-courtyard.png": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+          "public/art/adversaries-atlas.png": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5",
+          "public/art/companions-atlas.png": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+          "public/art/hound-poses.png": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+          "public/art/hunter-portrait.png": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+          "public/art/pact-seal.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+          "public/art/tool-vignettes.png": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+          "public/art/warleader-poses.png": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b",
+          "scripts/build.mjs": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1",
+          "src/arena.ts": "2e2a5d65a58db91d09ef0e8746a98264fca129520a988ccbb3b5233569f32b79",
+          "src/art.ts": "379e6b60f78cafd20170bcbcc4168a490cd2663388131957ad9766df852430b7",
+          "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+          "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+          "src/input.ts": "4ae4ca1a2dadb41f3a51b8eba35dd41efed5ececb00d912edfbec2e346f9f69d",
+          "src/main.ts": "dba47ae29bca37d099d04fd0d3d2bcb05948d4d7426b5ab7a331448206d46496",
+          "src/style.css": "357345b6276e4a26515cb19964c416056c00efe64215241cdcb50883d1be49a2",
+          "src/tool-art.ts": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3",
+          "src/world-rng.ts": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+          "tsconfig.json": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c",
+          "vite.config.ts": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75"
+        },
+        "node": "v24.19.0"
+      },
+      "errors": [],
+      "checks": [
+        {
+          "name": "held Enter cannot choose reward across phase transition",
+          "canonicalImmediate": true,
+          "canonicalUnchanged": true,
+          "rewardVisible": true,
+          "focus": {
+            "tag": "H1",
+            "id": "",
+            "disabled": false,
+            "text": "Take what keeps you alive.",
+            "rect": {
+              "x": 460.5625,
+              "y": 204.046875,
+              "width": 358.875,
+              "height": 34
+            },
+            "outline": {
+              "color": "rgb(16, 16, 16)",
+              "width": "1px",
+              "style": "auto"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "terminal-held-key-boundary",
+      "motion": false,
+      "provenance": {
+        "version": "0.6.0",
+        "sourceDigest": "d33ce538e38d98eba6ec06f90660252d53d3f3fc0122c7316b229f043489b52c",
+        "hashes": {
+          "THIRD-PARTY.md": "e8562cda5387e7bf560e460d86119ea9ea48e08243fef16fe3da12623b1bcf8d",
+          "desktop/icon.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+          "desktop/main.cjs": "1e54b1170ff4169285ff1757c0e768db2f144f7be919b4911a47394426cb75ae",
+          "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+          "package-lock.json": "973af171d21c940e8f762207c25db9936bab2b749d272f9899ff8b48ab16e0f3",
+          "package.json": "13ca889a9d4ba9bbf13bc12a6aa6b23ecbb221900cada9a36507dc05b1d02573",
+          "public/art/PROVENANCE.json": "5ba821b8b5f6d7b316389e72f7b8afd97304645789f3b0add7719dea6bf85ce5",
+          "public/art/abbey-courtyard.png": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+          "public/art/adversaries-atlas.png": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5",
+          "public/art/companions-atlas.png": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+          "public/art/hound-poses.png": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+          "public/art/hunter-portrait.png": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+          "public/art/pact-seal.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+          "public/art/tool-vignettes.png": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+          "public/art/warleader-poses.png": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b",
+          "scripts/build.mjs": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1",
+          "src/arena.ts": "2e2a5d65a58db91d09ef0e8746a98264fca129520a988ccbb3b5233569f32b79",
+          "src/art.ts": "379e6b60f78cafd20170bcbcc4168a490cd2663388131957ad9766df852430b7",
+          "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+          "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+          "src/input.ts": "4ae4ca1a2dadb41f3a51b8eba35dd41efed5ececb00d912edfbec2e346f9f69d",
+          "src/main.ts": "dba47ae29bca37d099d04fd0d3d2bcb05948d4d7426b5ab7a331448206d46496",
+          "src/style.css": "357345b6276e4a26515cb19964c416056c00efe64215241cdcb50883d1be49a2",
+          "src/tool-art.ts": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3",
+          "src/world-rng.ts": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+          "tsconfig.json": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c",
+          "vite.config.ts": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75"
+        },
+        "node": "v24.19.0"
+      },
+      "errors": [],
+      "checks": [
+        {
+          "name": "held Enter cannot choose reward across phase transition",
+          "canonicalImmediate": true,
+          "canonicalUnchanged": true,
+          "rewardVisible": true,
+          "focus": {
+            "tag": "H1",
+            "id": "",
+            "disabled": false,
+            "text": "Take what keeps you alive.",
+            "rect": {
+              "x": 460.5625,
+              "y": 204.046875,
+              "width": 358.875,
+              "height": 34
+            },
+            "outline": {
+              "color": "rgb(16, 16, 16)",
+              "width": "1px",
+              "style": "auto"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

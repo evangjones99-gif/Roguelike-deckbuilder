@@ -1,0 +1,56 @@
+METHODRECORDS [{'originalPath': '/workspace/scratch/wording-grounded-checkpoint-grant-root-r1.py', 'destination': 'reviews/opening-cue-and-grounded-trial-2026-10-02/ROOT-ARCHIVE-LAUNCHER.py', 'sha256': '020d14bb81160254f9bd076156b6558582a676fda9f0189f3cb3eaf515fc3885', 'bytes': 1950}, {'originalPath': '/workspace/scratch/wording-development-source-selection-grant-root-r1.py', 'destination': 'reviews/opening-cue-and-grounded-trial-2026-10-02/ROOT-SELECTION-LAUNCHER.py', 'sha256': '14c761ac7e36b54eddeaf652e982730c3f970df962b67f5ff70a1c4cd5bec514', 'bytes': 4743}, {'originalPath': '/workspace/scratch/wording-grounded-checkpoint-publication-root-r1.py', 'destination': 'reviews/opening-cue-and-grounded-trial-2026-10-02/ROOT-PUBLICATION-SOURCE.py', 'sha256': '1a4c62c512d7c20f8d0f81e7da2611db6d11417fd0ee90cf74702e64605d5e8f', 'bytes': 4722}]
+BEFORE.json {
+  "grantSHA256": "3897e72488b9edcb58386bcc930a196632abef25e95949aba0d2389e4113b1d2",
+  "RootConfirmedCleanPushedHead": "d144368d04b5af55abc7c81927417eb88ee47e16",
+  "currentGitReadByHelper": false,
+  "oldSourceDigest": "c4fa7d2b3201321ec84cc6fc3503f1d7a12feea2901deb4ce7551a665f83387a",
+  "oldDistDigest": "8bbaea72d9cb3b9757a2b8cb10ead190495ef61e6496e1ace0f942f635e00cf7",
+  "candidateSourceDigest": "64c2a14ada2b24796535f9bb71d8a6acc534685365bcf4f5665b21bf18595353",
+  "candidateBuiltOutputDigest": "82e049c9fee16e4a56d80520a0feb19c54546dc86f83953f27d703d53fec7042",
+  "mainMetadata": {
+    "st_dev": 27,
+    "st_ino": 562923,
+    "st_mode": 33152,
+    "st_uid": 1000,
+    "st_gid": 1000,
+    "st_nlink": 1,
+    "st_size": 116568,
+    "st_mtime_ns": 1790922988302878893,
+    "st_ctime_ns": 1790922988302878893,
+    "st_blocks": 232,
+    "xattrs": {}
+  },
+  "sourcePaths": [
+    "src/main.ts",
+    "src/opening-turn-payoff.css"
+  ],
+  "bothSourceFilesAtomicTogether": false
+}
+
+JOURNAL.jsonl {"event":"BEFORE_VALIDATED","utcNs":1790935567912476112,"extra":null}
+{"event":"OLD_LITERAL_BACKUP_DURABLE","utcNs":1790935567914467967,"extra":null}
+{"event":"FRESH_MAIN_TEMP_DURABLE","utcNs":1790935567916000364,"extra":{"path":"/workspace/Roguelike-deckbuilder/src/.wording-source-main-25efe374e626450f8e3579f3f27a2784.ts","sha256":"efecdc20b01faac49a75640268d169409b010dae166f84a135dfe2449bef99bc"}}
+{"event":"NEW_CSS_EXCLUSIVELY_CREATED_DURABLE","utcNs":1790935567919484737,"extra":null}
+{"event":"MAIN_ATOMICALLY_REPLACED_DURABLE","utcNs":1790935567920508836,"extra":null}
+{"event":"FULL89_SOURCE_AND_OLD56_DIST_POST_VERIFIED","utcNs":1790935567988854258,"extra":null}
+
+README_CURRENT lt stay readable until you deliberately preview another action.
+
+Cairn Hounds punish exposed enemies. Fen Stalkers recover through damaging commands. Briar Colossi protect the hunter. Ash Widows strengthen targeted damage tools. Build around these roles, inspect the final quarry's traits, and select upgrades deliberately. Armored retaliation, delayed reinforcements and dragon breath require different answers.
+
+Rewards can be skipped. Rest or choose a specific deck entry to train, buy or remove cards, and judge shrine bargains before accepting them. Saves and settings stay on the device; no telemetry is sent. The optional Field report downloads feedback locally. New campaigns use schema3/engineKind2; existing schema2 campaigns continue their original kind1 rules. Both use the historical run storage key. Known repeated-Silence damage is repaired only after the original text is backed up.
+
+## Production and evidence
+
+See [production plan](docs/PRODUCTION.md), [AAA review standard](docs/AAA-CRAFT-REVIEW.md), [current rules/save contract](docs/ENGINE-v0.5.md), [project chat context](docs/CHAT-CONTEXT.md), [independent reviews](reviews), and [continuation priorities](docs/CONTINUATION.md).
+
+Art is original AI-generated illustration with [provenance](public/art/PROVENANCE.json). The arena uses animated 2.5D cutouts, not rigged 3D characters. Historical v0.1 remains preserved under its original Lanternbound title.
+
+## Preserved releases
+
+Commit source and evidence, set a fresh version, build matching desktop artifacts, then `npm run release -- VERSION`. Existing release directories cause an error. Each milestone preserves source, offline web/desktop candidates, SHA-256 hashes, source commit and reviews. Failed reviews block promotion to a stable/commercial build. The owner now permits selective retirement of older artifacts when a thorough independent review prefers a verified successor and the producer judges removal wise. Record coverage and any loss of container encodings; keep unique inputs, datasets, historical findings/manifests and useful rollback baselines. Retained versions are never silently overwritten.
+
+Project-authored source remains unlicensed pending the owner's distribution choice. [Attribution](THIRD-PARTY.md) records runtime dependencies and asset limitations. Steam publication requires a verified Steamworks account/AppID, depot and install tests, rights/disclosure review, and platform verification. No Steam upload or public launch has occurred.
+
+README_ROWS []
+ACTUAL_RECORDCOUNT 120

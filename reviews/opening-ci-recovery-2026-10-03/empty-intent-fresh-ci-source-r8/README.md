@@ -1,0 +1,21 @@
+R8 SOURCE-only preservation successor
+
+R7's pre-seal projected439487B exceeded its393216B SOURCE allowance; no frozen manifest/seal was written. Its complete raw437345B family including additive failed-budget receipt remains unchanged. Root authorized this distinct R8 SOURCE640KiB to preserve the original197053B full R6 inverse and all diagnostics. No encoding was moved, optimized, removed or replaced to fit a cap. package_source.py remains the failed R7 generator; seal_r8.py produces this successor.
+
+Runtime runner/workflow/metadata and25+34+17 existing source case proofs are byte-identical to R7, reused without fixture or functional-test churn. The narrowly authorized native file-count changes100→4096; memory/disk/log/time/lifecycle and source/output count limits are unchanged. No R7 retroactive pass or actual R8 CI/build/test acceptance follows.
+
+R7-PARENT-INVENTORY binds every original file. R8-INVERSE reconstructs each R7 body using exact unchanged current bodies or lossless old changed-bookkeeping bytes, including failed receipt. The original raw INVERSE-FULL-R6.json.gz and R6/R7 forward/inverse patches remain present unchanged, preserving all R6 and R5 failure ancestry. Read-only checks confirm complete source restoration and grammar. Root is sole remote writer; independent R8 review and separately authorized actual execution remain pending.
+
+The retained R7 method and scope description follows:
+
+R7 SOURCE-only selected native inventory repair
+
+Both retained actual runs completed npm ci with exit0 and observed process closure, then complete provisioning failed `inventory count cap` after dependency-observed06 for @typescript/typescript-linux-x647.0.2. Build/tests were skipped; outputs remain unknown. Actual total native file count/names/syscall site were not captured. The old100-file native callsite is source/order inference. Candidate's closure separately records one npm-cache lstat disappearance tolerated by R6; that actual sampling observation does not identify the older R4 failure site.
+
+R7 changes only provision_audit's native inventory callsite and adds native_inventory. The finite4096-file allowance applies only to exact selected @typescript/typescript-linux-x64, @rolldown/binding-linux-x64-gnu and @esbuild/linux-x64 at their owned stage paths. General inventory is unchanged. Canonical paths, regular-file/single-link/per-file128MiB hashes, version/original+installed lock SRI, package/entry/.bin containment, ELF64 little-endian x86_64/nonempty-native checks remain. Walk permission/missing/other errors fail closed. Diagnostic native-inventory-NN.json saves count observed, successfully hashed bytes, first16 names (prefix160+full-name hash), completion and bounded fault before refusal; cap4097 fails before hashing that entry. It is diagnostic bytes evidence, never executable usability or full dependency Merkle.
+
+Memory/disk/log/proof/deadline/runtime caps, original package/lock/build and8 test bodies/argv, fixed acquisition/source/support maps, source membership, empty npm configs and official action pins are unchanged. Existing proof budget may still refuse additional diagnostics; no cap is raised. Source384KiB is a separate Root allowance.
+
+25 synthetic native cases cover old100/101 and new100/101/4096/4097, selected-path scope, bounded diagnostics and errors; inherited34 source guards and17 shim cases pass. One invalid synthetic repeated-slash expectation was preserved with exact failed harness gzip and receipt, then corrected to a meaningful literal-backslash filename case. Grammar binds all Python ASTs,9 bash-n run strings, embedded Python and exact original build node --check. No candidate main/phase/npm/network/archive/build/browser ran.
+
+FORWARD/INVERSE.json.gz reconstruct full R6/R7 runner/workflow exactly. INVERSE-FULL-R6.json.gz preserves every regular file of the entire304597B R6 family including its inverse ancestry and failed R5 seals. PROVENANCE also binds original R5 failure/reproduction and independent R6 gate externally. All frozen predecessors and actual failures remain untouched. Root is sole remote writer. Independent R7 SOURCE review and actual CI remain pending; candidate cue993aa stays unselected, with no art/default/gameplay/fun claim.

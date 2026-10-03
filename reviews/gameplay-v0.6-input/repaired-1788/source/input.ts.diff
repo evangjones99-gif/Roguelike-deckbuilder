@@ -1,0 +1,61 @@
+--- d33/input.ts
++++ 1788/input.ts
+@@ -109,6 +109,9 @@
+ export function createInputAdapter(host: InputHost, options: InputOptions = {}): InputAdapter {
+   const doc = options.document || document, win = options.window || window;
+   const decoder = new PadDecoder();
++  // Seed focus once; lifecycle events govern thereafter. Never poll unstable hasFocus values.
++  let windowFocused = true;
++  try { windowFocused = doc.hasFocus(); } catch { /* Missing focus API retains event-based fallback. */ }
+   let disposed = false, mode: InputMode | null = null;
+   let frame: number | null = null, idleTimer: number | null = null;
+   const remembered = new Map<string, string>();
+@@ -218,7 +221,7 @@
+   }
+   function pollOnce(now: number): void {
+     if (disposed) return;
+-    if (doc.hidden) { decoder.reset(); return; }
++    if (doc.hidden || !windowFocused) { decoder.reset(); return; }
+     const ctx = context(); if (!ctx) { decoder.reset(); return; }
+     let pad: PadState | null = null;
+     try {
+@@ -233,15 +236,17 @@
+     frame=null;idleTimer=null;
+   }
+   function schedule() {
+-    if (disposed || options.autoPoll === false || doc.hidden || frame !== null || idleTimer !== null) return;
++    if (disposed || options.autoPoll === false || doc.hidden || !windowFocused || frame !== null || idleTimer !== null) return;
+     frame=win.requestAnimationFrame(now=>{
+       frame=null;pollOnce(now);
+-      if (disposed || doc.hidden) return;
++      if (disposed || doc.hidden || !windowFocused) return;
+       let hasPad=false;try{const pads=readPads();hasPad=Array.from(pads).slice(0,8).some(pad=>pad?.connected&&pad.mapping==='standard');}catch{ /* Retry slowly; retain keyboard. */ }
+       if(hasPad)schedule();else idleTimer=win.setTimeout(()=>{idleTimer=null;schedule();},500);
+     });
+   }
+   function onVisibility() { decoder.reset();cancelSchedule();if(!doc.hidden)schedule(); }
++  function onWindowBlur() { windowFocused = false; decoder.reset();cancelSchedule(); }
++  function onWindowFocus() { windowFocused = true; decoder.reset();cancelSchedule();schedule(); }
+   function onDeviceChange() { decoder.reset();cancelSchedule();schedule(); }
+   function onPointer() { markMode('pointer'); }
+   function onFocus() {
+@@ -251,7 +256,7 @@
+     if(region)remembered.set(region.key,focusKey(element));
+   }
+   function onKey(event: KeyboardEvent) {
+-    if (disposed) return;
++    if (disposed || event.isComposing) return;
+     if (event.isTrusted) markMode('keyboard');
+     if (event.ctrlKey || event.metaKey || event.altKey) return;
+     const element = event.target instanceof HTMLElement ? event.target : null;
+@@ -265,7 +270,8 @@
+     if(arrows[key] && element instanceof HTMLButtonElement && regions(ctx).some(region=>region.nodes.includes(element))) {event.preventDefault();move(ctx,arrows[key],false);}
+   }
+   doc.addEventListener('focusin',onFocus);doc.addEventListener('keydown',onKey);doc.addEventListener('pointerdown',onPointer);doc.addEventListener('visibilitychange',onVisibility);
++  win.addEventListener('blur',onWindowBlur);win.addEventListener('focus',onWindowFocus);
+   win.addEventListener('gamepadconnected',onDeviceChange);win.addEventListener('gamepaddisconnected',onDeviceChange);
+   schedule();
+-  return {pollOnce,dispose(){if(disposed)return;disposed=true;decoder.reset();cancelSchedule();remembered.clear();doc.removeEventListener('focusin',onFocus);doc.removeEventListener('keydown',onKey);doc.removeEventListener('pointerdown',onPointer);doc.removeEventListener('visibilitychange',onVisibility);win.removeEventListener('gamepadconnected',onDeviceChange);win.removeEventListener('gamepaddisconnected',onDeviceChange);}};
+-}
++  return {pollOnce,dispose(){if(disposed)return;disposed=true;decoder.reset();cancelSchedule();remembered.clear();doc.removeEventListener('focusin',onFocus);doc.removeEventListener('keydown',onKey);doc.removeEventListener('pointerdown',onPointer);doc.removeEventListener('visibilitychange',onVisibility);win.removeEventListener('blur',onWindowBlur);win.removeEventListener('focus',onWindowFocus);win.removeEventListener('gamepadconnected',onDeviceChange);win.removeEventListener('gamepaddisconnected',onDeviceChange);}};
++}

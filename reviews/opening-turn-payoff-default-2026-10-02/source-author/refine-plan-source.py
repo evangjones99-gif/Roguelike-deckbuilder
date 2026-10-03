@@ -1,0 +1,6 @@
+import hashlib,json,pathlib,resource
+P=pathlib.Path(__file__).parent;path=P/'author-plan.py';old=path.read_bytes();before="'exact40Controls':controls,";after="'exact40Controls':{'count':len(controls),'manifests':[{'path':str(p),'sha256':h,'bodies':len(json.loads(p.read_bytes())['bodies'])} for p,h in controlManifests],'bodyIdentityAuthority':'All40 original path/fullSHA identities remain in logical rows; complete original manifests and before/after audits retained.'},";text=old.decode();assert text.count(before)==1;new=text.replace(before,after).encode();assert new.decode().replace(after,before).encode()==old
+history={'failedGuard':'GUARD-PLAN-R1','refusal':'125313 logical bytes plus8192 reserve exceeded128KiB before plan writes','originalAuthorSHA256':hashlib.sha256(old).hexdigest(),'newAuthorSHA256':hashlib.sha256(new).hexdigest(),'forwardLiteral':before,'inverseLiteral':after,'completeOriginalAuthorByteInverseVerified':True,'scope':'Remove duplicate40-control table by exact manifest/row reference; no body/identity loss, no cap/guard relaxation'}
+(P/'AUTHOR-REFINEMENT-HISTORY.json').write_text(json.dumps(history,separators=(',',':'))+'\n');path.write_bytes(new)
+namespace={'__file__':str(path),'__name__':'offline_source_author'};exec(compile(new,str(path),'exec'),namespace)
+assert resource.getrusage(resource.RUSAGE_SELF).ru_maxrss<=24576

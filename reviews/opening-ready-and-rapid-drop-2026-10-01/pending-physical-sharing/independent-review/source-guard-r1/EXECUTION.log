@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/frozen128-canonical-media-sharing-independent-r1/verify.py", line 65, in <module>
+    assert len(aliases)==ai['nlink'],(str(a),ai['nlink'],aliases)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('/workspace/Roguelike-deckbuilder/public/art/abbey-courtyard.png', 2, ['/workspace/Roguelike-deckbuilder/public/art/abbey-courtyard.png'])

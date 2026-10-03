@@ -1,0 +1,110 @@
+{
+  "status": "SEALED_SOURCE_PROPOSAL_ONLY_NOT_RUNTIME_AUTHORIZATION",
+  "files": {
+    "ADMISSION.json": {
+      "bytes": 1867,
+      "sha256": "60e2f25a273df21c329305b53fd522b69c92f61d871176175a6041e8bc5837e2"
+    },
+    "EXECUTION.log": {
+      "bytes": 7689,
+      "sha256": "d585b59fa258d56b48682e62aa028ac928f227e583c227b44a2d76ab16b5bc42"
+    },
+    "METHOD-FAILURES.md": {
+      "bytes": 1260,
+      "sha256": "01340b44930c941b5b75e51cb767f276f95cbc02e768d355f49ae7dcc7403c7f"
+    },
+    "RATIONALE.md": {
+      "bytes": 2972,
+      "sha256": "d0e80863ca7b0a7d3359643c47567e3267ead3bd8eb86cb5d70af89db5408bf4"
+    },
+    "RESULT.json": {
+      "bytes": 853,
+      "sha256": "a37097f93137b90c790fd55ca6ca656971b7f36edbd8bc006a5cfc5c0b014804"
+    },
+    "SOURCE-CLOSURE.json": {
+      "bytes": 1818,
+      "sha256": "00660f388589302a000912a7df5b3e1c0f0fa7c102247ac19516271b15b6cd93"
+    },
+    "SOURCE-PROPOSAL.json": {
+      "bytes": 1497,
+      "sha256": "61610d152ab1d407a7704b55dfed75f6751b988bb1933136df01368c43ea0bce"
+    },
+    "SOURCE.diff": {
+      "bytes": 4494,
+      "sha256": "8b59911e2472be07177506fb79754950b5752ab01b29d70382abc1e2d10500db"
+    },
+    "author-guard-r1/ADMISSION.json": {
+      "bytes": 9598,
+      "sha256": "12701cfd4c36c98c74e6059f21dc86c73dbb9a5fcb36ed60bc604d0a670a66be"
+    },
+    "author-guard-r1/EXECUTION.log": {
+      "bytes": 287,
+      "sha256": "c387fe5ff7aa9e543a5440037dcade0606ed7a6985d26d71406e51d5343d997e"
+    },
+    "author-guard-r1/RESULT.json": {
+      "bytes": 858,
+      "sha256": "74013731459f1bcb1f5f9a0ac7d0dfe8df23d124d2979ace30f05d3e1de20444"
+    },
+    "baseline/src/main.ts": {
+      "bytes": 109879,
+      "sha256": "276999ac8c8feeb148d326b5adcfca7d175db99c743e5722501a34256fd54b9a"
+    },
+    "baseline/src/tactile-hand.ts": {
+      "bytes": 21937,
+      "sha256": "8335b61df0ddec91b413bcf5c109b7741e589bdc8ab63a7346602654851a7bb5"
+    },
+    "candidate/src/main.ts": {
+      "bytes": 111530,
+      "sha256": "caaf5095f12a402cae61161dd3f6cb1a7440a56d3d130072bd0f43242f569f26"
+    },
+    "candidate/src/tactile-hand.ts": {
+      "bytes": 21973,
+      "sha256": "73454b1387bda8177563841014ed12706f1da069ed392dd9d6476c0a64956e1b"
+    },
+    "inspection-r2/ADMISSION.json": {
+      "bytes": 1202,
+      "sha256": "984d63b9acd261062a20e7be085095d4b8a3aee6aac4931c1185a013f39f3c86"
+    },
+    "inspection-r2/EXECUTION.log": {
+      "bytes": 34432,
+      "sha256": "351e63d7bfe0ea4ad3b7c75bdca63bc7856f98729f6cf09323eab022e3f20356"
+    },
+    "inspection-r2/RESULT.json": {
+      "bytes": 853,
+      "sha256": "bbeb3290afa0f8a3ed120cb4d5d3b3ec6e42ad48b6dce26850b623433299445d"
+    },
+    "inspection-r3/ADMISSION.json": {
+      "bytes": 1271,
+      "sha256": "d1e5d5cfc2520bd6c1a391f788b4e0286f586c9d8ea2010d652ca90a423ecb9f"
+    },
+    "inspection-r3/EXECUTION.log": {
+      "bytes": 20500,
+      "sha256": "19e6ff0bcc5a59ea5acfa9fa21627a49707ae5f834a94cbd9d40757dd615f8f7"
+    },
+    "inspection-r3/RESULT.json": {
+      "bytes": 1041,
+      "sha256": "b708001865612ec5f1364b1b233851de392acbbc70244cde030b2100718992de"
+    },
+    "verification-guard-r1/ADMISSION.json": {
+      "bytes": 2517,
+      "sha256": "7b1d9eb087111ea5ea3466ce92b123ced34e1ebefb5c49084a162c5776937a90"
+    },
+    "verification-guard-r1/EXECUTION.log": {
+      "bytes": 372,
+      "sha256": "b85c6c28a7bfa4619e8648760a674299e2c0076ad20034778f1e8d63142903bc"
+    },
+    "verification-guard-r1/RESULT.json": {
+      "bytes": 853,
+      "sha256": "9963fc0ba602c634d983715be370726efe414e8a799d1cca02c0fae44e73d912"
+    }
+  },
+  "bodyBytes": 361553,
+  "ownedGuardCount": 5,
+  "allOwnedGuardsClosedExit0": true,
+  "sealerProcStatus": {
+    "VmHWM": "9856 kB",
+    "VmRSS": "9756 kB"
+  },
+  "sealerActualOwnPeakRssBytes": 10092544,
+  "sealerInheritedRusagePeakBytes": 202653696
+}

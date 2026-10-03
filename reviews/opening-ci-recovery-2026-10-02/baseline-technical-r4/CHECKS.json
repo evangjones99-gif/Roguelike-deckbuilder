@@ -1,0 +1,475 @@
+{
+  "verdict": "PASS_SOURCE_ONLY",
+  "sourceSealSHA256": "51f4e42e9ca6d846ad6edd93cb0445936becdf07a7230204c9b9e4ebb71a1080",
+  "manifestSHA256": "1c8b2dea0a033a26abf203598f321b32bb61a79959a7da94bdbef4f9378dad70",
+  "sourceInclusiveBytes": 230709,
+  "sourceCap": 262144,
+  "methodSHA256": "1241c9f9d3dce4248e566df2facd7b0218a08684d0b292647eb90c631d1a5ab7",
+  "workflowSHA256": "26da96127464740600fe3d76bdde2b2b3525a888a2c9e4a0e5d304cf0e61f2ff",
+  "sourceFiles": {
+    "README.md": [
+      "1808c26f890e84ccbf7ff5fda6c817fd06e841bb981c4a964bb5a271b449ea5c",
+      2135
+    ],
+    "SOURCE-SEAL.json": [
+      "51f4e42e9ca6d846ad6edd93cb0445936becdf07a7230204c9b9e4ebb71a1080",
+      240
+    ],
+    "MANIFEST.json": [
+      "1c8b2dea0a033a26abf203598f321b32bb61a79959a7da94bdbef4f9378dad70",
+      2072
+    ],
+    "SOURCE-CHECKS.json": [
+      "018deda64749a31995481a2a21a57024dab4960264c8a6baf74bae8a90258d90",
+      2883
+    ],
+    "PROVENANCE.json": [
+      "100af00f8fb331e1e1f347ab93027d9d397e577410e316aa696310f60ee4aca8",
+      1298
+    ],
+    "SOURCE-CHECKS-PRE-EXTRAS-GUARD.json": [
+      "be5dd10a995dd608e23e3e50f911c3bc674680f2d2f5698cdef2622d9ed4c429",
+      2883
+    ],
+    "source_checks.py": [
+      "6bf5efb07f398cfd5786e447c4680f71de248edef45fc813054999895716c7b5",
+      7399
+    ],
+    "INVERSE.json": [
+      "3e46974d8a6d670afd4ac0de819e2d716d97460a44319dbba5fecec783cc6f9b",
+      19580
+    ],
+    "ORIGINAL-BUILD-GRAMMAR.mjs": [
+      "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1",
+      1825
+    ],
+    "METADATA.json": [
+      "b2f13179f14ccebecbc4452fa4e6b3cc88623dc629ff0009c1118401123ca46d",
+      37773
+    ],
+    "FORWARD.json": [
+      "acb2cf0f2d62a16b5bb86bb3d1b41f39b86c5081bdeebdd10946a04effe70619",
+      19579
+    ],
+    "SHARED-SHIM-CHECKS-PRE-BIN-CASES.json": [
+      "3250dd8be362dd738b4fc50b568cfec91e5f27c7cf599e30ac553ed68394ca6f",
+      373
+    ],
+    "runner.py": [
+      "1241c9f9d3dce4248e566df2facd7b0218a08684d0b292647eb90c631d1a5ab7",
+      53610
+    ],
+    "PRIMARY-ACTIONS.json": [
+      "ff6d3f3c75d23d03f57537193b7b140ea79cbde362cd284d7627eed5578113f4",
+      639
+    ],
+    "SHARED-SHIM-CHECKS.json": [
+      "19b7554d934f58ba196848c4f3e15a9a627426df7a2e07f1eb8bf945c132cb46",
+      819
+    ],
+    "SOURCE-ADMISSION.json": [
+      "5c01ddf93521d391654ad5085d2b2465bce7de70059939870e1946b055da7277",
+      204
+    ],
+    "shared_shim_checks.py": [
+      "f2609a3793ed0aac6be2426c8c422b41597e6873237ab98e6b00f7cfb955f2da",
+      6525
+    ],
+    "rebuild-opening-baseline.yml": [
+      "26da96127464740600fe3d76bdde2b2b3525a888a2c9e4a0e5d304cf0e61f2ff",
+      69965
+    ],
+    "FAILED-BIN-CASE-HARNESS-1.json": [
+      "4b55f31c55e15af976531713b3d374821c44a793bdb523453c35f1def6ddf948",
+      506
+    ],
+    "SOURCE-GRAMMAR-FINAL.json": [
+      "7eaafd3baba530334c1ba60f79f404f2c7a8383f4e1d2cbe5a25c0e707c64b18",
+      401
+    ]
+  },
+  "parentR3SealAndAcceptedGateVerified": true,
+  "onlyRunnerChangedFunctions": [
+    "provision_audit"
+  ],
+  "onlyAddedFunctions": [
+    "canonical_bin_map",
+    "observed_bin"
+  ],
+  "allOtherRunnerASTExact": true,
+  "allOtherWorkflowFieldsAndRunBlocksByteExact": true,
+  "completeInverseForwardRoundtrips": [
+    {
+      "direction": "INVERSE.json",
+      "file": "runner.py"
+    },
+    {
+      "direction": "INVERSE.json",
+      "file": "rebuild-opening-baseline.yml"
+    },
+    {
+      "direction": "INVERSE.json",
+      "file": "shared_shim_checks.py"
+    },
+    {
+      "direction": "FORWARD.json",
+      "file": "runner.py"
+    },
+    {
+      "direction": "FORWARD.json",
+      "file": "rebuild-opening-baseline.yml"
+    },
+    {
+      "direction": "FORWARD.json",
+      "file": "shared_shim_checks.py"
+    }
+  ],
+  "failedAuthorSyntheticHarnessExactInverseVerified": true,
+  "pureAuthorCasesReexecutedWithoutSourceWrites": [
+    {
+      "name": "source_checks.py",
+      "methodSHA256": "1241c9f9d3dce4248e566df2facd7b0218a08684d0b292647eb90c631d1a5ab7",
+      "caseCount": 34,
+      "cases": [
+        {
+          "name": "fixed_metadata_literal_exact",
+          "pass": true
+        },
+        {
+          "name": "path_accept_src/main.ts",
+          "pass": true
+        },
+        {
+          "name": "path_accept_tests/fixtures/v0.4/content.ts",
+          "pass": true
+        },
+        {
+          "name": "path_reject_'.'",
+          "pass": true
+        },
+        {
+          "name": "path_reject_''",
+          "pass": true
+        },
+        {
+          "name": "path_reject_'../x'",
+          "pass": true
+        },
+        {
+          "name": "path_reject_'/x'",
+          "pass": true
+        },
+        {
+          "name": "path_reject_'a/../b'",
+          "pass": true
+        },
+        {
+          "name": "path_reject_'a//b'",
+          "pass": true
+        },
+        {
+          "name": "path_reject_'a/./b'",
+          "pass": true
+        },
+        {
+          "name": "path_reject_'a\\\\b'",
+          "pass": true
+        },
+        {
+          "name": "path_reject_'x\\x00y'",
+          "pass": true
+        },
+        {
+          "name": "duplicate_json_key",
+          "pass": true
+        },
+        {
+          "name": "regular_hash_member",
+          "pass": true
+        },
+        {
+          "name": "ce0f_index_witness_header",
+          "pass": true
+        },
+        {
+          "name": "archive_reject_traversal",
+          "pass": true
+        },
+        {
+          "name": "archive_reject_symlink",
+          "pass": true
+        },
+        {
+          "name": "archive_reject_hardlink",
+          "pass": true
+        },
+        {
+          "name": "archive_reject_device",
+          "pass": true
+        },
+        {
+          "name": "archive_reject_unknown",
+          "pass": true
+        },
+        {
+          "name": "archive_reject_too_large",
+          "pass": true
+        },
+        {
+          "name": "archive_reject_sparse",
+          "pass": true
+        },
+        {
+          "name": "archive_reject_pax",
+          "pass": true
+        },
+        {
+          "name": "index_wrong_container",
+          "pass": true
+        },
+        {
+          "name": "index_wrong_size",
+          "pass": true
+        },
+        {
+          "name": "stream_exact_bound",
+          "pass": true
+        },
+        {
+          "name": "stream_overflow",
+          "pass": true
+        },
+        {
+          "name": "stream_unbounded_read",
+          "pass": true
+        },
+        {
+          "name": "credential_free_child_environment",
+          "pass": true
+        },
+        {
+          "name": "host_finite_cgroup_min_headroom",
+          "pass": true
+        },
+        {
+          "name": "workflow_embedded_source_exact",
+          "pass": true
+        },
+        {
+          "name": "all_shell_grammar_and_upload_pins",
+          "pass": true
+        },
+        {
+          "name": "setup_token_blank_and_only_acquisition_credential",
+          "pass": true
+        },
+        {
+          "name": "original_build_JS_grammar_only",
+          "pass": true
+        }
+      ],
+      "sourceReceiptWriterRemoved": true
+    },
+    {
+      "name": "shared_shim_checks.py",
+      "methodSHA256": "1241c9f9d3dce4248e566df2facd7b0218a08684d0b292647eb90c631d1a5ab7",
+      "caseCount": 17,
+      "cases": [
+        "shared_unused_playwright_shim_not_admitted",
+        "type_only_metadata_and_entry_hash_retained",
+        "three_relevant_executable_shims_checked",
+        "unowned_tsx_resolution_rejected",
+        "leading_dot_path_equivalence",
+        "single_package_named_string_bin",
+        "safe_unexecuted_extra_command",
+        "changed_required_path_rejected",
+        "missing_required_command_rejected",
+        "traversal_required_path_rejected",
+        "absolute_required_path_rejected",
+        "internal_parent_segment_rejected",
+        "unsafe_extra_command_path_rejected",
+        "extra_node_shadow_rejected",
+        "unsupported_bin_shape_rejected",
+        "oversized_command_set_rejected",
+        "oversized_diagnostic_bounded_and_explicit"
+      ],
+      "sourceReceiptWriterRemoved": true
+    }
+  ],
+  "independentAdditionalCases": [
+    "reject_extra_node_shadow_before_admission",
+    "reject_extra_npm_shadow_before_admission",
+    "reject_extra_tsc_shadow_before_admission",
+    "reject_extra_vite_shadow_before_admission",
+    "reject_extra_tsx_shadow_before_admission",
+    "reject_{'': 'bin/vite.js'}",
+    "reject_{'bad/name': 'bin/vite.js'}",
+    "reject_{'vite': 'bin//vite.js'}",
+    "reject_{'vite': './'}",
+    "reject_{'vite': 'C:\\\\outside'}",
+    "reject_{'vite': 'bin/./vite.js'}",
+    "reject_{'vite': 'bin/vite.js', 'unused': '/outside'}",
+    "leading_dot_components_only_normalize",
+    "oversized_diagnostic_retains_qualified_hash_prefix"
+  ],
+  "actualFailure": {
+    "run": 37055795326,
+    "job": 111000067291,
+    "artifact": 11248582221,
+    "zipSHA256": "5fc4c60c21b4b7c6b5e321c14a595bf8f4ce5ebdf12ae3b2729d3d5822161db2",
+    "members": [
+      {
+        "path": "assembled-membership.json",
+        "sha256": "3e61dc0ad9825d7ace85decc9bdb1d76bf94385fc386a5c82371fc33c51e6d71",
+        "bytes": 202
+      },
+      {
+        "path": "acquisition-progress.json",
+        "sha256": "e48d26d262ec1382b6eeae91897b558978f4ed978eab8a3cded1de63e1da3489",
+        "bytes": 8022
+      },
+      {
+        "path": "assembly.json",
+        "sha256": "17609685239d4fc078990df5e0262755b06e4558c05e4b10a051e42144541967",
+        "bytes": 401
+      },
+      {
+        "path": "diagnostic-index.json",
+        "sha256": "ad5d1e521eb5957a615f9f8ca63eff518f95cbe2ef75160c97ca8e2e8c3820c6",
+        "bytes": 2144
+      },
+      {
+        "path": "initialization.json",
+        "sha256": "ccf779d40eba1410af91301ba7b9aa16207b0832a0aec9e5a5b0f628f2cff86a",
+        "bytes": 456
+      },
+      {
+        "path": "install-closure.json",
+        "sha256": "cbc1b1f2cb4f1aa55b7f831ea9075866d8b5e329c4ca09cb784c748d56fc4061",
+        "bytes": 1258
+      },
+      {
+        "path": "install-failed-post-membership.json",
+        "sha256": "3e61dc0ad9825d7ace85decc9bdb1d76bf94385fc386a5c82371fc33c51e6d71",
+        "bytes": 202
+      },
+      {
+        "path": "install-failure.json",
+        "sha256": "e0b182f2cfe8e146b1887b22572cf28c3f03407f9c538c443074a613d4428a8e",
+        "bytes": 110
+      },
+      {
+        "path": "install-post-membership.json",
+        "sha256": "3e61dc0ad9825d7ace85decc9bdb1d76bf94385fc386a5c82371fc33c51e6d71",
+        "bytes": 202
+      },
+      {
+        "path": "install-pre-membership.json",
+        "sha256": "3e61dc0ad9825d7ace85decc9bdb1d76bf94385fc386a5c82371fc33c51e6d71",
+        "bytes": 202
+      },
+      {
+        "path": "install.log",
+        "sha256": "092105bbd5dcdd79d37b474691b361577415ae4283962ab01563209b0853c7fe",
+        "bytes": 759
+      },
+      {
+        "path": "node-version-closure.json",
+        "sha256": "3e97552cdcb99b7624c686e9cc0c0dc2a8d28a8863d63d5597f789a20b504cd2",
+        "bytes": 1219
+      },
+      {
+        "path": "node-version.log",
+        "sha256": "b7677d3ec37ee1897ba07dc2cfe8292fe421c9ac93396cca5bbece486d1a2a41",
+        "bytes": 9
+      },
+      {
+        "path": "npm-debug/2026-10-02T19_42_41_231Z-debug-0.log",
+        "sha256": "5402f64b009419f2e120b9e8562e3fdf00801f33dac2fbbb08820dfcbb7a1879",
+        "bytes": 127175
+      },
+      {
+        "path": "npm-version-closure.json",
+        "sha256": "c717ab2ad5df44d5c31c362ce993f9d9d506f79c872bf5279855fafd1c6dc976",
+        "bytes": 1215
+      },
+      {
+        "path": "npm-version.log",
+        "sha256": "a38e383f1e9080b0dd9001481f6e56b341000de90a05061b66734350ad3adc41",
+        "bytes": 8
+      },
+      {
+        "path": "toolchain.json",
+        "sha256": "f5454fbd8c6a11a8d91ccf1189187fccda6fe925bf69786f0b4250c161374f28",
+        "bytes": 340
+      }
+    ],
+    "installClosure": {
+      "argv": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "cgroupAfter": {
+        "available": true,
+        "current": 1305571328,
+        "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "max": "max",
+        "path": "/sys/fs/cgroup/system.slice/hosted-compute-agent.service"
+      },
+      "cgroupBefore": {
+        "available": true,
+        "current": 947744768,
+        "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "max": "max",
+        "path": "/sys/fs/cgroup/system.slice/hosted-compute-agent.service"
+      },
+      "closureObserved": true,
+      "diskQualification": "Owned paths sampled, not kernel quota; overflow fails and is retained.",
+      "elapsedSeconds": 6.656507465999994,
+      "exit": 0,
+      "firstOverflowBytesRetained": 0,
+      "liveAtClosure": [],
+      "memoryQualification": "Owned process session/descendant census plus supervisor RSS sampled; shared cgroup is observed only, no dedicated hard cgroup guarantee, transient peaks/escaped descendants not certified.",
+      "minHostOrFiniteCgroupHeadroom": 15497392128,
+      "ownedObservedProcesses": 1,
+      "phase": "install",
+      "rawLogBudget": 196608,
+      "rawLogBytes": 759,
+      "rawLogComplete": true,
+      "reason": null,
+      "receivedRawLogBytes": 759,
+      "reserveBytes": 536870912,
+      "sampledAggregatePeakRSS": 287182848,
+      "sampledCPUseconds": 9.81,
+      "samples": 45,
+      "status": "PASS",
+      "stopSeconds": 170,
+      "wholeSeconds": 180,
+      "workCapBytes": 402653184
+    },
+    "refusal": {
+      "exceptionType": "ValueError",
+      "message": "actual executable bin metadata",
+      "phase": "install",
+      "status": "FAILED"
+    },
+    "installedBinCause": "UNOBSERVED: no installed package metadata in artifact",
+    "buildTests": "SKIPPED"
+  },
+  "ordinaryResource": {
+    "workBytes": 67108864,
+    "reserveBytes": 536870912,
+    "initialMinimumHeadroom": 16646950912,
+    "selfPeakRSS": 21082112,
+    "grammarChildPeakRSS": 917504,
+    "conservativePeakSum": 21999616,
+    "finiteSeconds": 45
+  },
+  "allFrozenPacketsAndActualFailureUnchanged": true,
+  "noMainNetworkInstallBuildTestBrowserExecution": true,
+  "atimeMayChange": true,
+  "grammarChildOnly": true
+}

@@ -1,0 +1,168 @@
+{
+  "method": "Actual production DOM controls, motionON, reference legal replay; automation elapsed time is not human pacing or FPS. Legacy prefix is earned simulation, not a human save.",
+  "inputSHA256": "5e15b9e622d921585401232c8d0084abfb9700076b836c4946b74fd824c56463",
+  "results": [
+    {
+      "seed": 6503,
+      "difficulty": 2,
+      "policy": "preserved v0.2 Pack",
+      "engineKind": 1,
+      "fresh": false,
+      "earnedPrefixActions": 70,
+      "acceptedActions": 119,
+      "phase": "victory",
+      "hp": 41,
+      "elapsedMs": 17284.262871,
+      "motion": true,
+      "muted": true,
+      "actualControls": true,
+      "canonicalHashCheckedBeforeAndAfterEveryAction": true,
+      "exactResumeRaw": true,
+      "reload": {
+        "action": 12,
+        "phase": "battle",
+        "turn": 2,
+        "exact": true,
+        "generation": 1
+      },
+      "actionCounts": {
+        "buy": 3,
+        "leave": 1,
+        "travel": 5,
+        "play": 38,
+        "attack": 57,
+        "endTurn": 11,
+        "reward": 2,
+        "camp": 2
+      },
+      "settling": [
+        {
+          "action": 41,
+          "phase": "reward",
+          "hp": 59,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "canonicalCommittedImmediately": true,
+          "observedWaitMs": 1142.6281520000002
+        },
+        {
+          "action": 73,
+          "phase": "reward",
+          "hp": 51,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "canonicalCommittedImmediately": true,
+          "observedWaitMs": 1131.2949740000004
+        },
+        {
+          "action": 119,
+          "phase": "victory",
+          "hp": 41,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "canonicalCommittedImmediately": true,
+          "staleKeysUnchanged": true,
+          "observedWaitMs": 1140.0718440000019
+        }
+      ],
+      "screens": [
+        {
+          "kind": "attack",
+          "action": 25
+        },
+        {
+          "kind": "camp",
+          "action": 44
+        },
+        {
+          "kind": "camp",
+          "action": 76
+        },
+        {
+          "kind": "terminal",
+          "action": 119
+        }
+      ],
+      "questions": [
+        "What was unclear? Optional",
+        "Which choices felt meaningful or pointless, if any? Optional",
+        "Would you take another campaign? Optional"
+      ],
+      "feedback": {
+        "qaOnly": true,
+        "data": {
+          "schema": 1,
+          "kind": "voluntary-player-feedback",
+          "source": "local-export",
+          "createdAt": "2026-09-30T21:27:16.958Z",
+          "context": {
+            "build": {
+              "version": "0.5.0",
+              "sourceDigest": "9f80af0d0053b992c7f0f39d6de106a8f318619ea92e94c00354933e07ebcf04",
+              "channel": "packaged"
+            },
+            "screen": "victory",
+            "run": {
+              "seed": 6503,
+              "difficulty": 2,
+              "phase": "victory",
+              "contract": 10,
+              "hunterHealth": 41,
+              "maximumHealth": 65,
+              "saveSchema": 2,
+              "rulesGeneration": 1,
+              "deck": [
+                "cairnhound+",
+                "cairnhound+",
+                "fenstalker",
+                "ashwidow",
+                "briarcolossus",
+                "scour",
+                "scour",
+                "ironward",
+                "ironward",
+                "sutures",
+                "sunder",
+                "survey+",
+                "draught",
+                "harpoon",
+                "fenraker",
+                "fenraker",
+                "killcommand",
+                "emberwidow",
+                "fenraker",
+                "gravehound"
+              ],
+              "relics": [
+                "ember-seed",
+                "war-brand",
+                "brass-bell"
+              ],
+              "stats": {
+                "cardsPlayed": 65,
+                "damageDealt": 496,
+                "turns": 25,
+                "battles": 6
+              }
+            }
+          },
+          "responses": {
+            "confusion": "AUTOMATED AGENT QA, NOT HUMAN PLAYTEST DATA: checking a negative local response and exact build/generation context.",
+            "interestingChoice": "AUTOMATED QA: no meaningful choice claimed by this synthetic response.",
+            "replayIntent": "no"
+          }
+        },
+        "storageUnchanged": true,
+        "newHttpRequests": 0
+      },
+      "retry": {
+        "generation": 2,
+        "seed": 6503,
+        "hp": 65,
+        "phase": "map"
+      },
+      "build": "9f80af0d0053b992c7f0f39d6de106a8f318619ea92e94c00354933e07ebcf04",
+      "errors": []
+    }
+  ]
+}

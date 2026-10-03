@@ -1,0 +1,56 @@
+{
+  "decision": "ACCEPT_CONDITIONAL_EXACT_TWO_R3_LOOSE_JSON_RETIREMENT_ONLY",
+  "files": [
+    {
+      "path": "/workspace/scratch/r3-two-raw-retirement-independent-r1/GATE.json",
+      "bytes": 10451,
+      "sha256": "5cc2ae0219710f2551e59ca6d8063d7587e5d8514eac2413ceb1ca9e486691a6"
+    },
+    {
+      "path": "/workspace/scratch/r3-two-raw-retirement-independent-r1/METHOD-NOTES.json",
+      "bytes": 1048,
+      "sha256": "a8bc411e04fec4eb96d8c2c4342cd2ec21d23acf562708ff16110f22b091d856"
+    },
+    {
+      "path": "/workspace/scratch/r3-two-raw-retirement-independent-r1/PROOF-GUARD/ADMISSION.json",
+      "bytes": 476,
+      "sha256": "90bc47ae4306a791ccf093afd81397d2e4983ab8f3e980656cfdb2842c87368a"
+    },
+    {
+      "path": "/workspace/scratch/r3-two-raw-retirement-independent-r1/PROOF-GUARD/EXECUTION.log",
+      "bytes": 232,
+      "sha256": "b91b81d3ecbad0eb999aba1f976f318755bb9d43ea398b27d5c42127de79e7b8"
+    },
+    {
+      "path": "/workspace/scratch/r3-two-raw-retirement-independent-r1/PROOF-GUARD/RESULT.json",
+      "bytes": 1046,
+      "sha256": "aecd713de2d1ef7a1b97cd861d6629fa969eb3ba6d7d7b177929cfdb024f63a9"
+    },
+    {
+      "path": "/workspace/scratch/r3-two-raw-retirement-independent-r1/PROOF.json",
+      "bytes": 55942,
+      "sha256": "87a874906dabe54bf155f42c77ba4d758baa0a6cd4e6dff1524afc114e1c0d2d"
+    },
+    {
+      "path": "/workspace/scratch/r3-two-raw-retirement-independent-r1/REVIEW.md",
+      "bytes": 6511,
+      "sha256": "dca51a8a056d9a32602f3b364e87970495d3b23874d899b133ffaa1e3d82a1ed"
+    },
+    {
+      "path": "/workspace/scratch/r3-two-raw-retirement-independent-r1/seal.py",
+      "bytes": 5419,
+      "sha256": "b39f0fe486f09b722d1317f60613f4864ab358c8935bbdf23e86649cbff7959f"
+    },
+    {
+      "path": "/workspace/scratch/r3-two-raw-retirement-independent-r1/verify.py",
+      "bytes": 9670,
+      "sha256": "1d72f8995f5af198664d330f164413607033f1bf2d0a2f4bd1b4a89572299e9e"
+    }
+  ],
+  "packetBytesBeforeSeal": 90795,
+  "additionalSealGuardAndSealConservativeBytes": 8192,
+  "packetCapBytes": 131072,
+  "publisherConservativeBoundBytes": 332543,
+  "ownMaxRSSBytes": 11403264,
+  "closure": "Await original64+512 SEAL-GUARD result0; seal guard outputs are not recursively included in final manifest."
+}

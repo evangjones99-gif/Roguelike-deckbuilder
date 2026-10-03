@@ -1,0 +1,1 @@
+Fresh independent R4 affected review preparation only. Await frozen author exactsource/server. Preserve R3 rejection and all evidence. Recheck source identity, same-viewport dead-size return, live/dead draw quads, terminal times/wait/cancel, cue retention, load/reduced/visibility/fallback/dispose. No inherited acceptance or AAA/native/human-fun claim.

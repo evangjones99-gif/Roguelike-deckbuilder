@@ -1,0 +1,15 @@
+
+Running 8 tests using 1 worker
+
+(node:114617) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/browser/input-v0.6.spec.ts:27:48 › kind1: held Enter selects without following focus to commit (3.9s)
+  ✓  2 tests/browser/input-v0.6.spec.ts:27:48 › kind1: held Space selects without following focus to commit (2.6s)
+  ✓  3 tests/browser/input-v0.6.spec.ts:41:3 › kind1: cancel, nested dossier and nonfinal death retain meaningful focus (2.8s)
+  ✓  4 tests/browser/input-v0.6.spec.ts:27:48 › kind2: held Enter selects without following focus to commit (2.9s)
+  ✓  5 tests/browser/input-v0.6.spec.ts:27:48 › kind2: held Space selects without following focus to commit (2.8s)
+  ✓  6 tests/browser/input-v0.6.spec.ts:41:3 › kind2: cancel, nested dossier and nonfinal death retain meaningful focus (3.3s)
+  ✓  7 tests/browser/input-v0.6.spec.ts:62:1 › composition passes through; synthetic visible blur requires a neutral controller release (3.4s)
+  ✓  8 tests/browser/input-v0.6.spec.ts:88:1 › all twelve intents and complete hand rules fit wide short viewports (3.6s)
+
+  8 passed (26.2s)

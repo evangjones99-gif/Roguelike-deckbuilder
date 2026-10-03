@@ -1,0 +1,35 @@
+{
+  "reviewer": "independent gameplay agent, automatic simulation not human enjoyment",
+  "declaredBeforeCollection": "2026-09-30",
+  "untouchedHoldout": { "firstSeed": 44101, "lastSeed": 44196, "count": 96 },
+  "difficulties": [0, 1, 2],
+  "engineKinds": [1, 2],
+  "policies": ["pack", "strictsolo", "spellhybrid", "lean"],
+  "policyDefinitions": {
+    "source": "scripts/solo-investigation-v0.3.ts threat through progressionScore, copied without virtual sampler or funding wrappers",
+    "mapping": { "pack": "pack", "strictsolo": "solo", "spellhybrid": "widow-hybrid", "lean": "lean-pack" },
+    "progression": "legal-remove-first",
+    "selection": "greatest progressionScore, legal action order breaks ties",
+    "combat": "same copied deterministic evaluator in every arm; one-step actual reducer results, no forecast search",
+    "arms": {
+      "procure": "unmodified policy chooses legal reward, buy, remove, rest and upgrades",
+      "skip-acquisition": "legal buy actions excluded; reward actions forced to skip; same removal, route, combat, event, camp evaluation"
+    }
+  },
+  "plannedRunCount": 4608,
+  "maximumAcceptedActionsPerRun": 1500,
+  "outcomes": ["terminal phase", "hunter HP", "floor", "turn count", "accepted actions", "final deck", "gold", "purchases", "removals", "card usage", "action hash", "common world node formation and offer traces"],
+  "acceptance": {
+    "allRuns": "every accepted action legal, resulting state valid; all runs terminal within limit",
+    "kind2": "paired common floor/kind initial formations and reward/shop offers identical; relic common ranking tested separately because eligible sets can differ",
+    "legacy": "120 complete actual-v4 archived state+event comparisons, plus 119-action Silence campaign exact and recovery unchanged",
+    "negativeResults": "publish losses, acquisition regressions and difficulty differences without tuning after holdout"
+  },
+  "interpretationLimits": [
+    "A fixed-policy acquisition comparison includes draw, money, deck size, purchased cards and additional removals; it is not a causal one-card quality estimate.",
+    "Routes differ between archetypes; only reached common floor/kind nodes are matched, and survivor conditioning is reported.",
+    "Kind1 vs kind2 reroutes randomness; no promise every old seed wins at least as often.",
+    "Policy copied from prior engine investigation is independently audited here, not newly trained and not four independent human playtesters.",
+    "No human fun or AAA readiness claim; real browser presentation is a separate final-freeze review."
+  ]
+}

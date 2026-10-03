@@ -1,0 +1,85 @@
+{
+  "path": "assets/art-sources/v0.7/hunter-sheet-original-r1.png",
+  "sha256": "71d6a14abcc2ac97ae694d87110f94857f2508ecda0ebc8e9361b313b9094d46",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "mode": "RGBA",
+  "hasAlpha": true,
+  "status": "rejected-for-shipping-retained-original-research",
+  "alphaRange": [
+    0,
+    254
+  ],
+  "transparentPixels": 929332,
+  "opaquePixels": 0,
+  "cells": [
+    {
+      "column": 0,
+      "row": 0,
+      "nonzeroBounds": [
+        0,
+        0,
+        498,
+        512
+      ]
+    },
+    {
+      "column": 1,
+      "row": 0,
+      "nonzeroBounds": [
+        15,
+        15,
+        512,
+        512
+      ]
+    },
+    {
+      "column": 2,
+      "row": 0,
+      "nonzeroBounds": [
+        1,
+        0,
+        464,
+        512
+      ]
+    },
+    {
+      "column": 0,
+      "row": 1,
+      "nonzeroBounds": [
+        0,
+        0,
+        512,
+        497
+      ]
+    },
+    {
+      "column": 1,
+      "row": 1,
+      "nonzeroBounds": [
+        1,
+        0,
+        512,
+        496
+      ]
+    },
+    {
+      "column": 2,
+      "row": 1,
+      "nonzeroBounds": [
+        1,
+        0,
+        511,
+        484
+      ]
+    }
+  ],
+  "findings": [
+    "Meaningful alpha>=128 top-row boots reach y510-511 beyond requested448 anchor/safe464 boundary.",
+    "Heads at y10-19 instead of90; generation ignored requested common scale/safe gutters.",
+    "Collapsed meaningful silhouette x14..497 exceeds48..464 safe gutters.",
+    "Do not fix by clipping/repainting alpha in scripts; use image generation editing."
+  ]
+}

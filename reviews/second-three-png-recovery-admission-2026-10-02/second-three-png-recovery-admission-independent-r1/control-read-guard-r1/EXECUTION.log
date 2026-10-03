@@ -1,0 +1,64 @@
+publish-reviewed-recovery-admission-root-r1.py 5466 fe9766c405351ba9a37f138bcd58604fd696d368834bdec70da3bb6e520a860b
+1: from pathlib import Path
+2: import os,json,hashlib,subprocess,time
+3: S=Path('/workspace/scratch');R=Path('/workspace/Roguelike-deckbuilder');D=R/'reviews/second-three-png-recovery-admission-2026-10-02';P=S/'recovery-admission-push-root-r1'
+4: def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+5: gate=S/'second-three-png-recovery-admission-independent-r1/GATE.json';g=json.loads(gate.read_text());assert g['decision'].startswith('ACCEPT')
+6: assert g.get('actionExecutedByReviewer',False)==False
+7: assert not D.exists() and not P.exists();D.mkdir();P.mkdir();records={}
+8: def copy(a,b):
+9:     assert not a.is_symlink() and not b.exists();b.parent.mkdir(parents=True,exist_ok=True)
+10:     fd=os.open(a,os.O_RDONLY|os.O_NOFOLLOW|os.O_NOATIME)
+11:     with os.fdopen(fd,'rb') as f:v=f.read()
+12:     b.write_bytes(v);h=hashlib.sha256(v).hexdigest();assert sha(b)==h
+13:     records[str(b.relative_to(D))]={'originalPath':str(a),'bytes':len(v),'sha256':h}
+14: for folder in ['second-three-png-recovery-admission-independent-r1','second-three-png-judgment-guard-root-r1','target-clear-rejection-push-root-r2','target-clear-rejection-push-guard-root-r2','second-three-png-proposal-preservation-guard-root-r1']:
+15:     for p in sorted((S/folder).rglob('*')):
+16:         if p.is_file():copy(p,D/folder/p.relative_to(S/folder))
+17: for name in ['guard-source-recovery-56m-root-r1.py','guard-source-recovery-56m-root-r2.py','share-second-three-retained-pngs-root-r3.py','bounded-source-recovery-admission-proposal-root-r1.json','bounded-source-recovery-admission-proposal-root-r2.json','draft-bounded-recovery-admission-root-r1.py','refine-bounded-recovery-guard-root-r1.py','draft-recovery-producer-control-root-r1.py','preserve-second-three-png-proposal-root-r1.py','publish-reviewed-recovery-admission-root-r1.py','judge-second-three-png-sharing-root-r2.py']:
+18:     copy(S/name,D/'root-controls'/name)
+19: assert sum(x['bytes'] for x in records.values())<512*1048576//1024
+20: (D/'COPY-IDENTITIES.json').write_text(json.dumps(records,indent=2)+'\n')
+21: (D/'README.md').write_text('''# Narrow recovery admission revision
+22: 
+23: Confirmed clean push9ce3d3bf retained rejected ghost actual and completed prior PNG POST plus the next proposal. It left about66.2MB free; the normal64MiB source guard refused producer-judgment launch before execution. All original refusals/methods remain. No transaction followed that refusal.
+24: 
+25: This separate source review assesses56MiB initial disk for only bounded, pinned source/publication/recovery invocations. The wrapper preserves memory work/reserve/live-stop limits. Its filename filter is not universal child-workload isolation or an exact script allowlist: the independent gate and coordinated sole writer bind the permitted invocations. It authorizes neither arbitrary Python nor a lower build/browser/native/image/release admission. Strict build64MiB and native70MiB remain unchanged.
+26: 
+27: The r3 sharing method differs from accepted r2 only by56MiB disk preflight and fresh transaction/temp identifiers. Identity, full three-body/stat/xattr/held-parent/current clean confirmed-push/producer/durable-prefix checks remain. Bounded BEFORE/journal/RESULT directory writes are small compared with the disk reserve, with no large old-inode backups. Every path/body/provenance remains retained; original private inode/time/write isolation and anchor link/ctime losses still require explicit producer acceptance. One existing alias per anchor remains unresolved. No space gain or storage action is claimed here.
+28: 
+29: Finite tiny bootstrap scripts prepared this proposal and producer control outside a guard after normal admission refused; their resources are unmetered, and no guarded bootstrap compliance is claimed. A pointless always-true assertion in the unexecuted r1 wrapper was removed in fresh r2; both originals remain. This is a resource-recovery scope correction, not a quality or retirement badge. The live selected build is still1d5bf40a/30ddc549 with painted art; R3 actor-safe ghost source remains opt-in/unbuilt.
+30: ''')
+31: def run(args):
+32:     q=subprocess.run(args,cwd=R,text=True,capture_output=True,timeout=55)
+33:     with (P/'COMMANDS.jsonl').open('a') as f:f.write(json.dumps({'args':args,'rc':q.returncode,'stdout':q.stdout,'stderr':q.stderr,'utcNs':time.time_ns()})+'\n');f.flush();os.fsync(f.fileno())
+34:     assert q.returncode==0,(args,q.stderr)
+35:     return q.stdout.rstrip('\n')
+36: assert run(['git','rev-parse','HEAD'])=='9ce3d3bf9970e28631295b35e34dd0529ae413a8'
+37: owned=str(D.relative_to(R))
+38: for line in run(['git','status','--porcelain','--untracked-files=all']).splitlines():assert line[3:].startswith(owned+'/'),line
+39: run(['git','add','-f','--',owned]);run(['git','-c','gc.auto=0','commit','-m','Preserve reviewed bounded recovery admission before storage action'])
+40: head=run(['git','rev-parse','HEAD']);run(['git','-c','gc.auto=0','push','origin','HEAD:codex/lanternbound-production']);remote=run(['git','ls-remote','origin','refs/heads/codex/lanternbound-production']).split()[0]
+41: assert remote==head and not run(['git','status','--porcelain'])
+42: (P/'PUSH-CONFIRMED.json').write_text(json.dumps({'commit':head,'remote':remote,'confirmed':True,'clean':True,'gateSHA256':sha(gate),'methodSHA256':sha(S/'share-second-three-retained-pngs-root-r3.py'),'holdSHA256':sha(R/'AGENTS.md'),'copiedBytes':sum(v['bytes'] for v in records.values()),'noStorageAction':True},indent=2)+'\n')
+43: print(json.dumps({'commit':head,'confirmed':True,'clean':True,'free':os.statvfs(R).f_bavail*os.statvfs(R).f_frsize}))
+judge-second-three-png-sharing-root-r2.py 3433 49031ac51f63d957208a3b11c5dd1cadbb786490d864d7d9b763da222b332085
+1: from pathlib import Path
+2: import os,json,hashlib,sys
+3: S=Path('/workspace/scratch');R=Path('/workspace/Roguelike-deckbuilder')
+4: def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+5: proposal=S/'media-loose-png-recovery-proposal-author-r2/PROPOSAL.json';gate=S/'second-three-png-recovery-admission-independent-r1/GATE.json';push=S/'recovery-admission-push-root-r1/PUSH-CONFIRMED.json';method=S/'share-second-three-retained-pngs-root-r3.py'
+6: assert sha(proposal)=='45ed75b5078c84e32981ba86b43f62826b00c53278ef8ea2f9888d661b8fd8d5'
+7: g=json.loads(gate.read_text());assert g['decision'].startswith('ACCEPT')
+8: assert len(sys.argv)==2 and sha(gate)==sys.argv[1]
+9: assert g['method']['sha256']==sha(method) and g['proposal']['sha256']==sha(proposal)
+10: assert g['currentHold']['sha256']==sha(R/'AGENTS.md')
+11: assert g['selectedMap']['sha256']==sha(S/'target-wait-default-promotion-root-r1/RESULT.json')
+12: p=json.loads(push.read_text());assert p['confirmed'] and p['clean']
+13: assert (R/'.git/refs/heads/codex/lanternbound-production').read_text().strip()==p['commit']
+14: assert (R/'reviews/second-three-png-recovery-admission-2026-10-02/second-three-png-recovery-admission-independent-r1/GATE.json').read_bytes()==gate.read_bytes()
+15: assert (R/'reviews/second-three-png-recovery-admission-2026-10-02/root-controls/share-second-three-retained-pngs-root-r3.py').read_bytes()==method.read_bytes()
+16: out=S/'second-three-png-producer-judgment-root-r2.json';assert not out.exists()
+17: j={'decision':'AUTHORIZE_EXACT_THREE_PATH_PHYSICAL_SHARING_ONCE','proposalSHA256':sha(proposal),'independentGateSHA256':sha(gate),'methodSHA256':sha(method),'holdSHA256':sha(R/'AGENTS.md'),'selectedMapSHA256':sha(S/'target-wait-default-promotion-root-r1/RESULT.json'),'pushSHA256':sha(push),'commit':p['commit'],'candidateGroup':'/workspace/scratch/audio-host-independent-v08/independent/rebuilt-dist/art','names':['abbey-courtyard.png','tool-vignettes.png','hunter-portrait.png'],'judgment':'Prefer reviewed exact-byte shared physical encoding only for these three retained immutable historical leaves. Keep every body/path/provenance/rights/source/review/rollback. Current completed prior POST/rejected ghost and this pre-action proposal/method are confirmed pushed. No other cleanup or game promotion.','acceptedLosses':'Original private inode/time/write isolation replaced; canonical nlink5 to6 and ctime change, four known previous entries plus one unresolved alias each. Metadata rollback impossible; bytes retained. No old-inode backups or all-three power-loss atomicity; durable per-leaf prefix requires diagnosis if interrupted. Coordinated no-writer holds are not OS protection or universal FDs/mmap proof.','recoveryAdmission':'Separately reviewed56MiB source/recovery-only bounded profile after old64MiB refusal; build64/native70 unchanged. Wrapper filename filter isnotworkloadisolation; Root exactpinned scripts/scope only. No extra path or retry.', 'scopeLimits':'Wholehistorical66/51 aggregate remains pinned historical review, not newly fully replayed; commercialrights pending. Rejected unexecuted r1method retained. No oldreview rewritten; no version retired. Fresh method admission/currentclean/full87/56 identity and protected original fullstat before/after required.','oneActionOnly':True,'noAutomaticRetry':True}
+18: out.write_text(json.dumps(j,indent=2)+'\n');print(json.dumps({'judgment':str(out),'sha256':sha(out),'commit':p['commit'],'actionPerformed':False}))
+OWN_RSS_KIB 9728

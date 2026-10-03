@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111516" />
+    <meta name="description" content="Hollowpact: an original dark fantasy deckbuilding campaign. Command dangerous bound creatures and survive ten contracts." />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%274%27 fill=%27%23111516%27/%3E%3Cpath d=%27M16 4 26 8v8c0 5-5 9-10 12C11 25 6 21 6 16V8Z%27 fill=%27none%27 stroke=%27%23bc9d6b%27 stroke-width=%272%27/%3E%3Cpath d=%27M12 11v10m8-10v10m-8-5h8%27 fill=%27none%27 stroke=%27%23e6ddcb%27 stroke-width=%272%27/%3E%3C/svg%3E" />
+    <title>Hollowpact — Contracts, creatures, consequences</title>
+    <script type="module" crossorigin src="./assets/index-CSAn_wPc.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CScXCgR1.css">
+  </head>
+  <body>
+    <div id="app">
+      <header id="topbar"></header>
+      <div id="hud"></div>
+      <main id="scene">
+        <div id="arena-wrap" aria-hidden="true"><canvas id="arena"></canvas></div>
+        <div id="scene-ui"></div>
+      </main>
+      <section id="dock" aria-label="Your hand"></section>
+      <footer id="footer"></footer>
+    </div>
+    <div id="announcer" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></div>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <dialog id="dialog" aria-labelledby="dialog-title"></dialog>
+  </body>
+</html>

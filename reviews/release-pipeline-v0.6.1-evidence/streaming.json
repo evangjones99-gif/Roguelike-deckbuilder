@@ -1,0 +1,28 @@
+{
+  "scope": "Actual production sha256File imported directly; reviewer GNU coreutils independently computes sparse-file oracle",
+  "helperSHA": "db14f59204898c15a0fc6d22893a59b85b81f171978db93d778026b3afb6b7d1",
+  "fixtureBytes": 2147483905,
+  "allocatedFixtureBytes": 12288,
+  "streamedSHA": "f0519b3f1fcd4ff9ca74b9d433c30dda01e9022f4ddc177d5abeee069cf545ca",
+  "oracleSHA": "f0519b3f1fcd4ff9ca74b9d433c30dda01e9022f4ddc177d5abeee069cf545ca",
+  "oldWholeBufferError": {
+    "code": "ERR_FS_FILE_TOO_LARGE",
+    "message": "File size (2147483905) is greater than 2 GiB"
+  },
+  "elapsedMs": 2045,
+  "initialMemory": {
+    "rss": 31588352,
+    "heapTotal": 7335936,
+    "heapUsed": 5770552,
+    "external": 2349607,
+    "arrayBuffers": 143647
+  },
+  "peakMemory": {
+    "rss": 94756864,
+    "external": 54647375,
+    "arrayBuffers": 52441375
+  },
+  "emptyVectorPass": true,
+  "binaryVectorPass": true,
+  "missingFileRejects": "ENOENT"
+}

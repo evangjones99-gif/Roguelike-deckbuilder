@@ -1,0 +1,40 @@
+{
+  "TOOL_GUARD_CLOSED": true,
+  "archiveSourceEligible": true,
+  "authorFinalSeal": {
+    "bytes": 2839,
+    "path": "/workspace/scratch/wording-grounded-trials-checkpoint-source-author-r1/FINAL-SEAL.json",
+    "sha256": "390bee76cdfe116f97b0c8df582c6b92b717f853dda01aea34d7ddf87cc99566"
+  },
+  "authorManifest": {
+    "bytes": 1557,
+    "path": "/workspace/scratch/wording-grounded-trials-checkpoint-source-author-r1/MANIFEST.json",
+    "sha256": "aac303e5619efd453671e821f57f111f66e6a95e40e20aec638c27e5b00e47a1"
+  },
+  "decision": "ACCEPT_CHECKPOINT_ARCHIVE_CONSTRUCTION_SOURCE_ONLY",
+  "method": {
+    "bytes": 6854,
+    "path": "/workspace/scratch/wording-grounded-trials-checkpoint-source-author-r1/preserve-checkpoint.py",
+    "sha256": "5ee7a0a37946e3afcdf1d355cdfbc929ccf37b39edb1b4654e61e14250fb3f1a"
+  },
+  "oldInputsRemovalAuthorized": false,
+  "plan": {
+    "bytes": 185794,
+    "path": "/workspace/scratch/wording-grounded-trials-checkpoint-source-author-r1/PLAN.json",
+    "sha256": "0998d948c57e2fb3d1e01f34e61028d5c80db299df308d3b1e83ab902d4281b7"
+  },
+  "preservationSourceEligible": true,
+  "publicationOrSelectionAuthorized": false,
+  "requiresIndependentCompletePreservationReview": true,
+  "requiresRootActualGrant": true,
+  "reviewedGuardProfile": {
+    "diskMinimumMiB": 64,
+    "logicalAndAllocatedOutputCapBytes": 16777216,
+    "methodWholeCeilingSeconds": 60,
+    "ownRSSCapBytes": 25165824,
+    "reserveMiB": 512,
+    "workMiB": 128
+  },
+  "sourceAlgorithmApprovalIsNotActualPreservationOrArtApproval": true,
+  "sourceOnly": true
+}

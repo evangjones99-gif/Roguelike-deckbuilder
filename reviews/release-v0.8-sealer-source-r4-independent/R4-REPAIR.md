@@ -1,0 +1,1 @@
+Before any sealer execution, root caught a duplicate web-member check comparing prefixed ZIP names against a relative-key inventory. R4 adds the correct relative-key refusal, preserving R3 unchanged at seal-r3.py (e96c818984548ac455c48427f9afa062339cf1fe82df672fd8b08400672f6d07). No archive is created or changed by this repair.

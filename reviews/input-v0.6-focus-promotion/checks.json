@@ -1,0 +1,37 @@
+{
+  "kind": "author-reviewed-repair-promotion",
+  "sourceHash": "b69d87d1a5a71a15d3b29cdfcdbb3f0b33e739f3aa5d8ba82d9cfb470bbdb415",
+  "testHash": "144b3ae24aca4a2edec1562c28f6c32ab8efb3aaaee78d7e410d59d071361c22",
+  "commands": [
+    "npx tsx --test tests/input.test.ts",
+    "npx tsc --noEmit"
+  ],
+  "actualToolResults": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "94785a",
+        "wall_time_seconds": 0.494463487,
+        "exit_code": 0,
+        "original_token_count": 418,
+        "output": "✔ connection-held confirm requires neutral release, then a fresh edge (1.732552ms)\n✔ confirm does not repeat across selection focus changes or long holds (0.286913ms)\n✔ button value hysteresis does not chatter near the press threshold (0.204722ms)\n✔ axis enter/exit deadzones ignore jitter and require threshold on reversal (0.245852ms)\n✔ direction alone repeats after350ms, then100ms; reentry is immediate (0.21009ms)\n✔ simultaneous activation buttons produce a single prioritized intent (0.167457ms)\n✔ presentation gate suppresses confirm and requires release after reopening (0.166214ms)\n✔ safe pause may open while gated, but is not replayed into a modal (0.233744ms)\n✔ disconnect, hidden reset and pad-index changes neutralize held input (0.288114ms)\n✔ unsupported mapping, invalid timing and opposing dpad directions stay inert (0.203119ms)\n✔ nonfinite axes/buttons are ignored, and decoder never reads a device identity (0.18306ms)\n✔ decoding does not mutate borrowed browser snapshots (1.702648ms)\n✔ safe pause works after neutral presentation-lock frames, without arming gameplay (0.12904ms)\n✔ initial unfocused document does not read controller; focus event needs neutral then a fresh press (1.227608ms)\n✔ visible-window blur stops reads and requires neutral release before any resumed controller action (0.310497ms)\n✔ blur cancels scheduled RAF; focus reschedules, and disposed adapters cannot resume (0.314723ms)\n✔ unavailable initial focus API retains event-based keyboard/controller fallback (0.295255ms)\nℹ tests 17\nℹ suites 0\nℹ pass 17\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 284.902376\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "f24cc0",
+        "wall_time_seconds": 0.567623687,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    }
+  ],
+  "tests": 17,
+  "originalTestsRetained": 13,
+  "newLifecycleTests": 4,
+  "buildRun": false,
+  "productionReviewPending": true,
+  "physicalControllerTested": false
+}

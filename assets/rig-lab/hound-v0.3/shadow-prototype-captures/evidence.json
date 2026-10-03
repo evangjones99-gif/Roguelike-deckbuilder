@@ -1,0 +1,517 @@
+{
+  "sourceHashes": {
+    "src/art.ts": "c8ecd30136abb54d865fa80e27649da0049db3c65f879cbfa2a80d2269a14d1d",
+    "src/arena.ts": "ec0b44aadc869dbf3903f3c6c3d1d0ef96f2c00caed4c75c444be790250620ea",
+    "public/art/hound-poses.png": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+    "public/art/abbey-courtyard.png": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+    "assets/rig-lab/hound-v0.3/shadow-prototype.html": "6075ae7fe8172f957334241c5ec36add38fea0e7e2791d4751cbff74eaa8f927"
+  },
+  "errors": [],
+  "evidence": [
+    {
+      "baseline": {
+        "method": "inline shadow/body",
+        "pose": "idle",
+        "formation": "single",
+        "canvas": [
+          960,
+          600
+        ],
+        "drawMs": 0.19999999925494194,
+        "actors": [
+          {
+            "x": 460.79999999999995,
+            "y": 504,
+            "size": 225.6,
+            "slot": 0
+          }
+        ],
+        "shadowParameters": [
+          {
+            "apparentAltitudePx": 0,
+            "gradientRadiusPx": 112.8,
+            "opacity": 0.85,
+            "ellipseScaleY": 0.2
+          }
+        ]
+      },
+      "candidate": {
+        "method": "floor pass then bodies",
+        "pose": "idle",
+        "formation": "single",
+        "canvas": [
+          960,
+          600
+        ],
+        "drawMs": 0.10000000055879354,
+        "actors": [
+          {
+            "x": 460.79999999999995,
+            "y": 504,
+            "size": 225.6,
+            "slot": 0
+          }
+        ],
+        "shadowParameters": [
+          {
+            "apparentAltitudePx": 0,
+            "gradientRadiusPx": 112.8,
+            "opacity": 0.85,
+            "ellipseScaleY": 0.2
+          }
+        ]
+      },
+      "sourceAtlas": "/public/art/hound-poses.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "scope": "Static pose comparison only; no runtime FPS, temporal animation or enjoyment inference."
+    },
+    {
+      "baseline": {
+        "method": "inline shadow/body",
+        "pose": "attack",
+        "formation": "single",
+        "canvas": [
+          960,
+          600
+        ],
+        "drawMs": 0.09999999962747097,
+        "actors": [
+          {
+            "x": 460.79999999999995,
+            "y": 504,
+            "size": 225.6,
+            "slot": 0
+          }
+        ],
+        "shadowParameters": [
+          {
+            "apparentAltitudePx": 18.095000000000002,
+            "gradientRadiusPx": 112.8,
+            "opacity": 0.85,
+            "ellipseScaleY": 0.2
+          }
+        ]
+      },
+      "candidate": {
+        "method": "floor pass then bodies",
+        "pose": "attack",
+        "formation": "single",
+        "canvas": [
+          960,
+          600
+        ],
+        "drawMs": 0.09999999962747097,
+        "actors": [
+          {
+            "x": 460.79999999999995,
+            "y": 504,
+            "size": 225.6,
+            "slot": 0
+          }
+        ],
+        "shadowParameters": [
+          {
+            "apparentAltitudePx": 18.095000000000002,
+            "gradientRadiusPx": 126.2037037037037,
+            "opacity": 0.5554076646090534,
+            "ellipseScaleY": 0.21584362139917698
+          }
+        ]
+      },
+      "sourceAtlas": "/public/art/hound-poses.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "scope": "Static pose comparison only; no runtime FPS, temporal animation or enjoyment inference."
+    },
+    {
+      "baseline": {
+        "method": "inline shadow/body",
+        "pose": "recovery",
+        "formation": "single",
+        "canvas": [
+          960,
+          600
+        ],
+        "drawMs": 0.10000000055879354,
+        "actors": [
+          {
+            "x": 460.79999999999995,
+            "y": 504,
+            "size": 225.6,
+            "slot": 0
+          }
+        ],
+        "shadowParameters": [
+          {
+            "apparentAltitudePx": 0,
+            "gradientRadiusPx": 112.8,
+            "opacity": 0.85,
+            "ellipseScaleY": 0.2
+          }
+        ]
+      },
+      "candidate": {
+        "method": "floor pass then bodies",
+        "pose": "recovery",
+        "formation": "single",
+        "canvas": [
+          960,
+          600
+        ],
+        "drawMs": 0.09999999962747097,
+        "actors": [
+          {
+            "x": 460.79999999999995,
+            "y": 504,
+            "size": 225.6,
+            "slot": 0
+          }
+        ],
+        "shadowParameters": [
+          {
+            "apparentAltitudePx": 0,
+            "gradientRadiusPx": 112.8,
+            "opacity": 0.85,
+            "ellipseScaleY": 0.2
+          }
+        ]
+      },
+      "sourceAtlas": "/public/art/hound-poses.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "scope": "Static pose comparison only; no runtime FPS, temporal animation or enjoyment inference."
+    },
+    {
+      "baseline": {
+        "method": "inline shadow/body",
+        "pose": "death",
+        "formation": "single",
+        "canvas": [
+          960,
+          600
+        ],
+        "drawMs": 0.10000000055879354,
+        "actors": [
+          {
+            "x": 460.79999999999995,
+            "y": 504,
+            "size": 225.6,
+            "slot": 0
+          }
+        ],
+        "shadowParameters": [
+          {
+            "apparentAltitudePx": 0,
+            "gradientRadiusPx": 112.8,
+            "opacity": 0.85,
+            "ellipseScaleY": 0.2
+          }
+        ]
+      },
+      "candidate": {
+        "method": "floor pass then bodies",
+        "pose": "death",
+        "formation": "single",
+        "canvas": [
+          960,
+          600
+        ],
+        "drawMs": 0,
+        "actors": [
+          {
+            "x": 460.79999999999995,
+            "y": 504,
+            "size": 225.6,
+            "slot": 0
+          }
+        ],
+        "shadowParameters": [
+          {
+            "apparentAltitudePx": 0,
+            "gradientRadiusPx": 112.8,
+            "opacity": 0.85,
+            "ellipseScaleY": 0.2
+          }
+        ]
+      },
+      "sourceAtlas": "/public/art/hound-poses.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "scope": "Static pose comparison only; no runtime FPS, temporal animation or enjoyment inference."
+    },
+    {
+      "baseline": {
+        "method": "inline shadow/body",
+        "pose": "attack",
+        "formation": "sparse",
+        "canvas": [
+          960,
+          600
+        ],
+        "drawMs": 0.09999999962747097,
+        "actors": [
+          {
+            "x": 213.59999999999997,
+            "y": 508.5,
+            "size": 225.6,
+            "slot": 0
+          },
+          {
+            "x": 343.2,
+            "y": 547.5,
+            "size": 225.6,
+            "slot": 1
+          }
+        ],
+        "shadowParameters": [
+          {
+            "apparentAltitudePx": 18.095000000000002,
+            "gradientRadiusPx": 112.8,
+            "opacity": 0.85,
+            "ellipseScaleY": 0.2
+          },
+          {
+            "apparentAltitudePx": 18.095000000000002,
+            "gradientRadiusPx": 112.8,
+            "opacity": 0.85,
+            "ellipseScaleY": 0.2
+          }
+        ]
+      },
+      "candidate": {
+        "method": "floor pass then bodies",
+        "pose": "attack",
+        "formation": "sparse",
+        "canvas": [
+          960,
+          600
+        ],
+        "drawMs": 0,
+        "actors": [
+          {
+            "x": 213.59999999999997,
+            "y": 508.5,
+            "size": 225.6,
+            "slot": 0
+          },
+          {
+            "x": 343.2,
+            "y": 547.5,
+            "size": 225.6,
+            "slot": 1
+          }
+        ],
+        "shadowParameters": [
+          {
+            "apparentAltitudePx": 18.095000000000002,
+            "gradientRadiusPx": 126.2037037037037,
+            "opacity": 0.5554076646090534,
+            "ellipseScaleY": 0.21584362139917698
+          },
+          {
+            "apparentAltitudePx": 18.095000000000002,
+            "gradientRadiusPx": 126.2037037037037,
+            "opacity": 0.5554076646090534,
+            "ellipseScaleY": 0.21584362139917698
+          }
+        ]
+      },
+      "sourceAtlas": "/public/art/hound-poses.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "scope": "Static pose comparison only; no runtime FPS, temporal animation or enjoyment inference."
+    },
+    {
+      "baseline": {
+        "method": "inline shadow/body",
+        "pose": "attack",
+        "formation": "full",
+        "canvas": [
+          960,
+          600
+        ],
+        "drawMs": 0.20000000018626451,
+        "actors": [
+          {
+            "x": 137.14285714285714,
+            "y": 552,
+            "size": 126.17142857142858,
+            "slot": 0
+          },
+          {
+            "x": 274.2857142857143,
+            "y": 552,
+            "size": 126.17142857142858,
+            "slot": 1
+          },
+          {
+            "x": 411.42857142857144,
+            "y": 552,
+            "size": 126.17142857142858,
+            "slot": 2
+          },
+          {
+            "x": 548.5714285714286,
+            "y": 552,
+            "size": 126.17142857142858,
+            "slot": 3
+          },
+          {
+            "x": 685.7142857142857,
+            "y": 552,
+            "size": 126.17142857142858,
+            "slot": 4
+          },
+          {
+            "x": 822.8571428571429,
+            "y": 552,
+            "size": 126.17142857142858,
+            "slot": 5
+          }
+        ],
+        "shadowParameters": [
+          {
+            "apparentAltitudePx": 10.120000000000001,
+            "gradientRadiusPx": 63.08571428571429,
+            "opacity": 0.85,
+            "ellipseScaleY": 0.2
+          },
+          {
+            "apparentAltitudePx": 10.120000000000001,
+            "gradientRadiusPx": 63.08571428571429,
+            "opacity": 0.85,
+            "ellipseScaleY": 0.2
+          },
+          {
+            "apparentAltitudePx": 10.120000000000001,
+            "gradientRadiusPx": 63.08571428571429,
+            "opacity": 0.85,
+            "ellipseScaleY": 0.2
+          },
+          {
+            "apparentAltitudePx": 10.120000000000001,
+            "gradientRadiusPx": 63.08571428571429,
+            "opacity": 0.85,
+            "ellipseScaleY": 0.2
+          },
+          {
+            "apparentAltitudePx": 10.120000000000001,
+            "gradientRadiusPx": 63.08571428571429,
+            "opacity": 0.85,
+            "ellipseScaleY": 0.2
+          },
+          {
+            "apparentAltitudePx": 10.120000000000001,
+            "gradientRadiusPx": 63.08571428571429,
+            "opacity": 0.85,
+            "ellipseScaleY": 0.2
+          }
+        ]
+      },
+      "candidate": {
+        "method": "floor pass then bodies",
+        "pose": "attack",
+        "formation": "full",
+        "canvas": [
+          960,
+          600
+        ],
+        "drawMs": 0.09999999962747097,
+        "actors": [
+          {
+            "x": 137.14285714285714,
+            "y": 552,
+            "size": 126.17142857142858,
+            "slot": 0
+          },
+          {
+            "x": 274.2857142857143,
+            "y": 552,
+            "size": 126.17142857142858,
+            "slot": 1
+          },
+          {
+            "x": 411.42857142857144,
+            "y": 552,
+            "size": 126.17142857142858,
+            "slot": 2
+          },
+          {
+            "x": 548.5714285714286,
+            "y": 552,
+            "size": 126.17142857142858,
+            "slot": 3
+          },
+          {
+            "x": 685.7142857142857,
+            "y": 552,
+            "size": 126.17142857142858,
+            "slot": 4
+          },
+          {
+            "x": 822.8571428571429,
+            "y": 552,
+            "size": 126.17142857142858,
+            "slot": 5
+          }
+        ],
+        "shadowParameters": [
+          {
+            "apparentAltitudePx": 10.120000000000001,
+            "gradientRadiusPx": 70.58201058201058,
+            "opacity": 0.5554076646090534,
+            "ellipseScaleY": 0.21584362139917698
+          },
+          {
+            "apparentAltitudePx": 10.120000000000001,
+            "gradientRadiusPx": 70.58201058201058,
+            "opacity": 0.5554076646090534,
+            "ellipseScaleY": 0.21584362139917698
+          },
+          {
+            "apparentAltitudePx": 10.120000000000001,
+            "gradientRadiusPx": 70.58201058201058,
+            "opacity": 0.5554076646090534,
+            "ellipseScaleY": 0.21584362139917698
+          },
+          {
+            "apparentAltitudePx": 10.120000000000001,
+            "gradientRadiusPx": 70.58201058201058,
+            "opacity": 0.5554076646090534,
+            "ellipseScaleY": 0.21584362139917698
+          },
+          {
+            "apparentAltitudePx": 10.120000000000001,
+            "gradientRadiusPx": 70.58201058201058,
+            "opacity": 0.5554076646090534,
+            "ellipseScaleY": 0.21584362139917698
+          },
+          {
+            "apparentAltitudePx": 10.120000000000001,
+            "gradientRadiusPx": 70.58201058201058,
+            "opacity": 0.5554076646090534,
+            "ellipseScaleY": 0.21584362139917698
+          }
+        ]
+      },
+      "sourceAtlas": "/public/art/hound-poses.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "scope": "Static pose comparison only; no runtime FPS, temporal animation or enjoyment inference."
+    }
+  ],
+  "scope": "Isolated static Canvas comparison. Not a production FPS test, runtime integration test, independent acceptance or human feedback."
+}

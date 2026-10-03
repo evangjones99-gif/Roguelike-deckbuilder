@@ -1,0 +1,11 @@
+# Exterior current 0.8 NSIS validation proposal
+
+Ownership: only this new exterior author directory. Root owns all production scripts/workflows. No activation, remote writes, artifact execution, runtime edits, installer building or new large TMP allocations occur here. Independent shipping/native reviewers must assess this proposal; author checks cannot constitute independent acceptance or actual Windows evidence.
+
+Current source is fixed 0.8.0/23477, 76 exact inputs, matching Linux/Windows ASAR c383. Current installer prepare/guards/smoke still match historical successful R5 byte-for-byte and pin 0.7.0/0be/e270/29. Preserve baseline source and original R5 source/QA reports without relabelling. Propose explicit current-version/count/runtime/ASAR constants, retaining every safety/lifecycle step and existing unsigned random QA identity.
+
+Add fixed packaged provenance and exact local payload correspondence for all39 WAV inputs plus crypt painting/selector; actual installed native renderer must fetch only installed ASAR file URLs and decode all39 through Chromium Web Audio. Record complete source-format and decoded PCM metrics, bound file/time/count, reject silent/nonfinite/truncated/unexpected assets, and preserve settings/save around the probe. Offline decode is not audibility/listening, application audio lifecycle, human hearing or quality acceptance.
+
+Add UI-earned seed44/difficulty0 trace: first battle victory through eight legal actions, skip salvage, event leave, camp rest, elite travel (14 total legal actions) reaches a dragon/necromancer crypt without editing localStorage or injecting campaign state. Require exact source reducer equality after every UI action, observe actual offscreen crypt painting draw and file URL, legal bound-hound command, exact reload and final process relaunch. Preserve initial seed121 binding evidence separately. This is deterministic validation, not a fun or strategy evaluation.
+
+Meaningful author checks will use actual fixed source/reducer and original39 PCM bytes, plus malformed-input and stale-provenance counterexamples. Preserve historical guard/transfer tests and run them against the proposed source. No mocked native installer execution/pass is permitted. Freeze proposed source, unchanged baseline, exact input identities, results and limitations for separate reviewers.

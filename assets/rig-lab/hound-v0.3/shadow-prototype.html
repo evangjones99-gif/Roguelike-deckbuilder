@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hollowpact · isolated painted contact study</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#12181b;color:#e3dbc9;font:15px system-ui,sans-serif}main{max-width:1500px;margin:auto;padding:24px}h1{font:600 27px Georgia,serif;margin:0 0 8px}p{max-width:1000px;color:#aeb7b7;line-height:1.55}.toolbar{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin:22px 0}label{display:flex;align-items:center;gap:8px}select,input,button{accent-color:#b7905d}select,button{background:#243037;border:1px solid #657077;color:#e3dbc9;padding:7px;border-radius:3px}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #d9b778;outline-offset:3px}.comparison{display:grid;grid-template-columns:1fr 1fr;gap:18px}.pane{border:1px solid #39474e;background:#172025;border-radius:4px;overflow:hidden}.pane h2{font-size:16px;padding:14px 16px;margin:0}.pane p{font-size:13px;padding:0 16px;margin:0 0 14px}.pane canvas{width:100%;display:block;aspect-ratio:16/10}.evidence{font-size:13px;color:#b7c2c4;padding:14px;border:1px solid #39474e;margin-top:18px;line-height:1.5;white-space:pre-wrap}.pending{color:#d3b077}@media(max-width:900px){.comparison{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>Painted contact and depth study</h1>
+<p>Isolated prototype using the actual repaired hound poses and abbey. Left reproduces the current fixed ground shadow and inline body pass. Right tests pose-aware shadow height and a separate floor pass. Both use the same pose, crop, anchor, size, art, and ground position.</p>
+<p class="pending">Candidate research only. No runtime integration, animation-quality verdict, or human feedback claim.</p>
+<div class="toolbar">
+<label>Pose <select id="pose"><option>idle</option><option>anticipation</option><option selected>attack</option><option>recovery</option><option>reaction</option><option>death</option></select></label>
+<label>Formation <select id="formation"><option value="single">Single creature</option><option value="sparse">Current sparse pair</option><option value="full">Current six-slot row</option></select></label>
+<label><input id="guide" type="checkbox">Show ground/contact guides</label>
+<button id="redraw" type="button">Redraw both</button>
+</div>
+<div class="comparison">
+<section class="pane"><h2>Current shadow</h2><p>Fixed radius/opacity; each body draws immediately after its shadow.</p><canvas id="baseline" width="960" height="600" aria-label="Current hound shadow comparison"></canvas></section>
+<section class="pane"><h2>Candidate contact shadow</h2><p>Airborne shadow softens and widens; all ground shadows draw before bodies.</p><canvas id="candidate" width="960" height="600" aria-label="Candidate altitude-aware hound shadow comparison"></canvas></section>
+</div><div class="evidence" id="evidence" role="status">Loading local artwork…</div>
+</main><script type="module">
+const atlas = new Image(), courtyard = new Image();
+atlas.src='/public/art/hound-poses.png';courtyard.src='/public/art/abbey-courtyard.png';
+// Exact source sampling/anchor snapshot from src/art.ts; no anatomy stretching.
+const poses={idle:{column:0,row:0,anchor:446,bottom:447},anticipation:{column:1,row:0,anchor:440,bottom:441},attack:{column:2,row:0,anchor:446,bottom:418},recovery:{column:0,row:1,anchor:400,bottom:401},reaction:{column:1,row:1,anchor:394,bottom:395},death:{column:2,row:1,anchor:397,bottom:398}};
+const pose=document.getElementById('pose'),formation=document.getElementById('formation'),guide=document.getElementById('guide');
+let ready=false;window.PROTOTYPE_READY=false;window.PROTOTYPE_EVIDENCE=null;
+function actors(w,h){
+  const count=formation.value==='full'?6:formation.value==='sparse'?2:1;
+  return Array.from({length:count},(_,i)=>{
+    if(count===6)return{x:w*(i+1)/7,y:h*.92,size:Math.min(h*.38,w/7*.92),slot:i};
+    if(count===2){const offset=i-.5;return{x:w*(.29+offset*.135),y:h*(.88+offset*.065),size:Math.min(h*.49,w*.235),slot:i};}
+    return{x:w*.48,y:h*.84,size:Math.min(h*.49,w*.235),slot:i};
+  });
+}
+function background(ctx,w,h){
+  ctx.fillStyle='#19242a';ctx.fillRect(0,0,w,h);
+  const cover=Math.max(w/courtyard.naturalWidth,h/courtyard.naturalHeight);const iw=courtyard.naturalWidth*cover,ih=courtyard.naturalHeight*cover;
+  ctx.drawImage(courtyard,(w-iw)/2,(h-ih)*.62,iw,ih);
+  const shade=ctx.createLinearGradient(0,0,0,h);shade.addColorStop(0,'rgba(8,12,16,.18)');shade.addColorStop(.48,'rgba(8,12,16,.02)');shade.addColorStop(1,'rgba(8,10,12,.43)');ctx.fillStyle=shade;ctx.fillRect(0,0,w,h);
+}
+function shadow(ctx,a,candidate,frame){
+  const altitude=Math.max(0,frame.anchor-frame.bottom)/384*1.1*a.size;
+  const air=Math.min(1,altitude/(.081*a.size));
+  const radius=a.size*.5*(candidate?1+air*.12:1);const opacity=.85*(candidate?1-air*.35:1);
+  ctx.save();let gradient;
+  if(candidate){ctx.translate(a.x,a.y);ctx.scale(1,.2*(1+air*.08));gradient=ctx.createRadialGradient(0,0,0,0,0,radius);}
+  else{gradient=ctx.createRadialGradient(a.x,a.y,0,a.x,a.y,radius);ctx.translate(a.x,a.y);ctx.scale(1,.2);}
+  gradient.addColorStop(0,`rgba(0,0,0,${opacity})`);gradient.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=gradient;
+  ctx.beginPath();ctx.arc(0,0,a.size*.55*(candidate?1+air*.12:1),0,Math.PI*2);ctx.fill();ctx.restore();
+  return{apparentAltitudePx:altitude,gradientRadiusPx:radius,opacity,ellipseScaleY:.2*(candidate?1+air*.08:1)};
+}
+function body(ctx,a,frame){
+  const sw=448,sh=384,h=a.size*1.1,w=h*sw/sh;
+  ctx.drawImage(atlas,frame.column*512+32,frame.row*512+96,sw,sh,a.x-w*.5,a.y-h*(frame.anchor-96)/384,w,h);
+}
+function guides(ctx,list,frame){
+  if(!guide.checked)return;
+  ctx.save();ctx.strokeStyle='#e2d7a7';ctx.fillStyle='#e2d7a7';ctx.font='14px system-ui';ctx.setLineDash([5,5]);
+  for(const a of list){ctx.beginPath();ctx.moveTo(a.x-a.size*.6,a.y);ctx.lineTo(a.x+a.size*.6,a.y);ctx.stroke();ctx.fillText(`Slot ${a.slot+1} ground`,a.x-a.size*.4,a.y+22);}
+  ctx.restore();
+}
+function draw(which,candidate){
+  const canvas=document.getElementById(which),ctx=canvas.getContext('2d',{alpha:false}),w=canvas.width,h=canvas.height,start=performance.now(),list=actors(w,h).sort((a,b)=>a.y-b.y),frame=poses[pose.value];
+  background(ctx,w,h);const contact=[];
+  if(candidate){for(const a of list)contact.push(shadow(ctx,a,true,frame));for(const a of list)body(ctx,a,frame);}
+  else{for(const a of list){contact.push(shadow(ctx,a,false,frame));body(ctx,a,frame);}}
+  guides(ctx,list,frame);
+  return{method:candidate?'floor pass then bodies':'inline shadow/body',pose:pose.value,formation:formation.value,canvas:[w,h],drawMs:performance.now()-start,actors:list,shadowParameters:contact};
+}
+function redraw(){
+  if(!ready)return;const baseline=draw('baseline',false),candidate=draw('candidate',true);
+  window.PROTOTYPE_EVIDENCE={baseline,candidate,sourceAtlas:'/public/art/hound-poses.png',sourceSize:[atlas.naturalWidth,atlas.naturalHeight],scope:'Static pose comparison only; no runtime FPS, temporal animation or enjoyment inference.'};
+  const a=baseline.shadowParameters[0],b=candidate.shadowParameters[0];
+  document.getElementById('evidence').textContent=`${pose.value} · ${formation.options[formation.selectedIndex].text}\nApparent altitude: ${a.apparentAltitudePx.toFixed(2)} source-calibrated canvas pixels.\nShadow center opacity: ${a.opacity.toFixed(3)} → ${b.opacity.toFixed(3)}; radius: ${a.gradientRadiusPx.toFixed(2)} → ${b.gradientRadiusPx.toFixed(2)}px.\nStatic draw times: ${baseline.drawMs.toFixed(2)}ms / ${candidate.drawMs.toFixed(2)}ms. These are not frame-rate or performance claims.`;
+}
+for(const control of[pose,formation,guide])control.addEventListener('change',redraw);document.getElementById('redraw').addEventListener('click',redraw);
+try{await Promise.all([atlas.decode(),courtyard.decode()]);ready=true;redraw();window.PROTOTYPE_READY=true;}
+catch(error){document.getElementById('evidence').textContent=`Artwork load failed: ${error.message}. Serve the repository root with the isolated fixture server.`;}
+</script></body></html>

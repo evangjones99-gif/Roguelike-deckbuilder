@@ -1,0 +1,828 @@
+{
+  "status": "FROZEN-AUTHOR-PROPOSAL-NOT-LIVE-PRESERVATION",
+  "createdUTC": "2026-10-01T00:24:29.904176+00:00",
+  "productionWrites": false,
+  "releaseWrites": false,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 9765,
+      "sha256": "d113c48f14bba533815ab11f60d5518fe0aeee8d0207fb0790b8ca862642c789"
+    },
+    {
+      "path": "SHA256SUMS",
+      "bytes": 607,
+      "sha256": "66ea71f543eb0c2bd29bcb80538b41db22eb21c655c28dafaf18aa54fc5542c1"
+    },
+    {
+      "path": "author-diff.patch",
+      "bytes": 16600,
+      "sha256": "02838f99a74b59d950a90e3a09fe1f90a4b075955b0182fee347ec3d3690c16d"
+    },
+    {
+      "path": "extraction.py",
+      "bytes": 759,
+      "sha256": "ff4ae6223df8bee95b3feeabac4b68c7a46834982871c20e6e821fe06e4cc8ac"
+    },
+    {
+      "path": "github-annotated-tag.json",
+      "bytes": 937,
+      "sha256": "af65adc4e4a6c46f394cb97e31abb0db47d8639d212ba8fa047ddf31d271f16d"
+    },
+    {
+      "path": "github-read-metadata.json",
+      "bytes": 26076,
+      "sha256": "72b2ec58e1c45031a9aebb1d57ae3df409f7197b8d9dbc3661c7b7c577897042"
+    },
+    {
+      "path": "local-original-hashes.json",
+      "bytes": 950,
+      "sha256": "c942221d76180759ca7b51a0ee016802943440f17d6a782b586908ce7ebeced7"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 2754,
+      "sha256": "6999e88dfc4b19626e50734571e997c9fd19b1a5c2e4ce9439159343160fd500"
+    },
+    {
+      "path": "mock-results/api-http-error.json",
+      "bytes": 2216,
+      "sha256": "b9a60edbedad657312073064361b0f3f67641b8cfac15dd093f0ec1b0ae93fa6"
+    },
+    {
+      "path": "mock-results/api-request-error-sanitized.json",
+      "bytes": 2233,
+      "sha256": "a70de13408b683e1c373ca044c317e62c342eea3740ef989af51fc95068f7e03"
+    },
+    {
+      "path": "mock-results/asset-readback-hash-mismatch.json",
+      "bytes": 5465,
+      "sha256": "d914346bfad5895923c8883be324c07017cd9c7e54489c771c49b4fd40cab99c"
+    },
+    {
+      "path": "mock-results/content-length-overrun.json",
+      "bytes": 2308,
+      "sha256": "be0ee7cf1ed8c91052c21886a55cb3e8ddc6cad3e0292b3a0f335ac489997aa3"
+    },
+    {
+      "path": "mock-results/create-response-published.json",
+      "bytes": 4162,
+      "sha256": "fc3628dd016e629736573f2fb4ae29aa2c4d23a4b4f08be982c8cf1ea4715c8b"
+    },
+    {
+      "path": "mock-results/direct-api-body-success.json",
+      "bytes": 9315,
+      "sha256": "3e74f340cdb5dd351dddbc77e1508fef8594466daee315bd41325692b3292803"
+    },
+    {
+      "path": "mock-results/download-hash-mismatch.json",
+      "bytes": 2308,
+      "sha256": "93741fb68cfdff751d2862d6a65024db2a7d55e345f872eac69b7038244af7e4"
+    },
+    {
+      "path": "mock-results/draft-published-after-last-readback.json",
+      "bytes": 10463,
+      "sha256": "034c56dcac2d14bc6f831f44d6634d2b5b2b260a131ac8eb13ca08c2d90c4b24"
+    },
+    {
+      "path": "mock-results/draft-published-before-upload.json",
+      "bytes": 4646,
+      "sha256": "ca2ee68acf82982744fb000b0fc28f09d868b2580b70937a457b5270b82ae78c"
+    },
+    {
+      "path": "mock-results/draft-tag-changed-at-final-check.json",
+      "bytes": 10460,
+      "sha256": "be1b60452408f39ad107fa12824d8e1ea29b347b8540d8d6998717b8a9f63077"
+    },
+    {
+      "path": "mock-results/duplicate-existing-asset.json",
+      "bytes": 3432,
+      "sha256": "3f9770c569268fe279e2d165e7f49ecda24569060e6465bc40276abb3a1f38d6"
+    },
+    {
+      "path": "mock-results/duplicate-tagged-releases.json",
+      "bytes": 3084,
+      "sha256": "42c2ca6e7fedff48549d5575ed63fe2c9567327d390c595e2c026791e933aceb"
+    },
+    {
+      "path": "mock-results/evidence-byte-bound-mismatch.json",
+      "bytes": 2494,
+      "sha256": "8691b9df3538d23595bb66c107056220a273e354482e9e3cb83c8541e5662445"
+    },
+    {
+      "path": "mock-results/existing-asset-size-mismatch.json",
+      "bytes": 3457,
+      "sha256": "d0c6185590f788d51fa206ee5f555d32c36fdb6be74de74e996bc34139f41b83"
+    },
+    {
+      "path": "mock-results/existing-draft-success.json",
+      "bytes": 9389,
+      "sha256": "e9d25d509fec6ac4d40ef272966309140412ca39f3f4b4a1a5de4bcb1799b821"
+    },
+    {
+      "path": "mock-results/existing-non-prerelease.json",
+      "bytes": 3105,
+      "sha256": "b526f58de75bbbb0b440bc872c19b60cb010af4d9d3727cfb5d4ee89c48ea98f"
+    },
+    {
+      "path": "mock-results/existing-published-release.json",
+      "bytes": 3108,
+      "sha256": "c95ede7bd0c6616925a90750c7888c76d8920826dec40d0c6da2ac4c12a4b1df"
+    },
+    {
+      "path": "mock-results/expired-evidence-artifact.json",
+      "bytes": 2491,
+      "sha256": "4fdbb45b32bd9b254da17bd5948739efe6a3d4c522a95ed82ef8a79c3d9285de"
+    },
+    {
+      "path": "mock-results/expired-native-artifact.json",
+      "bytes": 1877,
+      "sha256": "9b14a67e3868693398669933caa8adb8b0f6ce7059464e6c9dbbca25a89a737e"
+    },
+    {
+      "path": "mock-results/extracted-native-hash-mismatch.json",
+      "bytes": 2310,
+      "sha256": "7dafb5d1fef893238366e70c128017e3be4db4a93f0f82477bab5a628f1d7202"
+    },
+    {
+      "path": "mock-results/extraction-failure.json",
+      "bytes": 2281,
+      "sha256": "d693084f912afbde528d0c7d241ca51b836d2d6b6e9c6a54fa32a37422295d66"
+    },
+    {
+      "path": "mock-results/foreign-run-repository.json",
+      "bytes": 1686,
+      "sha256": "0fb2785a6835c2772f038c23c4565393139fd32ac79c6029873ddfe8a85e1e79"
+    },
+    {
+      "path": "mock-results/host-suffix-spoof-refused.json",
+      "bytes": 2237,
+      "sha256": "b38b883e15911aee7c67c095c5dc958b1b0ac8825944c23cb99384ff5c08cf5c"
+    },
+    {
+      "path": "mock-results/http-redirect-refused.json",
+      "bytes": 2233,
+      "sha256": "1ad77239b903d14712343da95bd6f40bac64ff3ade168d94cae799dcd41ffbae"
+    },
+    {
+      "path": "mock-results/idempotent-existing-five-assets.json",
+      "bytes": 6827,
+      "sha256": "727dcb1d5319170fdb0c8b956c615412e3241af515ef8d7f84e9610d300e9382"
+    },
+    {
+      "path": "mock-results/insufficient-disk.json",
+      "bytes": 639,
+      "sha256": "adb10abe6d176f45e5b4c2bcd687f0210fd61046de092a9bb938e7e2096e0344"
+    },
+    {
+      "path": "mock-results/invalid-content-length.json",
+      "bytes": 2308,
+      "sha256": "9d237052353dcfb358606333166578c5ed646b9d4ddd56fab76865d8543c3ec3"
+    },
+    {
+      "path": "mock-results/manifest-hash-mismatch.json",
+      "bytes": 1257,
+      "sha256": "757f4222a466951854e1b773579b8b055075e07fefb362f73c8982804e5a04d9"
+    },
+    {
+      "path": "mock-results/manifest-runtime-mismatch.json",
+      "bytes": 1500,
+      "sha256": "54f302fefa5e8cfd3e524d67e820a965edf2588e9988cdd6b7eaf5fcb13d3e93"
+    },
+    {
+      "path": "mock-results/manual-confirmed-success.json",
+      "bytes": 10450,
+      "sha256": "24115e1368f9b1b078645e1701c8aede42828b337a867df87a6e925961c0f0d8"
+    },
+    {
+      "path": "mock-results/manual-unconfirmed.json",
+      "bytes": 626,
+      "sha256": "5d1476e487eb9d872e42add656f7b322dee6b3aab3cb3467df9728de34a120db"
+    },
+    {
+      "path": "mock-results/metadata-not-file.json",
+      "bytes": 1254,
+      "sha256": "203a803d2c2197043ef79a7eac4329c2db85d86dbb963e0411c90d21670322fd"
+    },
+    {
+      "path": "mock-results/missing-artifact-digest.json",
+      "bytes": 1868,
+      "sha256": "5f88265df440386aab42cf5d930c210467e0286d523ced6c288c2923e1149554"
+    },
+    {
+      "path": "mock-results/missing-body.json",
+      "bytes": 2273,
+      "sha256": "86c7cba4f379a1b2c1eeea25894daf988619d2308c638831e5f1b7ea47576b27"
+    },
+    {
+      "path": "mock-results/native-run-not-completed.json",
+      "bytes": 1688,
+      "sha256": "e1b499c882283276dde6f4c4f1a7707895538b7d7d0de0c126f5bbd1f34b8f3c"
+    },
+    {
+      "path": "mock-results/new-draft-success.json",
+      "bytes": 10443,
+      "sha256": "98eef4b264c4bce0eb03ffcdf3ef35cebc217d779835bf22f1cf257fd0a7ba07"
+    },
+    {
+      "path": "mock-results/pull-request-trigger.json",
+      "bytes": 628,
+      "sha256": "63cea2182d0aaf47ad2f080a02bfbcd9a600cac295106cffcddffa0a1d3b5841"
+    },
+    {
+      "path": "mock-results/readback-mismatch-asset-2.json",
+      "bytes": 6673,
+      "sha256": "c5f508f85fea7a740a649098cbe5a765874666f33aa0978fdf98fd1ac01a9a5e"
+    },
+    {
+      "path": "mock-results/readback-mismatch-asset-3.json",
+      "bytes": 7810,
+      "sha256": "af2f7680a1987acfc7ae994c251142917c118975cc357fe71140ab172a349620"
+    },
+    {
+      "path": "mock-results/readback-mismatch-asset-4.json",
+      "bytes": 8937,
+      "sha256": "c8c3737e8ca77b51631546e4f8d88986365c8f57727ef3b95ba395ef9ab6011a"
+    },
+    {
+      "path": "mock-results/readback-mismatch-asset-5.json",
+      "bytes": 10095,
+      "sha256": "11b690484f5f1dcb48db2b53066372111ba9ba7a06f0cbffd19c813a4d7a64f8"
+    },
+    {
+      "path": "mock-results/redirect-port-refused.json",
+      "bytes": 2233,
+      "sha256": "a28941c3769ceeccdf2a8c9347f09f09b9219f243cafdcaa889f2fc055dd5eee"
+    },
+    {
+      "path": "mock-results/redirect-userinfo-refused.json",
+      "bytes": 2237,
+      "sha256": "56cb734e6a3ac32e567d3982eee12f7079b8c419c3a45f288d279bd3fb1977df"
+    },
+    {
+      "path": "mock-results/short-download.json",
+      "bytes": 2300,
+      "sha256": "04db6f3985d936334cec69ed0dd8f40863f0f02a5a4d0a827aade51108542d8a"
+    },
+    {
+      "path": "mock-results/signed-request-error-sanitized.json",
+      "bytes": 2401,
+      "sha256": "1a6cf97a39b21d605ae97b9b6a65b3495e522dbb91b446bbead3685a883a036a"
+    },
+    {
+      "path": "mock-results/signed-second-redirect-refused.json",
+      "bytes": 2397,
+      "sha256": "d32c94bbc380f5e4a0ecf60a77e4ac2e8c42a858e97727e1181151dc9f249d1d"
+    },
+    {
+      "path": "mock-results/stream-byte-overrun.json",
+      "bytes": 2315,
+      "sha256": "03c7d1ac560c2c10f6cbd6fe23d271c284307d5b0bac61d24504c392846627e1"
+    },
+    {
+      "path": "mock-results/sums-hash-mismatch.json",
+      "bytes": 1498,
+      "sha256": "b77901c6dad9dd4f0f3a9c6c4af19b50ed2377460d51bee887f027eb3f5c42aa"
+    },
+    {
+      "path": "mock-results/tag-object-mismatch.json",
+      "bytes": 796,
+      "sha256": "fb23fa771dc7e17e042bc789849cd30f6013997ced47299de5141b18ff931e02"
+    },
+    {
+      "path": "mock-results/tag-target-mismatch.json",
+      "bytes": 987,
+      "sha256": "1544af05b46f3af7997c2464df6288d72454e0b646402e8e6e5b44d60c29d46c"
+    },
+    {
+      "path": "mock-results/unrelated-existing-draft.json",
+      "bytes": 3106,
+      "sha256": "7e92d9ddb0d604fbe59e7c03b2a9cc5961dbcabdb12d129a30e1c5510f2187ab"
+    },
+    {
+      "path": "mock-results/unsuccessful-native-run.json",
+      "bytes": 1687,
+      "sha256": "c7a94101e8b888ddfa6ef22c981fdf8974e39b758abde4890d30fc4298f9fd8e"
+    },
+    {
+      "path": "mock-results/untrusted-redirect-refused.json",
+      "bytes": 2238,
+      "sha256": "23f1f32c54e60290403f7843cec8c60890de0b15bb9bac9f3fd50675845b485d"
+    },
+    {
+      "path": "mock-results/upload-error-retained-draft.json",
+      "bytes": 4973,
+      "sha256": "c2e25a15e3bf1c26b37c0e4acf0db32f3176ec96f605ed19cdddcbc2768acad8"
+    },
+    {
+      "path": "mock-results/upload-error-token-redacted.json",
+      "bytes": 4984,
+      "sha256": "c8bbbe569f3bc76e820830bd293a583e867a9f8f95754e6c7d1009ab57569b83"
+    },
+    {
+      "path": "mock-results/upload-size-mismatch.json",
+      "bytes": 5032,
+      "sha256": "7688f1c2f2ce47c84c31f118ba7ee3ab003d7703124cf239c2e8e9ddb7fb213a"
+    },
+    {
+      "path": "mock-results/wrong-artifact-digest.json",
+      "bytes": 1866,
+      "sha256": "3629b48aa84937ab8e34b15445325722fc5b46be303c6945ea464b4e696fd995"
+    },
+    {
+      "path": "mock-results/wrong-artifact-id.json",
+      "bytes": 1871,
+      "sha256": "e5952b0805886b7fba648991724deeccae3b98245057fe448e93b3023a136220"
+    },
+    {
+      "path": "mock-results/wrong-artifact-name.json",
+      "bytes": 1873,
+      "sha256": "5f619c423e5070e76c9959a4ab46b9029cecefbcd2a32f1dabfa785a5cc490d0"
+    },
+    {
+      "path": "mock-results/wrong-artifact-native-branch.json",
+      "bytes": 1882,
+      "sha256": "5d3570155b686f5b7c89b615ea1cd741fc99921331fd1070282726011264af5f"
+    },
+    {
+      "path": "mock-results/wrong-artifact-native-run.json",
+      "bytes": 1879,
+      "sha256": "3e749df9a542b27e6e45e940583c26200982146da39a796d042d3ca8c9264ebd"
+    },
+    {
+      "path": "mock-results/wrong-artifact-size.json",
+      "bytes": 1873,
+      "sha256": "6c793848f9e0864497ad2cd69f2f762fad2ea8975b0a6c060c849689ffeae007"
+    },
+    {
+      "path": "mock-results/wrong-artifact-workflow-head.json",
+      "bytes": 1882,
+      "sha256": "24bbd7c9658af41c5848fb92a4ca0a3f4cd3e1f4a72dbbe89eb8852617248dde"
+    },
+    {
+      "path": "mock-results/wrong-branch.json",
+      "bytes": 620,
+      "sha256": "b6fc48e84974f95ebc4a75962a6ce0c029cf35300dc3be4670120e860448261f"
+    },
+    {
+      "path": "mock-results/wrong-native-run-branch.json",
+      "bytes": 1687,
+      "sha256": "947a565107f9ee95bf8231e3282dd7b024c01b1da6dd3f597def243146181677"
+    },
+    {
+      "path": "mock-results/wrong-native-run-id.json",
+      "bytes": 1683,
+      "sha256": "eaa7da6a2482ad20926a2f0a3ec58ecc004da3725e7398b3946e4ec73c2bb6d5"
+    },
+    {
+      "path": "mock-results/wrong-native-workflow.json",
+      "bytes": 1685,
+      "sha256": "be02aeafbe27f1ff87afc4a9e2d8ed96570022dfc03bc8b3d0a8890362360b42"
+    },
+    {
+      "path": "mock-results/wrong-repository.json",
+      "bytes": 610,
+      "sha256": "e894fdcedef109562fba8cc89453e5ac50866ed80260f53da174bc5cf7e70792"
+    },
+    {
+      "path": "mock-results/wrong-run-attempt.json",
+      "bytes": 1681,
+      "sha256": "3d38e046c8d93743e5d24e30202d2e3fb5e1f7855452eb03ae980bf18b77eef6"
+    },
+    {
+      "path": "mock-results/wrong-run-head.json",
+      "bytes": 1678,
+      "sha256": "7ae073e72eea42bd2335e73fc1daa4777abd75e0b2b3bfb4de0ae1973636d730"
+    },
+    {
+      "path": "mock-results-r1/api-http-error.json",
+      "bytes": 2216,
+      "sha256": "b9a60edbedad657312073064361b0f3f67641b8cfac15dd093f0ec1b0ae93fa6"
+    },
+    {
+      "path": "mock-results-r1/api-request-error-sanitized.json",
+      "bytes": 2233,
+      "sha256": "a70de13408b683e1c373ca044c317e62c342eea3740ef989af51fc95068f7e03"
+    },
+    {
+      "path": "mock-results-r1/asset-readback-hash-mismatch.json",
+      "bytes": 5465,
+      "sha256": "d914346bfad5895923c8883be324c07017cd9c7e54489c771c49b4fd40cab99c"
+    },
+    {
+      "path": "mock-results-r1/content-length-overrun.json",
+      "bytes": 2308,
+      "sha256": "be0ee7cf1ed8c91052c21886a55cb3e8ddc6cad3e0292b3a0f335ac489997aa3"
+    },
+    {
+      "path": "mock-results-r1/create-response-published.json",
+      "bytes": 4162,
+      "sha256": "fc3628dd016e629736573f2fb4ae29aa2c4d23a4b4f08be982c8cf1ea4715c8b"
+    },
+    {
+      "path": "mock-results-r1/direct-api-body-success.json",
+      "bytes": 9315,
+      "sha256": "3e74f340cdb5dd351dddbc77e1508fef8594466daee315bd41325692b3292803"
+    },
+    {
+      "path": "mock-results-r1/download-hash-mismatch.json",
+      "bytes": 2308,
+      "sha256": "93741fb68cfdff751d2862d6a65024db2a7d55e345f872eac69b7038244af7e4"
+    },
+    {
+      "path": "mock-results-r1/draft-published-after-last-readback.json",
+      "bytes": 10463,
+      "sha256": "034c56dcac2d14bc6f831f44d6634d2b5b2b260a131ac8eb13ca08c2d90c4b24"
+    },
+    {
+      "path": "mock-results-r1/draft-published-before-upload.json",
+      "bytes": 4646,
+      "sha256": "ca2ee68acf82982744fb000b0fc28f09d868b2580b70937a457b5270b82ae78c"
+    },
+    {
+      "path": "mock-results-r1/draft-tag-changed-at-final-check.json",
+      "bytes": 10460,
+      "sha256": "be1b60452408f39ad107fa12824d8e1ea29b347b8540d8d6998717b8a9f63077"
+    },
+    {
+      "path": "mock-results-r1/duplicate-existing-asset.json",
+      "bytes": 3432,
+      "sha256": "3f9770c569268fe279e2d165e7f49ecda24569060e6465bc40276abb3a1f38d6"
+    },
+    {
+      "path": "mock-results-r1/duplicate-tagged-releases.json",
+      "bytes": 3084,
+      "sha256": "42c2ca6e7fedff48549d5575ed63fe2c9567327d390c595e2c026791e933aceb"
+    },
+    {
+      "path": "mock-results-r1/existing-asset-size-mismatch.json",
+      "bytes": 3457,
+      "sha256": "d0c6185590f788d51fa206ee5f555d32c36fdb6be74de74e996bc34139f41b83"
+    },
+    {
+      "path": "mock-results-r1/existing-draft-success.json",
+      "bytes": 9389,
+      "sha256": "e9d25d509fec6ac4d40ef272966309140412ca39f3f4b4a1a5de4bcb1799b821"
+    },
+    {
+      "path": "mock-results-r1/existing-non-prerelease.json",
+      "bytes": 3105,
+      "sha256": "b526f58de75bbbb0b440bc872c19b60cb010af4d9d3727cfb5d4ee89c48ea98f"
+    },
+    {
+      "path": "mock-results-r1/existing-published-release.json",
+      "bytes": 3108,
+      "sha256": "c95ede7bd0c6616925a90750c7888c76d8920826dec40d0c6da2ac4c12a4b1df"
+    },
+    {
+      "path": "mock-results-r1/expired-native-artifact.json",
+      "bytes": 1877,
+      "sha256": "9b14a67e3868693398669933caa8adb8b0f6ce7059464e6c9dbbca25a89a737e"
+    },
+    {
+      "path": "mock-results-r1/extracted-native-hash-mismatch.json",
+      "bytes": 2310,
+      "sha256": "7dafb5d1fef893238366e70c128017e3be4db4a93f0f82477bab5a628f1d7202"
+    },
+    {
+      "path": "mock-results-r1/extraction-failure.json",
+      "bytes": 2281,
+      "sha256": "d693084f912afbde528d0c7d241ca51b836d2d6b6e9c6a54fa32a37422295d66"
+    },
+    {
+      "path": "mock-results-r1/foreign-run-repository.json",
+      "bytes": 1686,
+      "sha256": "0fb2785a6835c2772f038c23c4565393139fd32ac79c6029873ddfe8a85e1e79"
+    },
+    {
+      "path": "mock-results-r1/host-suffix-spoof-refused.json",
+      "bytes": 2237,
+      "sha256": "b38b883e15911aee7c67c095c5dc958b1b0ac8825944c23cb99384ff5c08cf5c"
+    },
+    {
+      "path": "mock-results-r1/http-redirect-refused.json",
+      "bytes": 2233,
+      "sha256": "1ad77239b903d14712343da95bd6f40bac64ff3ade168d94cae799dcd41ffbae"
+    },
+    {
+      "path": "mock-results-r1/idempotent-existing-five-assets.json",
+      "bytes": 6827,
+      "sha256": "727dcb1d5319170fdb0c8b956c615412e3241af515ef8d7f84e9610d300e9382"
+    },
+    {
+      "path": "mock-results-r1/insufficient-disk.json",
+      "bytes": 639,
+      "sha256": "adb10abe6d176f45e5b4c2bcd687f0210fd61046de092a9bb938e7e2096e0344"
+    },
+    {
+      "path": "mock-results-r1/invalid-content-length.json",
+      "bytes": 2308,
+      "sha256": "9d237052353dcfb358606333166578c5ed646b9d4ddd56fab76865d8543c3ec3"
+    },
+    {
+      "path": "mock-results-r1/manifest-hash-mismatch.json",
+      "bytes": 1257,
+      "sha256": "757f4222a466951854e1b773579b8b055075e07fefb362f73c8982804e5a04d9"
+    },
+    {
+      "path": "mock-results-r1/manifest-runtime-mismatch.json",
+      "bytes": 1500,
+      "sha256": "54f302fefa5e8cfd3e524d67e820a965edf2588e9988cdd6b7eaf5fcb13d3e93"
+    },
+    {
+      "path": "mock-results-r1/manual-confirmed-success.json",
+      "bytes": 10450,
+      "sha256": "24115e1368f9b1b078645e1701c8aede42828b337a867df87a6e925961c0f0d8"
+    },
+    {
+      "path": "mock-results-r1/manual-unconfirmed.json",
+      "bytes": 626,
+      "sha256": "5d1476e487eb9d872e42add656f7b322dee6b3aab3cb3467df9728de34a120db"
+    },
+    {
+      "path": "mock-results-r1/metadata-not-file.json",
+      "bytes": 1254,
+      "sha256": "203a803d2c2197043ef79a7eac4329c2db85d86dbb963e0411c90d21670322fd"
+    },
+    {
+      "path": "mock-results-r1/missing-artifact-digest.json",
+      "bytes": 1868,
+      "sha256": "5f88265df440386aab42cf5d930c210467e0286d523ced6c288c2923e1149554"
+    },
+    {
+      "path": "mock-results-r1/missing-body.json",
+      "bytes": 2273,
+      "sha256": "86c7cba4f379a1b2c1eeea25894daf988619d2308c638831e5f1b7ea47576b27"
+    },
+    {
+      "path": "mock-results-r1/native-run-not-completed.json",
+      "bytes": 1688,
+      "sha256": "e1b499c882283276dde6f4c4f1a7707895538b7d7d0de0c126f5bbd1f34b8f3c"
+    },
+    {
+      "path": "mock-results-r1/new-draft-success.json",
+      "bytes": 10443,
+      "sha256": "98eef4b264c4bce0eb03ffcdf3ef35cebc217d779835bf22f1cf257fd0a7ba07"
+    },
+    {
+      "path": "mock-results-r1/pull-request-trigger.json",
+      "bytes": 628,
+      "sha256": "63cea2182d0aaf47ad2f080a02bfbcd9a600cac295106cffcddffa0a1d3b5841"
+    },
+    {
+      "path": "mock-results-r1/redirect-port-refused.json",
+      "bytes": 2233,
+      "sha256": "a28941c3769ceeccdf2a8c9347f09f09b9219f243cafdcaa889f2fc055dd5eee"
+    },
+    {
+      "path": "mock-results-r1/redirect-userinfo-refused.json",
+      "bytes": 2237,
+      "sha256": "56cb734e6a3ac32e567d3982eee12f7079b8c419c3a45f288d279bd3fb1977df"
+    },
+    {
+      "path": "mock-results-r1/short-download.json",
+      "bytes": 2300,
+      "sha256": "04db6f3985d936334cec69ed0dd8f40863f0f02a5a4d0a827aade51108542d8a"
+    },
+    {
+      "path": "mock-results-r1/signed-request-error-sanitized.json",
+      "bytes": 2401,
+      "sha256": "1a6cf97a39b21d605ae97b9b6a65b3495e522dbb91b446bbead3685a883a036a"
+    },
+    {
+      "path": "mock-results-r1/signed-second-redirect-refused.json",
+      "bytes": 2397,
+      "sha256": "d32c94bbc380f5e4a0ecf60a77e4ac2e8c42a858e97727e1181151dc9f249d1d"
+    },
+    {
+      "path": "mock-results-r1/stream-byte-overrun.json",
+      "bytes": 2315,
+      "sha256": "03c7d1ac560c2c10f6cbd6fe23d271c284307d5b0bac61d24504c392846627e1"
+    },
+    {
+      "path": "mock-results-r1/sums-hash-mismatch.json",
+      "bytes": 1498,
+      "sha256": "b77901c6dad9dd4f0f3a9c6c4af19b50ed2377460d51bee887f027eb3f5c42aa"
+    },
+    {
+      "path": "mock-results-r1/tag-object-mismatch.json",
+      "bytes": 796,
+      "sha256": "fb23fa771dc7e17e042bc789849cd30f6013997ced47299de5141b18ff931e02"
+    },
+    {
+      "path": "mock-results-r1/tag-target-mismatch.json",
+      "bytes": 987,
+      "sha256": "1544af05b46f3af7997c2464df6288d72454e0b646402e8e6e5b44d60c29d46c"
+    },
+    {
+      "path": "mock-results-r1/unrelated-existing-draft.json",
+      "bytes": 3106,
+      "sha256": "7e92d9ddb0d604fbe59e7c03b2a9cc5961dbcabdb12d129a30e1c5510f2187ab"
+    },
+    {
+      "path": "mock-results-r1/unsuccessful-native-run.json",
+      "bytes": 1687,
+      "sha256": "c7a94101e8b888ddfa6ef22c981fdf8974e39b758abde4890d30fc4298f9fd8e"
+    },
+    {
+      "path": "mock-results-r1/untrusted-redirect-refused.json",
+      "bytes": 2238,
+      "sha256": "23f1f32c54e60290403f7843cec8c60890de0b15bb9bac9f3fd50675845b485d"
+    },
+    {
+      "path": "mock-results-r1/upload-error-retained-draft.json",
+      "bytes": 4973,
+      "sha256": "c2e25a15e3bf1c26b37c0e4acf0db32f3176ec96f605ed19cdddcbc2768acad8"
+    },
+    {
+      "path": "mock-results-r1/upload-size-mismatch.json",
+      "bytes": 5032,
+      "sha256": "7688f1c2f2ce47c84c31f118ba7ee3ab003d7703124cf239c2e8e9ddb7fb213a"
+    },
+    {
+      "path": "mock-results-r1/wrong-artifact-digest.json",
+      "bytes": 1866,
+      "sha256": "3629b48aa84937ab8e34b15445325722fc5b46be303c6945ea464b4e696fd995"
+    },
+    {
+      "path": "mock-results-r1/wrong-artifact-id.json",
+      "bytes": 1871,
+      "sha256": "e5952b0805886b7fba648991724deeccae3b98245057fe448e93b3023a136220"
+    },
+    {
+      "path": "mock-results-r1/wrong-artifact-name.json",
+      "bytes": 1873,
+      "sha256": "5f619c423e5070e76c9959a4ab46b9029cecefbcd2a32f1dabfa785a5cc490d0"
+    },
+    {
+      "path": "mock-results-r1/wrong-artifact-size.json",
+      "bytes": 1873,
+      "sha256": "6c793848f9e0864497ad2cd69f2f762fad2ea8975b0a6c060c849689ffeae007"
+    },
+    {
+      "path": "mock-results-r1/wrong-artifact-workflow-head.json",
+      "bytes": 1882,
+      "sha256": "24bbd7c9658af41c5848fb92a4ca0a3f4cd3e1f4a72dbbe89eb8852617248dde"
+    },
+    {
+      "path": "mock-results-r1/wrong-branch.json",
+      "bytes": 620,
+      "sha256": "b6fc48e84974f95ebc4a75962a6ce0c029cf35300dc3be4670120e860448261f"
+    },
+    {
+      "path": "mock-results-r1/wrong-native-workflow.json",
+      "bytes": 1685,
+      "sha256": "be02aeafbe27f1ff87afc4a9e2d8ed96570022dfc03bc8b3d0a8890362360b42"
+    },
+    {
+      "path": "mock-results-r1/wrong-repository.json",
+      "bytes": 610,
+      "sha256": "e894fdcedef109562fba8cc89453e5ac50866ed80260f53da174bc5cf7e70792"
+    },
+    {
+      "path": "mock-results-r1/wrong-run-attempt.json",
+      "bytes": 1681,
+      "sha256": "3d38e046c8d93743e5d24e30202d2e3fb5e1f7855452eb03ae980bf18b77eef6"
+    },
+    {
+      "path": "mock-results-r1/wrong-run-head.json",
+      "bytes": 1678,
+      "sha256": "7ae073e72eea42bd2335e73fc1daa4777abd75e0b2b3bfb4de0ae1973636d730"
+    },
+    {
+      "path": "mock-summary-r1.json",
+      "bytes": 11626,
+      "sha256": "8c243e69ebcc8bd5216e58643e924d5afc9dead930b6fa94b3e6d6692998714a"
+    },
+    {
+      "path": "mock-summary.json",
+      "bytes": 13788,
+      "sha256": "68e971f36a0d77e4b05c0e6bf33b8c05455c4e611eec8ddc4bf4effd131bd374"
+    },
+    {
+      "path": "mock-workflow.mjs",
+      "bytes": 15237,
+      "sha256": "f71f81cd3e2a2df9b28c3ed2d456e78e4b27ca522afd977d646d487b720c9372"
+    },
+    {
+      "path": "prepare.py",
+      "bytes": 8018,
+      "sha256": "5e99af7f71559ce0ef705f27b0ef02d80aa191f5f499bb0cfeea54cda6e0ca84"
+    },
+    {
+      "path": "preserve-v061.yml",
+      "bytes": 19017,
+      "sha256": "5ae1a43671e156e0b7bd7c14565e23ae216dc5079c3426c52a2e1accc00bb9d9"
+    },
+    {
+      "path": "proposal-r1.yml",
+      "bytes": 18978,
+      "sha256": "ff457e4324e75f11a0b4eac45f73f82b66050a71b870455415798437bc3ca396"
+    },
+    {
+      "path": "syntax-policy.json",
+      "bytes": 246,
+      "sha256": "2f7d2b9b65cc53bf36285a9bf9e3f343ded32b378425252a007ed663add758d4"
+    },
+    {
+      "path": "v040-original.yml",
+      "bytes": 17611,
+      "sha256": "90d317a7207b8a6e66e52b016d4e8024a4244730719b0157863ce0b71d31f81f"
+    },
+    {
+      "path": "validate.py",
+      "bytes": 4924,
+      "sha256": "4cd2e13bf1663b2c48749f0cab7b7768b35cc2dc71f5886c76d8f9a94538469e"
+    },
+    {
+      "path": "workflow-script-r1.js",
+      "bytes": 14947,
+      "sha256": "5f72668c5569888b0020d9a7d5a3c73fc5e3f709d8a5ce6ddca0d53f4969699f"
+    },
+    {
+      "path": "workflow-script.js",
+      "bytes": 14986,
+      "sha256": "3f78cd8392473b72376978a77b1e133f3905a5cb56db644a1342ec27c25a7dd1"
+    },
+    {
+      "path": "zip-probes/absolute-member.zip",
+      "bytes": 215,
+      "sha256": "d1a76530c1a71e94a84bf606d60f066015db8aeadff85cc4a0cb5931b26fbe11"
+    },
+    {
+      "path": "zip-probes/backslash-member.zip",
+      "bytes": 227,
+      "sha256": "a07735299fb182702465154d44bbd0614aed4b72da3c1504a9aad0bc53653ba9"
+    },
+    {
+      "path": "zip-probes/bad-crc.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "zip-probes/bad-crc.zip",
+      "bytes": 266,
+      "sha256": "56403ec2a66023a695ea9aec472e7a332ba5d72469d62db00eb2c3b1f81c52ca"
+    },
+    {
+      "path": "zip-probes/duplicate-target.zip",
+      "bytes": 242,
+      "sha256": "0456ea3c9284a4ad46e9f596152d7364188f81be039a3301a70ae942a4d2077c"
+    },
+    {
+      "path": "zip-probes/empty-wrapper.zip",
+      "bytes": 22,
+      "sha256": "8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85"
+    },
+    {
+      "path": "zip-probes/no-target.zip",
+      "bytes": 124,
+      "sha256": "dd91f28b7b2dc13b15e9c4f9cc6a5cd60408ba8de7f5eefc83ab8cc5bb61bcab"
+    },
+    {
+      "path": "zip-probes/parent-traversal.zip",
+      "bytes": 219,
+      "sha256": "198d7913b1cfc5ded40a1ee02b7e1031e1fc9badd11dc9229e73f7e73696e0dd"
+    },
+    {
+      "path": "zip-probes/target-directory.zip",
+      "bytes": 120,
+      "sha256": "30ec653ccddf783f62da19c2cfab07556f90f2e573a0a7b83005cebd3121184c"
+    },
+    {
+      "path": "zip-probes/truncated.zip",
+      "bytes": 32,
+      "sha256": "8a653612c001b4fa73dbf00503cc7aaf3169f6063bad621fe5087dc14fd1b154"
+    },
+    {
+      "path": "zip-probes/valid-empty-unrelated.out",
+      "bytes": 8,
+      "sha256": "0682c5f2076f099c34cfdd15a9e063849ed437a49677e6fcc5b4198c76575be5"
+    },
+    {
+      "path": "zip-probes/valid-empty-unrelated.zip",
+      "bytes": 214,
+      "sha256": "71a1e64417a48675f56b2aed43f3fe4e8bec01898851651e93c94c0026e50420"
+    },
+    {
+      "path": "zip-probes/valid-nested.out",
+      "bytes": 8,
+      "sha256": "0682c5f2076f099c34cfdd15a9e063849ed437a49677e6fcc5b4198c76575be5"
+    },
+    {
+      "path": "zip-probes/valid-nested.zip",
+      "bytes": 266,
+      "sha256": "d55dac8789d609626ae35e209ceae19d728de6d1688a7c5a006f1b34e3920bc7"
+    },
+    {
+      "path": "zip-probes/wrong-size.zip",
+      "bytes": 126,
+      "sha256": "a490b6511c43be0435968d496a4c3b2995bef8b391798d194ba6494399e9ec0c"
+    },
+    {
+      "path": "zip-probes.json",
+      "bytes": 6418,
+      "sha256": "89331468f69af405e91294bb0cbe5d0fcc2f94238822c1e0816ca32a4668c9a9"
+    }
+  ]
+}

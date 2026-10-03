@@ -1,0 +1,17 @@
+{
+  "status": "UNEXECUTED_SOURCE_ONLY",
+  "beforeMethodSHA256": "313e253d60d58fe648e225917fd746a78310812569d210ff995628398925a55e",
+  "finalMethodSHA256": "9c3c231b71c03ce23b5515f2cca5dcc3b341af418216000bc1edab0dc2a3b788",
+  "exactFullInverse": "Removing exactly these four added lines reconstructs preserved draft bytes",
+  "addedLines": [
+    " hold=grant['currentHold'];assert pathlib.Path(hold['path'])==R/'AGENTS.md' and hold['RootVerifiedPrependOnlySameHolds'] is True\n",
+    " assert digest(hold['path'])[0]==hold['sha256'];hold_body=canonical_body(hold['path']);marker=b'## Frozen grounded-courtyard pixel and wording successors\\n'\n",
+    " assert marker in hold_body and hashlib.sha256(hold_body[hold_body.index(marker):]).hexdigest()=='19e35b29256309ef3fbded5d57ae4e3a582b07dfd0e18f7e8497341e0fe3378e'\n",
+    "  assert digest(hold['path'])[0]==hold['sha256']\n"
+  ],
+  "ASTCompiledFinalMethod": true,
+  "fullBodyProofAppliesToUnchangedCanonicalAndFrozenMaps": true,
+  "draftProofMethodIdentityIsHistoricalNotFinal": true,
+  "freshCurrentCanonicalMainAndHoldPinMatch": true,
+  "canonicalCSSAbsent": true
+}

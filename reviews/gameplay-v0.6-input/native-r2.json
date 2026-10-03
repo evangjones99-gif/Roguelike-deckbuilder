@@ -1,0 +1,25 @@
+{
+  "scope": "Actual production handlers; only navigator.getGamepads samples emulated. No injected host or adapter. Diagnostic fixtures are unearned validated saves; no physical hardware claim.",
+  "digest": "d33ce538e38d98eba6ec06f90660252d53d3f3fc0122c7316b229f043489b52c",
+  "referenceSHA": "e8836833a56836fa97e79ebced4ee0845ad64e99cf6c85d107faaeb09b8fdad5",
+  "harnessSHA": "cf159b706f3657a994ed872f0172f34da490f63e343a68f6a48a87bfb8205db1",
+  "results": [
+    {
+      "name": "native-seed-range-select-textarea",
+      "fixture": "full-roster",
+      "kind": 2,
+      "nativeRangeArrow": true,
+      "padRangeActualInputHandler": true,
+      "nativeSeedAndTextarea": true,
+      "nativeSelect": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "SELECT",
+        "id": "feedback-replay",
+        "text": "Prefer not to answerYesMaybeNo"
+      },
+      "finalSaveHash": "069075d9a612bd0d42aeec108dcd428763c5671226d6326796da4a6b39f3ab2b",
+      "errors": []
+    }
+  ]
+}

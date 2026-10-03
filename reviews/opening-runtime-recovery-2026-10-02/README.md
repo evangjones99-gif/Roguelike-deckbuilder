@@ -1,0 +1,11 @@
+# Opening runtime recovery checkpoint
+
+The first transfer completed atff5ac095f35a605d86e01edf0183b15f2e9c3874, Actions run37045153855/job110964632125/artifact11244177679. Independent actual review74ad55ddd2e8a592206357e0dae69337bc34fc9faedc3ab748b7fb06071f7d07 verifies the transport ZIP and original8cdf bytes. Root separately stream-verified1116 hash-addressed member bodies and extracted two metadata files to NEW paths. Original archive bytes, transport ZIP, prior failures and both source/actual reviews remain retained. Logical archival coverage and historical filesystem metadata are separate from these checks.
+
+Five literal starter built outputs totaling303035B were acquired through UTF8 Git reads; expected GitSHA1 and SHA256 both match after materialization. No build or browser ran. Source ledger maps all104 starter inputs and70 outputs; the baseline ledger derives the exact98-input empty-intent76e5 map but cannot restore its complete original2547 output authority. A future fresh build must measure new outputs/metadata rather than silently replace original freeze71327.
+
+Successor transfer SOURCE R2, including fixed52 blob pins, inverse to the retained successful R1, and independent technical review, is published in this packet. It requests only50 canonical media bodies and2 prior original containers, with two artifacts below32MiB. Actual R2 CI/download status is recorded by later exact receipts; SOURCE and pending labels in frozen packets are historical and are never rewritten.
+
+Selected development source64c2 and held canonical dist8bba stay unchanged. The starter source65b3/output960e is still a private strict-built artifact, unapproved for art/default. CallerR2 stays unsealed/ineligible; new recovery paths require new caller bindings, reviews and admission. This cycle records no first300-second play, human enjoyment, animation acceptance, native platform support, release/tag or cleanup. One fresh hourly fallback remains and old-chat timer stays paused.
+
+The primary-source note records the exact developer text inspected and its limited inference for a purpose-built presentation layer. All negative reviews, previous cap failures and unfinished work remain needed; no conditional retirement proposal is treated as approval.

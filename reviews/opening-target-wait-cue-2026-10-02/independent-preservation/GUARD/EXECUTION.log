@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/target-wait-cue-preservation-independent-r1/verify.py", line 68, in <module>
+    original=cp['path'];logical=next(n for n,row in entries.items() if row['originalPath']==original);opaque=selected[logical];assert opaque['raw']==cp['raw'] and opaque['observedOnly'] and hashlib.sha256(cp['raw'].encode()).hexdigest()==cp['sha256'];saved[ctx['name']][label]=cp['raw']
+                                                                                                             ~~~~~~~~^^^^^^^^^
+KeyError: 'evidence/target-wait-cue-comparison-actual-r1/A-hold-release-C0-OPAQUE-SAVE.json'

@@ -1,0 +1,45 @@
+{
+  "version": "0.6.1",
+  "status": "development-prerelease",
+  "sourceCommit": "ac877b3e2bacdf5f15bf847b5ddd1d41ec94c476",
+  "runtimeSourceDigest": "8720a38701aa78ccae894ba4ca7cb8656cc3072d5b023cdd9cc3d9d2b3d4c22d",
+  "sourceArchiveScope": "All tracked top-level entries except releases/. Canonical reviews, art inputs, datasets and game/build sources are included. Prior milestones remain unchanged at their original paths and commits.",
+  "createdAt": "2026-09-30T23:43:05.264Z",
+  "platforms": [
+    "web",
+    "linux-x64",
+    "windows-x64"
+  ],
+  "artifacts": {
+    "hollowpact-0.6.1-linux-x64.tar.gz": "20233e8fc4b7b238072cd63178e87c3af971675a1dc1238687382965913b1d51",
+    "hollowpact-0.6.1-source.zip": "a52f59439d1e5961fe799bc223580e32c57a7db9f813c52ba96437381254128c",
+    "hollowpact-0.6.1-web.zip": "aaea72818e3f31efef17abde6a0f6c67239003ee7fc40d1eafeece1797dfe943",
+    "hollowpact-0.6.1-windows-x64.zip": "6fb16fa7a0df8ae5a61d8654f8aa4cb4023c530818495ecdc34f042da12b9e37",
+    "hollowpact-0.6.1-windows-native-x64.zip": "06e48cce30ccd2a8fcfcc7a829ec79d3fa6b628541a19effa368852df0bce90b",
+    "hollowpact-0.6.1-native-evidence-36791619534-1.zip": "1741107cb452d08eb9c2f33a02f8ff1c64076776892b512cd075747adff6f047"
+  },
+  "steamPublished": false,
+  "reviews": "See canonical reviews/ in the source commit/archive and the complete local release reviews/ copy. This manifest does not certify commercial quality.",
+  "nativeWindows": {
+    "runId": 36791619534,
+    "jobId": 110145582870,
+    "attempt": 1,
+    "headSourceCheckpoint": "9e6e7d7e76a2ce606acae24d2f6a27c903b54a5f",
+    "actualPRMergeCheckout": "913577b23eede5acec79be1b6938dbb86dad0ab7",
+    "originalArchiveSHA256": "06e48cce30ccd2a8fcfcc7a829ec79d3fa6b628541a19effa368852df0bce90b",
+    "originalEvidenceSHA256": "1741107cb452d08eb9c2f33a02f8ff1c64076776892b512cd075747adff6f047",
+    "files": 72,
+    "matchingLinuxWindowsASAR_SHA256": "5cf51c2902bd9cdf50aafdba9ac76e01bdb9cc8234956e5855b45340f3e7e44e",
+    "review": "reviews/technical-v0.6.1-native.md",
+    "qualification": "Unsigned directory validation on one Windows2022 CI host; trusted automated interaction is not physical-device/consumer-install/Steam evidence."
+  },
+  "acceptance": {
+    "gameplay": "reviews/gameplay-v0.6.1.md",
+    "visual": "reviews/visual-v0.6.1.md",
+    "producer": "reviews/release-pipeline-v0.6.1.md",
+    "native": "reviews/technical-v0.6.1-native.md",
+    "scope": "Reviewed DEVELOPMENT milestone, not AAA/human enjoyment/commercial/Steam approval"
+  },
+  "retainedFailedAttempt": "releases/0.6.0 remains incomplete; no overwritten archive or v0.6.0 tag",
+  "remoteStorage": "CI artifacts expire30days; complete six-archive set exists locally, no durable complete remote mirror claimed"
+}

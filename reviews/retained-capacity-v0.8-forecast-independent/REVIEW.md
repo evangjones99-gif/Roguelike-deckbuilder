@@ -1,0 +1,11 @@
+# Independent hardlink relocation forecast
+
+**Accepted as an explicitly disclosed metadata-changing proposal, subject to a full post-transfer gate.** Frozen R1 inventories contain 504 files in 217 unique (size, SHA-256, POSIX file mode) groups. One physical copy per group requires **1,364,999,109 logical bytes**, saving **1,279,518,184 bytes** versus seven independent trees. A 4 KiB allocation estimate is **1,365,491,712 bytes**, excluding directories and metadata. This is a forecast, not measured reclamation. Largest group has four paths.
+
+No archive/content/file-mode rule from this investigation requires original unique inode identity. Original official archives remain durable restoration sources, including explicit mode-containing cross-Windows ZIP alternatives for native unpacked trees. Every original directory needs its own path and original directory mode; do not merge directories. Original root paths may become documented symlinks to their own new TMP directories.
+
+Hardlinks alias later writes and change nlink/inode history. Where original mtimes differ within a group, one physical inode cannot retain every original mtime simultaneously. Preserve each original metadata record in a sidecar and disclose that change. R1 inventories did not record timestamps. The attempted follow-up current pre-move lstat check failed because root had already relocated paths; its failure note is retained. No fresh pre-move timestamp snapshot or unchanged lstat identity is claimed here.
+
+'Immutable/read-only QA comparison' must be a usage contract unless filesystem enforcement is actually established. Do not chmod targets to claim read-only: this violates certified modes. No code should modify aliased comparisons. Future modified builds need fresh independent files, never in-place writes through these paths.
+
+Acceptance requires root's separate transfer proof plus an independent post-transfer check: all 504 SHA/size/file-mode matches, every own directory path/mode, symlink destinations, group hardlink identities and alias disclosure, retained original metadata sidecar, and all seven official native/platform archive hashes unchanged. No native gameplay certification is implied. TMP is not a durable backup. This agent modified, moved or deleted no original tree/file/archive.

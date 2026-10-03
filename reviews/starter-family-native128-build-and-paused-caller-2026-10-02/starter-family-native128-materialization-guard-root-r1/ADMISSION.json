@@ -1,0 +1,20 @@
+{
+  "initial": {
+    "time_ns": 1790946248677061926,
+    "current": 15759298560,
+    "maximum": 17179869184,
+    "headroom": 1420570624,
+    "free": 71761920
+  },
+  "work": 67108864,
+  "reserve": 536870912,
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/starter-family-native128-wiring-source-author-r2/materialize.py",
+    "/workspace/scratch/starter-family-native128-materialized-source-root-r1"
+  ],
+  "stage": "/workspace",
+  "admitted": true,
+  "memory_events_before": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

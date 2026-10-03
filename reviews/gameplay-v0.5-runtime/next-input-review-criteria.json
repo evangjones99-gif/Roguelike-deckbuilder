@@ -1,0 +1,32 @@
+{
+  "purpose": "Independent next-milestone acceptance criteria prepared while v0.5 facing/settings repairs finish; no current feature-completion claim",
+  "observedBaseline": {
+    "builds": ["cdf4098ab5426281d75a22d4565b6d5b92667a42b9937e756a919a97227449af", "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425"],
+    "evidence": "final-context-results.json",
+    "gaps": ["nonfinal focused enemy death leaves BODY focus", "held Enter repeat advances source selection into committed command"]
+  },
+  "activation": [
+    "One initial Enter/Space/pad-confirm press selects a source; holding that same physical input cannot confirm an automatically focused target.",
+    "A fresh release and intentional second press commits exactly one legal target action.",
+    "Auto-repeat cannot spend two newly rendered hand cards at the same index, buy multiple cards, confirm a new campaign, or invoke a recap action.",
+    "Text inputs keep ordinary typing behavior; activation guards must not break seed entry or local feedback text."
+  ],
+  "focusRecovery": [
+    "A removed enemy, fallen source binding, spent card and terminal transition leave a meaningful visible focus target rather than BODY.",
+    "Source selection, target change and Escape cancel preserve the intended action context and create no reducer/save mutation.",
+    "Motion-on holds and reduced-motion immediate outcomes converge on accessible outcome focus without accidental late commands.",
+    "Dialog focus stays inside the actual dialog and returns to its opener or a valid replacement after closure."
+  ],
+  "controllerProbe": [
+    "Exercise source/target selection, reward skip/take, shop buy/remove, upgrades, settings, cancel, pause and recap through standard-pad polling.",
+    "Test press/release latching across renders, held-button connection, disconnect, blur, visibility changes and presentation settlement.",
+    "Movement selects visible meaningful controls within current dialog/game context; no invisible background activation or save mutation from navigation.",
+    "Synthetic navigator.getGamepads injection must be labeled browser QA, never native hardware, Steam Input or Steam Deck certification."
+  ],
+  "regression": [
+    "Compare exact canonical state/event outcomes and save generation for supported accepted actions against frozen v0.5 rules.",
+    "Repeat inherited defects on immutable v0.4, then verify repaired cases on final source/digest; preserve negative findings and baseline evidence.",
+    "Actual complete keyboard/pad-driven campaign or declared representative earned progression includes reload, loss/victory and explicit recovery."
+  ],
+  "limits": "Successful synthetic input QA supports functionality. It does not establish human comfort, motor accessibility, all hardware mapping or enjoyable decisions."
+}

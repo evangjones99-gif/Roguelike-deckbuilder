@@ -1,0 +1,354 @@
+{
+  "status": "Frozen independent DEVELOPMENT acceptance; AAA/commercial/human-fun unproven, inherited keyboard gaps prioritized immediately next cycle.",
+  "finalProductionDigest": "d6221bf764bad593b04981e87bead7ba6868b72cf361d70671af5c91aac39416",
+  "campaignBuildDigest": "9f80af0d0053b992c7f0f39d6de106a8f318619ea92e94c00354933e07ebcf04",
+  "sourceHashes": {
+    "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+    "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+    "src/world-rng.ts": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+    "src/main.ts": "7847bbac18cba3009ea993e68384e2bb1a8399eea4544424fb4823e025dd5526",
+    "src/style.css": "357345b6276e4a26515cb19964c416056c00efe64215241cdcb50883d1be49a2",
+    "src/arena.ts": "2e2a5d65a58db91d09ef0e8746a98264fca129520a988ccbb3b5233569f32b79",
+    "src/art.ts": "379e6b60f78cafd20170bcbcc4168a490cd2663388131957ad9766df852430b7",
+    "src/tool-art.ts": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3"
+  },
+  "preservedFiles": {
+    "reviews/gameplay-v0.5.md": {
+      "sha256": "bd5a4a6d66dd4cfe47eddd84164c602c82fbf49b9defa608012cb11ee48615cd",
+      "bytes": 15994
+    },
+    "reviews/gameplay-v0.5-runtime/build-transition.json": {
+      "sha256": "e7176f992db80df2ae61bd2e14197aac5fb1f70075bb221f2b331f3ea832a81d",
+      "bytes": 748
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-44102-action-110.png": {
+      "sha256": "e1160e008767ec5c70712a4ed3f30c5fdcd7eddd30acbbd1fa86b5060422942b",
+      "bytes": 1090666
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-44102-action-142.png": {
+      "sha256": "85cf1de35605748da937c724676b56a1c4917440a194710b047402fe04d1fe8b",
+      "bytes": 1086686
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-44102-action-25.png": {
+      "sha256": "7f76ed517f4720d980485a2c2bf28b66029224e377f24cb64f12248b7ac1d1c4",
+      "bytes": 1394835
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-44102-action-38.png": {
+      "sha256": "9005acef01be82c15f1c2e891c865a1d436196a3d29be92d9532b892219a0c44",
+      "bytes": 1088865
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-44102-victory-impact.png": {
+      "sha256": "872d4f21aac0a45e871482c3b0b41f461b55a2e785a8b42bb6e325e4cf7e85ce",
+      "bytes": 1313410
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-44102-victory-recap.png": {
+      "sha256": "ce3e0b00faa0495ca1db706f75781fffb78fce914f9e60f1bbec3d55f95cb05c",
+      "bytes": 1149696
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-44110-action-115.png": {
+      "sha256": "bd20533e470ab9233898bfea1d0d174b4b6338190c620442747560a5cd9fdf1c",
+      "bytes": 1081251
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-44110-action-156.png": {
+      "sha256": "869644dc4ba0cc3b5d7259ae0f680166d22ad45c248f9ab6af04de6b900b25e4",
+      "bytes": 1087250
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-44110-action-25.png": {
+      "sha256": "abc382c41a3b151a52dcf0fbd1ad15b2fb9350892f0874b7e4c43776856c0113",
+      "bytes": 1348449
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-44110-action-36.png": {
+      "sha256": "4c8fef86c4d794b8784f86e72bf48990ace3983f12330e08b5b9b10b382dbfea",
+      "bytes": 1088636
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-44110-defeat-impact.png": {
+      "sha256": "7ca369d3ee222b5f4e7623d5a6125e33f1747181f7db5eef19b73531488b1b75",
+      "bytes": 1257417
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-44110-defeat-recap.png": {
+      "sha256": "cc0b158562b54384c54e50e229b036ef9eb8343f8d9bd11f56e4d2f0567eb86e",
+      "bytes": 1150622
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-6503-action-25.png": {
+      "sha256": "91a37e9f23927cb3ff4dbd39f263461e7872630becf320960cc89aced4cbea19",
+      "bytes": 1340698
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-6503-action-44.png": {
+      "sha256": "31bed14fbd6fee17d36ee42737137d69612e930677606cabafe980fd5cbbd1a7",
+      "bytes": 1081264
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-6503-action-76.png": {
+      "sha256": "330fb7efc222b3739c58b6a0e2ccbf7991021678be8d0d799d70e613f08cba67",
+      "bytes": 1079005
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-6503-victory-impact.png": {
+      "sha256": "b0f079db350a2726e921ce043a2978b983b6b516706c0a9c2f0f69e2545165f6",
+      "bytes": 1351966
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-6503-victory-recap.png": {
+      "sha256": "85942b3f3d874efffda11ae19165502dd8f82eb631bf74f9fcd9f5c433ffe6ef",
+      "bytes": 1150552
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-browser-r1.mjs.gz": {
+      "sha256": "21bd4474c086d808c47db4c9c2124f0c4694c01f14372baa6b0e538c1df144aa",
+      "bytes": 3095
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-browser-repair.json": {
+      "sha256": "1639bd73058fe5066f5999fdfa3f286c00a414c5629c89e9dc812b881b7a4774",
+      "bytes": 479
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-browser.mjs": {
+      "sha256": "0cdd5295afe746a5c8cc1a0c0e71aaea7491ade40143746d9f60cef9358ba122",
+      "bytes": 8936
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-inputs.json.gz": {
+      "sha256": "5e15b9e622d921585401232c8d0084abfb9700076b836c4946b74fd824c56463",
+      "bytes": 28110
+    },
+    "reviews/gameplay-v0.5-runtime/campaign-results.json": {
+      "sha256": "0aa73d9bbe497fbb14579b8989d78e11927fd4ec2614ffe7686f95511068027f",
+      "bytes": 11099
+    },
+    "reviews/gameplay-v0.5-runtime/d622-diagnostic-blocked-command-counter-contact.png": {
+      "sha256": "d9336dacdc8b34c94f84a790f3609639585f2b73b1560120923d40d1b4dcfe97",
+      "bytes": 862158
+    },
+    "reviews/gameplay-v0.5-runtime/d622-diagnostic-dragon-area-fully-blocked-contact.png": {
+      "sha256": "307622e6d50b72a4aba8476ff377ee6cabb6cc986f3fd3c7975bde4bde37a173",
+      "bytes": 837537
+    },
+    "reviews/gameplay-v0.5-runtime/d622-diagnostic-dragon-area-seven-hits-contact.png": {
+      "sha256": "d6cc40dccf0e922df24c27ab150c2bf44239ccfc4c240bcf1a5de14bc342d70c",
+      "bytes": 837814
+    },
+    "reviews/gameplay-v0.5-runtime/d622-diagnostic-dragon-one-target-bite-contact.png": {
+      "sha256": "8619f0f755a1ef305a3c18e324e182b5f10a1ea2fc236c05fb7bfe9d3e4b70ed",
+      "bytes": 835001
+    },
+    "reviews/gameplay-v0.5-runtime/d622-diagnostic-legal-ready-overlapping-commands-contact.png": {
+      "sha256": "a2db663479b855ad7732181518eeedd6846380be61bdd5e82f87471501bb52db",
+      "bytes": 862514
+    },
+    "reviews/gameplay-v0.5-runtime/d622-diagnostic-mutual-lethal-counter-contact.png": {
+      "sha256": "6818010912e2785074a72ae055168ea81ecaf8ec1ba08e44f65119c38a7b8640",
+      "bytes": 855558
+    },
+    "reviews/gameplay-v0.5-runtime/d622-diagnostic-two-dragons-fourteen-hits-contact.png": {
+      "sha256": "8511b1347be48dcfeb8adcb4333223695bf32f4a72875771191fb062d96327c1",
+      "bytes": 852912
+    },
+    "reviews/gameplay-v0.5-runtime/d622-diagnostic-two-melee-casters-contact.png": {
+      "sha256": "4b073ec3208838325078ee6f7fc40c724adcbc3bb623104a313346a683c26e99",
+      "bytes": 837746
+    },
+    "reviews/gameplay-v0.5-runtime/d622-facing-dragon-area-seven-hits.png": {
+      "sha256": "b662713b3089bb3771d85e00a2e3b8e4d8a7e1a343738a42490939ee37566c24",
+      "bytes": 412372
+    },
+    "reviews/gameplay-v0.5-runtime/d622-facing-dragon-one-target-bite.png": {
+      "sha256": "a0d55d70bc4aed3e8f14853cff39972bd188ecdda68118ae3c73f272817454a5",
+      "bytes": 411156
+    },
+    "reviews/gameplay-v0.5-runtime/d622-facing-hound-crosscolumn-left.png": {
+      "sha256": "085dce32b41cfef3b4d82886a3baaadf0fbdc72dec06f09e842799402e595235",
+      "bytes": 410630
+    },
+    "reviews/gameplay-v0.5-runtime/d622-facing-hound-crosscolumn-right.png": {
+      "sha256": "aa44fc0b375afd3e5516080104fdec7f4f46cc4053df18e8c9b889bf677a6c94",
+      "bytes": 412843
+    },
+    "reviews/gameplay-v0.5-runtime/d622-facing-hound-left-mutual-death.png": {
+      "sha256": "728d42f92369d3e84627d403796fff51a71848ec98ec0c63d7e5372804e11b2f",
+      "bytes": 408801
+    },
+    "reviews/gameplay-v0.5-runtime/d622-facing-mutual-lethal-counter.png": {
+      "sha256": "4c080c70fc0d7b7104430638ad81585b8a73fc7ee90280f9b2d9c200a636ee22",
+      "bytes": 414790
+    },
+    "reviews/gameplay-v0.5-runtime/d622-facing-two-dragons-fourteen-hits.png": {
+      "sha256": "0511e735c51eefedfb5e03fc1630e6f7035b322429e257340f2a383c7501e0ab",
+      "bytes": 417561
+    },
+    "reviews/gameplay-v0.5-runtime/d622-facing-warleader-dense-far-right.png": {
+      "sha256": "469f970cc66a2494abaf44a365aae37bc54d0435850a2d7404722c28d1cd9b95",
+      "bytes": 420707
+    },
+    "reviews/gameplay-v0.5-runtime/d622-facing-warleader-hunter-right.png": {
+      "sha256": "a50c148c5640c34f1a0460ff99b7f24631ce2591073b3d674284bd5553e26344",
+      "bytes": 423039
+    },
+    "reviews/gameplay-v0.5-runtime/d622-facing-warleader-melee-left.png": {
+      "sha256": "071cdff82214c6f17a87c2c1aa61dd86a538f5a0c72c3b837049acdc7d624a7a",
+      "bytes": 412371
+    },
+    "reviews/gameplay-v0.5-runtime/d622-facing-warleader-melee-right.png": {
+      "sha256": "5d0e259f2c075c0bc330d4a1c576a92249165ce000f04df295c27143b9db093a",
+      "bytes": 411107
+    },
+    "reviews/gameplay-v0.5-runtime/d622-facing-warleader-nonlethal-reaction.png": {
+      "sha256": "6aece3e3b575b4180751c23a9311cc9fd5de832db36371ac4f81350392497685",
+      "bytes": 417240
+    },
+    "reviews/gameplay-v0.5-runtime/d622-facing-warleader-right-blocked.png": {
+      "sha256": "19d0bf418d1b3560ea2dc5923acfef43d566c5c95d658ce2e6290e213c9eccea",
+      "bytes": 412172
+    },
+    "reviews/gameplay-v0.5-runtime/d622-facing-warleader-vertical-default.png": {
+      "sha256": "520f23f17efe9db2774c96f9d4e446f40697ea78798d4a1b8f93f589488966b2",
+      "bytes": 422226
+    },
+    "reviews/gameplay-v0.5-runtime/d622-tool-art-fallback-keyboard.png": {
+      "sha256": "ee1ea67ba3ab26facdd629f469b74dd35f19910817262cd3d5c7a45a0a9b23f5",
+      "bytes": 1328796
+    },
+    "reviews/gameplay-v0.5-runtime/d622-tool-art-loaded-keyboard.png": {
+      "sha256": "8bd4f61f136457a11d4b415ad2d61f2ddb0bdaa2efa83c061ae64be1167a261a",
+      "bytes": 1385528
+    },
+    "reviews/gameplay-v0.5-runtime/diagnostic-blocked-command-counter-contact.png": {
+      "sha256": "23746bc192f269082f52dd01ed0aa20043f57d71ad622fa01d28e34285c3dcd0",
+      "bytes": 864855
+    },
+    "reviews/gameplay-v0.5-runtime/diagnostic-browser-candidate.mjs.gz": {
+      "sha256": "9dbcf79e2f3b85cc96588bba979cd967d3b73a48bf609ae0c1e209c384a9de32",
+      "bytes": 3785
+    },
+    "reviews/gameplay-v0.5-runtime/diagnostic-browser-d622.mjs": {
+      "sha256": "3d047ebf951ff3c896934ce8a68f1e105ba4ef205d17ccaca15c4a9ae5615f99",
+      "bytes": 11314
+    },
+    "reviews/gameplay-v0.5-runtime/diagnostic-browser.mjs": {
+      "sha256": "912b2b439a6d043011e2f8316d780167ef954f8f92e88e7609bf5ec1b2078a8a",
+      "bytes": 11305
+    },
+    "reviews/gameplay-v0.5-runtime/diagnostic-dragon-area-fully-blocked-contact.png": {
+      "sha256": "4fe907cbee3dc05080d3533bf0443c6608550ed2f2dc9b650c211276891b4c59",
+      "bytes": 838184
+    },
+    "reviews/gameplay-v0.5-runtime/diagnostic-dragon-area-seven-hits-contact.png": {
+      "sha256": "fdfee94bf11e7db20d99e029159cd50edfac01e6afcd9f9b46febdbf90c9c146",
+      "bytes": 837676
+    },
+    "reviews/gameplay-v0.5-runtime/diagnostic-dragon-one-target-bite-contact.png": {
+      "sha256": "b7e045347089a87b6cf30d0b14c2c7ae21be2b8a92fdae6e9575b631c0311c68",
+      "bytes": 835820
+    },
+    "reviews/gameplay-v0.5-runtime/diagnostic-inputs.json": {
+      "sha256": "79f91ceb4a3df2e036bc9649ec380f28714c81158cb15c5bf7cdb5e26365d5c1",
+      "bytes": 186794
+    },
+    "reviews/gameplay-v0.5-runtime/diagnostic-inputs.ts": {
+      "sha256": "dc6c0f5d556504063aef7987323386142ec69f0460bfad5166d185f9d3461d5e",
+      "bytes": 2490
+    },
+    "reviews/gameplay-v0.5-runtime/diagnostic-legal-ready-overlapping-commands-contact.png": {
+      "sha256": "3847b05cd4318ab11103507277be6f751c8775370d2eed9f8383052da7ae5b98",
+      "bytes": 862143
+    },
+    "reviews/gameplay-v0.5-runtime/diagnostic-mutual-lethal-counter-contact.png": {
+      "sha256": "6695b4715209fac405a1f2900dfcd2b110e4d969adf3e8d0409c30d2577b112a",
+      "bytes": 855443
+    },
+    "reviews/gameplay-v0.5-runtime/diagnostic-results-d622.json": {
+      "sha256": "0b20a49db2c71c173c9e46447a976cc3fcc5c5d8619f7adf32e90c477cf3b252",
+      "bytes": 562663
+    },
+    "reviews/gameplay-v0.5-runtime/diagnostic-results-final.json": {
+      "sha256": "ea0cfdd53641eb2054d07b7d1a231fd5facc8840023410bfee5466e203913b41",
+      "bytes": 581805
+    },
+    "reviews/gameplay-v0.5-runtime/diagnostic-two-dragons-fourteen-hits-contact.png": {
+      "sha256": "36d456dbf6a9bbb2fb40c9370a0234bde6376d7540d4990cdafbb51f997ce41d",
+      "bytes": 851150
+    },
+    "reviews/gameplay-v0.5-runtime/diagnostic-two-melee-casters-contact.png": {
+      "sha256": "d86ee5f1be39190c182f5e952df9edfae7cf7b37aed5ab63de8bc3161bddc386",
+      "bytes": 839010
+    },
+    "reviews/gameplay-v0.5-runtime/facing-browser.mjs": {
+      "sha256": "e35e7dfb089c7f7348599e485bb770dce3de4065d5c11ded483aa519c9f8bd69",
+      "bytes": 4536
+    },
+    "reviews/gameplay-v0.5-runtime/facing-results-d622.json": {
+      "sha256": "fd1a64244123a04e3239a632ceb553f37b7517c20812930ce39448757afcef51",
+      "bytes": 1368008
+    },
+    "reviews/gameplay-v0.5-runtime/final-1920-all48-collection.png": {
+      "sha256": "ffffba3e80f9efd1319a46b031c247e40d51fa84450804f1e10705ec6205f93f",
+      "bytes": 641535
+    },
+    "reviews/gameplay-v0.5-runtime/final-context-browser-d622.mjs": {
+      "sha256": "b2286539f39acce20b173efc55ec323e6159279fd0ae75bf23ba064c411c5185",
+      "bytes": 5229
+    },
+    "reviews/gameplay-v0.5-runtime/final-context-browser-r1.mjs.gz": {
+      "sha256": "8e43343e031063dc86ca1acfcbedb420db5b13d77f609e8b203bcc4b3192f47d",
+      "bytes": 3037
+    },
+    "reviews/gameplay-v0.5-runtime/final-context-browser.mjs": {
+      "sha256": "e3781b9bd1b9da9849805d9a069f820980c648b5eb2d61f7b8f55c6d081c013f",
+      "bytes": 7983
+    },
+    "reviews/gameplay-v0.5-runtime/final-context-repair.json": {
+      "sha256": "14385c7a406b34931c550db5e43f9f31354f2d8f9fd08bdc35e9f72342bf05ed",
+      "bytes": 463
+    },
+    "reviews/gameplay-v0.5-runtime/final-context-results-d622.json": {
+      "sha256": "a97ec54108d3f12f0dd7dea27e9d5df090b4590ee2b8e51025d38565aed22926",
+      "bytes": 7399
+    },
+    "reviews/gameplay-v0.5-runtime/final-context-results.json": {
+      "sha256": "056e0976b61ea8977a14a95d358f5a7526fc4d276aee2ff7cf3f37108e7ee34c",
+      "bytes": 30228
+    },
+    "reviews/gameplay-v0.5-runtime/generate-inputs.ts": {
+      "sha256": "e5ef4e416b1b24a5e6a8df098be9f1ec6e7c25481840a79088d2dfdd5ff38a27",
+      "bytes": 10368
+    },
+    "reviews/gameplay-v0.5-runtime/legacy-campaign-results.json": {
+      "sha256": "bd4ced5f4642b20820a0d6da06983ad8aa8dfdcdf9abd66825ac8212816fba2a",
+      "bytes": 4814
+    },
+    "reviews/gameplay-v0.5-runtime/ml-independent-reaggregation.json": {
+      "sha256": "433f1c87259d2a03664adf19cd5fbe44ef762d6f29fb013a3bf96a420805a088",
+      "bytes": 2919
+    },
+    "reviews/gameplay-v0.5-runtime/ml-reaggregate.py": {
+      "sha256": "8f97f3519660c97259297874d379d7e38b16d5921b640ecc20ab19414447e110",
+      "bytes": 3751
+    },
+    "reviews/gameplay-v0.5-runtime/next-input-review-criteria.json": {
+      "sha256": "d34c9d4ca508c02e21fc703f8bb4828b6cfd0c14742ec31cea0ca7a6aeec1158",
+      "bytes": 2832
+    },
+    "reviews/gameplay-v0.5-runtime/settings-recovery-browser.mjs": {
+      "sha256": "09b7da5edf875484bf33989348a0407ef0126630caee85ddda848d41f15f7ded",
+      "bytes": 3101
+    },
+    "reviews/gameplay-v0.5-runtime/settings-repaired-d6221bf7.json": {
+      "sha256": "0146f272826a9ca09aba4894f05fa7068a121fe3a98eced02140628002c2f7db",
+      "bytes": 1502
+    },
+    "reviews/gameplay-v0.5-runtime/tool-art-fallback-keyboard.png": {
+      "sha256": "e5c3968b95963c8424aa59c08bd19c6d53a4bdd492df23ed34b574f968327c48",
+      "bytes": 1328763
+    },
+    "reviews/gameplay-v0.5-runtime/tool-art-loaded-keyboard.png": {
+      "sha256": "3b38688170f9f921d808b5f4a1c7939aed9718900160ce010968f50dfcd580f6",
+      "bytes": 1385633
+    },
+    "reviews/gameplay-v0.5-runtime/tool-keyboard.json": {
+      "sha256": "283bcd4dd6fa5685eaf2663b91698cab30354285548d6b20625fb0300ec04861",
+      "bytes": 2100
+    }
+  },
+  "methods": "520 full campaign controls on historical matching core; final targeted actual controls/settings/facing/consequences/save/privacy/tools/downloads, qualified synthetic fixtures and ML reaggregation. No human playtest or FPS claim.",
+  "knownLimits": [
+    "Inherited nonfinal-death focus drops to BODY",
+    "Held Enter repeat may select then commit target",
+    "No human first-run fun/replay observation",
+    "Native hardware/Steam approval outside this gameplay review"
+  ],
+  "futureCriteria": "next-input-review-criteria.json",
+  "reproduction": "Use fresh copied output paths; never overwrite this preserved review evidence. Reviewer setup corrections and rejected mixed-digest probes are qualified in report and snapshot metadata."
+}

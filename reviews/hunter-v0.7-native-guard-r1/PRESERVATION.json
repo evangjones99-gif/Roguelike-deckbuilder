@@ -1,0 +1,61 @@
+{
+  "sourceDirectory": "/workspace/scratch/hunter-native-guard-independent-v07-r1",
+  "curatedOnly": true,
+  "scope": "Exact manifest-listed evidence; support dependency symlinks and temporary browser profiles remain at original paths.",
+  "archive": "curated-evidence.tar.gz",
+  "archiveBytes": 14011,
+  "archiveSHA256": "d1017c9872d40eedbec6d070f0d32a368ebba0831620976df4d3105bd6654011",
+  "everyMemberStreamVerified": true,
+  "files": [
+    {
+      "path": "MANIFEST.json",
+      "bytes": 1634,
+      "sha256": "cbb1b454a0c32c3f04a59c8a76914aef50734582f64492c87ddcb17b396eb4e7"
+    },
+    {
+      "path": "REVIEW.md",
+      "bytes": 1452,
+      "sha256": "b9ad5b8c7e01ea8d2ee61ef6393ec7c9898bee6f9b55788204d41733b5e23f74"
+    },
+    {
+      "path": "evidence/guard-baseline-preservation.json",
+      "bytes": 1867,
+      "sha256": "eef72d1b88f4045b2c115917b5208a01f0ccac92f5138b2ebdca22826a9cfffa"
+    },
+    {
+      "path": "evidence/root-positive-electron.json",
+      "bytes": 11700,
+      "sha256": "7fbfc1064c545b98e6f2002c26aa811734d8d25a98c9c645219ab782cad9dcbe"
+    },
+    {
+      "path": "evidence/root-receipt-independent-verification.json",
+      "bytes": 761,
+      "sha256": "47a2c5075e9a69bf7c4dddded6827f7c79937e1267d7849fbf8835dc4211098e"
+    },
+    {
+      "path": "evidence/root-receipt-verification-log.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/root-rejection-electron.json",
+      "bytes": 6185,
+      "sha256": "e9cba770d70135094df2ab046fe5f2c743c8d899257d20107a93eb81bc819a8a"
+    },
+    {
+      "path": "verify-root-receipts.ts",
+      "bytes": 2649,
+      "sha256": "3604f22d7749349d1aaf8d5d48ffe66645b97818bbc0bfdb796f5db98804856b"
+    },
+    {
+      "path": "windows-smoke-baseline.mjs",
+      "bytes": 20386,
+      "sha256": "ed7551494d735b5f00d3071fe425e0a390d33322e3488b4b7b9a54cbbd9ac370"
+    },
+    {
+      "path": "windows-smoke-guard-r1.mjs",
+      "bytes": 23529,
+      "sha256": "689bbc833b27c3b7180acbb7e52727fc1bc0f72c6e7f3c72879db78f7fef128c"
+    }
+  ]
+}

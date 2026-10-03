@@ -1,0 +1,77 @@
+{
+  "decision": "ACCEPT_CONDITIONAL_EXACT_FIVE_PATH_PHYSICAL_SHARING_ONLY",
+  "replacementBetter": true,
+  "oldRedundantPrivatePhysicalEncodingsNoLongerNeeded": true,
+  "everyLogicalPathBodyStillNeeded": true,
+  "method": {
+    "path": "/workspace/scratch/share-five-retained-pngs-root-r1.py",
+    "sha256": "55cc724ef39fd38ef1c56bedcbf4c7a5e870e3c3f119dbe8a478c234658e5e97"
+  },
+  "publisher": {
+    "path": "/workspace/scratch/publish-five-png-proposal-root-r1.py",
+    "sha256": "29616f1a4ed5fdfc40b193b77b3811132522f54f395b4238ae8bde03f7832212"
+  },
+  "producerMethod": {
+    "path": "/workspace/scratch/judge-five-png-sharing-root-r1.py",
+    "sha256": "d44355995e72305943603adef0c6604ffd63aeb2558eecbffeb9a5f8a830d0b4"
+  },
+  "proposal": {
+    "path": "/workspace/scratch/five-retained-png-recovery-proposal-r1/PROPOSAL.json",
+    "sha256": "b4e8803f2411e932c994b01aa50152fee4b4bd9d2c8757258ae7c686b75745bc"
+  },
+  "authorSeal": {
+    "path": "/workspace/scratch/five-retained-png-recovery-proposal-r1/FINAL-SEAL.json",
+    "sha256": "6399e7b0e90374adc8872f1e1decfdc74989e8e506b77034e68e8aba14a0633b"
+  },
+  "currentHold": {
+    "path": "/workspace/Roguelike-deckbuilder/AGENTS.md",
+    "sha256": "b674fd4456ad4332c97ad4538fbf8c008842c708964a16e1acde77790bea0906"
+  },
+  "selectedMap": {
+    "path": "/workspace/scratch/target-wait-default-promotion-root-r1/RESULT.json",
+    "sha256": "31a221091d2ffbc6d58dfc1385962c441df9789c66729ef64d20b95208a8fabd"
+  },
+  "independentProof": {
+    "path": "/workspace/scratch/next-five-png-sharing-independent-r1/PROOF.json",
+    "bytes": 38587,
+    "sha256": "018f57a381c45ca8e09a3da375a88b48f6134599554f1fbc6ca22ba4bef637b3"
+  },
+  "independentReview": {
+    "path": "/workspace/scratch/next-five-png-sharing-independent-r1/REVIEW.md",
+    "bytes": 6228,
+    "sha256": "8759c1df979fd53be889d82aca006aaf18c2884541a8a6bc152616b5d004d46e"
+  },
+  "candidateGroup": "/workspace/scratch/audio-host-independent-v08/candidate/dist/art",
+  "names": [
+    "adversaries-atlas.png",
+    "companions-atlas.png",
+    "hound-poses.png",
+    "pact-seal.png",
+    "warleader-poses.png"
+  ],
+  "grossAllocationBytes": 10170368,
+  "independentPacketCapBytes": 98304,
+  "publicationOtherCopiedBodyBytes": 190906,
+  "publicationConservativeCopiedBodyUpperBound": 289210,
+  "publicationCopiedBodyCapBytes": 524288,
+  "conditions": [
+    "Root sole producer records exact once-only judgment only after fresh current confirmed clean publication push",
+    "Normal64MiB disk and64+512MiB work/reserve guard admission and live stops remain unchanged",
+    "Action fresh full10 body metadata/xattr preflight and current143 identity before/after, protected ZIP stat exact",
+    "Every path/body/source/review/rights/provenance/rollback remains; four-raw proposal unexecuted; no other action",
+    "No active original-inode/time-sensitive consumer or private writable-isolation need; future reproduction in NEW stages/inodes"
+  ],
+  "limitations": [
+    "Five old inode/time/write isolation surrendered; byte/path rollback requires new copies, original inode/ctime history not recoverable",
+    "Known metadata alias inventory gaps1,1,1,0,1; unknown aliases/Fds/mmap/future consumers not disproved",
+    "Coordinated immutable holds are not OS protection",
+    "Durable per-leaf prefix, no all-five atomicity/automatic rollback or automatic retry",
+    "Publisher receipt file and its P directory fsynced, outer scratch directory entry not separately fsynced",
+    "Gross allocation is not exact net gain; publication generated metadata/Git/logs/allocation overhead outside copied-body bound",
+    "Historical66/51 and selected87/56 full body aggregates not independently replayed; five entries and exact maps verified",
+    "No game improvement/commercial rights/release claim; no image decode/build/Node/browser/Git/action executed by reviewer"
+  ],
+  "proofGuardNormal": true,
+  "allProofInputFDsClosed": true,
+  "sealClosure": "Root must await this SEAL-GUARD result0 and unchanged memory events before any further stage; seal guard outputs not recursively included in manifest."
+}

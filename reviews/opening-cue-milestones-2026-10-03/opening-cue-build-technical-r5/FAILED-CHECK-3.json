@@ -1,0 +1,8 @@
+{
+  "kind": "Supplemental review harness omitted support-count transformation",
+  "exitCode": 1,
+  "stderr": "Traceback (most recent call last):\n  File \"<stdin>\", line 16, in <module>\nAssertionError: assemble\n",
+  "failedExpression": "changed=oldtext.replace('57','59').replace('134','136');assert changed==newtext,name",
+  "precedingChecksPassed": "Full AST outside four count/metadata functions and metadata literal/hash constants exact; all metadata fields outside support/blobPins exact. acquire full body 57\u219259 exact.",
+  "repair": "Explicit supportFiles/supportCount30\u219232 in supplemental assemble/membership full literal transforms; diff inspected exact. No source edits."
+}

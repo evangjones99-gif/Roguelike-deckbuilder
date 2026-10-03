@@ -1,0 +1,27 @@
+{
+  "scope": "Lossless numeric-order transport split; original frozen tar remains unchanged locally. Parts replace its Git transfer representation only, not evidence or retained release bytes.",
+  "archive": "complete-frozen-evidence.tar.gz",
+  "bytes": 110940538,
+  "sha256": "c29fce42716c972fcc0f69f0a34f262865c0f3368cd351b415149b50def9823e",
+  "partBytes": 41943040,
+  "parts": [
+    {
+      "name": "complete-frozen-evidence.tar.gz.part-01",
+      "bytes": 41943040,
+      "sha256": "554236f8af5b7091223a26bdc5e6127c1d57fbed95823521e423e75cf7d268f4"
+    },
+    {
+      "name": "complete-frozen-evidence.tar.gz.part-02",
+      "bytes": 41943040,
+      "sha256": "9b1ac673662e2603463357e97067d14a8a7b1160ec4ea46b5117021867eb99c3"
+    },
+    {
+      "name": "complete-frozen-evidence.tar.gz.part-03",
+      "bytes": 27054458,
+      "sha256": "a4763bfe13040ee766d424b229c7f87d6d8d7aeeb09934c83214387d7e2dcabb"
+    }
+  ],
+  "rejectedLocalCheckpoint": "0412893399c4546487e298b0f490085d75cb3879",
+  "reason": "GitHub GH001 refuses blobs larger than100MB; actual first push rejected before remote ref update.",
+  "reconstruction": "Concatenate parts in numeric order; verify each part and whole SHA256/size, then inspect the original tar manifest."
+}

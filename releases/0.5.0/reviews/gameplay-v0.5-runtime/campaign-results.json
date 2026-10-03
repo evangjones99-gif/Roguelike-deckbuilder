@@ -1,0 +1,391 @@
+{
+  "method": "Actual production DOM controls, motionON, reference legal replay; automation elapsed time is not human pacing or FPS. Legacy prefix is earned simulation, not a human save.",
+  "inputSHA256": "5e15b9e622d921585401232c8d0084abfb9700076b836c4946b74fd824c56463",
+  "results": [
+    {
+      "seed": 44102,
+      "difficulty": 2,
+      "policy": "lean",
+      "engineKind": 2,
+      "fresh": true,
+      "earnedPrefixActions": 0,
+      "acceptedActions": 198,
+      "phase": "victory",
+      "hp": 61,
+      "elapsedMs": 31476.226144,
+      "motion": true,
+      "muted": true,
+      "actualControls": true,
+      "canonicalHashCheckedBeforeAndAfterEveryAction": true,
+      "exactResumeRaw": null,
+      "reload": {
+        "action": 12,
+        "phase": "battle",
+        "turn": 2,
+        "exact": true,
+        "generation": 2
+      },
+      "actionCounts": {
+        "travel": 10,
+        "play": 74,
+        "attack": 82,
+        "endTurn": 20,
+        "reward": 5,
+        "camp": 3,
+        "remove": 1,
+        "buy": 2,
+        "leave": 1
+      },
+      "settling": [
+        {
+          "action": 17,
+          "phase": "reward",
+          "hp": 63,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "canonicalCommittedImmediately": true,
+          "observedWaitMs": 1142.8712020000003
+        },
+        {
+          "action": 35,
+          "phase": "reward",
+          "hp": 62,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "canonicalCommittedImmediately": true,
+          "observedWaitMs": 1129.692803
+        },
+        {
+          "action": 72,
+          "phase": "reward",
+          "hp": 51,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "canonicalCommittedImmediately": true,
+          "observedWaitMs": 1139.8867570000002
+        },
+        {
+          "action": 107,
+          "phase": "reward",
+          "hp": 7,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "canonicalCommittedImmediately": true,
+          "observedWaitMs": 1128.4865949999985
+        },
+        {
+          "action": 139,
+          "phase": "reward",
+          "hp": 20,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "canonicalCommittedImmediately": true,
+          "observedWaitMs": 1140.1720569999998
+        },
+        {
+          "action": 198,
+          "phase": "victory",
+          "hp": 61,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "canonicalCommittedImmediately": true,
+          "staleKeysUnchanged": true,
+          "observedWaitMs": 1145.552262000001
+        }
+      ],
+      "screens": [
+        {
+          "kind": "endTurn",
+          "action": 25
+        },
+        {
+          "kind": "camp",
+          "action": 38
+        },
+        {
+          "kind": "camp",
+          "action": 110
+        },
+        {
+          "kind": "camp",
+          "action": 142
+        },
+        {
+          "kind": "terminal",
+          "action": 198
+        }
+      ],
+      "questions": [
+        "What was unclear? Optional",
+        "Which choices felt meaningful or pointless, if any? Optional",
+        "Would you take another campaign? Optional"
+      ],
+      "feedback": {
+        "qaOnly": true,
+        "data": {
+          "schema": 1,
+          "kind": "voluntary-player-feedback",
+          "source": "local-export",
+          "createdAt": "2026-09-30T21:25:11.753Z",
+          "context": {
+            "build": {
+              "version": "0.5.0",
+              "sourceDigest": "9f80af0d0053b992c7f0f39d6de106a8f318619ea92e94c00354933e07ebcf04",
+              "channel": "packaged"
+            },
+            "screen": "victory",
+            "run": {
+              "seed": 44102,
+              "difficulty": 2,
+              "phase": "victory",
+              "contract": 10,
+              "hunterHealth": 61,
+              "maximumHealth": 65,
+              "saveSchema": 3,
+              "rulesGeneration": 2,
+              "deck": [
+                "cairnhound",
+                "cairnhound",
+                "fenstalker",
+                "briarcolossus",
+                "scour",
+                "scour",
+                "ironward",
+                "ironward",
+                "sutures",
+                "sunder",
+                "survey+",
+                "briarcolossus",
+                "harpoon",
+                "gravetithe",
+                "silence",
+                "gravehound",
+                "aegis",
+                "covenant"
+              ],
+              "relics": [
+                "ember-seed",
+                "war-brand",
+                "moon-charm"
+              ],
+              "stats": {
+                "cardsPlayed": 74,
+                "damageDealt": 501,
+                "turns": 26,
+                "battles": 6
+              }
+            }
+          },
+          "responses": {
+            "confusion": "AUTOMATED AGENT QA, NOT HUMAN PLAYTEST DATA: checking a negative local response and exact build/generation context.",
+            "interestingChoice": "AUTOMATED QA: no meaningful choice claimed by this synthetic response.",
+            "replayIntent": "no"
+          }
+        },
+        "storageUnchanged": true,
+        "newHttpRequests": 0
+      },
+      "retry": {
+        "generation": 2,
+        "seed": 44102,
+        "hp": 65,
+        "phase": "map"
+      },
+      "build": "9f80af0d0053b992c7f0f39d6de106a8f318619ea92e94c00354933e07ebcf04",
+      "errors": []
+    },
+    {
+      "seed": 44110,
+      "difficulty": 2,
+      "policy": "pack",
+      "engineKind": 2,
+      "fresh": true,
+      "earnedPrefixActions": 0,
+      "acceptedActions": 203,
+      "phase": "defeat",
+      "hp": 0,
+      "elapsedMs": 31049.733464999998,
+      "motion": true,
+      "muted": true,
+      "actualControls": true,
+      "canonicalHashCheckedBeforeAndAfterEveryAction": true,
+      "exactResumeRaw": null,
+      "reload": {
+        "action": 12,
+        "phase": "battle",
+        "turn": 2,
+        "exact": true,
+        "generation": 2
+      },
+      "actionCounts": {
+        "travel": 10,
+        "play": 87,
+        "attack": 74,
+        "endTurn": 20,
+        "reward": 5,
+        "camp": 3,
+        "buy": 3,
+        "leave": 1
+      },
+      "settling": [
+        {
+          "action": 14,
+          "phase": "reward",
+          "hp": 65,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "canonicalCommittedImmediately": true,
+          "observedWaitMs": 1136.8034180000031
+        },
+        {
+          "action": 33,
+          "phase": "reward",
+          "hp": 53,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "canonicalCommittedImmediately": true,
+          "observedWaitMs": 1139.8341149999978
+        },
+        {
+          "action": 63,
+          "phase": "reward",
+          "hp": 23,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "canonicalCommittedImmediately": true,
+          "observedWaitMs": 1132.2230259999997
+        },
+        {
+          "action": 112,
+          "phase": "reward",
+          "hp": 17,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "canonicalCommittedImmediately": true,
+          "observedWaitMs": 1134.1004669999966
+        },
+        {
+          "action": 153,
+          "phase": "reward",
+          "hp": 21,
+          "busy": "true",
+          "guidance": "Contract cleared. Final strike resolving.",
+          "canonicalCommittedImmediately": true,
+          "observedWaitMs": 1130.726048000004
+        },
+        {
+          "action": 203,
+          "phase": "defeat",
+          "hp": 0,
+          "busy": "true",
+          "guidance": "The pact breaks. The final impact is resolving.",
+          "canonicalCommittedImmediately": true,
+          "staleKeysUnchanged": true,
+          "observedWaitMs": 1112.7504919999992
+        }
+      ],
+      "screens": [
+        {
+          "kind": "play",
+          "action": 25
+        },
+        {
+          "kind": "camp",
+          "action": 36
+        },
+        {
+          "kind": "camp",
+          "action": 115
+        },
+        {
+          "kind": "camp",
+          "action": 156
+        },
+        {
+          "kind": "terminal",
+          "action": 203
+        }
+      ],
+      "questions": [
+        "What was unclear? Optional",
+        "Which choices felt meaningful or pointless, if any? Optional",
+        "Would you take another campaign? Optional"
+      ],
+      "feedback": {
+        "qaOnly": true,
+        "data": {
+          "schema": 1,
+          "kind": "voluntary-player-feedback",
+          "source": "local-export",
+          "createdAt": "2026-09-30T21:25:43.431Z",
+          "context": {
+            "build": {
+              "version": "0.5.0",
+              "sourceDigest": "9f80af0d0053b992c7f0f39d6de106a8f318619ea92e94c00354933e07ebcf04",
+              "channel": "packaged"
+            },
+            "screen": "defeat",
+            "run": {
+              "seed": 44110,
+              "difficulty": 2,
+              "phase": "defeat",
+              "contract": 10,
+              "hunterHealth": 0,
+              "maximumHealth": 65,
+              "saveSchema": 3,
+              "rulesGeneration": 2,
+              "deck": [
+                "cairnhound",
+                "cairnhound",
+                "fenstalker",
+                "ashwidow",
+                "briarcolossus",
+                "scour",
+                "scour",
+                "ironward",
+                "ironward",
+                "sutures",
+                "sunder",
+                "survey+",
+                "sunder",
+                "sunder",
+                "survey",
+                "killcommand",
+                "aegis",
+                "cairnhound",
+                "harpoon",
+                "covenant"
+              ],
+              "relics": [
+                "blood-vial",
+                "brass-bell",
+                "ember-seed"
+              ],
+              "stats": {
+                "cardsPlayed": 87,
+                "damageDealt": 456,
+                "turns": 25,
+                "battles": 6
+              }
+            }
+          },
+          "responses": {
+            "confusion": "AUTOMATED AGENT QA, NOT HUMAN PLAYTEST DATA: checking a negative local response and exact build/generation context.",
+            "interestingChoice": "AUTOMATED QA: no meaningful choice claimed by this synthetic response.",
+            "replayIntent": "no"
+          }
+        },
+        "storageUnchanged": true,
+        "newHttpRequests": 0
+      },
+      "retry": {
+        "generation": 2,
+        "seed": 44110,
+        "hp": 65,
+        "phase": "map"
+      },
+      "build": "9f80af0d0053b992c7f0f39d6de106a8f318619ea92e94c00354933e07ebcf04",
+      "errors": []
+    }
+  ]
+}

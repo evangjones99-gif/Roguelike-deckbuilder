@@ -1,0 +1,1 @@
+Research only: rejected R3 perspective, revised R4 native pixel study (not browser/game accepted), generated nonshipping anatomy input, closed byte-exact disk copy tools/source rejections/admissions/actual outcome. Original TMP still retained; no cleanup or human fun claim.

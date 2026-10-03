@@ -1,0 +1,1171 @@
+{
+  "contexts": [
+    {
+      "kind": 1,
+      "notice": "Beginning a new campaign replaces your current campaign.",
+      "newDialogPreservedRaw": true,
+      "resumePreservedExactWhitespace": true,
+      "firstEarnedActionCanonicalExact": true,
+      "reloadExact": true,
+      "feedback": {
+        "qaOnly": true,
+        "data": {
+          "schema": 1,
+          "kind": "voluntary-player-feedback",
+          "source": "local-export",
+          "createdAt": "2026-09-30T21:37:16.606Z",
+          "context": {
+            "build": {
+              "version": "0.5.0",
+              "sourceDigest": "cdf4098ab5426281d75a22d4565b6d5b92667a42b9937e756a919a97227449af",
+              "channel": "packaged"
+            },
+            "screen": "shop",
+            "run": {
+              "seed": 6503,
+              "difficulty": 2,
+              "phase": "shop",
+              "contract": 5,
+              "hunterHealth": 61,
+              "maximumHealth": 65,
+              "saveSchema": 2,
+              "rulesGeneration": 1,
+              "deck": [
+                "cairnhound",
+                "cairnhound",
+                "fenstalker",
+                "ashwidow",
+                "briarcolossus",
+                "scour",
+                "scour",
+                "ironward",
+                "ironward",
+                "sutures",
+                "sunder",
+                "survey+",
+                "draught",
+                "harpoon",
+                "fenraker"
+              ],
+              "relics": [
+                "ember-seed"
+              ],
+              "stats": {
+                "cardsPlayed": 27,
+                "damageDealt": 135,
+                "turns": 11,
+                "battles": 3
+              }
+            }
+          },
+          "responses": {
+            "confusion": "AUTOMATED QA ONLY: corrected final build identity and rules generation, not human enjoyment.",
+            "interestingChoice": "",
+            "replayIntent": "no"
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "kind": 2,
+      "notice": "Beginning a new campaign replaces your current campaign.",
+      "newDialogPreservedRaw": true,
+      "resumePreservedExactWhitespace": true,
+      "firstEarnedActionCanonicalExact": true,
+      "reloadExact": true,
+      "feedback": {
+        "qaOnly": true,
+        "data": {
+          "schema": 1,
+          "kind": "voluntary-player-feedback",
+          "source": "local-export",
+          "createdAt": "2026-09-30T21:37:17.687Z",
+          "context": {
+            "build": {
+              "version": "0.5.0",
+              "sourceDigest": "cdf4098ab5426281d75a22d4565b6d5b92667a42b9937e756a919a97227449af",
+              "channel": "packaged"
+            },
+            "screen": "map",
+            "run": {
+              "seed": 44102,
+              "difficulty": 2,
+              "phase": "map",
+              "contract": 0,
+              "hunterHealth": 65,
+              "maximumHealth": 65,
+              "saveSchema": 3,
+              "rulesGeneration": 2,
+              "deck": [
+                "cairnhound",
+                "cairnhound",
+                "fenstalker",
+                "ashwidow",
+                "briarcolossus",
+                "scour",
+                "scour",
+                "ironward",
+                "ironward",
+                "sutures",
+                "sunder",
+                "survey"
+              ],
+              "relics": [],
+              "stats": {
+                "cardsPlayed": 0,
+                "damageDealt": 0,
+                "turns": 0,
+                "battles": 0
+              }
+            }
+          },
+          "responses": {
+            "confusion": "AUTOMATED QA ONLY: corrected final build identity and rules generation, not human enjoyment.",
+            "interestingChoice": "",
+            "replayIntent": "no"
+          }
+        }
+      },
+      "errors": []
+    }
+  ],
+  "collection": [
+    {
+      "width": 1920,
+      "count": 48,
+      "parentBoundsAndFullDescriptions": true,
+      "layout": [
+        {
+          "id": "cairnhound",
+          "entry": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "card": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "description": {
+            "scroll": 84,
+            "client": 84,
+            "bottom": 386,
+            "cardBottom": 432
+          }
+        },
+        {
+          "id": "gravehound",
+          "entry": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "card": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "description": {
+            "scroll": 84,
+            "client": 84,
+            "bottom": 386,
+            "cardBottom": 432
+          }
+        },
+        {
+          "id": "fenstalker",
+          "entry": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "card": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "description": {
+            "scroll": 66,
+            "client": 66,
+            "bottom": 368.09375,
+            "cardBottom": 414.09375
+          }
+        },
+        {
+          "id": "fenraker",
+          "entry": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "card": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "description": {
+            "scroll": 84,
+            "client": 84,
+            "bottom": 386,
+            "cardBottom": 432
+          }
+        },
+        {
+          "id": "briarcolossus",
+          "entry": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "card": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "description": {
+            "scroll": 66,
+            "client": 66,
+            "bottom": 691,
+            "cardBottom": 737
+          }
+        },
+        {
+          "id": "ossuarycolossus",
+          "entry": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "card": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "description": {
+            "scroll": 84,
+            "client": 84,
+            "bottom": 708.90625,
+            "cardBottom": 754.90625
+          }
+        },
+        {
+          "id": "cairnhound+",
+          "entry": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "card": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "description": {
+            "scroll": 84,
+            "client": 84,
+            "bottom": 708.90625,
+            "cardBottom": 754.90625
+          }
+        },
+        {
+          "id": "gravehound+",
+          "entry": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "card": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "description": {
+            "scroll": 84,
+            "client": 84,
+            "bottom": 708.90625,
+            "cardBottom": 754.90625
+          }
+        },
+        {
+          "id": "fenstalker+",
+          "entry": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "card": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "description": {
+            "scroll": 66,
+            "client": 66,
+            "bottom": 1013.90625,
+            "cardBottom": 1059.90625
+          }
+        },
+        {
+          "id": "fenraker+",
+          "entry": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "card": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "description": {
+            "scroll": 84,
+            "client": 84,
+            "bottom": 1031.8125,
+            "cardBottom": 1077.8125
+          }
+        },
+        {
+          "id": "briarcolossus+",
+          "entry": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "card": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "description": {
+            "scroll": 66,
+            "client": 66,
+            "bottom": 1013.90625,
+            "cardBottom": 1059.90625
+          }
+        },
+        {
+          "id": "ossuarycolossus+",
+          "entry": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "card": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "description": {
+            "scroll": 84,
+            "client": 84,
+            "bottom": 1031.8125,
+            "cardBottom": 1077.8125
+          }
+        },
+        {
+          "id": "ashwidow",
+          "entry": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "card": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "description": {
+            "scroll": 84,
+            "client": 84,
+            "bottom": 1354.71875,
+            "cardBottom": 1400.71875
+          }
+        },
+        {
+          "id": "ashwidow+",
+          "entry": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "card": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "description": {
+            "scroll": 84,
+            "client": 84,
+            "bottom": 1354.71875,
+            "cardBottom": 1400.71875
+          }
+        },
+        {
+          "id": "emberwidow",
+          "entry": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "card": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "description": {
+            "scroll": 126,
+            "client": 126,
+            "bottom": 1396.71875,
+            "cardBottom": 1442.71875
+          }
+        },
+        {
+          "id": "emberwidow+",
+          "entry": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "card": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "description": {
+            "scroll": 126,
+            "client": 126,
+            "bottom": 1396.71875,
+            "cardBottom": 1442.71875
+          }
+        },
+        {
+          "id": "scour",
+          "entry": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "card": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 1732.71875,
+            "cardBottom": 1747.71875
+          }
+        },
+        {
+          "id": "scour+",
+          "entry": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "card": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 1732.71875,
+            "cardBottom": 1747.71875
+          }
+        },
+        {
+          "id": "ironward",
+          "entry": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "card": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 1732.71875,
+            "cardBottom": 1747.71875
+          }
+        },
+        {
+          "id": "ironward+",
+          "entry": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "card": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 1732.71875,
+            "cardBottom": 1747.71875
+          }
+        },
+        {
+          "id": "sutures",
+          "entry": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "card": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 2037.71875,
+            "cardBottom": 2052.71875
+          }
+        },
+        {
+          "id": "sutures+",
+          "entry": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "card": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 2037.71875,
+            "cardBottom": 2052.71875
+          }
+        },
+        {
+          "id": "edict",
+          "entry": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "card": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 2037.71875,
+            "cardBottom": 2052.71875
+          }
+        },
+        {
+          "id": "edict+",
+          "entry": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "card": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 2037.71875,
+            "cardBottom": 2052.71875
+          }
+        },
+        {
+          "id": "witchfire",
+          "entry": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "card": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 2342.71875,
+            "cardBottom": 2357.71875
+          }
+        },
+        {
+          "id": "witchfire+",
+          "entry": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "card": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 2342.71875,
+            "cardBottom": 2357.71875
+          }
+        },
+        {
+          "id": "killcommand",
+          "entry": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "card": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 2342.71875,
+            "cardBottom": 2357.71875
+          }
+        },
+        {
+          "id": "killcommand+",
+          "entry": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "card": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 2342.71875,
+            "cardBottom": 2357.71875
+          }
+        },
+        {
+          "id": "gravetithe",
+          "entry": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "card": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 2647.71875,
+            "cardBottom": 2662.71875
+          }
+        },
+        {
+          "id": "gravetithe+",
+          "entry": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "card": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 2647.71875,
+            "cardBottom": 2662.71875
+          }
+        },
+        {
+          "id": "survey",
+          "entry": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "card": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 2647.71875,
+            "cardBottom": 2662.71875
+          }
+        },
+        {
+          "id": "survey+",
+          "entry": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "card": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 2647.71875,
+            "cardBottom": 2662.71875
+          }
+        },
+        {
+          "id": "bloodprice",
+          "entry": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "card": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 2952.71875,
+            "cardBottom": 2967.71875
+          }
+        },
+        {
+          "id": "bloodprice+",
+          "entry": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "card": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 2952.71875,
+            "cardBottom": 2967.71875
+          }
+        },
+        {
+          "id": "aegis",
+          "entry": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "card": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 2952.71875,
+            "cardBottom": 2967.71875
+          }
+        },
+        {
+          "id": "aegis+",
+          "entry": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "card": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 2952.71875,
+            "cardBottom": 2967.71875
+          }
+        },
+        {
+          "id": "harpoon",
+          "entry": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "card": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 3257.71875,
+            "cardBottom": 3272.71875
+          }
+        },
+        {
+          "id": "harpoon+",
+          "entry": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "card": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 3257.71875,
+            "cardBottom": 3272.71875
+          }
+        },
+        {
+          "id": "covenant",
+          "entry": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "card": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 3257.71875,
+            "cardBottom": 3272.71875
+          }
+        },
+        {
+          "id": "covenant+",
+          "entry": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "card": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 3257.71875,
+            "cardBottom": 3272.71875
+          }
+        },
+        {
+          "id": "sunder",
+          "entry": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "card": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 3562.71875,
+            "cardBottom": 3577.71875
+          }
+        },
+        {
+          "id": "sunder+",
+          "entry": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "card": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 3562.71875,
+            "cardBottom": 3577.71875
+          }
+        },
+        {
+          "id": "silence",
+          "entry": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "card": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 3562.71875,
+            "cardBottom": 3577.71875
+          }
+        },
+        {
+          "id": "silence+",
+          "entry": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "card": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 3562.71875,
+            "cardBottom": 3577.71875
+          }
+        },
+        {
+          "id": "resonance",
+          "entry": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "card": {
+            "left": 546,
+            "right": 741,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 3867.71875,
+            "cardBottom": 3882.71875
+          }
+        },
+        {
+          "id": "resonance+",
+          "entry": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "card": {
+            "left": 757,
+            "right": 952,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 3867.71875,
+            "cardBottom": 3882.71875
+          }
+        },
+        {
+          "id": "draught",
+          "entry": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "card": {
+            "left": 968,
+            "right": 1163,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 3867.71875,
+            "cardBottom": 3882.71875
+          }
+        },
+        {
+          "id": "draught+",
+          "entry": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "card": {
+            "left": 1179,
+            "right": 1374,
+            "width": 195
+          },
+          "description": {
+            "scroll": 97,
+            "client": 97,
+            "bottom": 3867.71875,
+            "cardBottom": 3882.71875
+          }
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "keyboard": [
+    {
+      "name": "focus-after-nonfinal-enemy-death",
+      "build": "cdf4098ab5426281d75a22d4565b6d5b92667a42b9937e756a919a97227449af",
+      "targeted": {
+        "tag": "BUTTON",
+        "unit": "e30",
+        "ui": null,
+        "text": "Ironjaw ReaverH1 1/1644 damage → hunter"
+      },
+      "after": {
+        "tag": "BODY",
+        "unit": null,
+        "ui": null,
+        "text": "\n    \n      HOLLOWPACTCONTRACTS · CREATURES · CONSEQUENCESDeck 59?How to playFie"
+      },
+      "phase": "battle",
+      "enemyCount": 5,
+      "confirmedInherited": true,
+      "errors": []
+    },
+    {
+      "name": "held-enter-selects-then-commits",
+      "build": "cdf4098ab5426281d75a22d4565b6d5b92667a42b9937e756a919a97227449af",
+      "firstFocus": {
+        "tag": "BUTTON",
+        "unit": "e30",
+        "ui": null,
+        "text": "Ironjaw ReaverH1 16/1644 damage → hunter"
+      },
+      "saveChangedOnRepeat": true,
+      "confirmedInherited": true,
+      "syntheticBrowserKeyboard": true,
+      "errors": []
+    },
+    {
+      "name": "focus-after-nonfinal-enemy-death",
+      "build": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+      "targeted": {
+        "tag": "BUTTON",
+        "unit": "e30",
+        "ui": null,
+        "text": "Ironjaw ReaverH1 1/1644 damage → hunter"
+      },
+      "after": {
+        "tag": "BODY",
+        "unit": null,
+        "ui": null,
+        "text": "\n    \n      HOLLOWPACTCONTRACTS · CREATURES · CONSEQUENCESDeck 59?How to playFie"
+      },
+      "phase": "battle",
+      "enemyCount": 5,
+      "confirmedInherited": true,
+      "errors": []
+    },
+    {
+      "name": "held-enter-selects-then-commits",
+      "build": "da553781de9d57a2ca3a0c6260082335e7db65ad423c8cfd647e84d4055f5425",
+      "firstFocus": {
+        "tag": "BUTTON",
+        "unit": "e30",
+        "ui": null,
+        "text": "Ironjaw ReaverH1 16/1644 damage → hunter"
+      },
+      "saveChangedOnRepeat": true,
+      "confirmedInherited": true,
+      "syntheticBrowserKeyboard": true,
+      "errors": []
+    }
+  ],
+  "provenance": {
+    "version": "0.5.0",
+    "sourceDigest": "cdf4098ab5426281d75a22d4565b6d5b92667a42b9937e756a919a97227449af",
+    "hashes": {
+      "THIRD-PARTY.md": "e8562cda5387e7bf560e460d86119ea9ea48e08243fef16fe3da12623b1bcf8d",
+      "desktop/icon.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+      "desktop/main.cjs": "1e54b1170ff4169285ff1757c0e768db2f144f7be919b4911a47394426cb75ae",
+      "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+      "package-lock.json": "e745e73679de5717b06c52797d3cee13f92ea39344f584e82e88e0aeaf6d8028",
+      "package.json": "c89fdd158dc0e6c1529712b71f4202a745ce8cf6061d70660f004bc4734ba0d0",
+      "public/art/PROVENANCE.json": "5ba821b8b5f6d7b316389e72f7b8afd97304645789f3b0add7719dea6bf85ce5",
+      "public/art/abbey-courtyard.png": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+      "public/art/adversaries-atlas.png": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5",
+      "public/art/companions-atlas.png": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+      "public/art/hound-poses.png": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+      "public/art/hunter-portrait.png": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+      "public/art/pact-seal.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+      "public/art/tool-vignettes.png": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+      "public/art/warleader-poses.png": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b",
+      "scripts/build.mjs": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1",
+      "src/arena.ts": "01bd60015273988470a378e092398938f71f1ac07c4754e04d09e00efbbfcd94",
+      "src/art.ts": "379e6b60f78cafd20170bcbcc4168a490cd2663388131957ad9766df852430b7",
+      "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+      "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+      "src/main.ts": "8de5c8577fb6dace6bbdfcc94e239b3e05af7e2ca0f3521b83fc35ae3ac26286",
+      "src/style.css": "357345b6276e4a26515cb19964c416056c00efe64215241cdcb50883d1be49a2",
+      "src/tool-art.ts": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3",
+      "src/world-rng.ts": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+      "tsconfig.json": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c",
+      "vite.config.ts": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75"
+    },
+    "node": "v24.19.0"
+  },
+  "coreCandidateFinalHashes": {
+    "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+    "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+    "src/world-rng.ts": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+    "src/arena.ts": "01bd60015273988470a378e092398938f71f1ac07c4754e04d09e00efbbfcd94",
+    "src/art.ts": "379e6b60f78cafd20170bcbcc4168a490cd2663388131957ad9766df852430b7",
+    "src/tool-art.ts": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3"
+  },
+  "candidateFinalDifferences": [
+    "THIRD-PARTY.md",
+    "src/main.ts",
+    "src/style.css"
+  ]
+}

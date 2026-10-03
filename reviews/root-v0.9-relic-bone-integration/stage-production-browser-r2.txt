@@ -1,0 +1,17 @@
+
+> hollowpact@0.9.0 test:browser
+> playwright test tests/browser/preview-v0.4.spec.ts:108 tests/browser/save-schema-v0.5.spec.ts tests/browser/tool-art-v0.5.spec.ts --output=/tmp/hollowpact-relic-bone-root-browser-v09-r2/test-results
+
+
+Running 6 tests using 1 worker
+
+(node:356117) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/browser/preview-v0.4.spec.ts:108:1 › recovery preserves an existing different backup and creates a separate exact raw backup (10.9s)
+  ✓  2 tests/browser/save-schema-v0.5.spec.ts:6:3 › generation 1 resumes unchanged and persists its own schema (10.5s)
+  ✓  3 tests/browser/save-schema-v0.5.spec.ts:6:3 › generation 2 resumes unchanged and persists its own schema (7.9s)
+  ✓  4 tests/browser/save-schema-v0.5.spec.ts:38:1 › unsupported generations retain exact raw data through title inspection (27.8s)
+  ✓  5 tests/browser/tool-art-v0.5.spec.ts:16:1 › illustrated equipment loads in hand and collection; crops resize without affecting the save (11.4s)
+  ✓  6 tests/browser/tool-art-v0.5.spec.ts:62:1 › missing illustration leaves the original symbol and working card controls (6.1s)
+
+  6 passed (1.3m)

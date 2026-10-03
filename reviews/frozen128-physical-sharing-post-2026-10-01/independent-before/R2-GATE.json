@@ -1,0 +1,24 @@
+{
+  "decision": "ACCEPT_EXACT_PHYSICAL_SHARING_AND_ACTION_SOURCE",
+  "proposalSHA256": "db8ebb732282149270e9bd87bb1aef191f083b67a06c47802bdc3ea03a004938",
+  "actionPath": "/workspace/scratch/frozen128-canonical-media-sharing-proposal-root-r1/share-r2.py",
+  "actionSHA256": "a2739ae5688d61238d3a125c4861aa8ebebaba9cbbb1d3b30fa8a2b82a43c748",
+  "rejectedOriginalActionSHA256": "552668d636d65011f1faa51e7858c3e16e2eafedecd28df01085ee21526b3c60",
+  "approvedGroups": 50,
+  "approvedRecipients": 100,
+  "verifiedProposedPathsAndAnchors": 150,
+  "grossOldAllocationBytes": 30638080,
+  "freeingOnlyGuardSHA256": "9dc48ba447a0136de7d4714a6a797c700d937fc98b4e1c94ba74103993bf90b3",
+  "guardScope": {"initialDiskMiB": 16, "workMiB": 128, "reserveMiB": 512, "diskStopMiB": 1, "freeingOnlyFiniteJournal": true},
+  "conditions": [
+    "Producer judgment after this independent review records exact proposal/gate/action pins and intentional metadata/isolation losses.",
+    "A new current push is confirmed; clean HEAD equals producer commit and freshly checked remote.",
+    "All writers remain closed, hold/freeze/body/metadata preflight pins remain exact, and fresh reviewed guard admission passes.",
+    "Preserve all paths/bodies/uniqueREADY/inputs/rights/datasets/reviews/protectedarchives and before/journal/after evidence; inspect partial interruption rather than blindly retrying.",
+    "Separate post-action preservation/closure proof is required before claiming completed recovery."
+  ],
+  "actualActionPerformedByReviewer": false,
+  "pushAndProducerJudgmentPerformedByReviewer": false,
+  "review": "R2-REVIEW.md",
+  "originalRejectionRetained": "R1-ACTION-SOURCE-REJECTION.md"
+}

@@ -1,0 +1,18 @@
+{
+  "originalDriverSHA256": "31de513f885619e7b3fa29335b2e3b2d23a4a6b0ab7dd57750a8ea580e715d6b",
+  "driverCueCheckLine": 46,
+  "driverAfterOrderCueCheckLine": 52,
+  "exactCueCheck": "function cueCheck(row,strong){if(active.name==='C-cue'){if(strong===null)assert.equal(row.cue.present,false,'Consumed/terminal candidate cue still present');else{assert.equal(row.cue.strong,strong);assert.equal(row.cue.visible,true);}}else assert.equal(row.cue.present,false,'Retained turn1-only cue unexpectedly present in turn2');}",
+  "candidateMainSHA256": "87a9bd7c2319522f77db7ea9e2edc306bb6124b019306dc220087f6b9b7762f4",
+  "terminalRenderRows": [
+    {
+      "line": 482,
+      "source": "  $('dock').hidden = title || state.phase !== 'battle';"
+    },
+    {
+      "line": 489,
+      "source": "  else if (state.phase === 'reward') renderRewards();"
+    }
+  ],
+  "noActualTerminalRuntimeObserved": true
+}

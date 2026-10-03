@@ -1,0 +1,22 @@
+{
+  "runId": 36819607381,
+  "jobId": 110232119337,
+  "actualPRMergeCheckout": "f4f68a0a866752ae478e7596a029748f6aa58c58",
+  "reportedRuntime": "801db1ce4000c15268569cb047e7388148a65105c7b86208611ceb3aff40f029",
+  "scope": "Completed hosted portable-job text and artifact API metadata only. Exact returned decoded text is RETURNED-JOB-TEXT.txt. ORIGINAL-JOB-LOG.log is a normalized readable derivative and is retained. Original evidence ZIP/native archive remain remote; no original payload/phase audit, installed39cue or consumer qualification from job success alone.",
+  "files": {
+    "ORIGINAL-JOB-LOG.log": {
+      "bytes": 74543,
+      "sha256": "0060f973013f659c13fa7959b1e1030fca44a6ec23baf08654efdc8c32dfc37e"
+    },
+    "ARTIFACTS-API.json": {
+      "bytes": 8902,
+      "sha256": "ec912e4986d98984534041b883c2036d9520c9f74d6aada5b6ab7cb58ed01e1d"
+    },
+    "RETURNED-JOB-TEXT.txt": {
+      "bytes": 75393,
+      "sha256": "bd6af4b498e9197e03472526f15e42da8870eb94a98da0dd9e0f7831360cf141",
+      "qualification": "Exact UTF-8 bytes of the connector-returned decoded log string, preserving BOM and CRLF; raw server transport bytes not exposed."
+    }
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "verdict": "PASS_SOURCE_ONLY_INELIGIBLE_TEMPLATE",
+  "sourceSealSHA256": "99e7723d28e71a8e3e840e039268fe76877abd81923976d8d79b6d0f8e2fc813",
+  "sourceInclusiveBytes": 100761,
+  "sourceFiles": {
+    "README.md": {
+      "bytes": 5191,
+      "sha256": "fc16644103b035a92d4abedb423787e449a66c9cfba881aeb88ba1fb0696940c"
+    },
+    "SOURCE-SEAL.json": {
+      "bytes": 2164,
+      "sha256": "99e7723d28e71a8e3e840e039268fe76877abd81923976d8d79b6d0f8e2fc813"
+    },
+    "runtime_guard_cue.py": {
+      "bytes": 5875,
+      "sha256": "92ddfb03511ccc03ddde271de67f08b04b96e016ac153229b3c14b65771bf265"
+    },
+    "MANIFEST.json": {
+      "bytes": 2120,
+      "sha256": "bc81194dd57a8604ff63a6fd8e105f923ae05a419828438e8a6b8c7b22a9d41c"
+    },
+    "GRAMMAR-INVERSE-RECEIPT.json": {
+      "bytes": 1470,
+      "sha256": "c9ab9f8d6af36df121acd174652d36454ad37ec13e920e3f9575939c54ae10af"
+    },
+    "SOURCE-RESOURCE-RECEIPT.json": {
+      "bytes": 882,
+      "sha256": "4ee2b52bd8a749451fc719bb3bc17fd9fba137257ecaa4b8976220e3e4ca35b3"
+    },
+    "CONTROL-INVERSE.json.gz": {
+      "bytes": 1268,
+      "sha256": "c4e71fff5050de6cd2542e41719e92b049373f9ceedc2fe32f950a12c3f6491d"
+    },
+    "EXPECTED.json": {
+      "bytes": 9417,
+      "sha256": "b88e95f4533af77155b8fc3e5edf3b262963c35fbe29c8e91c5c4fcf799c0ff4"
+    },
+    "driver-cue.mjs": {
+      "bytes": 30379,
+      "sha256": "31de513f885619e7b3fa29335b2e3b2d23a4a6b0ab7dd57750a8ea580e715d6b"
+    },
+    "SOURCE-ADMISSION.json": {
+      "bytes": 260,
+      "sha256": "9762e8a3a7cc764af0277869794d88cb2c101e9ddd033df27a54f6f3e015b7c9"
+    },
+    "ORIGIN-CONTROLS.json.gz": {
+      "bytes": 9297,
+      "sha256": "bc8b102cd4f194f040c3ce2fd057c84a89735f652011bc10a75ce5561e2c6c9d"
+    },
+    "supervise-cue.py": {
+      "bytes": 14457,
+      "sha256": "847fd364e26007a4accf34ed4c4f499b669a22579558f7cb4a4c600f9dd6e5d5"
+    },
+    "verify_source.py": {
+      "bytes": 5841,
+      "sha256": "52877cef3216bd403eeb225989d292e47196aed2fed1befa19b2f3abfa11e2e6"
+    },
+    "runtime-guard-cue.mjs": {
+      "bytes": 7768,
+      "sha256": "fe688a8d5d811c1773f70f96b151d46aa1c12e574c4fc5016c361332f6352d02"
+    },
+    "PROTOCOL.json": {
+      "bytes": 4372,
+      "sha256": "a69c36f4f94c072ed6e29c1c2bc24d197e8fe8c5e89faf53ab765befe252c828"
+    }
+  },
+  "threeCopiedControlFullForwardInverse": [
+    {
+      "name": "runtime-guard-cue.mjs",
+      "originName": "runtime-guard-r4.mjs",
+      "beforeBytes": 7768,
+      "afterBytes": 7768,
+      "beforeSHA256": "642c8cbfc0974d77d378c70ca2a59489f2f58850d11c9c3c5b18a61b585f9679",
+      "afterSHA256": "fe688a8d5d811c1773f70f96b151d46aa1c12e574c4fc5016c361332f6352d02"
+    },
+    {
+      "name": "runtime_guard_cue.py",
+      "originName": "runtime_guard_r4.py",
+      "beforeBytes": 5875,
+      "afterBytes": 5875,
+      "beforeSHA256": "4026d3fa020e478cef2d7d90000edd553615f04f516e3731eeca6458e4430ddb",
+      "afterSHA256": "92ddfb03511ccc03ddde271de67f08b04b96e016ac153229b3c14b65771bf265"
+    },
+    {
+      "name": "supervise-cue.py",
+      "originName": "supervise-opening-r4.py",
+      "beforeBytes": 14471,
+      "afterBytes": 14457,
+      "beforeSHA256": "e82e5c54ebd9c31b7c3713a7e24d9be8897462943c816fe1504c61dc7c20a579",
+      "afterSHA256": "847fd364e26007a4accf34ed4c4f499b669a22579558f7cb4a4c600f9dd6e5d5"
+    }
+  ],
+  "originAuthority": "literal working R4 controls, not a final source seal",
+  "sourceIneligibleFlagsFalse": true,
+  "candidateNullFields": [
+    "stage",
+    "outputsDigest",
+    "freezePath",
+    "freezeSHA256",
+    "stageManifestPath",
+    "stageManifestSHA256",
+    "stageAuthorityPath",
+    "stageAuthoritySHA256",
+    "stageReviewPath",
+    "stageReviewSHA256"
+  ],
+  "BActual703SchemaAndCurrent174MetadataVerified": true,
+  "stageBodiesHashedByThisReviewer": false,
+  "externalMetadataPins": {
+    "/workspace/scratch/starter-static-recovered-authority-r1/NEW-RUNTIME-FREEZE.json": {
+      "bytes": 18316,
+      "sha256": "ff7f407d819961251339bd9ed6c0ee151815bed90b50edd8c0a3360b027f553d"
+    },
+    "/workspace/scratch/starter-static-recovered-authority-r1/STAGE-MANIFEST.json": {
+      "bytes": 41650,
+      "sha256": "64597e891f5dbc43edfc0fc4787f77132be9bb306d61313818e546d2d169fbd0"
+    },
+    "/workspace/scratch/starter-static-recovered-authority-r1/ROOT-AUTHORITY.json": {
+      "bytes": 544,
+      "sha256": "b92fe581e5b978de67d0c37f90bb42e40e9cd26e0d2f062c6a10a261674de9a9"
+    },
+    "/workspace/scratch/starter-static-reconstruction-technical-r1/GATE.json": {
+      "bytes": 1238,
+      "sha256": "703b0b7fe17cec26a833938e4b4aaff70f7a81cbc03ad8cdf7cce0e856a78078"
+    },
+    "/workspace/scratch/starter-static-reconstruction-technical-r1/AUDIT.json": {
+      "bytes": 1812,
+      "sha256": "c71ddf4d8643900566c0b1e5fe1ed7532eb9d816a443cc3839d707226df1c6a9"
+    },
+    "/workspace/scratch/starter-static-recovered-authority-r1/BODY-COPY-RECEIPT.json": {
+      "bytes": 721,
+      "sha256": "05e0c85a7990c79537728e6e74b7ca613b48e7349a1fea4471b8c375a491c014"
+    },
+    "/workspace/scratch/starter-opening-runtime-dependency-evidence-r3/DEPENDENCIES.json": {
+      "bytes": 121521,
+      "sha256": "638ac7975498a1ef727db6fdb2f25691bb938af27e3138352dc51a0058009d32"
+    }
+  },
+  "dependencyQualification": "404 external files646881166B metadata pinned; bodies not hashed here",
+  "grammar": [
+    {
+      "name": "driver-cue.mjs",
+      "exit": 0,
+      "stdoutBytes": 0,
+      "stderrBytes": 0
+    },
+    {
+      "name": "runtime-guard-cue.mjs",
+      "exit": 0,
+      "stdoutBytes": 0,
+      "stderrBytes": 0
+    }
+  ],
+  "pythonASTCompiled": true,
+  "isolatedPythonFalseGuardCases": [
+    "actual",
+    "unsealed",
+    "runtime-ineligible",
+    "incomplete-recovery"
+  ],
+  "isolatedJSFalseGuard": {
+    "cases": 4,
+    "fileAccesses": 0,
+    "externalImportOrCallerExecuted": false
+  },
+  "ineligibleBeforeRootGrantLookupOrExternalImportOrMkdirPopen": true,
+  "elapsedClocksBeginBeforePreflightAndNeverReset": true,
+  "resourceDeadlines": "sampled cancellation/final elapsed validation, no hard synchronous preflight IO deadline",
+  "rawCheckpointFullUnionAndPairedBranches": true,
+  "ordinaryUICurrentUIDLegalTargetsAndPurityChecks": true,
+  "terminalOrderAssertionsBattleScoped": true,
+  "noCallerHelperModuleBrowserServerBuildOrAppExecuted": true,
+  "frozenSourceAndOriginalAuthorityBodiesUnchanged": true,
+  "atimeMayChange": true,
+  "resource": {
+    "workBytes": 67108864,
+    "reserveBytes": 536870912,
+    "initialAvailable": 16706572288,
+    "selfPeakRSS": 14794752,
+    "sourceGrammarAndIsolatedChildPeakRSS": 29745152,
+    "conservativePeakSum": 44539904,
+    "finiteSeconds": 30
+  }
+}

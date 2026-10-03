@@ -1,0 +1,1 @@
+Original bytes only; logical paths map to blobs/SHA256 in the new archive or exact ce0f capsule. Game media and installed dependencies remain external and pinned. No game/default/art selection authority. Originals, failed reviews, source drafts, and prior capsules remain in place.

@@ -1,0 +1,20 @@
+##[group]Run npx --no-install electron-builder --win dir --x64 -c.win.signAndEditExecutable=true -c.win.signExecutable=false -c.forceCodeSigning=false
+2026-09-30T20:05:33.7032629Z [36;1mnpx --no-install electron-builder --win dir --x64 -c.win.signAndEditExecutable=true -c.win.signExecutable=false -c.forceCodeSigning=false[0m
+2026-09-30T20:05:33.7071991Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-09-30T20:05:33.7072344Z env:
+2026-09-30T20:05:33.7072538Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:05:33.7072786Z ##[endgroup]
+2026-09-30T20:05:35.3749923Z   • electron-builder  version=26.15.3 os=10.0.20348
+2026-09-30T20:05:35.3755717Z   • publishing will be skipped  reason=current build is a part of pull request solution=set env PUBLISH_FOR_PULL_REQUEST to true to force code signing
+2026-09-30T20:05:35.3757416Z There are serious security concerns with PUBLISH_FOR_PULL_REQUEST=true (see the  CircleCI documentation (https://circleci.com/docs/1.0/fork-pr-builds/) for details)
+2026-09-30T20:05:35.3759188Z If you have SSH keys, sensitive env vars or AWS credentials stored in your project settings and untrusted forks can make pull requests against your repo, then this option isn't for you.
+2026-09-30T20:05:35.3954823Z   ⨯ ENOENT: no such file or directory, open 'D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder\.forceCodeSigning=false'  failedTask=build stackTrace=Error: ENOENT: no such file or directory, open 'D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder\.forceCodeSigning=false'
+2026-09-30T20:05:35.3956947Z     at open (node:internal/fs/promises:1345:25)
+2026-09-30T20:05:35.3957588Z     at Object.readFile (node:internal/fs/promises:1996:14)
+2026-09-30T20:05:35.3958819Z     at readConfig (D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder\node_modules\app-builder-lib\src\util\config\load.ts:19:16)
+2026-09-30T20:05:35.3960555Z     at getConfig (D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder\node_modules\app-builder-lib\src\util\config\config.ts:43:34)
+2026-09-30T20:05:35.3962347Z     at Packager.validateConfig (D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder\node_modules\app-builder-lib\src\packager.ts:367:27)
+2026-09-30T20:05:35.3963998Z     at Packager.build (D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder\node_modules\app-builder-lib\src\packager.ts:398:5)
+2026-09-30T20:05:35.3965554Z     at executeFinally (D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder\node_modules\builder-util\src\promise.ts:12:14)
+2026-09-30T20:05:35.5058811Z ##[error]Process completed with exit code 1.
+2026-09-30T20:05:35.5267875Z

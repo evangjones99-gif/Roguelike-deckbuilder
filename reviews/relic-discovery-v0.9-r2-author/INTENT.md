@@ -1,0 +1,1 @@
+Independent14fd review asks for a persistent visible discoverability cue. Only add “Inspect relic effects” in the existing flex-wrapped relic strip. All prior focus/ownership/dossier behavior stays. Original14fd stage/source/build/review remains unchanged. New candidate requires fresh density/readability review; no approval borrowed.

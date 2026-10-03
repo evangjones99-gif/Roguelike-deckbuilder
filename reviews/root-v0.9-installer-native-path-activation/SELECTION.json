@@ -1,0 +1,27 @@
+{
+  "rootHEAD": "8860abd302b140049ef10040ebfa160244829950",
+  "runtimeUnchanged": "801db1ce4000c15268569cb047e7388148a65105c7b86208611ceb3aff40f029",
+  "selectedFiles": [
+    {
+      "path": "scripts/windows-installer-asar-validation.mjs",
+      "beforeSHA256": "2321e5fca463ea9af6d735884ca5579e24827530e9057318053ed085c4314455",
+      "afterSHA256": "716d5c1b763c8d34ea04f504eeb02472290993ea469471d7e7298f1766dd9ca4",
+      "changed": true
+    },
+    {
+      "path": "scripts/windows-installer-asar-validation.test.mjs",
+      "beforeSHA256": "a25a2bfaaba62a8b13377f5ba43d611b0cea0dedc71246677d18418bbd69d40b",
+      "afterSHA256": "2ee456b0a7b7f3c0a031a574ae96c76299f18ceef8ac7757719bc48ec6bd746a",
+      "changed": true
+    },
+    {
+      "path": "scripts/windows-installer-smoke.mjs",
+      "beforeSHA256": "89c570ba955eb79e8d3b40e5d6532044d90f87e007b62f22ca131bd410442dc7",
+      "afterSHA256": "19689fb40d41426c2dfa29e3da3e70df4c4865ed0835e4bb254d644fa1cb74a8",
+      "changed": true
+    }
+  ],
+  "independentReviewSHA256": "9d8d93af5a92cc6d3cd233947131097a084ec0315a02d68f0df3e3bd6f3ba403",
+  "authorManifestSHA256": "3e588a0e756858523b46235ce8d493ac348729ec87d97ef4fed34f10b7f9b10b",
+  "scope": "Exact three accepted tooling files selected; original proposal/baselines/failure retained; no Windows retry/install success yet"
+}

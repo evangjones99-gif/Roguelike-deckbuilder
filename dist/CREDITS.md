@@ -1,0 +1,16 @@
+# Attribution and provenance
+
+Game code, geometry, procedural effects, CSS and synthesized sound were authored for this project with AI assistance. v0.2 adds original AI-generated dark fantasy environment and creature artwork; v0.3 adds a hunter portrait and six-pose hound atlas; v0.5 adds a six-pose warleader sheet and four shared equipment-illustration families. Prompts, file hashes, layout, rejected packing inputs and tool provenance are retained in public/art/PROVENANCE.json and assets/art-sources. Runtime art uses illustrated 2.5D cutouts with pose transitions; it is not a library of rigged 3D models. The separately preserved Blender rig lab is an original experimental model rejected for runtime use by independent visual review. No paid assets, external franchise characters, recordings or external fonts are embedded. Store AI-content disclosure and distribution/rights review remain required.
+
+- v0.7 adds an original full-body hunter six-pose sheet; all generations, requests and rejected packing inputs remain in assets/art-sources/v0.7. Whole-cell sampling preserves original pixels and anatomy. Sparse painted keys are not articulated or rigged animation; commercial rights and AI disclosure remain pending.
+- Historical v0.1 uses Three.js (MIT), with its license preserved in the archived build. v0.2 uses Canvas2D and no longer bundles Three.js.
+- Electron (MIT) and its Chromium/Node dependencies: desktop packages include Electron's LICENSE and LICENSES.chromium.html. Preserve both files; audit the packaged runtime before commercial distribution.
+- TypeScript (Apache-2.0), Vite (MIT), tsx (MIT), Playwright (Apache-2.0), electron-builder (MIT) and build dependencies are development tools. Their installed package license files remain in node_modules and are governed by their respective authors.
+
+Owner decision pending for distribution rights of project-authored source. Do not imply a third-party trademark endorsement or reuse competitor IP. This file is an inventory, not a completed legal audit.
+
+- Next audio candidate uses 39 project-authored synthesized WAV cues (13 families × three variants), generated with AI-assisted project scripts. They are original synthesized signals, not third-party recordings. Original synthesizer inputs, rejected mixes, graph tests and WAV hashes remain in the retained audio research. This inventory does not certify audible quality, human listening, commercial rights or store disclosure.
+
+- v0.8 adds an original AI-generated ossuary crypt panorama for reconstructed necromancer/spectral encounters. Original pixels, exact request, rejected drafts and generation provenance are retained in assets/art-sources/v0.8/crypt-r2 and canonical crypt-panorama-v0.8-r2-* evidence. Rights review and store AI-content disclosure remain pending.
+
+- Working0.9 introduces an original AI-generated Bone Thrall skeletal burial-servant cutout. Exact raw pixels/request and project style references are retained in public/art/bone-thrall-v09-r1.png and canonical bone-thrall-v0.9-original-generation evidence. Independent scoped visual/technical component acceptance is recorded separately; commercial rights, store AI disclosure, human evaluation and AAA craft remain pending.

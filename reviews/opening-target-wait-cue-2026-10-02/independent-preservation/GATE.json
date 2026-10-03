@@ -1,0 +1,61 @@
+{
+  "decision": "ACCEPT_EXACT_OPT_IN_CUE_PRESERVATION_WITH_NEEDED_MEDIA_OMISSIONS",
+  "proof": {
+    "sha256": "224ebf6bce19a7fb57f352e2d4136cbdcd1c0f441d6c86c45113cbb82eb52e66",
+    "bytes": 107048
+  },
+  "archive": {
+    "sha256": "33a7d665c213e7710e19aa4710e4c71788e614e6034911ab6ea4dbfbef170abf",
+    "bytes": 1452213
+  },
+  "manifestSHA256": "417460625edb417b9be0a792f58adb4112a88cad869694e3f4c17d313fab4eef",
+  "counts": {
+    "logical": 253,
+    "uniqueBlobs": 236,
+    "excludedNeededMedia": 101,
+    "runtimeInputs": 87,
+    "runtimeOutputs": 56,
+    "includedRuntimeCode": 42,
+    "actualRawPairs": 6,
+    "originalCaptures": 4
+  },
+  "fullRoundtripAndOriginalEquality": true,
+  "completeRuntimeMapsAndEvidenceDirectories": true,
+  "allSixFullSavePairsMatch": true,
+  "originalFourCapturesRetained": true,
+  "omissions": "101 pinned PNG/WAV original bodies verified and still needed; not self-contained",
+  "sourceDigest": "df26eacd3988cb8aacebd95747e07edc3f1659bd1bc3b4baa39e5a0ebbcc5aa9",
+  "outputsDigest": "b30f08787905fc59acc2f44277e352b879362e4aa0bff50a5f76929e5f8dbf6a",
+  "preservedReviewerMethodFailure": "GUARD rc1 / wrong saved-file name selector; corrected GUARD-r2 rc0, archive and originals unchanged",
+  "reviewerGuard": {
+    "result": {
+      "sha256": "d5de118b55d7ba17537b929173bab573befce6590de47d8293366bdf2ce5e8d4",
+      "bytes": 1046
+    },
+    "points": 4,
+    "minimumHeadroom": 1489428480,
+    "maximumAggregateDelta": 9297920,
+    "eventsUnchanged": true,
+    "ownVmHWM": 14245888
+  },
+  "seal64Work512Reserve": {
+    "initial": {
+      "current": 15681064960,
+      "maximum": 17179869184,
+      "headroom": 1498804224,
+      "free": 83263488,
+      "utcNs": 1790901669813949871
+    },
+    "finalBeforeSmallSealWrites": {
+      "current": 15681245184,
+      "maximum": 17179869184,
+      "headroom": 1498624000,
+      "free": 83259392,
+      "utcNs": 1790901669816114338
+    },
+    "eventsUnchanged": true,
+    "ownVmHWM": 10354688
+  },
+  "scope": "Exact preservation only. Opt-in named-wait source/build/caller/actual and three separate actual reviews retained with original method failures; no new default, art, runtime, human-fun, repair, release, retirement or cleanup acceptance. Needed PNG/WAV original paths remain indispensable; not a self-contained release. Full binary hashes are identity checks, no image decoding/viewing. Root workflow guard closes finite child group but does not prove global backend/unknown actor absence.",
+  "CLOSED": "All tools/readers/FDs and finite guarded child groups closed. Direct sealer launches no child. No exhaustive global/backend attribution."
+}

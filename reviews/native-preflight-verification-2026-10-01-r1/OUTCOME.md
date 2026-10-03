@@ -1,0 +1,1 @@
+Closed distinct native-verifier source, compilation, independent full-new-encoding read, scoped reviews and controls; original ZIP encoding retained locally, no logical Git-coverage, cleanup or playable-build claim. Earlier failures remain retained. Real first-fight inventory is a separate source proposal, not game art.

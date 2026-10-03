@@ -1,0 +1,16 @@
+##[group]Run node scripts/windows-smoke.mjs build-desktop/win-unpacked/Hollowpact.exe
+2026-09-30T20:11:31.5623440Z [36;1mnode scripts/windows-smoke.mjs build-desktop/win-unpacked/Hollowpact.exe[0m
+2026-09-30T20:11:31.5662716Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-09-30T20:11:31.5663051Z env:
+2026-09-30T20:11:31.5663227Z   CSC_IDENTITY_AUTO_DISCOVERY: false
+2026-09-30T20:11:31.5663466Z ##[endgroup]
+2026-09-30T20:11:32.7957992Z Error: ENOENT: no such file or directory, open 'D:\a\Roguelike-deckbuilder\Roguelike-deckbuilder\node_modules\electron\dist\electron.exe'
+2026-09-30T20:11:32.7958849Z     at Object.openSync (node:fs:622:18)
+2026-09-30T20:11:32.7959208Z     at Object.readFileSync (node:fs:488:35)
+2026-09-30T20:11:32.7959898Z     at inspectPE (file:///D:/a/Roguelike-deckbuilder/Roguelike-deckbuilder/scripts/windows-smoke.mjs:42:44)
+2026-09-30T20:11:32.7961115Z     at file:///D:/a/Roguelike-deckbuilder/Roguelike-deckbuilder/scripts/windows-smoke.mjs:95:22
+2026-09-30T20:11:32.7962045Z     at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+2026-09-30T20:11:32.7962672Z     at async node:internal/modules/esm/loader:643:26
+2026-09-30T20:11:32.7963424Z     at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+2026-09-30T20:11:32.9118687Z ##[error]Process completed with exit code 1.
+2026-09-30T20:11:32.9307749Z

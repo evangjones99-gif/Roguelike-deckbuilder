@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/native-checkpoint-publication-independent-r1/audit.py", line 62, in <module>
+    hr=[j(history/('native-checkpoint-manifest-guard-root-r'+str(i))/'RESULT.json') for i in (1,2,3)];assert hr[0]['exit_code']==1 and hr[1]['exit_code']==1 and hr[2]['exit_code']==0
+                                                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

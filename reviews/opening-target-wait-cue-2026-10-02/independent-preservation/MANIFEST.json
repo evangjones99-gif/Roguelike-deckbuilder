@@ -1,0 +1,87 @@
+{
+  "decision": "ACCEPT_EXACT_OPT_IN_CUE_PRESERVATION_WITH_NEEDED_MEDIA_OMISSIONS",
+  "bodies": [
+    {
+      "name": "GATE.json",
+      "sha256": "4da2f16f6e7e677a97b960a6be678b97898a1895a57035f2b5f3cbb1e33782fe",
+      "bytes": 2631
+    },
+    {
+      "name": "GUARD/ADMISSION.json",
+      "sha256": "e0b21665f89b8bb34169e8012d47874d0ace9bd1133073574cb436401762b451",
+      "bytes": 460
+    },
+    {
+      "name": "GUARD/EXECUTION.log",
+      "sha256": "a935cb2dd2c9078f6faa6e4d1ebcf7de5426fcaf7b52215874664713f12cac3a",
+      "bytes": 646
+    },
+    {
+      "name": "GUARD/RESULT.json",
+      "sha256": "e48b386fe581060d2beb9dcc17fcbead874b171da23e94250dc0ea39b832f4e9",
+      "bytes": 1041
+    },
+    {
+      "name": "GUARD-r2/ADMISSION.json",
+      "sha256": "05a2b100000d9ea5cf17bfa9321dd409488246d7ea97c83687faad33f47bdff4",
+      "bytes": 463
+    },
+    {
+      "name": "GUARD-r2/EXECUTION.log",
+      "sha256": "028a031cfb34d267297c380375f46c894453968b149f2112784e93149f02544b",
+      "bytes": 399
+    },
+    {
+      "name": "GUARD-r2/RESULT.json",
+      "sha256": "d5de118b55d7ba17537b929173bab573befce6590de47d8293366bdf2ce5e8d4",
+      "bytes": 1046
+    },
+    {
+      "name": "INSPECT-GUARD/ADMISSION.json",
+      "sha256": "738bd1752af6a1fccfcaf665c5f81dd1c092a2cf4783f861e299f221f9c5f354",
+      "bytes": 461
+    },
+    {
+      "name": "INSPECT-GUARD/EXECUTION.log",
+      "sha256": "9dd37e50905b501f4e27eeb9e072555b916446707965f5af2047607aa9474095",
+      "bytes": 1422
+    },
+    {
+      "name": "INSPECT-GUARD/RESULT.json",
+      "sha256": "e399843915b0f79f3661d1a64551205141a900a4ff80475a2f3c3c00a1855faf",
+      "bytes": 853
+    },
+    {
+      "name": "PROOF.json",
+      "sha256": "224ebf6bce19a7fb57f352e2d4136cbdcd1c0f441d6c86c45113cbb82eb52e66",
+      "bytes": 107048
+    },
+    {
+      "name": "REVIEW.md",
+      "sha256": "22cc6bfd13283bc964bd832871e793d22f8465f3b36f8e6d49dac95d57d69b89",
+      "bytes": 1810
+    },
+    {
+      "name": "inspect.py",
+      "sha256": "8d01618c22d9e22c33f67d85a01469835ad79d700c65682703c753c213fc0ad8",
+      "bytes": 527
+    },
+    {
+      "name": "seal.py",
+      "sha256": "88a059ca189ce4ebf6a9d9b468349f541b8b95a102af0348f24416a400d9c971",
+      "bytes": 5128
+    },
+    {
+      "name": "verify-r2.py",
+      "sha256": "e52b2a31705bdca082054c17f4e091b1b8f63ce1d93b9c9233cc8332765d8ca0",
+      "bytes": 10824
+    },
+    {
+      "name": "verify.py",
+      "sha256": "0b34fd3ba2a8dcba88fe362f0927536870d9a7d1c3f2cbc3a00128e2fabfafc8",
+      "bytes": 10813
+    }
+  ],
+  "selfExcluded": true,
+  "CLOSED": true
+}

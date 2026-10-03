@@ -1,0 +1,323 @@
+{
+  "method": {
+    "path": "/workspace/scratch/share-second-three-retained-pngs-root-r4.py",
+    "bytes": 8174,
+    "sha256": "5c03ec5135584a2fc83ebff60bb4ee6f52b1451ebf79ae4125d16704530f3adc"
+  },
+  "publisher": {
+    "path": "/workspace/scratch/publish-atime-rebind-root-r1.py",
+    "bytes": 4040,
+    "sha256": "4a88e8b46d18c8a7d153a1c387878da80406dbb05386161169fb72852c08c427"
+  },
+  "producer": {
+    "path": "/workspace/scratch/judge-second-three-png-sharing-root-r4.py",
+    "bytes": 3818,
+    "sha256": "80ba8af4b96e0522adbc2ccfce908f2394b36606273a8a7a374169f0aee9753c"
+  },
+  "unchangedGuard": {
+    "path": "/workspace/scratch/guard-source-recovery-56m-root-r2.py",
+    "bytes": 2826,
+    "sha256": "c2b24f58d6abbbe0449fc49515e6bb9eeaf0997bd287642d87a3a1754388fff3"
+  },
+  "proposal": {
+    "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/PROPOSAL.json",
+    "bytes": 43511,
+    "sha256": "45ed75b5078c84e32981ba86b43f62826b00c53278ef8ea2f9888d661b8fd8d5"
+  },
+  "currentHold": {
+    "path": "/workspace/Roguelike-deckbuilder/AGENTS.md",
+    "bytes": 15131,
+    "sha256": "69a82ce96a594a2b2a5244154de8758b200290ba9de46b40a221a52ba4a0cfb7"
+  },
+  "selectedMap": {
+    "path": "/workspace/scratch/target-wait-default-promotion-root-r1/RESULT.json",
+    "bytes": 15350,
+    "sha256": "31a221091d2ffbc6d58dfc1385962c441df9789c66729ef64d20b95208a8fabd"
+  },
+  "priorAcceptedScope": {
+    "path": "/workspace/scratch/second-three-png-recovery-admission-independent-r1/GATE.json",
+    "bytes": 6087,
+    "sha256": "4edc919f7b2017f4cc1377ba97ee5bce9964b57e44f17fb37ff2a9597f94c2a9"
+  },
+  "r3Failure": {
+    "path": "/workspace/scratch/second-three-png-sharing-actual-guard-root-r3/EXECUTION.log",
+    "bytes": 624,
+    "sha256": "7978dba408ec8aa86b606b059330cefe4cd22fa3f8928ca46d76eef4a696d0f6"
+  },
+  "r3FailureGuardResult": {
+    "path": "/workspace/scratch/second-three-png-sharing-actual-guard-root-r3/RESULT.json",
+    "bytes": 1046,
+    "sha256": "fdcfcc463bd7f21116a07cae9ca9a06c92839667b204a2fb5669c115a0d1982d"
+  },
+  "r3FailureAdmission": {
+    "path": "/workspace/scratch/second-three-png-sharing-actual-guard-root-r3/ADMISSION.json",
+    "bytes": 1083,
+    "sha256": "f9438671c34e7bdde84796783ca14669f8943070fdca8cd6d821e484de0278f7"
+  },
+  "r3FailureMeaning": "Source assertion at first anchor initial leafcheck, before transaction mkdir/link. Guard admitted and closed child rc1, no resource stop; not a completed sharing.",
+  "r3R4TransactionAndTempsAbsent": true,
+  "leafObservations": [
+    {
+      "role": "anchor",
+      "path": "/workspace/Roguelike-deckbuilder/public/art/abbey-courtyard.png",
+      "proposalMetadata": {
+        "st_dev": 27,
+        "st_ino": 655363,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 3060309,
+        "st_blocks": 5984,
+        "st_atime_ns": 1790898151007202045,
+        "st_mtime_ns": 1790792012410051235,
+        "st_ctime_ns": 1790904436827253842
+      },
+      "freshMetadata": {
+        "st_dev": 27,
+        "st_ino": 655363,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 3060309,
+        "st_blocks": 5984,
+        "st_atime_ns": 1790906218153661911,
+        "st_mtime_ns": 1790792012410051235,
+        "st_ctime_ns": 1790904436827253842
+      },
+      "sha256FullBodyObservedReadOnly": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+      "xattrsObserved": {},
+      "bodyReadMethod": "Earlier finite bootstrap: held O_PATH|O_DIRECTORY|O_NOFOLLOW parents, O_RDONLY|O_NOATIME|O_NOFOLLOW leaf, 65536B chunks; path=fstat before/after and SHA exact. This sealer freshly restatted same full snapshot; no duplicate media read.",
+      "onlyProposalDifference": {
+        "st_atime_ns": [
+          1790898151007202045,
+          1790906218153661911
+        ]
+      }
+    },
+    {
+      "role": "candidate",
+      "path": "/workspace/scratch/audio-host-independent-v08/independent/rebuilt-dist/art/abbey-courtyard.png",
+      "proposalMetadata": {
+        "st_dev": 27,
+        "st_ino": 544872,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 3060309,
+        "st_blocks": 5984,
+        "st_atime_ns": 1790813785219790792,
+        "st_mtime_ns": 1790813777184746302,
+        "st_ctime_ns": 1790813777184746302
+      },
+      "freshMetadata": {
+        "st_dev": 27,
+        "st_ino": 544872,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 3060309,
+        "st_blocks": 5984,
+        "st_atime_ns": 1790813785219790792,
+        "st_mtime_ns": 1790813777184746302,
+        "st_ctime_ns": 1790813777184746302
+      },
+      "sha256FullBodyObservedReadOnly": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+      "xattrsObserved": {},
+      "bodyReadMethod": "Earlier finite bootstrap: held O_PATH|O_DIRECTORY|O_NOFOLLOW parents, O_RDONLY|O_NOATIME|O_NOFOLLOW leaf, 65536B chunks; path=fstat before/after and SHA exact. This sealer freshly restatted same full snapshot; no duplicate media read.",
+      "onlyProposalDifference": {}
+    },
+    {
+      "role": "anchor",
+      "path": "/workspace/Roguelike-deckbuilder/public/art/tool-vignettes.png",
+      "proposalMetadata": {
+        "st_dev": 27,
+        "st_ino": 657805,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2917100,
+        "st_blocks": 5704,
+        "st_atime_ns": 1790898151170562003,
+        "st_mtime_ns": 1790803009868046413,
+        "st_ctime_ns": 1790904436833950851
+      },
+      "freshMetadata": {
+        "st_dev": 27,
+        "st_ino": 657805,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2917100,
+        "st_blocks": 5704,
+        "st_atime_ns": 1790906218169661655,
+        "st_mtime_ns": 1790803009868046413,
+        "st_ctime_ns": 1790904436833950851
+      },
+      "sha256FullBodyObservedReadOnly": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+      "xattrsObserved": {},
+      "bodyReadMethod": "Earlier finite bootstrap: held O_PATH|O_DIRECTORY|O_NOFOLLOW parents, O_RDONLY|O_NOATIME|O_NOFOLLOW leaf, 65536B chunks; path=fstat before/after and SHA exact. This sealer freshly restatted same full snapshot; no duplicate media read.",
+      "onlyProposalDifference": {
+        "st_atime_ns": [
+          1790898151170562003,
+          1790906218169661655
+        ]
+      }
+    },
+    {
+      "role": "candidate",
+      "path": "/workspace/scratch/audio-host-independent-v08/independent/rebuilt-dist/art/tool-vignettes.png",
+      "proposalMetadata": {
+        "st_dev": 27,
+        "st_ino": 544878,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2917100,
+        "st_blocks": 5704,
+        "st_atime_ns": 1790813785255858420,
+        "st_mtime_ns": 1790813777192587668,
+        "st_ctime_ns": 1790813777192587668
+      },
+      "freshMetadata": {
+        "st_dev": 27,
+        "st_ino": 544878,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2917100,
+        "st_blocks": 5704,
+        "st_atime_ns": 1790813785255858420,
+        "st_mtime_ns": 1790813777192587668,
+        "st_ctime_ns": 1790813777192587668
+      },
+      "sha256FullBodyObservedReadOnly": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+      "xattrsObserved": {},
+      "bodyReadMethod": "Earlier finite bootstrap: held O_PATH|O_DIRECTORY|O_NOFOLLOW parents, O_RDONLY|O_NOATIME|O_NOFOLLOW leaf, 65536B chunks; path=fstat before/after and SHA exact. This sealer freshly restatted same full snapshot; no duplicate media read.",
+      "onlyProposalDifference": {}
+    },
+    {
+      "role": "anchor",
+      "path": "/workspace/Roguelike-deckbuilder/public/art/hunter-portrait.png",
+      "proposalMetadata": {
+        "st_dev": 27,
+        "st_ino": 655545,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2514707,
+        "st_blocks": 4912,
+        "st_atime_ns": 1790898151106047514,
+        "st_mtime_ns": 1790795201706304533,
+        "st_ctime_ns": 1790904436840131331
+      },
+      "freshMetadata": {
+        "st_dev": 27,
+        "st_ino": 655545,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2514707,
+        "st_blocks": 4912,
+        "st_atime_ns": 1790906218161661782,
+        "st_mtime_ns": 1790795201706304533,
+        "st_ctime_ns": 1790904436840131331
+      },
+      "sha256FullBodyObservedReadOnly": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+      "xattrsObserved": {},
+      "bodyReadMethod": "Earlier finite bootstrap: held O_PATH|O_DIRECTORY|O_NOFOLLOW parents, O_RDONLY|O_NOATIME|O_NOFOLLOW leaf, 65536B chunks; path=fstat before/after and SHA exact. This sealer freshly restatted same full snapshot; no duplicate media read.",
+      "onlyProposalDifference": {
+        "st_atime_ns": [
+          1790898151106047514,
+          1790906218161661782
+        ]
+      }
+    },
+    {
+      "role": "candidate",
+      "path": "/workspace/scratch/audio-host-independent-v08/independent/rebuilt-dist/art/hunter-portrait.png",
+      "proposalMetadata": {
+        "st_dev": 27,
+        "st_ino": 544876,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2514707,
+        "st_blocks": 4912,
+        "st_atime_ns": 1790813785250913824,
+        "st_mtime_ns": 1790813777191585813,
+        "st_ctime_ns": 1790813777191585813
+      },
+      "freshMetadata": {
+        "st_dev": 27,
+        "st_ino": 544876,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2514707,
+        "st_blocks": 4912,
+        "st_atime_ns": 1790813785250913824,
+        "st_mtime_ns": 1790813777191585813,
+        "st_ctime_ns": 1790813777191585813
+      },
+      "sha256FullBodyObservedReadOnly": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+      "xattrsObserved": {},
+      "bodyReadMethod": "Earlier finite bootstrap: held O_PATH|O_DIRECTORY|O_NOFOLLOW parents, O_RDONLY|O_NOATIME|O_NOFOLLOW leaf, 65536B chunks; path=fstat before/after and SHA exact. This sealer freshly restatted same full snapshot; no duplicate media read.",
+      "onlyProposalDifference": {}
+    }
+  ],
+  "protectedOriginalStat": {
+    "st_dev": 27,
+    "st_ino": 678628,
+    "st_mode": 33152,
+    "st_nlink": 1,
+    "st_uid": 1000,
+    "st_gid": 1000,
+    "st_size": 1856041104,
+    "st_blocks": 3625096,
+    "st_atime_ns": 1790815508306217040,
+    "st_mtime_ns": 1790815567573263991,
+    "st_ctime_ns": 1790859776790106720
+  },
+  "historicalAggregateScope": "Reuse existing before/admission reviews; no fresh entire historical66/51 or selected87/56 rehash in this supplement. Exact r4 retains full selected87/56 before/after action checks.",
+  "currentPushReceipt": {
+    "path": "/workspace/scratch/recovery-admission-push-root-r2/PUSH-CONFIRMED.json",
+    "bytes": 503,
+    "sha256": "fa81762b40895d5ff93ad3a83292b053abccd1cc43202e56e6e47861781efe95"
+  },
+  "currentPushReportedCommit": "37cf5633c68e6a82f133e508ebad5149d39d717c",
+  "remoteVerificationByThisReviewer": false,
+  "resources": {
+    "sourceReviewBootstrapUnmetered": true,
+    "ownRSSKiBObservedCalls": [
+      9472,
+      12800,
+      9216
+    ],
+    "sealerRSSKiBBeforeSeal": 10112,
+    "ownRSSCapMiB": 24,
+    "noCgroupGuardUsedForThisSupplement": true,
+    "no64MiBGuardComplianceClaim": true,
+    "noBackendTools": true
+  },
+  "copyBudget": {
+    "failurePacketBytes": 2753,
+    "reviewPacketCapBytes": 32768,
+    "threeControlsBytes": 16032,
+    "exactCopyUpperBytes": 51553,
+    "publicationCapBytes": 131072,
+    "publisherInternalAssertionBytes": 524288,
+    "qualification": "Publisher retains looser512KiB assert. Exact fixed two-folder/three-control payload with this32KiB review bound is51553B; COPY-IDENTITIES/README/Git/command logs outside payloadsum and not universal allocator bound. Fresh56 admission still required."
+  }
+}

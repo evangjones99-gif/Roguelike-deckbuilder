@@ -1,0 +1,32 @@
+{
+  "scope": "Actual release CLI readonly refusals before build/output mutation; scratch lock retained; no real transaction launched",
+  "checks": [
+    {
+      "name": "failed-version-preserved",
+      "returnCode": 1,
+      "expectedError": "already exists",
+      "stderr": "file:///workspace/Roguelike-deckbuilder/scripts/release.mjs:12\nif (fs.existsSync(dest)) throw new Error(`Release ${version} already exists. Choose a new version; releases are never overwritten.`);\n                               ^\n\nError: Release 0.6.0 already exists. Choose a new version; releases are never overwritten.\n    at file:///workspace/Roguelike-deckbuilder/scripts/release.mjs:12:32\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.19.0\n"
+    },
+    {
+      "name": "older-complete-version-preserved",
+      "returnCode": 1,
+      "expectedError": "already exists",
+      "stderr": "file:///workspace/Roguelike-deckbuilder/scripts/release.mjs:12\nif (fs.existsSync(dest)) throw new Error(`Release ${version} already exists. Choose a new version; releases are never overwritten.`);\n                               ^\n\nError: Release 0.5.0 already exists. Choose a new version; releases are never overwritten.\n    at file:///workspace/Roguelike-deckbuilder/scripts/release.mjs:12:32\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.19.0\n"
+    },
+    {
+      "name": "existing-lock-refused",
+      "returnCode": 1,
+      "expectedError": "Another release owns",
+      "stderr": "file:///workspace/Roguelike-deckbuilder/scripts/release.mjs:15\ntry { fs.mkdirSync(lock); } catch { throw new Error('Another release owns .release-lock. Inspect its owner.json and process liveness before repairing a stale lock.'); }\n                                          ^\n\nError: Another release owns .release-lock. Inspect its owner.json and process liveness before repairing a stale lock.\n    at file:///workspace/Roguelike-deckbuilder/scripts/release.mjs:15:43\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.19.0\n"
+    },
+    {
+      "name": "invalid-version-refused",
+      "returnCode": 1,
+      "expectedError": "Usage:",
+      "stderr": "file:///workspace/Roguelike-deckbuilder/scripts/release.mjs:9\nif (!version || !/^\\d+\\.\\d+\\.\\d+(?:-[a-z0-9.]+)?$/.test(version)) throw new Error('Usage: npm run release -- 0.1.0');\n                                                                        ^\n\nError: Usage: npm run release -- 0.1.0\n    at file:///workspace/Roguelike-deckbuilder/scripts/release.mjs:9:73\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.19.0\n"
+    }
+  ],
+  "originalIncompleteDirectoryStillNotRelease": true,
+  "scratchLockOwnerUnchanged": true,
+  "rootLockAbsent": true
+}

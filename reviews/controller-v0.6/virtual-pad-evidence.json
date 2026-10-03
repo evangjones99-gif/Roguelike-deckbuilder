@@ -1,0 +1,54 @@
+{
+  "syntheticAPIInjection": true,
+  "physicalHardware": false,
+  "prototypeShipped": false,
+  "checks": [
+    {
+      "name": "axis-deadzone-and-direction-repeat",
+      "jitterIgnored": true,
+      "firstMove": "a11",
+      "beforeRepeat": "a11",
+      "afterRepeat": "a12",
+      "saveUnchanged": true
+    },
+    {
+      "name": "confirm-button-edge-selection-command",
+      "targetFocused": true,
+      "noCommandWhileHeld": true,
+      "oneCommandAfterRelease": true,
+      "actorSpent": true
+    },
+    {
+      "name": "back-cancels-and-restores-source",
+      "selected": 0,
+      "sourceRestored": true,
+      "saveUnchanged": true
+    },
+    {
+      "name": "endturn-reuses-confirmation-dialog-and-back",
+      "dialogOpened": true,
+      "gameUnchangedBeforeConfirmation": true,
+      "prototypeDirectionsTrapped": true,
+      "closedByBack": true,
+      "saveUnchanged": true
+    },
+    {
+      "name": "synthetic-hidden-resume-requires-release",
+      "heldResumeIgnored": true,
+      "newPressWorks": true,
+      "nativeTabVisibility": false
+    },
+    {
+      "name": "presentation-lock-and-dispose",
+      "whileBlocked": true,
+      "heldAfterUnlockIgnored": true,
+      "noInputAfterDispose": true,
+      "lockSimulated": true
+    }
+  ],
+  "errors": [],
+  "build": {
+    "version": "0.5.0",
+    "sourceDigest": "cdf4098ab5426281d75a22d4565b6d5b92667a42b9937e756a919a97227449af"
+  }
+}

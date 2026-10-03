@@ -1,0 +1,1 @@
+After independentR1 behavior acceptance, R2 raises held hints/keys to12px and gives Start same key treatment as Esc. MainR1 andevidence remain preserved; no production edit. Decorativecaptionhide rootR1 isseparateclear-field improvement. FreshR2actualcontainment/readability review required.

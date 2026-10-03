@@ -1,0 +1,337 @@
+{
+  "project": "Hollowpact",
+  "version": "0.8.0",
+  "createdDate": "2026-09-30",
+  "AIContent": true,
+  "presentation": "Illustrated 2.5D creature artwork with pose transitions where supplied; not rigged 3D runtime characters",
+  "inputsPreserved": true,
+  "sourceRecords": "Generation requests are preserved in the originating Codex chat; stored briefs are summaries. Original generated images and repair inputs are retained in assets/art-sources/v0.2 and assets/art-sources/v0.3 in source archives. v0.5 exact requests and images are retained in assets/art-sources/v0.5. v0.7 original hunter generations, exact requests and rejected atlas packing inputs remain in assets/art-sources/v0.7. v0.8 exact crypt generation request, original PNG and placement/provenance remain in assets/art-sources/v0.8/crypt-r2; full rejected studies and independent evidence remain canonical.",
+  "images": [
+    {
+      "file": "abbey-courtyard.png",
+      "sha256": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "creatorTool": "image_gen.imagegen",
+      "rightsReview": "pending before commercial distribution",
+      "generatedOriginal": "/workspace/generated_images/exec-11e04212-dde5-46ec-af6e-372f1cd930d7.png",
+      "brief": "Original realistic rain-soaked ruined abbey combat floor; cool moonlight and warm braziers; clear center space; no characters, text, logos or franchise assets.",
+      "preservedSource": "assets/art-sources/v0.2/environment-original.png",
+      "firstIntroducedVersion": "0.2.0"
+    },
+    {
+      "file": "adversaries-atlas.png",
+      "sha256": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "creatorTool": "image_gen.imagegen",
+      "rightsReview": "pending before commercial distribution",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "centerDividerAlphaMaximum": [
+          0,
+          0
+        ],
+        "cells": [
+          "Ironjaw Warlord",
+          "Hollow Cantor",
+          "Gloam Revenant",
+          "Cindermaw"
+        ]
+      },
+      "generatedOriginal": "/workspace/generated_images/exec-6d0c034a-ad5c-4a02-b5d8-46951758b891.png",
+      "referenceInput": "/workspace/generated_images/exec-f65a6480-8c39-4863-a6bc-340cc39081ac.png",
+      "brief": "Four original full-body transparent2x2 dark fantasy foes: plated goblin warlord, funeral-robed necromancer, spectral ruined knight, ember-throated dark dragon. Subsequent edit repairs quadrant clipping.",
+      "preservedSource": "assets/art-sources/v0.2/adversaries-padded.png",
+      "preservedReferenceInput": "assets/art-sources/v0.2/adversaries-initial.png",
+      "referenceInputSha256": "bfd3fc7bf50e9d7b7fe0cbbd4bc8698def3fd3f44d72c00e3cb53e52c5b90468",
+      "firstIntroducedVersion": "0.2.0"
+    },
+    {
+      "file": "companions-atlas.png",
+      "sha256": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "creatorTool": "image_gen.imagegen",
+      "rightsReview": "pending before commercial distribution",
+      "layout": {
+        "columns": 2,
+        "rows": 2,
+        "centerDividerAlphaMaximum": [
+          0,
+          0
+        ],
+        "cells": [
+          "Cairn Hound",
+          "Fen Stalker",
+          "Briar Colossus",
+          "Ash Widow"
+        ]
+      },
+      "generatedOriginal": "/workspace/generated_images/exec-ac571dc8-32d9-4110-922b-aa0507228c3f.png",
+      "referenceInput": "/workspace/generated_images/exec-23766abb-e4c0-4f77-9080-8e879b5bcf73.png",
+      "brief": "Four original photorealistic grim bound beasts, full body, transparent2x2atlas: spectral bone-plated hound, amphibious ghoul stalker, bark/bone/stone colossus, obsidian giant spider. Subsequent edit preserves design and resizes for exact quadrant containment.",
+      "preservedSource": "assets/art-sources/v0.2/companions-padded.png",
+      "preservedReferenceInput": "assets/art-sources/v0.2/companions-initial.png",
+      "referenceInputSha256": "55b3e5cd1d2d094b26f52303aa91ed77ebbed3f003c03794461df5d1014a4b65",
+      "firstIntroducedVersion": "0.2.0"
+    },
+    {
+      "file": "pact-seal.png",
+      "sha256": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "creatorTool": "image_gen.imagegen",
+      "rightsReview": "pending before commercial distribution",
+      "generatedOriginal": "/workspace/generated_images/exec-8d56522e-b665-4693-9b1e-b4c65be7d267.png",
+      "brief": "Original weathered iron broken pact ring around ivory fang with ember grooves on dark slate; no letters or franchise marks; desktop and interface insignia.",
+      "preservedSource": "assets/art-sources/v0.2/pact-seal-original.png",
+      "firstIntroducedVersion": "0.2.0"
+    },
+    {
+      "file": "hunter-portrait.png",
+      "firstIntroducedVersion": "0.3.0",
+      "sha256": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+      "width": 1199,
+      "height": 1312,
+      "mode": "RGBA",
+      "creatorTool": "image_gen.imagegen",
+      "rightsReview": "pending before commercial distribution",
+      "generatedOriginal": "/workspace/generated_images/exec-ef08732d-5630-4083-8de1-c033312048be.png",
+      "preservedSource": "assets/art-sources/v0.3/hunter-portrait-original.png",
+      "brief": "Original scarred dark-haired human contract hunter, rain-worn dark wool/leather and iron equipment, natural grey-blue eyes, ivory fang and broken-circle oath emblem; transparent waist-up cinematic portrait, no franchise costume/white hair/cat eyes."
+    },
+    {
+      "file": "hound-poses.png",
+      "firstIntroducedVersion": "0.3.0",
+      "sha256": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "creatorTool": "image_gen.imagegen",
+      "rightsReview": "pending before commercial distribution",
+      "generatedOriginal": "/workspace/generated_images/exec-fa220d9c-530e-4848-89c1-a7bdf740cdbf.png",
+      "preservedSource": "assets/art-sources/v0.3/hound-poses-padded.png",
+      "preservedReferenceInput": "assets/art-sources/v0.3/hound-poses-repair2.png",
+      "brief": "Original Cairn Hound six-pose transparent atlas. Two preceding packing attempts rejected; third repair preserves full figures inside cells. Illustrated pose crossfades, not skeletal animation.",
+      "layout": {
+        "columns": 3,
+        "rows": 2,
+        "cells": [
+          "idle",
+          "crouch",
+          "attack",
+          "recovery",
+          "recoil",
+          "death"
+        ],
+        "cameraCropWithinCell": [
+          32,
+          96,
+          448,
+          384
+        ],
+        "groundAnchorsWithinCell": [
+          446,
+          440,
+          446,
+          400,
+          394,
+          397
+        ],
+        "dividerAlphaMaximum": [
+          0,
+          1,
+          1
+        ]
+      },
+      "presentationMetadata": {
+        "version": "0.4.0",
+        "poseBlendMs": 0,
+        "contactShadow": "Local-origin floor shadow; wider/lighter footprint for already-painted attack altitude",
+        "sourcePixelsUnchanged": true,
+        "limitation": "Six hard painted poses; no new in-between frames or skeletal rig"
+      }
+    },
+    {
+      "file": "tool-vignettes.png",
+      "firstIntroducedVersion": "0.5.0",
+      "sha256": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+      "width": 1774,
+      "height": 887,
+      "mode": "RGB",
+      "creatorTool": "image_gen.imagegen",
+      "rightsReview": "pending before commercial distribution",
+      "generatedOriginal": "/workspace/generated_images/exec-b41676ef-2afe-4e7c-86b8-5841fb4a1819.png",
+      "preservedSource": "assets/art-sources/v0.5/tool-vignettes-still-life.png",
+      "preservedRequest": "assets/art-sources/v0.5/tool-vignettes-still-life-request.json",
+      "brief": "Four original grounded equipment still-life families: chained hook, iron ward plate, needle and red wool thread/bandage, fang and physical bound-creature effigies. Limited semantic mapping only; shared art families rather than unique illustrations for every tool.",
+      "presentationMetadata": {
+        "sourcePixelsUnchanged": true,
+        "layout": "Four 2x2 landscape quadrants; inset sample windows differ between hand and large cards. See src/art.ts.",
+        "fallback": "Original family symbol retained on missing/incorrect-size image; decorative canvas hidden from assistive text.",
+        "independentStudy": "reviews/art-v0.5/review.md",
+        "independentReviewGate": "Source-study acceptance permits limited integration testing. Final production promotion is determined by separate immutable v0.5 runtime review evidence; this metadata does not assert acceptance."
+      }
+    },
+    {
+      "file": "warleader-poses.png",
+      "firstIntroducedVersion": "0.5.0",
+      "sha256": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "creatorTool": "image_gen.imagegen",
+      "rightsReview": "pending before commercial distribution",
+      "generatedOriginal": "/workspace/generated_images/exec-89b6ca1f-8b80-42b9-89ef-664d4bcfeaa5.png",
+      "preservedSource": "assets/art-sources/v0.5/warleader-poses-repair2.png",
+      "preservedReferenceInput": "assets/art-sources/v0.5/warleader-poses-repair1.png",
+      "preservedRequest": "assets/art-sources/v0.5/warleader-poses-repair2-request.json",
+      "brief": "Original Ironjaw Warleader six-pose sheet: armored masked goblin warleader with chipped cleaver and ragged red cape. Initial sheet and two spacing edits retained; final fully contained cells accepted for limited runtime testing.",
+      "layout": {
+        "columns": 3,
+        "rows": 2,
+        "cells": [
+          "idle",
+          "anticipation",
+          "attack",
+          "recovery",
+          "reaction",
+          "death"
+        ],
+        "cameraCropWithinCell": [
+          0,
+          32,
+          512,
+          448
+        ],
+        "groundAnchorsWithinCell": [
+          474,
+          473,
+          476,
+          406,
+          405,
+          406
+        ],
+        "dividerAlphaMaximum": [
+          0,
+          1,
+          0
+        ]
+      },
+      "presentationMetadata": {
+        "sourcePixelsUnchanged": true,
+        "uniformScale": 1.1,
+        "poseBlendMs": 0,
+        "contactLandmarks": "Boots in five standing poses; gauntlet/body plane for collapsed pose rather than lower cleaver tip.",
+        "limitation": "Six hard keys, some highlight/cape drift; requested64px gutters not achieved. Fullcell crop preserves corpse left edge. Not skeletal/inbetween animation.",
+        "independentSourceGate": "reviews/art-v0.5-warleader",
+        "independentReviewGate": "Source-study acceptance permits limited integration testing. Final production promotion is determined by separate immutable v0.5 runtime review evidence; this metadata does not assert acceptance."
+      }
+    },
+    {
+      "file": "hunter-marek-v07-r3.png",
+      "sha256": "4492577d3bacc868e9b66da0abf25915bdeaf68bc8f5c31ae8a1d8db485f3c53",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "creatorTool": "image_gen.imagegen",
+      "rightsReview": "pending before commercial distribution",
+      "preservedSource": "assets/art-sources/v0.7/hunter-sheet-edit-r3.png",
+      "preservedRequest": "assets/art-sources/v0.7/hunter-sheet-edit-r3-request.txt",
+      "preservedReferenceInput": "assets/art-sources/v0.7/hunter-sheet-edit-r2.png",
+      "sourcePixelsUnchanged": true,
+      "firstIntroducedVersion": "0.7.0",
+      "brief": "Original full-body scarred contract hunter Marek Voss, six sparse painted keys with realistic weathered gear and a held gold binding seal.",
+      "layout": {
+        "columns": 3,
+        "rows": 2,
+        "cellWidth": 512,
+        "cellHeight": 512,
+        "cells": [
+          "idle",
+          "anticipation",
+          "attack",
+          "recovery",
+          "reaction",
+          "death"
+        ],
+        "groundAnchorsWithinCell": [
+          502,
+          502,
+          500,
+          450,
+          447,
+          441
+        ],
+        "wholeCellsSampled": true
+      },
+      "presentationMetadata": {
+        "uniformCellScale": "bodyHeight * 512 / 418; all poses share scale and foot plane",
+        "sealCentersWithinCells": [
+          [
+            323,
+            235
+          ],
+          [
+            268,
+            219
+          ],
+          [
+            222,
+            221
+          ],
+          [
+            283,
+            172
+          ],
+          [
+            250,
+            180
+          ],
+          [
+            244,
+            290
+          ]
+        ],
+        "sealEstimateToleranceSourcePixels": 3,
+        "limitation": "Six hard-cut keys, mirrored asymmetric gear and seated incapacitation pose. Requested48px safe gutter/common source anchor not achieved. Whole-cell runtime preserves anatomy; not articulated, rigged or fluid AAA animation.",
+        "reviewGate": "R4 component reviews accept minimal integration testing only. Actual production source/build review and native packaging are separate gates; no human enjoyment/AAA/commercial certification."
+      }
+    },
+    {
+      "file": "ossuary-crypt-v08-r2.png",
+      "sha256": "ff9818614003e9432ee1868c2f60b336d0b5dfe63f5c01e380832f1e880c4b00",
+      "width": 2069,
+      "height": 760,
+      "mode": "RGB",
+      "creatorTool": "image_gen.imagegen",
+      "rightsReview": "pending before commercial distribution",
+      "preservedSource": "assets/art-sources/v0.8/crypt-r2/generated-original.png",
+      "preservedRequest": "assets/art-sources/v0.8/crypt-r2/REQUEST.txt",
+      "firstIntroducedVersion": "0.8.0",
+      "presentation": "Original unchanged painted environment. Pure canonical original encounter context selects necromancer/spectral contracts; legacy nonboss encounters retain the abbey."
+    },
+    {
+      "file": "bone-thrall-v09-r1.png",
+      "sha256": "3697dd4cc89f1550e0688b34bb421939988c90ab78832ce83d53ddb81b372dfd",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "creatorTool": "image_gen.imagegen",
+      "generatedOriginal": "/workspace/generated_images/exec-89c24152-3408-45ed-9d7e-00aed9558f4c.png",
+      "preservedSource": "public/art/bone-thrall-v09-r1.png",
+      "exactRequest": "reviews/bone-thrall-v0.9-original-generation/curated-evidence.tar.gz::REQUEST-r1.txt",
+      "rightsReview": "pending before commercial distribution",
+      "status": "Original AI-generated development artwork; commercial rights, store AI disclosure, human evaluation and AAA craft remain pending.",
+      "firstProposedVersion": "0.9 research; no release version claimed",
+      "brief": "Original exposed-bone burial servant with weathered ribs, ragged shroud and restrained rusty binding iron; no armored spectral knight reuse.",
+      "firstIntroducedVersion": "0.9.0 working development"
+    }
+  ]
+}

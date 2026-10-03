@@ -1,0 +1,22 @@
+{
+  "version": "0.8.0",
+  "status": "development-prerelease",
+  "sourceCommit": "58efb01f4815d8b542711582b87f50168dabde81",
+  "runtimeSourceDigest": "23477f68c99d6d60b0b3f82b286a8d33bb6da6f2ca92c103fbecf5663634959f",
+  "sourceArchiveFormat": "git-bundle-v2",
+  "sourceBundleVerification": "source-bundle-verification.json",
+  "archivePlan": "Producer stores web ZIP, source bundle and available validated Linux tar. Root separately adds the accepted original native Windows ZIP and original CI evidence, producing five archives; this producer does not invent native proof or repack Windows.",
+  "sourceArchiveScope": "Exact current complete Git tree and all commit/tree/blob ancestry reachable only from pinned HEAD/production branch, independently restored and fsck/blob verified. Other refs/annotated tags, non-ancestor rejected experiments and working files are excluded. Temporary same-commit ZIP used only for canonical review auditing; no official source ZIP is claimed.",
+  "createdAt": "2026-10-01T03:14:23.178Z",
+  "platforms": [
+    "web",
+    "linux-x64"
+  ],
+  "artifacts": {
+    "hollowpact-0.8.0-linux-x64.tar.gz": "a53d9ce19137d85223bc3487b15209da359de24c8d9f524ef47f06e0de75d772",
+    "hollowpact-0.8.0-source.bundle": "fd1310a36be0931bb81537004f87ef751481ca0daa349e58f1576a3c34640b3d",
+    "hollowpact-0.8.0-web.zip": "9305118f5e7da63923c28199618fd7b6241461c1eff578e4feb1c5e79674d1a6"
+  },
+  "steamPublished": false,
+  "reviews": "See reviews/INDEX.json and canonical reviews/ in the source commit/archive. Prior full local milestone copies remain unchanged. This manifest does not certify commercial quality."
+}

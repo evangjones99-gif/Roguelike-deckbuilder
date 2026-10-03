@@ -1,0 +1,194 @@
+{
+  "utc": "2026-10-02T20:09:00.382553+00:00",
+  "scope": "Actual evidence verification only; no approval of own authored observer source",
+  "actualPacket": "/workspace/scratch/starter-first300-observer-actual-r5",
+  "freezeSHA256": "ff7f407d819961251339bd9ed6c0ee151815bed90b50edd8c0a3360b027f553d",
+  "dependenciesSHA256": "638ac7975498a1ef727db6fdb2f25691bb938af27e3138352dc51a0058009d32",
+  "dependencyCurrentBodiesHashed": 404,
+  "grantSHA256": "7149f697575adbae434beddf1784ea72346a3f41c7848f646f19ee3404fb7ed7",
+  "independentSourceReviewSHA256": "2ac5cf6ea5cb3ba2b0a39052136719d21f6c73f35e0a11ce06067e05d8c54fb2",
+  "prePostCurrentStageBodies": 174,
+  "journalRows": 195,
+  "verifiedRawReferences": 233,
+  "uniqueRawSavedStates": 22,
+  "journalKindCounts": {
+    "browser-launch-request": 1,
+    "observation": 97,
+    "action-start": 38,
+    "action-complete": 37,
+    "entry": 1,
+    "cancel-complete": 1,
+    "command-mechanics": 12,
+    "command-terminal-cleanup": 1,
+    "passive": 7
+  },
+  "endpointLaunchElapsedMs": 300008.888396,
+  "endpointCaptureCompleteLaunchElapsedMs": 300049.650396,
+  "workerClosureElapsedMs": 301687.4584959969,
+  "supervisorClosureElapsedSeconds": 301.6966786019984,
+  "finalResourceReceiptElapsedSeconds": 301.6978201089987,
+  "wholeBudgetSeconds": 350,
+  "workerCutoffSeconds": 337,
+  "physicalInclusiveBytes": 850066,
+  "physicalPreFinalReceiptBytes": 847461,
+  "finalReceiptBytes": 2605,
+  "jpegBytes": 419433,
+  "journalBytes": 330934,
+  "peakCgroupBytes": 1152471040,
+  "peakDeltaBytes": 641060864,
+  "workBytes": 939524096,
+  "reserveBytes": 536870912,
+  "liveOwnedProcessGroupNow": [],
+  "completed300": true,
+  "passiveIntervals": 7,
+  "seed": 1402141,
+  "terminalCleanupCount": 1,
+  "normalClosureAndReceivedEOF": true,
+  "inventory": {
+    "01-fresh-menu.jpg": {
+      "bytes": 103686,
+      "sha256": "76a4634379f05248cd8c021695c5e1bea3fa70b5949e2d61598fe2098eb80015"
+    },
+    "02-cancelled.jpg": {
+      "bytes": 109807,
+      "sha256": "57c04ead43dda383923764e0d4b76b1a34bd2f90ba7b88bd7479efe1f530c522"
+    },
+    "03-first-order.jpg": {
+      "bytes": 100932,
+      "sha256": "10d38394d0e0ef6506a95c8ac483b2da301d052e33a4e0170b5ee6eed9559a20"
+    },
+    "04-endpoint.jpg": {
+      "bytes": 105008,
+      "sha256": "a91e6cd7bc83f11b8d1578a1d13f627e11ad4ebdf33b9a31dad99608026dee96"
+    },
+    "ADMISSION.json": {
+      "bytes": 503,
+      "sha256": "a72541b3e2a014683e4332a3959a9da9c17ff633f2243f4f90070af8a7c6d84a"
+    },
+    "AUDIT-after.json": {
+      "bytes": 21215,
+      "sha256": "332ffdf61dadfd0275bff44c3492267e0ba40d78274465d2662a2cfa8327bc85"
+    },
+    "AUDIT-before.json": {
+      "bytes": 21205,
+      "sha256": "cbfd7397f38f018a4399ff3427f7a3ce2f92cc5c7d47144623dc8f55378cdb01"
+    },
+    "FINAL-ACCOUNTING.json": {
+      "bytes": 2605,
+      "sha256": "00daba70acebd32d3cb51b3509067a5ffa9a38d2a4375464498a143dcd72ee69"
+    },
+    "JOURNAL.jsonl": {
+      "bytes": 330934,
+      "sha256": "1c2da034301ed6778424664d36b487d2bc626cb3ef74fe8042e49f67b240badb"
+    },
+    "PROCESS.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "RESULT.json": {
+      "bytes": 5749,
+      "sha256": "2e13789cc6f4195a475bcb1f2f6c6d8e0db8ed28d8d94a1a3eae77408c68673a"
+    },
+    "SUPERVISOR-CLOSURE.json": {
+      "bytes": 811,
+      "sha256": "c0f63620ba8bfc3280f0032081264579c3f908f64842e7b4acd28298f83be47b"
+    },
+    "save-0e7122d2edcc9358ee47c200f786a8fe59e616ef2511f561f7617e13ba11dfa7.json": {
+      "bytes": 1864,
+      "sha256": "0e7122d2edcc9358ee47c200f786a8fe59e616ef2511f561f7617e13ba11dfa7"
+    },
+    "save-12513a387385cae5d3c4485024b2e3c749730e0c918f03640a553c25315f1138.json": {
+      "bytes": 2334,
+      "sha256": "12513a387385cae5d3c4485024b2e3c749730e0c918f03640a553c25315f1138"
+    },
+    "save-13947d49d93a5eec3dd5d18e2c4947387633c4862ab8554be61ecbfb8ce76935.json": {
+      "bytes": 2291,
+      "sha256": "13947d49d93a5eec3dd5d18e2c4947387633c4862ab8554be61ecbfb8ce76935"
+    },
+    "save-442bf98294e781864f05ca906b518ed7a444ccedba3c3ee58f3bdbc2aedc9a29.json": {
+      "bytes": 2064,
+      "sha256": "442bf98294e781864f05ca906b518ed7a444ccedba3c3ee58f3bdbc2aedc9a29"
+    },
+    "save-475354c6abf0ecb8280e7715dbc854ec5fb2e55ce06c88725cc9e396db1f9a75.json": {
+      "bytes": 1609,
+      "sha256": "475354c6abf0ecb8280e7715dbc854ec5fb2e55ce06c88725cc9e396db1f9a75"
+    },
+    "save-4abcbd34e06d5129c57c748a196e4c553ae1542e5c8906fd2ee36554d99d4198.json": {
+      "bytes": 2146,
+      "sha256": "4abcbd34e06d5129c57c748a196e4c553ae1542e5c8906fd2ee36554d99d4198"
+    },
+    "save-542354ab51f53b8088a2f2375e56be60723bacbec6941c491d497ff3b42abf85.json": {
+      "bytes": 1354,
+      "sha256": "542354ab51f53b8088a2f2375e56be60723bacbec6941c491d497ff3b42abf85"
+    },
+    "save-67a1ba3d26747bda08aa1263b6d6e5d73513d95bbdaf7d13a0f43414ad195ff6.json": {
+      "bytes": 2405,
+      "sha256": "67a1ba3d26747bda08aa1263b6d6e5d73513d95bbdaf7d13a0f43414ad195ff6"
+    },
+    "save-70249ca6865ee26f3b7171546d991b6e13c61e3dfa4686271d3e3399539455e5.json": {
+      "bytes": 1847,
+      "sha256": "70249ca6865ee26f3b7171546d991b6e13c61e3dfa4686271d3e3399539455e5"
+    },
+    "save-72a86474f9dd537cf281a91e93406ab5aafd9914020b4262b3b8efe6a44a617a.json": {
+      "bytes": 2600,
+      "sha256": "72a86474f9dd537cf281a91e93406ab5aafd9914020b4262b3b8efe6a44a617a"
+    },
+    "save-730143a83220274380d19c10d17ea62e247c22e681411916d498a1c12c5e4adf.json": {
+      "bytes": 2467,
+      "sha256": "730143a83220274380d19c10d17ea62e247c22e681411916d498a1c12c5e4adf"
+    },
+    "save-821d224ef1531265af1f7a0a791e440c99e838f2a44ca9d36777e63ba71a279a.json": {
+      "bytes": 2371,
+      "sha256": "821d224ef1531265af1f7a0a791e440c99e838f2a44ca9d36777e63ba71a279a"
+    },
+    "save-8e7e976f84a43227072d547afed72d0f12d965ebe2fee60b18985fb9738ed52f.json": {
+      "bytes": 2272,
+      "sha256": "8e7e976f84a43227072d547afed72d0f12d965ebe2fee60b18985fb9738ed52f"
+    },
+    "save-8f37e584805276a17679aa94b0897e71df492f02364442927a8f0018bae4c71e.json": {
+      "bytes": 1881,
+      "sha256": "8f37e584805276a17679aa94b0897e71df492f02364442927a8f0018bae4c71e"
+    },
+    "save-af62e6238b9d3106e57cd491fcea8d98266c10fd0f5bd76b09ab9abba94dfde4.json": {
+      "bytes": 2510,
+      "sha256": "af62e6238b9d3106e57cd491fcea8d98266c10fd0f5bd76b09ab9abba94dfde4"
+    },
+    "save-cb458b3b713d50261ff77f1f93d670c9dd516428dd0e8479a6d00bde220c10f4.json": {
+      "bytes": 2326,
+      "sha256": "cb458b3b713d50261ff77f1f93d670c9dd516428dd0e8479a6d00bde220c10f4"
+    },
+    "save-ccd547039d417ccf00f9f2964ef43c2385c52a6f75de852240f8fcbafadab527.json": {
+      "bytes": 2539,
+      "sha256": "ccd547039d417ccf00f9f2964ef43c2385c52a6f75de852240f8fcbafadab527"
+    },
+    "save-d60d5e82d1421c1e9ea43d1b815793a8489489beada7eb3e7b612907ae623c7f.json": {
+      "bytes": 2253,
+      "sha256": "d60d5e82d1421c1e9ea43d1b815793a8489489beada7eb3e7b612907ae623c7f"
+    },
+    "save-f734f4fa0fbd809c0f41bd681a6beafd8ffd4cc34df81e3b4641e69ae2c1c962.json": {
+      "bytes": 1572,
+      "sha256": "f734f4fa0fbd809c0f41bd681a6beafd8ffd4cc34df81e3b4641e69ae2c1c962"
+    },
+    "save-f88addc25ef9f08815523e73c12b805c85ca606e80ba00aff29014ca7676c539.json": {
+      "bytes": 1978,
+      "sha256": "f88addc25ef9f08815523e73c12b805c85ca606e80ba00aff29014ca7676c539"
+    },
+    "save-f9fca7102bde1ade420c40f0356c4eb23259390ab57b1dc6511146bbdc1b3d71.json": {
+      "bytes": 2424,
+      "sha256": "f9fca7102bde1ade420c40f0356c4eb23259390ab57b1dc6511146bbdc1b3d71"
+    },
+    "save-fe7cfd097bb8d079bb2d8d6be40894d063a32fd1ba401581fb0e05e33b56f4d8.json": {
+      "bytes": 2504,
+      "sha256": "fe7cfd097bb8d079bb2d8d6be40894d063a32fd1ba401581fb0e05e33b56f4d8"
+    }
+  },
+  "noBrowserBuildOrGameExecutedByReviewer": true,
+  "methodManifestSHA256": "1559dee2d28755349448bb4e7b76688caf3c1997ea83eacab1cd8e9d8ef6357f",
+  "currentMethodBodyIdentityMatchesIndependentGrant": true,
+  "completedActionPairs": 38,
+  "battleCommandEnergyPairsIndependentlyCompared": 12,
+  "terminalCleanupLaunchElapsedMs": 225373.85689300002,
+  "firstPassiveLaunchElapsedMs": 233863.03804800002,
+  "rewardToEndpointElapsedMs": 74635.031503,
+  "currentMethodHashVerificationScope": "Identity only, no independent approval of authored source"
+}

@@ -1,0 +1,196 @@
+{
+  "sourceDirectory": "/workspace/scratch/installer-asar-native-path-author-v09-r1",
+  "archiveBytes": 68070,
+  "archiveSHA256": "d30c3a15538ff24bc2065cb1a5418ffcfd59acd05a0f14c7eb32194a9d6a01bb",
+  "everyDeclaredHashedFileRoundTripVerified": true,
+  "excludedUnhashedAliases": [
+    {
+      "path": "proposed/node_modules",
+      "target": "/workspace/Roguelike-deckbuilder/node_modules",
+      "type": "symlink"
+    }
+  ],
+  "files": [
+    {
+      "path": "ACTUAL-LINUX-PRODUCER-GATE.json",
+      "bytes": 31054,
+      "sha256": "77bdca85c5d84a05e52c6dc460dfb0a529567f44e4508314436364c059540e75",
+      "referenceTarget": null
+    },
+    {
+      "path": "AUTHOR.md",
+      "bytes": 8881,
+      "sha256": "18ef3b3086d72cf871ed6289902b39e95094b3ebc075e9fa5e7c8ad06343de38",
+      "referenceTarget": null
+    },
+    {
+      "path": "INPUTS-POST.json",
+      "bytes": 4801,
+      "sha256": "6075db94ee22101f7e1063add1a028976f26398d522a0dc801c03d168dea0e62",
+      "referenceTarget": null
+    },
+    {
+      "path": "INPUTS-PRE.json",
+      "bytes": 4336,
+      "sha256": "efaf8c09b840dfb407e4849c7b66f5075d5e4b8e95f62175a6efb981678e9153",
+      "referenceTarget": null
+    },
+    {
+      "path": "PROPOSED-CHANGES.json",
+      "bytes": 1271,
+      "sha256": "76d124ea4fbb817d2ee411343846c15b427d291044ac132f23e617233ccc2be4",
+      "referenceTarget": null
+    },
+    {
+      "path": "PROPOSED-THREE-FILE.patch",
+      "bytes": 10357,
+      "sha256": "877b4496a5ba57d6cc59ff829089e3ff7b16088dd1a3f104fc01d9f749b37c39",
+      "referenceTarget": null
+    },
+    {
+      "path": "READ-FAILURES.txt",
+      "bytes": 315,
+      "sha256": "10eafd19799d891aa042d213027236ca1ea0d79065649b381e225c6782785f8a",
+      "referenceTarget": null
+    },
+    {
+      "path": "README.md",
+      "bytes": 1987,
+      "sha256": "4d15fe9d0d61dcb6852ab4c9a56a45d0250f92ba704ad549907e500e9f47954d",
+      "referenceTarget": null
+    },
+    {
+      "path": "TEST-FIXTURE-REFERENCES.json",
+      "bytes": 33023,
+      "sha256": "082f32b77edfd32551e82817c0109aa98bccf34a8f6bffdb8617d5e815b98526",
+      "referenceTarget": null
+    },
+    {
+      "path": "WIN32-LOOKUP-DIAGNOSTIC.json",
+      "bytes": 19072,
+      "sha256": "fd9e9ace5116a632e790543cbc3579448483c8411f88f92cde25cd734a2a936f",
+      "referenceTarget": null
+    },
+    {
+      "path": "actual-producer-gate-r1.log",
+      "bytes": 132,
+      "sha256": "b51563d3b93b915197f25ae90481a917b25562a05c51eb992dd97ee85249ebac",
+      "referenceTarget": null
+    },
+    {
+      "path": "actual-producer-gate.mjs",
+      "bytes": 1110,
+      "sha256": "aff9dabaac607bf802d755de736a0c0dc81cc1dffa567ec12d43f49c0a04aba6",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/windows-installer-asar-validation.mjs",
+      "bytes": 5884,
+      "sha256": "2321e5fca463ea9af6d735884ca5579e24827530e9057318053ed085c4314455",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/windows-installer-asar-validation.test.mjs",
+      "bytes": 9117,
+      "sha256": "a25a2bfaaba62a8b13377f5ba43d611b0cea0dedc71246677d18418bbd69d40b",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/windows-installer-smoke.mjs",
+      "bytes": 23072,
+      "sha256": "89c570ba955eb79e8d3b40e5d6532044d90f87e007b62f22ca131bd410442dc7",
+      "referenceTarget": null
+    },
+    {
+      "path": "guards-r1.log",
+      "bytes": 5198,
+      "sha256": "ceb45f630ad4b02159aa370b4024db37e869b7b20b51a24cfe6cf2a053e769e3",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/package.json",
+      "bytes": 33,
+      "sha256": "a90fc33418afa2b9cbf4768524b021135b965ecdf993457505bfae3ac44a8428",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/scripts/windows-installer-asar-payload.json",
+      "bytes": 37929,
+      "sha256": "a9eb7aed1b9238bf07ab4733cf8ba3e209e8255f864bbfdfa86f30a4c1a49860",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/scripts/windows-installer-asar-validation.mjs",
+      "bytes": 6000,
+      "sha256": "716d5c1b763c8d34ea04f504eeb02472290993ea469471d7e7298f1766dd9ca4",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/scripts/windows-installer-asar-validation.test.mjs",
+      "bytes": 11808,
+      "sha256": "2ee456b0a7b7f3c0a031a574ae96c76299f18ceef8ac7757719bc48ec6bd746a",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/scripts/windows-installer-current-validation.mjs",
+      "bytes": 10737,
+      "sha256": "6ca522b86639fbdcaa8a8894ed382dce54627b434dc72c82031a16c998567175",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/scripts/windows-installer-current-validation.test.mjs",
+      "bytes": 12789,
+      "sha256": "1a447371158b6de675c67b4d50f8b64076ce51bf88f95f88080d1cbf80e6d09b",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/scripts/windows-installer-guards.mjs",
+      "bytes": 7617,
+      "sha256": "2f0ffa8e6f155b4adb2bb8325b3a1e58a744dcc29e1822a366aa8df5bd7203d5",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/scripts/windows-installer-guards.test.mjs",
+      "bytes": 7479,
+      "sha256": "e28f9d5d6ba3dc742d3a2e1694e0a78b036c5cf7b8e44f43fd5a30c76b52fab8",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/scripts/windows-installer-smoke.mjs",
+      "bytes": 23085,
+      "sha256": "19689fb40d41426c2dfa29e3da3e70df4c4865ed0835e4bb254d644fa1cb74a8",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/scripts/windows-installer-transfer.mjs",
+      "bytes": 3754,
+      "sha256": "21f7414909f5a63c6f90e277f8462f09189deea85d965d9aae9a227277b784f2",
+      "referenceTarget": null
+    },
+    {
+      "path": "proposed/scripts/windows-installer-transfer.test.mjs",
+      "bytes": 2319,
+      "sha256": "da5295cb582f7e82a68dfc4f4e7f49a5f59304257cedba9284bdf3517aa76c3b",
+      "referenceTarget": null
+    },
+    {
+      "path": "win32-diagnostic-r1.log",
+      "bytes": 405,
+      "sha256": "8b19608d7ee4dd4be9e17e4ef0d962b5a48e24ee2b40749cb86a30c8de4c13ab",
+      "referenceTarget": null
+    },
+    {
+      "path": "win32-library-diagnostic.mjs",
+      "bytes": 3789,
+      "sha256": "cd13a264d3ac16cd1bde2e4e965747d5e184850dc7888637478a97902d6a8ac1",
+      "referenceTarget": null
+    },
+    {
+      "path": "MANIFEST.json",
+      "bytes": 5454,
+      "sha256": "3e588a0e756858523b46235ce8d493ac348729ec87d97ef4fed34f10b7f9b10b",
+      "referenceTarget": null
+    }
+  ],
+  "scope": "Only declared hashed regular-file bytes and exact original manifest. Explicitly hashed file-body aliases are captured as regular bytes, with their exact original targets and types recorded. Unhashed directory aliases retain their manifest targets; they are not traversed or claimed as archived dependency/source backups. Original packets and external dependencies remain unchanged."
+}

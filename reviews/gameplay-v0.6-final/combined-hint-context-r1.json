@@ -1,0 +1,38 @@
+{
+  "scope": "Actual production handlers; only navigator.getGamepads samples emulated. No injected host or adapter. Diagnostic fixtures are unearned validated saves; no physical hardware claim.",
+  "digest": "a502ed48dfb625257acea8d747439bce23be2c2ec346013b6c1a4fd9c8cb14f5",
+  "referenceSHA": "e8836833a56836fa97e79ebced4ee0845ad64e99cf6c85d107faaeb09b8fdad5",
+  "harnessSHA": "9398aa1af3f05df7f9b2798d087b51a3542f34e570600cdd607491bd7bd20fca",
+  "results": [
+    {
+      "name": "contextual-target-hints-1",
+      "fixture": "nonfinal-kill",
+      "kind": 1,
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Targets/. Input:\n\n'A Choose · B Back\\n' +\n  'X Inspect · Y End turn\\n' +\n  'D-pad Move · LB/RB Regions · Start Pause'\n\n    at file:///workspace/scratch/gameplay-v06-input/final-context-hints.mjs:25:562\n    at async test (file:///workspace/scratch/gameplay-v06-input/final-context-hints.mjs:22:237)\n    at async file:///workspace/scratch/gameplay-v06-input/final-context-hints.mjs:25:26",
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "e30",
+        "id": "",
+        "text": "Ironjaw ReaverH1 1/1644 damage → hunter"
+      },
+      "finalSaveHash": "cf6f38da8ec0d87d18ad7f7e2221e3d7a31a76b21e71dd6e5b98921c9d0ea759",
+      "errors": []
+    },
+    {
+      "name": "contextual-target-hints-2",
+      "fixture": "nonfinal-kill",
+      "kind": 2,
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Targets/. Input:\n\n'A Choose · B Back\\n' +\n  'X Inspect · Y End turn\\n' +\n  'D-pad Move · LB/RB Regions · Start Pause'\n\n    at file:///workspace/scratch/gameplay-v06-input/final-context-hints.mjs:25:562\n    at async test (file:///workspace/scratch/gameplay-v06-input/final-context-hints.mjs:22:237)\n    at async file:///workspace/scratch/gameplay-v06-input/final-context-hints.mjs:25:26",
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "e30",
+        "id": "",
+        "text": "Ironjaw ReaverH1 1/1644 damage → hunter"
+      },
+      "finalSaveHash": "a118f334cc9baf27b6faedfcacdc91c839b1712d7331aefcc10c9d93dc3416d6",
+      "errors": []
+    }
+  ]
+}

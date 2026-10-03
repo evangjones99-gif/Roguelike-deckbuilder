@@ -1,0 +1,379 @@
+{
+  "sourceDecision": "ACCEPT_EXACT_THREE_PATH_SHARING_AND_R2_ACTION_SOURCE_CONDITIONAL_PUSH_PRODUCER",
+  "methodR2": {
+    "path": "/workspace/scratch/share-second-three-retained-pngs-root-r2.py",
+    "bytes": 7828,
+    "sha256": "3ac77cbd683f43b00910066dc8248d6a77e2576df9111f30c856558555e62d99"
+  },
+  "proposal": {
+    "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/PROPOSAL.json",
+    "sha256": "45ed75b5078c84e32981ba86b43f62826b00c53278ef8ea2f9888d661b8fd8d5",
+    "bytes": 43511
+  },
+  "authorSeal": {
+    "path": "/workspace/scratch/media-loose-png-recovery-proposal-author-r2/FINAL-SEAL.json",
+    "sha256": "dad72be52657ee9538a209b9c1ac0e703dad6b57380463443f15916b8aae1fe7",
+    "bytes": 14935
+  },
+  "currentHold": {
+    "path": "/workspace/Roguelike-deckbuilder/AGENTS.md",
+    "sha256": "69a82ce96a594a2b2a5244154de8758b200290ba9de46b40a221a52ba4a0cfb7",
+    "bytes": 15131
+  },
+  "priorR1Proof": {
+    "path": "/workspace/scratch/second-three-retained-png-sharing-before-independent-r1/PROOF.json",
+    "bytes": 43225,
+    "sha256": "e54c1a30d2bb01fde8d7cd78da81e3b51c94520c43da1ae235ce270be19e2a29"
+  },
+  "priorR1GateRejection": {
+    "path": "/workspace/scratch/second-three-retained-png-sharing-before-independent-r1/R1-GATE.json",
+    "bytes": 1392,
+    "sha256": "7a2d1d45958e8f280356e7e10606f507392d4a85c9ed12a4a20961e6868ad831"
+  },
+  "priorR1Review": {
+    "path": "/workspace/scratch/second-three-retained-png-sharing-before-independent-r1/R1-REVIEW.md",
+    "bytes": 3877,
+    "sha256": "2a99522f59dc1be68de722202d6c373d98dc7b58046548b81bf8b94d4876e518"
+  },
+  "priorR1Manifest": {
+    "path": "/workspace/scratch/second-three-retained-png-sharing-before-independent-r1/R1-MANIFEST.json",
+    "bytes": 4442,
+    "sha256": "1ef529c35f150c478cf8aacdc09b4c90cd0dd0345321a3133f182fff39d8843b"
+  },
+  "priorR1FinalSeal": {
+    "path": "/workspace/scratch/second-three-retained-png-sharing-before-independent-r1/R1-FINAL-SEAL.json",
+    "bytes": 1115,
+    "sha256": "cb07337daafbd619405f636f392af292b687dcf52f62e41cc94b8108f7602ccb"
+  },
+  "freshSixLeafMetadata": [
+    {
+      "path": "/workspace/scratch/audio-host-independent-v08/independent/rebuilt-dist/art/abbey-courtyard.png",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 544872,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 3060309,
+        "st_blocks": 5984,
+        "st_atime_ns": 1790813785219790792,
+        "st_mtime_ns": 1790813777184746302,
+        "st_ctime_ns": 1790813777184746302
+      },
+      "xattrs": {},
+      "bodyIdentityBasis": "Prior fullbody stream in pinnedr1proof plus freshcomplete dev/inode/ctime/mtime/size/stat equality; no freshbody stream inr2."
+    },
+    {
+      "path": "/workspace/Roguelike-deckbuilder/public/art/abbey-courtyard.png",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 655363,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 3060309,
+        "st_blocks": 5984,
+        "st_atime_ns": 1790898151007202045,
+        "st_mtime_ns": 1790792012410051235,
+        "st_ctime_ns": 1790904436827253842
+      },
+      "xattrs": {},
+      "bodyIdentityBasis": "Prior fullbody stream in pinnedr1proof plus freshcomplete dev/inode/ctime/mtime/size/stat equality; no freshbody stream inr2."
+    },
+    {
+      "path": "/workspace/scratch/audio-host-independent-v08/independent/rebuilt-dist/art/tool-vignettes.png",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 544878,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2917100,
+        "st_blocks": 5704,
+        "st_atime_ns": 1790813785255858420,
+        "st_mtime_ns": 1790813777192587668,
+        "st_ctime_ns": 1790813777192587668
+      },
+      "xattrs": {},
+      "bodyIdentityBasis": "Prior fullbody stream in pinnedr1proof plus freshcomplete dev/inode/ctime/mtime/size/stat equality; no freshbody stream inr2."
+    },
+    {
+      "path": "/workspace/Roguelike-deckbuilder/public/art/tool-vignettes.png",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 657805,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2917100,
+        "st_blocks": 5704,
+        "st_atime_ns": 1790898151170562003,
+        "st_mtime_ns": 1790803009868046413,
+        "st_ctime_ns": 1790904436833950851
+      },
+      "xattrs": {},
+      "bodyIdentityBasis": "Prior fullbody stream in pinnedr1proof plus freshcomplete dev/inode/ctime/mtime/size/stat equality; no freshbody stream inr2."
+    },
+    {
+      "path": "/workspace/scratch/audio-host-independent-v08/independent/rebuilt-dist/art/hunter-portrait.png",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 544876,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2514707,
+        "st_blocks": 4912,
+        "st_atime_ns": 1790813785250913824,
+        "st_mtime_ns": 1790813777191585813,
+        "st_ctime_ns": 1790813777191585813
+      },
+      "xattrs": {},
+      "bodyIdentityBasis": "Prior fullbody stream in pinnedr1proof plus freshcomplete dev/inode/ctime/mtime/size/stat equality; no freshbody stream inr2."
+    },
+    {
+      "path": "/workspace/Roguelike-deckbuilder/public/art/hunter-portrait.png",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 655545,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2514707,
+        "st_blocks": 4912,
+        "st_atime_ns": 1790898151106047514,
+        "st_mtime_ns": 1790795201706304533,
+        "st_ctime_ns": 1790904436840131331
+      },
+      "xattrs": {},
+      "bodyIdentityBasis": "Prior fullbody stream in pinnedr1proof plus freshcomplete dev/inode/ctime/mtime/size/stat equality; no freshbody stream inr2."
+    }
+  ],
+  "freshKnownAliasStats": [
+    {
+      "path": "/workspace/Roguelike-deckbuilder/public/art/abbey-courtyard.png",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 655363,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 3060309,
+        "st_blocks": 5984,
+        "st_atime_ns": 1790898151007202045,
+        "st_mtime_ns": 1790792012410051235,
+        "st_ctime_ns": 1790904436827253842
+      }
+    },
+    {
+      "path": "/workspace/scratch/first-five-opening-cairn128-ready-stage-r1/public/art/abbey-courtyard.png",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 655363,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 3060309,
+        "st_blocks": 5984,
+        "st_atime_ns": 1790898151007202045,
+        "st_mtime_ns": 1790792012410051235,
+        "st_ctime_ns": 1790904436827253842
+      }
+    },
+    {
+      "path": "/workspace/scratch/first-five-opening-cairn128-ready-stage-r1/dist/art/abbey-courtyard.png",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 655363,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 3060309,
+        "st_blocks": 5984,
+        "st_atime_ns": 1790898151007202045,
+        "st_mtime_ns": 1790792012410051235,
+        "st_ctime_ns": 1790904436827253842
+      }
+    },
+    {
+      "path": "/workspace/scratch/audio-host-independent-v08/candidate/dist/art/abbey-courtyard.png",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 655363,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 3060309,
+        "st_blocks": 5984,
+        "st_atime_ns": 1790898151007202045,
+        "st_mtime_ns": 1790792012410051235,
+        "st_ctime_ns": 1790904436827253842
+      }
+    },
+    {
+      "path": "/workspace/Roguelike-deckbuilder/public/art/tool-vignettes.png",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 657805,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2917100,
+        "st_blocks": 5704,
+        "st_atime_ns": 1790898151170562003,
+        "st_mtime_ns": 1790803009868046413,
+        "st_ctime_ns": 1790904436833950851
+      }
+    },
+    {
+      "path": "/workspace/scratch/first-five-opening-cairn128-ready-stage-r1/public/art/tool-vignettes.png",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 657805,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2917100,
+        "st_blocks": 5704,
+        "st_atime_ns": 1790898151170562003,
+        "st_mtime_ns": 1790803009868046413,
+        "st_ctime_ns": 1790904436833950851
+      }
+    },
+    {
+      "path": "/workspace/scratch/first-five-opening-cairn128-ready-stage-r1/dist/art/tool-vignettes.png",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 657805,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2917100,
+        "st_blocks": 5704,
+        "st_atime_ns": 1790898151170562003,
+        "st_mtime_ns": 1790803009868046413,
+        "st_ctime_ns": 1790904436833950851
+      }
+    },
+    {
+      "path": "/workspace/scratch/audio-host-independent-v08/candidate/dist/art/tool-vignettes.png",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 657805,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2917100,
+        "st_blocks": 5704,
+        "st_atime_ns": 1790898151170562003,
+        "st_mtime_ns": 1790803009868046413,
+        "st_ctime_ns": 1790904436833950851
+      }
+    },
+    {
+      "path": "/workspace/Roguelike-deckbuilder/public/art/hunter-portrait.png",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 655545,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2514707,
+        "st_blocks": 4912,
+        "st_atime_ns": 1790898151106047514,
+        "st_mtime_ns": 1790795201706304533,
+        "st_ctime_ns": 1790904436840131331
+      }
+    },
+    {
+      "path": "/workspace/scratch/first-five-opening-cairn128-ready-stage-r1/public/art/hunter-portrait.png",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 655545,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2514707,
+        "st_blocks": 4912,
+        "st_atime_ns": 1790898151106047514,
+        "st_mtime_ns": 1790795201706304533,
+        "st_ctime_ns": 1790904436840131331
+      }
+    },
+    {
+      "path": "/workspace/scratch/first-five-opening-cairn128-ready-stage-r1/dist/art/hunter-portrait.png",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 655545,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2514707,
+        "st_blocks": 4912,
+        "st_atime_ns": 1790898151106047514,
+        "st_mtime_ns": 1790795201706304533,
+        "st_ctime_ns": 1790904436840131331
+      }
+    },
+    {
+      "path": "/workspace/scratch/audio-host-independent-v08/candidate/dist/art/hunter-portrait.png",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 655545,
+        "st_mode": 33152,
+        "st_nlink": 5,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 2514707,
+        "st_blocks": 4912,
+        "st_atime_ns": 1790898151106047514,
+        "st_mtime_ns": 1790795201706304533,
+        "st_ctime_ns": 1790904436840131331
+      }
+    }
+  ],
+  "freshProtectedStatMatchesR1": true,
+  "oldConsumerAndProvenanceControlPinsStillMatch": true,
+  "selectedMap": {
+    "path": "/workspace/scratch/target-wait-default-promotion-root-r1/RESULT.json",
+    "sha256": "31a221091d2ffbc6d58dfc1385962c441df9789c66729ef64d20b95208a8fabd",
+    "bytes": 15350
+  },
+  "selectedBodyVerificationBasis": "Prior pinnedr1 fresh87/56 full streams; r2 verifies map control identity only; method itself independently fullchecks selectedmaps before andafter action. Wholehistorical66/51 stillnotfreshlyrehashed.",
+  "sharingPreference": "Exact three privateoutput PNG encodings carry no unique pixels/source/rights/provenance; under exactcurrentheldfreshstagepaths, canonicalshared physicalencoding is preferred for potentialallocation recovery. Alllogicalpaths/bodies/consumerrecords stillneeded. Independentwritableinode/time isolation is no longerneeded as productionproperty for these frozenoutputs, acceptedlosses explicit.",
+  "grossPotentialBytes": 8499200,
+  "logicalThreeBytes": 8492116,
+  "oldPhysicalInodesNeeded": false,
+  "originalMetadataConsumerProvenanceRecordsNeeded": true,
+  "unknownAliases": "Exactly4known physicalentries peranchor verified againstnlink5; onephysicalalias peranchor unresolved; no symlink/FD/mmap/futurewriter absence proof. Accept disclosedshared nlink/ctime effects includingunknownalias, not universalaliasaccounting.",
+  "durabilityReview": "Allthree preflight beforeevidencedir/mutation; BEFORE file+parentfsync; PRE_LINK durablefile/dir prefix; temp hardlink+recipientdirfsync; LINK_DURABLE journal; atomicreplace+recipientdirfsync; REPLACED_DURABLE journal; postbody/stat checks; RESULT durable. Perpathatomic durableprefix, notallthreeatomic. Heldnofollow parentFDs and boundedregularbody rechecks, allheldFDs finallyclosed.",
+  "noBackupVariant": "Root explicitno-oldinodebackup scope supersedes author backup suggestion without rewritingit; exactoldprivateinodes lostimmediately atreplace, no originalkernelinode/ctime rollback, logicalbyte/rights reconstruction only.",
+  "losses": [
+    "recipientoriginalinode/atime/mtime/ctime identity andindependentwrite/metaisolation lost",
+    "anchorsnlink5to6/ctime changes acrossall oldaliases includingunknownone",
+    "candidateparentmtime/ctime changes",
+    "originalprivateFD/mmap consumers notexcluded andcoulddelaygrossreclamation",
+    "postRESULT/review/push costs outside reportedfreewindow; noguaranteed8MiBnetgain"
+  ],
+  "producerAndFreshCurrentPush": "PENDING atreview; method requires pinnedproducer decision/proposal/gate/self/hold/selectedmap/pushcommit+cleanbranchcurrentcommit beforemutation. Root soleactualgrant stillrequired; no transaction performed byreviewer.",
+  "ownRSSKiB": 11392,
+  "resourceQualification": "64MiB coordinatedaggregate+512reserve/disk64 sourceadmission, ownRSS<24; no image/decode/Node/browser/Git/action; aggregate sampled notexclusive attribution.",
+  "utcNs": 1790906114322969249
+}

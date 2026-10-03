@@ -1,0 +1,78 @@
+{
+  "decision": "ACCEPT_CONDITIONAL_EXACT_REBUILT_FIVE_PHYSICAL_SHARING_ONLY",
+  "files": [
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-independent-r1/GATE.json",
+      "sha256": "2d52158de3ff30d20f572ae35a5932d701ed728b709ce79daa58e79c5dfa8d8e",
+      "bytes": 10344
+    },
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-independent-r1/PROOF-GUARD/ADMISSION.json",
+      "sha256": "9968a02bddddd211cd5e802ae196db0359cc3c80719a79f761d9004ddcd226ce",
+      "bytes": 479
+    },
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-independent-r1/PROOF-GUARD/EXECUTION.log",
+      "sha256": "406bbf0870a84a15552d8477f52eb77538582d55ad4e33bf700481042e5fc8ec",
+      "bytes": 190
+    },
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-independent-r1/PROOF-GUARD/RESULT.json",
+      "sha256": "6a47ff4550dd2d20f012e6cb72bd57d20c5a9bb80a0fd758599fe41904c6239f",
+      "bytes": 858
+    },
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-independent-r1/PROOF.json",
+      "sha256": "09007bfc6c7f11e868d035b89ad8a664016814645501d5ec1f9b0f2234bb6934",
+      "bytes": 57643
+    },
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-independent-r1/REFRESH-GUARD/ADMISSION.json",
+      "sha256": "9d490f5a330b902b50ba81546e5779e587fa6bfec895f530967621ee505a0b12",
+      "bytes": 480
+    },
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-independent-r1/REFRESH-GUARD/EXECUTION.log",
+      "sha256": "cf892adb87f7638df8342b244dc491635ac89c2f2e99e49b1fccff132df1bcac",
+      "bytes": 97
+    },
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-independent-r1/REFRESH-GUARD/RESULT.json",
+      "sha256": "34208ac1bf4f933148d381438c64fa50e70cb54a383c6e0f0f87896595000476",
+      "bytes": 858
+    },
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-independent-r1/REFRESH.json",
+      "sha256": "2a9fead2958e1a411d8564655d2ebb872f81728cdb0d8695ff81c06929bf906e",
+      "bytes": 11897
+    },
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-independent-r1/REVIEW.md",
+      "sha256": "eae3eea788c66500f860424c63bf9d9c65d6d3a76bc0d4789a6b4b3268bad24e",
+      "bytes": 5878
+    },
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-independent-r1/refresh.py",
+      "sha256": "9a827613bb488da275876908ee7c6e8c841885fc77522ef2d8e4d4a9b7646194",
+      "bytes": 3638
+    },
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-independent-r1/seal.py",
+      "sha256": "61ee1b9c1225dd6ab8e0d0bb2a709eecf596f2d8c02968f2fab3a31d92d1d3c4",
+      "bytes": 5347
+    },
+    {
+      "path": "/workspace/scratch/five-rebuilt-png-sharing-independent-r1/verify.py",
+      "sha256": "3f67825e13f38a00d90e71a914d6d1b645b592988358f2d28e31df7bff5d7623",
+      "bytes": 10536
+    }
+  ],
+  "packetBytesBeforeSeal": 108245,
+  "rootAllocatedCapBytes": 163840,
+  "targetCapBytes": 131072,
+  "fileCountLimit": 24,
+  "conservativeAdditionalSealGuardAndSealBytes": 8192,
+  "publisherConservativeTotalPublicationUpperBound": 481397,
+  "ownMaxRSSBytes": 10223616,
+  "closure": "Root must await original64+512 SEAL-GUARD result0; seal guard files not recursively included in manifest."
+}

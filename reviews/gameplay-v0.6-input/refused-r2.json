@@ -1,0 +1,24 @@
+{
+  "scope": "Actual production handlers; only navigator.getGamepads samples emulated. No injected host or adapter. Diagnostic fixtures are unearned validated saves; no physical hardware claim.",
+  "digest": "d33ce538e38d98eba6ec06f90660252d53d3f3fc0122c7316b229f043489b52c",
+  "referenceSHA": "e8836833a56836fa97e79ebced4ee0845ad64e99cf6c85d107faaeb09b8fdad5",
+  "harnessSHA": "cf159b706f3657a994ed872f0172f34da490f63e343a68f6a48a87bfb8205db1",
+  "results": [
+    {
+      "name": "controller-refused",
+      "fixture": "no-unspent",
+      "kind": 2,
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(reads<=Math.ceil(elapsed/500)+1)\n\n    at test.api.api (file:///workspace/scratch/gameplay-v06-input/production-probe-r2.mjs:35:321)\n    at async test (file:///workspace/scratch/gameplay-v06-input/production-probe-r2.mjs:22:237)\n    at async file:///workspace/scratch/gameplay-v06-input/production-probe-r2.mjs:35:39",
+      "finalFocus": {
+        "tag": "BUTTON",
+        "ui": "play-card",
+        "index": "0",
+        "id": "",
+        "text": "1Cairn Hound +BINDINGOn binding: gain 2 hunter block. Commands deal 2 extra dama"
+      },
+      "finalSaveHash": "bce7841fce0ab1f95bc1cc18f6c8f68ebbc2f2d4cd95c3a5330a6e6d69251802",
+      "errors": []
+    }
+  ]
+}

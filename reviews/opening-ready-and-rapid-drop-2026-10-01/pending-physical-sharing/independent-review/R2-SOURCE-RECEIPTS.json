@@ -1,0 +1,28 @@
+{
+  "r1ActionReceipt": {
+    "path": "/workspace/scratch/frozen128-canonical-media-sharing-proposal-root-r1/share.py",
+    "bytes": 4239,
+    "sha256": "552668d636d65011f1faa51e7858c3e16e2eafedecd28df01085ee21526b3c60",
+    "duringReadMetadataStable": true
+  },
+  "r2ActionReceipt": {
+    "path": "/workspace/scratch/frozen128-canonical-media-sharing-proposal-root-r1/share-r2.py",
+    "bytes": 4465,
+    "sha256": "a2739ae5688d61238d3a125c4861aa8ebebaba9cbbb1d3b30fa8a2b82a43c748",
+    "duringReadMetadataStable": true
+  },
+  "syntaxParsedWithoutExecution": true,
+  "guardReceipt": {
+    "path": "/workspace/scratch/guard-retirement-bounded-journal-root-r1.py",
+    "bytes": 2554,
+    "sha256": "9dc48ba447a0136de7d4714a6a797c700d937fc98b4e1c94ba74103993bf90b3",
+    "duringReadMetadataStable": true
+  },
+  "guardOnlyChangeFromOrdinary": "Initial available-disk admission64MiB\u219216MiB;512MiB reserve and1MiB runtime disk stop unchanged.",
+  "reviewedActionScope": "Only exact freeing50groups/100recipients transaction after fresh current push and producer judgment;128MiB aggregate work; not a general lowdisk waiver.",
+  "r2Repair": "Fsync evidence parent after mkdir, evidence directory after BEFORE/RESULT names, empty JOURNAL content/name before mutation, and recipient temp-link directory before PREPARED; existing post-replace recipient directory fsync retained.",
+  "xattrPathsChecked": 150,
+  "all150CurrentXattrSetsEmpty": true,
+  "xattrScope": "Read current xattr name sets for proposed150 paths; no values exist to lose. No historical untouched-path xattr inventory claimed.",
+  "readerMaxRssKiB": 10880
+}

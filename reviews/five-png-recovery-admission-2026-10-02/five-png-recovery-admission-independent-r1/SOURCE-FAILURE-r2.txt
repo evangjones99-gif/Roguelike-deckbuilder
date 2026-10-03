@@ -1,0 +1,9 @@
+Fresh corrected verify-r2.py reached source/current-push/refusal/media-metadata checks, then stopped before writing PROOF.
+Traceback (most recent call last):
+  File "/workspace/scratch/five-png-recovery-admission-independent-r1/verify-r2.py", line 59, in <module>
+    rss=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024;assert rss<24*1048576
+                                                                       ^^^^^^^^^^^^^^
+AssertionError
+
+The RSS value was not printed; no numerical peak is invented. No action, Git or media-body read occurred. The24MiB limit remains unchanged. Failed source remains unchanged. Fresh r3 removes optional difflib machinery; exact full normalized action source equality remains required and finite positional changed lines replace formatted unified diff.
+Root allocated64KiB for this existing packet BEFORE sealing, preserving both prior methods/failures. Original48KiB allocation was never sealed or reported passed. Publisher128KiB copied-body cap remains unchanged.

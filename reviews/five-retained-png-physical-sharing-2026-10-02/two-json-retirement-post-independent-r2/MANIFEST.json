@@ -1,0 +1,116 @@
+{
+  "files": [
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r2/GATE.json",
+      "bytes": 2355,
+      "sha256": "bcc96a5f0affc06bc6569967d1a38138802f56eddccd2d40505707c17d45ec09"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r2/METHOD-NOTES.json",
+      "bytes": 2762,
+      "sha256": "9da5245a9068dafb708027bb6093a2ed4af9b01fca912b6e8c1610ece502e66a"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r2/PROOF.json.gz",
+      "bytes": 9792,
+      "sha256": "3d6535e8f2c00a76e43abb138d4c3d9e938f823414a30460fbbe658303034ef8"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r2/REVIEW.md",
+      "bytes": 2809,
+      "sha256": "fda94cee1520002bdb58eb05dcdda80ecce3c8d0b6dfdc27859e3f53443190c6"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r2/seal-guard-r1/ADMISSION.json",
+      "bytes": 422,
+      "sha256": "aa6647722eda1e6bd5bc1fa7ed417aef47b0aed99cd90266af99a87268bc9620"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r2/seal-guard-r1/EXECUTION.log",
+      "bytes": 455,
+      "sha256": "4b20a0de10a89250315c2917ceed66dfde3e4cff9b20c688b9c74a1b1df2706f"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r2/seal-guard-r1/RESULT.json",
+      "bytes": 853,
+      "sha256": "79ffa370a7c1b24bf60cb9e73ed28080c56ca53d046bc13ff34a4bbdc69d3266"
+    }
+  ],
+  "retainedOriginalFiles": [
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r1/PROOF.json",
+      "bytes": 49586,
+      "sha256": "3e56c6d46315ffcbbb15b8308b439710577477d9f51b606378c02c3e1a59b36f"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r1/proof-guard-r1/ADMISSION.json",
+      "bytes": 422,
+      "sha256": "3db2fef1cf69335e95b6f6fdae11f9e01ae05f0fa9657d24797fca777d65fd65"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r1/proof-guard-r1/EXECUTION.log",
+      "bytes": 131,
+      "sha256": "e64defa89526c847e0e7cb0aebf4fcc0b3c5daed976e6c8f16ad927cc3861767"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r1/proof-guard-r1/RESULT.json",
+      "bytes": 1046,
+      "sha256": "162f05b004898e9f047d296fb8a952ab3d076be36cdd7d0811acb8f3420b23e2"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r1/source-guard-r1/ADMISSION.json",
+      "bytes": 422,
+      "sha256": "9ee4a97b703a146e388917ea625cf66d0fb44bb99750bc7aa56160c3b3f73630"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r1/source-guard-r1/EXECUTION.log",
+      "bytes": 11049,
+      "sha256": "c55c7e0ec70b45e81abfcf4b41ab54f61d7827917cf28b1db1abae537a1a7248"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r1/source-guard-r1/RESULT.json",
+      "bytes": 858,
+      "sha256": "f6639764051b0eeaf19cf623f207d156adbd79211a68ca60805199d30d3a4e0d"
+    }
+  ],
+  "guards": [
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r1/source-guard-r1",
+      "rc": 0,
+      "workBytes": 67108864,
+      "reserveBytes": 536870912,
+      "initialFreeBytes": 76107776,
+      "samples": 1,
+      "maximumDeltaBytes": 262144,
+      "minimumHeadroomBytes": 2217549824,
+      "eventsUnchanged": true,
+      "closedScope": "observed cgroup delta, not exclusive process attribution; all child group processes closed"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r1/proof-guard-r1",
+      "rc": 0,
+      "workBytes": 67108864,
+      "reserveBytes": 536870912,
+      "initialFreeBytes": 76005376,
+      "samples": 2,
+      "maximumDeltaBytes": 8736768,
+      "minimumHeadroomBytes": 2209103872,
+      "eventsUnchanged": true,
+      "closedScope": "observed cgroup delta, not exclusive process attribution; all child group processes closed"
+    },
+    {
+      "path": "/workspace/scratch/two-json-retirement-post-independent-r2/seal-guard-r1",
+      "rc": 0,
+      "workBytes": 67108864,
+      "reserveBytes": 536870912,
+      "initialFreeBytes": 75931648,
+      "samples": 1,
+      "maximumDeltaBytes": 0,
+      "minimumHeadroomBytes": 2217062400,
+      "eventsUnchanged": true,
+      "closedScope": "observed cgroup delta, not exclusive process attribution; all child group processes closed"
+    }
+  ],
+  "lateRootCapInstruction": "After r2 source/sealer was already written and closed, Root explicitly raised POST total footprint64\u219296KiB; no memory/disk/runtime threshold change. R1 full proof/logs and r2 compressed supplemental receipts preserved unchanged. This final closure adds no body duplication. Earlier r2 text documents its initial64KiB separate accepted cap; this final supplement records later overall96KiB allocation authority and chronology.",
+  "postguardClosureUnmetered": true
+}

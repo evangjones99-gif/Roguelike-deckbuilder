@@ -1,0 +1,75 @@
+{
+  "files": {
+    "BUDGET.json": {
+      "sha256": "36dd2a33fbec02d817358988e25a5f0be454b6b192296c43c9fb2b6f2d31417d",
+      "bytes": 261
+    },
+    "GATE.json": {
+      "sha256": "698daceaa2775a0934f825fdf20020050937cf7d2450cf962fe7114a8485fd97",
+      "bytes": 918
+    },
+    "METHOD-FAILURE.json": {
+      "sha256": "6964a9bc2b77ca1eb92924d6ab30f2035ba34b1a0fc2b60267864ccf84772bf5",
+      "bytes": 321
+    },
+    "PROOF.json": {
+      "sha256": "d40ca76e71dfd1f24f7b195eb73b206288ffc52c354fea48e87e51d7e87b51c3",
+      "bytes": 5476
+    },
+    "REVIEW-GUARD/ADMISSION.json": {
+      "sha256": "506b1083976e9cd2a7ed9ff3241fd8097225b4ecc9d77918cd118c6754e2d5e8",
+      "bytes": 529
+    },
+    "REVIEW-GUARD/EXECUTION.log": {
+      "sha256": "f76ff1b6a8bf5da6b93d47946b382f16feb9ec6fa79c5b4f3f964f2032ae45b1",
+      "bytes": 308
+    },
+    "REVIEW-GUARD/RESULT.json": {
+      "sha256": "fb71ed1d5f6b77f18315c2e72c7dda656f74039d61278557ff0328405e33776b",
+      "bytes": 853
+    },
+    "REVIEW-R2-GUARD/ADMISSION.json": {
+      "sha256": "9143b23ef604ca23d8fc02e337d0993a4be8dade4a0e996cf3216179bcd70788",
+      "bytes": 532
+    },
+    "REVIEW-R2-GUARD/EXECUTION.log": {
+      "sha256": "a400e6346f451874383102c43f9c3874cad3230039e29587e5b493d9a3c11c39",
+      "bytes": 126
+    },
+    "REVIEW-R2-GUARD/RESULT.json": {
+      "sha256": "32fc854207db57b9878cf1c32b32b63fcc34aca2d60ee30dd649bf921c62c648",
+      "bytes": 858
+    },
+    "REVIEW.md": {
+      "sha256": "50dcc09630be4b472075d8c8a10d380b9f8965a52f58909e7d03dbf347a34351",
+      "bytes": 2551
+    },
+    "SEAL-GUARD/ADMISSION.json": {
+      "sha256": "dbf2e70e1dbd9ef129c2257a8f7e4dbea56c5baa465833bd30bf254cd7fc94f5",
+      "bytes": 527
+    },
+    "SEAL-GUARD/EXECUTION.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "review-r2.py": {
+      "sha256": "35c33d3273d796e1e80d1910b241536dd60a852cf7fa04463af33f05af93d1ae",
+      "bytes": 6809
+    },
+    "review.py": {
+      "sha256": "11adc816cb44eda939e451a4f2f34d49b6cf7ed7c2ae6cea28c1572b74677ee6",
+      "bytes": 6823
+    },
+    "seal.py": {
+      "sha256": "77642349c581f207f300a9660cb3521aa2caffefde9877f80eb5cc8244ff5e41",
+      "bytes": 4273
+    }
+  },
+  "lateControls": [
+    "SEAL-GUARD/*",
+    "CLOSURE.json",
+    "FINAL-SEAL.json"
+  ],
+  "logicalCapBytes": 131072,
+  "sourceOnly": true
+}

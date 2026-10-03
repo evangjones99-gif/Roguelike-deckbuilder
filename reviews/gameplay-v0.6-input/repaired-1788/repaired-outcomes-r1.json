@@ -1,0 +1,268 @@
+{
+  "scope": "Actual production handlers; only navigator.getGamepads samples emulated. No injected host or adapter. Diagnostic fixtures are unearned validated saves; no physical hardware claim.",
+  "digest": "1788250060f96dc0a1b8ff24092997f47643121a265d17fd6b95bbfc1b98811a",
+  "referenceSHA": "e8836833a56836fa97e79ebced4ee0845ad64e99cf6c85d107faaeb09b8fdad5",
+  "harnessSHA": "541d510f6716710ea59d051f1e0badc82cfa3ba09b3fe2d5b6f96c0d570412cd",
+  "results": [
+    {
+      "name": "mutual-death-contract-cleared-focus-1-true",
+      "fixture": "mutual-death-contract-cleared",
+      "kind": 1,
+      "actualPhase": "reward",
+      "exactSavedState": true,
+      "observedHold": true,
+      "focusAfterOutcome": {
+        "tag": "H1",
+        "id": "",
+        "text": "Take what keeps you alive."
+      },
+      "pass": true,
+      "finalFocus": {
+        "tag": "H1",
+        "id": "",
+        "text": "Take what keeps you alive."
+      },
+      "finalSaveHash": "3c291240ae3736ff3fec9ddadb3ec2e142013883620f97da8dabdede29c63e43",
+      "errors": []
+    },
+    {
+      "name": "mutual-death-contract-cleared-focus-1-false",
+      "fixture": "mutual-death-contract-cleared",
+      "kind": 1,
+      "actualPhase": "reward",
+      "exactSavedState": true,
+      "observedHold": false,
+      "focusAfterOutcome": {
+        "tag": "H1",
+        "id": "",
+        "text": "Take what keeps you alive."
+      },
+      "pass": true,
+      "finalFocus": {
+        "tag": "H1",
+        "id": "",
+        "text": "Take what keeps you alive."
+      },
+      "finalSaveHash": "3c291240ae3736ff3fec9ddadb3ec2e142013883620f97da8dabdede29c63e43",
+      "errors": []
+    },
+    {
+      "name": "bloodprice-terminal-no-draw-leak-focus-1-true",
+      "fixture": "bloodprice-terminal-no-draw-leak",
+      "kind": 1,
+      "actualPhase": "defeat",
+      "exactSavedState": true,
+      "observedHold": true,
+      "focusAfterOutcome": {
+        "tag": "H1",
+        "id": "",
+        "text": "The contract claimed its hunter."
+      },
+      "pass": true,
+      "finalFocus": {
+        "tag": "H1",
+        "id": "",
+        "text": "The contract claimed its hunter."
+      },
+      "finalSaveHash": "d04e8a4db6281f9515c6f517741bae652474e6dd757aa99db6f8e08f92c4c471",
+      "errors": []
+    },
+    {
+      "name": "bloodprice-terminal-no-draw-leak-focus-1-false",
+      "fixture": "bloodprice-terminal-no-draw-leak",
+      "kind": 1,
+      "actualPhase": "defeat",
+      "exactSavedState": true,
+      "observedHold": false,
+      "focusAfterOutcome": {
+        "tag": "H1",
+        "id": "",
+        "text": "The contract claimed its hunter."
+      },
+      "pass": true,
+      "finalFocus": {
+        "tag": "H1",
+        "id": "",
+        "text": "The contract claimed its hunter."
+      },
+      "finalSaveHash": "d04e8a4db6281f9515c6f517741bae652474e6dd757aa99db6f8e08f92c4c471",
+      "errors": []
+    },
+    {
+      "name": "mutual-death-contract-cleared-focus-2-true",
+      "fixture": "mutual-death-contract-cleared",
+      "kind": 2,
+      "actualPhase": "reward",
+      "exactSavedState": true,
+      "observedHold": true,
+      "focusAfterOutcome": {
+        "tag": "H1",
+        "id": "",
+        "text": "Take what keeps you alive."
+      },
+      "pass": true,
+      "finalFocus": {
+        "tag": "H1",
+        "id": "",
+        "text": "Take what keeps you alive."
+      },
+      "finalSaveHash": "564fc72aa063f4fab37ddbcfafea25cc65304b700baef7b6aaa218c14b7ab741",
+      "errors": []
+    },
+    {
+      "name": "mutual-death-contract-cleared-focus-2-false",
+      "fixture": "mutual-death-contract-cleared",
+      "kind": 2,
+      "actualPhase": "reward",
+      "exactSavedState": true,
+      "observedHold": false,
+      "focusAfterOutcome": {
+        "tag": "H1",
+        "id": "",
+        "text": "Take what keeps you alive."
+      },
+      "pass": true,
+      "finalFocus": {
+        "tag": "H1",
+        "id": "",
+        "text": "Take what keeps you alive."
+      },
+      "finalSaveHash": "564fc72aa063f4fab37ddbcfafea25cc65304b700baef7b6aaa218c14b7ab741",
+      "errors": []
+    },
+    {
+      "name": "bloodprice-terminal-no-draw-leak-focus-2-true",
+      "fixture": "bloodprice-terminal-no-draw-leak",
+      "kind": 2,
+      "actualPhase": "defeat",
+      "exactSavedState": true,
+      "observedHold": true,
+      "focusAfterOutcome": {
+        "tag": "H1",
+        "id": "",
+        "text": "The contract claimed its hunter."
+      },
+      "pass": true,
+      "finalFocus": {
+        "tag": "H1",
+        "id": "",
+        "text": "The contract claimed its hunter."
+      },
+      "finalSaveHash": "8c4f225a75d3465fafa75b96c275a1eeaafe5b4142702b7ca3ba01cf6f284217",
+      "errors": []
+    },
+    {
+      "name": "bloodprice-terminal-no-draw-leak-focus-2-false",
+      "fixture": "bloodprice-terminal-no-draw-leak",
+      "kind": 2,
+      "actualPhase": "defeat",
+      "exactSavedState": true,
+      "observedHold": false,
+      "focusAfterOutcome": {
+        "tag": "H1",
+        "id": "",
+        "text": "The contract claimed its hunter."
+      },
+      "pass": true,
+      "finalFocus": {
+        "tag": "H1",
+        "id": "",
+        "text": "The contract claimed its hunter."
+      },
+      "finalSaveHash": "8c4f225a75d3465fafa75b96c275a1eeaafe5b4142702b7ca3ba01cf6f284217",
+      "errors": []
+    },
+    {
+      "name": "earned-final-victory-focus-2-true",
+      "fixture": "earned-final-victory",
+      "kind": 2,
+      "actualPhase": "victory",
+      "exactSavedState": true,
+      "observedHold": true,
+      "focusAfterOutcome": {
+        "tag": "H1",
+        "id": "",
+        "text": "The last mark is dead."
+      },
+      "pass": true,
+      "finalFocus": {
+        "tag": "H1",
+        "id": "",
+        "text": "The last mark is dead."
+      },
+      "finalSaveHash": "8c332ab8cdb55daa66996a483794acde31ac053cd95964399ec1a9b577433868",
+      "errors": []
+    },
+    {
+      "name": "earned-final-victory-focus-2-false",
+      "fixture": "earned-final-victory",
+      "kind": 2,
+      "actualPhase": "victory",
+      "exactSavedState": true,
+      "observedHold": false,
+      "focusAfterOutcome": {
+        "tag": "H1",
+        "id": "",
+        "text": "The last mark is dead."
+      },
+      "pass": true,
+      "finalFocus": {
+        "tag": "H1",
+        "id": "",
+        "text": "The last mark is dead."
+      },
+      "finalSaveHash": "8c332ab8cdb55daa66996a483794acde31ac053cd95964399ec1a9b577433868",
+      "errors": []
+    },
+    {
+      "name": "padY-fresh-confirm-commit-1",
+      "fixture": "unspent-confirm-commit",
+      "kind": 1,
+      "heldYNeverConfirms": true,
+      "freshAConfirmExact": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "a10",
+        "id": "",
+        "text": "Cairn HoundB1 7/73Ready"
+      },
+      "finalSaveHash": "935127d8dc9b10a43eb5c4cf742ee698954a27f5397cf0784ff3052ae0b6d7bd",
+      "errors": []
+    },
+    {
+      "name": "padY-fresh-confirm-commit-2",
+      "fixture": "unspent-confirm-commit",
+      "kind": 2,
+      "heldYNeverConfirms": true,
+      "freshAConfirmExact": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "a10",
+        "id": "",
+        "text": "Cairn HoundB1 7/73Ready"
+      },
+      "finalSaveHash": "3281f3110cd62e1fe3a703162868aa73b0db335c07ff2295a4b7aa58142a80a9",
+      "errors": []
+    },
+    {
+      "name": "spatial-regions-illegal-inspection",
+      "fixture": "full-roster",
+      "kind": 2,
+      "spatialCrossRoster": true,
+      "handWrap": true,
+      "unavailableRejectedButInspectable": true,
+      "regionShoulder": true,
+      "pass": true,
+      "finalFocus": {
+        "tag": "BUTTON",
+        "unit": "a11",
+        "id": "",
+        "text": "Grave HoundB2 11/114Ready"
+      },
+      "finalSaveHash": "069075d9a612bd0d42aeec108dcd428763c5671226d6326796da4a6b39f3ab2b",
+      "errors": []
+    }
+  ]
+}

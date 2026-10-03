@@ -1,0 +1,59 @@
+{
+  "phase": "SOURCE_AUTHOR_METHOD_NOT_ACTION",
+  "files": {
+    "SOURCE-PROOF.json": {
+      "sha256": "636b12e1724c22de6413ce8d6bb55106469b8af3792cc89dd4329a3350c34734",
+      "bytes": 3850
+    },
+    "CLOSURE.json": {
+      "sha256": "281b80198499e72ac797c7760b5cb7e85e5bddb23ef2416fff6fb1890f9303ee",
+      "bytes": 1123
+    },
+    "verify-source.py": {
+      "sha256": "a6ddf291a3286ec5652c4d4862639551d73bd19249c36e6c2ff0beea5cf5edc6",
+      "bytes": 6705
+    },
+    "method-before-hold-binding.py": {
+      "sha256": "313e253d60d58fe648e225917fd746a78310812569d210ff995628398925a55e",
+      "bytes": 12492
+    },
+    "seal-source.py": {
+      "sha256": "5a764fc8916da81a571e4da97054d2bd9bb3447950cbb1d0e09b1b80636500e6",
+      "bytes": 10570
+    },
+    "MAIN-INVERSE.json": {
+      "sha256": "cf9d5039718c52a04d5afe1a5eed9f19161f49b33b604d42dc3764cf6aba974a",
+      "bytes": 2286
+    },
+    "select-development-source.py": {
+      "sha256": "9c3c231b71c03ce23b5515f2cca5dcc3b341af418216000bc1edab0dc2a3b788",
+      "bytes": 12991
+    },
+    "PLAN.json": {
+      "sha256": "82604ccb107cecf084c5823044659e7c66994a4b1797e8a741cedf493acb315f",
+      "bytes": 8555
+    },
+    "METHOD-SUCCESSOR.json": {
+      "sha256": "93e4dadaf78fc90e14051b088ab15946790fe82047a88e0366753285d449f6e3",
+      "bytes": 1119
+    },
+    "SOURCE-GUARD/ADMISSION.json": {
+      "sha256": "275fffc9eae4e3091780443deb76cd78cbaaa0d4ec41c2b8d0701b114ebb3137",
+      "bytes": 494
+    },
+    "SOURCE-GUARD/EXECUTION.log": {
+      "sha256": "0c250741b67b7af339dbf8d51c29146ec0259566f86151508adbcf7f5ec451cb",
+      "bytes": 151
+    },
+    "SOURCE-GUARD/RESULT.json": {
+      "sha256": "0ed0c4ca6d36202a7adb7ec09ced8b646000e5a44522eacd243fbac7054494ed",
+      "bytes": 1241
+    }
+  },
+  "lateControlsOutsideInventory": [
+    "SEAL-GUARD/*",
+    "MANIFEST.json",
+    "FINAL-SEAL.json"
+  ],
+  "qualification": "Late guard wrapper receipts and self-referential files remain full bodies; their hashes are returned after wrapper closure."
+}

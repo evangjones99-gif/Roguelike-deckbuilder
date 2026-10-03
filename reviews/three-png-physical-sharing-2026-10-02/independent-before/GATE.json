@@ -1,0 +1,147 @@
+{
+  "decision": "ACCEPT_EXACT_THREE_PNG_BEFORE_PROPOSAL_AND_ROOT_R2_METHOD_CONDITIONAL_ON_PRODUCER_JUDGMENT_AND_FRESH_PUSH",
+  "proof": {
+    "sha256": "959255b7281ddf81483fdb29b2a761eb41dd0aed884426b3efd0fab980ec6acb",
+    "bytes": 45155
+  },
+  "proposalPins": {
+    "EVIDENCE.json": {
+      "sha256": "02bc18528c9146cfd9c32c42cc0d28b75a6d7cc387854507f6c369fb80dcb7f2",
+      "bytes": 16866
+    },
+    "CONTEXT.json": {
+      "sha256": "16861ca05b7f2125bf67c20dee18f16e29482fc92fa2053afe8c2e7c7fedb5be",
+      "bytes": 12790
+    },
+    "PROPOSAL.md": {
+      "sha256": "b233919941d0205905f83812ba586af927de4479ff2468a798775cf2dadd358a",
+      "bytes": 2368
+    },
+    "FINAL-SEAL.json": {
+      "sha256": "cbaab421110efb4239ada66c6271b2136e9caa7ac544cdeb8d0ef2e86eecde7d",
+      "bytes": 7517
+    }
+  },
+  "methodSHA256": "a084f117d41a95eb78c9b6739b507a1fb0ab0a4570ac50353f182f854bf7d0a0",
+  "originalMethod": {
+    "sha256": "c8bae1dacb7e9b41d37ec1162157488bb4e858744468a31ed4df864de09d8021",
+    "bytes": 4902
+  },
+  "holdSHA256": "f9bb313329762de931904873238474de8cfb209c30835856c5c83a7eaadbb463",
+  "selectedMapSHA256": "31a221091d2ffbc6d58dfc1385962c441df9789c66729ef64d20b95208a8fabd",
+  "exactThreeBeforeBodiesMetadataXattrs": true,
+  "grossAllocationBytes": 8499200,
+  "current87Inputs56OutputsExact": true,
+  "selectedSourceDigest": "1d5bf40a5f62c8ce3de1d087956e9190e98b3011cca1b1b7a5488fc8240bd4d3",
+  "selectedOutputsDigest": "30ddc549433f7b0b7611e41c0d4fd67e00a3aaa07dd61ba886cc43094f1e5464",
+  "independentPreference": "Prefer exact shared byte encoding for these three retained immutable leaves because old private physical encoding is unnecessary for reproduction, rollback bytes, rights or historical consumer findings. Original inode/ctime and private write isolation are intentionally lost, not recreated. No old body/path/provenance/review/dataset/source retired. Preference conditional on exact producer acceptance of losses and currently pushed preservation controls.",
+  "methodLimits": "r2 creates no old inode backups and is sequential per-leaf atomic with durable prefix journal, not all-three atomic. It differs from unchanged author CONTEXT backup suggestion. Byte/path rollback available from held canonical/checkpoint bytes; exact original inode/ctime rollback impossible. Unknown fourth canonical entry shares body and link/ctime effects, but metadata holds for it not universally independently verified. No absence proof of FDs/mmap/global/future writers. Workflow coordination required. No action/retry/extra path authority from this review; partial interruption must preserve journal/temp/prefix and receive fresh diagnosis before continuation.",
+  "unknownCanonicalAliasQualification": [
+    {
+      "canonical": "/workspace/Roguelike-deckbuilder/public/art/abbey-courtyard.png",
+      "observedDistinctMatchingEntries": 3,
+      "nlink": 4,
+      "unresolvedPhysicalEntries": 1,
+      "canonicalDistSeparate": true
+    },
+    {
+      "canonical": "/workspace/Roguelike-deckbuilder/public/art/tool-vignettes.png",
+      "observedDistinctMatchingEntries": 3,
+      "nlink": 4,
+      "unresolvedPhysicalEntries": 1,
+      "canonicalDistSeparate": true
+    },
+    {
+      "canonical": "/workspace/Roguelike-deckbuilder/public/art/hunter-portrait.png",
+      "observedDistinctMatchingEntries": 3,
+      "nlink": 4,
+      "unresolvedPhysicalEntries": 1,
+      "canonicalDistSeparate": true
+    }
+  ],
+  "retainedAuthorFailure": "seal_proposal.py / seal-guard-r1 exited1 on stale canonical dist identity assumption before CONTEXT/seal. Exact source/log/RESULT preserved. Candidate body proof unchanged.",
+  "methodDiscoveryFailure": "Tried BUILD/SOURCE-MANIFEST under independent rather than candidate; ls/read FileNotFound before verifier. Correct candidate controls found with rg; no original source/runtime modified. Initial ordinary source JSON/readme reads may change source atime, not body. All PNG/fullruntime media verifier reads O_NOATIME with fullstat preserved.",
+  "producerJudgmentAndFreshPushRequiredBeforeAnyAction": true,
+  "noTransactionOrExtraRetirementAuthority": true,
+  "noActionOccurred": true,
+  "protectedArchiveMetadataOnly": {
+    "st_dev": 27,
+    "st_ino": 678628,
+    "st_mode": 33152,
+    "st_nlink": 1,
+    "st_uid": 1000,
+    "st_gid": 1000,
+    "st_size": 1856041104,
+    "st_blocks": 3625096,
+    "st_atime_ns": 1790815508306217040,
+    "st_mtime_ns": 1790815567573263991,
+    "st_ctime_ns": 1790859776790106720
+  },
+  "authorResources": [
+    {
+      "name": "reader-guard-r1",
+      "exitCode": 0,
+      "result": {
+        "sha256": "f9716c2d657f0611d063824c26b0377f04f46640a71afea5a25db1c7640c36bc",
+        "bytes": 1046
+      },
+      "points": 4,
+      "maxAggregateDelta": 9117696,
+      "minHeadroom": 1472942080,
+      "eventsUnchanged": true
+    },
+    {
+      "name": "seal-guard-r1",
+      "exitCode": 1,
+      "result": {
+        "sha256": "6c28de5e6474da43560981269c720e740207fa252030f02c30a13ffa1b369c29",
+        "bytes": 853
+      },
+      "points": 3,
+      "maxAggregateDelta": 0,
+      "minHeadroom": 1470124032,
+      "eventsUnchanged": true
+    },
+    {
+      "name": "seal-guard-r2",
+      "exitCode": 0,
+      "result": {
+        "sha256": "48a6776073d91f29e91174e125cf562e7fb2996742b9c2a637bb64b9f858beb0",
+        "bytes": 853
+      },
+      "points": 3,
+      "maxAggregateDelta": 0,
+      "minHeadroom": 1470095360,
+      "eventsUnchanged": true
+    }
+  ],
+  "reviewerGuard": {
+    "result": {
+      "sha256": "97801763afd9120d9cbd4c1b9718aa7f3bb7563cc7c903503d3cbfebd8064e08",
+      "bytes": 1045
+    },
+    "points": 4,
+    "minimumHeadroom": 1460989952,
+    "maximumAggregateDelta": 8929280,
+    "eventsUnchanged": true,
+    "ownVmHWM": 13578240
+  },
+  "seal64Work512Reserve": {
+    "initial": {
+      "current": 15709470720,
+      "headroom": 1470398464,
+      "free": 68751360,
+      "utcNs": 1790904286952252793
+    },
+    "finalBeforeSmallSealWrites": {
+      "current": 15709732864,
+      "headroom": 1470136320,
+      "free": 68743168,
+      "utcNs": 1790904286953983030
+    },
+    "eventsUnchanged": true,
+    "ownVmHWM": 10207232,
+    "sharedSourceAccountingQualified": true
+  },
+  "CLOSED": "All finite readers/guard/FDs closed; sealer has no child. Source method accepted only, no executed storage transaction or global absence claim."
+}

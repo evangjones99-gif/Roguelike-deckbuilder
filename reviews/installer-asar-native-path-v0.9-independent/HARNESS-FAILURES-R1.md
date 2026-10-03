@@ -1,0 +1,6 @@
+Two independent harness failures are retained. Neither is a product result.
+
+1. The initial intake finished the declared author/input/source checks, then asserted that the receipt exception text must appear in the independently fetched completed job stdout. That assertion failed. Actual stdout reports `failed; evidence ...` and exit1; the separately preserved original ZIP receipt contains the exact nested-lookup exception. INTAKE-BEFORE-R2 fixes the evidence distinction without weakening a payload guard. The original tool response records `AssertionError` at line21; no intake JSON was emitted.
+2. supplied49-tests.log is the original launch from /workspace instead of the game root. Its current-validation import cannot read relative dist/build-provenance.json, and builder-schema require resolves from /workspace/package.json. The corrected identical source command uses /workspace/Roguelike-deckbuilder as cwd; supplied49-tests-r2.log records all49 passes. No library, tests, root source or payload was edited to obtain this pass.
+
+The original read batch also requested nonexistent TESTS.log and scanned directories with rg, returning exit2 and noisy output. Actual author test log is guards-r1.log; this read error has no qualification meaning.

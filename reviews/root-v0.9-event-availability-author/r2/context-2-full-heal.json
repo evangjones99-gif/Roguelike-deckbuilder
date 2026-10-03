@@ -1,0 +1,46 @@
+{
+  "kind": 2,
+  "name": "full-heal",
+  "width": 1440,
+  "labels": {
+    "offering": "Take the wraithglass oathLose 8 HP. Receive Wraithglass Shard (+1 spell damage).49 → 41 health",
+    "forage": "Strip the ruined armorGain 25 gold.65 → 90 gold",
+    "purge": "Burn an old contractRemove the first unenhanced Scour. Lose 4 HP. Requires at least six cards.12 → 11 cards · lose 4 health",
+    "bargain": "Pay the surgeonPay 30 gold. Recover 16 HP.65 → 35 gold · +16 health",
+    "leave": "Leave the cryptContinue without payment.Continue unchanged"
+  },
+  "geometry": {
+    "viewport": 1440,
+    "document": 1440,
+    "labels": [
+      {
+        "text": "49 → 41 health",
+        "inside": true
+      },
+      {
+        "text": "65 → 90 gold",
+        "inside": true
+      },
+      {
+        "text": "12 → 11 cards · lose 4 health",
+        "inside": true
+      },
+      {
+        "text": "65 → 35 gold · +16 health",
+        "inside": true
+      },
+      {
+        "text": "Continue unchanged",
+        "inside": true
+      }
+    ]
+  },
+  "action": {
+    "type": "event",
+    "choice": "bargain"
+  },
+  "actualTouch": false,
+  "keyboard": true,
+  "postSaveSHA256": "71dab9b61ccf7c0a32d1dc4451e1bc5e0729f3519a579c510ea5b37c0002016e",
+  "reloadExact": true
+}

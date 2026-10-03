@@ -1,0 +1,36 @@
+import {chromium, expect} from '/workspace/Roguelike-deckbuilder/node_modules/@playwright/test/index.mjs';
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import assert from 'node:assert/strict';
+import {pathToFileURL} from 'node:url';
+import {tsImport} from '/workspace/Roguelike-deckbuilder/node_modules/tsx/dist/esm/api/index.mjs';
+const prototype='/workspace/scratch/ui-v07-root', out='/workspace/scratch/ui-v07-independent-r2';
+const hash = data => crypto.createHash('sha256').update(data).digest('hex');
+const fingerprint = () => Object.fromEntries(['src/main.ts','src/input.ts','src/arena.ts','src/style.css'].map(rel=>[rel,hash(fs.readFileSync(`${prototype}/${rel}`))]));
+const previous=JSON.parse(fs.readFileSync('/workspace/scratch/ui-v07-independent/fixture.json','utf8'));
+const {applyAction,validateState}=await tsImport(pathToFileURL(`${prototype}/src/engine.ts`).href,import.meta.url);
+assert.ok(validateState(previous.fixture));
+const expected=JSON.stringify(applyAction(previous.fixture,{type:'play',index:0,target:previous.fixture.enemies[0].uid}));
+assert.deepEqual(JSON.parse(expected),previous.expected);
+fs.writeFileSync(`${out}/fixture.json`,JSON.stringify(previous,null,2)+'\n',{flag:'wx'});
+const report={scope:'Independent isolated Vite prototype R2; synthetic standard controller, actual runtime callbacks; no native/physical claim',before:fingerprint(),previousEvidenceSHA256:hash(fs.readFileSync('/workspace/scratch/ui-v07-independent/SHA256.json')),cases:[],pageErrors:[]};
+const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox','--disable-dev-shm-usage']});
+async function snapshot(page){return page.evaluate(()=>{const hint=document.querySelector('.keyboard-hint');const rectangle=e=>{const r=e.getBoundingClientRect();return{x:r.x,y:r.y,width:r.width,height:r.height,right:r.right,bottom:r.bottom};};return{held:document.querySelector('#app').classList.contains('settling-combat'),hint:hint.textContent,aria:hint.getAttribute('aria-label'),hintBounds:rectangle(hint),parentBounds:rectangle(hint.parentElement),dockVisible:!document.querySelector('#dock').hidden,font:parseFloat(getComputedStyle(hint).fontSize),childFonts:[...hint.querySelectorAll('*')].map(e=>({tag:e.tagName,text:e.textContent,font:parseFloat(getComputedStyle(e).fontSize)})),kbd:[...hint.querySelectorAll('kbd')].map(e=>e.textContent),save:localStorage.getItem('hollowpact.run.v2'),storage:{...localStorage},dialog:document.querySelector('dialog').open,announcer:document.querySelector('#announcer').textContent,reads:window.__reads};});}
+async function pad(page,index,pressed){const reads=await page.evaluate(({index,pressed})=>{window.__pad.buttons[index]={pressed,value:pressed?1:0};return window.__reads;},{index,pressed});await page.waitForFunction(reads=>window.__reads>=reads+2,reads,{timeout:1000});}
+try{
+for(const width of [1024,1280,1920])for(const height of [720,1080])for(const mode of ['keyboard','controller']){
+ const context=await browser.newContext({viewport:{width,height}});const page=await context.newPage();page.on('pageerror',e=>report.pageErrors.push(e.message));
+ await page.addInitScript(fixture=>{localStorage.setItem('hollowpact.run.v2',JSON.stringify(fixture));localStorage.setItem('hollowpact.tutorial.v2','yes');localStorage.setItem('hollowpact.settings.v2',JSON.stringify({mute:true,volume:0,motion:true}));window.__pad={index:0,connected:true,mapping:'standard',axes:[0,0],buttons:Array.from({length:17},()=>({pressed:false,value:0}))};Object.defineProperty(window.__pad,'id',{get(){throw Error('Read controller ID');}});window.__reads=0;Object.defineProperty(navigator,'getGamepads',{value:()=>{window.__reads++;return[window.__pad];}});},previous.fixture);
+ await page.goto('http://127.0.0.1:4189');await page.bringToFront();await page.locator('[data-ui="resume"]').click();await page.waitForFunction(()=>window.__reads>=2);const before=await snapshot(page);
+ if(mode==='controller'){await page.locator('[data-ui="play-card"]').focus();await pad(page,0,true);await pad(page,0,false);await pad(page,0,true);await pad(page,0,false);}else{await page.locator('[data-ui="play-card"]').click();await page.locator('.enemy.valid-target').click();}
+ const immediate=await snapshot(page);assert.equal(immediate.held,true);assert.equal(immediate.save,expected);assert.equal(immediate.dockVisible,true);assert.equal(immediate.font,12);assert.ok(immediate.childFonts.every(e=>e.font>=12));assert.deepEqual(immediate.kbd,[mode==='controller'?'Start':'Esc']);assert.match(immediate.hint,/Final impact resolving/);assert.doesNotMatch(immediate.hint,/Choose|Back|Inspect|End turn|Targets|Move|Regions/);assert.match(immediate.hint,mode==='controller'?/Start.*Pause/:/Esc.*Pause/);
+ const h=immediate.hintBounds,p=immediate.parentBounds;assert.ok(h.x>=p.x-1&&h.y>=p.y-1&&h.right<=p.right+1&&h.bottom<=p.bottom+1,'Hint escapes parent');assert.ok(h.x>=0&&h.y>=0&&h.right<=width&&h.bottom<=height,'Hint escapes viewport');assert.ok(h.width>0&&h.height>0);assert.equal(immediate.dialog,false);
+ if(mode==='controller'){for(const index of [1,2,3]){await pad(page,index,true);await pad(page,index,false);}}else{for(const key of ['e','i','ArrowDown'])await page.keyboard.press(key);await page.locator('[data-action="endTurn"]').evaluate(button=>button.click());}
+ const blocked=await snapshot(page);assert.equal(blocked.held,true);assert.equal(blocked.save,expected);assert.equal(blocked.dialog,false);assert.deepEqual(blocked.storage,{...before.storage,'hollowpact.run.v2':expected});
+ if((width===1024&&height===720)||(width===1920&&height===1080))await page.screenshot({path:`${out}/held-${width}x${height}-${mode}.png`});
+ if(mode==='controller'){await pad(page,9,true);await pad(page,9,false);}else await page.keyboard.press('Escape');
+ await expect(page.locator('#dialog-title')).toHaveText('Campaign paused');const paused=await snapshot(page);assert.equal(paused.held,false);assert.equal(paused.save,expected);assert.equal(paused.dialog,true);await page.locator('[data-ui="close"]').first().click();await expect(page.locator('[data-action="reward"]').first()).toBeVisible();const resumed=await snapshot(page);assert.equal(resumed.save,expected);assert.equal(resumed.dockVisible,false);assert.deepEqual(resumed.storage,{...before.storage,'hollowpact.run.v2':expected});
+ report.cases.push({width,height,mode,immediate,blocked:{held:blocked.held,dialog:blocked.dialog,canonicalUnchanged:true},paused:{held:paused.held,dialog:paused.dialog,canonicalUnchanged:true},resumed:{held:resumed.held,dockVisible:resumed.dockVisible,canonicalUnchanged:true,storagePure:true}});await context.close();
+}
+assert.deepEqual(report.pageErrors,[]);report.after=fingerprint();assert.deepEqual(report.after,report.before);report.status='PASS: all12 actual R2 hint/containment/canonical/pause/stale-action cases';
+}catch(error){report.failure=error.stack;process.exitCode=1;}finally{await browser.close();fs.writeFileSync(`${out}/results.json`,JSON.stringify(report,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({status:report.status,failure:report.failure,cases:report.cases.length,before:report.before,after:report.after,pageErrors:report.pageErrors},null,2));}

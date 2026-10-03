@@ -1,0 +1,32 @@
+--- a/src/main.ts
++++ b/src/main.ts
+@@ -361,7 +361,7 @@
+ const relicInfo = RELICS;
+ 
+ function relicsLine() {
+-  return state.relics.length ? `<div class="relic-strip">${state.relics.map(r => `<span title="${escape(relicInfo[r]?.text || r)}">${icon('moon')} ${escape(relicInfo[r]?.name || r)}</span>`).join('')}</div>` : '';
++  return state.relics.length ? `<div class="relic-strip" aria-label="Recovered relics"><span>Inspect relic effects</span>${state.relics.map(r => `<button class="text-button" data-ui="relic" data-relic="${escape(r)}" data-focus="relic-${escape(r)}" aria-label="Inspect ${escape(relicInfo[r]?.name || r)} relic effect">${icon('moon')} ${escape(relicInfo[r]?.name || r)}</button>`).join('')}</div>` : '';
+ }
+ function isTarget(uid: string) {
+   if (!selected) return false;
+@@ -535,7 +535,7 @@
+   return `<button class="game-card ${card.type} ${opts.selected ? 'selected' : ''} ${opts.disabled ? 'unplayable' : ''} ${opts.handIndex === undefined ? 'large-card' : ''}" ${action} data-index="${opts.handIndex ?? ''}" data-card="${escape(card.id)}" data-focus="${opts.handIndex !== undefined ? `card-${opts.handIndex}` : `card-${escape(card.id)}`}" aria-disabled="${!!opts.disabled}" ${opts.disabled && opts.handIndex === undefined ? 'disabled' : ''} aria-label="${escape(card.name)}, ${card.cost} energy. ${escape(cardRules(card))}${opts.disabled ? '. Currently unavailable.' : ''}"><span class="card-cost">${card.cost}</span><span class="card-art ${art ? 'tool-painted' : ''}" style="--card-color:${escape(card.color)}">${art ? `<canvas data-tool-art="${art}" aria-hidden="true"></canvas>` : ''}${card.type === 'summon' ? creature(card.species, card.color) : icon(card.effect === 'block' ? 'shield' : card.effect === 'heal' ? 'heart' : card.effect === 'draw' ? 'book' : 'energy')}<span class="card-art-ring"></span></span><span class="card-name">${escape(card.name)}</span><span class="card-kind">${card.type === 'summon' ? 'BINDING' : `TOOL${target === 'none' ? '' : ' · CHOOSE TARGET'}`}</span><span class="card-description">${escape(cardRules(card))}</span>${card.type === 'summon' ? `<span class="card-stats">${icon('battle')} ${card.attack} Attack <span>${icon('heart')} ${card.hp} Health</span></span>` : ''}${opts.reward ? `<span class="card-choose">Add to deck ${icon('arrow')}</span>` : opts.shop ? `<span class="card-choose">${icon('gold')} ${price} gold ${icon('arrow')}</span>` : ''}</button>`;
+ }
+ function renderRewards() {
+-  $('scene-ui').innerHTML = `<div class="page-panel reward-panel"><div class="page-intro"><span class="eyebrow">WARRANT CLOSED</span><h1>Take what keeps you alive.</h1><p>Claim one binding or tool. Refuse the reward to keep a tighter deck.</p></div><div class="reward-cards">${state.rewards.map(id => renderCard(CARDS[id], { reward: true })).join('')}</div><button class="button secondary" data-action="reward" data-card="">Leave the salvage ${icon('arrow')}</button><span class="panel-footnote">Permanent addition. Temporary combat bonuses have ended.</span></div>`;
++  $('scene-ui').innerHTML = `<div class="page-panel reward-panel"><div class="page-intro"><span class="eyebrow">WARRANT CLOSED</span><h1>Take what keeps you alive.</h1><p>Claim one binding or tool. Refuse the reward to keep a tighter deck.</p></div><div class="reward-cards">${state.rewards.map(id => renderCard(CARDS[id], { reward: true })).join('')}</div>${relicsLine()}<button class="button secondary" data-action="reward" data-card="">Leave the salvage ${icon('arrow')}</button><span class="panel-footnote">Permanent addition. Temporary combat bonuses have ended.</span></div>`;
+ }
+ function renderCamp() {
+   const trainAvailable = actions().some(a => a.type === 'camp' && a.choice === 'train');
+@@ -731,6 +731,11 @@
+     case 'help': openTutorial(); break;
+     case 'learned': try { localStorage.setItem(TUTORIAL_KEY, 'yes'); } catch { /* Optional preference. */ } closeDialog(); break;
+     case 'close': closeDialog(); break;
++    case 'relic': {
++      const relic = relicInfo[button.dataset.relic || ''];
++      if (relic && state.relics.includes(button.dataset.relic!)) openDialog(relic.name, `<div class="dossier-rule"><h3>Campaign effect</h3><p>${escape(relic.text)}</p></div><p class="dialog-copy">This relic remains with the hunter for the rest of this campaign.</p><button class="button secondary full-width" data-ui="close">Return</button>`);
++      break;
++    }
+     case 'deck': openDeck(); break;
+     case 'draw': openDeck('draw'); break;
+     case 'discard': openDeck('discard'); break;

@@ -1,0 +1,111 @@
+{
+  "decision": "ACCEPT_COMPLETED_EXACT_REBUILT_FIVE_PHYSICAL_SHARING_POST_ONLY",
+  "proof": {
+    "path": "/workspace/scratch/five-rebuilt-png-sharing-post-independent-r1/PROOF.json",
+    "bytes": 88652,
+    "sha256": "edb6a90d5cec191745d67f469a202220b6038f512927537583dec782028f85ab"
+  },
+  "review": {
+    "path": "/workspace/scratch/five-rebuilt-png-sharing-post-independent-r1/REVIEW.md",
+    "bytes": 3303,
+    "sha256": "bd0d33aceafc82e639a93ae3017a6f07776a2a5bed3a4a4c3c3a17008e5b04d1"
+  },
+  "normalOriginal64PostGuard": {
+    "path": "/workspace/scratch/five-rebuilt-png-sharing-post-independent-r1/PROOF-GUARD/RESULT.json",
+    "bytes": 1046,
+    "sha256": "8aa48499e526b6d19c7e244896dd511f64c146d33521840fd7df2d134a8d85a9"
+  },
+  "RootGuardControls": [
+    {
+      "name": "five-rebuilt-png-publication-guard-root-r1",
+      "workMiB": 256,
+      "admission": {
+        "path": "/workspace/scratch/five-rebuilt-png-publication-guard-root-r1/ADMISSION.json",
+        "bytes": 585,
+        "sha256": "25b979e4de52ac2b2b27fd58a76c84bacfeec3d383d6cd217202852a191290f7"
+      },
+      "result": {
+        "path": "/workspace/scratch/five-rebuilt-png-publication-guard-root-r1/RESULT.json",
+        "bytes": 6149,
+        "sha256": "4677b39f59f0926d97111b6808bf0b0154cc23b4279070833722066059d3d56a"
+      },
+      "executionLog": {
+        "path": "/workspace/scratch/five-rebuilt-png-publication-guard-root-r1/EXECUTION.log",
+        "bytes": 463,
+        "sha256": "10a23f275e963df2d322d98ae29db2403162b9d11905cea5f47a3233a24ac1a5"
+      },
+      "normal": true
+    },
+    {
+      "name": "five-rebuilt-png-producer-guard-root-r1",
+      "workMiB": 64,
+      "admission": {
+        "path": "/workspace/scratch/five-rebuilt-png-producer-guard-root-r1/ADMISSION.json",
+        "bytes": 581,
+        "sha256": "dd26737264303b1f80a5ceff05221e214bc4fdfae5a1f6f20b256f3fe22aabf2"
+      },
+      "result": {
+        "path": "/workspace/scratch/five-rebuilt-png-producer-guard-root-r1/RESULT.json",
+        "bytes": 853,
+        "sha256": "7638b6e37c824a963656f12d5f3756a7a2ae04f5319ddacaa9aabf4b862e41f2"
+      },
+      "executionLog": {
+        "path": "/workspace/scratch/five-rebuilt-png-producer-guard-root-r1/EXECUTION.log",
+        "bytes": 290,
+        "sha256": "615fa7589501f05210b9f7e356edd741a6dccf59d906d1373ebf72f2c13f060e"
+      },
+      "normal": true
+    },
+    {
+      "name": "five-rebuilt-png-sharing-guard-root-r1",
+      "workMiB": 64,
+      "admission": {
+        "path": "/workspace/scratch/five-rebuilt-png-sharing-guard-root-r1/ADMISSION.json",
+        "bytes": 1103,
+        "sha256": "9f13d3d4d0eea0bb92f3d23e661bc77bccf4d0400701da61abd61aa337569019"
+      },
+      "result": {
+        "path": "/workspace/scratch/five-rebuilt-png-sharing-guard-root-r1/RESULT.json",
+        "bytes": 1234,
+        "sha256": "b2c4dd68b4613549adec3648332c5da20cce6f7135713c9b3f2f9f61452463cb"
+      },
+      "executionLog": {
+        "path": "/workspace/scratch/five-rebuilt-png-sharing-guard-root-r1/EXECUTION.log",
+        "bytes": 98,
+        "sha256": "637d75e602f6b0f96b6f4256e876a9955f5c2ae464713e238fc4c229ff844ff0"
+      },
+      "normal": true
+    }
+  ],
+  "fullTenMediaBodiesAndFreshMetadataExact": true,
+  "fullCurrent143BodiesExact": true,
+  "nlinks": [
+    6,
+    6,
+    6,
+    5,
+    6
+  ],
+  "nlinkIncrementEach": 1,
+  "allEmptyMediaXattrsExact": true,
+  "orderedFifteenJournalRecordsVerified": true,
+  "allTempsAbsent": true,
+  "originalMetadataRetained": true,
+  "atimeQualification": "Action-to-POST observation stored; other exact stat fields and fresh stable O_NOATIME snapshots preserved, no timestamp reset or action retry",
+  "protectedZipFullStatExactBodyNeverOpened": true,
+  "sourceProposalHoldMapProducerPushGatePinsExact": true,
+  "grossAllocationBytes": 10170368,
+  "actionPreResultNetWindowGainBytes": 10137600,
+  "limitations": [
+    "Per-leaf durable prefix verified from exact source/returned guards/journal; no crash injection/all-five atomicity/automatic rollback or retry",
+    "Private inode/time/write isolation lost; no original-inode backup/exact inode/ctime rollback",
+    "Known physical alias gaps1,1,1,0,1; no global FD/mmap/future consumer absence/OS hold claim",
+    "Historical full66/51 aggregate not replayed; current143 bodies freshly verified",
+    "No fresh Git/network operation by reviewer; confirmed receipt chronology checked",
+    "Window gain not exclusive actor attribution/final recovery; no game/art/R3/rights completion or further storage action claim"
+  ],
+  "noNewVerifierFailure": true,
+  "allObservedProofFDsAndChildrenClosed": true,
+  "packetCapBytes": 131072,
+  "sealClosure": "Await original64+512 SEAL-GUARD normal0; its files not recursively included in seal manifest."
+}

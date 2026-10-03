@@ -1,0 +1,25 @@
+async function starterSnapshot(label){
+ const raw=await rawSave(),state=JSON.parse(raw),at=await page.evaluate(()=>{
+  const style=e=>{const s=getComputedStyle(e);return {display:s.display,visibility:s.visibility,opacity:s.opacity,imageRendering:s.imageRendering,transform:s.transform,rect:e.getBoundingClientRect().toJSON()};};
+  return {atMs:performance.now(),nativeClass:document.documentElement.classList.contains('coherent-native128'),cards:[...document.querySelectorAll('.hand-cards .game-card')].map(e=>({card:e.dataset.card,index:e.dataset.index,ariaLabel:e.getAttribute('aria-label'),ariaDisabled:e.getAttribute('aria-disabled'),hover:e.matches(':hover'),name:e.querySelector('.card-name')?.innerText,cost:e.querySelector('.card-cost')?.innerText,rules:e.querySelector('.card-description')?.innerText,...style(e),images:[...e.querySelectorAll('.coherent-native-art img')].map(i=>({sourceURL:i.src,complete:i.complete,naturalWidth:i.naturalWidth,naturalHeight:i.naturalHeight,...style(i)}))})),actors:[...document.querySelectorAll('#field-controls .field-actor:not([hidden])')].map(e=>({uid:e.dataset.actor,buttonUID:e.querySelector('.field-unit')?.dataset.unit,name:e.querySelector('.field-nameplate')?.innerText,stats:e.querySelector('.field-stat-line')?.innerText,health:e.querySelector('.health-track')?.getAttribute('aria-label'),intent:e.querySelector('.field-intent')?.textContent,...style(e)}))};
+ });
+ for(const c of at.cards)for(const image of c.images)image.decodeIdentity=pixelEvents.find(e=>e.case===activeCase.name&&e.kind==='decode'&&e.sourceURL===image.sourceURL)?.sha256??null;
+ const ownAssets=runtimes.find(r=>r.config.case===activeCase.name).config.nativeAssets,body=ownAssets.find(p=>p.role==='ash'),draws=body?pixelEvents.filter(e=>e.case===activeCase.name&&e.kind==='draw'&&e.sha256===body.sha256):[];
+ const row={label,...stamp(),rawSHA256:hash(raw),turn:state.turn,energy:state.energy,allies:state.allies.map(u=>({uid:u.uid,cardId:u.cardId,hp:u.hp})),...at,observedAshBodyDraws:draws,eventRefs:eventRefs(pointerEvents.filter(e=>e.case===activeCase.name)),qualification:'Passive current DOM and exact decoded blob URL identity; source-informed body draw hash is not private UID/continuous pose attribution. Source capacity2 and encounter latch can cause whole fallback; no generated text or hidden art visibility assumption.'};
+ activeCase.starterObservations.push(row);assert.equal(await rawSave(),raw,'Read-only family snapshot changed complete save');persist();return row;
+}
+async function hoverStarter(id,label){
+ const state=JSON.parse(await rawSave()),card=page.locator('.hand-cards .game-card[data-card="'+id+'"]');
+ if(!state.hand.includes(id)||await card.count()!==1){activeCase.starterGaps.push({label,status:'DRAW_OR_UNIQUE_CARD_NOT_OBSERVED',id,...stamp()});persist();return null;}
+ const before=await rawSave(),start=pointerEvents.length;await owned(card);await page.waitForTimeout(180);assert.equal(await rawSave(),before,'Ordinary starter hover changed complete save');
+ const row=await starterSnapshot(label);row.hoverEventRefs=eventRefs(await eventsSince(start));assert(row.hoverEventRefs.length&&pointerEvents.some(e=>row.hoverEventRefs.includes(e.traceIndex)&&e.type==='pointermove'&&e.trusted),'Ordinary hover trusted movement absent');persist();return row;
+}
+async function openingEndTurn(label){
+ const before=JSON.parse(await rawSave());assert.equal(before.phase,'battle');
+ const intents=before.enemies.map(u=>({uid:u.uid,name:u.name,intent:u.intent}));await click(page.locator('[data-action="endTurn"]:visible'),'ordinary '+label);
+ const after=await checkpoint(label),notes=intents.map(u=>u.name+': '+u.intent.label+'.');
+ activeCase.enemyResponses.push({label,...stamp(),intents,beforeHP:before.hp,afterHP:after.hp,beforeAllies:before.allies,afterAllies:after.allies,notes,actualLog:after.log,notesMatched:notes.every(n=>after.log.includes(n)),phase:after.phase});
+ assert(notes.every(n=>after.log.includes(n)),'Ordinary enemy response source intent notes missing');
+ if(after.phase==='battle'){assert.equal(after.turn,before.turn+1);assert.equal(after.stats.turns,before.stats.turns+1);assert(after.allies.every(u=>!u.acted));assert.equal(after.energy,5);assert.equal(after.hand.length,5);}
+ persist();return after;
+}

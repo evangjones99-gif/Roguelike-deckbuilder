@@ -1,0 +1,32 @@
+node_modules/
+dist/
+build-desktop/
+build-installer/
+.vite/
+test-results/
+playwright-report/
+releases/*/*.zip
+releases/*/*.tar.gz
+releases/*/*-source.bundle
+releases/*/web/
+releases/*/desktop/
+# Retain these historical full local review copies unchanged. Future milestones
+# track reviews/INDEX.json against canonical evidence in their own source ZIP.
+# Earlier milestone directories remain tracked and unchanged.
+releases/0.6.0/reviews/
+releases/0.6.1/reviews/
+*.log
+.DS_Store
+.release-lock/
+
+# Verbose local playtest traces are preserved losslessly as tracked .json.gz.
+reviews/gameplay-v0.2-pilot.json
+reviews/gameplay-v0.2-experiments.json
+reviews/gameplay-v0.2-quarry-holdout.json
+
+# Full unchanged local visual evidence exceeds GitHub blob limit; exact tracked parts reconstruct it.
+/reviews/hunter-v0.7-r3-visual/complete-frozen-evidence.tar.gz
+
+# Retained exact previous working native packages; official historical archives remain unchanged.
+/scratch/retained-working-linux-unpacked-0.6.1-8720-before-v0.7
+/scratch/retained-working-win-unpacked-0.6.1-8720-before-v0.7

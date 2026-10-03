@@ -1,0 +1,39 @@
+{
+  "exit_code": 1,
+  "failure": null,
+  "initial": {
+    "time_ns": 1790917157567535323,
+    "current": 14982295552,
+    "maximum": 17179869184,
+    "headroom": 2197573632,
+    "free": 76513280
+  },
+  "final": {
+    "time_ns": 1790917157770028508,
+    "current": 14982594560,
+    "maximum": 17179869184,
+    "headroom": 2197274624,
+    "free": 76132352
+  },
+  "samples": [
+    {
+      "time_ns": 1790917157568284266,
+      "current": 14982557696,
+      "maximum": 17179869184,
+      "headroom": 2197311488,
+      "free": 76509184,
+      "delta": 262144
+    },
+    {
+      "time_ns": 1790917157668694461,
+      "current": 14989959168,
+      "maximum": 17179869184,
+      "headroom": 2189910016,
+      "free": 76206080,
+      "delta": 7663616
+    }
+  ],
+  "memory_events_before": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "memory_events_after": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "scope": "observed cgroup delta, not exclusive process attribution; all child group processes closed"
+}

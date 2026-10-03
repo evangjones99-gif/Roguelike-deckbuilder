@@ -1,0 +1,107 @@
+{
+  "decision": "ACCEPT_EXACT_TWO_LOOSE_JSON_RETIREMENT_SOURCE_CONDITIONAL_PUSH_PRODUCER",
+  "replacementBetter": true,
+  "oldLooseCopiesNoLongerNeeded": true,
+  "method": {
+    "path": "/workspace/scratch/retire-two-archived-json-copies-root-r1.py",
+    "bytes": 8427,
+    "sha256": "b6c0af4994ce1f8430457189918cd03f1f9e31b34d35693c252642fdc9e4f92c"
+  },
+  "publisher": {
+    "path": "/workspace/scratch/publish-two-json-retirement-root-r1.py",
+    "bytes": 5015,
+    "sha256": "90c6412389722df52f209834918aa4689e097d2721cb282a6e2e5f6b42916a7e"
+  },
+  "proposal": {
+    "path": "/workspace/scratch/settle-json-raw-retirement-proposal-r1/PROPOSAL.json",
+    "bytes": 14036,
+    "sha256": "2e5142f33be1d86f33415183fa1f2b72d70484ccc9b414e1f242bf024554488c"
+  },
+  "currentHold": {
+    "path": "/workspace/Roguelike-deckbuilder/AGENTS.md",
+    "bytes": 15131,
+    "sha256": "69a82ce96a594a2b2a5244154de8758b200290ba9de46b40a221a52ba4a0cfb7"
+  },
+  "selectedMap": {
+    "path": "/workspace/scratch/target-wait-default-promotion-root-r1/RESULT.json",
+    "bytes": 15350,
+    "sha256": "31a221091d2ffbc6d58dfc1385962c441df9789c66729ef64d20b95208a8fabd"
+  },
+  "capsule": {
+    "path": "/workspace/Roguelike-deckbuilder/reviews/opening-ready-and-rapid-drop-2026-10-01/evidence.tar.gz",
+    "sha256": "27c7d4e2a117c5fa2625146a5ca78e7965705f8f809e44b6c2d7b9efb52817af",
+    "bytes": 3303630
+  },
+  "review": {
+    "path": "/workspace/scratch/two-json-raw-retirement-independent-r1/REVIEW.md",
+    "bytes": 4137,
+    "sha256": "3a2bea931f101a37fea025c969c78073bae3f3c2d5d57b61752c5b5cfa81504e"
+  },
+  "rawScope": [
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/VISUAL-RESULT.json",
+      "sha256": "b7713194f75462873cf59193251203f0cfebfd65c0f32b6732c2a1bac4354d74",
+      "bytes": 3013464
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/VISUAL-PROGRESS.json",
+      "sha256": "76c5d89a05d73e0fb9e0c17559c900be4515668fbfd3ec9e919e9bc2adda34b2",
+      "bytes": 3013437
+    }
+  ],
+  "losses": [
+    "Both original raw paths/directory entries and original inode/time identities lost.",
+    "Historical hardcoded readers require fresh exact reconstruction and intentionally new path-scoped reader.",
+    "No full-metadata rollback, all-two atomicity, automatic recovery/retry, global future-consumer/FD/mmap proof."
+  ],
+  "conditions": [
+    "Fresh selective publication push confirmed remote=currentHEAD/clean, exact published gate/method pins before Root action.",
+    "Root durable producer must record accepted replacement/no-longer-needed/loss judgment before any unlink.",
+    "No live original-path need; unknown new requirement stops retirement.",
+    "Only these two loose encodings; all archive/JPEG/save/event/source/review/method/provenance/rights bodies remain retained.",
+    "Exact action64+512/publisher256+512 profiles under ordinary64MiB initial disk guard; no scoped56 extension."
+  ],
+  "restoreHelper": {
+    "path": "/workspace/scratch/settle-json-raw-retirement-proposal-r1/restore_fresh.py",
+    "bytes": 2968,
+    "sha256": "f7c5602ebdaf049b1d11344825f791c05c42e9527572a002d5fbf185d2d6a209"
+  },
+  "restoreExecutionAuthorized": false,
+  "actionExecutedByReviewer": false,
+  "sourceOnly": true,
+  "bounds": {
+    "reviewPacketBytes": 98304,
+    "publishedCopiedBodiesBytes": 393216,
+    "transactionLogicalModeledBytes": 9504
+  },
+  "invocations": [
+    {
+      "command": [
+        "python",
+        "/workspace/scratch/publish-two-json-retirement-root-r1.py"
+      ],
+      "workMiB": 256,
+      "reserveMiB": 512,
+      "initialDiskMiB": 64
+    },
+    {
+      "command": [
+        "python",
+        "/workspace/scratch/retire-two-archived-json-copies-root-r1.py",
+        "/workspace/scratch/settle-json-raw-retirement-proposal-r1/PROPOSAL.json",
+        "2e5142f33be1d86f33415183fa1f2b72d70484ccc9b414e1f242bf024554488c",
+        "/workspace/scratch/two-json-raw-retirement-independent-r1/GATE.json",
+        "EXACT_GATE_SHA256",
+        "/workspace/scratch/two-json-retirement-push-root-r1/PUSH-CONFIRMED.json",
+        "EXACT_NEW_CONFIRMED_PUSH_RECEIPT_SHA256"
+      ],
+      "workMiB": 64,
+      "reserveMiB": 512,
+      "initialDiskMiB": 64
+    }
+  ],
+  "guard": {
+    "path": "/workspace/scratch/guard-node-phase-r1.py",
+    "sha256": "7284b52f785779ffc5d2a2e1b539b19cd331ee7315ae6b7f7c71af1fa856f3cc"
+  }
+}

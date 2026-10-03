@@ -1,0 +1,105 @@
+{
+  "eligibilitySHA256": "4065e710855526ae41ed7e6e65ccf2a053bfc90c441c8f542b9a5b6bda0a8461",
+  "before": {
+    "duplicateOriginal": {
+      "path": "/workspace/retained-native-experiments/windows-run-36806506465/hollowpact-0.8.0-windows-native-x64.zip",
+      "metadata": {
+        "type": "file",
+        "bytes": 191814688,
+        "mode": "0o600",
+        "uid": 1000,
+        "gid": 1000,
+        "device": 27,
+        "inode": 667871,
+        "nlink": 1,
+        "atime_ns": 1790823395036969532,
+        "mtime_ns": 1790823394968970740,
+        "ctime_ns": 1790823394968970740,
+        "blocks": 374648,
+        "xattrs": {}
+      },
+      "sha256": "1ce6c74baea02686183e833c28738e04d19f80d5826218a0d732eff304dce563",
+      "members": null
+    },
+    "officialRetained": {
+      "path": "/workspace/Roguelike-deckbuilder/releases/0.8.0/hollowpact-0.8.0-windows-native-x64.zip",
+      "metadata": {
+        "type": "file",
+        "bytes": 191814688,
+        "mode": "0o600",
+        "uid": 1000,
+        "gid": 1000,
+        "device": 27,
+        "inode": 1448700,
+        "nlink": 1,
+        "atime_ns": 1790824465155127690,
+        "mtime_ns": 1790824465083129168,
+        "ctime_ns": 1790824465083129168,
+        "blocks": 374648,
+        "xattrs": {}
+      },
+      "sha256": "1ce6c74baea02686183e833c28738e04d19f80d5826218a0d732eff304dce563",
+      "members": null
+    },
+    "duplicateParent": {
+      "path": "/workspace/retained-native-experiments/windows-run-36806506465",
+      "metadata": {
+        "type": "directory",
+        "bytes": 4096,
+        "mode": "0o700",
+        "uid": 1000,
+        "gid": 1000,
+        "device": 27,
+        "inode": 667869,
+        "nlink": 2,
+        "atime_ns": 1790826861659441078,
+        "mtime_ns": 1790824259866576777,
+        "ctime_ns": 1790824259866576777,
+        "blocks": 8,
+        "xattrs": {}
+      },
+      "sha256": null,
+      "members": [
+        "/workspace/retained-native-experiments/windows-run-36806506465/RECOVERY.json",
+        "/workspace/retained-native-experiments/windows-run-36806506465/SOURCE-CAPACITY-58efb01f4815d8b542711582b87f50168dabde81.json",
+        "/workspace/retained-native-experiments/windows-run-36806506465/hollowpact-0.8.0-windows-native-x64.zip",
+        "/workspace/retained-native-experiments/windows-run-36806506465/manifest.original.json"
+      ]
+    },
+    "officialParent": {
+      "path": "/workspace/Roguelike-deckbuilder/releases/0.8.0",
+      "metadata": {
+        "type": "directory",
+        "bytes": 4096,
+        "mode": "0o700",
+        "uid": 1000,
+        "gid": 1000,
+        "device": 27,
+        "inode": 1448631,
+        "nlink": 4,
+        "atime_ns": 1790825198606622677,
+        "mtime_ns": 1790825198590622929,
+        "ctime_ns": 1790825198590622929,
+        "blocks": 8,
+        "xattrs": {}
+      },
+      "sha256": null,
+      "members": [
+        "/workspace/Roguelike-deckbuilder/releases/0.8.0/SHA256SUMS",
+        "/workspace/Roguelike-deckbuilder/releases/0.8.0/VERIFICATION.json",
+        "/workspace/Roguelike-deckbuilder/releases/0.8.0/hollowpact-0.8.0-linux-x64.tar.gz",
+        "/workspace/Roguelike-deckbuilder/releases/0.8.0/hollowpact-0.8.0-native-evidence-36806506465-1.zip",
+        "/workspace/Roguelike-deckbuilder/releases/0.8.0/hollowpact-0.8.0-source.bundle",
+        "/workspace/Roguelike-deckbuilder/releases/0.8.0/hollowpact-0.8.0-web.zip",
+        "/workspace/Roguelike-deckbuilder/releases/0.8.0/hollowpact-0.8.0-windows-native-x64.zip",
+        "/workspace/Roguelike-deckbuilder/releases/0.8.0/manifest.json",
+        "/workspace/Roguelike-deckbuilder/releases/0.8.0/reviews",
+        "/workspace/Roguelike-deckbuilder/releases/0.8.0/source-bundle-verification.json",
+        "/workspace/Roguelike-deckbuilder/releases/0.8.0/web"
+      ]
+    }
+  },
+  "freeBeforeBytes": 217313280,
+  "coordination": "Root and all current agents explicitly freeze these historical paths. FD inspection is incomplete and is not treated as a lock. Current browsers use other23477 files.",
+  "qualification": "Original path/bytes/access metadata retained via unchanged official archive; original inode/type/timestamps change and are retained here. Duplicate-parentctime changes; sourcearchive immutable by usage contract."
+}

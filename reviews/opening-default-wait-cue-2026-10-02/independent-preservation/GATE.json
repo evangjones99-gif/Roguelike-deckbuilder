@@ -1,0 +1,66 @@
+{
+  "decision": "ACCEPT_EXACT_SELECTED_DEFAULT_CHECKPOINT_PRESERVATION_WITH_NEEDED_MEDIA_OMISSIONS",
+  "proof": {
+    "sha256": "8a75f220e7f354b9abcba8c86220211fc4d58ea3e1200393cdd161fc47ac42c4",
+    "bytes": 108032
+  },
+  "archive": {
+    "sha256": "dd9003b676ae49b8a81441f73dfaec51b4309206a3ce32716cb2c8c1fcda169f",
+    "bytes": 1470640
+  },
+  "manifestSHA256": "bfc53a7026de9e48aeeac0c8e162577c7ee93e255b4205424a364083428a1849",
+  "counts": {
+    "logical": 226,
+    "uniqueBlobs": 209,
+    "excludedNeededMedia": 101,
+    "runtimeInputs": 87,
+    "runtimeOutputs": 56,
+    "includedRuntimeCode": 42,
+    "actualRawPairs": 6,
+    "originalCaptures": 4
+  },
+  "allBlobsRoundtripAndLogicalOriginalsExact": true,
+  "completeMapsAndReviewPinsAndSixRawPairs": true,
+  "currentCanonical87Inputs56OutputsMatchCheckpoint": true,
+  "oldReadyFullMapsAndTwoSourcesFiveOutputsRetainedExact": true,
+  "fourOriginalEncodedJPEGsRetainedNoDecodeView": true,
+  "neededOmissions": 101,
+  "noRetirement": true,
+  "mutableOriginalPathQualification": "Canonical working-copy paths match at this checkpoint; immutable archive blobs and fixed frozen stage retain bytes across future authorized updates.",
+  "previousOptInCapsuleUnchanged": {
+    "sha256": "33a7d665c213e7710e19aa4710e4c71788e614e6034911ab6ea4dbfbef170abf",
+    "bytes": 1452213
+  },
+  "preservedReviewerFailure": "Original GUARD rc1 before proof assumed all nested manifest files fields were dictionaries; visual review uses an absolute-path array. Corrected verifier-r2 normalizes dictionary/array forms and binds both to exact original archive mappings. No archive/source/runtime change.",
+  "reviewerGuard64Aggregate512Reserve": {
+    "result": {
+      "sha256": "4e34455372a4e7bc9a679d31cd1af42aa5b26febe811a10f044cb53ae68ff43c",
+      "bytes": 1041
+    },
+    "points": 4,
+    "minimumHeadroom": 1475604480,
+    "maximumAggregateDelta": 9875456,
+    "eventsUnchanged": true,
+    "ownVmHWM": 14622720
+  },
+  "seal64Aggregate512Reserve": {
+    "initial": {
+      "current": 15694331904,
+      "maximum": 17179869184,
+      "headroom": 1485537280,
+      "free": 73277440,
+      "utcNs": 1790903305725182945
+    },
+    "finalBeforeSmallSealWrites": {
+      "current": 15694774272,
+      "maximum": 17179869184,
+      "headroom": 1485094912,
+      "free": 73273344,
+      "utcNs": 1790903305727070273
+    },
+    "eventsUnchanged": true,
+    "ownVmHWM": 10354688
+  },
+  "limits": "Exact preservation only. Selected default named-wait source/build/caller/actual and three separate actual reviews plus Root producer/rollback records retained with original method failures. This archives the already selected checkpoint; no new art, human-fun, repair, release, retirement or cleanup acceptance. Needed PNG/WAV original paths remain indispensable; not a self-contained release. Full binary hashes are identity checks, no image decoding/viewing. Root workflow guard closes finite child group but does not prove global backend/unknown actor absence.",
+  "CLOSED": "All finite readers/guards/tools/FDs closed; direct sealer launches no children. Sharedcgroup samples not exclusive global/backend attribution."
+}

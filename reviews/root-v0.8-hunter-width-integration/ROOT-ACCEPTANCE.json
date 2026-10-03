@@ -1,0 +1,29 @@
+{
+  "status": "accepted-development-source-candidate; major0.8archive/tag pending",
+  "sourceDigest": "23477f68c99d6d60b0b3f82b286a8d33bb6da6f2ca92c103fbecf5663634959f",
+  "inputs": 76,
+  "outputs": 55,
+  "onlyDeltaFrom45bd": "src/hunter-presence.ts",
+  "rootActualChecks": {
+    "rules": 87,
+    "productionBrowser": 35,
+    "targetedHunter": 6,
+    "strictBuild": "PASS"
+  },
+  "linuxASAR": "c383c4437ac5467146174c6ea039b2a8b28af43d609701379e8cf695f59d530c",
+  "independentReports": {
+    "gameplay": {
+      "path": "reviews/combined-v0.8-hunter-width-gameplay-independent/REVIEW.md",
+      "sha256": "3e10f29be71a2609a6d04bdf62316f2eff74ccee330eb7da7980cb56e3b622a4"
+    },
+    "visual": {
+      "path": "reviews/combined-v0.8-hunter-width-visual-independent/REVIEW.md",
+      "sha256": "d3356c31414934b85eb2c5279c70a1febd9b2631b9942b687a71a6b87d52b16a"
+    },
+    "technical": {
+      "path": "reviews/combined-v0.8-hunter-width-technical-independent/REVIEW-r2.md",
+      "sha256": "abb1f46292a3f8003e5331d21cb5dbce1c4c82b3c1db7554d9a504fdbbc5ba0e"
+    }
+  },
+  "scope": "Matching affected development gates. All predecessors/original inputs preserved; actual nativeWindows0.8/archive and human/AAA/consumer/Steam gates open. Next exterior scene/jaw work continues, neither shipped."
+}

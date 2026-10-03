@@ -1,0 +1,23 @@
+{
+  "method": "Sampled whole-actor floor projection and death lateral recentering; not IK",
+  "minimumZBefore": {
+    "Anticipation_Crouch": -0.10836866497993469,
+    "Death_Collapse": -1.2995314598083496,
+    "Hit_Recoil": -0.04836859554052353,
+    "Idle_BreathAndWatch": -0.010301878675818443,
+    "Lunge_CommandStrike": -0.10836866497993469
+  },
+  "minimumZAfter": {
+    "Anticipation_Crouch": 0.00999995693564415,
+    "Death_Collapse": 0.00999981164932251,
+    "Hit_Recoil": 0.00999995693564415,
+    "Idle_BreathAndWatch": 0.009999869391322136,
+    "Lunge_CommandStrike": 0.009999901056289673
+  },
+  "limitations": [
+    "Ground clearance corrected, but planted feet can still slide.",
+    "Projection can cancel crouch depth instead of bending limbs.",
+    "Root trajectory/death timing need artist motion review.",
+    "Asset still fails realistic-creature art bar."
+  ]
+}

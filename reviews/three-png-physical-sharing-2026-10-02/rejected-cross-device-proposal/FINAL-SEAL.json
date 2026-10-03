@@ -1,0 +1,132 @@
+{
+  "decision": "REJECT this candidate as workspace admission recovery; no storage action proposed or authorized.",
+  "files": [
+    {
+      "path": "/workspace/scratch/media-encoding-recovery-proposal-author-r1/EVIDENCE.json",
+      "bytes": 17937,
+      "sha256": "f2a1a616186e3602a815142a8c7547cb526a2d132994ed97e2a9898b267af22b"
+    },
+    {
+      "path": "/workspace/scratch/media-encoding-recovery-proposal-author-r1/PROPOSAL-NEGATIVE.md",
+      "bytes": 2395,
+      "sha256": "af90894399bde7b2fd6914d03cf747f345b6d7160a155254710897f8af7a469a"
+    },
+    {
+      "path": "/workspace/scratch/media-encoding-recovery-proposal-author-r1/RESOURCE.json",
+      "bytes": 53971,
+      "sha256": "e4c7d444f52488f4f911c33eb01361c489361c6802bd56604813d5310205d3c8"
+    },
+    {
+      "path": "/workspace/scratch/media-encoding-recovery-proposal-author-r1/inspect_negative.py",
+      "bytes": 6194,
+      "sha256": "776bf4469a4ed7f4c62732e3dcb2fc6f1da47d51b538a33fc5dabe834df309e1"
+    },
+    {
+      "path": "/workspace/scratch/media-encoding-recovery-proposal-author-r1/reader-guard-r1/ADMISSION.json",
+      "bytes": 520,
+      "sha256": "e122b187dcc57a533dbff6cb19a1d77bf9aa757938af104e7c63c2f25281eb97"
+    },
+    {
+      "path": "/workspace/scratch/media-encoding-recovery-proposal-author-r1/reader-guard-r1/EXECUTION.log",
+      "bytes": 350,
+      "sha256": "4e47de9aa3496199e192eabb80017dee82427a18caeced80339dcf5af87cbd90"
+    },
+    {
+      "path": "/workspace/scratch/media-encoding-recovery-proposal-author-r1/reader-guard-r1/RESULT.json",
+      "bytes": 858,
+      "sha256": "9ce853e66ca6499cf3a2fe87ea35f6b1c3bc29fa9306ddc9f5c11f3e40078a07"
+    },
+    {
+      "path": "/workspace/scratch/media-encoding-recovery-proposal-author-r1/seal_negative.py",
+      "bytes": 1991,
+      "sha256": "56353f363682f08b37033f857e50211e4eda244d78569b9bbc2beecf814b48c4"
+    }
+  ],
+  "sourceControls": [
+    {
+      "path": "/workspace/Roguelike-deckbuilder/AGENTS.md",
+      "sha256": "2b22e63870d787899348003d8b7b9555907d67eea83b2ff17441b0466001f5fc",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 524549,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 13808,
+        "st_blocks": 32,
+        "st_atime_ns": 1790903422046111012,
+        "st_mtime_ns": 1790903032472509615,
+        "st_ctime_ns": 1790903032472509615
+      },
+      "xattrs": {},
+      "duringReadMetadataExact": true,
+      "O_NOATIME": true
+    },
+    {
+      "path": "/workspace/scratch/standard-sol-historical-dist-media-dedup-proposal-r1/PROPOSAL.md",
+      "sha256": "677d67b86135bc3bfc3259b33070f0146860092d3af961932dcdff91263116e4",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 683603,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 5578,
+        "st_blocks": 16,
+        "st_atime_ns": 1790880260647050808,
+        "st_mtime_ns": 1790880182788287558,
+        "st_ctime_ns": 1790880182788287558
+      },
+      "xattrs": {},
+      "duringReadMetadataExact": true,
+      "O_NOATIME": true
+    },
+    {
+      "path": "/workspace/scratch/root-dist-media-hardlink-plan-independent-v09-r1/PLAN.md",
+      "sha256": "583c96a517070ac09075cbc488528daf69d333353b1e6c92635de0850744fcf2",
+      "metadata": {
+        "st_dev": 27,
+        "st_ino": 676042,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 5182,
+        "st_blocks": 16,
+        "st_atime_ns": 1790834850790807368,
+        "st_mtime_ns": 1790834764797865174,
+        "st_ctime_ns": 1790834764797865174
+      },
+      "xattrs": {},
+      "duringReadMetadataExact": true,
+      "O_NOATIME": true
+    }
+  ],
+  "resource": {
+    "initial": {
+      "time_ns": 1790903745405014801,
+      "sharedDelta": 0,
+      "headroom": 1476653056,
+      "free": 69713920,
+      "ownMaxRSS": 9830400
+    },
+    "final": {
+      "time_ns": 1790903745406447931,
+      "sharedDelta": 0,
+      "headroom": 1476653056,
+      "free": 69713920,
+      "ownMaxRSS": 9961472
+    },
+    "eventsBefore": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "eventsAfter": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "qualifiedSharedWorkMiB": 64,
+    "ownRSSLimitMiB": 24,
+    "allInputFDsClosed": true
+  },
+  "outerGuard": "/workspace/scratch/media-encoding-recovery-proposal-author-r1/seal-guard-r1/RESULT.json",
+  "outerGuardNote": "Exact completed outer guard is reported after its return; not included in this body.",
+  "scope": "Negative proposal only; no action/independent approval/push verification.",
+  "packetCap": 131072
+}

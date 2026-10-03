@@ -1,0 +1,226 @@
+name: Native Windows validation
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-validation-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  windows-x64:
+    runs-on: windows-2022
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+    steps:
+      - name: Enable Git long paths for retained review evidence
+        run: |
+          git config --global core.longpaths true
+          if ($LASTEXITCODE -ne 0) { throw 'Failed to enable Git long paths' }
+          $longPaths = git config --global --bool --get core.longpaths
+          if ($LASTEXITCODE -ne 0 -or $longPaths -ne 'true') { throw 'Git long paths verification failed' }
+          Write-Host "Git core.longpaths=$longPaths"
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.19.0'
+          cache: npm
+      - name: Identify candidate
+        id: candidate
+        run: |
+          node -e "const fs=require('node:fs'); const p=require('./package.json'); fs.appendFileSync(process.env.GITHUB_OUTPUT, 'version='+p.version+'\n');"
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Install stock Electron for native resource comparison
+        run: node node_modules/electron/install.js
+      - name: Rules tests
+        run: npm test
+      - name: Build production runtime
+        run: npm run build
+      - name: Package unsigned Windows executable with resources enabled
+        run: |
+          node -e "const fs=require('node:fs'); const {build}=require('./package.json'); const config={...build,win:{...build.win,signAndEditExecutable:true,signExecutable:false},forceCodeSigning:false}; fs.mkdirSync('build-desktop',{recursive:true}); fs.writeFileSync('build-desktop/windows-native-config.json',JSON.stringify(config,null,2)+'\n');"
+          npx --no-install electron-builder --win dir --x64 --config build-desktop/windows-native-config.json
+      - name: Launch packaged Windows executable and verify offline interactions
+        run: node scripts/windows-smoke.mjs build-desktop/win-unpacked/Hollowpact.exe
+      - name: Archive candidate and record native resource evidence
+        run: |
+          $version = '${{ steps.candidate.outputs.version }}'
+          $review = "reviews/windows-native/$version/run-$env:GITHUB_RUN_ID-$env:GITHUB_RUN_ATTEMPT"
+          New-Item -ItemType Directory -Force $review | Out-Null
+          $exe = Resolve-Path 'build-desktop/win-unpacked/Hollowpact.exe'
+          $info = (Get-Item $exe).VersionInfo
+          $signature = Get-AuthenticodeSignature $exe
+          if ($signature.Status -ne 'NotSigned') { throw "Expected unsigned candidate; actual status $($signature.Status)" }
+          Add-Type -AssemblyName System.Drawing
+          $icon = [System.Drawing.Icon]::ExtractAssociatedIcon($exe.Path)
+          if ($null -eq $icon) { throw 'Native icon extraction failed' }
+          $bitmap = $icon.ToBitmap()
+          $bitmap.Save((Join-Path (Resolve-Path $review) 'executable-icon.png'), [System.Drawing.Imaging.ImageFormat]::Png)
+          $bitmap.Dispose()
+          $icon.Dispose()
+          $zip = "build-desktop/hollowpact-$version-windows-native-x64.zip"
+          Compress-Archive -Path 'build-desktop/win-unpacked/*' -DestinationPath $zip
+          @{
+            productName = $info.ProductName
+            fileVersion = $info.FileVersion
+            productVersion = $info.ProductVersion
+            signatureStatus = $signature.Status.ToString()
+            executableSHA256 = (Get-FileHash $exe -Algorithm SHA256).Hash.ToLower()
+            archive = $zip
+            archiveSHA256 = (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
+            commit = $env:GITHUB_SHA
+            runId = $env:GITHUB_RUN_ID
+            attempt = $env:GITHUB_RUN_ATTEMPT
+          } | ConvertTo-Json -Depth 5 | Set-Content -Encoding utf8 "$review/native-package.json"
+      - name: Split tested native ZIP into bounded transfer parts
+        run: |
+          @'
+          import fs from 'node:fs';
+          import path from 'node:path';
+          import crypto from 'node:crypto';
+          const {version} = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+          const archive = `build-desktop/hollowpact-${version}-windows-native-x64.zip`;
+          const directory = 'build-desktop/windows-transfer';
+          const partBytes = 24 * 1024 * 1024;
+          const bytes = fs.statSync(archive).size;
+          if (bytes <= 0 || bytes > partBytes * 8) throw new Error(`Native ZIP ${bytes} bytes exceeds the eight-part transfer capacity or is empty; extend upload slots explicitly`);
+          fs.mkdirSync(directory, {recursive: true});
+          const buffer = Buffer.allocUnsafe(partBytes);
+          const source = fs.openSync(archive, 'r');
+          const wholeHash = crypto.createHash('sha256');
+          const parts = [];
+          try {
+            for (let offset = 0, index = 1; offset < bytes; offset += partBytes, index++) {
+              const length = Math.min(partBytes, bytes - offset);
+              let filled = 0;
+              while (filled < length) {
+                const read = fs.readSync(source, buffer, filled, length - filled, offset + filled);
+                if (!read) throw new Error('Unexpected native ZIP EOF');
+                filled += read;
+              }
+              const data = buffer.subarray(0, length);
+              const filename = `part-${String(index).padStart(2, '0')}.bin`;
+              fs.writeFileSync(path.join(directory, filename), data, {flag: 'wx'});
+              wholeHash.update(data);
+              parts.push({index, filename, bytes: length, sha256: crypto.createHash('sha256').update(data).digest('hex')});
+            }
+          } finally { fs.closeSync(source); }
+          const runtime = JSON.parse(fs.readFileSync('dist/build-provenance.json', 'utf8'));
+          const manifest = {schema: 1, version, sourceDigest: runtime.sourceDigest, commit: process.env.GITHUB_SHA,
+            runId: process.env.GITHUB_RUN_ID, attempt: process.env.GITHUB_RUN_ATTEMPT,
+            archive: path.basename(archive), bytes, sha256: wholeHash.digest('hex'), partBytes, parts,
+            reconstruction: 'Extract each artifact; concatenate part files in numeric index order, verify each size/SHA256 and the whole ZIP size/SHA256 before unpacking. Parts alone are not runnable packages.'};
+          fs.writeFileSync(path.join(directory, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
+          console.log(`Prepared ${parts.length} independently downloadable parts, each at most ${partBytes} bytes.`);
+          '@ | node --input-type=module
+      - name: Upload small native evidence and transfer manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hollowpact-${{ steps.candidate.outputs.version }}-windows-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            reviews/windows-native/
+            build-desktop/windows-transfer/manifest.json
+            build-desktop/builder-effective-config.yaml
+            build-desktop/windows-native-config.json
+            dist/build-provenance.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Upload native ZIP part 01
+        if: ${{ !cancelled() && hashFiles('build-desktop/windows-transfer/part-01.bin') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: hollowpact-${{ steps.candidate.outputs.version }}-windows-part-01-${{ github.run_id }}-${{ github.run_attempt }}
+          path: build-desktop/windows-transfer/part-01.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload native ZIP part 02
+        if: ${{ !cancelled() && hashFiles('build-desktop/windows-transfer/part-02.bin') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: hollowpact-${{ steps.candidate.outputs.version }}-windows-part-02-${{ github.run_id }}-${{ github.run_attempt }}
+          path: build-desktop/windows-transfer/part-02.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload native ZIP part 03
+        if: ${{ !cancelled() && hashFiles('build-desktop/windows-transfer/part-03.bin') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: hollowpact-${{ steps.candidate.outputs.version }}-windows-part-03-${{ github.run_id }}-${{ github.run_attempt }}
+          path: build-desktop/windows-transfer/part-03.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload native ZIP part 04
+        if: ${{ !cancelled() && hashFiles('build-desktop/windows-transfer/part-04.bin') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: hollowpact-${{ steps.candidate.outputs.version }}-windows-part-04-${{ github.run_id }}-${{ github.run_attempt }}
+          path: build-desktop/windows-transfer/part-04.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload native ZIP part 05
+        if: ${{ !cancelled() && hashFiles('build-desktop/windows-transfer/part-05.bin') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: hollowpact-${{ steps.candidate.outputs.version }}-windows-part-05-${{ github.run_id }}-${{ github.run_attempt }}
+          path: build-desktop/windows-transfer/part-05.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload native ZIP part 06
+        if: ${{ !cancelled() && hashFiles('build-desktop/windows-transfer/part-06.bin') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: hollowpact-${{ steps.candidate.outputs.version }}-windows-part-06-${{ github.run_id }}-${{ github.run_attempt }}
+          path: build-desktop/windows-transfer/part-06.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload native ZIP part 07
+        if: ${{ !cancelled() && hashFiles('build-desktop/windows-transfer/part-07.bin') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: hollowpact-${{ steps.candidate.outputs.version }}-windows-part-07-${{ github.run_id }}-${{ github.run_attempt }}
+          path: build-desktop/windows-transfer/part-07.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload native ZIP part 08
+        if: ${{ !cancelled() && hashFiles('build-desktop/windows-transfer/part-08.bin') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: hollowpact-${{ steps.candidate.outputs.version }}-windows-part-08-${{ github.run_id }}-${{ github.run_attempt }}
+          path: build-desktop/windows-transfer/part-08.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload native evidence and candidate package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hollowpact-${{ steps.candidate.outputs.version }}-windows-x64-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            reviews/windows-native/
+            build-desktop/hollowpact-*-windows-native-x64.zip
+            build-desktop/builder-effective-config.yaml
+            build-desktop/windows-native-config.json
+            dist/build-provenance.json
+          if-no-files-found: warn
+          retention-days: 30

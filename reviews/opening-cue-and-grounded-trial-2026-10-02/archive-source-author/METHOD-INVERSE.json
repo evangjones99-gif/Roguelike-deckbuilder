@@ -1,0 +1,26 @@
+{
+  "predecessorPath": "/workspace/scratch/opening-turn-payoff-opening-checkpoint-source-author-r1/preserve-checkpoint.py",
+  "predecessorSHA256": "367ea7aeeb38186cc546c0bf52ee5e0e65e7705f9dda6d7ccf27c4097c441a69",
+  "methodSHA256": "5ee7a0a37946e3afcdf1d355cdfbc929ccf37b39edb1b4654e61e14250fb3f1a",
+  "exactFullInverse": true,
+  "changes": [
+    {
+      "before": "for x in [plan['existingCapsule']['archive'],plan['existingCapsule']['index']]:",
+      "after": "for x in [entry[k] for entry in plan['existingCapsules'] for k in ['archive','index']]:"
+    },
+    {
+      "before": "'existingCapsule':plan['existingCapsule']",
+      "after": "'existingCapsules':plan['existingCapsules']"
+    },
+    {
+      "before": "'statStableExceptAtimeQualified':True",
+      "after": "'checkedInodeSizeMtimeStableAtimeQualified':True,'fullStatXattrPreservationClaimed':False"
+    },
+    {
+      "before": "new archive or exact ce0f capsule.",
+      "after": "new archive or exact ce0f/f912 capsules."
+    }
+  ],
+  "archiveExecuted": false,
+  "bootstrap": "Tiny source-only derivation/AST/compile outside resource guard; no archive helper executed."
+}

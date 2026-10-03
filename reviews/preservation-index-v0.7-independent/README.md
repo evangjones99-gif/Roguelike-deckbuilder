@@ -1,0 +1,5 @@
+The independent report, original manifest and input hashes are copied byte-for-byte. `complete-frozen-evidence.tar.gz` preserves the entire separately owned research directory, including rejected r2 cases, fresh r3 cases, Git/ASAR fixtures and failed memory launcher. Root compared every declared ordinary file against its archived member; the receipt records 2,167 manifest entries and the archive SHA256.
+
+Do not execute frozen harnesses in place: they contain their original scratch directory literals and fixed output names. Extract into a new exterior workspace and adjust only replication harness paths; new execution is separate evidence. Dependency symlinks are preserved as links without following them. No real project release was run by these synthetic transaction fixtures.
+
+The accepted producer/helper bytes are also retained in `../preservation-index-v0.7-author-r3/`. Promoted scripts match their independently recorded hashes. The root integration output against the existing same-commit v0.6.1 ZIP is new research under `../root-v0.7-source-checkpoint/`; no old manifest/index/archive was changed.

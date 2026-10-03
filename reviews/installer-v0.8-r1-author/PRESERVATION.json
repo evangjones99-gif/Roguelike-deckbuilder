@@ -1,0 +1,91 @@
+{
+  "sourceDirectory": "/workspace/scratch/windows-installer-v08",
+  "curatedOnly": true,
+  "scope": "Exact manifest-listed evidence; support dependency symlinks and temporary browser profiles remain at original paths.",
+  "archive": "curated-evidence.tar.gz",
+  "archiveBytes": 22810,
+  "archiveSHA256": "6ac3c5833b4a86a9e1bb1e6e42e0e3843c10efb9b345055ed1d3328c5fb1eb7f",
+  "everyMemberStreamVerified": true,
+  "files": [
+    {
+      "path": "AUTHOR.md",
+      "bytes": 10160,
+      "sha256": "99ce99498da0cddc86b43f9f736c7244b932d80e0dba42291eb3d4fba381d9af"
+    },
+    {
+      "path": "evidence/generated-example.nsh",
+      "bytes": 2726,
+      "sha256": "6c57a2d9e1fe5d7de81f06896c05fe940620f87a4b11f5a505b4f04fb8b8fadd"
+    },
+    {
+      "path": "evidence/guards-r1.log",
+      "bytes": 1906,
+      "sha256": "afefb43693cac5128ea48b2ce47a3f0e943d26de5953cf53381147f2cb938370"
+    },
+    {
+      "path": "evidence/guards-r2.log",
+      "bytes": 978,
+      "sha256": "b74e704bf3ed78c3340b25130a1b6d30a03e206e1101bffc086763351cd88bbf"
+    },
+    {
+      "path": "evidence/guards-r3.log",
+      "bytes": 979,
+      "sha256": "c6c0233dca96b99f19f506048df9164b334a9bf1df44db82e2bd6961690e3d60"
+    },
+    {
+      "path": "evidence/guards-r4.log",
+      "bytes": 977,
+      "sha256": "5a3b1bad1a4b825cc6aa4bfce72d192169c5d768bb42b3a9ea6c96e11c63c599"
+    },
+    {
+      "path": "evidence/guards-r5.log",
+      "bytes": 976,
+      "sha256": "1d90bf8214d0ce916e83466c27218668856f38aa853fc313a0795b8dae615ddc"
+    },
+    {
+      "path": "evidence/installed-toolchain.json",
+      "bytes": 8775,
+      "sha256": "75603c4994bd2b27b304c19fe55800b121179db7b424b0c3e2cfd4819d568926"
+    },
+    {
+      "path": "evidence/native-precondition-linux-r1.log",
+      "bytes": 621,
+      "sha256": "6fc7aa8e431624a7e9f7cc90ffe1cb6a498cd78e75ddc52141cbe8bb67323c7d"
+    },
+    {
+      "path": "evidence/proposal-parse-and-runtime.json",
+      "bytes": 1166,
+      "sha256": "ff27f7b7d3ec6fffc41e09624e17efbc71b1c2066039c20437bcc2cb3b09cb8c"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 2586,
+      "sha256": "e26729ee081d4261510b4d2aba28e87a76937c0534d89516a20546f8f3dcc408"
+    },
+    {
+      "path": "scripts/windows-installer-guards.mjs",
+      "bytes": 5471,
+      "sha256": "dca840c8fa14fc0365b839eebaebe8018686c3c5260d9e449ded7f5f5f50960e"
+    },
+    {
+      "path": "scripts/windows-installer-guards.test.mjs",
+      "bytes": 5131,
+      "sha256": "42a4c69d892f84725014f81e0fffb66438a17aedeb43b9f57b8c2ca0ce5a79a3"
+    },
+    {
+      "path": "scripts/windows-installer-prepare.mjs",
+      "bytes": 2876,
+      "sha256": "2f8ce16939fa9dcfbfc5144e43ffc94f67c9ccb5ab08a9a567617d093f2b0f8a"
+    },
+    {
+      "path": "scripts/windows-installer-smoke.mjs",
+      "bytes": 16177,
+      "sha256": "03edef6c613657652f4b43883857f486affc258fba3f09f95e93c4746b73c7e2"
+    },
+    {
+      "path": "workflows/windows-installer-validation.yml",
+      "bytes": 2885,
+      "sha256": "c39dacee5bea4c91edc08d0390ef95d2cbf40deba5d6e382e0965deed85ab661"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# Five retained PNGs: exact physical sharing proposal
+
+This separately reviewed proposal preserves five immutable historical candidate media paths and their exact bodies while replacing private physical encodings with retained canonical anchors. Independent full body and metadata review prefers only this representation; useful source, rights/provenance, historical findings and rollback remain. Original private inode/time/write isolation would be surrendered; shared anchor link counts and ctime would change. Coordinated no-writer holds are not OS protection or global consumer absence. A fresh current push and producer judgment must precede action. No completed transaction or game/art improvement is claimed by this proposal.
+
+The accompanying POST packets verify the earlier two loose JSON copies retired only after their exact bodies and logical identities were preserved in the unchanged published opening-ready-and-rapid-drop capsule. Its measured pre-result gain was6,008,832B; no other deletion follows. Both full and compact POST packets are retained, with the late96KiB cap qualification.

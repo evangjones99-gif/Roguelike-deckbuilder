@@ -1,0 +1,25 @@
+{
+  "files": {
+    "ALLOWLIST.json.gz": {
+      "bytes": 87473,
+      "sha256": "3e6280ec7a1825f0b43e92f87f4bcd44ef37d9397064563bb037ebdf5f834bd6"
+    },
+    "BEFORE.json": {
+      "bytes": 1617,
+      "sha256": "cf3710de13277b58e4f5b3722e373c306801d11fddef538f7bebd4aadae15464"
+    },
+    "FAILURE-SLOT.json": {
+      "bytes": 16384,
+      "sha256": "d265fa454719d23eef778eb5c12023987cee41d974c8e14bbbc762402c04f7b3"
+    },
+    "INDEPENDENT-ACCEPTANCE.json": {
+      "bytes": 388,
+      "sha256": "39caf0e25bda59b3e04f48aa3575617e4b40511b978b91e8509762e37c1ee21a"
+    },
+    "ROOT-DECLARATION.json": {
+      "bytes": 1398,
+      "sha256": "c941babfebbd4eb91eb6b75d27e4c153ed8f5d20643630031da2498f5d53e69e"
+    }
+  },
+  "result": "Refused before any advice: /proc/199/fd PermissionError13; completedReturnedHints0; no body reads/new object SHA/RAM gain. Single bounded attempt; no retries/permission changes/process kills/lock deletion. Known Git quiet window ended afterward."
+}

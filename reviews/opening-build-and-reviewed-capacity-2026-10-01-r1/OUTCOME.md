@@ -1,0 +1,1 @@
+Closed actual byte-preserving duplicate retirement and strict opening builds. Exact source/build hashes, failures and independent findings retained; no game promotion or human-fun claim. Original archives/assets and all source evidence remain retained.

@@ -1,0 +1,7 @@
+{
+  "kind": "Review harness historical workflow label mismatch",
+  "methodSHA256": "e9ffdb08a15421a69f45e905d0b4d53c02beff6763adf94ee414e1475395d459",
+  "exitCode": 1,
+  "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/opening-cue-build-technical-r5/verify.py\", line 127, in <module>\n    assert ew==w\n           ^^^^^\nAssertionError\n",
+  "repair": "Shared R10 retains historical display label runtime98 and support30; C5 labels candidate104/support32. Correct transformation input display string to historical base30. No workflow or source edits."
+}

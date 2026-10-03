@@ -1,0 +1,9 @@
+# Narrow recovery admission revision
+
+Confirmed clean push9ce3d3bf retained rejected ghost actual and completed prior PNG POST plus the next proposal. It left about66.2MB free; the normal64MiB source guard refused producer-judgment launch before execution. All original refusals/methods remain. No transaction followed that refusal.
+
+This separate source review assesses56MiB initial disk for only bounded, pinned source/publication/recovery invocations. The wrapper preserves memory work/reserve/live-stop limits. Its filename filter is not universal child-workload isolation or an exact script allowlist: the independent gate and coordinated sole writer bind the permitted invocations. It authorizes neither arbitrary Python nor a lower build/browser/native/image/release admission. Strict build64MiB and native70MiB remain unchanged.
+
+The r3 sharing method differs from accepted r2 only by56MiB disk preflight and fresh transaction/temp identifiers. Identity, full three-body/stat/xattr/held-parent/current clean confirmed-push/producer/durable-prefix checks remain. Bounded BEFORE/journal/RESULT directory writes are small compared with the disk reserve, with no large old-inode backups. Every path/body/provenance remains retained; original private inode/time/write isolation and anchor link/ctime losses still require explicit producer acceptance. One existing alias per anchor remains unresolved. No space gain or storage action is claimed here.
+
+Finite tiny bootstrap scripts prepared this proposal and producer control outside a guard after normal admission refused; their resources are unmetered, and no guarded bootstrap compliance is claimed. A pointless always-true assertion in the unexecuted r1 wrapper was removed in fresh r2; both originals remain. This is a resource-recovery scope correction, not a quality or retirement badge. The live selected build is still1d5bf40a/30ddc549 with painted art; R3 actor-safe ghost source remains opt-in/unbuilt.

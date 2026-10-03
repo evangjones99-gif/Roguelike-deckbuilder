@@ -1,0 +1,11 @@
+R3 independent SOURCE review disposition: NOT ELIGIBLE; no approval.
+
+The author reported the complete closure preview failed its unchanged 192 KiB cap at 201,302 bytes. FAILED-R3-CLOSURE-SIZING.json records that no closure or SOURCE-SEAL was written. I independently verified that SOURCE-SEAL.json is absent, all 18 raw bodies in that failure inventory retain their recorded size/SHA256, and the current complete physical namespace is 19 files / 165,275 bytes including the new failure receipt. The physical retained namespace and hypothetical complete serialized closure are different measurements; the former being below the cap does not turn the failed closure preview into PASS. I did not independently recompute the author's preview count.
+
+EXPECTED.json remains sealed=false, runtimeEligible=false and runtimeRecovery.complete=false; candidate C stage/output/freeze/manifest/authority/review paths and identities remain null. Static inspection shows both built-in qualify functions check these false flags first; the supervisor invokes qualification before packet mkdir/Popen, and the driver before Playwright import. No helper, caller, app, browser/server, build or install was executed for this review.
+
+I read the preliminary driver, protocol and README, including real modal hidden-seed disclosure and bounded terminal presentation observations. Because this revision never reached its final seal, full independent logical-origin/inverse reconstruction and source acceptance were not completed. Preliminary source reading is not a substitute for that review. The prior wrongly accepted R1 terminal assertion, its rejecting addendum/gameplay review, and both R2/R3 cap failures remain preserved. This packet grants no runtime, source repair, art/default/gameplay/fun/native or cleanup approval.
+
+Root subsequently authorized a distinct R4 with a new 256 KiB SOURCE cap. That does not revise R3's 192 KiB failure. Runtime caps remain unchanged and any R4 acceptance must bind its own exact final seal; missing C actual build authority and a separate Root actual method grant remain blockers.
+
+All writes are confined to this new <=128 KiB technical review family. Standard-library identity checks read existing bytes only. Reads may alter atime; filesystem metadata restoration is not claimed.

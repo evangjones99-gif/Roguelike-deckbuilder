@@ -1,0 +1,31 @@
+{
+  "sourceDirectory": "/workspace/scratch/installer-signature-host-v08-r3",
+  "curatedOnly": true,
+  "scope": "Exact manifest-listed evidence; support dependency symlinks and temporary browser profiles remain at original paths.",
+  "archive": "curated-evidence.tar.gz",
+  "archiveBytes": 7539,
+  "archiveSHA256": "6c8297c3f08d2acda05b439de7415fd58eb8a46020dff7f00590eaeaade10aa6",
+  "everyMemberStreamVerified": true,
+  "files": [
+    {
+      "path": "AUTHOR.md",
+      "bytes": 1372,
+      "sha256": "db3c7435c9a306c7e4d12b2386541e54e579b8ddf27952d2d011be7c24b37602"
+    },
+    {
+      "path": "MANIFEST.json",
+      "bytes": 451,
+      "sha256": "9395a06cc345c4a7ffa8c4b849b197fb1638c4bfa729aa3d73674dea7110c7fd"
+    },
+    {
+      "path": "original-r2-smoke.mjs",
+      "bytes": 17819,
+      "sha256": "e048ae2937b8e427c1e7308e09c500897233767c4b41f130766eb6b2ede7a6c1"
+    },
+    {
+      "path": "proposed-r3-smoke.mjs",
+      "bytes": 17907,
+      "sha256": "4d2fbe8ba10afa9bd3af180ddcbd05939b06975a4487c166bf23a33856c78f4c"
+    }
+  ]
+}

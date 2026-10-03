@@ -1,0 +1,36 @@
+{
+  "authorized": true,
+  "archiveOnly": true,
+  "soleCanonicalArchiveWriterConfirmed": true,
+  "allIncludedInputRootsClosedConfirmed": true,
+  "methodSHA256": "5ad10c515b362ac6434ad6041565a13d74551f53e658c1f65c5ab4a08c10dd0f",
+  "ordinary128Plus512GuardConfirmed": true,
+  "sourceSpec": {
+    "path": "/workspace/scratch/native-aftermath-starter-checkpoint-source-author-r1/SOURCE-SPEC-final.json",
+    "sha256": "13d1c918f57c103929e098a03ce90ba7574161e1e0ae75e598960812e7ec6e0f"
+  },
+  "independentSourceGate": {
+    "path": "/workspace/scratch/native-aftermath-starter-checkpoint-source-independent-r1/GATE.json",
+    "sha256": "698daceaa2775a0934f825fdf20020050937cf7d2450cf962fe7114a8485fd97"
+  },
+  "finalInputManifest": {
+    "path": "/workspace/scratch/native-checkpoint-final-input-manifest-root-r3.json",
+    "sha256": "91c82de1139c861da723ad8ec5208eac3791da16a6e67d32659865584b01ddc3"
+  },
+  "confirmedPush": {
+    "path": "/workspace/scratch/opening-guidance-checkpoint-push-receipt-root-r2.json",
+    "sha256": "15b67770f34b776252a01f30ba172eecbf56cbff754a048c3bd19fa3f54c5f14"
+  },
+  "independentRootManifestGate": {
+    "path": "/workspace/scratch/native-checkpoint-root-manifest-independent-r1/GATE.json",
+    "sha256": "ea90c86b77554a5da0a848f99d132291b47e43abd9452923f49f10b75937f46f"
+  },
+  "RootVerifiedExactMethodSourceEligibility": true,
+  "RootVerifiedFreshCurrentCleanPush": true,
+  "currentHEAD": "06007e0d81298fa49cedeb46719d03cae9fba04c",
+  "freshRemoteHEAD": "06007e0d81298fa49cedeb46719d03cae9fba04c",
+  "utcNs": 1790945314693519013,
+  "initialHeadroomBytes": 1428353024,
+  "initialFreeBytes": 79765504,
+  "qualification": "Finite unmetered Root metadata bootstrap; independent R3 manifest verifies1278logicalrows and exact86frozenruntimecode. R1 Rootmanifest omittedruntime stages; R2 metaprobe assumedabsentvitest package and failed beforemanifest; bothoriginals retained outsidefixedTARscope. FinalR3 preservesactualinspectedtoolmetadata. Archive-only, no selection/release/retirement authority. Allincluded rootsclosed; any unrelated Sourceactors must bepaused before execution."
+}

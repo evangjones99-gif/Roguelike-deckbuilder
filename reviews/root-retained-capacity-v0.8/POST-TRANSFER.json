@@ -1,0 +1,2062 @@
+{
+  "scope": "Redundant immutable unpacked QA comparisons moved, not official versions/archives. Original paths resolve to exact byte/mode copies. TMP is not durable backup; exact official archives and original mode inventory remain durable. Do not edit linked comparison copies. No unique research/data/art/transfer input relocated.",
+  "moves": [
+    {
+      "sourcePath": "/workspace/scratch/retained-working-linux-0.4.0-da553781de9d",
+      "temporaryTarget": "/tmp/hollowpact-retained-working-v08/case-01",
+      "files": 72,
+      "bytes": 312213615
+    },
+    {
+      "sourcePath": "/workspace/scratch/retained-working-linux-0.5.0-d6221bf764ba",
+      "temporaryTarget": "/tmp/hollowpact-retained-working-v08/case-02",
+      "files": 72,
+      "bytes": 317356081
+    },
+    {
+      "sourcePath": "/workspace/scratch/retained-working-windows-0.4.0-da553781de9d",
+      "temporaryTarget": "/tmp/hollowpact-retained-working-v08/case-03",
+      "files": 72,
+      "bytes": 400962215
+    },
+    {
+      "sourcePath": "/workspace/scratch/retained-working-windows-0.5.0-d6221bf764ba",
+      "temporaryTarget": "/tmp/hollowpact-retained-working-v08/case-04",
+      "files": 72,
+      "bytes": 406104681
+    },
+    {
+      "sourcePath": "/workspace/scratch/native-windows-v04/retained-working-v0.3-win-unpacked",
+      "temporaryTarget": "/tmp/hollowpact-retained-working-v08/case-05",
+      "files": 72,
+      "bytes": 400813805
+    },
+    {
+      "sourcePath": "/workspace/scratch/native-windows-v04/run-36772521612-1/win-unpacked",
+      "temporaryTarget": "/tmp/hollowpact-retained-working-v08/case-06",
+      "files": 72,
+      "bytes": 400962215
+    },
+    {
+      "sourcePath": "/workspace/scratch/native-windows-v05/run-36782560136-1/native-extracted",
+      "temporaryTarget": "/tmp/hollowpact-retained-working-v08/case-07",
+      "files": 72,
+      "bytes": 406104681
+    }
+  ],
+  "sharedTemporaryFiles": [
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/LICENSE.electron.txt",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/LICENSE.electron.txt",
+      "bytes": 1096,
+      "sha256": "5154e165bd6c2cc0cfbcd8916498c7abab0497923bafcd5cb07673fe8480087d",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/LICENSES.chromium.html",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/LICENSES.chromium.html",
+      "bytes": 20111209,
+      "sha256": "a62dabd1c6ef1327365b2a3fdffb806222684a746dcb8f4afd1c1f690eba5535",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/chrome-sandbox",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/chrome-sandbox",
+      "bytes": 15232,
+      "sha256": "a4f6dfd7325ddd55f94ddc0c487d22726d40ef099ded6475d5dffe236e277896",
+      "mode": "0o755"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/chrome_100_percent.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/chrome_100_percent.pak",
+      "bytes": 719546,
+      "sha256": "891176da5eee33b54352fdb1407a8e09a2bd48c7eb2077311e75787de33a095e",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/chrome_200_percent.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/chrome_200_percent.pak",
+      "bytes": 1268994,
+      "sha256": "b3ce9953a50959e9c1a018d6512742f48cee0dbf53644ea952909418bd7c2b3e",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/chrome_crashpad_handler",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/chrome_crashpad_handler",
+      "bytes": 1918544,
+      "sha256": "684bded309fcbb7632024f90b60b82207345cbbd198c3973621fcf4b88a029ca",
+      "mode": "0o755"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/hollowpact",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/hollowpact",
+      "bytes": 228629832,
+      "sha256": "9155dd17c16f0edeaadb74db4fd91e2730511cca83e8b130d59bab57aa4d4e4b",
+      "mode": "0o755"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/icudtl.dat",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/icudtl.dat",
+      "bytes": 10876560,
+      "sha256": "9f48c7f9c7c94d516a14870707e910ab94d75ae640ff6842c4af53276cd26ebe",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/libffmpeg.so",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/libffmpeg.so",
+      "bytes": 2801736,
+      "sha256": "1e08e8020b37e25cd38ec5a4a57e4b519c98aadc6ab73f6b63ba2476bac770a9",
+      "mode": "0o755"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/libvk_swiftshader.so",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/libvk_swiftshader.so",
+      "bytes": 4657848,
+      "sha256": "4a8c99a2d0aae4a263b92612bacfd487cecb4aa221e48e40fea8a062cbe23260",
+      "mode": "0o755"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/libvulkan.so.1",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/libvulkan.so.1",
+      "bytes": 2483184,
+      "sha256": "95e6425e78f7369f41d5fb55cdd063af9e2d0954f0fc70a6166f7d07626e2b68",
+      "mode": "0o755"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/af.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/af.pak",
+      "bytes": 115408,
+      "sha256": "9abd48c6c1f34e14dcad66131a9cc8624b4e850ebf692b05a66fb18d5c537588",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/am.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/am.pak",
+      "bytes": 186176,
+      "sha256": "28545e9a72220ddca39f7d7b36eacb3b661a3cc40d212b7e56be21d90f5ee71b",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/ar.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/ar.pak",
+      "bytes": 185624,
+      "sha256": "4bca90c44595767a6d03cf1ae9a3a896e19f476c435d1f9cd535ffd74e908419",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/bg.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/bg.pak",
+      "bytes": 211672,
+      "sha256": "96741df7a895b1d4894db0fd5e5db4f761849eb0e5ebadf6f3f27daf16723ebe",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/bn.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/bn.pak",
+      "bytes": 269422,
+      "sha256": "eaa31ac7166ef4c5c61bf6e4a9b0a0b4cb1825e1b57e5a45f76faa65dc0d113f",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/ca.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/ca.pak",
+      "bytes": 129791,
+      "sha256": "3f86be184e95323c14604836b8eaf8935fc24f9cd2308cb207be26c318d8f287",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/cs.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/cs.pak",
+      "bytes": 130919,
+      "sha256": "cffb35f66f25ef7dac62b05213dfa787ecddf2533518c02276d8fbe828f541e8",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/da.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/da.pak",
+      "bytes": 119482,
+      "sha256": "14cfcdfecb80d8575d273d8ec03317ae51c3e2c976c862ab774f9af9c7c4557b",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/de.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/de.pak",
+      "bytes": 127411,
+      "sha256": "7d4874ca52ac298dbc4c01d91c1c6a549008dbefc2d0c8f52154d872dce4979f",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/el.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/el.pak",
+      "bytes": 229543,
+      "sha256": "114158bd5f674169564173a12612922259a8acc50076c228c2214659924ee018",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/en-GB.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/en-GB.pak",
+      "bytes": 106865,
+      "sha256": "550775b16b4716e610232e6b06e35a95c4c6ce2dedbd2a26747f8dc8f08d8aeb",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/en-US.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/en-US.pak",
+      "bytes": 106969,
+      "sha256": "e37db76f0a15a4b2a3cbd365bd4f06b0d8dc91fb9a83c03b7cd38503c23c044b",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/es-419.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/es-419.pak",
+      "bytes": 128677,
+      "sha256": "aaacff94a6407a7d487a455889a544f6107107cccb82393a27e9bf593d1b943d",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/es.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/es.pak",
+      "bytes": 129380,
+      "sha256": "b3256546e28dffff82c3d00abae9ad2141cf7bb940e5e39620f6ae30b488dcea",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/et.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/et.pak",
+      "bytes": 116201,
+      "sha256": "41f78768a3ef702356653ab005522a20407e0dbbe7b0ea323683072520f11191",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/fa.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/fa.pak",
+      "bytes": 180542,
+      "sha256": "7bc6e2d1c924b5f32d69e28033b369a67c5d9ce661af81a7ad5a66006a572170",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/fi.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/fi.pak",
+      "bytes": 119440,
+      "sha256": "fb7379246632c90a58a8f7155e390ca583f9d73b6c6ae26baf9bf4878be184df",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/fil.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/fil.pak",
+      "bytes": 131706,
+      "sha256": "7c6c76af71a7d60733a01014c19d9544409d5facd6001fb9058fc8ae8062cf54",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/fr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/fr.pak",
+      "bytes": 136129,
+      "sha256": "95b11fc7368d9f4367534e89456cceda009468abe2423821a11fe1dd1a7b4604",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/gu.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/gu.pak",
+      "bytes": 262702,
+      "sha256": "309dcf4484d9479eeb68dcc7d745f17dfa0ffc4e6b112751de704ce62e8aecbe",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/he.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/he.pak",
+      "bytes": 158974,
+      "sha256": "5764ba9a2261b2ded07f3c3afa8f003594b29f58c73b322f1d89479907a97ca2",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/hi.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/hi.pak",
+      "bytes": 278957,
+      "sha256": "b4d36beed004905461637b0c60eacc6d8eca49ba47ba262ed04d68c88b826bf4",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/hr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/hr.pak",
+      "bytes": 125949,
+      "sha256": "6937159b11ac75bee2c8046a5150596acee10a7c10c75a2469a752175f9e9e99",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/hu.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/hu.pak",
+      "bytes": 137413,
+      "sha256": "d6add186bc8bd342ef5d35cba5261c8c847ecb529697b7c003016435997c9fdc",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/id.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/id.pak",
+      "bytes": 114654,
+      "sha256": "06c550187e7dd49cf0210ac9bcf4401c10e96ed777ccc8fd07e914a9337de9b7",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/it.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/it.pak",
+      "bytes": 127474,
+      "sha256": "b02a5de9de434266991a9e37a6bcced44b65ae3c164e4920a736eb350f745ecb",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/ja.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/ja.pak",
+      "bytes": 147791,
+      "sha256": "4b51a3023136f05ae2c0b8e041e262eed3f6d5fa87c782892cba36e10d904b3c",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/kn.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/kn.pak",
+      "bytes": 295238,
+      "sha256": "875859c2b88312ff3644c6cadd65dd8b5057e336a0a2bea512fbffa7c85695a7",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/ko.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/ko.pak",
+      "bytes": 126096,
+      "sha256": "8c98d075840cb4800016c6df141183b3ec69cfe20df38ea759f2274259a86666",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/lt.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/lt.pak",
+      "bytes": 134875,
+      "sha256": "b7e01915d9f1131743aaa7b1c262c7ef685c10d8621f2437e46ebefe980a6efc",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/lv.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/lv.pak",
+      "bytes": 135866,
+      "sha256": "22fc0a3e04e7772c7df2f4c74e928ceb4046edc8c1688dbc4f04676f00944952",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/ml.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/ml.pak",
+      "bytes": 312341,
+      "sha256": "fffb1b403dd4a62f0116fb39a961a73dd0766049bdc23118c90f4360971e225b",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/mr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/mr.pak",
+      "bytes": 261151,
+      "sha256": "0f5879b812517af23c9655347b08852c8e8f5c399b288466a8ec717d397e94d6",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/ms.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/ms.pak",
+      "bytes": 117618,
+      "sha256": "ce1f9c8cfe5b2705b281d3480e0df992ab36f3518956100564eb9edae5d03dbb",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/nb.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/nb.pak",
+      "bytes": 115867,
+      "sha256": "36c2e3f5d4e920e8e0411878df2cbd4a92bd9e553e9e427b3aae355bfb9fc955",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/nl.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/nl.pak",
+      "bytes": 121445,
+      "sha256": "5cceeeff48b3aad830116126f8f15b3bfddf682bbdf986b3a266e0e72ff463d1",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/pl.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/pl.pak",
+      "bytes": 131479,
+      "sha256": "35e0d1578baa9c9441c83383aade35d69c03bc2307783c639c01b156015a11a8",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/pt-BR.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/pt-BR.pak",
+      "bytes": 126281,
+      "sha256": "907226d904de6a571a80289ef6a8072bad867b1f63ec37fcd735c30763af970d",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/pt-PT.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/pt-PT.pak",
+      "bytes": 127702,
+      "sha256": "540b4f6c0d58d8f0315a8e4fbee49e41b6fbfe2b9c2065b8f28b069619c132ba",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/ro.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/ro.pak",
+      "bytes": 132409,
+      "sha256": "b7c3b4af988ec26f8f3a3fa789cdbe46712a14497e47cba6266c9f0e808e57f7",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/ru.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/ru.pak",
+      "bytes": 207665,
+      "sha256": "b011f8c753fa33f9aa91732590ca13a791824a7fd94a8f35c41330fe346de11a",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/sk.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/sk.pak",
+      "bytes": 133943,
+      "sha256": "8c743c91af3dd53fd5c36e88061a62dddb2b91687ec779e7958774f436486dac",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/sl.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/sl.pak",
+      "bytes": 126084,
+      "sha256": "ccb3f13a24076f3a29148486b296255a65318314ad25cd276152146732cb024d",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/sr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/sr.pak",
+      "bytes": 196325,
+      "sha256": "92bac4af059cea0f2f72293fde0cc665b8554c00653b26611cfcc6e98b4971e8",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/sv.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/sv.pak",
+      "bytes": 116299,
+      "sha256": "54cf311648f8688effc4cfd70a580b85b837e67dd9e5f194d9f761202a27ebba",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/sw.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/sw.pak",
+      "bytes": 124791,
+      "sha256": "3475068a7e3b8205444f914d7d29421fb45b87c008594984f3e7b04cff22b2d3",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/ta.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/ta.pak",
+      "bytes": 314512,
+      "sha256": "e4053fb503c08d94b7364b10a74abc04506d15f67ad74b9ea66185999ea177df",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/te.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/te.pak",
+      "bytes": 289043,
+      "sha256": "4955104544daf89da718e7f584ad66fe35dd4ca219c245697de2929acb317ec8",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/th.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/th.pak",
+      "bytes": 249576,
+      "sha256": "2272de996ac5c553cf01f406e6f708cb98ad419708355fb4969cb91ec8031e56",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/tr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/tr.pak",
+      "bytes": 125317,
+      "sha256": "f690918f136d8c5bad9853c358670e60475999d0faafb36d36001c4fa7ec4f8b",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/uk.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/uk.pak",
+      "bytes": 209472,
+      "sha256": "26ddf342bb13d674df20162ff1a955edc56e6ffc64bc846953e7b2be8827fe80",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/ur.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/ur.pak",
+      "bytes": 185651,
+      "sha256": "203e225739beb9879eebb08d08d9aa17b80f02320049f03d453156ff53170da8",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/vi.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/vi.pak",
+      "bytes": 149276,
+      "sha256": "4dcf8fe139c4355a8999137098532662e5af79d7b464c6e2faab686605d7ad8d",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/zh-CN.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/zh-CN.pak",
+      "bytes": 103981,
+      "sha256": "4f2cf868b28d2ef31cc8d877bd1295bcd99997505bd96828905900250160f3c5",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/locales/zh-TW.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/locales/zh-TW.pak",
+      "bytes": 103156,
+      "sha256": "320cbc6cf7f15cc652e2e4a6c4e964d9fe5dcbf2d65ebf379beb47d738317d4d",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/resources/app-update.yml",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/resources/app-update.yml",
+      "bytes": 109,
+      "sha256": "847115d22b88b606e1ef739cbf5c5c1bce9c122c42f2731be9c7260fb4dbdb50",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/resources.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/resources.pak",
+      "bytes": 12634346,
+      "sha256": "36c69ef429b0674fa0154ee2406ee16789881ebdd2aad365acb47d805fa6dee1",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/snapshot_blob.bin",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/snapshot_blob.bin",
+      "bytes": 368768,
+      "sha256": "9a4c7bf075969c51813f48726bac3df3299651393502764c4c052c03a07b73a4",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/v8_context_snapshot.bin",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/v8_context_snapshot.bin",
+      "bytes": 742200,
+      "sha256": "40d6b736c00fb84da3e2cd6403ed3c9240fecf07d9be68675642f791dd0e9a16",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-02/vk_swiftshader_icd.json",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/vk_swiftshader_icd.json",
+      "bytes": 107,
+      "sha256": "c9eef28b6b984fec220ef0abfecc40b502d46946706e47bfe97707027cb818bd",
+      "mode": "0o644"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-03/resources/app.asar",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/resources/app.asar",
+      "bytes": 15995574,
+      "sha256": "fa54150ce08f79d05e1d3785e8051eb2ba7c26f79920f3b0eb34bfdc26f482a4",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/LICENSE.electron.txt",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/LICENSE.electron.txt",
+      "bytes": 1096,
+      "sha256": "5154e165bd6c2cc0cfbcd8916498c7abab0497923bafcd5cb07673fe8480087d",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/LICENSES.chromium.html",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/LICENSES.chromium.html",
+      "bytes": 20472830,
+      "sha256": "7b328b8c7463ac9bfc7dc648c751533517c8441a0b5b21047d6c0b2620e60d70",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/chrome_100_percent.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/chrome_100_percent.pak",
+      "bytes": 719654,
+      "sha256": "ab7c4b7b6cb8832a31d44b95ec50ce52294f49422a3bdde4e21968eca2930cbe",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/chrome_200_percent.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/chrome_200_percent.pak",
+      "bytes": 1269017,
+      "sha256": "30fa4a6e27c9ff2fb0f939f01158477e621a67d86e9ecb84cf11b3947db8eb9d",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/d3dcompiler_47.dll",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/d3dcompiler_47.dll",
+      "bytes": 4741488,
+      "sha256": "a05f99734f7c4822fefc12b367af21fd0976ed6608752fb1e1e80b6ece7ecbbb",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/dxcompiler.dll",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/dxcompiler.dll",
+      "bytes": 25745408,
+      "sha256": "0c7a5fab6466c211fe39d90d845b7d6a64ac73e8c809d4fa0c09907bb45c1f3d",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/dxil.dll",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/dxil.dll",
+      "bytes": 1509760,
+      "sha256": "77e039c905030a641e53658a008b74e90635a5ea9b6b79eabd0f2003bdfca59a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/ffmpeg.dll",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/ffmpeg.dll",
+      "bytes": 3113472,
+      "sha256": "7728490eb079c19b17baeff2b6590c976f6a928b3c17923aeb4fcf1f1f31d299",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/icudtl.dat",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/icudtl.dat",
+      "bytes": 10876560,
+      "sha256": "9f48c7f9c7c94d516a14870707e910ab94d75ae640ff6842c4af53276cd26ebe",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/af.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/af.pak",
+      "bytes": 636155,
+      "sha256": "3017b141bd16e24190d810f0748612f0fd4352ca8553002b9a63a7f77f7154f8",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/am.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/am.pak",
+      "bytes": 1029450,
+      "sha256": "67b938d162bc75db067120bb8366b5bafd9a75fa99a0ca9ad4f46b47d1d37634",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/ar.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ar.pak",
+      "bytes": 1130919,
+      "sha256": "4c47004abd0969cb1174d06eb7429c024872207960986afbf3cae37e339a8d01",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/bg.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/bg.pak",
+      "bytes": 1178203,
+      "sha256": "2eb9c74c67e4b13b45a73061fa978738e335bc245da71bab0ea9b205fe91074e",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/bn.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/bn.pak",
+      "bytes": 1513545,
+      "sha256": "415621a5c0b1546e6e447d43b76414425a8703cc7681d637ec1f283ad0c787e7",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/ca.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ca.pak",
+      "bytes": 716908,
+      "sha256": "6f28297c1ccb628f534d65dade167ae559f83eace359acf47e48ff890b9409d5",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/cs.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/cs.pak",
+      "bytes": 743351,
+      "sha256": "799a789ce531991cb975425730db310f9a8fe74091eee568f3e65fcc7ef0cd57",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/da.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/da.pak",
+      "bytes": 666471,
+      "sha256": "530fd95daee21d793b99492ca7d0bf9979daffe42944e24414d4b08a3d23b9fe",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/de.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/de.pak",
+      "bytes": 717862,
+      "sha256": "58165025c4252ba8b2ce8203b59362b9968938cb0fef9d7da04941be22f41bb3",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/el.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/el.pak",
+      "bytes": 1295538,
+      "sha256": "37d2e1ef69fea9bdb1e0902cbc61a458baa9009fc3761029bd1c1882a7a0c9b2",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/en-GB.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/en-GB.pak",
+      "bytes": 580030,
+      "sha256": "01d9200a5daee1770f7147b166d25baa6a8dd72c138c3c526421e656dec789f5",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/en-US.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/en-US.pak",
+      "bytes": 586582,
+      "sha256": "23b271e8009bfa14783700cd0712b4ecaa5b8f2ea28a4d81ae1d7e05bc0c96b1",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/es-419.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/es-419.pak",
+      "bytes": 707627,
+      "sha256": "2766fd52da83ff679346313e66440f013a7d478b9be946df4ab197505912450b",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/es.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/es.pak",
+      "bytes": 703941,
+      "sha256": "fe6fff51ef19db1f4fe0fc602e0bd4bd7fabcfb1ca5d6896d1ce0efcf37e49c4",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/et.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/et.pak",
+      "bytes": 642216,
+      "sha256": "dd1205eae606f12510e24ce39f301439c98b3293d766ca5839dc292a14d7973c",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/fa.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/fa.pak",
+      "bytes": 1063069,
+      "sha256": "ba33624ccad6d0e4a4339589c56be557b28968bf9422bd12a8f26e2a3d581577",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/fi.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/fi.pak",
+      "bytes": 655113,
+      "sha256": "1f3123d7fb5c22a95b5250ea17450b665c3c6cd6a6dfd28bbdde15e1bf684a0e",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/fil.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/fil.pak",
+      "bytes": 741385,
+      "sha256": "02e2c70d3d85b0deb677a9ae576ae3cf89e80774532cb3315c14f1e8ce64b310",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/fr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/fr.pak",
+      "bytes": 763461,
+      "sha256": "8bad7fd88072ac66649dd9307da9163962f8ab00313e627bf1c5ca4450a48b4a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/gu.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/gu.pak",
+      "bytes": 1495625,
+      "sha256": "e86e8c240d4b6283abb03c49df9e8899607ef9def6d4933c7a541d63b5835271",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/he.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/he.pak",
+      "bytes": 928748,
+      "sha256": "ddc1f304ab1f4489d19ae2b31e7f8e3ffb47dae439520159e8975422c65e4115",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/hi.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/hi.pak",
+      "bytes": 1586602,
+      "sha256": "015b3856dc05e8635a48e749e6970fe43f5d620b8dbd04e5abff586178213f6e",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/hr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/hr.pak",
+      "bytes": 715279,
+      "sha256": "d46c64ae8af3562e37eb80438aa2bee228fafda251d58ba4d0991291f1c72aab",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/hu.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/hu.pak",
+      "bytes": 765640,
+      "sha256": "0a46fc8d50f74effd1cfe1979e677df3de6fc47e6b551267303d93d57bd83f50",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/id.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/id.pak",
+      "bytes": 635080,
+      "sha256": "f567569c42a25bb2dfc5c33e13aac558c0e2a1d5d4b969592bbd0841b36438db",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/it.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/it.pak",
+      "bytes": 693991,
+      "sha256": "aeb1d99a2a09476d9ee0fd133df2d4d987c731b9f91a248ac4e60377ddda1ca5",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/ja.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ja.pak",
+      "bytes": 842053,
+      "sha256": "f6e0d8eda3bc8f1112494bda96b230f3c44f054c47cced50c94c5ee9199f04c6",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/kn.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/kn.pak",
+      "bytes": 1720240,
+      "sha256": "af5fed2130102ecc0c878059c88faed9d6db2e8b147fb5ae9e15e3fe69706c8a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/ko.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ko.pak",
+      "bytes": 718705,
+      "sha256": "55a3a8db9c84b1fe9e50b56d68fb069ad7546117cf1f6cb89f36f49cc044ad5e",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/lt.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/lt.pak",
+      "bytes": 777281,
+      "sha256": "af969f4407c190dd01a426fa1244cb1ec7cdf2909d1c3ba5b87ff662ba567303",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/lv.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/lv.pak",
+      "bytes": 774733,
+      "sha256": "4455ab7c06172c2c80796a99558e41f452cc3b33be76654d70440cf4ac7a2d34",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/ml.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ml.pak",
+      "bytes": 1767850,
+      "sha256": "b5606265910e45098a88e989202a550531f6d00333c6b112ed4c5cbc07b2ff6a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/mr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/mr.pak",
+      "bytes": 1467313,
+      "sha256": "8465d4077ed5414cbcb7d9bdb00d85e515a1a069703cdc1d4d67c9d6e5623fb0",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/ms.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ms.pak",
+      "bytes": 668356,
+      "sha256": "af7021a00befa586aa067ae3ccb339079e6f13ee0cab1621836f6abb608b6f2a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/nb.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/nb.pak",
+      "bytes": 638121,
+      "sha256": "d97a2b0cbe6adc99add2ed3ce0d15d0bb124b778086c466c126634d60ea72608",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/nl.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/nl.pak",
+      "bytes": 664759,
+      "sha256": "b642c8ab5ce11438e9a8fd4639244fa8f1d55cfd70269565490bc55ee907b048",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/pl.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/pl.pak",
+      "bytes": 742064,
+      "sha256": "8a0969fc743d3e2f5111387d53c0d79e8c1d9f68256ad6553b87fca2bcaa7e6e",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/pt-BR.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/pt-BR.pak",
+      "bytes": 697019,
+      "sha256": "5546559a56f9ac3191062c3fd42defd190a68e78ac988eb57fa5a6fd2dc5f874",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/pt-PT.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/pt-PT.pak",
+      "bytes": 701056,
+      "sha256": "bdfa7264dddf70f936f1785737969559a577b51d1952c820a468c611d18b17ca",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/ro.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ro.pak",
+      "bytes": 728144,
+      "sha256": "1e6b5b0dac63a9e951daf523de310f6bd9e5c53e281f37706d41bd35d2a08bb5",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/ru.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ru.pak",
+      "bytes": 1200985,
+      "sha256": "a9e76536472c45b39e7ae2af5f3ae1bc0e50a11646efdb6fb3ca373b5f2e2c70",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/sk.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/sk.pak",
+      "bytes": 755481,
+      "sha256": "3cdc8bca8696c90a572fb15c865caa5c286df45344c72194c3eea97201cc816a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/sl.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/sl.pak",
+      "bytes": 722720,
+      "sha256": "e1371c8df577b979e3a515af34b0aaa3d07153c7a5c55d39a9b49a7ffe62d3d2",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/sr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/sr.pak",
+      "bytes": 1112909,
+      "sha256": "c42a674e3f43aa70cef005931915c8b7ceb34b29566fba3309f8da931dc7861f",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/sv.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/sv.pak",
+      "bytes": 646543,
+      "sha256": "7b0399a206bfbebe77d1a4fc598c8a6636a1bd940d3ab56519cf4af0134b6edb",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/sw.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/sw.pak",
+      "bytes": 685127,
+      "sha256": "bd41ea707a0d90d683ec8d5d0f0c79f3e925747bc4ea1982562dfb75080199b9",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/ta.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ta.pak",
+      "bytes": 1758067,
+      "sha256": "91fb1460711df108d8d435a378c8be1d1e80b0886c0158d8c6ae92f35812681b",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/te.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/te.pak",
+      "bytes": 1629379,
+      "sha256": "fc8c2706c5dfd36e7af8e380a240e0f697cc5fe969b512092a2185896512c4af",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/th.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/th.pak",
+      "bytes": 1368866,
+      "sha256": "c1f4235c31bc05153230b0e55b7aabc9020d7460d5b0a025c386885e1e4bda3c",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/tr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/tr.pak",
+      "bytes": 697394,
+      "sha256": "d5648d7eaf1826211fb244fcf8419dabdc16c228d92139bc8b0b73c7a6b7e700",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/uk.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/uk.pak",
+      "bytes": 1211563,
+      "sha256": "ec5d0b426e289c064e8f2d63636ae2a544ff30fc1e99dde04fe1920971e4d060",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/ur.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ur.pak",
+      "bytes": 1047994,
+      "sha256": "c218e21744df2ff0669a87d497d65d76333073577360d4c662c592de146bf82a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/vi.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/vi.pak",
+      "bytes": 830014,
+      "sha256": "76a32f8ad5d08a6f9899e12e4aa9b3d9a9023931e2ca0f73e5ced541c922dcfb",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/zh-CN.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/zh-CN.pak",
+      "bytes": 592081,
+      "sha256": "7887bd3d01e12306e32a11d9a20566ca0e93688a0375e6ff59da04cf782b1681",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/locales/zh-TW.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/zh-TW.pak",
+      "bytes": 583887,
+      "sha256": "7cb5f76e54a548d4e52aa8cdf226a4339bdadc304897abca690f407e95e42f4d",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/resources/app.asar",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-02/resources/app.asar",
+      "bytes": 21138040,
+      "sha256": "15f5f6eebf3a41829e7dd8f268869fbd667996bddc1cb69d960e5bfdf04ae757",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/resources.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/resources.pak",
+      "bytes": 12435875,
+      "sha256": "ee5707e9409e76742e1dacdae0ebbb3c567b8772ce5bbcb9785aa215f5784c22",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/snapshot_blob.bin",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/snapshot_blob.bin",
+      "bytes": 368768,
+      "sha256": "0b18f38d50c8f96c9fa2b8205c66c25b3ae45c985e8f2e7b6ecfab9f4d4d19d0",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/v8_context_snapshot.bin",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/v8_context_snapshot.bin",
+      "bytes": 742200,
+      "sha256": "6d747f11d721655b780a47f6010eeef8428266e7521280e1e094d27c6f34311d",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/vk_swiftshader.dll",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/vk_swiftshader.dll",
+      "bytes": 5520384,
+      "sha256": "3d8555de997bca1e58a72c6a8bc13a8267dca2c882ee0a783803470b289d1d23",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/vk_swiftshader_icd.json",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/vk_swiftshader_icd.json",
+      "bytes": 106,
+      "sha256": "32d83ff113fef532a9f97e0d2831f8656628ab1c99e9060f0332b1532839afd9",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-04/vulkan-1.dll",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/vulkan-1.dll",
+      "bytes": 939520,
+      "sha256": "5549afe706236d5c7ad5df4607c51639c790dfd118770eb27af8f2c5c076c3c7",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/Hollowpact.exe",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/Hollowpact.exe",
+      "bytes": 245867008,
+      "sha256": "16f70d7b2f701ee278da619e7ffa22a8da2cf2f59434f35bc39cf26c2ac58875",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/LICENSE.electron.txt",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/LICENSE.electron.txt",
+      "bytes": 1096,
+      "sha256": "5154e165bd6c2cc0cfbcd8916498c7abab0497923bafcd5cb07673fe8480087d",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/LICENSES.chromium.html",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/LICENSES.chromium.html",
+      "bytes": 20472830,
+      "sha256": "7b328b8c7463ac9bfc7dc648c751533517c8441a0b5b21047d6c0b2620e60d70",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/chrome_100_percent.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/chrome_100_percent.pak",
+      "bytes": 719654,
+      "sha256": "ab7c4b7b6cb8832a31d44b95ec50ce52294f49422a3bdde4e21968eca2930cbe",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/chrome_200_percent.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/chrome_200_percent.pak",
+      "bytes": 1269017,
+      "sha256": "30fa4a6e27c9ff2fb0f939f01158477e621a67d86e9ecb84cf11b3947db8eb9d",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/d3dcompiler_47.dll",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/d3dcompiler_47.dll",
+      "bytes": 4741488,
+      "sha256": "a05f99734f7c4822fefc12b367af21fd0976ed6608752fb1e1e80b6ece7ecbbb",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/dxcompiler.dll",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/dxcompiler.dll",
+      "bytes": 25745408,
+      "sha256": "0c7a5fab6466c211fe39d90d845b7d6a64ac73e8c809d4fa0c09907bb45c1f3d",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/dxil.dll",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/dxil.dll",
+      "bytes": 1509760,
+      "sha256": "77e039c905030a641e53658a008b74e90635a5ea9b6b79eabd0f2003bdfca59a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/ffmpeg.dll",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/ffmpeg.dll",
+      "bytes": 3113472,
+      "sha256": "7728490eb079c19b17baeff2b6590c976f6a928b3c17923aeb4fcf1f1f31d299",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/icudtl.dat",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/icudtl.dat",
+      "bytes": 10876560,
+      "sha256": "9f48c7f9c7c94d516a14870707e910ab94d75ae640ff6842c4af53276cd26ebe",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/af.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/af.pak",
+      "bytes": 636155,
+      "sha256": "3017b141bd16e24190d810f0748612f0fd4352ca8553002b9a63a7f77f7154f8",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/am.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/am.pak",
+      "bytes": 1029450,
+      "sha256": "67b938d162bc75db067120bb8366b5bafd9a75fa99a0ca9ad4f46b47d1d37634",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/ar.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ar.pak",
+      "bytes": 1130919,
+      "sha256": "4c47004abd0969cb1174d06eb7429c024872207960986afbf3cae37e339a8d01",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/bg.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/bg.pak",
+      "bytes": 1178203,
+      "sha256": "2eb9c74c67e4b13b45a73061fa978738e335bc245da71bab0ea9b205fe91074e",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/bn.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/bn.pak",
+      "bytes": 1513545,
+      "sha256": "415621a5c0b1546e6e447d43b76414425a8703cc7681d637ec1f283ad0c787e7",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/ca.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ca.pak",
+      "bytes": 716908,
+      "sha256": "6f28297c1ccb628f534d65dade167ae559f83eace359acf47e48ff890b9409d5",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/cs.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/cs.pak",
+      "bytes": 743351,
+      "sha256": "799a789ce531991cb975425730db310f9a8fe74091eee568f3e65fcc7ef0cd57",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/da.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/da.pak",
+      "bytes": 666471,
+      "sha256": "530fd95daee21d793b99492ca7d0bf9979daffe42944e24414d4b08a3d23b9fe",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/de.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/de.pak",
+      "bytes": 717862,
+      "sha256": "58165025c4252ba8b2ce8203b59362b9968938cb0fef9d7da04941be22f41bb3",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/el.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/el.pak",
+      "bytes": 1295538,
+      "sha256": "37d2e1ef69fea9bdb1e0902cbc61a458baa9009fc3761029bd1c1882a7a0c9b2",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/en-GB.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/en-GB.pak",
+      "bytes": 580030,
+      "sha256": "01d9200a5daee1770f7147b166d25baa6a8dd72c138c3c526421e656dec789f5",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/en-US.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/en-US.pak",
+      "bytes": 586582,
+      "sha256": "23b271e8009bfa14783700cd0712b4ecaa5b8f2ea28a4d81ae1d7e05bc0c96b1",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/es-419.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/es-419.pak",
+      "bytes": 707627,
+      "sha256": "2766fd52da83ff679346313e66440f013a7d478b9be946df4ab197505912450b",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/es.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/es.pak",
+      "bytes": 703941,
+      "sha256": "fe6fff51ef19db1f4fe0fc602e0bd4bd7fabcfb1ca5d6896d1ce0efcf37e49c4",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/et.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/et.pak",
+      "bytes": 642216,
+      "sha256": "dd1205eae606f12510e24ce39f301439c98b3293d766ca5839dc292a14d7973c",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/fa.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/fa.pak",
+      "bytes": 1063069,
+      "sha256": "ba33624ccad6d0e4a4339589c56be557b28968bf9422bd12a8f26e2a3d581577",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/fi.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/fi.pak",
+      "bytes": 655113,
+      "sha256": "1f3123d7fb5c22a95b5250ea17450b665c3c6cd6a6dfd28bbdde15e1bf684a0e",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/fil.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/fil.pak",
+      "bytes": 741385,
+      "sha256": "02e2c70d3d85b0deb677a9ae576ae3cf89e80774532cb3315c14f1e8ce64b310",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/fr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/fr.pak",
+      "bytes": 763461,
+      "sha256": "8bad7fd88072ac66649dd9307da9163962f8ab00313e627bf1c5ca4450a48b4a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/gu.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/gu.pak",
+      "bytes": 1495625,
+      "sha256": "e86e8c240d4b6283abb03c49df9e8899607ef9def6d4933c7a541d63b5835271",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/he.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/he.pak",
+      "bytes": 928748,
+      "sha256": "ddc1f304ab1f4489d19ae2b31e7f8e3ffb47dae439520159e8975422c65e4115",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/hi.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/hi.pak",
+      "bytes": 1586602,
+      "sha256": "015b3856dc05e8635a48e749e6970fe43f5d620b8dbd04e5abff586178213f6e",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/hr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/hr.pak",
+      "bytes": 715279,
+      "sha256": "d46c64ae8af3562e37eb80438aa2bee228fafda251d58ba4d0991291f1c72aab",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/hu.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/hu.pak",
+      "bytes": 765640,
+      "sha256": "0a46fc8d50f74effd1cfe1979e677df3de6fc47e6b551267303d93d57bd83f50",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/id.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/id.pak",
+      "bytes": 635080,
+      "sha256": "f567569c42a25bb2dfc5c33e13aac558c0e2a1d5d4b969592bbd0841b36438db",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/it.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/it.pak",
+      "bytes": 693991,
+      "sha256": "aeb1d99a2a09476d9ee0fd133df2d4d987c731b9f91a248ac4e60377ddda1ca5",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/ja.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ja.pak",
+      "bytes": 842053,
+      "sha256": "f6e0d8eda3bc8f1112494bda96b230f3c44f054c47cced50c94c5ee9199f04c6",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/kn.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/kn.pak",
+      "bytes": 1720240,
+      "sha256": "af5fed2130102ecc0c878059c88faed9d6db2e8b147fb5ae9e15e3fe69706c8a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/ko.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ko.pak",
+      "bytes": 718705,
+      "sha256": "55a3a8db9c84b1fe9e50b56d68fb069ad7546117cf1f6cb89f36f49cc044ad5e",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/lt.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/lt.pak",
+      "bytes": 777281,
+      "sha256": "af969f4407c190dd01a426fa1244cb1ec7cdf2909d1c3ba5b87ff662ba567303",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/lv.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/lv.pak",
+      "bytes": 774733,
+      "sha256": "4455ab7c06172c2c80796a99558e41f452cc3b33be76654d70440cf4ac7a2d34",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/ml.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ml.pak",
+      "bytes": 1767850,
+      "sha256": "b5606265910e45098a88e989202a550531f6d00333c6b112ed4c5cbc07b2ff6a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/mr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/mr.pak",
+      "bytes": 1467313,
+      "sha256": "8465d4077ed5414cbcb7d9bdb00d85e515a1a069703cdc1d4d67c9d6e5623fb0",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/ms.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ms.pak",
+      "bytes": 668356,
+      "sha256": "af7021a00befa586aa067ae3ccb339079e6f13ee0cab1621836f6abb608b6f2a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/nb.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/nb.pak",
+      "bytes": 638121,
+      "sha256": "d97a2b0cbe6adc99add2ed3ce0d15d0bb124b778086c466c126634d60ea72608",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/nl.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/nl.pak",
+      "bytes": 664759,
+      "sha256": "b642c8ab5ce11438e9a8fd4639244fa8f1d55cfd70269565490bc55ee907b048",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/pl.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/pl.pak",
+      "bytes": 742064,
+      "sha256": "8a0969fc743d3e2f5111387d53c0d79e8c1d9f68256ad6553b87fca2bcaa7e6e",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/pt-BR.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/pt-BR.pak",
+      "bytes": 697019,
+      "sha256": "5546559a56f9ac3191062c3fd42defd190a68e78ac988eb57fa5a6fd2dc5f874",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/pt-PT.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/pt-PT.pak",
+      "bytes": 701056,
+      "sha256": "bdfa7264dddf70f936f1785737969559a577b51d1952c820a468c611d18b17ca",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/ro.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ro.pak",
+      "bytes": 728144,
+      "sha256": "1e6b5b0dac63a9e951daf523de310f6bd9e5c53e281f37706d41bd35d2a08bb5",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/ru.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ru.pak",
+      "bytes": 1200985,
+      "sha256": "a9e76536472c45b39e7ae2af5f3ae1bc0e50a11646efdb6fb3ca373b5f2e2c70",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/sk.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/sk.pak",
+      "bytes": 755481,
+      "sha256": "3cdc8bca8696c90a572fb15c865caa5c286df45344c72194c3eea97201cc816a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/sl.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/sl.pak",
+      "bytes": 722720,
+      "sha256": "e1371c8df577b979e3a515af34b0aaa3d07153c7a5c55d39a9b49a7ffe62d3d2",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/sr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/sr.pak",
+      "bytes": 1112909,
+      "sha256": "c42a674e3f43aa70cef005931915c8b7ceb34b29566fba3309f8da931dc7861f",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/sv.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/sv.pak",
+      "bytes": 646543,
+      "sha256": "7b0399a206bfbebe77d1a4fc598c8a6636a1bd940d3ab56519cf4af0134b6edb",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/sw.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/sw.pak",
+      "bytes": 685127,
+      "sha256": "bd41ea707a0d90d683ec8d5d0f0c79f3e925747bc4ea1982562dfb75080199b9",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/ta.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ta.pak",
+      "bytes": 1758067,
+      "sha256": "91fb1460711df108d8d435a378c8be1d1e80b0886c0158d8c6ae92f35812681b",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/te.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/te.pak",
+      "bytes": 1629379,
+      "sha256": "fc8c2706c5dfd36e7af8e380a240e0f697cc5fe969b512092a2185896512c4af",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/th.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/th.pak",
+      "bytes": 1368866,
+      "sha256": "c1f4235c31bc05153230b0e55b7aabc9020d7460d5b0a025c386885e1e4bda3c",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/tr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/tr.pak",
+      "bytes": 697394,
+      "sha256": "d5648d7eaf1826211fb244fcf8419dabdc16c228d92139bc8b0b73c7a6b7e700",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/uk.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/uk.pak",
+      "bytes": 1211563,
+      "sha256": "ec5d0b426e289c064e8f2d63636ae2a544ff30fc1e99dde04fe1920971e4d060",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/ur.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ur.pak",
+      "bytes": 1047994,
+      "sha256": "c218e21744df2ff0669a87d497d65d76333073577360d4c662c592de146bf82a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/vi.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/vi.pak",
+      "bytes": 830014,
+      "sha256": "76a32f8ad5d08a6f9899e12e4aa9b3d9a9023931e2ca0f73e5ced541c922dcfb",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/zh-CN.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/zh-CN.pak",
+      "bytes": 592081,
+      "sha256": "7887bd3d01e12306e32a11d9a20566ca0e93688a0375e6ff59da04cf782b1681",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/locales/zh-TW.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/zh-TW.pak",
+      "bytes": 583887,
+      "sha256": "7cb5f76e54a548d4e52aa8cdf226a4339bdadc304897abca690f407e95e42f4d",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/resources/app.asar",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-01/resources/app.asar",
+      "bytes": 15995574,
+      "sha256": "fa54150ce08f79d05e1d3785e8051eb2ba7c26f79920f3b0eb34bfdc26f482a4",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/resources.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/resources.pak",
+      "bytes": 12435875,
+      "sha256": "ee5707e9409e76742e1dacdae0ebbb3c567b8772ce5bbcb9785aa215f5784c22",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/snapshot_blob.bin",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/snapshot_blob.bin",
+      "bytes": 368768,
+      "sha256": "0b18f38d50c8f96c9fa2b8205c66c25b3ae45c985e8f2e7b6ecfab9f4d4d19d0",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/v8_context_snapshot.bin",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/v8_context_snapshot.bin",
+      "bytes": 742200,
+      "sha256": "6d747f11d721655b780a47f6010eeef8428266e7521280e1e094d27c6f34311d",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/vk_swiftshader.dll",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/vk_swiftshader.dll",
+      "bytes": 5520384,
+      "sha256": "3d8555de997bca1e58a72c6a8bc13a8267dca2c882ee0a783803470b289d1d23",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/vk_swiftshader_icd.json",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/vk_swiftshader_icd.json",
+      "bytes": 106,
+      "sha256": "32d83ff113fef532a9f97e0d2831f8656628ab1c99e9060f0332b1532839afd9",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-06/vulkan-1.dll",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/vulkan-1.dll",
+      "bytes": 939520,
+      "sha256": "5549afe706236d5c7ad5df4607c51639c790dfd118770eb27af8f2c5c076c3c7",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/Hollowpact.exe",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-04/Hollowpact.exe",
+      "bytes": 245867008,
+      "sha256": "d9421d46864f7be6eea4162db8f6f5f48aaa1c7787d38c7ba0abe0a0d9461d95",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/LICENSE.electron.txt",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/LICENSE.electron.txt",
+      "bytes": 1096,
+      "sha256": "5154e165bd6c2cc0cfbcd8916498c7abab0497923bafcd5cb07673fe8480087d",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/LICENSES.chromium.html",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/LICENSES.chromium.html",
+      "bytes": 20472830,
+      "sha256": "7b328b8c7463ac9bfc7dc648c751533517c8441a0b5b21047d6c0b2620e60d70",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/chrome_100_percent.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/chrome_100_percent.pak",
+      "bytes": 719654,
+      "sha256": "ab7c4b7b6cb8832a31d44b95ec50ce52294f49422a3bdde4e21968eca2930cbe",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/chrome_200_percent.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/chrome_200_percent.pak",
+      "bytes": 1269017,
+      "sha256": "30fa4a6e27c9ff2fb0f939f01158477e621a67d86e9ecb84cf11b3947db8eb9d",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/d3dcompiler_47.dll",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/d3dcompiler_47.dll",
+      "bytes": 4741488,
+      "sha256": "a05f99734f7c4822fefc12b367af21fd0976ed6608752fb1e1e80b6ece7ecbbb",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/dxcompiler.dll",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/dxcompiler.dll",
+      "bytes": 25745408,
+      "sha256": "0c7a5fab6466c211fe39d90d845b7d6a64ac73e8c809d4fa0c09907bb45c1f3d",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/dxil.dll",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/dxil.dll",
+      "bytes": 1509760,
+      "sha256": "77e039c905030a641e53658a008b74e90635a5ea9b6b79eabd0f2003bdfca59a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/ffmpeg.dll",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/ffmpeg.dll",
+      "bytes": 3113472,
+      "sha256": "7728490eb079c19b17baeff2b6590c976f6a928b3c17923aeb4fcf1f1f31d299",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/icudtl.dat",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/icudtl.dat",
+      "bytes": 10876560,
+      "sha256": "9f48c7f9c7c94d516a14870707e910ab94d75ae640ff6842c4af53276cd26ebe",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/af.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/af.pak",
+      "bytes": 636155,
+      "sha256": "3017b141bd16e24190d810f0748612f0fd4352ca8553002b9a63a7f77f7154f8",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/am.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/am.pak",
+      "bytes": 1029450,
+      "sha256": "67b938d162bc75db067120bb8366b5bafd9a75fa99a0ca9ad4f46b47d1d37634",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/ar.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ar.pak",
+      "bytes": 1130919,
+      "sha256": "4c47004abd0969cb1174d06eb7429c024872207960986afbf3cae37e339a8d01",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/bg.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/bg.pak",
+      "bytes": 1178203,
+      "sha256": "2eb9c74c67e4b13b45a73061fa978738e335bc245da71bab0ea9b205fe91074e",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/bn.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/bn.pak",
+      "bytes": 1513545,
+      "sha256": "415621a5c0b1546e6e447d43b76414425a8703cc7681d637ec1f283ad0c787e7",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/ca.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ca.pak",
+      "bytes": 716908,
+      "sha256": "6f28297c1ccb628f534d65dade167ae559f83eace359acf47e48ff890b9409d5",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/cs.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/cs.pak",
+      "bytes": 743351,
+      "sha256": "799a789ce531991cb975425730db310f9a8fe74091eee568f3e65fcc7ef0cd57",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/da.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/da.pak",
+      "bytes": 666471,
+      "sha256": "530fd95daee21d793b99492ca7d0bf9979daffe42944e24414d4b08a3d23b9fe",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/de.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/de.pak",
+      "bytes": 717862,
+      "sha256": "58165025c4252ba8b2ce8203b59362b9968938cb0fef9d7da04941be22f41bb3",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/el.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/el.pak",
+      "bytes": 1295538,
+      "sha256": "37d2e1ef69fea9bdb1e0902cbc61a458baa9009fc3761029bd1c1882a7a0c9b2",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/en-GB.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/en-GB.pak",
+      "bytes": 580030,
+      "sha256": "01d9200a5daee1770f7147b166d25baa6a8dd72c138c3c526421e656dec789f5",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/en-US.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/en-US.pak",
+      "bytes": 586582,
+      "sha256": "23b271e8009bfa14783700cd0712b4ecaa5b8f2ea28a4d81ae1d7e05bc0c96b1",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/es-419.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/es-419.pak",
+      "bytes": 707627,
+      "sha256": "2766fd52da83ff679346313e66440f013a7d478b9be946df4ab197505912450b",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/es.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/es.pak",
+      "bytes": 703941,
+      "sha256": "fe6fff51ef19db1f4fe0fc602e0bd4bd7fabcfb1ca5d6896d1ce0efcf37e49c4",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/et.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/et.pak",
+      "bytes": 642216,
+      "sha256": "dd1205eae606f12510e24ce39f301439c98b3293d766ca5839dc292a14d7973c",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/fa.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/fa.pak",
+      "bytes": 1063069,
+      "sha256": "ba33624ccad6d0e4a4339589c56be557b28968bf9422bd12a8f26e2a3d581577",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/fi.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/fi.pak",
+      "bytes": 655113,
+      "sha256": "1f3123d7fb5c22a95b5250ea17450b665c3c6cd6a6dfd28bbdde15e1bf684a0e",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/fil.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/fil.pak",
+      "bytes": 741385,
+      "sha256": "02e2c70d3d85b0deb677a9ae576ae3cf89e80774532cb3315c14f1e8ce64b310",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/fr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/fr.pak",
+      "bytes": 763461,
+      "sha256": "8bad7fd88072ac66649dd9307da9163962f8ab00313e627bf1c5ca4450a48b4a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/gu.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/gu.pak",
+      "bytes": 1495625,
+      "sha256": "e86e8c240d4b6283abb03c49df9e8899607ef9def6d4933c7a541d63b5835271",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/he.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/he.pak",
+      "bytes": 928748,
+      "sha256": "ddc1f304ab1f4489d19ae2b31e7f8e3ffb47dae439520159e8975422c65e4115",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/hi.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/hi.pak",
+      "bytes": 1586602,
+      "sha256": "015b3856dc05e8635a48e749e6970fe43f5d620b8dbd04e5abff586178213f6e",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/hr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/hr.pak",
+      "bytes": 715279,
+      "sha256": "d46c64ae8af3562e37eb80438aa2bee228fafda251d58ba4d0991291f1c72aab",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/hu.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/hu.pak",
+      "bytes": 765640,
+      "sha256": "0a46fc8d50f74effd1cfe1979e677df3de6fc47e6b551267303d93d57bd83f50",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/id.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/id.pak",
+      "bytes": 635080,
+      "sha256": "f567569c42a25bb2dfc5c33e13aac558c0e2a1d5d4b969592bbd0841b36438db",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/it.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/it.pak",
+      "bytes": 693991,
+      "sha256": "aeb1d99a2a09476d9ee0fd133df2d4d987c731b9f91a248ac4e60377ddda1ca5",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/ja.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ja.pak",
+      "bytes": 842053,
+      "sha256": "f6e0d8eda3bc8f1112494bda96b230f3c44f054c47cced50c94c5ee9199f04c6",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/kn.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/kn.pak",
+      "bytes": 1720240,
+      "sha256": "af5fed2130102ecc0c878059c88faed9d6db2e8b147fb5ae9e15e3fe69706c8a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/ko.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ko.pak",
+      "bytes": 718705,
+      "sha256": "55a3a8db9c84b1fe9e50b56d68fb069ad7546117cf1f6cb89f36f49cc044ad5e",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/lt.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/lt.pak",
+      "bytes": 777281,
+      "sha256": "af969f4407c190dd01a426fa1244cb1ec7cdf2909d1c3ba5b87ff662ba567303",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/lv.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/lv.pak",
+      "bytes": 774733,
+      "sha256": "4455ab7c06172c2c80796a99558e41f452cc3b33be76654d70440cf4ac7a2d34",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/ml.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ml.pak",
+      "bytes": 1767850,
+      "sha256": "b5606265910e45098a88e989202a550531f6d00333c6b112ed4c5cbc07b2ff6a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/mr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/mr.pak",
+      "bytes": 1467313,
+      "sha256": "8465d4077ed5414cbcb7d9bdb00d85e515a1a069703cdc1d4d67c9d6e5623fb0",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/ms.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ms.pak",
+      "bytes": 668356,
+      "sha256": "af7021a00befa586aa067ae3ccb339079e6f13ee0cab1621836f6abb608b6f2a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/nb.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/nb.pak",
+      "bytes": 638121,
+      "sha256": "d97a2b0cbe6adc99add2ed3ce0d15d0bb124b778086c466c126634d60ea72608",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/nl.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/nl.pak",
+      "bytes": 664759,
+      "sha256": "b642c8ab5ce11438e9a8fd4639244fa8f1d55cfd70269565490bc55ee907b048",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/pl.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/pl.pak",
+      "bytes": 742064,
+      "sha256": "8a0969fc743d3e2f5111387d53c0d79e8c1d9f68256ad6553b87fca2bcaa7e6e",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/pt-BR.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/pt-BR.pak",
+      "bytes": 697019,
+      "sha256": "5546559a56f9ac3191062c3fd42defd190a68e78ac988eb57fa5a6fd2dc5f874",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/pt-PT.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/pt-PT.pak",
+      "bytes": 701056,
+      "sha256": "bdfa7264dddf70f936f1785737969559a577b51d1952c820a468c611d18b17ca",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/ro.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ro.pak",
+      "bytes": 728144,
+      "sha256": "1e6b5b0dac63a9e951daf523de310f6bd9e5c53e281f37706d41bd35d2a08bb5",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/ru.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ru.pak",
+      "bytes": 1200985,
+      "sha256": "a9e76536472c45b39e7ae2af5f3ae1bc0e50a11646efdb6fb3ca373b5f2e2c70",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/sk.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/sk.pak",
+      "bytes": 755481,
+      "sha256": "3cdc8bca8696c90a572fb15c865caa5c286df45344c72194c3eea97201cc816a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/sl.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/sl.pak",
+      "bytes": 722720,
+      "sha256": "e1371c8df577b979e3a515af34b0aaa3d07153c7a5c55d39a9b49a7ffe62d3d2",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/sr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/sr.pak",
+      "bytes": 1112909,
+      "sha256": "c42a674e3f43aa70cef005931915c8b7ceb34b29566fba3309f8da931dc7861f",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/sv.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/sv.pak",
+      "bytes": 646543,
+      "sha256": "7b0399a206bfbebe77d1a4fc598c8a6636a1bd940d3ab56519cf4af0134b6edb",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/sw.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/sw.pak",
+      "bytes": 685127,
+      "sha256": "bd41ea707a0d90d683ec8d5d0f0c79f3e925747bc4ea1982562dfb75080199b9",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/ta.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ta.pak",
+      "bytes": 1758067,
+      "sha256": "91fb1460711df108d8d435a378c8be1d1e80b0886c0158d8c6ae92f35812681b",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/te.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/te.pak",
+      "bytes": 1629379,
+      "sha256": "fc8c2706c5dfd36e7af8e380a240e0f697cc5fe969b512092a2185896512c4af",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/th.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/th.pak",
+      "bytes": 1368866,
+      "sha256": "c1f4235c31bc05153230b0e55b7aabc9020d7460d5b0a025c386885e1e4bda3c",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/tr.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/tr.pak",
+      "bytes": 697394,
+      "sha256": "d5648d7eaf1826211fb244fcf8419dabdc16c228d92139bc8b0b73c7a6b7e700",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/uk.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/uk.pak",
+      "bytes": 1211563,
+      "sha256": "ec5d0b426e289c064e8f2d63636ae2a544ff30fc1e99dde04fe1920971e4d060",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/ur.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/ur.pak",
+      "bytes": 1047994,
+      "sha256": "c218e21744df2ff0669a87d497d65d76333073577360d4c662c592de146bf82a",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/vi.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/vi.pak",
+      "bytes": 830014,
+      "sha256": "76a32f8ad5d08a6f9899e12e4aa9b3d9a9023931e2ca0f73e5ced541c922dcfb",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/zh-CN.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/zh-CN.pak",
+      "bytes": 592081,
+      "sha256": "7887bd3d01e12306e32a11d9a20566ca0e93688a0375e6ff59da04cf782b1681",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/locales/zh-TW.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/locales/zh-TW.pak",
+      "bytes": 583887,
+      "sha256": "7cb5f76e54a548d4e52aa8cdf226a4339bdadc304897abca690f407e95e42f4d",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/resources/app.asar",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-02/resources/app.asar",
+      "bytes": 21138040,
+      "sha256": "15f5f6eebf3a41829e7dd8f268869fbd667996bddc1cb69d960e5bfdf04ae757",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/resources.pak",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/resources.pak",
+      "bytes": 12435875,
+      "sha256": "ee5707e9409e76742e1dacdae0ebbb3c567b8772ce5bbcb9785aa215f5784c22",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/snapshot_blob.bin",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/snapshot_blob.bin",
+      "bytes": 368768,
+      "sha256": "0b18f38d50c8f96c9fa2b8205c66c25b3ae45c985e8f2e7b6ecfab9f4d4d19d0",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/v8_context_snapshot.bin",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/v8_context_snapshot.bin",
+      "bytes": 742200,
+      "sha256": "6d747f11d721655b780a47f6010eeef8428266e7521280e1e094d27c6f34311d",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/vk_swiftshader.dll",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/vk_swiftshader.dll",
+      "bytes": 5520384,
+      "sha256": "3d8555de997bca1e58a72c6a8bc13a8267dca2c882ee0a783803470b289d1d23",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/vk_swiftshader_icd.json",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/vk_swiftshader_icd.json",
+      "bytes": 106,
+      "sha256": "32d83ff113fef532a9f97e0d2831f8656628ab1c99e9060f0332b1532839afd9",
+      "mode": "0o600"
+    },
+    {
+      "path": "/tmp/hollowpact-retained-working-v08/case-07/vulkan-1.dll",
+      "shares": "/tmp/hollowpact-retained-working-v08/case-03/vulkan-1.dll",
+      "bytes": 939520,
+      "sha256": "5549afe706236d5c7ad5df4607c51639c790dfd118770eb27af8f2c5c076c3c7",
+      "mode": "0o600"
+    }
+  ],
+  "all504SHABytesFileModesAndDirectoryModesPass": true,
+  "allOriginalOfficialArchivesUnchanged": true,
+  "durableFreeBytes": 2698375168,
+  "temporaryFreeBytes": 2183692288
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "late-binding-r1-terminal-assertion-technical-addendum-v1",
+  "verdict": "REJECT_R1_TERMINAL_CUE_ASSERTION",
+  "accepted": false,
+  "sourceOnly": true,
+  "runtimeEligible": false,
+  "sourceSealSHA256": "99e7723d28e71a8e3e840e039268fe76877abd81923976d8d79b6d0f8e2fc813",
+  "priorTechnicalGateSHA256": "abdcef0060f5657504b4872848789b668e9c3d7cf70c79fa416be4f2fc0ca028",
+  "priorReviewPreservedUnchanged": true,
+  "finding": "DOM absence is incorrectly required on terminal phase although render only hides dock and can retain invisible cue markup",
+  "fixRequiresNewRevision": true,
+  "threeIsolatedExactFunctionSourceCasesPassed": true,
+  "isolatedCounterexample": "legitimate hidden terminal with present invisible cue rejected by R1",
+  "noActualTerminalRuntimeObserved": true,
+  "noCallerHelperModuleDOMBrowserServerOrAppExecuted": true,
+  "noCanonicalRemoteOldSourceOrReviewWrites": true,
+  "files": {
+    "SOURCE-WITNESSES.json": {
+      "bytes": 895,
+      "sha256": "7cc3586722bbf34f2604cd4e7e4bb130a275f251f067d2a8eeddfce48b7a126f"
+    },
+    "isolated_terminal_counterexample.mjs": {
+      "bytes": 1063,
+      "sha256": "2b73d4fe4a6eb8d3e936602ca541df6908af01736367829e64d0fdee3428be6a"
+    },
+    "REVIEW.md": {
+      "bytes": 2779,
+      "sha256": "2fdad12ef18a4d95c28846df806875523bd32057b81212a2409374e0f8bdbd24"
+    }
+  }
+}

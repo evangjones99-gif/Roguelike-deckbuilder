@@ -1,0 +1,766 @@
+{
+  "sourceDirectory": "/workspace/scratch/hunter-cell-containment-author-v08-r1",
+  "archive": "curated-evidence.tar.gz",
+  "archiveBytes": 6979737,
+  "archiveSHA256": "7ae7380b60b65072d8c9a52ddc6d64f09eba368f0dfce396d56a82034b2ca9d5",
+  "everyDeclaredByteRoundTripVerified": true,
+  "scope": "Only exact manifest/addendum-declared file bytes. Individually hashed media references captured as regular bytes; reference targets recorded. No directory/dependency links followed; source paths and originals remain unchanged.",
+  "files": [
+    {
+      "path": "FROZEN-FILES.json",
+      "bytes": 19358,
+      "sha256": "71406c0c5681c77847031a02944f491fddc13b007b8273a54cc20fdc61a03e77",
+      "referenceTarget": null
+    },
+    {
+      "path": "PRESERVATION.json",
+      "bytes": 8152,
+      "sha256": "8bc89f1dc14c8adcbc48d7c39cd62e355ccfd58c50d331248b9f275cdd805857",
+      "referenceTarget": null
+    },
+    {
+      "path": "README.md",
+      "bytes": 6382,
+      "sha256": "3b9553e1e6946dd65e26c6c8ea043fd35de838d86be2aaf1ae39dbbbcbf060b9",
+      "referenceTarget": null
+    },
+    {
+      "path": "SOURCE-BUILD-IDENTITY.json",
+      "bytes": 5279,
+      "sha256": "1d9adb363e77b50ed5bf5e1f818f73a73ccde72dd522ca8d742fc37b773adb59",
+      "referenceTarget": null
+    },
+    {
+      "path": "alpha-support.json",
+      "bytes": 3718,
+      "sha256": "a80a56c0985ce2448660718cd215552c52626350a1a2668ac17df6154a9da89d",
+      "referenceTarget": null
+    },
+    {
+      "path": "analyse-r2.py",
+      "bytes": 5076,
+      "sha256": "747341a1a099d5344dd59112a7f367f865573754de0e16d7243fd8915485fbb2",
+      "referenceTarget": null
+    },
+    {
+      "path": "analyse.py",
+      "bytes": 5075,
+      "sha256": "e538ef8ef20ef6a7f1d938647bfec2568c40dd969d3f6103d7738b7c9deaba57",
+      "referenceTarget": null
+    },
+    {
+      "path": "analysis-r2.log",
+      "bytes": 374,
+      "sha256": "2087de9092f21aab228e3662cbc1da7c7211964a3a4000272706408a7a43dd01",
+      "referenceTarget": null
+    },
+    {
+      "path": "analysis.json",
+      "bytes": 10479,
+      "sha256": "07d302163e326309bb58a220939a1ac85cc908f65314fe38babe130e28708db0",
+      "referenceTarget": null
+    },
+    {
+      "path": "analysis.log",
+      "bytes": 516,
+      "sha256": "b671f840a092ba7aa70d464a549a0928b3ad6802608b5eb2362e1662a4a08384",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline-build-provenance.json",
+      "bytes": 2914,
+      "sha256": "6eef51987f91daee501895b6cae6e032998201508ca1698a41d22ec21b1be7cb",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/THIRD-PARTY.md",
+      "bytes": 2030,
+      "sha256": "be972c6a3525d82e3341db897d191ad956bc670f8101b40cc13827b1720a7ee1",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/desktop/main.cjs",
+      "bytes": 940,
+      "sha256": "1e54b1170ff4169285ff1757c0e768db2f144f7be919b4911a47394426cb75ae",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/index.html",
+      "bytes": 1554,
+      "sha256": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/package-lock.json",
+      "bytes": 184665,
+      "sha256": "c33b9b1b9bd9674f42f814b5b94b20b9f1f1c2c903d2767fb7be17d1c5e64c58",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/package.json",
+      "bytes": 1787,
+      "sha256": "2ec86bfea9677abfbc52649667180c30f6fb88f88345f3824cf11d16498b9b67",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/playwright.config.ts",
+      "bytes": 717,
+      "sha256": "7289c75848c9c913eb2f5662afec36d0f1b03a5a75407ddd21dcba6ae215cce2",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/public/art/PROVENANCE.json",
+      "bytes": 13307,
+      "sha256": "4bbc6d3501873cbef6342fcd36979670f86d5220ce57970b86787157b4fca844",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/blender_hound_lab.py",
+      "bytes": 19570,
+      "sha256": "e5bef3d87df5e798e719bbb12469e9f3fe9086afea62c48cb20e1be68abc42f2",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/build.mjs",
+      "bytes": 1825,
+      "sha256": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/desktop-feedback-smoke.mjs",
+      "bytes": 4111,
+      "sha256": "e101fc301f9f467ab89ee60bf3017a9e83656bf7baa68ee22e6e054a3751b49f",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/desktop-smoke.mjs",
+      "bytes": 3087,
+      "sha256": "23c94fb2fa0b8b7ae40529232cedc493a639e3f2e29762d6083fbf3126399c02",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/index-review-archive.py",
+      "bytes": 1147,
+      "sha256": "f455aad395887fa7d58c50a68907dfe8d335ee77ede97e294c2a019a8c31345b",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/learn-policy.ts",
+      "bytes": 14826,
+      "sha256": "aa1fa0e68b942e19b75b3f7dfe6a2036d5edc26e96f3976ad1f1688e9388a77d",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/release.mjs",
+      "bytes": 7179,
+      "sha256": "4f3e0ce18b1b622527c529974c02e4461a0a3da735c86735748b73b2075321c6",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/review-browser-inputs-v0.4.ts",
+      "bytes": 1388,
+      "sha256": "fa2191991d50cd98cb237ee68eda95bc46b319a3ef6a6333daa991662bf15087",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/review-browser-v0.4.mjs",
+      "bytes": 8545,
+      "sha256": "11cd0da73838b6181d8325cdcd3e7f3d797a9a8900d6a1f31de314280756e383",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/review-index.mjs",
+      "bytes": 2976,
+      "sha256": "a593b93aaec2bc3b43f9aeb90d7cb2af98977a26991221a8ea562d0d5c899d29",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/review-playtest-v0.2.ts",
+      "bytes": 12337,
+      "sha256": "70b43ab2c55186b521a759926d2343da0b98cf4b75b904dd098d0d4f7ef4e86e",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/review-playtest-v0.4.ts",
+      "bytes": 8978,
+      "sha256": "978f6e48cc08e13a2efe9645a7c9b37a5fc081765d1aa07eec8471a2e001de89",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/review-playtest.ts",
+      "bytes": 8286,
+      "sha256": "86e381b45e20aedcae2b97dba8b69d05da703ddf831ffcba4241bd6be3e79b26",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/review-preview-browser-v0.4.mjs",
+      "bytes": 3912,
+      "sha256": "75872a953cc9b00f71262c555e7e14a414e8480129318df8f787f1344cd7ed14",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/review-preview-fixtures-v0.4.ts",
+      "bytes": 6707,
+      "sha256": "feb5bac05dfbfebf59522c4d026a5065ff872990632460ac32dd1f1584fdeea5",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/review-preview-privacy-v0.4.mjs",
+      "bytes": 3048,
+      "sha256": "cdd936b4a6e97bd6e14b9951976e67f16ac11a4b90085303b47dbfee68ed2bef",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/review-recovery-browser-v0.4.mjs",
+      "bytes": 4095,
+      "sha256": "99cefd6f388474db6a9c9fe1625990029fdc43e37ecbad48d7b0bc00cc238794",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/review-world-v0.5.ts",
+      "bytes": 23572,
+      "sha256": "47003e36b07c79a2800202ac19d6836eecae7df050b948bddbf753bc17b10e3a",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/sha256-file.mjs",
+      "bytes": 355,
+      "sha256": "db14f59204898c15a0fc6d22893a59b85b81f171978db93d778026b3afb6b7d1",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/simulate.ts",
+      "bytes": 7237,
+      "sha256": "3f9922453359b70dfe9c74fddf8414c864602de810a36bd78ee8cef76917e81b",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/solo-investigation-v0.3.ts",
+      "bytes": 34831,
+      "sha256": "d6ae4f7fe6f41195ddad5c84ecbe983cf146ad6f32cfac181dfc5785b71f4747",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/source-bundle.mjs",
+      "bytes": 5169,
+      "sha256": "7d9af128cbe7d9bf2f30e9e3b8a1ab2aeb1f911346b48382df075a5136e38315",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/verify-bundle-tree.py",
+      "bytes": 2149,
+      "sha256": "d5030d125819c2d87a681013361b2ed69caa9d2d7b46d60d327c11857202cc96",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/windows-installer-guards.mjs",
+      "bytes": 7539,
+      "sha256": "c74685bfed7a282f2af53b50908b38dbcfbd837b66a58d7bd84a0ea86c7c4dd1",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/windows-installer-guards.test.mjs",
+      "bytes": 7479,
+      "sha256": "e28f9d5d6ba3dc742d3a2e1694e0a78b036c5cf7b8e44f43fd5a30c76b52fab8",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/windows-installer-prepare.mjs",
+      "bytes": 3053,
+      "sha256": "c8c7fbcd9e9b32de65d7f712beef2766fdfad9b28f9621e4bc80b9205c6e8328",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/windows-installer-smoke.mjs",
+      "bytes": 17907,
+      "sha256": "4d2fbe8ba10afa9bd3af180ddcbd05939b06975a4487c166bf23a33856c78f4c",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/windows-installer-transfer.mjs",
+      "bytes": 3754,
+      "sha256": "21f7414909f5a63c6f90e277f8462f09189deea85d965d9aae9a227277b784f2",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/windows-installer-transfer.test.mjs",
+      "bytes": 2319,
+      "sha256": "da5295cb582f7e82a68dfc4f4e7f49a5f59304257cedba9284bdf3517aa76c3b",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/windows-smoke.mjs",
+      "bytes": 24304,
+      "sha256": "1e3feeeb54dbc42fed0a6ecdac5135c3dbd52303872376faabdaadb75e62528a",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/scripts/world-rng-golden-v0.5.ts",
+      "bytes": 6525,
+      "sha256": "b7943cc0f72606ff9fea63aaee7132df2c54c2b7f8a89fb49476fbfc165455d8",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/src/arena.ts",
+      "bytes": 43793,
+      "sha256": "33db02dc1b7471dddd670332dbdaa113d27ff44e1c8d55a39d4a82b504587780",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/src/art.ts",
+      "bytes": 6787,
+      "sha256": "26b515016ecf52996acf91ae704da608224d2d1475a883f9675aa0079abbfb1c",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/src/content.ts",
+      "bytes": 10247,
+      "sha256": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/src/engine.ts",
+      "bytes": 38493,
+      "sha256": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/src/hunter-presence.ts",
+      "bytes": 6478,
+      "sha256": "515707cfc0bce9f1aa30a557b9da7a59313b95c44cb7fdf21f6a31b49ea8a8f4",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/src/input.ts",
+      "bytes": 16787,
+      "sha256": "b69d87d1a5a71a15d3b29cdfcdbb3f0b33e739f3aa5d8ba82d9cfb470bbdb415",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/src/main.ts",
+      "bytes": 78471,
+      "sha256": "a7890d0ba20b2ce501e6d8cda189b97ceb246eff13ac59884fa016529b342290",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/src/style.css",
+      "bytes": 50335,
+      "sha256": "adcb097532528d44383896c03987061831d8fe79e25d644d0b1b6088402b3bef",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/src/tool-art.ts",
+      "bytes": 2491,
+      "sha256": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/src/world-rng.ts",
+      "bytes": 2465,
+      "sha256": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/tsconfig.json",
+      "bytes": 372,
+      "sha256": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c",
+      "referenceTarget": null
+    },
+    {
+      "path": "baseline/vite.config.ts",
+      "bytes": 123,
+      "sha256": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75",
+      "referenceTarget": null
+    },
+    {
+      "path": "browser-probe.json.gz",
+      "bytes": 57765,
+      "sha256": "54ca66cefd79b626ecae6771f3693b6662463c366eb6739a575640a4255e1bde",
+      "referenceTarget": null
+    },
+    {
+      "path": "browser-probe.log",
+      "bytes": 26,
+      "sha256": "cb6959a409c2ae249517b6ec080db663aedb1c34c262791273065f8a5aaca76e",
+      "referenceTarget": null
+    },
+    {
+      "path": "browser-probe.mts",
+      "bytes": 8061,
+      "sha256": "211acf2c5419650c7fc2925be187a76b0da43ba7b76fdddc908431ce7c0a6b8b",
+      "referenceTarget": null
+    },
+    {
+      "path": "build-baseline-r2.log",
+      "bytes": 435,
+      "sha256": "f1907a9237d1b86e3393c0060662a9427d5e28a7d1e3b5764459353261e4beb4",
+      "referenceTarget": null
+    },
+    {
+      "path": "build-baseline.log",
+      "bytes": 1408,
+      "sha256": "4b83a707a0a4ec2cea9e73eb7ab42dcc505291e85c234266c893c4ffc1fedaf3",
+      "referenceTarget": null
+    },
+    {
+      "path": "build-candidate-r2.log",
+      "bytes": 435,
+      "sha256": "3ec7dcd96f2c537f9ca43b9c1478d9e635cab568c371fe544555b2c5fe36058e",
+      "referenceTarget": null
+    },
+    {
+      "path": "build-candidate.log",
+      "bytes": 1409,
+      "sha256": "6a265353624cb35f7ae897350c8640d365b7f1118a5e29d28230e20495ef3cb4",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate-build-provenance.json",
+      "bytes": 2914,
+      "sha256": "ec482df0e6141e9e79bf1181182ad3fad43087f23d88579f18fd07a92086a87c",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/THIRD-PARTY.md",
+      "bytes": 2030,
+      "sha256": "be972c6a3525d82e3341db897d191ad956bc670f8101b40cc13827b1720a7ee1",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/desktop/main.cjs",
+      "bytes": 940,
+      "sha256": "1e54b1170ff4169285ff1757c0e768db2f144f7be919b4911a47394426cb75ae",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/index.html",
+      "bytes": 1554,
+      "sha256": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/package-lock.json",
+      "bytes": 184665,
+      "sha256": "c33b9b1b9bd9674f42f814b5b94b20b9f1f1c2c903d2767fb7be17d1c5e64c58",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/package.json",
+      "bytes": 1787,
+      "sha256": "2ec86bfea9677abfbc52649667180c30f6fb88f88345f3824cf11d16498b9b67",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/playwright.config.ts",
+      "bytes": 717,
+      "sha256": "7289c75848c9c913eb2f5662afec36d0f1b03a5a75407ddd21dcba6ae215cce2",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/public/art/PROVENANCE.json",
+      "bytes": 13307,
+      "sha256": "4bbc6d3501873cbef6342fcd36979670f86d5220ce57970b86787157b4fca844",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/blender_hound_lab.py",
+      "bytes": 19570,
+      "sha256": "e5bef3d87df5e798e719bbb12469e9f3fe9086afea62c48cb20e1be68abc42f2",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/build.mjs",
+      "bytes": 1825,
+      "sha256": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/desktop-feedback-smoke.mjs",
+      "bytes": 4111,
+      "sha256": "e101fc301f9f467ab89ee60bf3017a9e83656bf7baa68ee22e6e054a3751b49f",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/desktop-smoke.mjs",
+      "bytes": 3087,
+      "sha256": "23c94fb2fa0b8b7ae40529232cedc493a639e3f2e29762d6083fbf3126399c02",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/index-review-archive.py",
+      "bytes": 1147,
+      "sha256": "f455aad395887fa7d58c50a68907dfe8d335ee77ede97e294c2a019a8c31345b",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/learn-policy.ts",
+      "bytes": 14826,
+      "sha256": "aa1fa0e68b942e19b75b3f7dfe6a2036d5edc26e96f3976ad1f1688e9388a77d",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/release.mjs",
+      "bytes": 7179,
+      "sha256": "4f3e0ce18b1b622527c529974c02e4461a0a3da735c86735748b73b2075321c6",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/review-browser-inputs-v0.4.ts",
+      "bytes": 1388,
+      "sha256": "fa2191991d50cd98cb237ee68eda95bc46b319a3ef6a6333daa991662bf15087",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/review-browser-v0.4.mjs",
+      "bytes": 8545,
+      "sha256": "11cd0da73838b6181d8325cdcd3e7f3d797a9a8900d6a1f31de314280756e383",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/review-index.mjs",
+      "bytes": 2976,
+      "sha256": "a593b93aaec2bc3b43f9aeb90d7cb2af98977a26991221a8ea562d0d5c899d29",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/review-playtest-v0.2.ts",
+      "bytes": 12337,
+      "sha256": "70b43ab2c55186b521a759926d2343da0b98cf4b75b904dd098d0d4f7ef4e86e",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/review-playtest-v0.4.ts",
+      "bytes": 8978,
+      "sha256": "978f6e48cc08e13a2efe9645a7c9b37a5fc081765d1aa07eec8471a2e001de89",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/review-playtest.ts",
+      "bytes": 8286,
+      "sha256": "86e381b45e20aedcae2b97dba8b69d05da703ddf831ffcba4241bd6be3e79b26",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/review-preview-browser-v0.4.mjs",
+      "bytes": 3912,
+      "sha256": "75872a953cc9b00f71262c555e7e14a414e8480129318df8f787f1344cd7ed14",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/review-preview-fixtures-v0.4.ts",
+      "bytes": 6707,
+      "sha256": "feb5bac05dfbfebf59522c4d026a5065ff872990632460ac32dd1f1584fdeea5",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/review-preview-privacy-v0.4.mjs",
+      "bytes": 3048,
+      "sha256": "cdd936b4a6e97bd6e14b9951976e67f16ac11a4b90085303b47dbfee68ed2bef",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/review-recovery-browser-v0.4.mjs",
+      "bytes": 4095,
+      "sha256": "99cefd6f388474db6a9c9fe1625990029fdc43e37ecbad48d7b0bc00cc238794",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/review-world-v0.5.ts",
+      "bytes": 23572,
+      "sha256": "47003e36b07c79a2800202ac19d6836eecae7df050b948bddbf753bc17b10e3a",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/sha256-file.mjs",
+      "bytes": 355,
+      "sha256": "db14f59204898c15a0fc6d22893a59b85b81f171978db93d778026b3afb6b7d1",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/simulate.ts",
+      "bytes": 7237,
+      "sha256": "3f9922453359b70dfe9c74fddf8414c864602de810a36bd78ee8cef76917e81b",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/solo-investigation-v0.3.ts",
+      "bytes": 34831,
+      "sha256": "d6ae4f7fe6f41195ddad5c84ecbe983cf146ad6f32cfac181dfc5785b71f4747",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/source-bundle.mjs",
+      "bytes": 5169,
+      "sha256": "7d9af128cbe7d9bf2f30e9e3b8a1ab2aeb1f911346b48382df075a5136e38315",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/verify-bundle-tree.py",
+      "bytes": 2149,
+      "sha256": "d5030d125819c2d87a681013361b2ed69caa9d2d7b46d60d327c11857202cc96",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/windows-installer-guards.mjs",
+      "bytes": 7539,
+      "sha256": "c74685bfed7a282f2af53b50908b38dbcfbd837b66a58d7bd84a0ea86c7c4dd1",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/windows-installer-guards.test.mjs",
+      "bytes": 7479,
+      "sha256": "e28f9d5d6ba3dc742d3a2e1694e0a78b036c5cf7b8e44f43fd5a30c76b52fab8",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/windows-installer-prepare.mjs",
+      "bytes": 3053,
+      "sha256": "c8c7fbcd9e9b32de65d7f712beef2766fdfad9b28f9621e4bc80b9205c6e8328",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/windows-installer-smoke.mjs",
+      "bytes": 17907,
+      "sha256": "4d2fbe8ba10afa9bd3af180ddcbd05939b06975a4487c166bf23a33856c78f4c",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/windows-installer-transfer.mjs",
+      "bytes": 3754,
+      "sha256": "21f7414909f5a63c6f90e277f8462f09189deea85d965d9aae9a227277b784f2",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/windows-installer-transfer.test.mjs",
+      "bytes": 2319,
+      "sha256": "da5295cb582f7e82a68dfc4f4e7f49a5f59304257cedba9284bdf3517aa76c3b",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/windows-smoke.mjs",
+      "bytes": 24304,
+      "sha256": "1e3feeeb54dbc42fed0a6ecdac5135c3dbd52303872376faabdaadb75e62528a",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/scripts/world-rng-golden-v0.5.ts",
+      "bytes": 6525,
+      "sha256": "b7943cc0f72606ff9fea63aaee7132df2c54c2b7f8a89fb49476fbfc165455d8",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/src/arena.ts",
+      "bytes": 43793,
+      "sha256": "33db02dc1b7471dddd670332dbdaa113d27ff44e1c8d55a39d4a82b504587780",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/src/art.ts",
+      "bytes": 6787,
+      "sha256": "26b515016ecf52996acf91ae704da608224d2d1475a883f9675aa0079abbfb1c",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/src/content.ts",
+      "bytes": 10247,
+      "sha256": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/src/engine.ts",
+      "bytes": 38493,
+      "sha256": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/src/hunter-presence.ts",
+      "bytes": 7039,
+      "sha256": "de59baa1c4a4f4913550fe52b704c77abf4a1ead2527482a0c2e72cccda140c5",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/src/input.ts",
+      "bytes": 16787,
+      "sha256": "b69d87d1a5a71a15d3b29cdfcdbb3f0b33e739f3aa5d8ba82d9cfb470bbdb415",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/src/main.ts",
+      "bytes": 78471,
+      "sha256": "a7890d0ba20b2ce501e6d8cda189b97ceb246eff13ac59884fa016529b342290",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/src/style.css",
+      "bytes": 50335,
+      "sha256": "adcb097532528d44383896c03987061831d8fe79e25d644d0b1b6088402b3bef",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/src/tool-art.ts",
+      "bytes": 2491,
+      "sha256": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/src/world-rng.ts",
+      "bytes": 2465,
+      "sha256": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/tsconfig.json",
+      "bytes": 372,
+      "sha256": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c",
+      "referenceTarget": null
+    },
+    {
+      "path": "candidate/vite.config.ts",
+      "bytes": 123,
+      "sha256": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75",
+      "referenceTarget": null
+    },
+    {
+      "path": "frames.tar.xz",
+      "bytes": 6478060,
+      "sha256": "30bf1b87b279be5539de0c6ee3646ea9c26ca5bd453b6c60a819466cc4a904f6",
+      "referenceTarget": null
+    },
+    {
+      "path": "geometry-diagram.svg",
+      "bytes": 1929,
+      "sha256": "3dba76d089a2b3d820b0903991ce0b8ad7f37abb07c3c71bf7c1432fb3fc9f57",
+      "referenceTarget": null
+    },
+    {
+      "path": "geometry-probe.json",
+      "bytes": 746550,
+      "sha256": "9f28749bdfa9fdc7270fb7829e8a72e9524b621bf5aaaadcb2539c4b922e5822",
+      "referenceTarget": null
+    },
+    {
+      "path": "geometry-probe.log",
+      "bytes": 119,
+      "sha256": "c5f85dde155064f2719ec1781ffcb0ec70adabe6b7a2e2f3a26559a32ee4869a",
+      "referenceTarget": null
+    },
+    {
+      "path": "geometry-probe.mts",
+      "bytes": 2005,
+      "sha256": "b2b7fcdb31e5cd555bbfb7f0b93a816a0b39cbd7824594a82f070bfdd9fcdca9",
+      "referenceTarget": null
+    },
+    {
+      "path": "hunter-presence.patch",
+      "bytes": 1713,
+      "sha256": "b0943c88c263802111b21a6b0282f2f074ac2f4d6f6a8698aa016ef117a1bb9c",
+      "referenceTarget": null
+    },
+    {
+      "path": "rules-test.log",
+      "bytes": 8640,
+      "sha256": "3aee929f7ace4727cb9816be0d89571e64763ffc47522114108d405fee2f0298",
+      "referenceTarget": null
+    }
+  ]
+}

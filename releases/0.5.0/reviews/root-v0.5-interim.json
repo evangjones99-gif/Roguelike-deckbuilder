@@ -1,0 +1,51 @@
+{
+  "stage": "v0.5 gameplay and arena repairs before new art promotion",
+  "build": {
+    "version": "0.5.0",
+    "sourceDigest": "4eae7cbc0aae7ddf41f15eb6610c6a93a942e99461ef7c04187c3590a63f75ad",
+    "hashes": {
+      "THIRD-PARTY.md": "9f7ac1d4b03f8bf928ea0d73d5654207e9abc154b4f5365c5e30eb36eef8f329",
+      "desktop/icon.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+      "desktop/main.cjs": "1e54b1170ff4169285ff1757c0e768db2f144f7be919b4911a47394426cb75ae",
+      "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+      "package-lock.json": "e745e73679de5717b06c52797d3cee13f92ea39344f584e82e88e0aeaf6d8028",
+      "package.json": "c89fdd158dc0e6c1529712b71f4202a745ce8cf6061d70660f004bc4734ba0d0",
+      "public/art/PROVENANCE.json": "641fd7d91902b655782a3dde91a3039e894a1ffc84be43465e90e2cd0beed70a",
+      "public/art/abbey-courtyard.png": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+      "public/art/adversaries-atlas.png": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5",
+      "public/art/companions-atlas.png": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+      "public/art/hound-poses.png": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+      "public/art/hunter-portrait.png": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+      "public/art/pact-seal.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+      "scripts/build.mjs": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1",
+      "src/arena.ts": "01bd60015273988470a378e092398938f71f1ac07c4754e04d09e00efbbfcd94",
+      "src/art.ts": "0c6b04e531cb6a9afb5b27305835f61a11157720f5fbff8c56a4af6eb928c5ba",
+      "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+      "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+      "src/main.ts": "38d5338ccec1e1fbb3a11e010e79932edd234b61c3e8900a7f7fa5329c249e23",
+      "src/style.css": "527ca163bd46ca9edd11d8c1a543f170a59e389671fa83e83c34c0c0f2836a12",
+      "src/world-rng.ts": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+      "tsconfig.json": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c",
+      "vite.config.ts": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75"
+    },
+    "node": "v24.19.0"
+  },
+  "checks": {
+    "rules": 64,
+    "rulesExecutedBy": "engine implementation agent; independent review and final required rerun remain",
+    "productionBrowser": 21,
+    "rootProductionBrowserPassed": true
+  },
+  "features": [
+    "Hidden draw categories independent of pile order",
+    "Supported schema2/3 persistence and local field-report generation context",
+    "Unsupported generations retain exactraw through title inspection",
+    "Purpose-separated new world RNG with legacy campaigns unchanged",
+    "One caster gesture per actual attack, all area impacts retained"
+  ],
+  "limits": [
+    "Interim identity; future art changes must record a new digest without relabeling these results",
+    "Source-UI arena paired evidence is separately attributed; independent final production review remains",
+    "No human enjoyment/commercial/Steam proof"
+  ]
+}

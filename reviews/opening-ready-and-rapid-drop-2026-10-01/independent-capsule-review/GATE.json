@@ -1,0 +1,67 @@
+{
+  "decision": "ACCEPT_EXACT_BOUNDED_EVIDENCE_CAPSULE_WITH_DECLARED_FOOTPRINT_DEVIATION",
+  "proof": {
+    "sha256": "00d4387eccaa3efb5c1c949e995f8b0dd9c8e4fc582b3b419c83fed16026ae3c",
+    "bytes": 24381
+  },
+  "archive": {
+    "sha256": "27c7d4e2a117c5fa2625146a5ca78e7965705f8f809e44b6c2d7b9efb52817af",
+    "bytes": 3303630
+  },
+  "archiveManifestSHA256": "005225286c6784598181a46bd0ad25cc99d4ee54b3c2394d58d5ea915b41155b",
+  "logicalBodies": 737,
+  "uniqueBlobs": 661,
+  "excludedRetainedBodies": 166,
+  "fullOriginalExcludedEquality": true,
+  "fullSelected87Inputs56OutputsAndRollback87Inputs56Outputs": true,
+  "mainSHA256": "276999ac8c8feeb148d326b5adcfca7d175db99c743e5722501a34256fd54b9a",
+  "sourceDigest": "251c4fd4fdcce5bbbc39bf438155277ea440c724bd803adf10cd07b5ffa89a65",
+  "outputsDigest": "2c664aa389221f8570e1f6cebd1ae63f0784d2cba95a7fcc267c3743096a823c",
+  "cueDelta": "13 changedlines total:11 additions/2 removals, one presentationhunk; exact main276 versus2027 preserved. Root clarification agrees.",
+  "completeSavedPairs": 18,
+  "callerAssertedNormalizedSubset": 15,
+  "includedOriginalPhotographs": 8,
+  "noDecodeVisualArtJudgement": true,
+  "releaseThreeControlsMatchHEAD": true,
+  "producerCapFailurePreserved": true,
+  "footprint": "3303630B accepted as explicitly declared bounded evidence footprint; planned2621440B softcap failure remains rc1, no cleanup authority.",
+  "capsuleControlPins": {
+    "SUMMARY.json": {
+      "sha256": "4e9519fab7287aed4488e7ac35bb007625cdd7581a8209f5f6cce633158f74c8",
+      "bytes": 1451
+    },
+    "README.md": {
+      "sha256": "4c4b310b04c799a1b89552109cd85b21c45191994200df3a570655e694afa7eb",
+      "bytes": 1729
+    },
+    "ARCHIVE-CAP-FAILURE.json": {
+      "sha256": "68bba3828a48f6c7f789d0ae6e2c11602e29bd6c5074ec96c2888fe1dee647f4",
+      "bytes": 2179
+    }
+  },
+  "reviewerGuardRc0": true,
+  "reviewerGuardPoints": 6,
+  "reviewerMinimumHeadroom": 1475207168,
+  "reviewerMaximumAggregateDelta": 13643776,
+  "reviewerOwnHWM": 18640896,
+  "sealOwnHWM": 10092544,
+  "sealInitial": {
+    "current": 15690969088,
+    "maximum": 17179869184,
+    "headroom": 1488900096,
+    "free": 69263360,
+    "utcNs": 1790897394629222432
+  },
+  "sealFinal": {
+    "current": 15691231232,
+    "maximum": 17179869184,
+    "headroom": 1488637952,
+    "free": 69263360,
+    "utcNs": 1790897394629497357
+  },
+  "eventsUnchanged": true,
+  "reviewerCountAssumptionFailurePreserved": "GUARD rc1 beforeproof at assumed13added/4removed; originalsource/log retained. Exact11+2 correction and r2normal0; no runtime retry.",
+  "closure": "Finite source verifier normal waited; three read-onlyGitshow commands waited inside verifier, all reviewer tools/FDs closed. Generic sourceguard lacks exhaustive PID/start/globalbackend ledger; no unknownactor attribution claim.",
+  "noReleasePromotionRetirementOrRuntimeAuthorization": true,
+  "noArchiveSourceMediaMutation": true
+}

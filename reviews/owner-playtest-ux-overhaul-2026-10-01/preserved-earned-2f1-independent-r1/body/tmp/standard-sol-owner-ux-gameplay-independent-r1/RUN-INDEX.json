@@ -1,0 +1,819 @@
+{
+  "runs": [
+    {
+      "run": "run-baseline-104729-1790848595541",
+      "logBytes": 761261,
+      "logSHA256": "733aaa93ce8b762cc6222e4e572c28346ee4e8df48cf7815cf1265d5dd960ca2",
+      "admission": {
+        "variant": "baseline",
+        "intendedSeed": "104729",
+        "intendedDifficulty": 1,
+        "sourceDigest": "801db1ce4000c15268569cb047e7388148a65105c7b86208611ceb3aff40f029",
+        "harnessSHA256": "171e50727482feb1646ef7ede6e33b58244be95cc81baaf68ff7cb9db9f33939",
+        "profile": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/profile-baseline-104729-1",
+        "resume": false,
+        "initial": 15828918272,
+        "maximum": 17179869184
+      },
+      "counts": {
+        "ADMISSION": 1,
+        "READY": 1,
+        "BEFORE": 64,
+        "AFTER": 64,
+        "CAPTURE": 3,
+        "BROWSER_CLOSED": 1
+      },
+      "trustedEventCounts": {
+        "True:focusin": 70,
+        "True:pointerdown": 32,
+        "True:pointerup": 32,
+        "True:click": 32,
+        "True:input": 7,
+        "True:change": 2,
+        "True:keydown": 8,
+        "True:keyup": 8
+      },
+      "closed": {
+        "sequence": 133,
+        "wallUTC": "2026-10-01T09:58:51.734Z",
+        "monotonicMs": 136224.264718,
+        "kind": "BROWSER_CLOSED",
+        "breached": false
+      },
+      "maximumObservedDelta": 491999232,
+      "maximumObservedCurrent": 16320917504,
+      "minimumObservedHeadroom": 858951680,
+      "failures": [],
+      "captures": [
+        {
+          "sequence": 41,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-baseline-104729-1790848595541/41-baseline-hunter-roster-preview-390.jpg",
+          "bytes": 53579,
+          "sha256": "0fdcce96dac7e76976e0eca97b6bea1054ae92f0da6a83538b805124b7e73d0d"
+        },
+        {
+          "sequence": 88,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-baseline-104729-1790848595541/88-baseline-hunter-earned-four-bodies-390.jpg",
+          "bytes": 49460,
+          "sha256": "039e76051ce8c7d62dd243210c283fd83a802fb1c32c0120b92e0e1005728e82"
+        },
+        {
+          "sequence": 119,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-baseline-104729-1790848595541/119-baseline-hunter-final-kill-390.jpg",
+          "bytes": 47139,
+          "sha256": "a0f0d983eeb96f31258dcf8b396081728a8ee30b8b1f33ef24998ac4cc9db273"
+        }
+      ]
+    },
+    {
+      "run": "run-baseline-104729-1790848742654",
+      "logBytes": 449886,
+      "logSHA256": "779a7eade8a7079c2bc753502ae91aa34d28d83e3bd3bb607a7e57532a17fa6d",
+      "admission": {
+        "variant": "baseline",
+        "intendedSeed": "104729",
+        "intendedDifficulty": 1,
+        "sourceDigest": "801db1ce4000c15268569cb047e7388148a65105c7b86208611ceb3aff40f029",
+        "harnessSHA256": "171e50727482feb1646ef7ede6e33b58244be95cc81baaf68ff7cb9db9f33939",
+        "profile": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/profile-baseline-104729-1",
+        "resume": true,
+        "initial": 15866925056,
+        "maximum": 17179869184
+      },
+      "counts": {
+        "ADMISSION": 1,
+        "READY": 1,
+        "BEFORE": 41,
+        "AFTER": 41,
+        "CAPTURE": 2,
+        "BROWSER_CLOSED": 1
+      },
+      "trustedEventCounts": {
+        "True:focusin": 38,
+        "True:pointerdown": 19,
+        "True:pointerup": 19,
+        "True:click": 19
+      },
+      "closed": {
+        "sequence": 86,
+        "wallUTC": "2026-10-01T10:00:11.020Z",
+        "monotonicMs": 68404.123963,
+        "kind": "BROWSER_CLOSED",
+        "breached": false
+      },
+      "maximumObservedDelta": 518832128,
+      "maximumObservedCurrent": 16385757184,
+      "minimumObservedHeadroom": 794112000,
+      "failures": [],
+      "captures": [
+        {
+          "sequence": 27,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-baseline-104729-1790848742654/27-baseline-hunter-second-three-v-two-390.jpg",
+          "bytes": 43827,
+          "sha256": "d930731795c259af5c05512c00537969606b79374aa1e3d0859a91d3c157f7eb"
+        },
+        {
+          "sequence": 58,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-baseline-104729-1790848742654/58-baseline-hunter-shield-preview-390.jpg",
+          "bytes": 47018,
+          "sha256": "6e9afcce6779a0927ad5141f985ece235cff3433bb9f4fab76c91a5484558ccc"
+        }
+      ]
+    },
+    {
+      "run": "run-baseline-58173-1790846928048",
+      "logBytes": 76997,
+      "logSHA256": "57aef96dd23394f7acfad4e5e24abd6cd2e7912c9dbb6fcda3f53e76e4982b2b",
+      "admission": {
+        "variant": "baseline",
+        "intendedSeed": "58173",
+        "intendedDifficulty": 0,
+        "sourceDigest": "801db1ce4000c15268569cb047e7388148a65105c7b86208611ceb3aff40f029",
+        "harnessSHA256": "c56d8b1fea59dd7217dfc7037273fe243b4fde62255c0e767bb81abaa0444500",
+        "profile": null,
+        "resume": null,
+        "initial": 15773687808,
+        "maximum": 17179869184
+      },
+      "counts": {
+        "ADMISSION": 1,
+        "READY": 1,
+        "BEFORE": 8,
+        "AFTER": 8,
+        "BROWSER_CLOSED": 1
+      },
+      "trustedEventCounts": {
+        "True:focusin": 9,
+        "True:pointerdown": 2,
+        "True:pointerup": 2,
+        "True:click": 2,
+        "True:keydown": 7,
+        "True:keyup": 7
+      },
+      "closed": {
+        "sequence": 18,
+        "wallUTC": "2026-10-01T09:29:36.083Z",
+        "monotonicMs": 48091.192496,
+        "kind": "BROWSER_CLOSED",
+        "breached": false
+      },
+      "maximumObservedDelta": 573239296,
+      "maximumObservedCurrent": 16346927104,
+      "minimumObservedHeadroom": 832942080,
+      "failures": [],
+      "captures": []
+    },
+    {
+      "run": "run-baseline-58173-1790846976286",
+      "logBytes": 1705185,
+      "logSHA256": "61f283f851462d90048d5f8884a84887fc79da59c909cd2c3dcf1e122ae849fa",
+      "admission": {
+        "variant": "baseline",
+        "intendedSeed": "58173",
+        "intendedDifficulty": 0,
+        "sourceDigest": "801db1ce4000c15268569cb047e7388148a65105c7b86208611ceb3aff40f029",
+        "harnessSHA256": "c56d8b1fea59dd7217dfc7037273fe243b4fde62255c0e767bb81abaa0444500",
+        "profile": null,
+        "resume": null,
+        "initial": 15774199808,
+        "maximum": 17179869184
+      },
+      "counts": {
+        "ADMISSION": 1,
+        "READY": 1,
+        "BEFORE": 138,
+        "AFTER": 138,
+        "CAPTURE": 4,
+        "RESOURCE_FAILURE": 1,
+        "BROWSER_CLOSED": 1
+      },
+      "trustedEventCounts": {
+        "True:focusin": 152,
+        "True:pointerdown": 66,
+        "True:pointerup": 66,
+        "True:click": 68,
+        "True:keydown": 12,
+        "True:keyup": 12,
+        "True:input": 5,
+        "True:change": 1
+      },
+      "closed": {
+        "sequence": 283,
+        "wallUTC": "2026-10-01T09:44:01.198Z",
+        "monotonicMs": 864944.714113,
+        "kind": "BROWSER_CLOSED",
+        "breached": true
+      },
+      "maximumObservedDelta": 676503552,
+      "maximumObservedCurrent": 16450703360,
+      "minimumObservedHeadroom": 729165824,
+      "failures": [
+        {
+          "sequence": 282,
+          "kind": "RESOURCE_FAILURE",
+          "error": "browser resource admission breached {\"label\":\"periodic\",\"current\":16450703360,\"maximum\":17179869184,\"delta\":676503552,\"headroom\":729165824,\"free\":1602379776,\"evidenceBytes\":2147645}",
+          "resource": {
+            "label": "periodic",
+            "current": 16450703360,
+            "maximum": 17179869184,
+            "delta": 676503552,
+            "headroom": 729165824,
+            "free": 1602379776,
+            "evidenceBytes": 2147645
+          }
+        }
+      ],
+      "captures": [
+        {
+          "sequence": 33,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-baseline-58173-1790846976286/33-baseline-lethal-preview.jpg",
+          "bytes": 182253,
+          "sha256": "1ce2d498411cc38579779b193811af486ae0c300ecf04238a45d54056dfc8e49"
+        },
+        {
+          "sequence": 76,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-baseline-58173-1790846976286/76-baseline-earned-final-kill-immediate.jpg",
+          "bytes": 181135,
+          "sha256": "64b0f04946665e792f4a07e08686dea354dca53229b95b7ef298348e5b6ffecf"
+        },
+        {
+          "sequence": 177,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-baseline-58173-1790846976286/177-baseline-earned-elite-390.jpg",
+          "bytes": 37350,
+          "sha256": "764800cda22e9376417a7bd3d03bb1125f2bcc47a7f75f8d73140789cf65319d"
+        },
+        {
+          "sequence": 228,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-baseline-58173-1790846976286/228-baseline-earned-target-preview-390.jpg",
+          "bytes": 42317,
+          "sha256": "b238df764079dc9edf0654254592f39bc70959a3c395cb5a2be8aa340046c327"
+        }
+      ]
+    },
+    {
+      "run": "run-candidate-104729-1790848234472",
+      "logBytes": 79129,
+      "logSHA256": "ce88f06f6f99fbe1a189011249f1e20effabcb901752a04ee4eeaec98ba12ffe",
+      "admission": {
+        "variant": "candidate",
+        "intendedSeed": "104729",
+        "intendedDifficulty": 1,
+        "sourceDigest": "2f1fd23d0af5d43d7ee1ed9242063404bd242702df44d2db7b15f007e8306629",
+        "harnessSHA256": "6d8479e1f47940f57a5614a1d6bb7ebc0b2b7eedd6f4f0b473d14394a080fd66",
+        "profile": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/profile-candidate-104729-1",
+        "resume": false,
+        "initial": 15799406592,
+        "maximum": 17179869184
+      },
+      "counts": {
+        "ADMISSION": 1,
+        "READY": 1,
+        "BEFORE": 8,
+        "AFTER": 8,
+        "RESOURCE_FAILURE": 1,
+        "BROWSER_CLOSED": 1
+      },
+      "trustedEventCounts": {
+        "True:focusin": 13,
+        "True:pointerdown": 5,
+        "True:pointerup": 5,
+        "True:click": 5,
+        "True:input": 7,
+        "True:change": 2,
+        "True:keydown": 8,
+        "True:keyup": 8
+      },
+      "closed": {
+        "sequence": 19,
+        "wallUTC": "2026-10-01T09:50:55.583Z",
+        "monotonicMs": 21150.195869,
+        "kind": "BROWSER_CLOSED",
+        "breached": true
+      },
+      "maximumObservedDelta": 705478656,
+      "maximumObservedCurrent": 16504885248,
+      "minimumObservedHeadroom": 674983936,
+      "failures": [
+        {
+          "sequence": 18,
+          "kind": "RESOURCE_FAILURE",
+          "error": "browser resource admission breached {\"label\":\"periodic\",\"current\":16504885248,\"maximum\":17179869184,\"delta\":705478656,\"headroom\":674983936,\"free\":1493000192,\"evidenceBytes\":78542}",
+          "resource": {
+            "label": "periodic",
+            "current": 16504885248,
+            "maximum": 17179869184,
+            "delta": 705478656,
+            "headroom": 674983936,
+            "free": 1493000192,
+            "evidenceBytes": 78542
+          }
+        }
+      ],
+      "captures": []
+    },
+    {
+      "run": "run-candidate-104729-1790848279820",
+      "logBytes": 139736,
+      "logSHA256": "257706459da8282f6ec1965d9b29e7af0c97eca4f7b0e9176d96456facdb08c0",
+      "admission": {
+        "variant": "candidate",
+        "intendedSeed": "104729",
+        "intendedDifficulty": 1,
+        "sourceDigest": "2f1fd23d0af5d43d7ee1ed9242063404bd242702df44d2db7b15f007e8306629",
+        "harnessSHA256": "6d8479e1f47940f57a5614a1d6bb7ebc0b2b7eedd6f4f0b473d14394a080fd66",
+        "profile": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/profile-candidate-104729-1",
+        "resume": true,
+        "initial": 15831015424,
+        "maximum": 17179869184
+      },
+      "counts": {
+        "ADMISSION": 1,
+        "READY": 1,
+        "BEFORE": 13,
+        "AFTER": 12,
+        "CAPTURE": 2,
+        "RESOURCE_FAILURE": 1,
+        "COMMAND_FAILED": 1,
+        "RUN_FAILED": 1,
+        "BROWSER_CLOSED": 1
+      },
+      "trustedEventCounts": {
+        "True:focusin": 8,
+        "True:pointerdown": 4,
+        "True:pointerup": 4,
+        "True:click": 4
+      },
+      "closed": {
+        "sequence": 32,
+        "wallUTC": "2026-10-01T09:52:04.097Z",
+        "monotonicMs": 44311.332586,
+        "kind": "BROWSER_CLOSED",
+        "breached": true
+      },
+      "maximumObservedDelta": 709214208,
+      "maximumObservedCurrent": 16540229632,
+      "minimumObservedHeadroom": 639639552,
+      "failures": [
+        {
+          "sequence": 29,
+          "kind": "RESOURCE_FAILURE",
+          "error": "browser resource admission breached {\"label\":\"periodic\",\"current\":16540229632,\"maximum\":17179869184,\"delta\":709214208,\"headroom\":639639552,\"free\":1467559936,\"evidenceBytes\":251283}",
+          "resource": {
+            "label": "periodic",
+            "current": 16540229632,
+            "maximum": 17179869184,
+            "delta": 709214208,
+            "headroom": 639639552,
+            "free": 1467559936,
+            "evidenceBytes": 251283
+          }
+        },
+        {
+          "sequence": 30,
+          "kind": "COMMAND_FAILED",
+          "error": "locator.scrollIntoViewIfNeeded: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 \u00d7 waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 \u00d7 waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    2 \u00d7 waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\n    at locate (/tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r5.mjs:59:13)\n    at async file:///tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r5.mjs:101:43",
+          "resource": null
+        },
+        {
+          "sequence": 31,
+          "kind": "RUN_FAILED",
+          "error": "locator.scrollIntoViewIfNeeded: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 \u00d7 waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 \u00d7 waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    2 \u00d7 waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\n    at locate (/tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r5.mjs:59:13)\n    at async file:///tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r5.mjs:101:43",
+          "resource": null
+        }
+      ],
+      "captures": [
+        {
+          "sequence": 13,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-candidate-104729-1790848279820/13-candidate-hunter-earned-body-390.jpg",
+          "bytes": 58142,
+          "sha256": "b0970250d3ed8cd4b2b675a1d02b45dffaf8a0db8be9d5313a00c15b0b0c7d88"
+        },
+        {
+          "sequence": 26,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-candidate-104729-1790848279820/26-candidate-hunter-two-bodies-390.jpg",
+          "bytes": 56311,
+          "sha256": "9d2d16bc2bb1578bfb69c9bb7076bdf3522a446924cdb6b99d1dbbe6a7685976"
+        }
+      ]
+    },
+    {
+      "run": "run-candidate-104729-1790848356210",
+      "logBytes": 605425,
+      "logSHA256": "6d3cf992aa7539dd8f2b1a941c2007f8eaea3ec480e841dfcbd35d680d085b74",
+      "admission": {
+        "variant": "candidate",
+        "intendedSeed": "104729",
+        "intendedDifficulty": 1,
+        "sourceDigest": "2f1fd23d0af5d43d7ee1ed9242063404bd242702df44d2db7b15f007e8306629",
+        "harnessSHA256": "171e50727482feb1646ef7ede6e33b58244be95cc81baaf68ff7cb9db9f33939",
+        "profile": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/profile-candidate-104729-1",
+        "resume": true,
+        "initial": 15828021248,
+        "maximum": 17179869184
+      },
+      "counts": {
+        "ADMISSION": 1,
+        "READY": 1,
+        "BEFORE": 52,
+        "AFTER": 51,
+        "CAPTURE": 3,
+        "COMMAND_FAILED": 1,
+        "BROWSER_CLOSED": 1
+      },
+      "trustedEventCounts": {
+        "True:focusin": 47,
+        "True:pointerdown": 25,
+        "True:pointerup": 25,
+        "True:click": 25
+      },
+      "closed": {
+        "sequence": 109,
+        "wallUTC": "2026-10-01T09:54:42.049Z",
+        "monotonicMs": 125891.952697,
+        "kind": "BROWSER_CLOSED",
+        "breached": false
+      },
+      "maximumObservedDelta": 548691968,
+      "maximumObservedCurrent": 16376713216,
+      "minimumObservedHeadroom": 803155968,
+      "failures": [
+        {
+          "sequence": 16,
+          "kind": "COMMAND_FAILED",
+          "error": "AssertionError [ERR_ASSERTION]: control not visibly present\n    at locate (file:///tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r6.mjs:57:3)\n    at async file:///tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r6.mjs:103:43",
+          "resource": null
+        }
+      ],
+      "captures": [
+        {
+          "sequence": 9,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-candidate-104729-1790848356210/9-candidate-hunter-preview-390.jpg",
+          "bytes": 59194,
+          "sha256": "0ee70dcd39732f5f2221bde96a6b66b9b50c6299fd871c601c88e4167e8e6cab"
+        },
+        {
+          "sequence": 76,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-candidate-104729-1790848356210/76-candidate-hunter-three-bodies-390.jpg",
+          "bytes": 56537,
+          "sha256": "a58b39d72ddcb972d411127efff1d43745e124d1768d8206300256d8b98589a0"
+        },
+        {
+          "sequence": 95,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-candidate-104729-1790848356210/95-candidate-hunter-final-kill-390.jpg",
+          "bytes": 54031,
+          "sha256": "1360aa401765911986d07dfd25a690ea6995462a9c1519e214af77662f61cc13"
+        }
+      ]
+    },
+    {
+      "run": "run-candidate-104729-1790848510180",
+      "logBytes": 431382,
+      "logSHA256": "1e97a19072fec72e90e82f4d25a196182a027d21eecd0d4afd23fe3d5e31c2f0",
+      "admission": {
+        "variant": "candidate",
+        "intendedSeed": "104729",
+        "intendedDifficulty": 1,
+        "sourceDigest": "2f1fd23d0af5d43d7ee1ed9242063404bd242702df44d2db7b15f007e8306629",
+        "harnessSHA256": "171e50727482feb1646ef7ede6e33b58244be95cc81baaf68ff7cb9db9f33939",
+        "profile": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/profile-candidate-104729-1",
+        "resume": true,
+        "initial": 15844298752,
+        "maximum": 17179869184
+      },
+      "counts": {
+        "ADMISSION": 1,
+        "READY": 1,
+        "BEFORE": 41,
+        "AFTER": 41,
+        "CAPTURE": 2,
+        "BROWSER_CLOSED": 1
+      },
+      "trustedEventCounts": {
+        "True:focusin": 35,
+        "True:pointerdown": 19,
+        "True:pointerup": 19,
+        "True:click": 19
+      },
+      "closed": {
+        "sequence": 86,
+        "wallUTC": "2026-10-01T09:56:31.603Z",
+        "monotonicMs": 81462.746661,
+        "kind": "BROWSER_CLOSED",
+        "breached": false
+      },
+      "maximumObservedDelta": 467111936,
+      "maximumObservedCurrent": 16311410688,
+      "minimumObservedHeadroom": 868458496,
+      "failures": [],
+      "captures": [
+        {
+          "sequence": 27,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-candidate-104729-1790848510180/27-candidate-hunter-second-earned-three-v-two-390.jpg",
+          "bytes": 52545,
+          "sha256": "8ba4ca6164caaca6eb6be90b76c3bc61114a8ae400b25ab7824a9887a2ea1d75"
+        },
+        {
+          "sequence": 58,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-candidate-104729-1790848510180/58-candidate-hunter-shield-preview-390.jpg",
+          "bytes": 58339,
+          "sha256": "cedcb40f91313f95e0a792e96167f8627386036a4c8c95086353d706a68f8fa5"
+        }
+      ]
+    },
+    {
+      "run": "run-candidate-58173-1790846478006",
+      "logBytes": 6333,
+      "logSHA256": "b8536f73007c6e5d7c1675688de5ee7064fcb4f56c75575fc41bb919246bbafa",
+      "admission": {
+        "variant": "candidate",
+        "intendedSeed": "58173",
+        "intendedDifficulty": 0,
+        "sourceDigest": "2f1fd23d0af5d43d7ee1ed9242063404bd242702df44d2db7b15f007e8306629",
+        "harnessSHA256": null,
+        "profile": null,
+        "resume": null,
+        "initial": 15782653952,
+        "maximum": 17179869184
+      },
+      "counts": {
+        "ADMISSION": 1,
+        "RUN_FAILED": 1,
+        "BROWSER_CLOSED": 1
+      },
+      "trustedEventCounts": {},
+      "closed": {
+        "sequence": 2,
+        "wallUTC": "2026-10-01T09:21:18.421Z",
+        "monotonicMs": 451.993713,
+        "kind": "BROWSER_CLOSED",
+        "breached": false
+      },
+      "maximumObservedDelta": 0,
+      "maximumObservedCurrent": 0,
+      "minimumObservedHeadroom": null,
+      "failures": [
+        {
+          "sequence": 1,
+          "kind": "RUN_FAILED",
+          "error": "browserType.launch: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> /usr/bin/chromium --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-D8jZWJ --remote-debugging-pipe --no-startup-window\n<launched> pid=428849\n[pid=428849][err] [428849:428849:1001/092118.407852:FATAL:chrome/browser/process_singleton_posix.cc:313] Socket path too long: /tmp/standard-sol-owner-ux-gameplay-independent-r1/run-candidate-58173-1790846478006/tmp/org.chromium.Chromium.I51D9l/SingletonSocket.\n[pid=428849][err] [1001/092118.411520:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq: No such file or directory (2)\n[pid=428849][err] [1001/092118.411628:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq: No such file or directory (2)\nCall log:\n\u001b[2m  - <launching> /usr/bin/chromium --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-D8jZWJ --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=428849\u001b[22m\n\u001b[2m  - [pid=428849][err] [428849:428849:1001/092118.407852:FATAL:chrome/browser/process_singleton_posix.cc:313] Socket path too long: /tmp/standard-sol-owner-ux-gameplay-independent-r1/run-candidate-58173-1790846478006/tmp/org.chromium.Chromium.I51D9l/SingletonSocket.\u001b[22m\n\u001b[2m  - [pid=428849][err] [1001/092118.411520:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq: No such file or directory (2)\u001b[22m\n\u001b[2m  - [pid=428849][err] [1001/092118.411628:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq: No such file or directory (2)\u001b[22m\n\u001b[2m  - [pid=428849] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=428849] <kill>\u001b[22m\n\u001b[2m  - [pid=428849] <will force kill>\u001b[22m\n\u001b[2m  - [pid=428849] <process did exit: exitCode=null, signal=SIGABRT>\u001b[22m\n\u001b[2m  - [pid=428849] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=428849] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=428849] <gracefully close end>\u001b[22m\n\n    at /tmp/standard-sol-owner-ux-gameplay-independent-r1/observe.mjs:66:26",
+          "resource": null
+        }
+      ],
+      "captures": []
+    },
+    {
+      "run": "run-candidate-58173-1790846515428",
+      "logBytes": 654030,
+      "logSHA256": "e75056698ba32eb5789380fbfc00df46239303916aa0fa7ab899e4dacc146610",
+      "admission": {
+        "variant": "candidate",
+        "intendedSeed": "58173",
+        "intendedDifficulty": 0,
+        "sourceDigest": "2f1fd23d0af5d43d7ee1ed9242063404bd242702df44d2db7b15f007e8306629",
+        "harnessSHA256": "3c134e83711792b21b17449fc82989943d00242265ef6153b833ba642c1a574e",
+        "profile": null,
+        "resume": null,
+        "initial": 15778041856,
+        "maximum": 17179869184
+      },
+      "counts": {
+        "ADMISSION": 1,
+        "READY": 1,
+        "BEFORE": 61,
+        "AFTER": 59,
+        "CAPTURE": 7,
+        "COMMAND_FAILED": 2,
+        "RESOURCE_FAILURE": 1,
+        "RUN_FAILED": 1,
+        "BROWSER_CLOSED": 1
+      },
+      "trustedEventCounts": {
+        "True:focusin": 47,
+        "True:pointerdown": 21,
+        "True:pointerup": 21,
+        "True:click": 21,
+        "True:keydown": 8,
+        "True:keyup": 8,
+        "True:input": 5,
+        "True:change": 1
+      },
+      "closed": {
+        "sequence": 133,
+        "wallUTC": "2026-10-01T09:27:26.751Z",
+        "monotonicMs": 331355.893881,
+        "kind": "BROWSER_CLOSED",
+        "breached": true
+      },
+      "maximumObservedDelta": 654684160,
+      "maximumObservedCurrent": 16432726016,
+      "minimumObservedHeadroom": 747143168,
+      "failures": [
+        {
+          "sequence": 116,
+          "kind": "COMMAND_FAILED",
+          "error": "AssertionError [ERR_ASSERTION]: control not visibly present\n    at locate (file:///tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r2.mjs:53:3)\n    at async file:///tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r2.mjs:97:43",
+          "resource": null
+        },
+        {
+          "sequence": 130,
+          "kind": "RESOURCE_FAILURE",
+          "error": "browser resource reserve breached",
+          "resource": null
+        },
+        {
+          "sequence": 131,
+          "kind": "COMMAND_FAILED",
+          "error": "page.waitForTimeout: Target page, context or browser has been closed\n    at /tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r2.mjs:97:94",
+          "resource": null
+        },
+        {
+          "sequence": 132,
+          "kind": "RUN_FAILED",
+          "error": "page.waitForTimeout: Target page, context or browser has been closed\n    at /tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r2.mjs:97:94",
+          "resource": null
+        }
+      ],
+      "captures": [
+        {
+          "sequence": 21,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-candidate-58173-1790846515428/21-first-summon-hover.jpg",
+          "bytes": 189369,
+          "sha256": "3608c94a62fd2c4faf7ad8d347eaec5c4c5cbe66355b257c527e7c3a854a84e2"
+        },
+        {
+          "sequence": 40,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-candidate-58173-1790846515428/40-boosted-scour-lethal-preview.jpg",
+          "bytes": 180146,
+          "sha256": "960dd1b09ab90fa6ad4d65af74552902a2d4da3097387cffa7d18c09f985d3c2"
+        },
+        {
+          "sequence": 59,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-candidate-58173-1790846515428/59-first-direct-command-preview.jpg",
+          "bytes": 169560,
+          "sha256": "17a05c021f4e680c594eac7baa2fa2bca7d70dbf3fac8d5f9b9958fcfef596e7"
+        },
+        {
+          "sequence": 82,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-candidate-58173-1790846515428/82-hex-shield-removal-preview.jpg",
+          "bytes": 188630,
+          "sha256": "1cc256e3d50f7cd10455876ade172292d5523f9e05198668aca81884d354c5ed"
+        },
+        {
+          "sequence": 101,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-candidate-58173-1790846515428/101-earned-final-kill-immediate.jpg",
+          "bytes": 179508,
+          "sha256": "b76ac37398372930cea8541f9814c36aa54c7da66ea50859a80091307d803334"
+        },
+        {
+          "sequence": 106,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-candidate-58173-1790846515428/106-earned-final-kill-plus300.jpg",
+          "bytes": 178441,
+          "sha256": "16c4e0a6c3e173d1ff899ed3571d33e55640b2d3eac693bf47413ca11bc5fe3e"
+        },
+        {
+          "sequence": 111,
+          "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/run-candidate-58173-1790846515428/111-earned-reward-visible.jpg",
+          "bytes": 116512,
+          "sha256": "feb8cd7fe4d2723285cb337f84a319328a8baf5d3d1c0ea226902233d164939e"
+        }
+      ]
+    },
+    {
+      "run": "run-candidate-58173-1790847998958",
+      "logBytes": 957199,
+      "logSHA256": "800191cdab7249b6765c92e85d9759346a898ea21e93fe587d55df4796a74838",
+      "admission": {
+        "variant": "candidate",
+        "intendedSeed": "58173",
+        "intendedDifficulty": 0,
+        "sourceDigest": "2f1fd23d0af5d43d7ee1ed9242063404bd242702df44d2db7b15f007e8306629",
+        "harnessSHA256": "c56d8b1fea59dd7217dfc7037273fe243b4fde62255c0e767bb81abaa0444500",
+        "profile": null,
+        "resume": null,
+        "initial": 15789268992,
+        "maximum": 17179869184
+      },
+      "counts": {
+        "ADMISSION": 1,
+        "READY": 1,
+        "BEFORE": 85,
+        "AFTER": 82,
+        "COMMAND_FAILED": 6,
+        "RESOURCE_FAILURE": 1,
+        "BROWSER_CLOSED": 1
+      },
+      "trustedEventCounts": {
+        "True:focusin": 90,
+        "True:pointerdown": 44,
+        "True:pointerup": 44,
+        "True:click": 45,
+        "True:keydown": 8,
+        "True:keyup": 8,
+        "True:input": 5,
+        "True:change": 1
+      },
+      "closed": {
+        "sequence": 176,
+        "wallUTC": "2026-10-01T09:50:12.252Z",
+        "monotonicMs": 213329.306222,
+        "kind": "BROWSER_CLOSED",
+        "breached": true
+      },
+      "maximumObservedDelta": 680824832,
+      "maximumObservedCurrent": 16470093824,
+      "minimumObservedHeadroom": 709775360,
+      "failures": [
+        {
+          "sequence": 35,
+          "kind": "COMMAND_FAILED",
+          "error": "AssertionError [ERR_ASSERTION]: control disabled\n    at locate (file:///tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r3.mjs:54:3)\n    at async file:///tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r3.mjs:97:43",
+          "resource": null
+        },
+        {
+          "sequence": 37,
+          "kind": "COMMAND_FAILED",
+          "error": "AssertionError [ERR_ASSERTION]: control disabled\n    at locate (file:///tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r3.mjs:54:3)\n    at async file:///tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r3.mjs:97:43",
+          "resource": null
+        },
+        {
+          "sequence": 159,
+          "kind": "COMMAND_FAILED",
+          "error": "AssertionError [ERR_ASSERTION]: control not visibly present\n    at locate (file:///tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r3.mjs:53:3)\n    at async file:///tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r3.mjs:97:43",
+          "resource": null
+        },
+        {
+          "sequence": 172,
+          "kind": "COMMAND_FAILED",
+          "error": "Error: browser resource admission breached {\"label\":\"before-command\",\"current\":16470093824,\"maximum\":17179869184,\"delta\":680824832,\"headroom\":709775360,\"free\":1479090176,\"evidenceBytes\":954312}\n    at sample (file:///tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r3.mjs:38:70)\n    at async file:///tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r3.mjs:95:86",
+          "resource": {
+            "label": "before-command",
+            "current": 16470093824,
+            "maximum": 17179869184,
+            "delta": 680824832,
+            "headroom": 709775360,
+            "free": 1479090176,
+            "evidenceBytes": 954312
+          }
+        },
+        {
+          "sequence": 173,
+          "kind": "COMMAND_FAILED",
+          "error": "Error: browser resource admission breached {\"label\":\"before-command\",\"current\":16469524480,\"maximum\":17179869184,\"delta\":680255488,\"headroom\":710344704,\"free\":1479520256,\"evidenceBytes\":955154}\n    at sample (file:///tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r3.mjs:38:70)\n    at async file:///tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r3.mjs:95:86",
+          "resource": {
+            "label": "before-command",
+            "current": 16469524480,
+            "maximum": 17179869184,
+            "delta": 680255488,
+            "headroom": 710344704,
+            "free": 1479520256,
+            "evidenceBytes": 955154
+          }
+        },
+        {
+          "sequence": 174,
+          "kind": "COMMAND_FAILED",
+          "error": "Error: browser resource admission breached {\"label\":\"before-command\",\"current\":16464924672,\"maximum\":17179869184,\"delta\":675655680,\"headroom\":714944512,\"free\":1479520256,\"evidenceBytes\":955897}\n    at sample (file:///tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r3.mjs:38:70)\n    at async file:///tmp/standard-sol-owner-ux-gameplay-independent-r1/observe-r3.mjs:95:86",
+          "resource": {
+            "label": "before-command",
+            "current": 16464924672,
+            "maximum": 17179869184,
+            "delta": 675655680,
+            "headroom": 714944512,
+            "free": 1479520256,
+            "evidenceBytes": 955897
+          }
+        },
+        {
+          "sequence": 175,
+          "kind": "RESOURCE_FAILURE",
+          "error": "browser resource admission breached {\"label\":\"periodic\",\"current\":16461385728,\"maximum\":17179869184,\"delta\":672116736,\"headroom\":718483456,\"free\":1479725056,\"evidenceBytes\":956606}",
+          "resource": {
+            "label": "periodic",
+            "current": 16461385728,
+            "maximum": 17179869184,
+            "delta": 672116736,
+            "headroom": 718483456,
+            "free": 1479725056,
+            "evidenceBytes": 956606
+          }
+        }
+      ],
+      "captures": []
+    }
+  ],
+  "allCreatedBrowsersClosed": true,
+  "profileMetadataOnly": [
+    {
+      "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/profile-baseline-104729-1",
+      "entries": 239,
+      "logicalBytes": 33062725,
+      "note": "No profile contents inspected or hashed; retained real-play Chromium profile."
+    },
+    {
+      "path": "/tmp/standard-sol-owner-ux-gameplay-independent-r1/profile-candidate-104729-1",
+      "entries": 238,
+      "logicalBytes": 33118236,
+      "note": "No profile contents inspected or hashed; retained real-play Chromium profile."
+    }
+  ]
+}

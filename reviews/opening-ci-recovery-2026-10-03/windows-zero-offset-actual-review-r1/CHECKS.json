@@ -1,0 +1,77 @@
+{
+  "actualPR1MergeCheckout": "1a9a2c91fbc0a1999744fb9243299cf30ecf88ca",
+  "actualSerializedPositionPrinted": false,
+  "all26ReceivedStepSummariesSuccess": true,
+  "artifactBodyDownloads": 0,
+  "associatedHead": "764087166aa9655adfe33e25245c0bb93b14d166",
+  "decodedBOMAndCRLFRetained": true,
+  "decodedLogBytes": 79889,
+  "decodedLogSHA256": "712474ae3d6ef6e48a7eb29ecbac99e194a2f73437bf62ff4146aea7529f193b",
+  "exactSourceProposalMatch": true,
+  "job": 111075708058,
+  "mergeBase": "98660a7ef214c8a875b25482f64475c8d70e5efc",
+  "qualification": "Decoded UTF8 bytes only, not original HTTP log archive. Metadata wrappers first page/latest jobs. Actual hosted Windows job reported success; artifact package/smoke.json/resources/captures not downloaded or independently audited. No broad/native readiness, release, default, art, gameplay or human-fun acceptance. B/C private build not tested: printed runtime64c2.",
+  "receivedArtifactMetadataCount": 10,
+  "ruleTests": {
+    "failed": 0,
+    "passed": 111,
+    "skipped": 0,
+    "tests": 111
+  },
+  "run": 37079181727,
+  "runtimeSourceDigestPrinted": "64c2a14ada2b24796535f9bb71d8a6acc534685365bcf4f5665b21bf18595353",
+  "scriptGitBlobSHA1": "1c098dc824950a0c70ac600ac29f8bae25db337c",
+  "scriptSHA256": "3f09a78f6111ad5518aebd544b4a4f8475fa22c4879242eb86d7dd8d0f49eef2",
+  "selectedEvidenceLines": [
+    {
+      "line": 11,
+      "rawLine": "2026-10-02T23:47:03.5328046Z Microsoft Windows Server 2022"
+    },
+    {
+      "line": 16,
+      "rawLine": "2026-10-02T23:47:03.5329936Z Image: windows-2022"
+    },
+    {
+      "line": 93,
+      "rawLine": "2026-10-02T23:47:07.6958635Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +1a9a2c91fbc0a1999744fb9243299cf30ecf88ca:refs/remotes/pull/1/merge"
+    },
+    {
+      "line": 95,
+      "rawLine": "2026-10-02T23:47:38.7109704Z  * [new ref]         1a9a2c91fbc0a1999744fb9243299cf30ecf88ca -> pull/1/merge"
+    },
+    {
+      "line": 228,
+      "rawLine": "2026-10-02T23:47:53.7511339Z HEAD is now at 1a9a2c9 Merge 764087166aa9655adfe33e25245c0bb93b14d166 into 98660a7ef214c8a875b25482f64475c8d70e5efc"
+    },
+    {
+      "line": 231,
+      "rawLine": "2026-10-02T23:47:53.9521295Z 1a9a2c91fbc0a1999744fb9243299cf30ecf88ca"
+    },
+    {
+      "line": 428,
+      "rawLine": "2026-10-02T23:48:26.6952808Z \u2139 tests 111"
+    },
+    {
+      "line": 430,
+      "rawLine": "2026-10-02T23:48:26.6953286Z \u2139 pass 111"
+    },
+    {
+      "line": 431,
+      "rawLine": "2026-10-02T23:48:26.6953515Z \u2139 fail 0"
+    },
+    {
+      "line": 433,
+      "rawLine": "2026-10-02T23:48:26.6953959Z \u2139 skipped 0"
+    },
+    {
+      "line": 456,
+      "rawLine": "2026-10-02T23:48:28.2149588Z Runtime source digest: 64c2a14ada2b24796535f9bb71d8a6acc534685365bcf4f5665b21bf18595353"
+    },
+    {
+      "line": 488,
+      "rawLine": "2026-10-02T23:48:47.6805720Z Native Windows packaged launch, branding resources, keyboard focus/repeat guards, portrait, tutorial/combat, persistence and negative-feedback download passed."
+    }
+  ],
+  "verdict": "ACTUAL_WINDOWS_JOB_AND_ZERO_OFFSET_SMOKE_PASS_QUALIFIED",
+  "zeroOffsetAllowlistInExactTestedSource": true
+}

@@ -1,0 +1,54 @@
+{
+  "version": "0.8.0",
+  "status": "development-prerelease",
+  "sourceCommit": "58efb01f4815d8b542711582b87f50168dabde81",
+  "runtimeSourceDigest": "23477f68c99d6d60b0b3f82b286a8d33bb6da6f2ca92c103fbecf5663634959f",
+  "sourceArchiveFormat": "git-bundle-v2",
+  "sourceBundleVerification": "source-bundle-verification.json",
+  "archivePlan": "Producer stores web ZIP, source bundle and available validated Linux tar. Root separately adds the accepted original native Windows ZIP and original CI evidence, producing five archives; this producer does not invent native proof or repack Windows.",
+  "sourceArchiveScope": "Exact current complete Git tree and all commit/tree/blob ancestry reachable only from pinned HEAD/production branch, independently restored and fsck/blob verified. Other refs/annotated tags, non-ancestor rejected experiments and working files are excluded. Temporary same-commit ZIP used only for canonical review auditing; no official source ZIP is claimed.",
+  "createdAt": "2026-10-01T03:14:23.178Z",
+  "platforms": [
+    "web",
+    "linux-x64",
+    "windows-x64"
+  ],
+  "artifacts": {
+    "hollowpact-0.8.0-linux-x64.tar.gz": "a53d9ce19137d85223bc3487b15209da359de24c8d9f524ef47f06e0de75d772",
+    "hollowpact-0.8.0-native-evidence-36806506465-1.zip": "c76748bac54fad37f88b4f53e957456b726210158ce5939540b2367c737941e6",
+    "hollowpact-0.8.0-source.bundle": "fd1310a36be0931bb81537004f87ef751481ca0daa349e58f1576a3c34640b3d",
+    "hollowpact-0.8.0-web.zip": "9305118f5e7da63923c28199618fd7b6241461c1eff578e4feb1c5e79674d1a6",
+    "hollowpact-0.8.0-windows-native-x64.zip": "1ce6c74baea02686183e833c28738e04d19f80d5826218a0d732eff304dce563"
+  },
+  "steamPublished": false,
+  "reviews": "See reviews/INDEX.json and canonical reviews/ in the source commit/archive. Prior full local milestone copies remain unchanged. This manifest does not certify commercial quality.",
+  "nativeWindows": {
+    "runId": 36806506465,
+    "jobId": 110191925032,
+    "attempt": 1,
+    "headSourceCheckpoint": "2e93c2dab38c513a6f43e1dc4e31307f0866db14",
+    "actualPRMergeCheckout": "7c460a706d6e5bfd8c98d5886b3d1d5cab679cef",
+    "originalArchiveSHA256": "1ce6c74baea02686183e833c28738e04d19f80d5826218a0d732eff304dce563",
+    "originalEvidenceSHA256": "c76748bac54fad37f88b4f53e957456b726210158ce5939540b2367c737941e6",
+    "files": 72,
+    "matchingLinuxWindowsASAR_SHA256": "c383c4437ac5467146174c6ea039b2a8b28af43d609701379e8cf695f59d530c",
+    "review": "reviews/native-windows-v0.8-23477-binary-independent/REVIEW.md",
+    "qualification": "Actual thirteen-phase sandbox-enabled hosted Windows2022 portable QA; independent original ZIP/ASAR/PE audit. Muted/reduced idle hunter trial, no native crypt/audio/hearing, consumer installer/update, physical controller/Deck or Steam qualification."
+  },
+  "nativeLinux": {
+    "files": 74,
+    "executableSHA256": "9155dd17c16f0edeaadb74db4fd91e2730511cca83e8b130d59bab57aa4d4e4b",
+    "asarSHA256": "c383c4437ac5467146174c6ea039b2a8b28af43d609701379e8cf695f59d530c",
+    "review": "reviews/combined-v0.8-hunter-width-technical-independent/REVIEW-r2.md",
+    "qualification": "Actual four affected packaged checks on Linux/Xorg dummy/software rendering/--no-sandbox, plus retained separately scoped predecessor audio gates. No normal secure consumer install or declared hardware benchmark."
+  },
+  "acceptance": {
+    "gameplay": "reviews/combined-v0.8-hunter-width-gameplay-independent/REVIEW.md",
+    "visual": "reviews/combined-v0.8-hunter-width-visual-independent/REVIEW.md",
+    "technical": "reviews/combined-v0.8-hunter-width-technical-independent/REVIEW-r2.md",
+    "scope": "Scoped reviewed DEVELOPMENT preservation. AAA craft is not accepted; sparse standees/animation, anatomy/encounter variety, layout and human enjoyment remain open."
+  },
+  "archiveLayout": "Five archives: exact source Git bundle v2, web ZIP, Linux TAR, exact original actual-tested Windows ZIP and original native evidence ZIP. Producer metadata retained separately; no Windows repack.",
+  "remoteStorage": "Complete five-archive milestone local only; Actions expires30days. Historical installer drafts are separate partial research mirrors, not this game/source archive set.",
+  "archiveVerification": "reviews/root-v0.8-release-verification/root-verification.json; separate final archival acceptance required before tag."
+}

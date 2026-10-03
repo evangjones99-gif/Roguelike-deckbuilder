@@ -1,0 +1,150 @@
+{
+  "decision": "ACCEPT_EXACT_R3_PRESERVATION_COMPLETE",
+  "archiveSHA256": "0f6cec73b283cffd830f57d60a37edde43d1670e814d18a33eeb54d05afc37fa",
+  "manifestSHA256": "38e3cd6de37f9bbc8bbc59f7b3222c0d6774eaee55bd2862c6111e53588b62ba",
+  "logicalBodies": 318,
+  "completeCoverage": true,
+  "status": "CLOSED",
+  "uniqueBodies": 303,
+  "archiveBytes": 1981882,
+  "proof": {
+    "sha256": "b94d9b8c827bb22333a081cd5f96b796b9117bac1d35537ea1bbd05fbb310d90",
+    "bytes": 43077
+  },
+  "review": {
+    "sha256": "1c39de5df687de1f13ebe55b67edc03fb6ff1ee593048fc4919b40cb748088bd",
+    "bytes": 2817
+  },
+  "all303BlobsRoundtripExact": true,
+  "all318LogicalMappingsAndOriginalBodiesExact": true,
+  "publisherManifest": {
+    "sha256": "57ac340d00dc3cdc6ab8aa4956f01e5c13cfaf85f466031a8a2974aa67522c27",
+    "bytes": 3489
+  },
+  "sixCompleteArchivedRawPairs": [
+    {
+      "label": "C0",
+      "sha256": "c06f61c9e277f17043066f74e2e69ca0bf0a81018e8ab1a2b92ccb84de96bf9f",
+      "bytes": 1353,
+      "completeRawEqual": true
+    },
+    {
+      "label": "C1",
+      "sha256": "729c3eefe9a879e945aa24f70726b33894af92ebf21a62a09980bed47f6c51af",
+      "bytes": 1571,
+      "completeRawEqual": true
+    },
+    {
+      "label": "C2",
+      "sha256": "3df8c699f3d12f3a1792627e16bc39a05ee066e6256d0482a09c9992f7848d5d",
+      "bytes": 1608,
+      "completeRawEqual": true
+    },
+    {
+      "label": "C-firstDrop",
+      "sha256": "3b951b13cfd30384d1f69e4e47b80a7123f7b27c6d424a95f155bcd62a549b9d",
+      "bytes": 1621,
+      "completeRawEqual": true
+    },
+    {
+      "label": "C-secondOutcome",
+      "sha256": "dde9e46fca417dde24358a25afabf8e7f5f571de12cfe64765f66be9e42e2220",
+      "bytes": 1303,
+      "completeRawEqual": true
+    },
+    {
+      "label": "C-normalized",
+      "sha256": "dde9e46fca417dde24358a25afabf8e7f5f571de12cfe64765f66be9e42e2220",
+      "bytes": 1303,
+      "completeRawEqual": true
+    }
+  ],
+  "fourOriginalJPEGCount": 4,
+  "fourOriginalJPEGBytes": 781567,
+  "currentSourceBuildCallerActualIndependentPacketsComplete": true,
+  "runtimeMaps": {
+    "before87Inputs56Outputs": "1d5bf40a5f62c8ce3de1d087956e9190e98b3011cca1b1b7a5488fc8240bd4d3",
+    "beforeOutputs": "30ddc549433f7b0b7611e41c0d4fd67e00a3aaa07dd61ba886cc43094f1e5464",
+    "after88Inputs56Outputs": "9f57b1b6d0bcbba495d5dff38f14e01ccb813ba577174a06b6b0469c2d445e39",
+    "afterOutputs": "a02d5d6292d424bd1bbe26cbdd84a6806eac17ec84adc484549a7972a3e69c3e",
+    "combinedIncludedPlusNeeded134Exact": true,
+    "currentOld2Sources5NonmediaOutputsExact": true
+  },
+  "externalDependencies": {
+    "count": 134,
+    "mediaPinsAndCurrentSizesChecked": 101,
+    "support30BodiesSHAExact": true,
+    "priorDefaultCapsule3SHAExact": true,
+    "mediaFullBodyIdentityPreviouslyAcceptedTechnicalGate": "56adde5e8feb1341241a133763ad710adc0803615742598d2a741e55c4805edd",
+    "remainNeeded": true,
+    "notSelfContained": true
+  },
+  "producerGuard": {
+    "result": {
+      "sha256": "fd5d34f65d5e899475a83cf2aeddc3dc5efcc3d20220040d3e6b43827366910f",
+      "bytes": 1234
+    },
+    "normal0": true,
+    "liveSamples": 3,
+    "allPoints": 5,
+    "peakAggregateDelta": 8286208,
+    "minHeadroom": 2197135360,
+    "initialFree": 76296192,
+    "finalFree": 74293248,
+    "eventsUnchanged": true,
+    "command": [
+      "python",
+      "/workspace/scratch/target-clear-ghost-publish-author-r1/preserve.py",
+      "--preserve-only"
+    ],
+    "work": 268435456,
+    "reserve": 536870912,
+    "scope": "Observed finite child normalwait only; genericguard has no numeric PID/start ledger or exhaustive backend/global FD/process proof."
+  },
+  "defaultEnabled": false,
+  "canonicalGamePromoted": false,
+  "noRetirement": true,
+  "limits": [
+    "Preservation only; separate Root exact defaultOFF promotion action/gate and fresh admission remain required. No program mutation method executed by reviewer.",
+    "Cap2MiB passed after complete write, not a hard streaming ceiling. No original cleanup/retirement authorized.",
+    "Current87/56 maps/old2+old5 controls coherent and bodies exact; remaining143 fullruntime bodies recently independently accepted, not redundantly rehashed.",
+    "101 media references preserve exact prior accepted pins/current sizes;30support/prior3 checked bodies. Installed dependency tree/protectedZIP excluded and not read.",
+    "All archive blobs/logical body bytes exact; source metadata, original inode/atime/mode/mtime not restored. Mutable canonical OriginalPaths can change after authorized promotion; retained capsule/fixedstage bodies remain needed.",
+    "Sparse/static visual/gameplay/technical claims remain narrow; no defaultON/tether/motion/cancel/reducedmotion/dense/rapidrepair/humanfun/platform/art/release/version/tag claim.",
+    "Readonly NOATIME|NOFOLLOW streams; no image decode/view/backend/Node/Git/build/browser/native/canonical/media writes. Shared source cgroup samples not exclusive attribution."
+  ],
+  "independentGuard": {
+    "normal0": true,
+    "result": {
+      "sha256": "f2f3932b04a5c6feee210a6f78ac27969ef052bddaa991f2dd4bb3bad2294c72",
+      "bytes": 1046
+    },
+    "workBytes": 67108864,
+    "reserveBytes": 536870912,
+    "diskFloorBytes": 67108864,
+    "ownReaderPeak": 14442496,
+    "eventsUnchanged": true,
+    "sharedAccountingQualified": true
+  },
+  "seal": {
+    "initial": {
+      "time_ns": 1790911389497085075,
+      "current": 14976589824,
+      "maximum": 17179869184,
+      "headroom": 2203279360,
+      "free": 74125312
+    },
+    "final": {
+      "time_ns": 1790911389498763437,
+      "current": 14976851968,
+      "maximum": 17179869184,
+      "headroom": 2203017216,
+      "free": 74121216
+    },
+    "ownPeak": 10194944,
+    "eventsUnchanged": true,
+    "noChildLaunched": true
+  },
+  "noNewVerifierFailures": true,
+  "allReviewerToolsReadersFDsClosed": true
+}

@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "request": {
+    "schema": 1,
+    "version": "0.9.0",
+    "sourceDigest": "801db1ce4000c15268569cb047e7388148a65105c7b86208611ceb3aff40f029",
+    "expectedAsar": "6a89d2b61562309f0d8b9974df6a3bb18008dd5626a6001e898491bbba2ce03b",
+    "commit": "8860abd302b140049ef10040ebfa160244829950",
+    "ref": "refs/heads/codex/lanternbound-production",
+    "runId": "36819597195",
+    "attempt": "1",
+    "localAppData": "C:\\Users\\runneradmin\\AppData\\Local",
+    "defaultCache": "C:\\Users\\runneradmin\\AppData\\Local\\hollowpact-updater",
+    "defaultCacheBefore": {
+      "exists": false
+    },
+    "layout": {
+      "token": "f0fac0d3dd82175579dbe57a7d12d57d",
+      "base": "C:\\Users\\runneradmin\\AppData\\Local\\HollowpactInstallerQA\\f0fac0d3dd82175579dbe57a7d12d57d",
+      "install": "C:\\Users\\runneradmin\\AppData\\Local\\HollowpactInstallerQA\\f0fac0d3dd82175579dbe57a7d12d57d\\installation",
+      "profile": "C:\\Users\\runneradmin\\AppData\\Local\\HollowpactInstallerQA\\f0fac0d3dd82175579dbe57a7d12d57d\\profile",
+      "marker": "C:\\Users\\runneradmin\\AppData\\Local\\HollowpactInstallerQA\\f0fac0d3dd82175579dbe57a7d12d57d\\owner-token.txt",
+      "sentinel": "C:\\Users\\runneradmin\\AppData\\Local\\HollowpactInstallerQA\\f0fac0d3dd82175579dbe57a7d12d57d\\preserve-me.txt",
+      "generator": "C:\\Users\\runneradmin\\AppData\\Local\\HollowpactInstallerQA\\f0fac0d3dd82175579dbe57a7d12d57d\\uninstaller-generator",
+      "cache": "C:\\Users\\runneradmin\\AppData\\Local\\HollowpactInstallerQA\\f0fac0d3dd82175579dbe57a7d12d57d\\installer-cache",
+      "executableName": "Hollowpact-QA-f0fac0d3dd82175579dbe57a7d12d57d",
+      "appId": "com.hollowpact.qa.f0fac0d3dd82175579dbe57a7d12d57d",
+      "guid": "f0fac0d3-dd82-1755-79db-e57a7d12d57d"
+    },
+    "includeSHA256": "935fdfe3ca9ab7179369e836bdc05eba89580197c5c0c73fadc5beb867a8a9fb",
+    "configSHA256": "a8f560a67482387f82cce1a848b76cf8feddb2140d51aa6e53df07d1d080feb9"
+  },
+  "status": "failed",
+  "steps": [],
+  "errors": [],
+  "limits": [
+    "QA-isolated appId/GUID/executable name; same-game runtime, not production-identity install/update qualification",
+    "Unsigned Windows Server 2022 hosted-runner automated QA; no physical consumer/SmartScreen/security/hardware acceptance",
+    "Test-only native download-path handler; no chooser/listening/human-fun/Steam proof",
+    "39-cue offline Chromium decode proves local delivered PCM, not listening, output-device quality or application-audio cancellation",
+    "Explicit isolated user-data profile preserved after uninstall; default production profile behavior untested"
+  ],
+  "defaultCacheBefore": {
+    "exists": false
+  },
+  "generatorBefore": {
+    "exists": true,
+    "entries": {}
+  },
+  "registryBefore": [
+    {
+      "hive": "CurrentUser",
+      "view": "Registry32",
+      "uninstall": false,
+      "install": false,
+      "location": null
+    },
+    {
+      "hive": "CurrentUser",
+      "view": "Registry64",
+      "uninstall": false,
+      "install": false,
+      "location": null
+    },
+    {
+      "hive": "LocalMachine",
+      "view": "Registry32",
+      "uninstall": false,
+      "install": false,
+      "location": null
+    },
+    {
+      "hive": "LocalMachine",
+      "view": "Registry64",
+      "uninstall": false,
+      "install": false,
+      "location": null
+    }
+  ],
+  "installerSHA256": "d4d05137e66e67674bb208d7e7a9beb6944485345f9fb72d85aa3d2150fbf43c",
+  "installerResources": {
+    "icons": [
+      "19c9a134aa214ed3500d05c873c3aa52d6527651ad6b5d867b0db582449aec14",
+      "2ea62b7b2caed4aa81e149c5851aae4cc59cf918c660b61f60893a4f484f7d3e",
+      "6d487b6536f50a57b8fcbb376f0ce882aa39473e155d0ae4ba536e3eb17294ac",
+      "7cbc6f79d2e20816c72fa2174b4a50bc6a5371c78e1fa1787facc3c54d5daace",
+      "8d35e37f5f4fb93469f8b987803cc525094a843018a2385b2ed3a45b726d8fc6",
+      "9bc0d5bbacc0a7fee9f1d00506c489ab811924465542a9f984144f9b2d1bdcad",
+      "d233c60747efda27afd900d7c925ee2e59512ec751e111ae4cb1fb480275a3bb"
+    ],
+    "strings": [
+      {
+        "CompanyName": "Hollowpact contributors",
+        "FileDescription": "A grim monster-binding contract hunter roguelike deckbuilder",
+        "FileVersion": "0.9.0",
+        "LegalCopyright": "Copyright © 2026 Hollowpact contributors",
+        "ProductName": "Hollowpact",
+        "ProductVersion": "0.9.0"
+      }
+    ]
+  },
+  "signature": "NotSigned",
+  "failedPhase": "preflight",
+  "failure": "Error: \"dist/art/PROVENANCE.json\" was not found in this archive\n    at Filesystem.getFile (file:///D:/a/Roguelike-deckbuilder/Roguelike-deckbuilder/node_modules/@electron/asar/lib/filesystem.js:237:19)\n    at extractFile (file:///D:/a/Roguelike-deckbuilder/Roguelike-deckbuilder/node_modules/@electron/asar/lib/asar.js:226:33)\n    at walk (file:///D:/a/Roguelike-deckbuilder/Roguelike-deckbuilder/scripts/windows-installer-asar-validation.mjs:32:16)\n    at walk (file:///D:/a/Roguelike-deckbuilder/Roguelike-deckbuilder/scripts/windows-installer-asar-validation.mjs:27:5)\n    at walk (file:///D:/a/Roguelike-deckbuilder/Roguelike-deckbuilder/scripts/windows-installer-asar-validation.mjs:27:5)\n    at walk (file:///D:/a/Roguelike-deckbuilder/Roguelike-deckbuilder/scripts/windows-installer-asar-validation.mjs:27:5)\n    at assertPackagedAsar (file:///D:/a/Roguelike-deckbuilder/Roguelike-deckbuilder/scripts/windows-installer-asar-validation.mjs:36:2)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///D:/a/Roguelike-deckbuilder/Roguelike-deckbuilder/scripts/windows-installer-smoke.mjs:91:28"
+}

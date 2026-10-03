@@ -1,0 +1,33 @@
+{
+  "closed": true,
+  "allReviewerGuardsToolsFDsClosedOnCommandReturn": true,
+  "review": {
+    "path": "/workspace/scratch/two-json-retirement-post-independent-r2/REVIEW.md",
+    "bytes": 2809,
+    "sha256": "fda94cee1520002bdb58eb05dcdda80ecce3c8d0b6dfdc27859e3f53443190c6"
+  },
+  "gate": {
+    "path": "/workspace/scratch/two-json-retirement-post-independent-r2/GATE.json",
+    "bytes": 2355,
+    "sha256": "bcc96a5f0affc06bc6569967d1a38138802f56eddccd2d40505707c17d45ec09"
+  },
+  "manifest": {
+    "path": "/workspace/scratch/two-json-retirement-post-independent-r2/MANIFEST.json",
+    "bytes": 4961,
+    "sha256": "cff17082fed4c77f0872f95dd936d03dad443bd3fda8988be437b9ab5c19c150"
+  },
+  "ownRSSKiB": {
+    "fullPOSTReader": 13600,
+    "unmeteredClosureWriter": 9728
+  },
+  "capChronology": "Original r1 reached63514B before seal, insufficient initial64KiB. R2 compact source supplement was already written/guard closed when Root raised overall POST cap to96KiB. Preserve both unchanged; total r1+r2 below newly granted96KiB, r2 alone below initial64KiB. No claim initial r1 was sealed under64KiB.",
+  "totalPostFootprintCapBytes": 98304,
+  "memoryWorkMiB": 64,
+  "reserveMiB": 512,
+  "initialDiskMiB": 64,
+  "strictBuildDiskMiB": 64,
+  "nativeDiskMiB": 70,
+  "resourceQualification": "Three source/roundtrip/sealer guards normal0/eventsunchanged; shared tiny caller reader possible. Tiny owned-parent bootstrap, closed-log displays and final read/hash/closure writer outside guard explicitly unmetered.",
+  "noGitNodeBackendRuntimeMediaActionOrRestoreByReviewer": true,
+  "noFurtherActionAuthorized": true
+}

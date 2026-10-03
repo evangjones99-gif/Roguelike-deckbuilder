@@ -1,0 +1,406 @@
+{
+  "sourceDirectory": "/workspace/scratch/final-kill-merged-visual-independent-v09-r1",
+  "archive": "curated-evidence.tar.gz",
+  "archiveBytes": 2079978,
+  "archiveSHA256": "2e37a3cf2d42a97e2dcf07e70b1f8d72b179f039cdf93b1ff75bace5a8e5c655",
+  "everyDeclaredByteRoundTripVerified": true,
+  "scope": "Only exact manifest/addendum-declared file bytes. Individually hashed media references captured as regular bytes; reference targets recorded. No directory/dependency links followed; source paths and originals remain unchanged.",
+  "files": [
+    {
+      "path": "FIXTURE-INPUT.json",
+      "bytes": 168,
+      "sha256": "e7f9dbcc3d68d73f8cac3e9bbe608ebe374544c5aff42a5c2fb4af5e579ec094",
+      "referenceTarget": null
+    },
+    {
+      "path": "FROZEN-FILES.json",
+      "bytes": 9668,
+      "sha256": "69a3f94d50f46f58dcc7cf01aecafa137f921209ae4e98e2a675d7c3e460cbde",
+      "referenceTarget": null
+    },
+    {
+      "path": "INPUT-AFTER.json",
+      "bytes": 56875,
+      "sha256": "4eab4fc1032a7729b04e274eb0427788c69467395d1fcc5671594b5d4cfe3155",
+      "referenceTarget": null
+    },
+    {
+      "path": "INPUT-BEFORE.json",
+      "bytes": 56875,
+      "sha256": "4eab4fc1032a7729b04e274eb0427788c69467395d1fcc5671594b5d4cfe3155",
+      "referenceTarget": null
+    },
+    {
+      "path": "INPUT-CLOSURE.json",
+      "bytes": 56875,
+      "sha256": "4eab4fc1032a7729b04e274eb0427788c69467395d1fcc5671594b5d4cfe3155",
+      "referenceTarget": null
+    },
+    {
+      "path": "PASS.json",
+      "bytes": 257,
+      "sha256": "076a3022f28dd208b608fddeda8a2fb02a9c93090220049570749654fe5aecba",
+      "referenceTarget": null
+    },
+    {
+      "path": "REVIEW.md",
+      "bytes": 6491,
+      "sha256": "82647acbd275eb3c8aca81bf4ab6fceadb66bc587c2982c9e233aac8a3cc7ba6",
+      "referenceTarget": null
+    },
+    {
+      "path": "TERMINAL-FAILURE.json",
+      "bytes": 2500,
+      "sha256": "77832f270261c69a04772cef7c3a1741f7575fb143cd658cd91f699eed640289",
+      "referenceTarget": null
+    },
+    {
+      "path": "TERMINAL-RENDERS-r2.json",
+      "bytes": 9099,
+      "sha256": "65889c569319578e148f24cf686904652f3fb5ade29de9ab9370119485ad1151",
+      "referenceTarget": null
+    },
+    {
+      "path": "VISUAL-ANALYSIS.json",
+      "bytes": 14413,
+      "sha256": "bdd7793a787ab831dcf7133ab50f3e9790dc5977417bafc9645e69f6949a231e",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-01-baseline-reward-2.jpg",
+      "bytes": 64342,
+      "sha256": "2b050dcee20913c16c0f61f232c6c3e6838925959dbd6c71d2d08f04d61a7434",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-02-candidate-reward-2.jpg",
+      "bytes": 62421,
+      "sha256": "95f89f74141d380ee825634ece6bb3602df6200f98be525fae1a333b6aa7df06",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-03-baseline-reward-3.jpg",
+      "bytes": 58413,
+      "sha256": "5e8600fb5d5c838003f97062f1030301e3b569512df76d1c7584b58147f92d7f",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-04-candidate-reward-3.jpg",
+      "bytes": 56630,
+      "sha256": "a06cef72c695ba7da64d919824808061334002dbd9e757af87648c0e82a414fa",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-05-baseline-guard-defeat-3.jpg",
+      "bytes": 63034,
+      "sha256": "34a6c608812a8752b6671a70e1edb8e725dcd8c1ba10a2210c7bfeae51d86ba1",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-06-candidate-guard-defeat-3.jpg",
+      "bytes": 61113,
+      "sha256": "984ac8455a3945262b91cc49e3208c45c5d912ae9945f2e01511c487075adba0",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-07-baseline-entry-3.jpg",
+      "bytes": 66873,
+      "sha256": "3b2a8c08ce4937d933205338445e5c033d9938e3ffb5fc6546cffb5bfc01ca77",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-08-candidate-entry-3.jpg",
+      "bytes": 66190,
+      "sha256": "118ae656a0afe8e5239b3406787710cf3e8204ee0ed159b440ddffb0c14cc0eb",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-09-baseline-victory-2.jpg",
+      "bytes": 145081,
+      "sha256": "b7a35a1b6e66f26d41c977206bc873dfad11ed1045a67e06f475704547773b92",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-10-candidate-victory-2.jpg",
+      "bytes": 143362,
+      "sha256": "c9cbf7a73274075ca396b1e1ca84f39964cd1aa37adb6d6b219ee8dd19bfc5ec",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-11-baseline-victory-3.jpg",
+      "bytes": 144983,
+      "sha256": "126b35883834f421660febac36502787afb46a6a732b2b788ddd94e4a81589c4",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-12-candidate-victory-3.jpg",
+      "bytes": 143429,
+      "sha256": "7b8b828e60ea049f559f6ab3f607ae0540f736eb66d08a9addf06e5188af43da",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-13-baseline-self-defeat-3.jpg",
+      "bytes": 144520,
+      "sha256": "f96b324da2283b1bb6b75c4ae1e59f8043a8eccedecd737544871d47e4193903",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-14-candidate-self-defeat-3.jpg",
+      "bytes": 143196,
+      "sha256": "24a984a56f37e25153a878b80e02d5c6d6e04dc73e13b853b946648406bf841f",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-15-baseline-entry-3.jpg",
+      "bytes": 63401,
+      "sha256": "2817e6a99cb6928622cd2b4e469a20e282b457cb6b6f282ee067bc69a9c92817",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-16-candidate-entry-3.jpg",
+      "bytes": 62506,
+      "sha256": "7ebf98716f8fc9f94b616c1b9101e338c36c98d5d026b199640352f947c91a19",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-17-baseline-reward-3.jpg",
+      "bytes": 41663,
+      "sha256": "3415ef5c938bec670110a931b8e1f818d270daf8d85e0a7bbd9eecc4b7ce58b0",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-18-candidate-reward-3.jpg",
+      "bytes": 41663,
+      "sha256": "3415ef5c938bec670110a931b8e1f818d270daf8d85e0a7bbd9eecc4b7ce58b0",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-19-baseline-reward-3.jpg",
+      "bytes": 59590,
+      "sha256": "959c773e5be96ba3e4060a35eb0d0cb8f6969f9fd87c211e7ed42fce535eb110",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-20-candidate-reward-3.jpg",
+      "bytes": 57746,
+      "sha256": "d98e11836e345134e809d4830cffb440a7620125f9945421a1ec9985ea24fb29",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-21-baseline-reward-3.jpg",
+      "bytes": 58481,
+      "sha256": "1e533fe3a54a82158b41dafb597e19520481ea839875772047b59e836465f485",
+      "referenceTarget": null
+    },
+    {
+      "path": "capture-22-candidate-reward-3.jpg",
+      "bytes": 56679,
+      "sha256": "d670a6ac6fa72f833176c06839d38870ba8ce012a70a0365845d15e63c8a7ad8",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-1.json.gz",
+      "bytes": 3726,
+      "sha256": "258602881be90aff5d0e67640bf6476f223cb20253ca6f45402d192c891a26fc",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-10.json.gz",
+      "bytes": 3944,
+      "sha256": "cc0fa62dc12dd7d6d5c32398fe0d754e9e98b0df90fc0f158879b909985bed7d",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-11.json.gz",
+      "bytes": 3888,
+      "sha256": "a8820f27284774533f0b43e41054f36aec3ae68692749800756ea9e6d1517e03",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-12.json.gz",
+      "bytes": 3945,
+      "sha256": "bed1e8fefe0738424b47cc2f946872c5b2464fbf34ed1f6de7472342e98b1428",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-13.json.gz",
+      "bytes": 4299,
+      "sha256": "8b39dfbf05d0bb2ccaa0a00e5814aa322e9a4606f7b7d68a772119dfb7da5a0f",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-14.json.gz",
+      "bytes": 4337,
+      "sha256": "706f25da42a4a1fd51ca6f0de434a0300478f05f811956599907939a0a3cc180",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-15.json.gz",
+      "bytes": 4887,
+      "sha256": "4de70a402a28dfcd10fb9aa524f58f991ed9a850db30f06c741a7eee70b37566",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-16.json.gz",
+      "bytes": 5054,
+      "sha256": "52a1e45930adc986c8da91a6c2f859b31da3ec537cfee81f94cda8d2e210cee4",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-17.json.gz",
+      "bytes": 3399,
+      "sha256": "d31f2f7424c657581e0887d9a48bb8477dfb477dc3631949c090b8d2c84dfaeb",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-18.json.gz",
+      "bytes": 3420,
+      "sha256": "1f9b3d8789087ff0b69ef3c9f738f7d1fd1cd0b8fcbf62916c5e56647ed74a9b",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-19.json.gz",
+      "bytes": 3622,
+      "sha256": "29b70c30e10072d2da1b1a0033908c9df9dacd54b1caa8c26067969240393b14",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-2.json.gz",
+      "bytes": 3773,
+      "sha256": "4d1ac936bbaaabe03b3f94349cdf69a664a39bc17cca3dd67cb1a57dd3549421",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-20.json.gz",
+      "bytes": 3680,
+      "sha256": "d9eb49bd61e399be1da6e7c1c4910d19e98cfb26f2e6a4a2ebff7e07341bf802",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-21.json.gz",
+      "bytes": 3756,
+      "sha256": "51e053590d97d7a3a9321595c2e6cafec6deb38f5e9f22331fe5a5a3cd262968",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-22.json.gz",
+      "bytes": 3819,
+      "sha256": "ede0e917ee770959eb2891404735c1956fe3638928b883ad1b26592c9910a51a",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-3.json.gz",
+      "bytes": 3605,
+      "sha256": "461cd827bdcc2e17b0cd6715a9cd8558d9932bc115cf475fa619f590c62723e8",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-4.json.gz",
+      "bytes": 3671,
+      "sha256": "536882fdca6b898153d7c3b8c4acf605d93f616009f8d6e755be3317c6152c18",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-5.json.gz",
+      "bytes": 5009,
+      "sha256": "c69592fedb7b10f56cb8b1932860e7c7d723ebef13d6826082cdada5fca0d629",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-6.json.gz",
+      "bytes": 5138,
+      "sha256": "8ae31934cb20bb1292eab8be059c5b99ecd9d9e7f05082256eab6989d4e73372",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-7.json.gz",
+      "bytes": 4912,
+      "sha256": "b5cbe3689f8fbf34c314836a33821a72f22e99b8f321b4b62094bb32ec1465ad",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-8.json.gz",
+      "bytes": 5078,
+      "sha256": "f9559f3265f5794cd95027d97f1042315ccc11c6820d06fd34b11d171c3df849",
+      "referenceTarget": null
+    },
+    {
+      "path": "case-9.json.gz",
+      "bytes": 3877,
+      "sha256": "134f1a2678f5a88868ad08eeebef470108fc8a4ba5a1a11775fe73d55dcff336",
+      "referenceTarget": null
+    },
+    {
+      "path": "execution-r1.log",
+      "bytes": 882,
+      "sha256": "f44f469002f0a8948b242081a8d2ad014cf50140ba9c1baaa96415a1be1940fd",
+      "referenceTarget": null
+    },
+    {
+      "path": "review-r1.mts",
+      "bytes": 9715,
+      "sha256": "649620582b81e3e633173713832635a466e4562ed179b95656f349eba0b8f291",
+      "referenceTarget": null
+    },
+    {
+      "path": "terminal-4-candidate-reward.jpg",
+      "bytes": 45438,
+      "sha256": "32d3ee35b58a3e74b67cc1ca08ec01a21951f9347681c9453e582c072816c99c",
+      "referenceTarget": null
+    },
+    {
+      "path": "terminal-r2-10-candidate-victory.jpg",
+      "bytes": 66824,
+      "sha256": "8400b2eec0f6ac83994ded47021e72c5e8adf0313cef968e8f55d4c883bb2e0c",
+      "referenceTarget": null
+    },
+    {
+      "path": "terminal-r2-12-candidate-victory.jpg",
+      "bytes": 66824,
+      "sha256": "8400b2eec0f6ac83994ded47021e72c5e8adf0313cef968e8f55d4c883bb2e0c",
+      "referenceTarget": null
+    },
+    {
+      "path": "terminal-r2-4-candidate-reward.jpg",
+      "bytes": 45535,
+      "sha256": "72430e0a7b757453d1c3615cc355efd78797e92b7ddc54b71f67078ec8584988",
+      "referenceTarget": null
+    },
+    {
+      "path": "terminal-r2-9-baseline-victory.jpg",
+      "bytes": 66765,
+      "sha256": "d402b9940e872b9b0d9385ac2c73e3f558b5a3040abf168e0d563a3fc92d8434",
+      "referenceTarget": null
+    },
+    {
+      "path": "terminal-render-r2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "referenceTarget": null
+    },
+    {
+      "path": "terminal-render-r2.mjs",
+      "bytes": 2859,
+      "sha256": "b8361fed62088b18499b748d59d44660a22e6d486f64f5d72430a4e6d9dd6e33",
+      "referenceTarget": null
+    },
+    {
+      "path": "terminal-render.log",
+      "bytes": 377,
+      "sha256": "d6ed925660844624d734da8b576f3002679478329770ce6b46fdd29eb79ffec8",
+      "referenceTarget": null
+    },
+    {
+      "path": "terminal-render.mjs",
+      "bytes": 2675,
+      "sha256": "8182b43ab12d97aba0d5c70b3785415d026584ff6bfef626529ea1748a3b08b5",
+      "referenceTarget": null
+    },
+    {
+      "path": "verify.py",
+      "bytes": 2293,
+      "sha256": "5f427d199a3618166d098742b6cc6e8e3b988202cd41f7f41504215040900572",
+      "referenceTarget": null
+    }
+  ]
+}

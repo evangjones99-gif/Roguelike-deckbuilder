@@ -1,0 +1,157 @@
+{
+  "allLogicalOriginalBytes": 18255971,
+  "allLogicalOriginalPathsFullSHAAndLengthMatched": 952,
+  "archiveCreatedByReviewer": false,
+  "decision": "PASS_COMPLETE_BYTE_AND_LOGICAL_PRESERVATION_CHECKS",
+  "decodedNewOriginalBytes": 14555377,
+  "duplicateNewLogicalIdentities": 11,
+  "duplicateOrUnexpectedMembers": 0,
+  "fourHeldMetadataDocsExact": true,
+  "nestedLogicalGzipDomainDecodeInheritedWithStoredBodiesFreshSHA": true,
+  "newArchiveAndReceipts": [
+    {
+      "bytes": 157256,
+      "path": "/workspace/scratch/wording-grounded-trials-checkpoint-output-root-r1/INDEX.json",
+      "sha256": "64fe0a3ea9e523e6a63c9b7e60cd4ae3df8c88ef15cfba858a86187e21e98d58"
+    },
+    {
+      "bytes": 401008,
+      "path": "/workspace/scratch/wording-grounded-trials-checkpoint-output-root-r1/READ-OBSERVATIONS.json",
+      "sha256": "e3b4a36b6c2c01b98d3fef9b7fa19711b2577ffdef4b51c5899284298faac142"
+    },
+    {
+      "bytes": 588,
+      "path": "/workspace/scratch/wording-grounded-trials-checkpoint-output-root-r1/RESULT.json",
+      "sha256": "b992737cecaebdf8c5b62a168607a25258608bcdec27c293844909bccecd6f36"
+    },
+    {
+      "bytes": 7848992,
+      "path": "/workspace/scratch/wording-grounded-trials-checkpoint-output-root-r1/evidence-451347c174a3fe78e5f7b6ef22736b7cfbbd33b39fd04ea20556730bb3b15a8b.tar.gz",
+      "sha256": "451347c174a3fe78e5f7b6ef22736b7cfbbd33b39fd04ea20556730bb3b15a8b"
+    }
+  ],
+  "noSelectionPublicationCleanupAuthority": true,
+  "notSelfContainedRelease": true,
+  "outputAllocatedBytes": 8421376,
+  "outputLogicalBytes": 8408132,
+  "ownAllOriginalReadFDStatsUnchanged": true,
+  "ownNoAtimeFallback": false,
+  "ownRSSBytes": 18956288,
+  "parentDirectoriesWorkflowHeldNotOSRaceProof": true,
+  "prior230ReferenceRowsExactIndexesAndCurrentOriginalBodies": true,
+  "priorCapsuleCompressedBodiesFreshFullSHA": [
+    {
+      "bytes": 8328689,
+      "path": "/workspace/Roguelike-deckbuilder/reviews/coherent-native128-actual-trial-2026-10-02/evidence-ce0f8f40bcf0f0b22e5e4d93eef3d4660662826e617900aba09ac208c148dc13.tar.gz",
+      "sha256": "ce0f8f40bcf0f0b22e5e4d93eef3d4660662826e617900aba09ac208c148dc13"
+    },
+    {
+      "bytes": 928223,
+      "path": "/workspace/Roguelike-deckbuilder/reviews/coherent-native128-actual-trial-2026-10-02/INDEX.json",
+      "sha256": "115bbdb35d9cdff98503a3a5c63ced87e49a48d198194c9caa45268254bec0cf"
+    },
+    {
+      "bytes": 3839783,
+      "path": "/workspace/Roguelike-deckbuilder/reviews/opening-turn-payoff-default-2026-10-02/archive/evidence-f9121c7b6416398241d1b5a160b4781f17a45dff4813260edaf4c3b6df1761af.tar.gz",
+      "sha256": "f9121c7b6416398241d1b5a160b4781f17a45dff4813260edaf4c3b6df1761af"
+    },
+    {
+      "bytes": 94125,
+      "path": "/workspace/Roguelike-deckbuilder/reviews/opening-turn-payoff-default-2026-10-02/archive/INDEX.json",
+      "sha256": "fd6e057da394aa127766f434bd70c9b1045c17f92ab0e94fb70dd77ebb6a9ad2"
+    }
+  ],
+  "priorDecodedByteReadbackInheritedFromExactAcceptedCompleteGates": true,
+  "readObservationRows": 1426,
+  "reviewElapsedSeconds": 0.16050326099502854,
+  "rootActualGuard": {
+    "childGroupClosureScope": "observed cgroup delta, not exclusive process attribution; all child group processes closed",
+    "eventsUnchanged": true,
+    "exitCode": 0,
+    "minimumHeadroom": 1443119104,
+    "resultSHA256": "05e02321b867d7582dc1c144efa6f7df6ec2b1b67784fb57b781fa25d897a9b2",
+    "samples": 6,
+    "terminalSHA256": "06d591a95e758bd0dc56a4072da944709c491cdbcbc2001096e8c12b3b1a3d06"
+  },
+  "rootGrant": {
+    "bytes": 868,
+    "path": "/workspace/scratch/wording-grounded-trials-checkpoint-archive-grant-root-r1.json",
+    "sha256": "feebcf1a6c9cc5dc1c51b07e8500a4ab9ad054671686cf39b069790e3c8cf726"
+  },
+  "rootNoAtimeFallback": false,
+  "rootTerminalElapsed": 0.507944636978209,
+  "rootTerminalOwnRSS": 15855616,
+  "safeRegularSHA256MemberNamesOnly": true,
+  "sevenOriginalReviewDecisionsVerbatim": [
+    {
+      "decision": "ACCEPT_NARROW_ACTUAL_WORDING_AND_SPENT_COMMAND_CONTEXT_IMPROVEMENT",
+      "path": "/workspace/scratch/opening-turn-payoff-wording-actual-gameplay-independent-r2/GATE.json",
+      "sha256": "cbfcbc0e082c17b663d3bb1fac3f7a415505e0aeb7ca664814ebea36e3cccc52"
+    },
+    {
+      "decision": "ACCEPT_ACTUAL_DEFAULT_REVISED_SPENT_COMMAND_WORDING_NARROW_STATIC_CLARITY_AND_FIT",
+      "path": "/workspace/scratch/opening-turn-payoff-wording-actual-visual-independent-r1/GATE.json",
+      "sha256": "cae95281a0aef122085edb29e68b6e88ff7571d69333ad3c8fdd7162fc9f1e17"
+    },
+    {
+      "decision": "ACCEPT_EXACT_NEW_WORDING_OPENING_CUE_ACTUAL_ENGINEERING_NARROW_SCOPE",
+      "path": "/workspace/scratch/opening-turn-payoff-wording-actual-technical-independent-r1/GATE.json",
+      "sha256": "83eab5f5ed24dfe7d5bf7ae353ce44f20d716493b106175ef119aae79cc19e3e"
+    },
+    {
+      "decision": "ACCEPT_NARROW_ACTUAL_PIXEL_ENGINEERING_WITH_FALSE_TRANSIENT_COVERAGE_AND_TERMINAL_STDOUT_GAP",
+      "path": "/workspace/scratch/coherent-native128-fallen-ground-actual-technical-independent-r1/GATE.json",
+      "sha256": "274b9a998c21806d2cce59fae67c064415dbe214a0302f2fe4f310b19cacb8ce"
+    },
+    {
+      "decision": "REJECT_ACTUAL_COURTYARD_FALLEN_PAYOFF_AND_DEFAULT_PROMOTION",
+      "path": "/workspace/scratch/coherent-native128-fallen-ground-actual-visual-independent-r1/GATE.json",
+      "sha256": "e25481e9e67146aef7afc13fca212ff3e06f8fe47446f06710a387ce4ca995a9"
+    },
+    {
+      "decision": "ACCEPT_NARROW_GAMEPLAY_STATE_AND_PC_FIT_PRESERVATION_REJECT_SUSTAINED_DEFEAT_GROUNDING_AND_DEFAULT",
+      "path": "/workspace/scratch/coherent-native128-fallen-ground-gameplay-independent-r1/GATE.json",
+      "sha256": "406675d4793c3f679a73095d8367dc3d2894f2f88f390ebe76563df60b4b3332"
+    },
+    {
+      "decision": "REJECT_NATIVE_DEFEAT_AFTERMATH_SOURCE_RETENTION",
+      "path": "/workspace/scratch/native128-defeat-aftermath-source-independent-r1/GATE.json",
+      "sha256": "492084ab8e5adfccf9d17749ea55ed6d10aea8edd016c388f0f989571497cc05"
+    }
+  ],
+  "sixSavedStringPairDomainsEachRetainedNotReinterpretedAsWrapperSHA": true,
+  "sourceOnlyReview": true,
+  "storageOccurrenceCounts": {
+    "existingCapsule:ce0f": 227,
+    "existingCapsule:f912": 3,
+    "newBlob": 722
+  },
+  "threeCompleteRuntimeMapBindings": [
+    {
+      "externalPinnedMediaEntries": 101,
+      "inputs": 89,
+      "outputs": 56,
+      "outputsDigest": "82e049c9fee16e4a56d80520a0feb19c54546dc86f83953f27d703d53fec7042",
+      "sourceDigest": "64c2a14ada2b24796535f9bb71d8a6acc534685365bcf4f5665b21bf18595353",
+      "stage": "/workspace/scratch/opening-turn-payoff-wording-stage-r1"
+    },
+    {
+      "externalPinnedMediaEntries": 115,
+      "inputs": 98,
+      "outputs": 64,
+      "outputsDigest": "67992a2596800f554f341382e221c6f3b9c7cd33c7f3ed69960d54c023fb0597",
+      "sourceDigest": "7074ba03d79342e7e1aa5e0268fc21feee541bd5fb96b8a968e644852055384a",
+      "stage": "/workspace/scratch/coherent-native128-fallen-ground-stage-r1"
+    },
+    {
+      "externalPinnedMediaEntries": 101,
+      "inputs": 88,
+      "outputs": 56,
+      "outputsDigest": "8bbaea72d9cb3b9757a2b8cb10ead190495ef61e6496e1ace0f942f635e00cf7",
+      "sourceDigest": "c4fa7d2b3201321ec84cc6fc3503f1d7a12feea2901deb4ce7551a665f83387a",
+      "stage": "/workspace/scratch/target-clear-default-stage-r1"
+    }
+  ],
+  "twoActualsAll16OriginalJPEGsAndBoth40ControlsPreserved": true,
+  "uniqueNewMembersFullDecodedByteCompare": 711
+}

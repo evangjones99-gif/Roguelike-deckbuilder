@@ -1,0 +1,90 @@
+{
+  "schema": "empty-intent-fresh-ci-independent-technical-r4",
+  "verdict": "ACCEPT_SOURCE_ONLY",
+  "sourceDirectory": "/workspace/scratch/empty-intent-fresh-ci-source-r4",
+  "sourceSealSHA256": "51f4e42e9ca6d846ad6edd93cb0445936becdf07a7230204c9b9e4ebb71a1080",
+  "manifestSHA256": "1c8b2dea0a033a26abf203598f321b32bb61a79959a7da94bdbef4f9378dad70",
+  "methodSHA256": "1241c9f9d3dce4248e566df2facd7b0218a08684d0b292647eb90c631d1a5ab7",
+  "workflowSHA256": "26da96127464740600fe3d76bdde2b2b3525a888a2c9e4a0e5d304cf0e61f2ff",
+  "sourceInclusiveBytes": 230709,
+  "sourceCapBytes": 262144,
+  "reviewCapBytes": 131072,
+  "onlyRunnerModifiedFunction": "provision_audit",
+  "onlyAddedHelpers": [
+    "canonical_bin_map",
+    "observed_bin"
+  ],
+  "allOtherRunnerASTAndWorkflowFieldsExactR3": true,
+  "completeFullForwardInverseBothDirections": true,
+  "safeEquivalentBinNormalization": true,
+  "allPinnedRequiredCommandsRetained": true,
+  "protectedExtraCommandShadowingRejected": [
+    "node",
+    "npm",
+    "tsc",
+    "vite",
+    "tsx"
+  ],
+  "boundedObservedMetadataBeforeRefusal": true,
+  "versionsLockSRIEntryContainmentAndShimsRetained": true,
+  "pureSyntheticAndGrammarCaseCount": 65,
+  "actualPredecessorInstall": "PASS exit0 then audit FAILED",
+  "actualInstalledBinCause": "UNOBSERVED",
+  "actualFailureRun": 37055795326,
+  "actualFailureJob": 111000067291,
+  "actualFailureArtifact": 11248582221,
+  "actualFailureZIP17MembersVerified": true,
+  "proposedInstallBuildTests": "UNMEASURED",
+  "oldFailuresPreserved": true,
+  "reviewerFailedHelperSourcesPreserved": true,
+  "noMainNetworkInstallBuildTestBrowserExecution": true,
+  "noCleanup": true,
+  "noRemoteWrites": true,
+  "allOriginalSourceAndEvidenceUnchanged": true,
+  "blockingFindings": [],
+  "qualification": [
+    "Metadata size is stat-checked in quiescent owned stage, not a kernel read quota against external mutation",
+    "Selected dependency identity/entry/shim checks, not complete dependency Merkle or independent SRI recomputation",
+    "Exact previous metadata culprit unavailable; no game bug or actual fix success asserted",
+    "Shared-host sampled resource/closure qualification unchanged",
+    "No new historical build/output alias restoration, browser/art/gameplay/default approval"
+  ],
+  "files": {
+    "CONNECTED-FAILURE-JOBS.json": {
+      "bytes": 2965,
+      "sha256": "46ec1ae72185696fecbb60c689fde2fc5b4c5b6644e0920097915c1afe68274c"
+    },
+    "FAILED-REVIEW-HARNESS-2.py": {
+      "bytes": 11274,
+      "sha256": "e9dd44a1575ce841958accc1a4c294d69e13e54c7fcc3195d72ea7809c2c028e"
+    },
+    "CHECKS.json": {
+      "bytes": 14164,
+      "sha256": "ef400db73db61e4777ced9f231b8a589d0a0f20333f3750f063f613a4b27aaa0"
+    },
+    "FAILED-REVIEW-HARNESS.json": {
+      "bytes": 1310,
+      "sha256": "d0e020dc1146bd5944a37dc312349d0e18eadc25e62421276c425a1fc2b0cf06"
+    },
+    "FAILED-REVIEW-HARNESS-1.py": {
+      "bytes": 11113,
+      "sha256": "8d726e40bc59a003419771fc8724d1034da6007ca877ffd151e2c2aad5a28904"
+    },
+    "REVIEW.md": {
+      "bytes": 9625,
+      "sha256": "0fa0ebc700ae1abaeefa56f00fd439685f36dd5b6f26a37ab9d4a27a1af50d7d"
+    },
+    "pure_check.py": {
+      "bytes": 3917,
+      "sha256": "551eb96a4d3f259ff0af9a34e24ea4e9d522bd62541575a6fb6b0a63bffaf459"
+    },
+    "verify_source.py": {
+      "bytes": 8252,
+      "sha256": "292ba64dde5e230f4825d08fe614f8c668d6d1d841fbd8986fdb9f0b5409d382"
+    },
+    "PURE-CHECKS.json": {
+      "bytes": 5170,
+      "sha256": "3e9e04617c83cb8ac54d59c6e2be5fe718b68640c3475df4b3137103e7b8e468"
+    }
+  }
+}

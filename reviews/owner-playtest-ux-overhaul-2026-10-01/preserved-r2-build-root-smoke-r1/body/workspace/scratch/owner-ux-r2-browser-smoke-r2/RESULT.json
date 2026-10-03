@@ -1,0 +1,79 @@
+{
+  "exit_code": 1,
+  "failure": null,
+  "initial": {
+    "time_ns": 1790849255837420020,
+    "current": 15858147328,
+    "maximum": 17179869184,
+    "headroom": 1321721856,
+    "free": 9088655360
+  },
+  "final": {
+    "time_ns": 1790849256546021014,
+    "current": 15857967104,
+    "maximum": 17179869184,
+    "headroom": 1321902080,
+    "free": 9088655360
+  },
+  "samples": [
+    {
+      "time_ns": 1790849255838333634,
+      "current": 15858409472,
+      "maximum": 17179869184,
+      "headroom": 1321459712,
+      "free": 9088655360,
+      "delta": 262144
+    },
+    {
+      "time_ns": 1790849255938662101,
+      "current": 15881723904,
+      "maximum": 17179869184,
+      "headroom": 1298145280,
+      "free": 9088655360,
+      "delta": 23576576
+    },
+    {
+      "time_ns": 1790849256039007673,
+      "current": 15900020736,
+      "maximum": 17179869184,
+      "headroom": 1279848448,
+      "free": 9088655360,
+      "delta": 41873408
+    },
+    {
+      "time_ns": 1790849256143070110,
+      "current": 15920066560,
+      "maximum": 17179869184,
+      "headroom": 1259802624,
+      "free": 9088655360,
+      "delta": 61919232
+    },
+    {
+      "time_ns": 1790849256243465195,
+      "current": 15937368064,
+      "maximum": 17179869184,
+      "headroom": 1242501120,
+      "free": 9088655360,
+      "delta": 79220736
+    },
+    {
+      "time_ns": 1790849256343792510,
+      "current": 15960961024,
+      "maximum": 17179869184,
+      "headroom": 1218908160,
+      "free": 9088655360,
+      "delta": 102813696
+    },
+    {
+      "time_ns": 1790849256444111963,
+      "current": 15925297152,
+      "maximum": 17179869184,
+      "headroom": 1254572032,
+      "free": 9088655360,
+      "delta": 67149824
+    }
+  ],
+  "memory_events_before": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "memory_events_after": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "scope": "observed cgroup delta, not exclusive process attribution; all child group processes closed"
+}

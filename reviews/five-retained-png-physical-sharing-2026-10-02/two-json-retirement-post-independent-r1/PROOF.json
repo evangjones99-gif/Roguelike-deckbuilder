@@ -1,0 +1,1400 @@
+{
+  "method": {
+    "path": "/workspace/scratch/retire-two-archived-json-copies-root-r1.py",
+    "bytes": 8427,
+    "sha256": "b6c0af4994ce1f8430457189918cd03f1f9e31b34d35693c252642fdc9e4f92c"
+  },
+  "proposal": {
+    "path": "/workspace/scratch/settle-json-raw-retirement-proposal-r1/PROPOSAL.json",
+    "bytes": 14036,
+    "sha256": "2e5142f33be1d86f33415183fa1f2b72d70484ccc9b414e1f242bf024554488c"
+  },
+  "gate": {
+    "path": "/workspace/scratch/two-json-raw-retirement-independent-r1/GATE.json",
+    "bytes": 4386,
+    "sha256": "9f045cc3007cb2eb4a17e338816d3da346a5f4672722c7f706867ef43e659678"
+  },
+  "push": {
+    "path": "/workspace/scratch/two-json-retirement-push-root-r1/PUSH-CONFIRMED.json",
+    "bytes": 376,
+    "sha256": "4af4bb4549812f89656a0af5dbc00aaae0688001dfeff1388e06d75d3ad2c993"
+  },
+  "pushConfirmedCommit": "2b21fbc736efa8e734e6b44a538e6f73ad31e86f",
+  "currentRefMatches": true,
+  "GitRemoteAndCleanNotQueriedByReviewer": true,
+  "publishedGateMethodProposalExact": true,
+  "twoRawLeavesAbsentNofollow": [
+    "/workspace/scratch/settle-drag-comparison-actual-r1/VISUAL-RESULT.json",
+    "/workspace/scratch/settle-drag-comparison-actual-r1/VISUAL-PROGRESS.json"
+  ],
+  "capsuleFullShaAndFullMetadata": {
+    "sha256": "27c7d4e2a117c5fa2625146a5ca78e7965705f8f809e44b6c2d7b9efb52817af",
+    "bytes": 3303630,
+    "metadata": {
+      "st_dev": 27,
+      "st_ino": 686026,
+      "st_mode": 33152,
+      "st_nlink": 1,
+      "st_uid": 1000,
+      "st_gid": 1000,
+      "st_size": 3303630,
+      "st_blocks": 6456,
+      "st_atime_ns": 1790897123232117632,
+      "st_mtime_ns": 1790897087048791776,
+      "st_ctime_ns": 1790897087048791776
+    },
+    "xattrs": []
+  },
+  "capsuleMetadataMatchesBeforeExactly": true,
+  "freshTwoBlobRoundtripAndMapping": [
+    {
+      "mapping": {
+        "originalPath": "/workspace/scratch/settle-drag-comparison-actual-r1/VISUAL-RESULT.json",
+        "logicalPath": "packets/settle-drag-comparison-actual-r1/VISUAL-RESULT.json",
+        "blobMember": "blobs/b7713194f75462873cf59193251203f0cfebfd65c0f32b6732c2a1bac4354d74",
+        "sha256": "b7713194f75462873cf59193251203f0cfebfd65c0f32b6732c2a1bac4354d74",
+        "bytes": 3013464
+      },
+      "blob": {
+        "sha256": "b7713194f75462873cf59193251203f0cfebfd65c0f32b6732c2a1bac4354d74",
+        "bytes": 3013464
+      }
+    },
+    {
+      "mapping": {
+        "originalPath": "/workspace/scratch/settle-drag-comparison-actual-r1/VISUAL-PROGRESS.json",
+        "logicalPath": "packets/settle-drag-comparison-actual-r1/VISUAL-PROGRESS.json",
+        "blobMember": "blobs/76c5d89a05d73e0fb9e0c17559c900be4515668fbfd3ec9e919e9bc2adda34b2",
+        "sha256": "76c5d89a05d73e0fb9e0c17559c900be4515668fbfd3ec9e919e9bc2adda34b2",
+        "bytes": 3013437
+      },
+      "blob": {
+        "sha256": "76c5d89a05d73e0fb9e0c17559c900be4515668fbfd3ec9e919e9bc2adda34b2",
+        "bytes": 3013437
+      }
+    }
+  ],
+  "manifestBytes": 291000,
+  "manifestSHA256": "005225286c6784598181a46bd0ad25cc99d4ee54b3c2394d58d5ea915b41155b",
+  "archiveMembers": 662,
+  "archivedOtherActualBodiesFreshFullSha": [
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/A-hold-cancel-C-firstDrop-OPAQUE-SAVE.json",
+      "sha256": "3bbb08fe2ec8c06d03e4559127933f410aa85cfb37252c81825cab022a1e1842",
+      "bytes": 1896
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/A-hold-cancel-C-normalized-OPAQUE-SAVE.json",
+      "sha256": "0aa48ce5308e307f13cc345e533fda05975b2cc0bd38ed9a6f8c56c79affb8cb",
+      "bytes": 1534
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/A-hold-cancel-C-secondOutcome-OPAQUE-SAVE.json",
+      "sha256": "3bbb08fe2ec8c06d03e4559127933f410aa85cfb37252c81825cab022a1e1842",
+      "bytes": 1896
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/A-hold-cancel-C0-OPAQUE-SAVE.json",
+      "sha256": "940a9aaad96fab565f7f1d5bcb327815719124b73fb3976292ad2f54ac11f731",
+      "bytes": 1590
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/A-hold-cancel-C1-OPAQUE-SAVE.json",
+      "sha256": "1daa22212bbb5c93b9a73bc882e68d612dda1be2887d0ffba22a12136b68728f",
+      "bytes": 1842
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/A-hold-cancel-C2-OPAQUE-SAVE.json",
+      "sha256": "53192f8d8065053c45f2336ab8c2e3b73a08dadca2a37dbe61d7a3a95d705007",
+      "bytes": 1881
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/A-hold-release-01-native-held-card.jpg",
+      "sha256": "c2c632da6a7af03561a2e4a2881e241a0df6cec295efb8d770ed0e638561d8ec",
+      "bytes": 193460
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/A-hold-release-C-firstDrop-OPAQUE-SAVE.json",
+      "sha256": "3bbb08fe2ec8c06d03e4559127933f410aa85cfb37252c81825cab022a1e1842",
+      "bytes": 1896
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/A-hold-release-C-normalized-OPAQUE-SAVE.json",
+      "sha256": "0aa48ce5308e307f13cc345e533fda05975b2cc0bd38ed9a6f8c56c79affb8cb",
+      "bytes": 1534
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/A-hold-release-C-secondOutcome-OPAQUE-SAVE.json",
+      "sha256": "0aa48ce5308e307f13cc345e533fda05975b2cc0bd38ed9a6f8c56c79affb8cb",
+      "bytes": 1534
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/A-hold-release-C0-OPAQUE-SAVE.json",
+      "sha256": "940a9aaad96fab565f7f1d5bcb327815719124b73fb3976292ad2f54ac11f731",
+      "bytes": 1590
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/A-hold-release-C1-OPAQUE-SAVE.json",
+      "sha256": "1daa22212bbb5c93b9a73bc882e68d612dda1be2887d0ffba22a12136b68728f",
+      "bytes": 1842
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/A-hold-release-C2-OPAQUE-SAVE.json",
+      "sha256": "53192f8d8065053c45f2336ab8c2e3b73a08dadca2a37dbe61d7a3a95d705007",
+      "bytes": 1881
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/A-rapid-release-C-firstDrop-OPAQUE-SAVE.json",
+      "sha256": "3bbb08fe2ec8c06d03e4559127933f410aa85cfb37252c81825cab022a1e1842",
+      "bytes": 1896
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/A-rapid-release-C-normalized-OPAQUE-SAVE.json",
+      "sha256": "0aa48ce5308e307f13cc345e533fda05975b2cc0bd38ed9a6f8c56c79affb8cb",
+      "bytes": 1534
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/A-rapid-release-C-secondOutcome-OPAQUE-SAVE.json",
+      "sha256": "3bbb08fe2ec8c06d03e4559127933f410aa85cfb37252c81825cab022a1e1842",
+      "bytes": 1896
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/A-rapid-release-C0-OPAQUE-SAVE.json",
+      "sha256": "940a9aaad96fab565f7f1d5bcb327815719124b73fb3976292ad2f54ac11f731",
+      "bytes": 1590
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/A-rapid-release-C1-OPAQUE-SAVE.json",
+      "sha256": "1daa22212bbb5c93b9a73bc882e68d612dda1be2887d0ffba22a12136b68728f",
+      "bytes": 1842
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/A-rapid-release-C2-OPAQUE-SAVE.json",
+      "sha256": "53192f8d8065053c45f2336ab8c2e3b73a08dadca2a37dbe61d7a3a95d705007",
+      "bytes": 1881
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/ADMISSION.json",
+      "sha256": "23454d9638dfe0292bbc004d1ba572eb5bbc4923dff88b163b9f82967b5d0e2a",
+      "bytes": 400
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/B-hold-cancel-C-firstDrop-OPAQUE-SAVE.json",
+      "sha256": "3bbb08fe2ec8c06d03e4559127933f410aa85cfb37252c81825cab022a1e1842",
+      "bytes": 1896
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/B-hold-cancel-C-normalized-OPAQUE-SAVE.json",
+      "sha256": "0aa48ce5308e307f13cc345e533fda05975b2cc0bd38ed9a6f8c56c79affb8cb",
+      "bytes": 1534
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/B-hold-cancel-C-secondOutcome-OPAQUE-SAVE.json",
+      "sha256": "3bbb08fe2ec8c06d03e4559127933f410aa85cfb37252c81825cab022a1e1842",
+      "bytes": 1896
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/B-hold-cancel-C0-OPAQUE-SAVE.json",
+      "sha256": "940a9aaad96fab565f7f1d5bcb327815719124b73fb3976292ad2f54ac11f731",
+      "bytes": 1590
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/B-hold-cancel-C1-OPAQUE-SAVE.json",
+      "sha256": "1daa22212bbb5c93b9a73bc882e68d612dda1be2887d0ffba22a12136b68728f",
+      "bytes": 1842
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/B-hold-cancel-C2-OPAQUE-SAVE.json",
+      "sha256": "53192f8d8065053c45f2336ab8c2e3b73a08dadca2a37dbe61d7a3a95d705007",
+      "bytes": 1881
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/B-hold-release-01-native-held-card.jpg",
+      "sha256": "57eae545133c6ffc7e312a2046e823708fd324cfe52fd00c6969a921ca3cb53a",
+      "bytes": 193671
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/B-hold-release-C-firstDrop-OPAQUE-SAVE.json",
+      "sha256": "3bbb08fe2ec8c06d03e4559127933f410aa85cfb37252c81825cab022a1e1842",
+      "bytes": 1896
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/B-hold-release-C-normalized-OPAQUE-SAVE.json",
+      "sha256": "0aa48ce5308e307f13cc345e533fda05975b2cc0bd38ed9a6f8c56c79affb8cb",
+      "bytes": 1534
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/B-hold-release-C-secondOutcome-OPAQUE-SAVE.json",
+      "sha256": "0aa48ce5308e307f13cc345e533fda05975b2cc0bd38ed9a6f8c56c79affb8cb",
+      "bytes": 1534
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/B-hold-release-C0-OPAQUE-SAVE.json",
+      "sha256": "940a9aaad96fab565f7f1d5bcb327815719124b73fb3976292ad2f54ac11f731",
+      "bytes": 1590
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/B-hold-release-C1-OPAQUE-SAVE.json",
+      "sha256": "1daa22212bbb5c93b9a73bc882e68d612dda1be2887d0ffba22a12136b68728f",
+      "bytes": 1842
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/B-hold-release-C2-OPAQUE-SAVE.json",
+      "sha256": "53192f8d8065053c45f2336ab8c2e3b73a08dadca2a37dbe61d7a3a95d705007",
+      "bytes": 1881
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/B-rapid-release-C-firstDrop-OPAQUE-SAVE.json",
+      "sha256": "3bbb08fe2ec8c06d03e4559127933f410aa85cfb37252c81825cab022a1e1842",
+      "bytes": 1896
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/B-rapid-release-C-normalized-OPAQUE-SAVE.json",
+      "sha256": "0aa48ce5308e307f13cc345e533fda05975b2cc0bd38ed9a6f8c56c79affb8cb",
+      "bytes": 1534
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/B-rapid-release-C-secondOutcome-OPAQUE-SAVE.json",
+      "sha256": "3bbb08fe2ec8c06d03e4559127933f410aa85cfb37252c81825cab022a1e1842",
+      "bytes": 1896
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/B-rapid-release-C0-OPAQUE-SAVE.json",
+      "sha256": "940a9aaad96fab565f7f1d5bcb327815719124b73fb3976292ad2f54ac11f731",
+      "bytes": 1590
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/B-rapid-release-C1-OPAQUE-SAVE.json",
+      "sha256": "1daa22212bbb5c93b9a73bc882e68d612dda1be2887d0ffba22a12136b68728f",
+      "bytes": 1842
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/B-rapid-release-C2-OPAQUE-SAVE.json",
+      "sha256": "53192f8d8065053c45f2336ab8c2e3b73a08dadca2a37dbe61d7a3a95d705007",
+      "bytes": 1881
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/BYTE-AUDIT-after.json",
+      "sha256": "357ae1e6e6e9824416149ed915626e0420271c70c1fa20311f6675d4e553e207",
+      "bytes": 27965
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/BYTE-AUDIT-before.json",
+      "sha256": "79b61d0d4b10d9ac1e6a46146251a2ccb23d09fd20be70841eab10adf97c0fac",
+      "bytes": 27966
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/EXECUTION.log",
+      "sha256": "f600ec59c9a1f4d587e4e29a2d28d87bc50d75a94a177d1691bbeea8b475198a",
+      "bytes": 518
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/INSIDE-PHASE-ACCOUNTING.json",
+      "sha256": "d15ebbf898fbcef756fc10091456197414104a08413c0507ef4344c86a8c3de1",
+      "bytes": 171
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/LIFECYCLE.jsonl",
+      "sha256": "e3223563bbf13fcee38c414296b40ae26c5caf90fdeb6de8a7382f0733803215",
+      "bytes": 300
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/NATIVE-POINTERS.jsonl",
+      "sha256": "4cfc5a62121ed99585a45e50ea53e5b46e244bace4f1f184cc66ba57303efc51",
+      "bytes": 414145
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/OWNED-LAUNCH.json",
+      "sha256": "7bfe25c958875be35ee504f9a27009b8ccd5232124b1a3a4197f80547e32babf",
+      "bytes": 162
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/RESULT.json",
+      "sha256": "ffb18ce55e84fe3c7ad80667d5f6a5c650a037157ceb4819a51da8f209916f74",
+      "bytes": 113533
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/SERVED-BYTE-AUDIT.json",
+      "sha256": "6f77b941b62794eb52195b18d92f7836f9c08a5c3e9e18592b9cc8dca68f475a",
+      "bytes": 9114
+    }
+  ],
+  "otherLiveActualFileInventory": [
+    {
+      "name": "A-hold-cancel-01-native-hold-cancel.jpg",
+      "bytes": 192281
+    },
+    {
+      "name": "A-hold-cancel-C-firstDrop-OPAQUE-SAVE.json",
+      "bytes": 1896
+    },
+    {
+      "name": "A-hold-cancel-C-normalized-OPAQUE-SAVE.json",
+      "bytes": 1534
+    },
+    {
+      "name": "A-hold-cancel-C-secondOutcome-OPAQUE-SAVE.json",
+      "bytes": 1896
+    },
+    {
+      "name": "A-hold-cancel-C0-OPAQUE-SAVE.json",
+      "bytes": 1590
+    },
+    {
+      "name": "A-hold-cancel-C1-OPAQUE-SAVE.json",
+      "bytes": 1842
+    },
+    {
+      "name": "A-hold-cancel-C2-OPAQUE-SAVE.json",
+      "bytes": 1881
+    },
+    {
+      "name": "A-hold-release-01-native-held-card.jpg",
+      "bytes": 193460
+    },
+    {
+      "name": "A-hold-release-C-firstDrop-OPAQUE-SAVE.json",
+      "bytes": 1896
+    },
+    {
+      "name": "A-hold-release-C-normalized-OPAQUE-SAVE.json",
+      "bytes": 1534
+    },
+    {
+      "name": "A-hold-release-C-secondOutcome-OPAQUE-SAVE.json",
+      "bytes": 1534
+    },
+    {
+      "name": "A-hold-release-C0-OPAQUE-SAVE.json",
+      "bytes": 1590
+    },
+    {
+      "name": "A-hold-release-C1-OPAQUE-SAVE.json",
+      "bytes": 1842
+    },
+    {
+      "name": "A-hold-release-C2-OPAQUE-SAVE.json",
+      "bytes": 1881
+    },
+    {
+      "name": "A-rapid-release-01-rapid-second-release.jpg",
+      "bytes": 198824
+    },
+    {
+      "name": "A-rapid-release-C-firstDrop-OPAQUE-SAVE.json",
+      "bytes": 1896
+    },
+    {
+      "name": "A-rapid-release-C-normalized-OPAQUE-SAVE.json",
+      "bytes": 1534
+    },
+    {
+      "name": "A-rapid-release-C-secondOutcome-OPAQUE-SAVE.json",
+      "bytes": 1896
+    },
+    {
+      "name": "A-rapid-release-C0-OPAQUE-SAVE.json",
+      "bytes": 1590
+    },
+    {
+      "name": "A-rapid-release-C1-OPAQUE-SAVE.json",
+      "bytes": 1842
+    },
+    {
+      "name": "A-rapid-release-C2-OPAQUE-SAVE.json",
+      "bytes": 1881
+    },
+    {
+      "name": "ADMISSION.json",
+      "bytes": 400
+    },
+    {
+      "name": "B-hold-cancel-01-native-hold-cancel.jpg",
+      "bytes": 192117
+    },
+    {
+      "name": "B-hold-cancel-C-firstDrop-OPAQUE-SAVE.json",
+      "bytes": 1896
+    },
+    {
+      "name": "B-hold-cancel-C-normalized-OPAQUE-SAVE.json",
+      "bytes": 1534
+    },
+    {
+      "name": "B-hold-cancel-C-secondOutcome-OPAQUE-SAVE.json",
+      "bytes": 1896
+    },
+    {
+      "name": "B-hold-cancel-C0-OPAQUE-SAVE.json",
+      "bytes": 1590
+    },
+    {
+      "name": "B-hold-cancel-C1-OPAQUE-SAVE.json",
+      "bytes": 1842
+    },
+    {
+      "name": "B-hold-cancel-C2-OPAQUE-SAVE.json",
+      "bytes": 1881
+    },
+    {
+      "name": "B-hold-release-01-native-held-card.jpg",
+      "bytes": 193671
+    },
+    {
+      "name": "B-hold-release-C-firstDrop-OPAQUE-SAVE.json",
+      "bytes": 1896
+    },
+    {
+      "name": "B-hold-release-C-normalized-OPAQUE-SAVE.json",
+      "bytes": 1534
+    },
+    {
+      "name": "B-hold-release-C-secondOutcome-OPAQUE-SAVE.json",
+      "bytes": 1534
+    },
+    {
+      "name": "B-hold-release-C0-OPAQUE-SAVE.json",
+      "bytes": 1590
+    },
+    {
+      "name": "B-hold-release-C1-OPAQUE-SAVE.json",
+      "bytes": 1842
+    },
+    {
+      "name": "B-hold-release-C2-OPAQUE-SAVE.json",
+      "bytes": 1881
+    },
+    {
+      "name": "B-rapid-release-01-rapid-second-release.jpg",
+      "bytes": 199410
+    },
+    {
+      "name": "B-rapid-release-C-firstDrop-OPAQUE-SAVE.json",
+      "bytes": 1896
+    },
+    {
+      "name": "B-rapid-release-C-normalized-OPAQUE-SAVE.json",
+      "bytes": 1534
+    },
+    {
+      "name": "B-rapid-release-C-secondOutcome-OPAQUE-SAVE.json",
+      "bytes": 1896
+    },
+    {
+      "name": "B-rapid-release-C0-OPAQUE-SAVE.json",
+      "bytes": 1590
+    },
+    {
+      "name": "B-rapid-release-C1-OPAQUE-SAVE.json",
+      "bytes": 1842
+    },
+    {
+      "name": "B-rapid-release-C2-OPAQUE-SAVE.json",
+      "bytes": 1881
+    },
+    {
+      "name": "BYTE-AUDIT-after.json",
+      "bytes": 27965
+    },
+    {
+      "name": "BYTE-AUDIT-before.json",
+      "bytes": 27966
+    },
+    {
+      "name": "EXECUTION.log",
+      "bytes": 518
+    },
+    {
+      "name": "INSIDE-PHASE-ACCOUNTING.json",
+      "bytes": 171
+    },
+    {
+      "name": "LIFECYCLE.jsonl",
+      "bytes": 300
+    },
+    {
+      "name": "NATIVE-POINTERS.jsonl",
+      "bytes": 414145
+    },
+    {
+      "name": "OWNED-LAUNCH.json",
+      "bytes": 162
+    },
+    {
+      "name": "RESULT.json",
+      "bytes": 113533
+    },
+    {
+      "name": "SERVED-BYTE-AUDIT.json",
+      "bytes": 9114
+    }
+  ],
+  "otherFileCoverageQualification": "Every capsule-listed original under this actual root except exacttwo retired leaves freshly body-verified. Unlisted live file inventory recorded; no old full-folder baseline hash exists, so no universal unchanged-body proof. Pinned exact action has only two unlink targets and fresh transaction writes; no broad deletion statement inferred solely from inventory.",
+  "parentRights": [
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1",
+      "metadataNow": {
+        "st_dev": 27,
+        "st_ino": 685918,
+        "st_mode": 16832,
+        "st_nlink": 2,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 4096,
+        "st_blocks": 8,
+        "st_atime_ns": 1790908450494783382,
+        "st_mtime_ns": 1790908339936495595,
+        "st_ctime_ns": 1790908339936495595
+      },
+      "stableRightsAndIdentityFields": [
+        "st_dev",
+        "st_ino",
+        "st_mode",
+        "st_nlink",
+        "st_uid",
+        "st_gid"
+      ],
+      "parentTimeSizeChangesQualified": "Raw parent mtime/ctime may change because two leaves unlinked; timestamps are not promised retained."
+    },
+    {
+      "path": "/workspace/Roguelike-deckbuilder/reviews/opening-ready-and-rapid-drop-2026-10-01",
+      "metadataNow": {
+        "st_dev": 27,
+        "st_ino": 686025,
+        "st_mode": 16832,
+        "st_nlink": 6,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 4096,
+        "st_blocks": 8,
+        "st_atime_ns": 1790898055452764753,
+        "st_mtime_ns": 1790898055240768174,
+        "st_ctime_ns": 1790898055240768174
+      },
+      "stableRightsAndIdentityFields": [
+        "st_dev",
+        "st_ino",
+        "st_mode",
+        "st_nlink",
+        "st_uid",
+        "st_gid"
+      ],
+      "parentTimeSizeChangesQualified": "Raw parent mtime/ctime may change because two leaves unlinked; timestamps are not promised retained."
+    }
+  ],
+  "currentFull87_56": [
+    {
+      "kind": "canonicalInputs",
+      "relative": "THIRD-PARTY.md",
+      "sha256": "59bea9fd6f5876e27e1e98cd759c9a8666c662ca88577c0adc7ede183310feaa"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "desktop/audio-lifecycle.cjs",
+      "sha256": "b699b009cfd66160765e08fb502faa2b0fb9c64ac03820f71dc7ff989c65f2e6"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "desktop/icon.png",
+      "sha256": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "desktop/main.cjs",
+      "sha256": "dfe5dde98ba3c75365f20db28be970882177d2cc7b11c6ce0d38cbf639c292b8"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "index.html",
+      "sha256": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "package-lock.json",
+      "sha256": "e51d5414d74efd35022f3bb0efed99b9b28eff265a9c011204f348079e1d4da7"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "package.json",
+      "sha256": "10943d910af6545a70be222684a9876961358c6962d379b0536efd006e988c93"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/art/PROVENANCE.json",
+      "sha256": "54cf8a498cdd86967fcd99471df9cd8ddc56b96aa967458883c8328136a977fc"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/art/abbey-courtyard.png",
+      "sha256": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/art/adversaries-atlas.png",
+      "sha256": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/art/bone-thrall-v09-r1.png",
+      "sha256": "3697dd4cc89f1550e0688b34bb421939988c90ab78832ce83d53ddb81b372dfd"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/art/companions-atlas.png",
+      "sha256": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/art/hound-poses.png",
+      "sha256": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/art/hunter-marek-v07-r3.png",
+      "sha256": "4492577d3bacc868e9b66da0abf25915bdeaf68bc8f5c31ae8a1d8db485f3c53"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/art/hunter-portrait.png",
+      "sha256": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/art/ossuary-crypt-v08-r2.png",
+      "sha256": "ff9818614003e9432ee1868c2f60b336d0b5dfe63f5c01e380832f1e880c4b00"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/art/pact-seal.png",
+      "sha256": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/art/tool-vignettes.png",
+      "sha256": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/art/warleader-poses.png",
+      "sha256": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/bind_seal-1.wav",
+      "sha256": "8b0085d42be3e3d69545046349b5fe6b103ea36cb5805fa6deb64463e70d9783"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/bind_seal-2.wav",
+      "sha256": "55078560550519dc0ba3b2c4c8d76ee72be94f4681a6375f6e0f4c5bf4218a26"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/bind_seal-3.wav",
+      "sha256": "34e5d74e7a289717a7a5145dd7cce1ff94f77f6f2843aae5766a2a27b3f05dba"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/camp_settle-1.wav",
+      "sha256": "2599245492ec5ded74090654e88f7aafba69e8fe8e4402038ae31d00c29c504c"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/camp_settle-2.wav",
+      "sha256": "47ea7cf2ab1bd1cbdf5d4f1af50734c2ad0ee7e0b22011b381c5af0770825a90"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/camp_settle-3.wav",
+      "sha256": "72dc7cddbe11cf82d220450a677a0465e544081a6ba48a16f7fe605ab4584947"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/dragon_bite-1.wav",
+      "sha256": "bc6a5f675e26aac49fb67a36ae0e5ecfb84d66d72c6b36f8e960b44586c6fd5f"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/dragon_bite-2.wav",
+      "sha256": "ab4cedbdb08f802c73ed6e6bee0209f4c6741fdb20792f18654cae053bb5ee19"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/dragon_bite-3.wav",
+      "sha256": "ddf44e51d30a2fb307e0ae69455abb41ed43eac61f038d1e303ceac86a399653"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/dragon_breath-1.wav",
+      "sha256": "617666747e860c5ace47d6a64eee6757b82f0cf1f884ee3f87400137b49517fe"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/dragon_breath-2.wav",
+      "sha256": "5da689bc4a5e6bf6568b3d681574304e056719c1b837609897fcbd489384fd94"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/dragon_breath-3.wav",
+      "sha256": "33993012d5833daca49a2642bad4399967fd65ca685dcbe60e246933414b8f56"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/hound_bite-1.wav",
+      "sha256": "bdbeb02f109dff3fbd9d7dfa502c00f3e8ea53a441d6cb07aaa6ca0dc54b843d"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/hound_bite-2.wav",
+      "sha256": "947e438df5cbd647573da7a86991767d1c5b6b09d519f2784593c8f17cc37715"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/hound_bite-3.wav",
+      "sha256": "2544e1b1767154b4a976a1e04b7267ed1186c60f3ab8e32308d4d490084f5c3f"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/hunter_wound-1.wav",
+      "sha256": "e9abd091201a2ca8c3a417c2571266ef9f05d85dde1120c3375ec979de5a2a90"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/hunter_wound-2.wav",
+      "sha256": "25de0a4fdf7b768a219a2f9221671ed36f72f812afe27c8dabb9599551479f1b"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/hunter_wound-3.wav",
+      "sha256": "9de18a01855243f6b01415f25398d9eb77dc66defd9cf7daa76036c7f93a7266"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/neutral_hit-1.wav",
+      "sha256": "ee0f62318fb4154fe5d39bb3c56995154f8e0451668dd37be0c57f357f5128ff"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/neutral_hit-2.wav",
+      "sha256": "1b378068b10eefbdb44b3762355d530f085cccaa75d26c58660007af2fe8f471"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/neutral_hit-3.wav",
+      "sha256": "711ddc0b49ba5666db0b8292225a0a02efefed5a204d26c7c4f2a0be38826f98"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/scour_tool-1.wav",
+      "sha256": "4218c65e41ba2c6845eda070493809cfe5132dc2ffa86bb51e9f83429738dcfc"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/scour_tool-2.wav",
+      "sha256": "15bbace99c04cb185a4ddb4c244983b4f2941f8eda79b12ab7518f2701850121"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/scour_tool-3.wav",
+      "sha256": "6ba61d67f83c11fda30b40962eced74457029bf53c97583ec69035af15c6d670"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/summon_arrival-1.wav",
+      "sha256": "0a42eef1fd55409dc68c1dc3ac917148a310ebfb97078e8d74e992133b9bdb63"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/summon_arrival-2.wav",
+      "sha256": "16106dea7e679a3b455c6cea80374b85c71f5babbcc6cf63258cdeb5f20d871b"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/summon_arrival-3.wav",
+      "sha256": "068fe50e7d86761f71b3bb3459b263df6f1fcc958e767e64a9eb60f782a4e7f5"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/ui_back-1.wav",
+      "sha256": "5c16ed5b7e4d9dfe7413a58f0ede66bfa92c3d4fb2ad1743429b54519e2624b1"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/ui_back-2.wav",
+      "sha256": "62d612a3df5b500aa45b48796e4981479ea1ef881adc810263b4469718248749"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/ui_back-3.wav",
+      "sha256": "3edef85d3583003e0cd4d1ac49b56948104b55c555db9d16497118a769e75ce5"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/ui_confirm-1.wav",
+      "sha256": "94500eed8b648120071064bf3ef0ac7382e4a505f1b85f3e08a9db7a84dab25d"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/ui_confirm-2.wav",
+      "sha256": "55946b44e3998d5900ae8b86edc2fc82af2d1a5be669bf2f3ceeb7143879408a"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/ui_confirm-3.wav",
+      "sha256": "39b1cc1ee9f97f2a9c4118df5d3d64328390d7236ef72ce5f05df51c6770fdf4"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/warlord_iron-1.wav",
+      "sha256": "e9f2017feed9fa88789e53069f34e56ad3fd6d050e95158dbc51505e37e4d0f9"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/warlord_iron-2.wav",
+      "sha256": "84489829dffbac75dfeadea43a2609e83387d658be6b41d6c83fc4002ece7eb9"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/warlord_iron-3.wav",
+      "sha256": "a2d325e9f2c012fced81b4c4e084229e30d17381c954e1ab8454ba0ae952a525"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/wraith_magic-1.wav",
+      "sha256": "2c76ef03a61832b44d852fa1eeb6b15150ebcd4d3c7b33158dea06fc477f71e4"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/wraith_magic-2.wav",
+      "sha256": "edd66253ae5d51e07a761dbd8e3fb9348d0e0066663f4b6756d7ff5a151af0d7"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "public/audio/wraith_magic-3.wav",
+      "sha256": "adfb375ae2b98e6d38f22f79ba00ceed1c7050b56ea1bb5a537f54e6e9895a24"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "scripts/build.mjs",
+      "sha256": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/arena.ts",
+      "sha256": "77bbca50c42b109372ffb027b1b26826d79b51c89ded3b9aaae5de1a60a4f334"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/art.ts",
+      "sha256": "2e9a5429e01498e02b4ae333e7240e7e5abbb1a6d0418d2932a7afccc17b262f"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/audio-host.ts",
+      "sha256": "4e0d8ff4ed9d584ff38bb914cc7ae5b4987b2d73411659281ee84b6a4376547d"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/audio-player.d.mts",
+      "sha256": "259fe144e9d4f1be8b4a0959ef82d29cf47e697564dec451b63405c8477807fb"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/audio-player.mjs",
+      "sha256": "1075a68e62133950c9c971a2cac081d12c12ac6b22459f8d955bf37e5e9a5c4a"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/audio-routing.d.mts",
+      "sha256": "d0bef0cc502a1e7973a0bb889c0a62e8ec1115eebe84c3ac02e242f79bcd6acc"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/audio-routing.mjs",
+      "sha256": "8aa67961fffee6688bb573c38f3f9623bb55ad0ba1d54912186a5443a682aeb8"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/battlefield-layout.ts",
+      "sha256": "6bbe1518398964b624bbcc8ce81f7fb36a02c9902fb8286336e9aae34f4d6b58"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/command-field.css",
+      "sha256": "e9b5a6fa56877230f35e5359bb1f256527c37f06f05c89b47b922075a8093d69"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/compact-field-budget.ts",
+      "sha256": "669c0583a50a594f32e0e51332bd4f8357b5ce14f341173512477a87d116cbff"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/compact-intent.ts",
+      "sha256": "6ea39b73ded51171d3f5783324c8bb5179109c4effa100ac1ef5eae18ad8b1d5"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/compact-readout.css",
+      "sha256": "2cf3850fa4bfae4c6e725a2d9d46379e12ce3531f2a93d9f32b6c47cb541401a"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/content.ts",
+      "sha256": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/encounter-environment.ts",
+      "sha256": "82ec3d4a653dea8ceb89b93d8e157d483ab9d358bcd4a3b97942292c25ce2139"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/engine.ts",
+      "sha256": "7dca47973c0d78a130730450215569fa7747a1cb043764b16217c1b9c0ce6bf8"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/hound-jaw.ts",
+      "sha256": "f42686423ff0b929cd441dd63c1f23756fe145f911e0a3b5cd1b3806aa5c7a9c"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/hunt-entry.css",
+      "sha256": "c7a511b569c6c50456a0aea1c9a469f3d25c245fc660db4d036fd860b99144f5"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/hunt-entry.ts",
+      "sha256": "7c53defb4db9f68fc2bfb47de6a64302b8915cdf077fb84b6df69af3142f80fb"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/hunter-presence.ts",
+      "sha256": "4a1432e3971c7efbc0416db554118a3cdd5ea215bff7e9c4ae21d8308fad6f74"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/input.ts",
+      "sha256": "160eb990b87bbbae097a49320a452ae27066dbbfeb3428e5d68461cecc359aa6"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/main.ts",
+      "sha256": "92f650f214b64512a28b734a90c0f223e491eee128892a519c66a49321a86c88"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/style.css",
+      "sha256": "996d5fc00a145ea6750e8dbdf7074f30e0d85e79addc9e9cdcc7f36357eb87ce"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/tactile-hand.css",
+      "sha256": "f52ea7edc3000be93a459e423f0815cba9949c5c8f8af2a47de6c537f0ff83e6"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/tactile-hand.ts",
+      "sha256": "73454b1387bda8177563841014ed12706f1da069ed392dd9d6476c0a64956e1b"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/tool-art.ts",
+      "sha256": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "src/world-rng.ts",
+      "sha256": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "tsconfig.json",
+      "sha256": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c"
+    },
+    {
+      "kind": "canonicalInputs",
+      "relative": "vite.config.ts",
+      "sha256": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "CREDITS.md",
+      "sha256": "59bea9fd6f5876e27e1e98cd759c9a8666c662ca88577c0adc7ede183310feaa"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "art/PROVENANCE.json",
+      "sha256": "54cf8a498cdd86967fcd99471df9cd8ddc56b96aa967458883c8328136a977fc"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "art/abbey-courtyard.png",
+      "sha256": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "art/adversaries-atlas.png",
+      "sha256": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "art/bone-thrall-v09-r1.png",
+      "sha256": "3697dd4cc89f1550e0688b34bb421939988c90ab78832ce83d53ddb81b372dfd"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "art/companions-atlas.png",
+      "sha256": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "art/hound-poses.png",
+      "sha256": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "art/hunter-marek-v07-r3.png",
+      "sha256": "4492577d3bacc868e9b66da0abf25915bdeaf68bc8f5c31ae8a1d8db485f3c53"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "art/hunter-portrait.png",
+      "sha256": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "art/ossuary-crypt-v08-r2.png",
+      "sha256": "ff9818614003e9432ee1868c2f60b336d0b5dfe63f5c01e380832f1e880c4b00"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "art/pact-seal.png",
+      "sha256": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "art/tool-vignettes.png",
+      "sha256": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "art/warleader-poses.png",
+      "sha256": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "assets/index-B5nL-1Tx.js",
+      "sha256": "b23b6aa214682519c422be2a8f13fca48ebec61c94f2c74b163562f6ff021dff"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "assets/index-CScXCgR1.css",
+      "sha256": "bae7fbce5c7501a21113f38f37221248f1604b8bed60280fbfcdbb18831a308e"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/bind_seal-1.wav",
+      "sha256": "8b0085d42be3e3d69545046349b5fe6b103ea36cb5805fa6deb64463e70d9783"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/bind_seal-2.wav",
+      "sha256": "55078560550519dc0ba3b2c4c8d76ee72be94f4681a6375f6e0f4c5bf4218a26"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/bind_seal-3.wav",
+      "sha256": "34e5d74e7a289717a7a5145dd7cce1ff94f77f6f2843aae5766a2a27b3f05dba"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/camp_settle-1.wav",
+      "sha256": "2599245492ec5ded74090654e88f7aafba69e8fe8e4402038ae31d00c29c504c"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/camp_settle-2.wav",
+      "sha256": "47ea7cf2ab1bd1cbdf5d4f1af50734c2ad0ee7e0b22011b381c5af0770825a90"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/camp_settle-3.wav",
+      "sha256": "72dc7cddbe11cf82d220450a677a0465e544081a6ba48a16f7fe605ab4584947"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/dragon_bite-1.wav",
+      "sha256": "bc6a5f675e26aac49fb67a36ae0e5ecfb84d66d72c6b36f8e960b44586c6fd5f"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/dragon_bite-2.wav",
+      "sha256": "ab4cedbdb08f802c73ed6e6bee0209f4c6741fdb20792f18654cae053bb5ee19"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/dragon_bite-3.wav",
+      "sha256": "ddf44e51d30a2fb307e0ae69455abb41ed43eac61f038d1e303ceac86a399653"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/dragon_breath-1.wav",
+      "sha256": "617666747e860c5ace47d6a64eee6757b82f0cf1f884ee3f87400137b49517fe"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/dragon_breath-2.wav",
+      "sha256": "5da689bc4a5e6bf6568b3d681574304e056719c1b837609897fcbd489384fd94"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/dragon_breath-3.wav",
+      "sha256": "33993012d5833daca49a2642bad4399967fd65ca685dcbe60e246933414b8f56"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/hound_bite-1.wav",
+      "sha256": "bdbeb02f109dff3fbd9d7dfa502c00f3e8ea53a441d6cb07aaa6ca0dc54b843d"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/hound_bite-2.wav",
+      "sha256": "947e438df5cbd647573da7a86991767d1c5b6b09d519f2784593c8f17cc37715"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/hound_bite-3.wav",
+      "sha256": "2544e1b1767154b4a976a1e04b7267ed1186c60f3ab8e32308d4d490084f5c3f"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/hunter_wound-1.wav",
+      "sha256": "e9abd091201a2ca8c3a417c2571266ef9f05d85dde1120c3375ec979de5a2a90"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/hunter_wound-2.wav",
+      "sha256": "25de0a4fdf7b768a219a2f9221671ed36f72f812afe27c8dabb9599551479f1b"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/hunter_wound-3.wav",
+      "sha256": "9de18a01855243f6b01415f25398d9eb77dc66defd9cf7daa76036c7f93a7266"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/neutral_hit-1.wav",
+      "sha256": "ee0f62318fb4154fe5d39bb3c56995154f8e0451668dd37be0c57f357f5128ff"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/neutral_hit-2.wav",
+      "sha256": "1b378068b10eefbdb44b3762355d530f085cccaa75d26c58660007af2fe8f471"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/neutral_hit-3.wav",
+      "sha256": "711ddc0b49ba5666db0b8292225a0a02efefed5a204d26c7c4f2a0be38826f98"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/scour_tool-1.wav",
+      "sha256": "4218c65e41ba2c6845eda070493809cfe5132dc2ffa86bb51e9f83429738dcfc"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/scour_tool-2.wav",
+      "sha256": "15bbace99c04cb185a4ddb4c244983b4f2941f8eda79b12ab7518f2701850121"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/scour_tool-3.wav",
+      "sha256": "6ba61d67f83c11fda30b40962eced74457029bf53c97583ec69035af15c6d670"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/summon_arrival-1.wav",
+      "sha256": "0a42eef1fd55409dc68c1dc3ac917148a310ebfb97078e8d74e992133b9bdb63"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/summon_arrival-2.wav",
+      "sha256": "16106dea7e679a3b455c6cea80374b85c71f5babbcc6cf63258cdeb5f20d871b"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/summon_arrival-3.wav",
+      "sha256": "068fe50e7d86761f71b3bb3459b263df6f1fcc958e767e64a9eb60f782a4e7f5"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/ui_back-1.wav",
+      "sha256": "5c16ed5b7e4d9dfe7413a58f0ede66bfa92c3d4fb2ad1743429b54519e2624b1"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/ui_back-2.wav",
+      "sha256": "62d612a3df5b500aa45b48796e4981479ea1ef881adc810263b4469718248749"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/ui_back-3.wav",
+      "sha256": "3edef85d3583003e0cd4d1ac49b56948104b55c555db9d16497118a769e75ce5"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/ui_confirm-1.wav",
+      "sha256": "94500eed8b648120071064bf3ef0ac7382e4a505f1b85f3e08a9db7a84dab25d"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/ui_confirm-2.wav",
+      "sha256": "55946b44e3998d5900ae8b86edc2fc82af2d1a5be669bf2f3ceeb7143879408a"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/ui_confirm-3.wav",
+      "sha256": "39b1cc1ee9f97f2a9c4118df5d3d64328390d7236ef72ce5f05df51c6770fdf4"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/warlord_iron-1.wav",
+      "sha256": "e9f2017feed9fa88789e53069f34e56ad3fd6d050e95158dbc51505e37e4d0f9"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/warlord_iron-2.wav",
+      "sha256": "84489829dffbac75dfeadea43a2609e83387d658be6b41d6c83fc4002ece7eb9"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/warlord_iron-3.wav",
+      "sha256": "a2d325e9f2c012fced81b4c4e084229e30d17381c954e1ab8454ba0ae952a525"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/wraith_magic-1.wav",
+      "sha256": "2c76ef03a61832b44d852fa1eeb6b15150ebcd4d3c7b33158dea06fc477f71e4"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/wraith_magic-2.wav",
+      "sha256": "edd66253ae5d51e07a761dbd8e3fb9348d0e0066663f4b6756d7ff5a151af0d7"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "audio/wraith_magic-3.wav",
+      "sha256": "adfb375ae2b98e6d38f22f79ba00ceed1c7050b56ea1bb5a537f54e6e9895a24"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "build-provenance.json",
+      "sha256": "c40cdbbac6cbab4b283348e5f00c8983649064322bc7d22deec0dc61eb6e3ab3"
+    },
+    {
+      "kind": "canonicalOutputs",
+      "relative": "index.html",
+      "sha256": "76cb14f2d139fc0c3572c680df9753523c77a9554661eaefcb3cbdcb9001483d"
+    }
+  ],
+  "selectedMap": {
+    "path": "/workspace/scratch/target-wait-default-promotion-root-r1/RESULT.json",
+    "bytes": 15350,
+    "sha256": "31a221091d2ffbc6d58dfc1385962c441df9789c66729ef64d20b95208a8fabd"
+  },
+  "protectedOriginalStat": {
+    "st_dev": 27,
+    "st_ino": 678628,
+    "st_mode": 33152,
+    "st_nlink": 1,
+    "st_uid": 1000,
+    "st_gid": 1000,
+    "st_size": 1856041104,
+    "st_blocks": 3625096,
+    "st_atime_ns": 1790815508306217040,
+    "st_mtime_ns": 1790815567573263991,
+    "st_ctime_ns": 1790859776790106720
+  },
+  "protectedStatControl": {
+    "path": "/workspace/scratch/second-three-png-atime-rebind-independent-r1/PROOF.json",
+    "bytes": 12358,
+    "sha256": "100f21c129412ff90b3cab4d70263594d6354a63bc98c8f88b9585cf6d13b10f"
+  },
+  "actualControls": [
+    {
+      "path": "/workspace/scratch/two-archived-json-retirement-actual-root-r1/BEFORE.json",
+      "bytes": 5295,
+      "sha256": "d224ffc62c613aaeea9f8eeee46b7b411a64b82a8c2adfe9a2acfa8fef130f35"
+    },
+    {
+      "path": "/workspace/scratch/two-archived-json-retirement-actual-root-r1/PRODUCER.json",
+      "bytes": 994,
+      "sha256": "d3113606bbee6c0f5ffec22d4a7a68aaf2db5da7a30e1361eac5aeed0a9750d7"
+    },
+    {
+      "path": "/workspace/scratch/two-archived-json-retirement-actual-root-r1/JOURNAL.jsonl",
+      "bytes": 884,
+      "sha256": "4e6732878c8067d6733d4c06d2a6e5ca192ed9430886edf7efd4f3a311bd44cd"
+    },
+    {
+      "path": "/workspace/scratch/two-archived-json-retirement-actual-root-r1/RESULT.json",
+      "bytes": 711,
+      "sha256": "479cbb61ed331db15f50314a714fb83aaa21fe25c614a53b5aa2674437d1471a"
+    }
+  ],
+  "journal": [
+    {
+      "utcNs": 1790908339933122669,
+      "operation": "PRE_UNLINK",
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/VISUAL-RESULT.json",
+      "sha256": "b7713194f75462873cf59193251203f0cfebfd65c0f32b6732c2a1bac4354d74"
+    },
+    {
+      "utcNs": 1790908339934873688,
+      "operation": "UNLINK_DURABLE",
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/VISUAL-RESULT.json",
+      "sha256": "b7713194f75462873cf59193251203f0cfebfd65c0f32b6732c2a1bac4354d74"
+    },
+    {
+      "utcNs": 1790908339939426803,
+      "operation": "PRE_UNLINK",
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/VISUAL-PROGRESS.json",
+      "sha256": "76c5d89a05d73e0fb9e0c17559c900be4515668fbfd3ec9e919e9bc2adda34b2"
+    },
+    {
+      "utcNs": 1790908339940265268,
+      "operation": "UNLINK_DURABLE",
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/VISUAL-PROGRESS.json",
+      "sha256": "76c5d89a05d73e0fb9e0c17559c900be4515668fbfd3ec9e919e9bc2adda34b2"
+    }
+  ],
+  "durabilityQualification": "Matched pinned source normal0: producer save file+parent fsync returns before PRE_UNLINK; per-leaf PRE fsync then unlink then recipient-parent fsync then durable journal. Receipts support returned-source ordering, not independent syscall/device powerloss certification.",
+  "rootGuard": {
+    "admission": {
+      "path": "/workspace/scratch/two-json-retirement-actual-guard-root-r1/ADMISSION.json",
+      "bytes": 920,
+      "sha256": "0ec6785624fdcfe30bb5bd0e8bcd9935e8dba759b9ba1b3ea16dc4cf386ec7c7"
+    },
+    "result": {
+      "path": "/workspace/scratch/two-json-retirement-actual-guard-root-r1/RESULT.json",
+      "bytes": 1229,
+      "sha256": "a1a6735de13991166371864aef8845e347a364bbfdb356bc79c788993104b51f"
+    },
+    "samples": 3,
+    "maxDeltaBytes": 7720960,
+    "minimumHeadroomBytes": 2204069888,
+    "eventsUnchanged": true,
+    "closure": "observed cgroup delta, not exclusive process attribution; all child group processes closed"
+  },
+  "recovery": {
+    "grossAllocationBytes": 6029312,
+    "netActionWindowGainBytes": 6008832,
+    "beforeBytes": 70139904,
+    "afterBeforeResultWriteBytes": 76148736,
+    "qualification": "Includes transaction window allocation; RESULT/guard-final/POST/publication overhead outside quoted window. Open FDs/mmap/future consumers globally not disproved."
+  },
+  "ownRSSKiB": 13600,
+  "reviewScope": "Read/hash/stream only; no extraction/restoration/Git/runtime/media mutation. Shared tiny caller source reader may overlap; cgroup observed deltas are not exclusive reader attribution."
+}

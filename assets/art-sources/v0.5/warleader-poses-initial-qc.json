@@ -1,0 +1,77 @@
+{
+  "status": "REJECTED_FOR_RUNTIME",
+  "reason": "Significant silhouette pixels cross both the center horizontal divider and second vertical divider; complete cell crop would cut boots/cape/weapon. Preserve and repair, never conceal clipping in renderer.",
+  "size": [
+    1536,
+    1024
+  ],
+  "mode": "RGBA",
+  "sha256": "6a9393141e60c412abad2c7570791911d525ceb33a0088ed5cb218fe3d8af673",
+  "dividerAlphaMaximum": [
+    1,
+    253,
+    253
+  ],
+  "cells": [
+    {
+      "column": 0,
+      "row": 0,
+      "significantAlphaBBox": [
+        44,
+        68,
+        475,
+        512
+      ]
+    },
+    {
+      "column": 1,
+      "row": 0,
+      "significantAlphaBBox": [
+        13,
+        13,
+        512,
+        512
+      ]
+    },
+    {
+      "column": 2,
+      "row": 0,
+      "significantAlphaBBox": [
+        0,
+        153,
+        500,
+        512
+      ]
+    },
+    {
+      "column": 0,
+      "row": 1,
+      "significantAlphaBBox": [
+        51,
+        0,
+        502,
+        455
+      ]
+    },
+    {
+      "column": 1,
+      "row": 1,
+      "significantAlphaBBox": [
+        21,
+        0,
+        512,
+        456
+      ]
+    },
+    {
+      "column": 2,
+      "row": 1,
+      "significantAlphaBBox": [
+        0,
+        0,
+        496,
+        474
+      ]
+    }
+  ]
+}

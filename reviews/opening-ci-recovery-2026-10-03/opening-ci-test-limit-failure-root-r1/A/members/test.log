@@ -1,0 +1,74 @@
+
+> hollowpact@0.9.0 test
+> tsx --test tests/*.test.ts
+
+✔ omitted/zero timing preserves the old pure contact cues and canonical bytes (13.17047ms)
+✔ renderer allocation and queued lead shift the anchor without altering contact offsets (1.152996ms)
+✔ invalid timing and nonanimated/noncombat presentation remain immediate (4.271477ms)
+✔ arrival bind/impact groups and enemy-phase wound/stagger cues keep their relative contact times (1.686352ms)
+✔ actual player deadline includes an800ms anchor lead beyond its unchanged600ms offset cap (17.922872ms)
+✔ pending delayed decode cannot escape cancellation or native restoration epoch barriers (19.159237ms)
+✔ hidden and native inactive hosts never start a delayed batch (7.594214ms)
+✔ late cold assets still skip their shifted deadline rather than playing a stale impact (9.791248ms)
+✔ schema kind1: ironjaw guard and actual Silence retain 14 armor (8.804748ms)
+✔ schema kind1: raider guard and actual Silence retain 4 armor (1.390372ms)
+✔ schema kind1: cindermaw guard and actual Silence retain 10 armor (1.135001ms)
+✔ schema kind2: ironjaw guard and actual Silence retain 14 armor (3.288536ms)
+✔ schema kind2: raider guard and actual Silence retain 4 armor (1.487359ms)
+✔ schema kind2: cindermaw guard and actual Silence retain 10 armor (1.560482ms)
+✔ guard is absent in an attack phase after Silence (1.807117ms)
+✔ revenant single target: summary agrees with actual block admission (1.434952ms)
+✔ thrall single target: summary agrees with actual block admission (1.153173ms)
+✔ loaded revenant area damage uses block and hits every live target (1.490108ms)
+✔ marked Binding 2 dying first redirects a later bypass hit to hunter (1.177442ms)
+✔ raise plan respects post-phase timing and cap with 1 existing hostiles (0.9946ms)
+✔ raise plan respects post-phase timing and cap with 5 existing hostiles (0.799046ms)
+✔ raise plan respects post-phase timing and cap with 6 existing hostiles (0.963548ms)
+✔ fatal hunter phase suppresses planned reinforcements (1.057493ms)
+✔ structured loaded facts override misleading labels and formatter is pure (2.888698ms)
+
+Interrupted while running:
+
+⚠ tests/engine.test.ts (tests/engine.test.ts:1:1)
+⚠ tests/hunter-presence.test.ts (tests/hunter-presence.test.ts:1:1)
+⚠ tests/input.test.ts (tests/input.test.ts:1:1)
+✖ tests/engine.test.ts (684.946352ms)
+✖ tests/hunter-presence.test.ts (217.635624ms)
+✖ tests/input.test.ts (145.20228ms)
+✖ tests/presentation-events.test.ts
+✖ tests/save-validity-v0.4.test.ts
+✖ tests/world-rng-v0.5.test.ts
+ℹ tests 30
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 6
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 697.306765
+
+✖ failing tests:
+
+test at tests/engine.test.ts:1:1
+✖ tests/engine.test.ts (684.946352ms)
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at tests/hunter-presence.test.ts:1:1
+✖ tests/hunter-presence.test.ts (217.635624ms)
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at tests/input.test.ts:1:1
+✖ tests/input.test.ts (145.20228ms)
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at tests/presentation-events.test.ts:1:1
+✖ tests/presentation-events.test.ts
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at tests/save-validity-v0.4.test.ts:1:1
+✖ tests/save-validity-v0.4.test.ts
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at tests/world-rng-v0.5.test.ts:1:1
+✖ tests/world-rng-v0.5.test.ts
+  'Promise resolution is still pending but the event loop has already resolved'

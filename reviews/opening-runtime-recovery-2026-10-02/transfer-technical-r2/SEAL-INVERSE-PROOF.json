@@ -1,0 +1,71 @@
+{
+  "sourceOnly": true,
+  "sourceSealSHA256": "55ed1038ea01a94aae86c39c72599c1d35092d1e36e74f8dd9d1871afab6ddcb",
+  "familyBytesIncludingSeal": 97988,
+  "ownSourceCapBytes": 49152,
+  "allTenSealedFilesVerified": true,
+  "noExtraFilesOrSymlinks": true,
+  "externalExactBodiesVerified": [
+    {
+      "path": "/workspace/scratch/archive8cdf-transfer-source-r1/SOURCE-SEAL.json",
+      "bytes": 1469,
+      "sha256": "5b685c6dca41349c1e743c8c03c0cec916f9fd1610c619c872151af4df10cacb"
+    },
+    {
+      "path": "/workspace/scratch/archive8cdf-transfer-source-r1/recover-opening-evidence.yml",
+      "bytes": 11200,
+      "sha256": "6cd47e7a18e6a2a289c29c04a7dfbc4a64268427d7d1d30fc0bff4bee30439f8"
+    },
+    {
+      "path": "/workspace/scratch/archive8cdf-transfer-source-r1/acquire_exact_blob.py",
+      "bytes": 7849,
+      "sha256": "71d4e9ebbe0ecc18aaa9043b5c2deebc70c1e1a1d6ab1774d397633e91b89416"
+    },
+    {
+      "path": "/workspace/scratch/starter-runtime-recovery-map-source-r1/SOURCE-SEAL.json",
+      "bytes": 616,
+      "sha256": "27dbfdfb2bf99c1a93188ba627fa666508da7d7397cea85c1241ca13f9bc8be4"
+    },
+    {
+      "path": "/workspace/scratch/starter-runtime-recovery-map-source-r1/MAP.json",
+      "bytes": 127948,
+      "sha256": "aa9a59cc48f426f8d90ef629ddc311d868f6d14685f928cada4a82e5765d0c4f"
+    },
+    {
+      "path": "/workspace/scratch/starter-runtime-recovery-map-source-r1/REVIEW.md",
+      "bytes": 5593,
+      "sha256": "7ebe84d2f20694c0789591d8fc1db318035cdb2402698a7d57883509aeeb38e9"
+    },
+    {
+      "path": "/workspace/scratch/archive8cdf-acquired-r1/ROOT-VERIFICATION.json",
+      "bytes": 859,
+      "sha256": "b3c883dd8d76ebe59e5ede21030198f1d904596671475f22d30eb07b95fc3288"
+    },
+    {
+      "path": "/workspace/scratch/archive8cdf-acquired-r1/CI-VERIFICATION.json",
+      "bytes": 1028,
+      "sha256": "dea31a4de1b640b7c2901a0def6293d60e69472c2ada7c0c21a38392f789b9f5"
+    }
+  ],
+  "inverseRoundtrips": [
+    {
+      "oldName": "acquire_exact_blob.py",
+      "newName": "acquire_pinned_runtime_bytes.py",
+      "forwardExact": true,
+      "reverseExact": true,
+      "hunks": 18
+    },
+    {
+      "oldName": "recover-opening-evidence.yml",
+      "newName": "recover-opening-evidence.yml",
+      "forwardExact": true,
+      "reverseExact": true,
+      "hunks": 25
+    }
+  ],
+  "yamlExactTriggersPermissionsUploadPathLists": true,
+  "syntaxOnlyBashPassed": true,
+  "embeddedExactPythonPreviouslyVerified": true,
+  "officialActionPin": "ea165f8d65b6e75b540449e92b4886f43607fa02",
+  "noNetworkOrProductionMainOrArchivesExecuted": true
+}

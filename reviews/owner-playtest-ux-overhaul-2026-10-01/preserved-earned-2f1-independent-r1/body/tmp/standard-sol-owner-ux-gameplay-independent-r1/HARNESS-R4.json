@@ -1,0 +1,7 @@
+{
+  "revision": "r4",
+  "parent": "observe-r3.mjs",
+  "reason": "Parent authorized only real-play Chromium persistent profiles for actual UI save/resume across closed browser phases. No storage construction, injection or editing. Prior scripts/failures preserved. Original guards unchanged. Each first profile is exclusively created; --resume reopens it. Hash the opaque save through public runtime after UI continue.",
+  "bytes": 10216,
+  "sha256": "5538d8a92f44cf831030f6b1251a7e8c678450a78bf3e09ca528713f9b3f9e6d"
+}

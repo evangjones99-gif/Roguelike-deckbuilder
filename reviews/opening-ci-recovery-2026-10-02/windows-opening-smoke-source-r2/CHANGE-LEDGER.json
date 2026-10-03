@@ -1,0 +1,15 @@
+{
+  "onlyChangedSourcePath": "scripts/windows-smoke.mjs",
+  "blocks": [
+    {
+      "before": "  assert.equal(evidence.portrait.backgroundPosition, '0% 0%');",
+      "after": "  // CSSOM may serialize either zero axis in px; the same first cell stays selected.\n  assert.ok(['0% 0%', '0px 0px', '0% 0px', '0px 0%'].includes(evidence.portrait.backgroundPosition),\n    'Title hunter crop must stay at zero on both axes');",
+      "beforeOccurrences": 1,
+      "afterOccurrences": 1
+    }
+  ],
+  "beforeSHA256": "fb0afaeb947dcbc4d4e6f446479695142bfacc99a6fea19a8def578ac3146181",
+  "afterSHA256": "3f09a78f6111ad5518aebd544b4a4f8475fa22c4879242eb86d7dd8d0f49eef2",
+  "fullExactInverseVerified": true,
+  "restoredSHA256": "fb0afaeb947dcbc4d4e6f446479695142bfacc99a6fea19a8def578ac3146181"
+}

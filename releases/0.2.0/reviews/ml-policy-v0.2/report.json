@@ -1,0 +1,187 @@
+{
+  "method": "Evolutionary search of a linear action policy over complete synthetic runs. Reward favors completion, progress and survival, not enjoyment.",
+  "engineSha256": "21bafb33832ec2d3ee1ca4ead9486825510bd380b62e143a8736465f1ad4110b",
+  "contentSha256": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+  "scriptSha256": "a880cfbf00b7ebe3e6280f0a96489c30656f936018f48a2fdac4d5cfa1cb6634",
+  "datasetSha256": "a0899fcfd1c5c163e579fbf1447f0d4967cfdb6da72ca6d4d79378cca9ef96d7",
+  "trainSeeds": [
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207
+  ],
+  "testSeeds": [
+    9000,
+    9001,
+    9002,
+    9003,
+    9004,
+    9005,
+    9006,
+    9007,
+    9008,
+    9009,
+    9010,
+    9011,
+    9012,
+    9013,
+    9014,
+    9015,
+    9016,
+    9017,
+    9018,
+    9019,
+    9020,
+    9021,
+    9022,
+    9023,
+    9024,
+    9025,
+    9026,
+    9027,
+    9028,
+    9029,
+    9030,
+    9031
+  ],
+  "history": [
+    {
+      "generation": 0,
+      "trainingScore": 134.65275,
+      "weights": [
+        2.8,
+        4.5,
+        2.2,
+        0.65,
+        0.9,
+        0.3,
+        -0.8,
+        3
+      ]
+    },
+    {
+      "generation": 1,
+      "trainingScore": 135.6775,
+      "weights": [
+        2.678453019633889,
+        5.595331852231174,
+        2.8361401272937656,
+        1.8830376331694425,
+        2.5520079030655327,
+        1.837189548276365,
+        -2.4389825060032306,
+        4.543994560651481
+      ]
+    },
+    {
+      "generation": 2,
+      "trainingScore": 135.6775,
+      "weights": [
+        2.678453019633889,
+        5.595331852231174,
+        2.8361401272937656,
+        1.8830376331694425,
+        2.5520079030655327,
+        1.837189548276365,
+        -2.4389825060032306,
+        4.543994560651481
+      ]
+    },
+    {
+      "generation": 3,
+      "trainingScore": 135.6775,
+      "weights": [
+        2.678453019633889,
+        5.595331852231174,
+        2.8361401272937656,
+        1.8830376331694425,
+        2.5520079030655327,
+        1.837189548276365,
+        -2.4389825060032306,
+        4.543994560651481
+      ]
+    },
+    {
+      "generation": 4,
+      "trainingScore": 135.6775,
+      "weights": [
+        2.678453019633889,
+        5.595331852231174,
+        2.8361401272937656,
+        1.8830376331694425,
+        2.5520079030655327,
+        1.837189548276365,
+        -2.4389825060032306,
+        4.543994560651481
+      ]
+    },
+    {
+      "generation": 5,
+      "trainingScore": 135.76525,
+      "weights": [
+        2.944999341126531,
+        5.538429536465555,
+        2.9487218591570854,
+        2.041558465529233,
+        3.0025604037567977,
+        1.5179562120325865,
+        -1.928375838883221,
+        4.04232910361141
+      ]
+    },
+    {
+      "generation": 6,
+      "trainingScore": 135.82375000000002,
+      "weights": [
+        2.5165567453516022,
+        5.808998963435491,
+        2.648837604081879,
+        2.2380101475057503,
+        2.867760284431279,
+        1.1054313849906128,
+        -2.0532734275795517,
+        3.672856232666721
+      ]
+    }
+  ],
+  "summaries": {
+    "random": {
+      "episodes": 32,
+      "wins": 0,
+      "winRate": 0,
+      "meanFloor": 5.5625,
+      "meanSteps": 82.5,
+      "meanTurns": 16.34375,
+      "stalled": 0
+    },
+    "heuristic": {
+      "episodes": 32,
+      "wins": 31,
+      "winRate": 0.96875,
+      "meanFloor": 10,
+      "meanSteps": 147.875,
+      "meanTurns": 21.03125,
+      "stalled": 0
+    },
+    "learned": {
+      "episodes": 32,
+      "wins": 31,
+      "winRate": 0.96875,
+      "meanFloor": 10,
+      "meanSteps": 150.375,
+      "meanTurns": 20.8125,
+      "stalled": 0
+    }
+  },
+  "limitations": [
+    "32 held-out seeds, one difficulty, one starting deck; limited coverage.",
+    "Random policy is deliberately weak and not a human comparator.",
+    "Policy search can exploit mechanics; inspect outcomes rather than maximizing win rate alone.",
+    "No human feedback, preference prediction or proof of fun.",
+    "Outcome comparison does not authorize automatic rules changes."
+  ]
+}

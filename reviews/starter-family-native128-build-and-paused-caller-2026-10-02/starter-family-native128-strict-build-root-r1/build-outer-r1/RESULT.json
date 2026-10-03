@@ -1,0 +1,128 @@
+{
+  "normal": true,
+  "checks": {
+    "outerAdmission": true,
+    "allOuterRows": true,
+    "outerFinal": true,
+    "eventsUnchanged": true,
+    "wholeWithin60": true,
+    "noOwnedLive": true,
+    "rc0": true,
+    "noFailure": true,
+    "genericResult": true,
+    "genericEveryRow": true,
+    "genericFinal": true,
+    "genericEvents": true,
+    "genericSourceUnchanged": true
+  },
+  "initial": {
+    "elapsed": 0.00017257500439882278,
+    "current": 15778557952,
+    "maximum": 17179869184,
+    "headroom": 1401311232,
+    "free": 73998336
+  },
+  "final": {
+    "elapsed": 1.3813678789883852,
+    "current": 15781052416,
+    "maximum": 17179869184,
+    "headroom": 1398816768,
+    "free": 73646080
+  },
+  "rows": [
+    {
+      "elapsed": 0.08626349401311018,
+      "current": 15800696832,
+      "maximum": 17179869184,
+      "headroom": 1379172352,
+      "free": 73981952,
+      "delta": 22138880
+    },
+    {
+      "elapsed": 0.2833507129980717,
+      "current": 15878766592,
+      "maximum": 17179869184,
+      "headroom": 1301102592,
+      "free": 73981952,
+      "delta": 100208640
+    },
+    {
+      "elapsed": 0.6013573140080553,
+      "current": 16004055040,
+      "maximum": 17179869184,
+      "headroom": 1175814144,
+      "free": 73981952,
+      "delta": 225497088
+    },
+    {
+      "elapsed": 0.8148954809876159,
+      "current": 15815835648,
+      "maximum": 17179869184,
+      "headroom": 1364033536,
+      "free": 73981952,
+      "delta": 37277696
+    },
+    {
+      "elapsed": 1.0058449270145502,
+      "current": 15944245248,
+      "maximum": 17179869184,
+      "headroom": 1235623936,
+      "free": 73977856,
+      "delta": 165687296
+    }
+  ],
+  "maxDelta": 225497088,
+  "minHeadroom": 1175814144,
+  "eventsBefore": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "eventsAfter": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "ownedObserved": {
+    "504460": {
+      "starttime": "15802208",
+      "state": "S",
+      "ppid": 504457,
+      "pgrp": 504460
+    },
+    "504461": {
+      "starttime": "15802211",
+      "state": "Z",
+      "ppid": 504460,
+      "pgrp": 504461
+    },
+    "504468": {
+      "starttime": "15802216",
+      "state": "Z",
+      "ppid": 504461,
+      "pgrp": 504461
+    }
+  },
+  "allObservedPIDStartPairs": {
+    "504460:15802208": {
+      "pid": "504460",
+      "starttime": "15802208",
+      "state": "S",
+      "ppid": 504457,
+      "pgrp": 504460
+    },
+    "504461:15802211": {
+      "pid": "504461",
+      "starttime": "15802211",
+      "state": "Z",
+      "ppid": 504460,
+      "pgrp": 504461
+    },
+    "504468:15802216": {
+      "pid": "504468",
+      "starttime": "15802216",
+      "state": "Z",
+      "ppid": 504461,
+      "pgrp": 504461
+    }
+  },
+  "originalRootStarttime": "15802208",
+  "remaining": {},
+  "trackedZombies": {},
+  "exitCode": 0,
+  "failure": null,
+  "errors": [],
+  "scope": "One generic384MiB+512 strict build with finite outer deadline/owned PID-starttime closure; point samples not continuous peaks, metadata/sharing qualified, no browser"
+}

@@ -1,0 +1,13 @@
+--- accepted1788/main.ts
++++ combineda502/main.ts
+@@ -555,8 +555,8 @@
+ }
+ function inputHints(): string {
+   return inputMode === 'controller'
+-    ? '<span><kbd>A</kbd> Choose · <kbd>B</kbd> Back</span><span><kbd>X</kbd> Inspect · <kbd>Y</kbd> End turn</span><span>D-pad Move · LB/RB Regions</span>'
+-    : '<span><kbd>E</kbd> End turn · <kbd>Esc</kbd> Back</span><span><kbd>H</kbd> Hand · <kbd>B</kbd> Bindings · <kbd>T</kbd> Hostiles</span><span><kbd>I</kbd> Inspect · Arrows Move</span>';
++    ? '<span><kbd>A</kbd> Choose · <kbd>B</kbd> Back</span><span><kbd>X</kbd> Inspect · <kbd>Y</kbd> End turn</span><span>D-pad Move · LB/RB Regions · Start Pause</span>'
++    : `<span><kbd>E</kbd> End turn · <kbd>Esc</kbd> Back</span><span><kbd>H</kbd> Hand · <kbd>B</kbd> Bindings · <kbd>T</kbd> ${selected ? 'Targets' : 'Hostiles'}</span><span><kbd>I</kbd> Inspect · Arrows Move</span>`;
+ }
+ 
+ function renderCard(card: CardDef, opts: { handIndex?: number; disabled?: boolean; selected?: boolean; reward?: boolean; shop?: boolean; inspect?: boolean } = {}): string {

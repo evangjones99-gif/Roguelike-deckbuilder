@@ -1,0 +1,5 @@
+function renderEvent() {
+  const symbols: Record<string, string> = { offering: 'moon', forage: 'gold', purge: 'battle', bargain: 'heart', leave: 'shield' };
+  const consequences: Record<string, string> = { offering: `${state.hp} → ${Math.max(0, state.hp - 8)} health`, forage: `${state.gold} → ${state.gold + 25} gold`, purge: `${state.deck.length} → ${state.deck.length - 1} cards · lose 4 health`, bargain: `30 gold → +16 health`, leave: 'Continue unchanged' };
+  $('scene-ui').innerHTML = `<div class="page-panel event-panel"><div class="page-intro"><span class="eyebrow">A SHRINE WITHOUT A GOD</span><h1>Some bargains outlive their makers.</h1><p>Read the price. Claim only what your campaign needs.</p></div><div class="choice-grid event-choices">${Object.entries(EVENT_CHOICES).map(([id, choice]) => `<button class="choice-card" data-action="event" data-choice="${id}" ${can({ type: 'event', choice: id }) ? '' : 'disabled'}>${icon(symbols[id])}<h2>${escape(choice.name)}</h2><p>${escape(choice.text)}</p><span>${escape(consequences[id] || '')}${icon('arrow')}</span></button>`).join('')}</div></div>`;
+}

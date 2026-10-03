@@ -1,0 +1,19 @@
+{
+  "runId": 36770068258,
+  "jobId": 110073961588,
+  "headCommit": "1094548c06a02cc2c4ee834643b7591e4655e7db",
+  "platform": "native Windows Server2022 x64",
+  "node": "24.21.0",
+  "rules": {
+    "passed": 54,
+    "failed": 0
+  },
+  "build": "passed",
+  "runtimeDigest": "2e0eb40151772b779ec671d9359882fc5e825f39d7787c07450a80209008476c",
+  "packaging": "failed",
+  "launch": "skipped",
+  "reason": "Repeated dotted short -c overrides parsed as a config filename; ENOENT .forceCodeSigning=false",
+  "comparison": "Windows source digest differs from Linux through checkout CRLF/path separators. Fixing LF checkout and POSIX digest keys; no runtime mechanics changed.",
+  "artifactId": 11122489481,
+  "artifactSHA256": "3add845d5b769b6e7c8e726e61b93111937f2526117410ca88f3974ece85c79e"
+}

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/opening-turn-payoff-opening-checkpoint-source-author-r1/refine-plan-source.py", line 5, in <module>
+    namespace={'__file__':str(path),'__name__':'offline_source_author'};exec(compile(new,str(path),'exec'),namespace)
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/opening-turn-payoff-opening-checkpoint-source-author-r1/author-plan.py", line 98, in <module>
+    out=(json.dumps(plan,separators=(',',':'))+'\n').encode();size=sum(p.stat().st_size for p in P.rglob('*') if p.is_file())+len(out);assert size+8192<=128*1024,(size,'Stop BEFORE plan writes; explicit cap needed');assert resource.getrusage(resource.RUSAGE_SELF).ru_maxrss<=24576;(P/'PLAN.json').write_bytes(out)
+                                                                                                                                              ^^^^^^^^^^^^^^^^^^^
+AssertionError: (124152, 'Stop BEFORE plan writes; explicit cap needed')

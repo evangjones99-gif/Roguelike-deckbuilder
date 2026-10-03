@@ -1,0 +1,97 @@
+{
+  "allFailedControlsPreserved": true,
+  "checks": {
+    "bytes": 4140,
+    "path": "/workspace/scratch/wording-development-source-selection-post-independent-r1/POST-CHECKS.json",
+    "sha256": "14400c72e28da070abfa4f67f56db0d7fd0bfeeda8d6d97181b8c4cdf082129b"
+  },
+  "decision": "ACCEPT_LITERAL_CHECKPOINT_PUBLICATION_AND_DEVELOPMENT_SOURCE_SELECTION_POST_ONLY",
+  "findings": [
+    "All 120 copied originals and destinations match complete SHA, length and literal bytes, totaling 9,298,292 bytes. The published folder contains exactly those 120 files plus its new README and PUBLICATION.json, with no symlink or unexpected file. README exactly reproduces publication scope. Full source-author, failed r1, accepted r2 and COMPLETE review families match source-folder membership and retain their original controls/failures.",
+    "Canonical development inputs exactly match all 89 bodies of the reviewed frozen wording candidate64c2. The full canonical src tree matches that mapped membership. Compared with selected rollback c4fa inputs, only main changes to efecdc20 and a new 163-byte CSS a84a4a47 is added. Canonical dist has exact 56-file membership and all old8b bodies; reviewed82e output remains a separate frozen reference.",
+    "Old main is exactly retained at OLD-main.ts and in preservation evidence. Current new main matches its recorded owner/mode/inode/stat/xattrs. Its old inode/time identity is surrendered rather than claimed restored. Six journal events are ordered through backup, fresh temporary, new CSS creation, main atomic replacement and full post-verification; the two source files are explicitly not atomic together.",
+    "Four updated documents are prepend-only: every complete original archived document body remains as suffix. Their current status clearly distinguishes selected development source, held older preview/desktop dist and unselected pixel trials. README is exactly one authorized cue instruction insertion over Git d144, with full inverse verified. Historical INDEX original-path bodies need not equal later authorized canonical text.",
+    "Root publication and source-selection guards are normal0 with unchanged events and observed child-group closure. Exact separate selection terminal envelope identifies normal completion and RESULT path, 0.24063163198297843 seconds, 11,904 KiB own RSS and 119,893 current output bytes. The gate-bound reviewed method/source grant and literal publication/control bodies match."
+  ],
+  "limitations": [
+    "This accepts the observed canonical copy and development-source selection scope. No dev server, game, build, desktop preview, release/tag or additional cleanup was run by this reviewer; current source execution is not newly demonstrated here. Canonical dist deliberately does not match the new source.",
+    "The two-file selection was not globally atomic; individual fresh-file and journal durability is scoped to the reviewed method and Root sole-writer coordination, not OS compare-and-swap, universal process absence or full-prefix restoration. Publication bootstrap and supplemental generated-master metadata remain explicitly qualified tool-history derivatives, not literal prompt/rights proof.",
+    "The publication copy method does not provide a directory-crash-durability transaction guarantee. Literal normal readback and exact membership are verified; no inode/timestamp/permission equivalence for copied evidence is asserted. O_NOATIME reads had no fallback in this audit, but tool/bootstrap resource use is unmetered.",
+    "Both prior capsules, their exact indexes/COMPLETE proofs, external media/node_modules and baseline support remain required. COMPLETE byte preservation does not make a self-contained release or approve pixel depth, sustained corpse payoff, animation, first300 or human enjoyment. Original positive and negative reviews are unchanged.",
+    "The read-only historical Git lookup verifies README inverse only. This gate does not verify the upcoming current push or authorize arbitrary further publication/runtime changes; Root must record the subsequent clean confirmed push."
+  ],
+  "ownObservedToolsAndGuardsClosed": true,
+  "resourceScope": {
+    "guards": [
+      {
+        "exitCode": 0,
+        "observedChildGroupClosed": true,
+        "path": "/workspace/scratch/wording-development-source-selection-post-independent-r1/inspect-guard-r1",
+        "resultSHA256": "f91c3365dad492f47e7dc29d64f9daab816f227f38222a984cc3f98bb6d7eee6",
+        "samples": 1
+      },
+      {
+        "exitCode": 0,
+        "observedChildGroupClosed": true,
+        "path": "/workspace/scratch/wording-development-source-selection-post-independent-r1/inspect-guard-r2",
+        "resultSHA256": "de14e447cfc942ff56ae8a93912f41851e141c2d9ba3293e63f35d7f42976bc9",
+        "samples": 1
+      },
+      {
+        "exitCode": 0,
+        "observedChildGroupClosed": true,
+        "path": "/workspace/scratch/wording-development-source-selection-post-independent-r1/method-guard-r3",
+        "resultSHA256": "16f6b705cead1f5798811c3a00d05930dbcf9e24b42730a531484338bab8c70f",
+        "samples": 1
+      },
+      {
+        "exitCode": 1,
+        "observedChildGroupClosed": true,
+        "path": "/workspace/scratch/wording-development-source-selection-post-independent-r1/post-guard-r4",
+        "resultSHA256": "423a2c885800147650e52e44cd4b8ff6c314334f689265460f6463c558080608",
+        "samples": 3
+      },
+      {
+        "exitCode": 1,
+        "observedChildGroupClosed": true,
+        "path": "/workspace/scratch/wording-development-source-selection-post-independent-r1/post-guard-r5",
+        "resultSHA256": "8aa97e9ae45e11b2b9043abc70212e2ded98111cdc192d9412989d2c47649d30",
+        "samples": 2
+      },
+      {
+        "exitCode": 0,
+        "observedChildGroupClosed": true,
+        "path": "/workspace/scratch/wording-development-source-selection-post-independent-r1/post-guard-r6",
+        "resultSHA256": "aca62ef136d646a1cacb5dbf7e4783391cfef2c56669f440cbfd89c1e7f60cef",
+        "samples": 2
+      }
+    ],
+    "ownVerifierRSSBytes": 16404480,
+    "profileMiB": [
+      64,
+      512,
+      64
+    ],
+    "sparseSharedCgroupNotContinuousOrExclusive": true,
+    "tinyBootstrapReadbacksAndFinalForkedSealerUnmetered": true
+  },
+  "reviewMethodFailures": [
+    {
+      "exitCode": 1,
+      "guard": "post-guard-r4",
+      "reason": "Wrong terminal field terminalOutputBytes; actual envelope uses terminalLogicalOutputBytes. Byte/source/doc checks before the error were read-only.",
+      "script": "verify-post-r4.py"
+    },
+    {
+      "exitCode": 1,
+      "guard": "post-guard-r5",
+      "reason": "Incorrectly treated terminal envelope as the RESULT body and indexed decision. Fresh r6 verifies its actual normal/result-path/measurement domain and passed.",
+      "script": "verify-post-r5.py"
+    },
+    {
+      "executed": false,
+      "reason": "Unexecuted redundant manifest draft line had a syntax typo, identified before launch. Original draft retained; exact pinned r8 correction removes only that line before compilation.",
+      "script": "seal-r7.py"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "decision": "ACCEPT_EXACT_R3_SOURCE_FOR_NARROW_OWNED_NPM_CONFIG_REPAIR_ONLY",
+  "technicalSourceAccepted": true,
+  "sourceSealSHA256": "03a79c3c83060e69775bbc7cf13692034920a5ec63ce4c34a65e43aa9362f071",
+  "manifestSHA256": "a060e483ae571df407a96f4a740de43832975afdfc03b138cafea42fbec612d0",
+  "methodSHA256": "bfef0c672684811ec1d1e77b592c02a4121b5d9283f8f7c8f9971610868758a1",
+  "workflowSHA256": "b633ff4076e6c13599c7a5e1344de03635920297974dc460a66d64547f5ea486",
+  "recursiveSourceFamilyBytes": 196446,
+  "sourceFamilyCapBytes": 196608,
+  "parentR2AcceptedGateSHA256": "a171b1c18153df20a8e7efa9e479901adb790e474fd31b1eb7143b13eadfdfeb",
+  "actualPriorFailureRunID": 37053530852,
+  "actualPriorFailureJobID": 110992495401,
+  "actualPriorFailureArtifactID": 11247522978,
+  "actualPriorFailureZIPBytes": 14214,
+  "actualPriorFailureZIPSHA256": "e2ade41d097c2b622b7633c53259e0fe946b04fca8ba0efc1df4f7f0792b6e0a",
+  "actualPriorFailureAll10ZIPMembersReceiptsLogsMetadataVerified": true,
+  "actualPriorFailureCause": "npm --version double-loading /dev/null for user and global config; install/build/test skipped",
+  "noGameBugClaim": true,
+  "narrowRepair": "two distinct fresh regular empty owned npm config files created only initializer, hash-verified by child_env; original inputs unchanged",
+  "allOtherRunnerWorkflowControlsUnchanged": true,
+  "complete3BodyR3R2InverseForwardVerified": true,
+  "independentPathHeaderStreamCases": 32,
+  "independentConfigEnvironmentCases": 4,
+  "allNineShellGrammarPassed": true,
+  "source98Support30Blob53PinsUnchanged": true,
+  "authorAuthorizedOfflineNpmVersionOnlyReproVerified": true,
+  "localReproVersion": "11.9.0",
+  "thisReviewerProductionMainNetworkArchiveNpmBuildBrowserExecuted": false,
+  "actualR3CIBuildTestRuntimeBrowserVisualDefaultArtGameplayFunAccepted": false,
+  "oldFreezeOutputsAliasesRestored": false,
+  "rootSoleRemoteWriter": true,
+  "priorSourcesReviewsFailuresRetainedUnchanged": true,
+  "ordinaryWorkBytes": 67108864,
+  "reserveBytes": 536870912,
+  "ownReportCapBytes": 131072,
+  "ownBytesIncludingGate": 48473,
+  "filesBeforeGate": [
+    {
+      "name": "ACTUAL-FAILURE-PROOF.json",
+      "bytes": 3030,
+      "sha256": "73f0b559c6068d03ec85e6a14fb6e21e762136a53491fb42fbe501fa1b5c5637"
+    },
+    {
+      "name": "BOUNDARY-PROOF.json",
+      "bytes": 3195,
+      "sha256": "4c6fcf5981ae5640539474ed822705ab58d06ce90a70e79c8fa9a28c3510b1d3"
+    },
+    {
+      "name": "CONFIG-PROOF.json",
+      "bytes": 1146,
+      "sha256": "83b25470949dda90368a0ea7017959c65d6188a3744ec6bdedcc346e1f767d7f"
+    },
+    {
+      "name": "CONNECTED-FAILURE-METADATA.json",
+      "bytes": 3889,
+      "sha256": "2c74ec12d67d83bd5f58abd795f85fbd1ae162eb2eb8e56435079fd33d00f8e4"
+    },
+    {
+      "name": "FINAL-SEAL-PROOF.json",
+      "bytes": 1840,
+      "sha256": "5671941e76b039d7be353b460726c9de78a86adba32a5c2011174801e9dde469"
+    },
+    {
+      "name": "PUBLISHED-FAILURE-WORKFLOW.json",
+      "bytes": 381,
+      "sha256": "6f192cec56ccff28e9db589d20049eedccfdd02d990b0fd1d4e8186294f09077"
+    },
+    {
+      "name": "REVIEW.md",
+      "bytes": 5345,
+      "sha256": "b523d343b99774e6cb51649a683a8712198489e9fa01ee14a9562e251feb6a6f"
+    },
+    {
+      "name": "WORKFLOW-PROOF.json",
+      "bytes": 794,
+      "sha256": "9e60d4be6f2336ea386fff464f585bc116aed034d714552adf08f1dbc7e06501"
+    },
+    {
+      "name": "actual_failure_check.py",
+      "bytes": 6744,
+      "sha256": "7ce75267fa63b274ecd5aa0e3dccf337cfcd4620c8fafc2b6ca8df23c847bff8"
+    },
+    {
+      "name": "boundary_check.py",
+      "bytes": 3477,
+      "sha256": "04d3e7b102705469874d60c3842d467f111abe01b44e20fa6d5a5fb81e27ab69"
+    },
+    {
+      "name": "config-fixtures/bad/control/npm-global.npmrc",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "config-fixtures/bad/control/npm-user.npmrc",
+      "bytes": 1,
+      "sha256": "2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881"
+    },
+    {
+      "name": "config_check.py",
+      "bytes": 3192,
+      "sha256": "da18350872a1d6859033da745b3c1d26f717723777ac0a5e4f21b707b273bcb4"
+    },
+    {
+      "name": "seal_check.py",
+      "bytes": 6222,
+      "sha256": "5c7295a4ebc20fa4f7ab8d6938e0c3f05490763012866d1e2597dce7f1c9bd83"
+    },
+    {
+      "name": "workflow_check.py",
+      "bytes": 4429,
+      "sha256": "e2250ebadda311102d97eb4132132112952bf19847edf3c2643d9b6bc3d04db9"
+    }
+  ],
+  "utcNS": 1790969775839259176,
+  "qualification": "Source acceptance and preserved prior failure only. Remote runner assembly is a reviewed-method receipt, not downloaded body verification; local npm --version success does not certify actual CI provisioning/build. Sampled limits and external expiry remain qualified."
+}

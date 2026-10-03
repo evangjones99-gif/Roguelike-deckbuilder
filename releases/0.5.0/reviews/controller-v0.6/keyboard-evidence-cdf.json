@@ -1,0 +1,544 @@
+{
+  "syntheticBrowserQA": true,
+  "physicalControllerTested": false,
+  "expectedDigest": "cdf4098ab5426281d75a22d4565b6d5b92667a42b9937e756a919a97227449af",
+  "beforeHashes": {
+    "src/main.ts": "8de5c8577fb6dace6bbdfcc94e239b3e05af7e2ca0f3521b83fc35ae3ac26286",
+    "src/style.css": "357345b6276e4a26515cb19964c416056c00efe64215241cdcb50883d1be49a2",
+    "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+    "desktop/main.cjs": "1e54b1170ff4169285ff1757c0e768db2f144f7be919b4911a47394426cb75ae"
+  },
+  "checks": [
+    {
+      "name": "tab-to-first-hand-card-full-roster",
+      "traversal": [
+        {
+          "tab": 1,
+          "tag": "BUTTON",
+          "ui": "log",
+          "unit": null,
+          "focus": null,
+          "aria": null,
+          "text": "Combat record"
+        },
+        {
+          "tab": 2,
+          "tag": "BUTTON",
+          "ui": null,
+          "unit": "a10",
+          "focus": "unit-a10",
+          "aria": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+          "text": "Cairn HoundB1 7/73Ready"
+        },
+        {
+          "tab": 3,
+          "tag": "BUTTON",
+          "ui": "inspect-unit",
+          "unit": null,
+          "focus": null,
+          "aria": "Inspect Cairn Hound · binding 1",
+          "text": "i"
+        },
+        {
+          "tab": 4,
+          "tag": "BUTTON",
+          "ui": null,
+          "unit": "a11",
+          "focus": "unit-a11",
+          "aria": "Grave Hound · binding 2. 11 of 11 health, 4 attack. Ready; select, then choose an enemy.",
+          "text": "Grave HoundB2 11/114Ready"
+        },
+        {
+          "tab": 5,
+          "tag": "BUTTON",
+          "ui": "inspect-unit",
+          "unit": null,
+          "focus": null,
+          "aria": "Inspect Grave Hound · binding 2",
+          "text": "i"
+        },
+        {
+          "tab": 6,
+          "tag": "BUTTON",
+          "ui": null,
+          "unit": "a12",
+          "focus": "unit-a12",
+          "aria": "Fen Stalker · binding 3. 10 of 10 health, 4 attack. Ready; select, then choose an enemy.",
+          "text": "Fen StalkerB3 10/104Ready"
+        },
+        {
+          "tab": 7,
+          "tag": "BUTTON",
+          "ui": "inspect-unit",
+          "unit": null,
+          "focus": null,
+          "aria": "Inspect Fen Stalker · binding 3",
+          "text": "i"
+        },
+        {
+          "tab": 8,
+          "tag": "BUTTON",
+          "ui": null,
+          "unit": "a13",
+          "focus": "unit-a13",
+          "aria": "Fen Raker · binding 4. 14 of 14 health, 6 attack. Ready; select, then choose an enemy.",
+          "text": "Fen RakerB4 14/146Ready"
+        },
+        {
+          "tab": 9,
+          "tag": "BUTTON",
+          "ui": "inspect-unit",
+          "unit": null,
+          "focus": null,
+          "aria": "Inspect Fen Raker · binding 4",
+          "text": "i"
+        },
+        {
+          "tab": 10,
+          "tag": "BUTTON",
+          "ui": null,
+          "unit": "a14",
+          "focus": "unit-a14",
+          "aria": "Briar Colossus · binding 5. 18 of 18 health, 4 attack. Ready; select, then choose an enemy.",
+          "text": "Briar ColossusB5 18/184Ready"
+        },
+        {
+          "tab": 11,
+          "tag": "BUTTON",
+          "ui": "inspect-unit",
+          "unit": null,
+          "focus": null,
+          "aria": "Inspect Briar Colossus · binding 5",
+          "text": "i"
+        },
+        {
+          "tab": 12,
+          "tag": "BUTTON",
+          "ui": null,
+          "unit": "a15",
+          "focus": "unit-a15",
+          "aria": "Ossuary Colossus · binding 6. 24 of 24 health, 6 attack. Ready; select, then choose an enemy.",
+          "text": "Ossuary ColossusB6 24/246Ready"
+        },
+        {
+          "tab": 13,
+          "tag": "BUTTON",
+          "ui": "inspect-unit",
+          "unit": null,
+          "focus": null,
+          "aria": "Inspect Ossuary Colossus · binding 6",
+          "text": "i"
+        },
+        {
+          "tab": 14,
+          "tag": "BUTTON",
+          "ui": null,
+          "unit": "e30",
+          "focus": "unit-e30",
+          "aria": "Ironjaw Reaver · hostile 1. 16 of 16 health, 4 attack. 4 damage → hunter",
+          "text": "Ironjaw ReaverH1 16/1644 damage → hunter"
+        },
+        {
+          "tab": 15,
+          "tag": "BUTTON",
+          "ui": "inspect-unit",
+          "unit": null,
+          "focus": null,
+          "aria": "Inspect Ironjaw Reaver · hostile 1",
+          "text": "i"
+        },
+        {
+          "tab": 16,
+          "tag": "BUTTON",
+          "ui": null,
+          "unit": "e31",
+          "focus": "unit-e31",
+          "aria": "Gloam Revenant · hostile 2. 15 of 15 health, 5 attack. 5 damage → hunter",
+          "text": "Gloam RevenantH2 15/1555 damage → hunter"
+        },
+        {
+          "tab": 17,
+          "tag": "BUTTON",
+          "ui": "inspect-unit",
+          "unit": null,
+          "focus": null,
+          "aria": "Inspect Gloam Revenant · hostile 2",
+          "text": "i"
+        },
+        {
+          "tab": 18,
+          "tag": "BUTTON",
+          "ui": null,
+          "unit": "e32",
+          "focus": "unit-e32",
+          "aria": "Hollow Acolyte · hostile 3. 24 of 24 health, 5 attack. 5 damage → hunter",
+          "text": "Hollow AcolyteH3 24/2455 damage → hunter"
+        },
+        {
+          "tab": 19,
+          "tag": "BUTTON",
+          "ui": "inspect-unit",
+          "unit": null,
+          "focus": null,
+          "aria": "Inspect Hollow Acolyte · hostile 3",
+          "text": "i"
+        },
+        {
+          "tab": 20,
+          "tag": "BUTTON",
+          "ui": null,
+          "unit": "e33",
+          "focus": "unit-e33",
+          "aria": "Cindermaw Brood · hostile 4. 28 of 28 health, 6 attack. 6 damage → hunter",
+          "text": "Cindermaw BroodH4 28/2866 damage → hunter"
+        },
+        {
+          "tab": 21,
+          "tag": "BUTTON",
+          "ui": "inspect-unit",
+          "unit": null,
+          "focus": null,
+          "aria": "Inspect Cindermaw Brood · hostile 4",
+          "text": "i"
+        },
+        {
+          "tab": 22,
+          "tag": "BUTTON",
+          "ui": null,
+          "unit": "e34",
+          "focus": "unit-e34",
+          "aria": "Bone Thrall · hostile 5. 7 of 7 health, 3 attack. 3 damage → hunter",
+          "text": "Bone ThrallH5 7/733 damage → hunter"
+        },
+        {
+          "tab": 23,
+          "tag": "BUTTON",
+          "ui": "inspect-unit",
+          "unit": null,
+          "focus": null,
+          "aria": "Inspect Bone Thrall · hostile 5",
+          "text": "i"
+        },
+        {
+          "tab": 24,
+          "tag": "BUTTON",
+          "ui": null,
+          "unit": "e35",
+          "focus": "unit-e35",
+          "aria": "Ironjaw Warlord · hostile 6. 112 of 112 health, 9 attack. 9 damage → hunter",
+          "text": "Ironjaw WarlordH6 112/11299 damage → hunter"
+        },
+        {
+          "tab": 25,
+          "tag": "BUTTON",
+          "ui": "inspect-unit",
+          "unit": null,
+          "focus": null,
+          "aria": "Inspect Ironjaw Warlord · hostile 6",
+          "text": "i"
+        },
+        {
+          "tab": 26,
+          "tag": "BUTTON",
+          "ui": "draw",
+          "unit": null,
+          "focus": null,
+          "aria": null,
+          "text": "Draw 48"
+        },
+        {
+          "tab": 27,
+          "tag": "BUTTON",
+          "ui": "discard",
+          "unit": null,
+          "focus": null,
+          "aria": null,
+          "text": "Discard 0"
+        },
+        {
+          "tab": 28,
+          "tag": "BUTTON",
+          "ui": "play-card",
+          "unit": null,
+          "focus": "card-0",
+          "aria": "Cairn Hound +, 1 energy. On binding: gain 2 hunter block. Commands deal 2 extra damage to enemies with no block.. Currently unavailable.",
+          "text": "1Cairn Hound +BINDINGOn binding: gain 2 hunter block. Commands deal 2 extra damage to enem"
+        }
+      ],
+      "firstHandTab": 28
+    },
+    {
+      "name": "arrow-key-button-navigation",
+      "before": {
+        "tag": "BUTTON",
+        "ui": null,
+        "unit": "a10",
+        "focus": "unit-a10",
+        "aria": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+        "text": "Cairn HoundB1 7/73Ready"
+      },
+      "after": {
+        "tag": "BUTTON",
+        "ui": null,
+        "unit": "a10",
+        "focus": "unit-a10",
+        "aria": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+        "text": "Cairn HoundB1 7/73Ready"
+      }
+    },
+    {
+      "name": "keyboard-selection-and-cancel",
+      "source": {
+        "tag": "BUTTON",
+        "ui": null,
+        "unit": "a10",
+        "focus": "unit-a10",
+        "aria": "Cairn Hound · binding 1. 7 of 7 health, 3 attack. Ready; select, then choose an enemy.",
+        "text": "Cairn HoundB1 7/73Ready"
+      },
+      "selectedFocus": {
+        "tag": "BUTTON",
+        "ui": null,
+        "unit": "e30",
+        "focus": "unit-e30",
+        "aria": "Ironjaw Reaver · hostile 1. 16 of 16 health, 4 attack. 4 damage → hunter Select as target.",
+        "text": "Ironjaw ReaverH1 16/1644 damage → hunter"
+      },
+      "preview": "Cairn Hound · binding 1 → hostile 1: 5 health damage",
+      "cancelFocus": {
+        "tag": "BUTTON",
+        "ui": null,
+        "unit": "e30",
+        "focus": "unit-e30",
+        "aria": "Ironjaw Reaver · hostile 1. 16 of 16 health, 4 attack. 4 damage → hunter",
+        "text": "Ironjaw ReaverH1 16/1644 damage → hunter"
+      },
+      "selectedCount": 0
+    },
+    {
+      "name": "native-dialog-trap-and-restore",
+      "opened": {
+        "tag": "BUTTON",
+        "ui": "close",
+        "unit": null,
+        "focus": null,
+        "aria": "Close dialog",
+        "text": ""
+      },
+      "tabSequence": [
+        {
+          "inside": true,
+          "focus": {
+            "tag": "INPUT",
+            "ui": null,
+            "unit": null,
+            "focus": null,
+            "aria": null,
+            "text": ""
+          }
+        },
+        {
+          "inside": true,
+          "focus": {
+            "tag": "INPUT",
+            "ui": null,
+            "unit": null,
+            "focus": null,
+            "aria": null,
+            "text": ""
+          }
+        },
+        {
+          "inside": true,
+          "focus": {
+            "tag": "INPUT",
+            "ui": null,
+            "unit": null,
+            "focus": null,
+            "aria": null,
+            "text": ""
+          }
+        },
+        {
+          "inside": true,
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "close",
+            "unit": null,
+            "focus": null,
+            "aria": null,
+            "text": "Return"
+          }
+        },
+        {
+          "inside": false,
+          "focus": {
+            "tag": "BODY",
+            "ui": null,
+            "unit": null,
+            "focus": null,
+            "aria": null,
+            "text": "HOLLOWPACTCONTRACTS · CREATURES · CONSEQUENCESDeck 59?How to playField report\n      Marek "
+          }
+        },
+        {
+          "inside": true,
+          "focus": {
+            "tag": "BUTTON",
+            "ui": "close",
+            "unit": null,
+            "focus": null,
+            "aria": "Close dialog",
+            "text": ""
+          }
+        },
+        {
+          "inside": true,
+          "focus": {
+            "tag": "INPUT",
+            "ui": null,
+            "unit": null,
+            "focus": null,
+            "aria": null,
+            "text": ""
+          }
+        },
+        {
+          "inside": true,
+          "focus": {
+            "tag": "INPUT",
+            "ui": null,
+            "unit": null,
+            "focus": null,
+            "aria": null,
+            "text": ""
+          }
+        }
+      ],
+      "underlyingControlFocused": false,
+      "restored": {
+        "tag": "BUTTON",
+        "ui": "settings",
+        "unit": null,
+        "focus": null,
+        "aria": "Settings",
+        "text": ""
+      }
+    },
+    {
+      "name": "focus-after-nonterminal-enemy-death",
+      "target": {
+        "tag": "BUTTON",
+        "ui": null,
+        "unit": "e30",
+        "focus": "unit-e30",
+        "aria": "Ironjaw Reaver · hostile 1. 1 of 16 health, 4 attack. 4 damage → hunter Select as target.",
+        "text": "Ironjaw ReaverH1 1/1644 damage → hunter"
+      },
+      "after": {
+        "tag": "BODY",
+        "ui": null,
+        "unit": null,
+        "focus": null,
+        "aria": null,
+        "text": "HOLLOWPACTCONTRACTS · CREATURES · CONSEQUENCESDeck 59?How to playField report\n      Marek "
+      },
+      "phase": "battle",
+      "enemyCount": 5
+    },
+    {
+      "name": "focus-after-terminal-command",
+      "motion": false,
+      "immediate": {
+        "tag": "BODY",
+        "ui": null,
+        "unit": null,
+        "focus": null,
+        "aria": null,
+        "text": "HOLLOWPACTCONTRACTS · CREATURES · CONSEQUENCESDeck 59?How to playField report\n      Marek "
+      },
+      "afterReward": {
+        "tag": "BODY",
+        "ui": null,
+        "unit": null,
+        "focus": null,
+        "aria": null,
+        "text": "HOLLOWPACTCONTRACTS · CREATURES · CONSEQUENCESDeck 59?How to playField report\n      Marek "
+      },
+      "phase": "reward"
+    },
+    {
+      "name": "focus-after-terminal-command",
+      "motion": true,
+      "immediate": {
+        "tag": "BODY",
+        "ui": null,
+        "unit": null,
+        "focus": null,
+        "aria": null,
+        "text": "HOLLOWPACTCONTRACTS · CREATURES · CONSEQUENCESDeck 59?How to playField report\n      Marek "
+      },
+      "afterReward": {
+        "tag": "H1",
+        "ui": null,
+        "unit": null,
+        "focus": null,
+        "aria": null,
+        "text": "Take what keeps you alive."
+      },
+      "phase": "reward"
+    },
+    {
+      "name": "held-enter-selection-then-command",
+      "firstPress": {
+        "tag": "BUTTON",
+        "ui": null,
+        "unit": "e30",
+        "focus": "unit-e30",
+        "aria": "Ironjaw Reaver · hostile 1. 16 of 16 health, 4 attack. 4 damage → hunter Select as target.",
+        "text": "Ironjaw ReaverH1 16/1644 damage → hunter"
+      },
+      "saveChangedAfterRepeat": true,
+      "after": {
+        "tag": "BUTTON",
+        "ui": null,
+        "unit": "e30",
+        "focus": "unit-e30",
+        "aria": "Ironjaw Reaver · hostile 1. 11 of 16 health, 4 attack. 4 damage → hunter",
+        "text": "Ironjaw ReaverH1 11/1644 damage → hunter"
+      }
+    },
+    {
+      "name": "injected-standard-gamepad-current-runtime",
+      "injectionVisible": true,
+      "focusBefore": {
+        "tag": "BODY",
+        "ui": null,
+        "unit": null,
+        "focus": null,
+        "aria": null,
+        "text": "HOLLOWPACTCONTRACTS · CREATURES · CONSEQUENCESDeck 59?How to playField report\n      Marek "
+      },
+      "focusAfter": {
+        "tag": "BODY",
+        "ui": null,
+        "unit": null,
+        "focus": null,
+        "aria": null,
+        "text": "HOLLOWPACTCONTRACTS · CREATURES · CONSEQUENCESDeck 59?How to playField report\n      Marek "
+      },
+      "saveChanged": false,
+      "nativeGamepadHardware": false
+    }
+  ],
+  "errors": [],
+  "actualDigest": "cdf4098ab5426281d75a22d4565b6d5b92667a42b9937e756a919a97227449af",
+  "version": "0.5.0",
+  "afterHashes": {
+    "src/main.ts": "8de5c8577fb6dace6bbdfcc94e239b3e05af7e2ca0f3521b83fc35ae3ac26286",
+    "src/style.css": "357345b6276e4a26515cb19964c416056c00efe64215241cdcb50883d1be49a2",
+    "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+    "desktop/main.cjs": "1e54b1170ff4169285ff1757c0e768db2f144f7be919b4911a47394426cb75ae"
+  },
+  "runtimeUnchanged": true
+}

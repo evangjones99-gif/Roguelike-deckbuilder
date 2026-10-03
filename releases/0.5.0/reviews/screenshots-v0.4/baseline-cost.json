@@ -1,0 +1,21 @@
+{
+  "archive": "releases/0.3.0/hollowpact-0.3.0-web.zip",
+  "archiveHash": "d836c415f7c8402702154cc9018168f5b2233e81e719ca62b5fb42331e9b8c45",
+  "hashes": {
+    "index.html": "5f71704b89a6e0045f33404223f63b78ac16293cf6c96bc90085cd8a85d02dd9",
+    "assets/index-B6l6m9CW.js": "2d2d1fc5fdb101b62adb10e939fc5c3e404241e0ae16c751ae77ae1268cc8008",
+    "assets/index-C43KhXyK.css": "51075876c82f03cd2f4e330428ecdc1cf4acbd03ef19b396e56cfdf266220faa"
+  },
+  "method": "Archived v0.3 build served separately on5183. Actual Canvas2D backdrop draw calls over4sec, six-versus-six validated fixture. HeadlessLinux Chromium; comparative sample not hardware certification.",
+  "errors": [],
+  "perf": {
+    "cpuCostMethod": "Backdrop draw timestamp to end-of-task microtask; approximate CPU draw submission cost, not forced GPU readback.",
+    "meanCostMs": 0.45416666665890565,
+    "p95CostMs": 1.699999999254942,
+    "draws": 240,
+    "fps": 59.761952390461396,
+    "medianGap": 16.699999999254942,
+    "p95Gap": 18.700000001117587,
+    "maxGap": 32.20000000111759
+  }
+}

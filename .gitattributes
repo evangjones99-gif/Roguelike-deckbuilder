@@ -1,0 +1,28 @@
+# Identical source bytes and digest keys across Linux and native Windows builds.
+* text=auto eol=lf
+*.png -text
+*.jpg -text
+*.ico -text
+*.glb -text
+*.blend -text
+*.blend1 -text
+*.mp4 -text
+*.gz -text
+*.zip -text
+*.wav -text
+# Preserve native CI evidence exactly, including Windows CRLF records.
+reviews/windows-native/**/*.exact-ci.* -text
+releases/0.5.0/reviews/windows-native/** -text
+reviews/windows-native/0.6.0/** -text
+releases/0.6.0/reviews/windows-native/** -text
+reviews/windows-native/0.6.1/** -text
+releases/0.6.1/reviews/windows-native/** -text
+# New0.7 native records must preserve original runner bytes from first commit.
+reviews/windows-native/0.7.0/** -text
+# Exact upstream Microsoft reference bytes include a retained final blank line.
+reviews/installer-v0.8-r1-independent/microsoft-shared-registry-keys.md -text whitespace=-blank-at-eof
+reviews/installer-v0.8-r2-independent/microsoft-shared-registry-keys.md -text whitespace=-blank-at-eof
+# Preserve exact connector-returned native job text, including BOM and CRLF.
+reviews/root-v0.9-installer-36819597195-failure/ORIGINAL-JOB-LOG.log -text
+reviews/root-v0.9-portable-36819607381-intake/RETURNED-JOB-TEXT.txt -text
+reviews/root-v0.9-installer-36825641529-success/RETURNED-JOB-TEXT.txt -text

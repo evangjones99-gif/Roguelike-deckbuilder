@@ -1,0 +1,43 @@
+--- freeze-v3/arena.ts
++++ freeze-v4/arena.ts
+@@ -877,10 +877,21 @@
+       for (const old of figures.values()) if (old.uid !== uid && old.side === side && old.slot === slot && old.dead !== null)
+         end = Math.max(end, old.dead + deathDuration);
+     }
+     return Math.max(0, end - time);
+   }
++  function referencedFutureBirthHold(events: readonly TransitionEvent[] = []): number {
++    // Canonical actions may touch an earlier accepted arrival before first
++    // paint. Delay only this action's actually traced sources/targets, rather
++    // than locking unrelated actions behind every optional presentation cue.
++    let end = time;
++    for (const event of events) for (const uid of [event.source, event.target]) {
++      const figure = figures.get(uid);
++      if (figure && figure.born > time) end = Math.max(end, figure.born);
++    }
++    return Math.max(0, end - time);
++  }
+   function queueStrike(source: string | null, target: string, kind: Strike['kind'], delay = 0) {
+     const from = source ? sourcePoint(source) : { x: width * .34, y: height * .82 };
+     const to = combatPoint(target);
+     const strike: Strike = { source, target, from, to, born: time + delay, kind };
+     strikes.push(strike);
+@@ -898,14 +909,16 @@
+       render(after);
+       if (reduced || document.hidden) { settle(); draw(); }
+       return;
+     }
+     try {
++    const referencedBirthLead = referencedFutureBirthHold(events);
+     const allocationLead = prepareActionAllocation(before, after, events);
+     // One action anchor controls birth, gestures, impacts, and the host's audio
+-    // anchor. No later per-arrival hold may silently move only the painted body.
+-    const lead = Math.max(allocationLead, reusedArrivalHold(after, events));
++    // anchor. Every referenced earlier newborn is visible by that anchor; no
++    // later per-arrival hold may silently move only the painted body.
++    const lead = Math.max(allocationLead, reusedArrivalHold(after, events), referencedBirthLead);
+     lastActionLeadMs = Math.ceil(lead * 1000); lastActionCueStart = time + lead;
+     if (events) {
+       const actorDelays = new Map<string, number>();
+       const lastHits = new Map<string, Strike>();
+       const terminal = after.phase !== 'battle';

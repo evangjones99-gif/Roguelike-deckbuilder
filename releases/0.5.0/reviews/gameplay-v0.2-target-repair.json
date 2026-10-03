@@ -1,0 +1,46 @@
+{
+  "method": "Duplicate fixture resumed from a state reproduced using legal actions; toast verified through a fresh rendered-control first battle. Not a new complete run",
+  "endpoint": "http://127.0.0.1:4173",
+  "seed": 6502,
+  "difficulty": 2,
+  "floor": 10,
+  "turn": 2,
+  "clientHash": "9fe8938578533af5896ccfcabef86dff5986a44e8ea6f949417a596d4aa39a7d",
+  "units": [
+    {
+      "uid": "a43",
+      "text": "Cairn HoundB1\n9\n/9\n3\nReady",
+      "aria": "Cairn Hound · binding 1. 9 of 9 health, 3 attack. Ready; select, then choose an enemy."
+    },
+    {
+      "uid": "a44",
+      "text": "Cairn HoundB2\n9\n/9\n3\nReady",
+      "aria": "Cairn Hound · binding 2. 9 of 9 health, 3 attack. Ready; select, then choose an enemy."
+    },
+    {
+      "uid": "a45",
+      "text": "Fen StalkerB3\n12\n/12\n4\nReady",
+      "aria": "Fen Stalker · binding 3. 12 of 12 health, 4 attack. Ready; select, then choose an enemy."
+    }
+  ],
+  "intents": [
+    "13 damage → hunter",
+    "7 damage → binding 1",
+    "7 damage → binding 1"
+  ],
+  "dossier": "Cairn Hound · binding 1",
+  "toastChecks": [
+    {
+      "after": "reward",
+      "visible": false
+    },
+    {
+      "after": "travel",
+      "visible": false
+    }
+  ],
+  "errors": [],
+  "pass": true,
+  "servedBuildSourceDigest": "006db8571a5c1697b21bcbe51434161e53bb75580c5b72bed852efdd4da7bee9",
+  "styleHash": "ee165e5cbaf5a8022f271fd61782b026d4d5610d964a965480ac882802d08716"
+}

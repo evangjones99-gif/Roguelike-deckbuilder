@@ -1,0 +1,30 @@
+{
+  "version": "0.5.0",
+  "cdfCandidate": "cdf4098ab5426281d75a22d4565b6d5b92667a42b9937e756a919a97227449af",
+  "cdfBrowserSuite": {
+    "command": "npx playwright test",
+    "result": "21passed,2failedONLYtrace-cleanupENOENTfromconcurrentdefaultoutputcollision",
+    "duration": "3.3m",
+    "failureEvidence": "reviews/root-v0.5-browser-r3-failure",
+    "correctiveToolChange": "playwright.config.ts perinvocationuniqueoutputDir; assertionsnotweakened",
+    "affectedRerun": {
+      "command": "npx playwright test --grep 'final strike saves|failed backup storage'",
+      "passed": 2,
+      "duration": "13.9s"
+    },
+    "claim": "All23behaviorcasespassedacrosssuite+isolatedrerun; originalfullsuiteexit1preserved, notrelabeledfullpass"
+  },
+  "cdfNativeLinux": {
+    "launch": "reviews/linux-desktop-0.5.0-smoke.json",
+    "feedback": "reviews/linux-feedback-0.5.0-smoke.json",
+    "limitations": "Xvfb/--no-sandbox; no cleanconsumer/Windows/Steamcertification"
+  },
+  "preferencesInterim": "997b4623b0ff3a9c4d317d03d7c3ff74dc60d3e375e9cf062c14b4239c09d1d1",
+  "preferencesRootChecks": {
+    "command": "npx playwright test tests/browser/preferences-v0.5.spec.ts tests/browser/save-schema-v0.5.spec.ts",
+    "passed": 7,
+    "duration": "37.2s"
+  },
+  "preferencesIndependent": "reviews/technical-v0.5-preferences-repair.md",
+  "promotion": "Pending finalarena facingrepair andcombined/nativeidentityreview; allpriorcandidates/evidencepreserved"
+}

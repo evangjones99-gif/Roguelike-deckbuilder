@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/media-loose-png-recovery-proposal-author-r1/seal_proposal.py", line 28, in <module>
+    s=os.stat(a,follow_symlinks=False);assert s.st_dev==pair['canonical']['metadata']['st_dev'] and s.st_ino==pair['canonical']['metadata']['st_ino']
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

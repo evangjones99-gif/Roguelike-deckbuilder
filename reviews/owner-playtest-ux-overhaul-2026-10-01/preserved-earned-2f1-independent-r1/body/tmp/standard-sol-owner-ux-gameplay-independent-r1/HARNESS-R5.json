@@ -1,0 +1,7 @@
+{
+  "revision": "r5",
+  "parent": "observe-r4.mjs",
+  "reason": "Any resource check failure sets breached immediately and closes command input; finally closes browser. No retries after admission failure, unchanged 640MiB plus 512MiB limits. Prior partial runs, scripts and failure bytes retained. Persistent profile stores only actual trusted play.",
+  "bytes": 10246,
+  "sha256": "6d8479e1f47940f57a5614a1d6bb7ebc0b2b7eedd6f4f0b473d14394a080fd66"
+}

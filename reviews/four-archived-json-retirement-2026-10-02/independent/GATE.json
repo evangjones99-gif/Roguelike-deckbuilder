@@ -1,0 +1,153 @@
+{
+  "decision": "ACCEPT CONDITIONAL exact four archived loose JSON retirement SOURCE eligibility; Root publication/judgment/current confirmed push and fresh actual checks required",
+  "replacementBetter": true,
+  "oldLooseCopiesNoLongerNeeded": true,
+  "proposal": {
+    "path": "/workspace/scratch/four-archived-raw-retirement-source-author-r2/PROPOSAL.json",
+    "sha256": "02a099158000476c103d69959f67dda002e51a6242a20395a81e43560990d3fe",
+    "bytes": 65814
+  },
+  "method": {
+    "path": "/workspace/scratch/four-archived-raw-retirement-source-author-r2/retire-four-archived-json-root-r2.py",
+    "sha256": "fd65affba9be08f590a6e42dd8ef3237d4c56d68437cda195dcc7f47811d6d31",
+    "bytes": 10533
+  },
+  "publisher": {
+    "path": "/workspace/scratch/four-archived-raw-retirement-source-author-r2/publish-four-archived-raw-retirement-root-r2.py",
+    "sha256": "7e8e6c4a2b9719bb63452747a77af50ea67c97fb03bc6d582ea54d2ae268a335",
+    "bytes": 8222
+  },
+  "producer": {
+    "path": "/workspace/scratch/four-archived-raw-retirement-source-author-r2/judge-four-archived-raw-retirement-root-r2.py",
+    "sha256": "5c2761fab237d50a18bb3916191e07b625d60f71891ff2fb7fdf0c1fa0488e62",
+    "bytes": 3096
+  },
+  "restore": {
+    "path": "/workspace/scratch/four-archived-raw-retirement-source-author-r2/restore-four-fresh.py",
+    "sha256": "1e5b47037a098d37d6748c2bfc93334fec58d5eb83275cb59b4c51ed19ac3c3e",
+    "bytes": 3075
+  },
+  "currentHold": {
+    "path": "/workspace/Roguelike-deckbuilder/AGENTS.md",
+    "sha256": "6f76b3a724bcf4cd9db8587158a8bd454531c8a8b59fc8680bf7661d896ee2d8",
+    "bytes": 16532
+  },
+  "selectedMap": {
+    "path": "/workspace/scratch/target-clear-ghost-promotion-root-r3/RESULT.json",
+    "sha256": "e0af37d86a6c67bf1936463fb3f2714457d19646d7a71c5fd2840b1dda62d6c6",
+    "bytes": 15559
+  },
+  "currentCallerGate": {
+    "path": "/workspace/scratch/target-clear-default-caller-independent-r1/GATE.json",
+    "sha256": "36ddead7bcd9647706f33c766952732dc3ff7b42455f2c678b125569bde2c31a",
+    "bytes": 6797
+  },
+  "priorR3POSTGate": {
+    "path": "/workspace/scratch/r3-two-raw-retirement-post-independent-r1/GATE.json",
+    "sha256": "2e8735abe975b28e42a1ce9d3a178ad6db9c251ca4f1de6acee3a979a361ec97",
+    "bytes": 6739
+  },
+  "proof": {
+    "path": "/workspace/scratch/four-archived-raw-retirement-independent-r2/PROOF.json",
+    "sha256": "2c3c9c25b577a077825e9ff2b3d4a78558a7a24a111f72530ef0c8e41921e0b0",
+    "bytes": 16280
+  },
+  "review": {
+    "path": "/workspace/scratch/four-archived-raw-retirement-independent-r2/REVIEW.md",
+    "sha256": "5e91fbcd793ee9e5f23b7049794ee103cc3e76c0ccbeb590b2895a72b7b1c63f",
+    "bytes": 4383
+  },
+  "reader": {
+    "path": "/workspace/scratch/four-archived-raw-retirement-independent-r2/verify-r2.py",
+    "sha256": "dae0717e33fca2f4e1a8d74c05a47a8029c8785ae3f2eaa5d9cbd007e4572933",
+    "bytes": 11817
+  },
+  "originalFailedReader": {
+    "path": "/workspace/scratch/four-archived-raw-retirement-independent-r2/verify.py",
+    "sha256": "589db973523fdc55c2c1a9ac098636796dd373e5f1be2c77fb7c388d58a02521",
+    "bytes": 11807
+  },
+  "sealer": {
+    "path": "/workspace/scratch/four-archived-raw-retirement-independent-r2/seal.py",
+    "sha256": "aee1930d79fc661e22e29f6d5f984bfe00cb164203ff1fd3098aa7f7c524a225",
+    "bytes": 5745
+  },
+  "proofGuard": {
+    "ADMISSION.json": {
+      "path": "/workspace/scratch/four-archived-raw-retirement-independent-r2/PROOF-GUARD-r2/ADMISSION.json",
+      "sha256": "ffdb26371008c96f1be84ce69bd0e3533b9f055206bae49151be634ab90a1741",
+      "bytes": 486
+    },
+    "RESULT.json": {
+      "path": "/workspace/scratch/four-archived-raw-retirement-independent-r2/PROOF-GUARD-r2/RESULT.json",
+      "sha256": "e6692fc08cdb175d38a2b9a99e676bef5ea972edf26b4e7489643524068e9c9c",
+      "bytes": 1230
+    },
+    "EXECUTION.log": {
+      "path": "/workspace/scratch/four-archived-raw-retirement-independent-r2/PROOF-GUARD-r2/EXECUTION.log",
+      "sha256": "dc82f3faa636f4ecda0f8cb0e93a7898d4aed132e52c130d2763fef77b24d1d1",
+      "bytes": 251
+    }
+  },
+  "failedReaderGuard": {
+    "ADMISSION.json": {
+      "path": "/workspace/scratch/four-archived-raw-retirement-independent-r2/PROOF-GUARD/ADMISSION.json",
+      "sha256": "a23989b987c1cdbe38faf7c36f3668fd802852a6fecdd0d1cf13432f61a8a94a",
+      "bytes": 483
+    },
+    "RESULT.json": {
+      "path": "/workspace/scratch/four-archived-raw-retirement-independent-r2/PROOF-GUARD/RESULT.json",
+      "sha256": "6a2b31b67e8d6d6234282d34f7a48a412196ad9a5c7fc1c28e0a353cc5786ffd",
+      "bytes": 853
+    },
+    "EXECUTION.log": {
+      "path": "/workspace/scratch/four-archived-raw-retirement-independent-r2/PROOF-GUARD/EXECUTION.log",
+      "sha256": "fdfda998de66129154f1b9a0169f0a4a728f8b4737f6a080a29c89ddef0ac41a",
+      "bytes": 597
+    }
+  },
+  "exactFourPaths": [
+    "/workspace/scratch/target-wait-default-comparison-actual-r1/VISUAL-RESULT.json",
+    "/workspace/scratch/target-wait-default-comparison-actual-r1/VISUAL-PROGRESS.json",
+    "/workspace/scratch/target-clear-ghost-comparison-actual-r1/VISUAL-RESULT.json",
+    "/workspace/scratch/target-clear-ghost-comparison-actual-r1/VISUAL-PROGRESS.json"
+  ],
+  "fullRawBodyCount": 4,
+  "fullCapsuleBlobCounts": [
+    209,
+    249
+  ],
+  "exactLogicalRowCounts": [
+    226,
+    264
+  ],
+  "fullCurrentSelectedBodies": 144,
+  "publisherModel": {
+    "exactKnownBodyCount": 57,
+    "knownBodyBytes": 245061,
+    "deterministicKnownBundleBytes": 56128,
+    "knownBundleSHA256": "4dca1f3ee354f4e3720dbbe2ab012aeac95cc94803494fa37711477bf682a4bc",
+    "knownFullRoundtrip": true,
+    "futureIndependentPacketCapBytes": 131072,
+    "modeledBundleUpperBytes": 252736,
+    "modeledPublishedAllocationUpperBytes": 625489,
+    "hardPublicationAllocationCapBytes": 786432,
+    "initialPublisherFreeThresholdBytes": 68681728,
+    "GitEstimateBytes": 1572864,
+    "qualifiedEstimateNotOSBound": true
+  },
+  "grossAllocationBytes": 2187264,
+  "logicalRawBytes": 2184240,
+  "ownProofMaxRSSBytes": 15015936,
+  "preferenceReason": "Unchanged verified compressed successors preserve all exact bodies/logical names/provenance while four continuously loose copies add no unique body; reviewed current source dependencies do not require those original paths.",
+  "historicalNeedQualification": "Known current source controls do not consume these historical two roots. Historical hardcoded gameplay/preservation needs exact NEW reconstruction and NEW adapted readers/mappings. No global future consumer or FD/mmap absence proof; live old-path need would block.",
+  "metadataLoss": "Original four raw paths/inodes/timestamps/physical isolation disappear; exact fresh reconstruction has new metadata. No metadata rollback.",
+  "durabilityQualification": "Observed file/P receipt fsync only for publisher; generated bundle/files/parent entries not all fsynced. Action durable per-leaf journal prefix, no four-leaf atomicity or automatic retry.",
+  "authorityLimit": "Source-only eligibility. Root alone publishes exact bound methods/proposal/review, confirms current clean push and records judgment before one exact action. Separate independent POST and fresh native admission required. No other cleanup/restore/Git/media/native authority.",
+  "protectedZIPFullStatExact": true,
+  "protectedZIPBodyNeverOpened": true,
+  "preservedFailure": "Original wrong EXPECTED.json locator failed; source/guard retained unchanged, fresh reader corrects only EXPECTED-CANDIDATE.json.",
+  "packetCapBytes": 131072,
+  "closureQualification": "Own readers/FDs close normally; guard shared cgroup samples are not exclusive actor/globalFD absence proof.",
+  "ownSealMaxRSSBytes": 9961472
+}

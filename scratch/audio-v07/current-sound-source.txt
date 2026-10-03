@@ -1,0 +1,57 @@
+let audio: AudioContext | null = null;
+function sound(kind: 'click' | 'summon' | 'attack' | 'reward' | 'end' = 'click') {
+  if (settings.mute || settings.volume <= 0) return;
+  try {
+    audio ||= new AudioContext();
+    void audio.resume();
+    const context = audio;
+    const start = context.currentTime;
+    const master = context.createGain();
+    master.gain.value = settings.volume * .2;
+    master.connect(context.destination);
+    const tone = (frequency: number, type: OscillatorType, duration: number, strength: number, delay = 0, endFrequency = frequency) => {
+      const osc = context.createOscillator(), gain = context.createGain();
+      const at = start + delay;
+      osc.type = type;
+      osc.frequency.setValueAtTime(frequency, at);
+      osc.frequency.exponentialRampToValueAtTime(Math.max(20, endFrequency), at + duration);
+      gain.gain.setValueAtTime(.001, at);
+      gain.gain.linearRampToValueAtTime(strength, at + .006);
+      gain.gain.exponentialRampToValueAtTime(.001, at + duration);
+      osc.connect(gain); gain.connect(master);
+      osc.start(at); osc.stop(at + duration + .01);
+    };
+    const grit = (duration: number, frequency: number, strength: number, delay = 0, filterType: BiquadFilterType = 'bandpass') => {
+      const buffer = context.createBuffer(1, Math.ceil(context.sampleRate * duration), context.sampleRate);
+      const data = buffer.getChannelData(0);
+      for (let i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
+      const source = context.createBufferSource(), filter = context.createBiquadFilter(), gain = context.createGain();
+      const at = start + delay;
+      source.buffer = buffer; filter.type = filterType; filter.frequency.value = frequency; filter.Q.value = .8;
+      gain.gain.setValueAtTime(strength, at);
+      gain.gain.exponentialRampToValueAtTime(.001, at + duration);
+      source.connect(filter); filter.connect(gain); gain.connect(master);
+      source.start(at); source.stop(at + duration);
+    };
+    if (kind === 'attack') {
+      tone(96, 'sine', .24, .9, 0, 38); // body of the impact
+      grit(.17, 1250, .65);
+      tone(410, 'triangle', .19, .15, .018, 260);
+      tone(1037, 'sine', .13, .08, .02, 690); // iron edge
+    } else if (kind === 'summon') {
+      tone(73, 'sine', .45, .75, 0, 49);
+      tone(146, 'triangle', .32, .17, .025, 109);
+      grit(.33, 330, .3, .015, 'lowpass');
+      [0, .055, .13].forEach((delay, i) => { grit(.06, 2800, .16, delay); tone(660 + i * 137, 'sine', .1, .06, delay); });
+    } else if (kind === 'reward') {
+      [0, .075, .14].forEach((delay, i) => { tone(890 + i * 210, 'sine', .15, .15, delay); grit(.035, 4200, .14, delay); });
+    } else if (kind === 'end') {
+      tone(110, 'sine', .32, .7, 0, 42); grit(.2, 650, .3, .012, 'lowpass');
+    } else {
+      grit(.035, 1700, .18); tone(175, 'triangle', .06, .13, 0, 95);
+    }
+    // Every source ends within half a second; no idle audio loop or network asset.
+    setTimeout(() => master.disconnect(), 700);
+  } catch { /* Audio is optional; rule resolution never waits for playback. */ }
+}
+

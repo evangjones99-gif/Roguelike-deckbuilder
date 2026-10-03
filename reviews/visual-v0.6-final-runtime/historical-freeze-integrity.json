@@ -1,0 +1,23 @@
+{
+  "scope": "Independent final recheck of earlier frozen v0.6 stage manifests; these earlier files remain unchanged",
+  "checks": [
+    {
+      "manifest": "reviews/visual-v0.6-input-runtime/FROZEN-MANIFEST.json",
+      "filesVerified": 29,
+      "mismatches": [],
+      "reportMatches": true
+    },
+    {
+      "manifest": "reviews/visual-v0.6-repaired-runtime/FROZEN-MANIFEST.json",
+      "filesVerified": 50,
+      "mismatches": [],
+      "reportMatches": true
+    },
+    {
+      "manifest": "reviews/visual-v0.6-runtime/FROZEN-MANIFEST.json",
+      "filesVerified": 351,
+      "mismatches": [],
+      "reportMatches": true
+    }
+  ]
+}

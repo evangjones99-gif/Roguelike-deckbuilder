@@ -1,0 +1,126 @@
+
+> hollowpact@0.6.0 release
+> node scripts/release.mjs 0.6.0
+
+
+> hollowpact@0.6.0 test
+> tsx --test tests/*.test.ts
+
+✔ 24 original cards, four creature families and enhancement texts are complete (1.723619ms)
+✔ schema 2 saves reject historical schema, presentation menu and malformed inputs (0.588607ms)
+✔ serialized action replay is exact, pure, and deterministic through terminal state (72.408924ms)
+✔ invalid indices, targets, phase, budget and board size return original object (0.456152ms)
+✔ living creatures own one card copy outside piles; dead creatures rejoin discard (5.946739ms)
+✔ two identical source copies remain separate when one dies (0.52253ms)
+✔ Cairn Hound executes exposed targets but does not receive bonus against armor (0.361863ms)
+✔ Fen Stalker heals only when its command deals health damage (0.501028ms)
+✔ Briar Colossus grants hunter block after every command, even into armor (0.404586ms)
+✔ Ash Widow amplifies targeted damage, relic combines, Revenant resists it (0.601757ms)
+✔ Grave Resonance supports a spell-only opening and loses solo bonus after binding (0.789563ms)
+✔ ready permits a second command while ordinary commands are once per turn (0.266042ms)
+✔ Ironjaw armor retaliates through creature block; Sundering Hex prevents retaliation (0.329105ms)
+✔ retaliation deaths return exactly one source card and no duplicate draws (0.377607ms)
+✔ announced targets stay stable across bindings and commands; missing creature falls back to hunter (0.406118ms)
+✔ Revenant strikes ignore hunter armor and have explicit visible text (0.270579ms)
+✔ Cantor raises announced thralls after enemy resolution; no hidden immediate attacks (0.39396ms)
+✔ reinforcements respect six slots and cannot carry an unannounced extra enemy (0.23107ms)
+✔ Silence cancels necromancy; canceled attacks do not become armor; guard remains guard (0.640052ms)
+✔ killing the raising source before ending the turn prevents its reinforcements (0.239953ms)
+✔ Cindermaw guard/breath/strike cycle has readable damage windows and expires armor (0.27165ms)
+✔ boss is forecastable from run seed independently of earlier RNG consumption (0.813568ms)
+✔ elite formations offer four distinct questions and never guarantee all six relics (26.320038ms)
+✔ targeted camp upgrade changes precisely the selected duplicate entry (0.41368ms)
+✔ relic effects support summon endurance, command attack, solo economy and recovery (0.849401ms)
+✔ rewards, real shop costs and removals cannot be collected twice (1.272805ms)
+✔ crypt events provide paid recovery, card purge or bounded relic oath (0.419598ms)
+✔ temporary attack bonuses reset between contracts while permanent deck and HP persist (1.017608ms)
+✔ hunter self-damage defeat is immediate and terminal; terminal turn is counted (0.27771ms)
+✔ all three boss contracts can finish in a valid terminal collection state (38.823344ms)
+✔ save validation rejects prototype identities, forged passives and illegal reinforcement fields (1.982851ms)
+✔ every encounter must match its actual node; final combat allows only boss (6.951699ms)
+✔ 300 seeded legal-random runs validate every intermediate state across difficulties (1242.187951ms)
+✔ connection-held confirm requires neutral release, then a fresh edge (1.732653ms)
+✔ confirm does not repeat across selection focus changes or long holds (1.304782ms)
+✔ button value hysteresis does not chatter near the press threshold (0.249758ms)
+✔ axis enter/exit deadzones ignore jitter and require threshold on reversal (0.224131ms)
+✔ direction alone repeats after350ms, then100ms; reentry is immediate (0.300353ms)
+✔ simultaneous activation buttons produce a single prioritized intent (0.197591ms)
+✔ presentation gate suppresses confirm and requires release after reopening (0.205182ms)
+✔ safe pause may open while gated, but is not replayed into a modal (0.273372ms)
+✔ disconnect, hidden reset and pad-index changes neutralize held input (0.372569ms)
+✔ unsupported mapping, invalid timing and opposing dpad directions stay inert (0.316887ms)
+✔ nonfinite axes/buttons are ignored, and decoder never reads a device identity (0.233844ms)
+✔ decoding does not mutate borrowed browser snapshots (0.835912ms)
+✔ safe pause works after neutral presentation-lock frames, without arming gameplay (0.193966ms)
+✔ initial unfocused document does not read controller; focus event needs neutral then a fresh press (0.910391ms)
+✔ visible-window blur stops reads and requires neutral release before any resumed controller action (0.364026ms)
+✔ blur cancels scheduled RAF; focus reschedules, and disposed adapters cannot resume (0.329035ms)
+✔ unavailable initial focus API retains event-based keyboard/controller fallback (0.284469ms)
+✔ events and ordinary reducer remain byte equivalent to archived v0.2 across seeded legal runs (2602.009734ms)
+✔ invalid actions produce no observations and preserve object identity (0.336996ms)
+✔ first lethal hunter strike suppresses every later enemy strike (0.460799ms)
+✔ a later strike resolves to hunter after its announced creature target dies (0.565653ms)
+✔ one executed area attack finishes its real targets even if hunter dies, then skips later enemies (0.408702ms)
+✔ fully blocked attacks are observed with zero health loss and real absorbed damage (0.253273ms)
+✔ piercing and self damage report zero block absorption despite existing wards (0.340422ms)
+✔ stalker recovery and retaliation remain distinct despite zero net creature HP change (0.312461ms)
+✔ retaliation death follows command hit and returns exactly one real card copy (0.367351ms)
+✔ spell area damage records resolved roster targets and each death in order (0.735293ms)
+✔ binding snapshots survive on-bind victory cleanup and cannot mutate returned state (0.345439ms)
+✔ necromancy emits summons from actual raising source without immediate enemy hits (0.388683ms)
+✔ healing and wards emit actual gains only, with guard source resolved explicitly (0.327944ms)
+✔ random legal replays preserve archived states across rewards, crypt, shop and control branches (305.639074ms)
+✔ Silence reports a truthful noninjury control event and redundant silence emits no second cue (0.54316ms)
+✔ Edict reports each real attack increase in roster order without invented injuries (0.611921ms)
+✔ all 119 reachable campaign actions remain valid with unchanged mechanics and payments (47.851422ms)
+✔ guard armor, fresh intentions and serialized continuation match legacy mechanics (49.057268ms)
+✔ exact inherited overflow recovery is valid, detached and preserves the original bytes (0.904372ms)
+✔ normal valid saves and unrelated corruption never enter recovery (2.346797ms)
+✔ a valid legacy double suffix becomes canonical on the next paid Silence (0.370435ms)
+✔ generation2 production hash matches frozen research vectors and browser comparison evidence (1.205766ms)
+✔ generation classification is explicit and old serialization has no new fields (1.66381ms)
+✔ actual v0.4 fixture provenance and kind1 continuation stay byte exact (723.8026ms)
+✔ reachable card acquisition, draw history and shop sculpture cannot reroll common world nodes (115.87363ms)
+✔ reachable alternate route choices do not advance any shared world cursor (20.595717ms)
+✔ identity ranking is pure and invariant to catalogue ordering and owned exclusions (4.006542ms)
+✔ new-generation full serialized/event replays preserve stream positions and query purity (1157.465354ms)
+✔ explicit kind2 legal-random campaigns validate and serialize every accepted state (402.120386ms)
+✔ recovery rejects nonserializable programmatic extras and cannot switch generations (1.656509ms)
+✔ new-run Revenant cancellation says damage is canceled; legacy text remains byte exact (2.254851ms)
+ℹ tests 81
+ℹ suites 0
+ℹ pass 81
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3461.23901
+
+> hollowpact@0.6.0 build
+> node scripts/build.mjs
+
+vite v8.3.1 building client environment for production...
+transforming...
+✓ 13 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   1.65 kB │ gzip:  0.80 kB
+dist/assets/index-BBETvFBh.css   49.02 kB │ gzip: 11.44 kB
+dist/assets/index-BKAjkdgo.js   111.68 kB │ gzip: 39.32 kB
+
+✓ built in 88ms
+Runtime source digest: 0ec0187f0a42eb519000646695980dd91e1e026e1cb925b96935ee3e8646acde
+node:fs:401
+      throw new ERR_FS_FILE_TOO_LARGE(size);
+            ^
+
+RangeError [ERR_FS_FILE_TOO_LARGE]: File size (2863760699) is greater than 2 GiB
+    at tryCreateBuffer (node:fs:401:13)
+    at Object.readFileSync (node:fs:501:14)
+    at file:///workspace/Roguelike-deckbuilder/scripts/release.mjs:59:98
+    at Array.map (<anonymous>)
+    at file:///workspace/Roguelike-deckbuilder/scripts/release.mjs:59:47 {
+  code: 'ERR_FS_FILE_TOO_LARGE'
+}
+
+Node.js v24.19.0

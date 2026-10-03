@@ -1,0 +1,70 @@
+{
+  "offlineSourcePredicateOnly": true,
+  "noCallerImport": true,
+  "noAppBrowserServerOrBuild": true,
+  "driverSHA256": "37b64437b6e4661f5679cda730a48f45ef2e1590a21f54cda4c0b7285147f3dd",
+  "cases": [
+    {
+      "label": "settled reward with retained hidden dock markup",
+      "savedPhase": "reward",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "label": "settled defeat",
+      "savedPhase": "defeat",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "label": "settled victory",
+      "savedPhase": "victory",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "label": "wrong rendered phase",
+      "savedPhase": "reward",
+      "actual": false,
+      "expected": false
+    },
+    {
+      "label": "final impact still settling",
+      "savedPhase": "reward",
+      "actual": false,
+      "expected": false
+    },
+    {
+      "label": "scene still busy",
+      "savedPhase": "reward",
+      "actual": false,
+      "expected": false
+    },
+    {
+      "label": "dock actionable",
+      "savedPhase": "reward",
+      "actual": false,
+      "expected": false
+    },
+    {
+      "label": "arena still exposed",
+      "savedPhase": "reward",
+      "actual": false,
+      "expected": false
+    },
+    {
+      "label": "missing terminal heading",
+      "savedPhase": "reward",
+      "actual": false,
+      "expected": false
+    },
+    {
+      "label": "missing app",
+      "savedPhase": "reward",
+      "actual": false,
+      "expected": false
+    }
+  ],
+  "passed": true,
+  "peakRSSKiB": 27236
+}

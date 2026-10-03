@@ -1,0 +1,909 @@
+name: Rebuild exact empty-intent opening baseline
+on:
+  push:
+    branches: [codex/lanternbound-production]
+    paths: [.github/workflows/rebuild-opening-baseline.yml]
+  workflow_dispatch: {}
+permissions: {}
+jobs:
+  fresh-baseline:
+    if: >-
+      github.repository == 'evangjones99-gif/Roguelike-deckbuilder' &&
+      github.ref == 'refs/heads/codex/lanternbound-production' &&
+      (github.event_name == 'workflow_dispatch' ||
+       (github.event_name == 'push' && github.event.deleted == false))
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - name: Create exclusive owned controls and proof directories
+        id: initialize
+        timeout-minutes: 1
+        shell: bash --noprofile --norc -euo pipefail {0}
+        run: |
+          timeout --signal=TERM --kill-after=2s 18s python3 -I -B - <<'PY'
+          import hashlib, json, os, pathlib, re
+          repo = "evangjones99-gif/Roguelike-deckbuilder"
+          ref = "refs/heads/codex/lanternbound-production"
+          assert os.environ.get("GITHUB_REPOSITORY") == repo
+          assert os.environ.get("GITHUB_REF") == ref
+          assert os.environ.get("GITHUB_WORKFLOW_REF") == repo + "/.github/workflows/rebuild-opening-baseline.yml@" + ref
+          assert os.environ.get("GITHUB_EVENT_NAME") in ("push", "workflow_dispatch")
+          rid, attempt = os.environ["GITHUB_RUN_ID"], os.environ["GITHUB_RUN_ATTEMPT"]
+          assert re.fullmatch(r"[0-9]{1,20}", rid) and re.fullmatch(r"[0-9]{1,10}", attempt)
+          temp = pathlib.Path(os.environ["RUNNER_TEMP"])
+          assert temp.is_absolute() and temp.is_dir() and not temp.is_symlink()
+          root = temp / ("empty-intent-fresh-" + rid + "-" + attempt)
+          root.mkdir(mode=0o700)
+          (root / "control").mkdir(mode=0o700)
+          (root / "proof").mkdir(mode=0o700)
+          for config_name in ("npm-user.npmrc", "npm-global.npmrc"):
+              config = root / "control" / config_name
+              fd = os.open(config, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
+              with os.fdopen(fd, "wb") as f:
+                  f.flush()
+                  os.fsync(f.fileno())
+              assert config.read_bytes() == b"" and config.stat().st_nlink == 1
+          assert (root / "control/npm-user.npmrc").stat().st_ino != (root / "control/npm-global.npmrc").stat().st_ino
+          source = r'''"""Reviewed fixed-input fresh CI method; local main/network/build execution is not admitted."""
+          import base64
+          import gzip
+          import hashlib
+          import http.client
+          import io
+          import json
+          import os
+          from pathlib import Path, PurePosixPath
+          import platform
+          import re
+          import resource
+          import selectors
+          import shutil
+          import signal
+          import ssl
+          import stat
+          import subprocess
+          import sys
+          import tarfile
+          import time
+          import zlib
+          
+          REPO = "evangjones99-gif/Roguelike-deckbuilder"
+          REF = "refs/heads/codex/lanternbound-production"
+          WORKFLOW = REPO + "/.github/workflows/rebuild-opening-baseline.yml@" + REF
+          MIB = 1048576
+          META_SHA = "b2f13179f14ccebecbc4452fa4e6b3cc88623dc629ff0009c1118401123ca46d"
+          META_LITERAL = "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"
+          DISK_CAP = 2 * 1024 * MIB
+          PROOF_CAP = MIB
+          FILE_CAP = 9 * MIB
+          RESPONSE_CAP = 12 * MIB
+          ARTIFACT_CAP = 32 * MIB
+          LOG_CAP = 192 * 1024
+          ARCHIVE_STREAM_CAP = 64 * MIB
+          ARCHIVE_MEMBER_CAP = 6000
+          
+          def need(ok, reason):
+              if not ok:
+                  raise ValueError(reason)
+          
+          def unique(pairs):
+              d = {}
+              for k, v in pairs:
+                  need(k not in d, "duplicate JSON key")
+                  d[k] = v
+              return d
+          
+          def load_json(data):
+              return json.loads(data, object_pairs_hook=unique)
+          
+          def metadata():
+              d = zlib.decompressobj(16 + zlib.MAX_WBITS)
+              b = d.decompress(base64.b64decode(META_LITERAL, validate=True), 65537)
+              need(len(b) <= 65536 and d.eof and not d.unused_data and not d.unconsumed_tail, "metadata bound")
+              need(hashlib.sha256(b).hexdigest() == META_SHA, "metadata identity")
+              m = load_json(b)
+              need(len(m["source"]) == 98 and len(m["support"]) == 30 and len(m["blobPins"]) == 53, "fixed input counts")
+              need(len({x["path"] for x in m["source"] + m["support"]}) == 128, "fixed paths unique")
+              for x in m["source"] + m["support"]:
+                  safe_path(x["path"])
+                  need(re.fullmatch(r"[0-9a-f]{64}", x["sha256"]) and 0 <= x["bytes"] <= FILE_CAP, "input pin")
+              return m
+          
+          def safe_path(name):
+              p = PurePosixPath(name)
+              need(isinstance(name, str) and 0 < len(name) <= 240 and not p.is_absolute()
+                   and bool(p.parts) and name == str(p) and all(x not in ("", ".", "..") for x in p.parts)
+                   and "\\" not in name and "\x00" not in name, "noncanonical path")
+              return p
+          
+          def context():
+              need(os.environ.get("GITHUB_REPOSITORY") == REPO and os.environ.get("GITHUB_REF") == REF
+                   and os.environ.get("GITHUB_WORKFLOW_REF") == WORKFLOW
+                   and os.environ.get("GITHUB_EVENT_NAME") in ("push", "workflow_dispatch"), "fixed CI context")
+              rid, attempt = os.environ.get("GITHUB_RUN_ID", ""), os.environ.get("GITHUB_RUN_ATTEMPT", "")
+              need(re.fullmatch(r"[0-9]{1,20}", rid) and re.fullmatch(r"[0-9]{1,10}", attempt), "run identity")
+              temp = Path(os.environ["RUNNER_TEMP"])
+              need(temp.is_absolute() and temp.is_dir() and not temp.is_symlink(), "runner temp")
+              root = temp / ("empty-intent-fresh-" + rid + "-" + attempt)
+              need(root.is_dir() and not root.is_symlink(), "fresh owned root")
+              return root
+          
+          def exclusive(path, data, mode=0o600):
+              path.parent.mkdir(parents=True, exist_ok=True)
+              fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, mode)
+              with os.fdopen(fd, "wb") as f:
+                  f.write(data)
+                  f.flush()
+                  os.fsync(f.fileno())
+              need(path.read_bytes() == data, "full write readback")
+          
+          def receipt(root, name, obj, cap=64*1024):
+              b = (json.dumps(obj, sort_keys=True, separators=(",", ":")) + "\n").encode()
+              need(len(b) <= cap, "receipt cap")
+              exclusive(root / "proof" / name, b)
+          
+          def alarm(seconds):
+              def stop(_sig, _frame):
+                  raise TimeoutError("whole phase deadline")
+              signal.signal(signal.SIGALRM, stop)
+              signal.alarm(seconds)
+          
+          def disk_inventory(root, limit=100000):
+              total = count = 0
+              for directory, dirs, files in os.walk(root, followlinks=False):
+                  for name in dirs + files:
+                      path = Path(directory) / name
+                      st = path.lstat()
+                      count += 1
+                      need(count <= limit, "disk entry cap")
+                      # npm-owned symlinks are measured without following targets.
+                      total += st.st_size if not stat.S_ISDIR(st.st_mode) else 0
+                      need(total <= DISK_CAP, "owned disk budget")
+              return total
+          
+          def proof_bytes(root):
+              return sum(p.lstat().st_size for p in (root / "proof").rglob("*") if p.is_file())
+          
+          def hash_file(path, cap=FILE_CAP):
+              st = path.lstat()
+              need(stat.S_ISREG(st.st_mode) and st.st_nlink == 1 and st.st_size <= cap, "regular owned file")
+              h = hashlib.sha256()
+              with path.open("rb") as f:
+                  for b in iter(lambda: f.read(65536), b""):
+                      h.update(b)
+              return {"bytes": st.st_size, "sha256": h.hexdigest()}
+          
+          def verify_pin(path, pin):
+              got = hash_file(path)
+              need(got == {"bytes": pin["bytes"], "sha256": pin["sha256"]}, "body identity")
+              return got
+          
+          def fetch_blob(pin, token, deadline):
+              need(0 < pin["bytes"] <= FILE_CAP and re.fullmatch(r"[0-9a-f]{40}", pin["gitBlobSHA1"]), "Git pin")
+              need(time.monotonic() < deadline, "fetch deadline")
+              c = http.client.HTTPSConnection("api.github.com", 443, timeout=min(15, max(0.1, deadline-time.monotonic())), context=ssl.create_default_context())
+              try:
+                  c.request("GET", "/repos/" + REPO + "/git/blobs/" + pin["gitBlobSHA1"], headers={
+                      "Authorization": "Bearer " + token, "Accept": "application/vnd.github+json",
+                      "X-GitHub-Api-Version": "2022-11-28", "User-Agent": "fixed-empty-intent-byte-recovery"})
+                  r = c.getresponse()
+                  need(r.status == 200 and r.getheader("Location") is None, "blob status/no redirects")
+                  need(r.getheader("Content-Encoding") in (None, "identity"), "response encoding")
+                  length = r.getheader("Content-Length")
+                  if length is not None:
+                      need(length.isdecimal() and int(length) <= RESPONSE_CAP, "response declared cap")
+                  raw = bytearray()
+                  while True:
+                      need(time.monotonic() < deadline, "response whole deadline")
+                      if c.sock is not None:
+                          c.sock.settimeout(min(15, max(0.1, deadline-time.monotonic())))
+                      part = r.read(min(65536, RESPONSE_CAP + 1 - len(raw)))
+                      if not part:
+                          break
+                      raw.extend(part)
+                      need(len(raw) <= RESPONSE_CAP, "response byte cap")
+                  if length is not None:
+                      need(len(raw) == int(length), "response length")
+                  j = load_json(raw)
+                  need(j.get("sha") == pin["gitBlobSHA1"] and type(j.get("size")) is int
+                       and j["size"] == pin["bytes"] and j.get("encoding") == "base64"
+                       and isinstance(j.get("content"), str), "Git API identity")
+                  content = j["content"]
+                  need(len(content) <= RESPONSE_CAP and re.fullmatch(r"[A-Za-z0-9+/=\n\r]*", content), "base64 grammar")
+                  body = base64.b64decode(content.replace("\n", "").replace("\r", ""), validate=True)
+                  need(len(body) == pin["bytes"] and hashlib.sha256(body).hexdigest() == pin["sha256"], "body SHA256/size")
+                  need(hashlib.sha1(("blob " + str(len(body)) + "\x00").encode() + body).hexdigest() == pin["gitBlobSHA1"], "Git framed SHA1")
+                  return body
+              finally:
+                  c.close()
+          
+          def acquire(root, m):
+              resource.setrlimit(resource.RLIMIT_AS, (128*MIB, 128*MIB))
+              resource.setrlimit(resource.RLIMIT_CPU, (40, 40))
+              alarm(180)
+              need(shutil.disk_usage(root).free >= 4*1024*MIB, "initial 4GiB free")
+              token = os.environ.pop("GITHUB_TOKEN", "")
+              need(bool(token) and "\n" not in token and "\r" not in token, "scoped acquisition token")
+              out = root / "downloads"
+              out.mkdir()
+              start = time.monotonic()
+              rows = []
+              try:
+                  for pin in m["blobPins"]:
+                      body = fetch_blob(pin, token, start+180)
+                      path = out / (pin["sha256"] + ".blob")
+                      exclusive(path, body)
+                      verify_pin(path, pin)
+                      rows.append({"sha256": pin["sha256"], "gitBlobSHA1": pin["gitBlobSHA1"], "bytes": pin["bytes"]})
+                      del body
+                      need(disk_inventory(root) <= DISK_CAP, "acquisition owned disk")
+              finally:
+                  token = ""
+                  receipt(root, "acquisition-progress.json", {"verified": rows, "expected": 53, "complete": len(rows)==53, "elapsed":time.monotonic()-start})
+              need(len(rows)==53, "all fixed blobs")
+          
+          class BoundedStream:
+              def __init__(self, stream, cap):
+                  self.stream, self.cap, self.count = stream, cap, 0
+              def read(self, size=-1):
+                  need(size >= 0, "unbounded archive read")
+                  b = self.stream.read(min(size, self.cap-self.count+1))
+                  self.count += len(b)
+                  need(self.count <= self.cap, "whole decompressed stream cap")
+                  return b
+          
+          def member_header(member, archive):
+              safe_path(member.name)
+              need(member.isfile() and not member.issparse() and not member.linkname and not member.pax_headers
+                   and member.type in (tarfile.REGTYPE, tarfile.AREGTYPE)
+                   and 0 <= member.size <= FILE_CAP, "nonregular/extended archive member")
+              need(re.fullmatch(r"blobs/[0-9a-f]{64}", member.name)
+                   or (archive == "ce0f" and member.name == "INDEX.json" and member.size == 928223), "unknown archive member")
+          
+          def assemble(root, m):
+              resource.setrlimit(resource.RLIMIT_AS, (128*MIB, 128*MIB))
+              resource.setrlimit(resource.RLIMIT_CPU, (40, 40))
+              alarm(60)
+              stage = root / "stage"
+              stage.mkdir()
+              needed = {key:{} for key in ("8cdf", "4513", "ce0f")}
+              for x in m["source"] + m["support"]:
+                  if "archive" in x:
+                      needed[x["archive"]].setdefault(x["sha256"], []).append(x)
+                  else:
+                      path = root / "downloads" / (x["blob"] + ".blob")
+                      verify_pin(path, x)
+                      exclusive(stage / x["path"], path.read_bytes())
+              reports = []
+              total_stream = 0
+              for pin in m["blobPins"][-3:]:
+                  key = pin["id"]
+                  path = root / "downloads" / (pin["sha256"] + ".blob")
+                  verify_pin(path, pin)
+                  seen, chosen, index = set(), set(), False
+                  with path.open("rb") as compressed, gzip.GzipFile(fileobj=compressed) as gz:
+                      stream = BoundedStream(gz, ARCHIVE_STREAM_CAP-total_stream)
+                      with tarfile.open(fileobj=stream, mode="r|") as tf:
+                          for member in tf:
+                              member_header(member, key)
+                              need(member.name not in seen and len(seen) < ARCHIVE_MEMBER_CAP, "duplicate/member count")
+                              seen.add(member.name)
+                              if member.name == "INDEX.json":
+                                  data = tf.extractfile(member).read(member.size + 1)
+                                  need(len(data)==928223 and hashlib.sha1(b"blob 928223\x00"+data).hexdigest()=="46980a8ab7289c6f013390ac5f283cde389cffdd", "ce0f INDEX witness")
+                                  index = True
+                              elif member.name[6:] in needed[key]:
+                                  sha = member.name[6:]
+                                  data = tf.extractfile(member).read(member.size + 1)
+                                  need(len(data)==member.size and hashlib.sha256(data).hexdigest()==sha, "selected archive body")
+                                  for x in needed[key][sha]:
+                                      need(x["bytes"]==len(data), "selected archive size")
+                                      exclusive(stage / x["path"], data)
+                                  chosen.add(sha)
+                      # Drain padding/remainder through the same bound and validate gzip trailer.
+                      while stream.read(65536):
+                          pass
+                  total_stream += stream.count
+                  need(total_stream <= ARCHIVE_STREAM_CAP, "combined decompressed stream cap")
+                  need(chosen == set(needed[key]) and (key != "ce0f" or index), "selected member completeness")
+                  reports.append({"archive":key,"members":len(seen),"selectedUnique":len(chosen),"decompressedBytes":stream.count,"indexWitness":index})
+              membership(root, m, "assembled")
+              receipt(root, "assembly.json", {"archives":reports,"restoredOriginalFilesystemMetadata":False,"sourceFiles":98,"supportFiles":30})
+          
+          def regular_inventory(directory, cap=10000, file_cap=ARTIFACT_CAP):
+              need(directory.is_dir() and not directory.is_symlink(), "inventory root regular directory")
+              rows = {}
+              for base, dirs, files in os.walk(directory, followlinks=False):
+                  for name in dirs:
+                      need(not (Path(base)/name).is_symlink(), "directory symlink")
+                  for name in files:
+                      path = Path(base)/name
+                      key = path.relative_to(directory).as_posix()
+                      safe_path(key)
+                      need(len(rows)<cap, "inventory count cap")
+                      rows[key] = hash_file(path, file_cap)
+              return dict(sorted(rows.items()))
+          
+          def membership(root, m, label):
+              stage = root / "stage"
+              need(stage.is_dir() and not stage.is_symlink(), "membership root regular directory")
+              observed = {}
+              # Exclude only fresh installation/output directories from the 128 pinned inputs.
+              for base, dirs, files in os.walk(stage, followlinks=False):
+                  if Path(base)==stage:
+                      dirs[:] = [x for x in dirs if x not in ("node_modules", "dist")]
+                  for name in dirs:
+                      need(not (Path(base)/name).is_symlink(), "input directory symlink")
+                  for name in files:
+                      p = Path(base)/name
+                      observed[p.relative_to(stage).as_posix()] = hash_file(p)
+              expected = {x["path"]:{"bytes":x["bytes"],"sha256":x["sha256"]} for x in m["source"]+m["support"]}
+              need(observed==expected, "exact128 membership and bytes")
+              hashes = dict(sorted((x["path"],x["sha256"]) for x in m["source"]))
+              digest = hashlib.sha256(json.dumps(hashes,separators=(",", ":")).encode()).hexdigest()
+              need(digest==m["sourceDigest"], "runtime98 digest")
+              receipt(root, label+"-membership.json", {"sourceDigest":digest,"sourceCount":98,"supportCount":30,"supportDigest":hashlib.sha256(json.dumps(dict(sorted((x["path"],x["sha256"]) for x in m["support"])),separators=(",", ":")).encode()).hexdigest()})
+          
+          def child_env(root):
+              user_config=root/"control/npm-user.npmrc"
+              global_config=root/"control/npm-global.npmrc"
+              need(user_config != global_config, "distinct owned npm config paths")
+              for config in (user_config,global_config):
+                  verify_pin(config,{"bytes":0,"sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"})
+              # Never pass GitHub, Actions runtime, registry tokens, arbitrary NODE_OPTIONS or npmrc.
+              e = {k:os.environ[k] for k in ("PATH","HOME","LANG","LC_ALL","TMPDIR") if k in os.environ}
+              e.update({"CI":"true", "NODE_OPTIONS":"--max-old-space-size=256",
+                  "npm_config_cache":str(root/"npm-cache"), "npm_config_logs_dir":str(root/"proof"/"npm-debug"),
+                  "npm_config_userconfig":str(user_config), "npm_config_globalconfig":str(global_config),
+                  "npm_config_registry":"https://registry.npmjs.org", "npm_config_fetch_retries":"0",
+                  "npm_config_fetch_timeout":"30000", "npm_config_audit":"false", "npm_config_fund":"false",
+                  "npm_config_update_notifier":"false", "npm_config_progress":"false",
+                  "ELECTRON_SKIP_BINARY_DOWNLOAD":"1", "PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD":"1",
+                  "PUPPETEER_SKIP_DOWNLOAD":"1"})
+              return e
+          
+          def proc_snapshot():
+              result = {}
+              entries = list(Path("/proc").iterdir())
+              need(len(entries)<=10000, "proc census cap")
+              for p in entries:
+                  if not p.name.isdecimal():
+                      continue
+                  try:
+                      text = (p/"stat").read_text()
+                      s = text[text.rfind(")")+2:].split()
+                      result[int(p.name)] = {"state":s[0],"ppid":int(s[1]),"pgrp":int(s[2]),"sid":int(s[3]),
+                          "cpuTicks":int(s[11])+int(s[12]),"start":int(s[19]),"rss":max(0,int(s[21]))*os.sysconf("SC_PAGE_SIZE")}
+                  except (FileNotFoundError, ProcessLookupError, PermissionError):
+                      continue
+              return result
+          
+          def mem_available():
+              for line in Path("/proc/meminfo").read_text().splitlines():
+                  if line.startswith("MemAvailable:"):
+                      return int(line.split()[1])*1024
+              raise ValueError("MemAvailable absent")
+          
+          def cgroup_observation():
+              # Shared hosted runner cgroup is evidence, never a dedicated per-job enforcement claim.
+              rows = Path("/proc/self/cgroup").read_text().splitlines()
+              row = next((x[3:] for x in rows if x.startswith("0::")), None)
+              if row is None:
+                  return {"available":False}
+              p = Path("/sys/fs/cgroup") / row.lstrip("/")
+              try:
+                  return {"available":True,"path":str(p),"max":(p/"memory.max").read_text().strip(),
+                      "current":int((p/"memory.current").read_text()),"events":(p/"memory.events").read_text().strip()}
+              except (FileNotFoundError, PermissionError):
+                  return {"available":False}
+          
+          def effective_available():
+              host=mem_available()
+              cg=cgroup_observation()
+              if cg.get("available") and cg["max"].isdecimal():
+                  return min(host,max(0,int(cg["max"])-cg["current"]))
+              return host
+          
+          def run_phase(root, name, argv, stop_s, whole_s, memory_cap):
+              stage = root/"stage"
+              need(effective_available()>=memory_cap+512*MIB, "phase work+reserve availability")
+              need(shutil.disk_usage(root).free>=4*1024*MIB, "phase4GiB free")
+              before = cgroup_observation()
+              start = time.monotonic()
+              control = {"reason":None}
+              def interrupt(sig, _frame):
+                  control["reason"] = "supervisor signal " + str(sig)
+              oldterm = signal.signal(signal.SIGTERM, interrupt)
+              oldint = signal.signal(signal.SIGINT, interrupt)
+              p = None
+              handles, identities, cpu, sel = {}, {}, {}, selectors.DefaultSelector()
+              samples = peak = 0
+              min_available = effective_available()
+              seen_log = 0
+              received_log = 0
+              overflow_first_bytes = 0
+              log_complete = True
+              term_at = None
+              alive = {}
+              exited = None
+              status = "FAILED"
+              closure = False
+              last_disk = start
+              fd = os.open(root/"proof"/(name+".log"), os.O_WRONLY|os.O_CREAT|os.O_EXCL|os.O_NOFOLLOW,0o600)
+              def bind_handle(pid, start_identity):
+                  identity=(pid,start_identity)
+                  if identity in handles:
+                      return
+                  try:
+                      h=os.pidfd_open(pid)
+                  except ProcessLookupError:
+                      return
+                  try:
+                      current=proc_snapshot().get(pid)
+                      if current is None:
+                          os.close(h)
+                          return
+                      need(current["start"]==start_identity, "pidfd initial identity race")
+                  except BaseException:
+                      os.close(h)
+                      raise
+                  handles[identity]=h
+              def observe():
+                  nonlocal peak, samples, min_available, alive
+                  snap = proc_snapshot()
+                  owned = {pid for pid,v in snap.items() if p is not None and (v["sid"]==p.pid or (pid in identities and identities[pid]==v["start"]))}
+                  change = True
+                  while change:
+                      new = {pid for pid,v in snap.items() if v["ppid"] in owned}
+                      change = not new.issubset(owned)
+                      owned |= new
+                  alive = {pid:snap[pid] for pid in owned if snap[pid]["state"] != "Z"}
+                  for pid in owned:
+                      v = snap[pid]
+                      identities[pid]=v["start"]
+                      cpu[(pid,v["start"])]=max(cpu.get((pid,v["start"]),0),v["cpuTicks"])
+                      if v["state"]!="Z":
+                          bind_handle(pid,v["start"])
+                  own = snap.get(os.getpid(),{}).get("rss",0)
+                  rss = own + sum(v["rss"] for v in alive.values())
+                  peak=max(peak,rss)
+                  samples+=1
+                  avail=effective_available()
+                  min_available=min(min_available,avail)
+                  if rss>memory_cap:
+                      control["reason"]="sampled aggregate RSS cap"
+                  if avail<512*MIB:
+                      control["reason"]="sampled host/cgroup available reserve cap"
+                  if sum(cpu.values())/os.sysconf("SC_CLK_TCK") > (150 if name=="install" else 55):
+                      control["reason"]="sampled aggregate CPU cap"
+              def terminate(sig):
+                  # pidfd pins the observed process identity; never signal a recycled numeric PGID.
+                  for identity,h in list(handles.items()):
+                      try:
+                          signal.pidfd_send_signal(h,sig)
+                      except ProcessLookupError:
+                          pass
+              try:
+                  p = subprocess.Popen(argv,cwd=stage,env=child_env(root),stdout=subprocess.PIPE,stderr=subprocess.STDOUT,start_new_session=True,close_fds=True)
+                  identities[p.pid]=proc_snapshot()[p.pid]["start"]
+                  bind_handle(p.pid,identities[p.pid])
+                  os.set_blocking(p.stdout.fileno(),False)
+                  sel.register(p.stdout,selectors.EVENT_READ)
+                  while True:
+                      now=time.monotonic()
+                      observe()
+                      if now-start>=stop_s and alive:
+                          control["reason"] = control["reason"] or "phase stop deadline"
+                      if now-last_disk>=0.1:
+                          try:
+                              disk_inventory(root)
+                              need(proof_bytes(root)<=850*1024,"proof log/receipt soft cap")
+                          except ValueError as e:
+                              control["reason"]="sampled disk/log cap: "+str(e)
+                          last_disk=now
+                      if control["reason"] and term_at is None:
+                          terminate(signal.SIGTERM)
+                          term_at=now
+                      if term_at is not None and now-term_at>=1:
+                          terminate(signal.SIGKILL)
+                      for key,_ in sel.select(0.05):
+                          b=os.read(key.fd,4096)
+                          if not b:
+                              sel.unregister(key.fileobj)
+                          elif seen_log+len(b)<=LOG_CAP:
+                              received_log+=len(b)
+                              need(os.write(fd,b)==len(b),"complete raw log write")
+                              seen_log+=len(b)
+                          else:
+                              received_log+=len(b)
+                              overflow_first_bytes=len(b)
+                              need(len(b)<=64*1024,"finite first overflow residue")
+                              exclusive(root/"proof"/(name+"-overflow-first.log"),b)
+                              sel.unregister(key.fileobj)
+                              log_complete=False
+                              control["reason"]="raw log cap; first delivered overflow chunk retained; unread tail exists"
+                      # Census occurs before poll/reap so orphaned descendants stay tracked.
+                      exited=p.poll()
+                      if exited is not None and not alive and not sel.get_map():
+                          closure=True
+                          break
+                      if now-start>=whole_s-0.5:
+                          control["reason"]=control["reason"] or "whole phase closure deadline"
+                          terminate(signal.SIGKILL)
+                          observe()
+                          closure=not alive and p.poll() is not None
+                          break
+                  status="PASS" if exited==0 and closure and control["reason"] is None and log_complete else "FAILED"
+              except BaseException as e:
+                  control["reason"]="supervisor failure: "+type(e).__name__
+                  if p is not None:
+                      # Known pidfds are safe even if census failed. Unobserved closure is never PASS.
+                      terminate(signal.SIGKILL)
+                      try:
+                          observe()
+                          terminate(signal.SIGKILL)
+                      except BaseException:
+                          alive={p.pid:{"closure":"census unavailable"}}
+                      until=min(start+whole_s,time.monotonic()+1)
+                      while alive and time.monotonic()<until:
+                          time.sleep(0.02)
+                          try:
+                              observe()
+                              terminate(signal.SIGKILL)
+                          except BaseException:
+                              break
+                      try:
+                          exited=p.wait(timeout=max(0.01,until-time.monotonic()))
+                      except subprocess.TimeoutExpired:
+                          pass
+                      closure=not alive and p.poll() is not None
+              finally:
+                  os.fsync(fd)
+                  os.close(fd)
+                  sel.close()
+                  if p is not None and p.stdout is not None:
+                      p.stdout.close()
+                  for h in handles.values():
+                      os.close(h)
+                  signal.signal(signal.SIGTERM,oldterm)
+                  signal.signal(signal.SIGINT,oldint)
+                  result={"phase":name,"argv":argv,"status":status,"exit":exited,"elapsedSeconds":time.monotonic()-start,
+                      "stopSeconds":stop_s,"wholeSeconds":whole_s,"sampledAggregatePeakRSS":peak,"workCapBytes":memory_cap,
+                      "reserveBytes":512*MIB,"minHostOrFiniteCgroupHeadroom":min_available,"samples":samples,"ownedObservedProcesses":len(identities),
+                      "sampledCPUseconds":sum(cpu.values())/os.sysconf("SC_CLK_TCK"),"closureObserved":closure,
+                      "liveAtClosure":sorted(alive),"rawLogBytes":seen_log,"receivedRawLogBytes":received_log,"rawLogBudget":LOG_CAP,"firstOverflowBytesRetained":overflow_first_bytes,"rawLogComplete":log_complete,"reason":control["reason"],
+                      "memoryQualification":"Owned process session/descendant census plus supervisor RSS sampled; shared cgroup is observed only, no dedicated hard cgroup guarantee, transient peaks/escaped descendants not certified.",
+                      "diskQualification":"Owned paths sampled, not kernel quota; overflow fails and is retained.",
+                      "cgroupBefore":before,"cgroupAfter":cgroup_observation()}
+                  receipt(root,name+"-closure.json",result,16*1024)
+              need(status=="PASS", name+" failed; retained closure/log")
+          
+          def canonical_bin_map(value, package_name):
+              # npm accepts a string for one package-named command, or a command-to-path object.
+              if isinstance(value,str):
+                  value={package_name.rsplit("/",1)[-1]:value}
+              need(isinstance(value,dict) and len(value)<=32,"bounded bin representation")
+              result={}
+              for command,path in value.items():
+                  need(isinstance(command,str) and re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,63}",command),"canonical bin command")
+                  need(isinstance(path,str) and len(path)<=240,"bounded bin path")
+                  while path.startswith("./"):
+                      path=path[2:]
+                  safe_path(path)
+                  result[command]=path
+              return result
+          
+          
+          def observed_bin(value,cap=8192):
+              # Keep ordinary actual mappings exact; oversized/malformed data stays explicitly bounded.
+              b=json.dumps(value,sort_keys=True,separators=(",", ":")).encode()
+              if len(b)<=cap:
+                  return {"complete":True,"value":value}
+              return {"complete":False,"serializedBytes":len(b),"serializedSHA256":hashlib.sha256(b).hexdigest(),"prefix":b[:min(1024,cap)].decode("utf-8",errors="replace")}
+          
+          
+          def provision_audit(root,m):
+              stage=root/"stage"
+              need((stage/"node_modules").is_dir() and not (stage/"node_modules").is_symlink(),"owned modules root")
+              need((stage/"node_modules/.bin").is_dir() and not (stage/"node_modules/.bin").is_symlink(),"owned bin directory")
+              lock=load_json((stage/"package-lock.json").read_bytes())["packages"]
+              installed=load_json((stage/"node_modules/.package-lock.json").read_bytes())["packages"]
+              rows=[]
+              for index,(name,pin) in enumerate(m["tools"].items(),1):
+                  key="node_modules/"+name
+                  package=stage/key
+                  need(package.is_dir() and not package.is_symlink(),"owned selected tool package")
+                  need(all(not ancestor.is_symlink() for ancestor in package.parents if ancestor!=stage.parent),"owned tool ancestors")
+                  package_json=hash_file(package/"package.json",64*1024)
+                  actual=load_json((package/"package.json").read_bytes())
+                  receipt(root,"dependency-observed-"+str(index).zfill(2)+".json",{"package":name,"packageJSON":package_json,"actualName":observed_bin(actual.get("name"),256),"actualVersion":observed_bin(actual.get("version"),256),"actualBin":observed_bin(actual.get("bin")),"requiredPinnedBins":pin.get("bin"),"expectedVersion":pin["version"],"lockPinsExpected":{k:pin[k] for k in ("version","resolved","integrity")},"diagnosticOnlyNotAdmission":True},16*1024)
+                  need(actual["version"]==pin["version"],"tool version")
+                  for k in ("version","resolved","integrity"):
+                      need(lock[key][k]==pin[k] and installed[key][k]==pin[k],"installed lock identity")
+                  files={}
+                  executable=name in ("typescript","vite","tsx")
+                  resolution="Type-only metadata and entry hashes; no shared npm shim admission."
+                  unused_commands=[]
+                  if "bin" in pin:
+                      if executable:
+                          actual_bins=canonical_bin_map(actual.get("bin"),name)
+                          required_bins=canonical_bin_map(pin["bin"],name)
+                          need(all(actual_bins.get(command)==path for command,path in required_bins.items()),"required executable bin mapping")
+                          # Unused additional commands are metadata only: never execute or substitute them.
+                          unused_commands=sorted(set(actual_bins)-set(required_bins))
+                          need(not set(unused_commands)&{"node","npm","tsc","vite","tsx"},"unused bin command conflicts with fixed execution scope")
+                      for command,rel in pin["bin"].items():
+                          safe_path(rel)
+                          entry=package/rel
+                          need(entry.resolve(strict=True).is_relative_to(package.resolve(strict=True)),"owned selected entry containment")
+                          for parent in entry.parents:
+                              need(parent.is_dir() and not parent.is_symlink(),"selected entry parent regular directory")
+                              if parent==package:
+                                  break
+                          files[rel]=hash_file(entry)
+                          if executable:
+                              shim=stage/"node_modules/.bin"/command
+                              need(shim.is_symlink() and shim.resolve(strict=True)==(package/rel).resolve(strict=True),"owned actual executable npm bin resolution")
+                              resolution="Owned selected executable .bin matches package entry; build resolves tsc/vite package.json directly; npm test uses tsx."
+                  if name.startswith(("@typescript/typescript-linux-","@rolldown/binding-linux-","@esbuild/linux-")):
+                      inventory=regular_inventory(package,100,128*MIB)
+                      natives={}
+                      for rel,r in inventory.items():
+                          with (package/rel).open("rb") as binary:
+                              header=binary.read(20)
+                              if header[:4]==b"\x7fELF":
+                                  need(len(header)==20 and header[4:6]==b"\x02\x01" and int.from_bytes(header[18:20],"little")==62,"actual ELF64 x86_64 platform")
+                                  natives[rel]=r
+                      need(bool(natives),"Linux x64 native package body")
+                      files.update(natives)
+                  rows.append({"package":name,"version":actual["version"],"integrity":pin["integrity"],"resolved":pin["resolved"],"entryAndNativeHashes":files,"packageJSON":hash_file(package/"package.json"),"binResolution":resolution,"unusedBinCommandsNotExecuted":unused_commands})
+              receipt(root,"dependencies.json",{"platform":platform.platform(),"machine":platform.machine(),"libc":platform.libc_ver(),"nodeExpected":m["expectedNodeVersion"],"selectedPackages":rows,"completeDependencyMerkle":False,"nativeExecutionUsability":"Determined by subsequent original build/tests, never presumed from bytes."})
+          
+          def preflight(root,m):
+              need(platform.system()=="Linux" and platform.machine()=="x86_64", "exact Linux x64 runner")
+              run_phase(root,"node-version",["node","--version"],8,10,384*MIB)
+              need((root/"proof/node-version.log").read_text().strip()==m["expectedNodeVersion"], "exact actual Node version")
+              run_phase(root,"npm-version",["npm","--version"],8,10,384*MIB)
+              receipt(root,"toolchain.json",{"nodeVersion":(root/"proof/node-version.log").read_text().strip(),"npmVersion":(root/"proof/npm-version.log").read_text().strip(),"nodeExecutable":shutil.which("node"),"npmExecutable":shutil.which("npm"),"platform":platform.platform(),"machine":platform.machine(),"setupNodeCommit":"49933ea5288caeca8642d1e84afbd3f7d6820020","nodePin":m["expectedNodeVersion"]})
+          
+          def phase(root,m,name):
+              membership(root,m,name+"-pre")
+              if name=="install":
+                  need(not (root/"stage/node_modules").exists() and not (root/"stage/dist").exists(),"fresh dependency/output dirs")
+                  run_phase(root,name,["npm","ci","--ignore-scripts","--no-audit","--no-fund"],170,180,384*MIB)
+                  membership(root,m,name+"-post")
+                  provision_audit(root,m)
+              elif name=="build":
+                  need(not (root/"stage/dist").exists(),"new dist")
+                  run_phase(root,name,["npm","run","build"],55,60,384*MIB)
+                  membership(root,m,name+"-post")
+              elif name=="test":
+                  tests=sorted(x["path"] for x in m["support"] if re.fullmatch(r"tests/[^/]+\.test\.ts",x["path"]))
+                  need(len(tests)==8,"eight original top level tests")
+                  receipt(root,"test-scope.json",{"files":tests,"argv":["npm","test"],"browserExecuted":False,"countsAndSkipsSource":"raw test.log only, no synthesized counts"})
+                  run_phase(root,name,["npm","test"],55,60,384*MIB)
+                  membership(root,m,name+"-post")
+          
+          
+          def seal_output(root,m):
+              alarm(30)
+              membership(root,m,"seal-pre")
+              dist=root/"stage/dist"
+              rows=regular_inventory(dist,100)
+              need(len(rows)==m["expectedOutputCount"],"actual output count differs expected64")
+              public={x["path"][7:]:x for x in m["source"] if x["path"].startswith("public/")}
+              need(len(public)==59,"source public59")
+              for path,pin in public.items():
+                  need(rows.get(path)=={"bytes":pin["bytes"],"sha256":pin["sha256"]},"copied public byte coherence")
+              hashes=dict(sorted((x["path"],x["sha256"]) for x in m["source"]))
+              provenance=load_json((dist/"build-provenance.json").read_bytes())
+              need(provenance["sourceDigest"]==m["sourceDigest"] and provenance["hashes"]==hashes
+                   and provenance["node"]==m["expectedNodeVersion"],"NEW build provenance")
+              need(rows["CREDITS.md"]["sha256"]==hashes["THIRD-PARTY.md"],"credits copy")
+              generated=set(rows)-set(public)-{"CREDITS.md","build-provenance.json","index.html"}
+              js=[x for x in generated if re.fullmatch(r"assets/[^/]+\.js",x)]
+              css=[x for x in generated if re.fullmatch(r"assets/[^/]+\.css",x)]
+              need(len(js)==len(css)==1 and len(generated)==2,"actual generated JS/CSS scope")
+              html=(dist/"index.html").read_text()
+              refs=re.findall(r'(?:src|href)=["\']([^"\']+)["\']',html)
+              local=set()
+              for ref in refs:
+                  if ref.startswith("data:"):
+                      continue
+                  need(not re.match(r"[a-zA-Z]+:|//",ref),"unexpected external output ref")
+                  local.add(ref.removeprefix("./").removeprefix("/"))
+              need(set(js+css)<=local and all(x in rows for x in local),"index asset coherence")
+              need(m["sourceDigest"].encode() in (dist/js[0]).read_bytes(),"compiled source ID")
+              digest=hashlib.sha256(json.dumps(dict(sorted((k,v["sha256"]) for k,v in rows.items())),separators=(",", ":")).encode()).hexdigest()
+              receipt(root,"fresh-output-map.json",{"outputs":rows,"outputsDigest":digest,"sourceDigest":m["sourceDigest"],"node":provenance["node"],"outputCount":len(rows),"oldFreezeRestored":False,"oldAliasMetadataRestored":False,"historicalOutputsDigest":m["historicalOldOutputsDigest"],"equalsHistoricalDigestObserved":digest==m["historicalOldOutputsDigest"],"browserGameplayVisualApproval":False})
+              need(proof_bytes(root)<=PROOF_CAP,"success proof cap")
+              out=root/"success-artifact"
+              out.mkdir()
+              for key in rows:
+                  exclusive(out/"dist"/key,(dist/key).read_bytes())
+              for key in regular_inventory(root/"proof"):
+                  exclusive(out/"proof"/key,(root/"proof"/key).read_bytes())
+              inventory=regular_inventory(out)
+              need(sum(x["bytes"] for x in inventory.values())+256*1024<=ARTIFACT_CAP,"success artifact32MiB withZIPmargin")
+              need(disk_inventory(root)<=DISK_CAP,"final disk budget")
+          
+          def diagnostic(root):
+              alarm(20)
+              out=root/"failure-artifact"
+              out.mkdir()
+              rows={}
+              # Preserve all bounded regular proof logs; oversized failures retain only an explicit inventory.
+              for base,dirs,files in os.walk(root/"proof",followlinks=False):
+                  for name in dirs:
+                      need(not (Path(base)/name).is_symlink(),"proof symlink")
+                  for name in files:
+                      path=Path(base)/name
+                      st=path.lstat()
+                      need(stat.S_ISREG(st.st_mode),"proof regular file")
+                      h=hashlib.sha256()
+                      with path.open("rb") as f:
+                          for b in iter(lambda:f.read(65536),b""):
+                              h.update(b)
+                      rows[path.relative_to(root/"proof").as_posix()]={"bytes":st.st_size,"sha256":h.hexdigest()}
+                      need(len(rows)<=200,"proof file count")
+              complete=sum(x["bytes"] for x in rows.values())<=PROOF_CAP-32*1024
+              if complete:
+                  for key in rows:
+                      exclusive(out/key,(root/"proof"/key).read_bytes())
+              manifest={"status":"FAILED_OR_INCOMPLETE","allProofBytesUploaded":complete,"proofInventory":rows,
+                  "overCapPolicy":"No deletion/truncation; owned runner originals retained. If over cap, full proof upload is blocked; no complete-log claim. Hosted retention is external.",
+                  "runtimeBuildGameplayApproval":False}
+              b=(json.dumps(manifest,sort_keys=True,separators=(",", ":"))+"\n").encode()
+              need(len(b)<=32*1024,"diagnostic inventory cap")
+              exclusive(out/"diagnostic-index.json",b)
+              need(sum(x["bytes"] for x in regular_inventory(out).values())<=PROOF_CAP,"diagnostic artifact1MiB")
+          
+          def main():
+              need(len(sys.argv)==2 and sys.argv[1] in ("acquire","assemble","preflight","install","build","test","seal","diagnose"),"fixed phase")
+              root=context()
+              m=metadata()
+              mode=sys.argv[1]
+              if mode!="acquire":
+                  need(not os.environ.get("GITHUB_TOKEN"),"token absent outside acquisition")
+              if mode=="diagnose":
+                  diagnostic(root)
+                  return
+              try:
+                  if mode=="acquire":
+                      acquire(root,m)
+                  elif mode=="assemble":
+                      assemble(root,m)
+                  elif mode=="preflight":
+                      preflight(root,m)
+                  elif mode in ("install","build","test"):
+                      phase(root,m,mode)
+                  else:
+                      seal_output(root,m)
+              except BaseException as e:
+                  if mode in ("install","build","test"):
+                      try:
+                          membership(root,m,mode+"-failed-post")
+                      except BaseException as changed:
+                          receipt(root,mode+"-failed-post-discrepancy.json",{"status":"INPUT_RECHECK_FAILED","exceptionType":type(changed).__name__},4096)
+                  # Exception details may contain paths/HTTP content; never print credentials/body.
+                  receipt(root,mode+"-failure.json",{"phase":mode,"status":"FAILED","exceptionType":type(e).__name__,"message":str(e) if isinstance(e,ValueError) else "details omitted; raw owned phase evidence retained"},4096)
+                  print("Fixed fresh phase failed: "+mode+" ("+type(e).__name__+")",file=sys.stderr)
+                  raise SystemExit(1)
+          
+          if __name__ == "__main__":
+              main()
+          '''
+          b = source.encode()
+          assert hashlib.sha256(b).hexdigest() == "1241c9f9d3dce4248e566df2facd7b0218a08684d0b292647eb90c631d1a5ab7"
+          fd = os.open(root / "control/runner.py", os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
+          with os.fdopen(fd, "wb") as f:
+              f.write(b)
+              f.flush()
+              os.fsync(f.fileno())
+          assert (root / "control/runner.py").read_bytes() == b
+          with (root / "proof/initialization.json").open("x") as f:
+              json.dump({"methodSHA256": "1241c9f9d3dce4248e566df2facd7b0218a08684d0b292647eb90c631d1a5ab7", "metadataSHA256": "b2f13179f14ccebecbc4452fa4e6b3cc88623dc629ff0009c1118401123ca46d", "run": rid, "attempt": attempt, "freshDirectories": True, "ownedEmptyNpmConfigFiles": ["control/npm-user.npmrc", "control/npm-global.npmrc"], "npmConfigBytes": 0, "npmConfigSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "distinctConfigInodes": True}, f)
+          PY
+      - name: Provision the pinned supported Node toolchain
+        id: setup
+        timeout-minutes: 2
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24.19.0'
+          architecture: x64
+          check-latest: false
+          token: ''
+      - name: Acquire exactly fifty canonical bodies and three original containers
+        id: acquire
+        timeout-minutes: 4
+        shell: bash --noprofile --norc -euo pipefail {0}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          timeout --signal=TERM --kill-after=2s 178s python3 -I -B "$RUNNER_TEMP/empty-intent-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py" acquire
+      - name: Assemble only the pinned runtime98 and support30 regular files
+        id: assemble
+        timeout-minutes: 2
+        shell: bash --noprofile --norc -euo pipefail {0}
+        run: |
+          timeout --signal=TERM --kill-after=2s 58s python3 -I -B "$RUNNER_TEMP/empty-intent-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py" assemble
+      - name: Verify actual pinned Node and record npm platform versions
+        id: preflight
+        timeout-minutes: 1
+        shell: bash --noprofile --norc -euo pipefail {0}
+        run: |
+          timeout --signal=TERM --kill-after=2s 28s python3 -I -B "$RUNNER_TEMP/empty-intent-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py" preflight
+      - name: Provision fresh locked dependencies without lifecycle scripts
+        id: install
+        timeout-minutes: 4
+        shell: bash --noprofile --norc -euo pipefail {0}
+        run: |
+          timeout --signal=TERM --kill-after=2s 178s python3 -I -B "$RUNNER_TEMP/empty-intent-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py" install
+      - name: Build the original source under independent observed limits
+        id: build
+        timeout-minutes: 2
+        shell: bash --noprofile --norc -euo pipefail {0}
+        run: |
+          timeout --signal=TERM --kill-after=2s 58s python3 -I -B "$RUNNER_TEMP/empty-intent-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py" build
+      - name: Run the eight original top level unit files separately
+        id: test
+        timeout-minutes: 2
+        shell: bash --noprofile --norc -euo pipefail {0}
+        run: |
+          timeout --signal=TERM --kill-after=2s 58s python3 -I -B "$RUNNER_TEMP/empty-intent-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py" test
+      - name: Seal actual new output bytes and proof
+        id: seal
+        timeout-minutes: 1
+        shell: bash --noprofile --norc -euo pipefail {0}
+        run: |
+          timeout --signal=TERM --kill-after=2s 28s python3 -I -B "$RUNNER_TEMP/empty-intent-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/control/runner.py" seal
+      - name: Upload only successfully sealed fresh dist and bounded proof
+        if: success()
+        timeout-minutes: 2
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: empty-intent-fresh-baseline-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/empty-intent-fresh-${{ github.run_id }}-${{ github.run_attempt }}/success-artifact/
+          if-no-files-found: error
+          compression-level: 0
+          overwrite: false
+          include-hidden-files: false
+          retention-days: 30
+      - name: Retain bounded failure diagnostics without deleting owned originals
+        id: diagnostic
+        if: failure()
+        timeout-minutes: 1
+        shell: bash --noprofile --norc -euo pipefail {0}
+        run: |
+          fresh_root="$RUNNER_TEMP/empty-intent-fresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          if timeout --signal=TERM --kill-after=2s 28s python3 -I -B "$fresh_root/control/runner.py" diagnose; then
+            printf 'path=%s\n' "$fresh_root/failure-artifact" >> "$GITHUB_OUTPUT"
+          else
+            timeout --signal=TERM --kill-after=2s 8s python3 -I -B - <<'PY'
+          import json, os, pathlib, re
+          rid, attempt = os.environ["GITHUB_RUN_ID"], os.environ["GITHUB_RUN_ATTEMPT"]
+          assert re.fullmatch(r"[0-9]{1,20}",rid) and re.fullmatch(r"[0-9]{1,10}",attempt)
+          temp=pathlib.Path(os.environ["RUNNER_TEMP"])
+          assert temp.is_absolute() and temp.is_dir() and not temp.is_symlink()
+          out=temp/("empty-intent-diagnostic-"+rid+"-"+attempt)
+          out.mkdir(mode=0o700)
+          with (out/"diagnostic-blocker.json").open("x") as f:
+              json.dump({"status":"DIAGNOSTIC_ASSEMBLY_BLOCKED", "completeLogsUploaded":False, "originalsDeleted":False, "platformWorkflowLogs":"Retain independently; hosted lifetime external", "buildApproval":False},f)
+          with open(os.environ["GITHUB_OUTPUT"],"a") as f:
+              f.write("path="+str(out)+"\n")
+          PY
+          fi
+      - name: Upload bounded failure diagnostic packet
+        if: failure() && steps.diagnostic.outcome == 'success'
+        timeout-minutes: 2
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: empty-intent-fresh-failure-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ steps.diagnostic.outputs.path }}/
+          if-no-files-found: error
+          compression-level: 0
+          overwrite: false
+          include-hidden-files: false
+          retention-days: 30

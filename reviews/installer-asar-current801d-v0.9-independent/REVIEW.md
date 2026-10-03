@@ -1,0 +1,44 @@
+# Independent current801d installer ASAR technical gate
+
+**ACCEPT the exact current801d six-file producer/closed-payload proposal for controlled matching future QA.** This is independent source/serialization acceptance, not QA activation, successful Windows installation, consumer platform support, listening, human enjoyment, AAA quality or Steam qualification. I did not author the installer repair. Earlier8a acceptance is context only; current execution and raw witnesses are fresh.
+
+Selected source:801db1ce4000c15268569cb047e7388148a65105c7b86208611ceb3aff40f029, version0.9.0,78 actual recipe inputs/56 complete dist outputs/60 ASAR leaves. The author current MANIFEST and all rows, older accepted author72 rows, twelve actual installed module files and eight unchanged root tool inputs pass independent before/after verification. Exactly payload, guards and current-validation-test differ from the accepted8a proposal; strict helper/test/smoke and decoder/current helper/prepare/transfer/prior tests remain byte-exact. Older reviews and receipts were read without importing their execution as a current gate.
+
+## Fresh actual producer and payload
+
+I independently invoked the actual locked app-builder-lib26.15.3 AsarPackager and real package transformer against the current immutable regular60-leaf native input tree. Its real dynamicImport resolves the same function identity as nested @electron/asar3.4.1; top-level/manual producer is separately locked4.3.1. Source and installed dependency hashes are preserved. No whole stock/tool/native copy, Windows binary download, application launch or installation occurred.
+
+New reviewer output:/tmp/hollowpact-installer-asar-current801d-independent-v09-r1/app.asar,33,063,240B, SHA2566a89d2b61562309f0d8b9974df6a3bb18008dd5626a6001e898491bbba2ce03b. This matches the fresh current author output exactly. Existing current manual output is30,753,508B/e8fd5d1e6128c57cc688a55733933e7bab487c69bd8644e2b234ebcbeafc12b1. The same60 closed names and raw bytes match each other and the current input tree. Every60 raw SHA and every4MiB block-integrity witness is recomputed from extracted bytes rather than trusted because a header declares it. The actual packaged56dist bodies match the current complete output inventory, three desktop bodies match provenance and normalized package.json matches the real transformer/source fields.
+
+Full header metadata/order matches after removing ONLY offset fields. Sole duplicate group is desktop/icon.png plus dist/art/pact-seal.png, each2,309,728B. Nested3.4.1 stores both; top-level4.3.1 deduplicates them. Duplicate payload2,309,728B plus four serialized header bytes explains exact2,309,732B envelope delta. Both body endpoints coincide exactly with file sizes. This is actual producer evidence, not a general OS property. The normalized manifest has exactly11 source-matching fields,562B/SHA256ddb6572f57b3acfb3a8821daebb7aab47b62d77599dd19de8508a4ce59e14074. Full parsed headers, offsets, leaf/integrity records and actual module resolution are in PRODUCER-RESULTS.
+
+Initial intake shell reported low TMP capacity; the recorded allocation preflight subsequently observed342,183,936B. Immediately before my new33MB archive, preflight again enforces its exact33,063,240B estimate plus134,217,728B reserve. Postflight independently verifies the reserve. Both metadata receipts remain. Only the actual archive and tiny serialized reviewer fixtures were allocated; no duplicate input tree or stock package was created. Large reviewer/author/manual ASARs remain explicitly external TMP research, not durable Windows backups.
+
+## Current guard/refusal executions
+
+Default assertPackagedAsar admits my fresh actual6a89 envelope against the exact78-source/56-dist/60-leaf current source. Four additional actual executions refuse current manuale8fd, old8a builder905, current archive against old201d local build metadata, and current archive against old8a77-source inventory. No old producer/output admission is relabelled current.
+
+The exact CI-shaped invocation of guards.test, current-validation.test and transfer.test independently passes46tests (31 prior plus15 serialized-ASAR tests). It preserves corrupt envelope/header/payload/order, extra/missing leaves, malformed manifest, path/link/unpacked/executable/extra metadata, changed raw source/dist/provenance and extra local inventory refusals. These are portable tests, not Windows NSIS or native decode playback.
+
+Ten additional fresh reviewer serialized cases admit one canonical small fixture, refuse eight cases, and characterize one deliberately trusted override. Refusals include forged declared integrity/hash blocks despite matching rebased outer/header pins, overlapping offsets, noncanonical offsets, empty names, unknown directory metadata, wrong-byte local source symlink and non-directory source ancestor. Tiny fixture source/archive attempts remain in their new TMP directory, with fresh script/log/receipts. All producer, test and control executions succeed; no failed attempt was removed. A preliminary optional node_modules-path lookup returned missing paths and skipped dependent reads; those reads were subsequently performed separately. It did not run a producer/test or mutate files.
+
+The helper compares integrity metadata to the supplied expected ledger rather than calculating its blocks inside the helper. Deliberately supplying both a forged header and matching forged expected metadata can pass the small fixture. This optional expected parameter is a trusted configuration/test boundary. Inspected production smoke supplies no override at either staged or installed audit; its fixed complete6a89/header/60-leaf default has independently proven raw/block witnesses. I accept that exact pinned usage, not a generic arbitrary-ledger integrity validator. Future repins need fresh independent source/output/raw/block proof and a matching producer execution.
+
+## Boundaries and activation scope
+
+All39 raw WAV and ordered channel-major Float32 PCM witnesses,13x3 roster, channels/frame/rate bounds, finite nonnegative elapsed admission, empty file hostname checks at base/fetch/receipt, bounded fetch/decode/hash phases and1e-10 decoded metric tolerances remain byte-exact and pass the46 portable tests against actual current sound bytes. No tolerance/normalization/source count/hostname/deadline weakening is introduced. Existing exact-byte bounded24MiB/eight-part transfer and isolated owned QA path/registry/cache/marker/sentinel controls remain unchanged. Native prepare still requires Windows x64/hosted CI/exact repository/branch/commit, and smoke still requires real Windows x64. Both static audits use the fixed strict ASAR helper before their corresponding acceptance. No mock Windows environment or installer execution was used here.
+
+Against actual root, SIX files differ and must be selected as complete reviewed bytes:
+
+- scripts/windows-installer-asar-payload.json
+- scripts/windows-installer-asar-validation.mjs
+- scripts/windows-installer-asar-validation.test.mjs
+- scripts/windows-installer-current-validation.test.mjs
+- scripts/windows-installer-guards.mjs
+- scripts/windows-installer-smoke.mjs
+
+ACTIVATION-SCOPE records exact sizes/hashes. The author's three repins-only rows are relative to the accepted8a exterior proposal, not today's root. Selecting only those three would omit strict helper/test/smoke integration. Five other supplied tooling files already match root. This review edits none of them and triggers no workflow/retry/QA activation. A lead-controlled future selection must preserve exact game801d and all corresponding tooling, record its checkout and treat any actual native result separately.
+
+Parent reports intentional shrine promotion to root/commit e720b18 during this review. My earlier status assumption that root stayed201d was corrected. The first retained hash snapshot already observes root801d; both measured snapshots are801d, not fabricated measured transition evidence. Postflight checks every78 root recipe body and every56 complete output byte equal frozen801d. Eight prior root tool files remain unchanged. AUTHORIZED-ROOT-TRANSITION records the parent's notification and actual same-identity snapshots. Frozen source/proposal/native input tree and both retained author/manual archives remain unchanged. No assertion that root201d stayed untouched through postflight is made.
+
+This gate does not borrow prior portable Windows receipts as current Windows success. Original failed Windows attempts and earlier releases/reviews/art/datasets remain preserved. Current NSIS install/update/uninstall, consumer/SmartScreen/security/hardware/Deck, actual sound output/listening/cancellation, human enjoyment, rights/store/Steam and AAA craft gates remain open. The reviewer packet is bounded below1.5MB; external33MB ASAR/tiny probes remain retained at their recorded paths.

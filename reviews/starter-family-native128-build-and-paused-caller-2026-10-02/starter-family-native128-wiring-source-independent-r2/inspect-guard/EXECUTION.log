@@ -1,0 +1,638 @@
+
+coherent-native128.ts SOURCE DIFF
+--- 
++++ 
+@@ -110,8 +110,16 @@
+ }
+ 
+ const BASE = new URL(`${import.meta.env.BASE_URL}art/`, document.baseURI);
++const starterBodyKey = (cardId: string): number | null => {
++  const id = cardId.endsWith('+') ? cardId.slice(0, -1) : cardId;
++  return id === 'cairnhound' ? 0 : id === 'ashwidow' ? 7 : id === 'fenstalker' ? 9 : id === 'briarcolossus' ? 11 : null;
++};
++const starterPortraitKey = (cardId: string): number | null => {
++  const body = starterBodyKey(cardId);
++  return body === null ? null : body === 0 ? 4 : body + 1;
++};
+ const keyFor = (unit: Unit, side: 'ally' | 'enemy'): number | null => side === 'ally'
+-  ? (unit.cardId === 'cairnhound' || unit.cardId === 'cairnhound+' ? 0 : null)
++  ? starterBodyKey(unit.cardId)
+   : unit.cardId === 'raider' ? (unit.hp <= 0 ? 6 : 1) : unit.cardId === 'revenant' ? 2 : null;
+ /** All-or-baseline decoding; no render/reducer/input callback on asset arrival. */
+ export function createCoherentNative128(requested: boolean) {
+@@ -126,7 +134,7 @@
+       const bytes = await response.arrayBuffer();
+       if (await digest(bytes) !== COHERENT_NATIVE128.manifestSha256) throw new Error('Native manifest identity');
+       const manifest = JSON.parse(new TextDecoder().decode(bytes));
+-      if (COHERENT_NATIVE128.sprites.length !== 7) throw new Error('Native seven-image contract');
++      if (COHERENT_NATIVE128.sprites.length !== 13) throw new Error('Native thirteen-image contract');
+       if (manifest.animation !== null || manifest.palette?.transparent_index !== 0
+           || JSON.stringify(manifest.palette.opaque_colors) !== JSON.stringify(COHERENT_NATIVE128.palette)
+           || JSON.stringify(manifest.dimensions) !== '[128,128]'
+@@ -152,7 +160,7 @@
+         }
+         probe.width = probe.height = 0; images.push(image);
+       }
+-      if (!disposed && images.length === 7) ready = true;
++      if (!disposed && images.length === 13) ready = true;
+     } catch { ready = false; /* Whole baseline; missing/invalid data is never mixed. */ }
+   }
+   if (requested) void load();
+@@ -161,13 +169,14 @@
+     supports(state: GameState) {
+       return state.phase === 'battle' && state.allies.every(u => keyFor(u, 'ally') !== null)
+         && state.enemies.every(u => keyFor(u, 'enemy') !== null)
+-        && state.hand.every(id => CARDS[id]?.type !== 'summon' || id === 'cairnhound' || id === 'cairnhound+');
++        && state.hand.every(id => CARDS[id]?.type !== 'summon' || starterPortraitKey(id) !== null);
+     },
+     unit(unit: Unit, side: 'ally' | 'enemy'): Native128Sprite | null {
+       const key = keyFor(unit, side); return ready && key !== null ? { image: images[key], anchor: [64, 120] } : null;
+     },
+     hunter(): Native128Sprite | null { return ready ? { image: images[3], anchor: [64, 120] } : null; },
+     portrait(kind: 'hound' | 'hunter') { return ready && !disposed ? images[kind === 'hound' ? 4 : 5].src : ''; },
++    cardPortrait(cardId: string) { const key = starterPortraitKey(cardId); return ready && !disposed && key !== null ? images[key].src : ''; },
+     palette: COHERENT_NATIVE128.palette,
+     dispose() { disposed = true; ready = false; abort.abort(); urls.forEach(url => URL.revokeObjectURL(url)); images.length = 0; },
+   };
+
+
+FULL HELPER
+import type { GameState, Unit } from './engine';
+import { CARDS } from './content';
+import { COHERENT_NATIVE128 } from './art';
+import { normalizeLayoutConfig, type ArenaLayoutConfig, type BattlefieldLayout, type BattlefieldCell } from './battlefield-layout';
+/** SOURCE PROPOSAL ONLY: no imports, startup, engine/save/input access or asset fetch.
+ * Not compiled or browser-tested. Integration must publish this exact geometry.
+ */
+export interface CssRect { left: number; top: number; width: number; height: number }
+export interface Point { x: number; y: number }
+export interface Native128Placement {
+  backingRect: CssRect;
+  cssRect: CssRect;
+  cssFeet: Point;
+  scale: number;
+}
+export interface Native128Sprite {
+  /** Supplied only from the future exact converted/cleaned manifest. */
+  image: HTMLImageElement;
+  anchor: readonly [64, 120];
+  /** Integer manually authored native landmark; null means no known contact. */
+  contact?: readonly [number, number];
+}
+
+/** CSS geometry stays in the existing layout; draw geometry uses backing pixels.
+ * Returning null is a real layout failure, never permission to shrink fractionally.
+ */
+export function placeNative128(body: CssRect, feet: Point, ratio: number): Native128Placement | null {
+  if (![body.left, body.top, body.width, body.height, feet.x, feet.y, ratio].every(Number.isFinite)
+      || ratio <= 0 || body.width <= 0 || body.height <= 0) return null;
+  const left = Math.ceil(body.left * ratio), top = Math.ceil(body.top * ratio);
+  const right = Math.floor((body.left + body.width) * ratio);
+  const bottom = Math.floor((body.top + body.height) * ratio);
+  const scale = Math.floor(Math.min(right - left, bottom - top) / 128);
+  if (scale < 1) return null;
+  const edge = 128 * scale;
+  const x = Math.max(left, Math.min(right - edge, Math.round(feet.x * ratio) - 64 * scale));
+  const y = Math.max(top, Math.min(bottom - edge, Math.round(feet.y * ratio) - 120 * scale));
+  const backingRect = { left: x, top: y, width: edge, height: edge };
+  return { backingRect, scale,
+    cssRect: { left: x / ratio, top: y / ratio, width: edge / ratio, height: edge / ratio },
+    cssFeet: { x: (x + 64 * scale) / ratio, y: (y + 120 * scale) / ratio } };
+}
+
+/** Draw the genuinely authored facing, without the arena's mirror/breath transform.
+ * Set an identity transform because placement is already in backing coordinates.
+ */
+export function drawNative128(ctx: CanvasRenderingContext2D, sprite: Native128Sprite,
+  placement: Native128Placement): boolean {
+  const image = sprite.image;
+  if (!image.complete || image.naturalWidth !== 128 || image.naturalHeight !== 128) return false;
+  const p = placement.backingRect;
+  if (![p.left, p.top, p.width, p.height, placement.scale].every(Number.isInteger)
+      || placement.scale < 1 || p.width !== 128 * placement.scale || p.height !== p.width) return false;
+  ctx.save();
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.imageSmoothingEnabled = false;
+  ctx.globalAlpha = 1;
+  ctx.drawImage(image, 0, 0, 128, 128, p.left, p.top, p.width, p.height);
+  ctx.restore();
+  return true;
+}
+
+/** Contact is derived from the SAME snapped quad; never an inherited512px crop. */
+export function nativeLandmark(placement: Native128Placement, point: readonly [number, number],
+  ratio: number): Point | null {
+  if (ratio <= 0 || !Number.isFinite(ratio) || !point.every(Number.isInteger)
+      || point[0] < 0 || point[0] > 128 || point[1] < 0 || point[1] > 128) return null;
+  return { x: (placement.backingRect.left + point[0] * placement.scale) / ratio,
+    y: (placement.backingRect.top + point[1] * placement.scale) / ratio };
+}
+
+/** Optional directly authored native32 masonry tile as SOURCE indices only.
+ * Indices use the tentative shared palette:1 darkest,2 dark,3 base,4 light.
+ * No bitmap, randomness, filtering, background extraction or perspective warp.
+ */
+export function floorIndex32(x: number, y: number): 1 | 2 | 3 | 4 {
+  if (!Number.isInteger(x) || !Number.isInteger(y) || x < 0 || y < 0 || x >= 32 || y >= 32)
+    throw new RangeError('Native floor coordinates must be integers0..31');
+  // Staggered slabs: one vertical joint in the upper band, edge joint below.
+  if (y === 0 || y === 16 || (y < 16 && x === 16) || (y >= 16 && x === 0)) return 1;
+  if (y === 15 || y === 31 || (y < 16 && x === 15) || (y >= 16 && x === 31)) return 2;
+  // Top/left light clusters, consistent with the requested light direction.
+  if (y === 1 || y === 17 || (y < 16 && (x === 0 || x === 17)) || (y >= 16 && x === 1)) return 4;
+  // Two explicitly placed short cracks; no noisy generated stone texture.
+  if ((y === 8 && x >= 4 && x <= 6) || (y === 9 && x === 6)
+      || (y === 24 && x >= 23 && x <= 25) || (y === 25 && x === 23)) return 2;
+  return 3;
+}
+
+/** Cache in the opt-in backplate, not redraw every tile for every animation frame.
+ * Palette must be supplied by the same future approved scene manifest.
+ */
+export function drawFloorTile32(ctx: CanvasRenderingContext2D, palette: readonly string[],
+  backingX: number, backingY: number, integerScale: number): void {
+  if (palette.length !== 15 || ![backingX, backingY, integerScale].every(Number.isInteger)
+      || integerScale < 1) throw new RangeError('Invalid shared palette/integer floor placement');
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1;
+  ctx.imageSmoothingEnabled = false;
+  for (let y = 0; y < 32; y++) {
+    let x = 0;
+    while (x < 32) {
+      const index = floorIndex32(x, y), start = x;
+      while (x < 32 && floorIndex32(x, y) === index) x++;
+      ctx.fillStyle = palette[index - 1];
+      ctx.fillRect(backingX + start * integerScale, backingY + y * integerScale,
+        (x - start) * integerScale, integerScale);
+    }
+  }
+  ctx.restore();
+}
+
+const BASE = new URL(`${import.meta.env.BASE_URL}art/`, document.baseURI);
+const starterBodyKey = (cardId: string): number | null => {
+  const id = cardId.endsWith('+') ? cardId.slice(0, -1) : cardId;
+  return id === 'cairnhound' ? 0 : id === 'ashwidow' ? 7 : id === 'fenstalker' ? 9 : id === 'briarcolossus' ? 11 : null;
+};
+const starterPortraitKey = (cardId: string): number | null => {
+  const body = starterBodyKey(cardId);
+  return body === null ? null : body === 0 ? 4 : body + 1;
+};
+const keyFor = (unit: Unit, side: 'ally' | 'enemy'): number | null => side === 'ally'
+  ? starterBodyKey(unit.cardId)
+  : unit.cardId === 'raider' ? (unit.hp <= 0 ? 6 : 1) : unit.cardId === 'revenant' ? 2 : null;
+/** All-or-baseline decoding; no render/reducer/input callback on asset arrival. */
+export function createCoherentNative128(requested: boolean) {
+  let ready = false, disposed = false;
+  const images: HTMLImageElement[] = [], urls: string[] = [];
+  const abort = new AbortController();
+  const digest = async (bytes: ArrayBuffer) => Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes)), n => n.toString(16).padStart(2, '0')).join('');
+  async function load() {
+    try {
+      const response = await fetch(new URL(COHERENT_NATIVE128.manifest, BASE), { signal: abort.signal });
+      if (!response.ok) throw new Error('Native manifest unavailable');
+      const bytes = await response.arrayBuffer();
+      if (await digest(bytes) !== COHERENT_NATIVE128.manifestSha256) throw new Error('Native manifest identity');
+      const manifest = JSON.parse(new TextDecoder().decode(bytes));
+      if (COHERENT_NATIVE128.sprites.length !== 13) throw new Error('Native thirteen-image contract');
+      if (manifest.animation !== null || manifest.palette?.transparent_index !== 0
+          || JSON.stringify(manifest.palette.opaque_colors) !== JSON.stringify(COHERENT_NATIVE128.palette)
+          || JSON.stringify(manifest.dimensions) !== '[128,128]'
+          || JSON.stringify(manifest.sprites) !== JSON.stringify(COHERENT_NATIVE128.sprites)) throw new Error('Native manifest contract');
+      for (const row of COHERENT_NATIVE128.sprites) {
+        const imageResponse = await fetch(new URL(row.filename, BASE), { signal: abort.signal });
+        if (!imageResponse.ok) throw new Error('Native image unavailable');
+        const data = await imageResponse.arrayBuffer();
+        if (await digest(data) !== row.sha256) throw new Error('Native image identity');
+        if (disposed) return;
+        const url = URL.createObjectURL(new Blob([data], { type: 'image/png' })); urls.push(url);
+        const image = new Image(); image.src = url; await image.decode();
+        if (image.naturalWidth !== 128 || image.naturalHeight !== 128) throw new Error('Native image dimensions');
+        const probe = document.createElement('canvas'); probe.width = probe.height = 128;
+        const context = probe.getContext('2d', { willReadFrequently: true });
+        if (!context) throw new Error('Native pixel validation unavailable');
+        context.drawImage(image, 0, 0);
+        const pixels = context.getImageData(0, 0, 128, 128).data;
+        const allowed = new Set(COHERENT_NATIVE128.palette.map(hex => parseInt(hex.slice(1), 16)));
+        for (let i = 0; i < pixels.length; i += 4) {
+          if (pixels[i + 3] !== 0 && pixels[i + 3] !== 255) throw new Error('Native binary alpha');
+          if (pixels[i + 3] === 255 && !allowed.has((pixels[i] << 16) | (pixels[i + 1] << 8) | pixels[i + 2])) throw new Error('Native shared palette');
+        }
+        probe.width = probe.height = 0; images.push(image);
+      }
+      if (!disposed && images.length === 13) ready = true;
+    } catch { ready = false; /* Whole baseline; missing/invalid data is never mixed. */ }
+  }
+  if (requested) void load();
+  return {
+    requested, get ready() { return ready && !disposed; },
+    supports(state: GameState) {
+      return state.phase === 'battle' && state.allies.every(u => keyFor(u, 'ally') !== null)
+        && state.enemies.every(u => keyFor(u, 'enemy') !== null)
+        && state.hand.every(id => CARDS[id]?.type !== 'summon' || starterPortraitKey(id) !== null);
+    },
+    unit(unit: Unit, side: 'ally' | 'enemy'): Native128Sprite | null {
+      const key = keyFor(unit, side); return ready && key !== null ? { image: images[key], anchor: [64, 120] } : null;
+    },
+    hunter(): Native128Sprite | null { return ready ? { image: images[3], anchor: [64, 120] } : null; },
+    portrait(kind: 'hound' | 'hunter') { return ready && !disposed ? images[kind === 'hound' ? 4 : 5].src : ''; },
+    cardPortrait(cardId: string) { const key = starterPortraitKey(cardId); return ready && !disposed && key !== null ? images[key].src : ''; },
+    palette: COHERENT_NATIVE128.palette,
+    dispose() { disposed = true; ready = false; abort.abort(); urls.forEach(url => URL.revokeObjectURL(url)); images.length = 0; },
+  };
+}
+export type CoherentNative128 = ReturnType<typeof createCoherentNative128>;
+/** Sparse, two-rank presentation only. Inadequate space selects the entire baseline. */
+export function native128Layout(width: number, height: number, ratio: number, input: ArenaLayoutConfig): BattlefieldLayout | null {
+  const config = normalizeLayoutConfig(input);
+  if (config.allies > 2 || config.enemies > 2 || !Number.isFinite(ratio) || ratio <= 0) return null;
+  const edge = 128 * Math.ceil(ratio) / ratio;
+  const intent = config.intentRows * 16, identity = (config.identityRows ?? 1) * 16, stats = config.statsRows * 16;
+  const inspect = identity + stats, enemyHeight = intent + edge + inspect;
+  const allyHeight = edge + inspect + 16, requiredHeight = enemyHeight + 12 + allyHeight;
+  if (width < 800 || height + .01 < requiredHeight) return null;
+  const make = (side: 'ally' | 'enemy'): BattlefieldCell[] => {
+    const count = side === 'ally' ? config.allies : config.enemies, result: BattlefieldCell[] = [];
+    const top = side === 'ally' ? height - allyHeight : 0, before = side === 'enemy' ? intent : 0;
+    const band = side === 'ally' ? (width - edge - 48) / 2 : (width - 32) / Math.max(1, count);
+    for (let slot = 0; slot < count; slot++) {
+      const center = side === 'ally' ? (slot === 0 ? 8 + band / 2 : width - 8 - band / 2) : 16 + band * (slot + .5);
+      const bodyRect = { left: Math.round((center - edge / 2) * ratio) / ratio, top: Math.round((top + before) * ratio) / ratio, width: edge, height: edge };
+      // Fixed native backing quad is also the full accessible target rectangle.
+      const left = center - Math.min(240, band - 8) / 2, readoutWidth = Math.min(240, band - 8);
+      const inspectRect = { left, top: bodyRect.top + edge, width: readoutWidth, height: inspect };
+      result.push({ left: left, top, width: readoutWidth, height: side === 'ally' ? allyHeight : enemyHeight, bodyRect,
+        intentRect: { left, top, width: readoutWidth, height: side === 'enemy' ? intent : 0 }, inspectRect,
+        identityRect: { ...inspectRect, height: identity }, statsRect: { ...inspectRect, top: inspectRect.top + identity, height: stats },
+        statusRect: { left, top: inspectRect.top + inspect, width: readoutWidth, height: side === 'ally' ? 16 : 0 } });
+    }
+    return result;
+  };
+  const hunterRect = { left: Math.round((width - edge) / 2 * ratio) / ratio, top: Math.round((height - allyHeight) * ratio) / ratio, width: edge, height: edge };
+  const feet = { x: hunterRect.left + edge / 2, y: hunterRect.top + edge * 120 / 128 };
+  return { requiredHeight, ally: make('ally'), enemy: make('enemy'), hunter: { feet, torso: { x: feet.x, y: hunterRect.top + edge * .45 }, bodyHeight: edge, bodyWidth: edge, rect: hunterRect } };
+}
+export function native128In(body: CssRect, ratio: number) {
+  const p = placeNative128(body, { x: body.left + body.width / 2, y: body.top + body.height * 120 / 128 }, ratio);
+  return p && p.cssRect.width >= 128 && p.cssRect.height >= 128 ? p : null;
+}
+/** Deliberately authored semantic native32 tool symbols. Names/rules remain live text. */
+export function pixelToolSymbol(effect: string): string {
+  const shapes: Record<string, readonly (readonly [number, number, number, number])[]> = {
+    damage: [[6,23,4,4],[10,19,4,4],[14,15,4,4],[18,11,4,4],[22,5,4,6],[7,15,3,8],[11,23,8,3]],
+    block: [[7,5,18,3],[7,8,3,14],[22,8,3,14],[10,22,12,3],[13,25,6,3],[15,10,3,12]],
+    heal: [[13,5,6,22],[5,13,22,6]],
+    draw: [[4,7,11,18],[17,7,11,18],[15,9,2,18],[6,11,7,2],[19,11,7,2],[6,16,7,2],[19,16,7,2]],
+    rally: [[7,4,3,25],[10,5,15,12],[13,17,9,3]],
+    ready: [[5,14,16,4],[17,7,4,18],[21,11,4,10],[25,15,3,2]],
+    aoe: [[5,18,5,9],[11,11,5,16],[17,5,5,22],[23,14,4,13]],
+    siphon: [[7,5,18,3],[10,8,3,11],[19,8,3,11],[13,19,6,3],[15,22,2,5],[9,27,14,2]],
+    energy: [[17,3,6,9],[11,12,12,5],[11,17,6,11],[7,12,4,5]],
+  };
+  const chosen = shapes[effect] ?? [[6,5,20,3],[6,8,3,18],[23,8,3,18],[9,26,14,3],[12,12,8,3],[12,18,8,3]];
+  return `<svg class="coherent-tool-symbol" aria-hidden="true" viewBox="0 0 32 32" width="32" height="32" shape-rendering="crispEdges">${chosen.map(([x,y,w,h]) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${COHERENT_NATIVE128.palette[6]}"/>`).join('')}</svg>`;
+}
+
+/** CANDIDATE SOURCE ONLY: broken courtyard depth, not accepted art or animation.
+ * All rectangles use the creature scene's shared palette and integer backing grid.
+ * A low ruined-wall horizon stays below the far row's native120px foot anchor.
+ * Cache this complete backplate on canvas-size change; no actor/layout authority.
+ */
+export function drawNativeCourtyard(ctx: CanvasRenderingContext2D, palette: readonly string[],
+  backingWidth: number, backingHeight: number, integerScale: number): void {
+  if (palette.length !== 15 || ![backingWidth, backingHeight, integerScale].every(Number.isInteger)
+      || backingWidth < 1 || backingHeight < 1 || integerScale < 1)
+    throw new RangeError('Invalid shared courtyard palette/integer extent');
+  const width = Math.ceil(backingWidth / integerScale), height = Math.ceil(backingHeight / integerScale);
+  // A low distant parapet leaves the plane dominant; it is not another brick wall.
+  const horizon = Math.min(18, Math.floor(height * .10));
+  const vanishX = Math.floor(width * .54), vanishY = Math.max(0, horizon - 6);
+  const nearPitch = Math.max(24, Math.round(width / 5));
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1;
+  ctx.imageSmoothingEnabled = false;
+  // Logical integer spans scale once; no paths, gradients, alpha blends or new colours.
+  const rect = (x: number, y: number, w: number, h: number, color: number) => {
+    const left = Math.max(0, Math.round(x) * integerScale), top = Math.max(0, Math.round(y) * integerScale);
+    const right = Math.min(backingWidth, Math.round(x + w) * integerScale);
+    const bottom = Math.min(backingHeight, Math.round(y + h) * integerScale);
+    if (right <= left || bottom <= top) return;
+    ctx.fillStyle = palette[color]; ctx.fillRect(left, top, right - left, bottom - top);
+  };
+  ctx.fillStyle = palette[0]; ctx.fillRect(0, 0, backingWidth, backingHeight);
+  const parapet: readonly (readonly [number, number, number])[] = [
+    [.00,.16,5],[.16,.15,8],[.31,.07,3],[.64,.12,4],[.76,.13,7],[.89,.11,5],
+  ];
+  for (const [start, span, rise] of parapet) {
+    const x = Math.round(width * start), w = Math.ceil(width * span);
+    const y = Math.max(0, horizon - rise);
+    rect(x,y,w,horizon-y,1);
+    // Only a few dim top-left chips; no repeating vertical masonry courses.
+    rect(x+1,y,Math.min(w-1,9),1,2);
+  }
+  rect(0,horizon,width,height-horizon,2);
+  rect(0,horizon,width,1,1);
+  // Receding ground joints share one vanishing region. This changes paint only,
+  // not sprite positions, their projected floor, hit regions or scene geometry.
+  const rayX = (nearX: number, y: number) => vanishX
+    + Math.floor((nearX-vanishX)*(y-vanishY)/(height-vanishY));
+  for (let column=-7; column<=7; column++) {
+    const nearX = vanishX + column*nearPitch;
+    for (let y=horizon+2; y<height; y++) rect(rayX(nearX,y),y,1,1,1);
+  }
+  // Spacing compresses toward the distance; the old rectangular block rows did
+  // not converge. Thin low-contrast joints keep creatures/readouts dominant.
+  const depth = [0,2,5,10,18,29,44,64,82,100] as const;
+  const courses = depth.map(value => horizon + Math.floor((height-horizon)*value/100));
+  for (let row=1; row<courses.length-1; row++) {
+    const y = courses[row];
+    if (y<=horizon || y>=height || y===courses[row-1]) continue;
+    rect(0,y,width,1,1);
+  }
+  // Sparse shallow stone wear lies between the same ray joints, rather than
+  // filling each course with bright rectangular bricks. Upper-left clusters
+  // use the existing cold-stone light; lower-right recesses stay subdued.
+  const wear: readonly (readonly [number,number])[] = [[3,-2],[5,1],[7,-1],[8,2]];
+  for (const [row,column] of wear) {
+    const top = courses[row]+2, bottom = courses[row+1]-1;
+    if (bottom<=top || top>=height) continue;
+    const nearLeft=vanishX+column*nearPitch, nearRight=nearLeft+nearPitch;
+    for (let y=top; y<Math.min(bottom,top+3); y++) {
+      const left=rayX(nearLeft,y)+3, right=rayX(nearRight,y)-3;
+      rect(left,y,Math.max(0,Math.floor((right-left)/3)),1,3);
+    }
+    const ry=bottom-1, left=rayX(nearLeft,ry), right=rayX(nearRight,ry);
+    rect(right-6,ry,Math.min(4,Math.max(0,right-left-2)),1,1);
+  }
+  // Grounded low rubble is sparse and flattened, with irregular integer spans.
+  const rubble: readonly (readonly [number,number,number])[] = [
+    [.05,.36,5],[.12,.70,7],[.02,.90,9],[.90,.43,5],[.82,.79,7],[.96,.94,8],
+  ];
+  for (const [fraction,depthFraction,w] of rubble) {
+    const x=Math.round(width*fraction), y=horizon+Math.floor((height-horizon)*depthFraction);
+    rect(x+1,y,w-2,1,8); rect(x,y+1,w,1,7);
+    rect(x+1,y,Math.min(3,w-2),1,9);
+  }
+  ctx.restore();
+}
+
+
+main.ts SOURCE DIFF
+--- 
++++ 
+@@ -828,7 +828,8 @@
+   const price = SHOP_PRICES[card.type];
+   const target = cardTarget(card.id);
+   const art = toolArtFor(card.id);
+-  const nativeArt = card.type === 'summon' && coherentNative128.ready && (card.id === 'cairnhound' || card.id === 'cairnhound+') ? `<img src="${escape(coherentNative128.portrait('hound'))}" width="128" height="128" alt="">` : pixelToolSymbol(card.type === 'summon' ? 'binding' : card.effect || '');
++  const nativePortrait = card.type === 'summon' ? coherentNative128.cardPortrait(card.id) : '';
++  const nativeArt = nativePortrait ? `<img src="${escape(nativePortrait)}" width="128" height="128" alt="">` : pixelToolSymbol(card.type === 'summon' ? 'binding' : card.effect || '');
+   return `<button class="game-card ${card.type} ${opts.selected ? 'selected' : ''} ${opts.disabled ? 'unplayable' : ''} ${opts.handIndex === undefined ? 'large-card' : ''}" ${action} data-index="${opts.handIndex ?? ''}" data-card="${escape(card.id)}" data-focus="${opts.handIndex !== undefined ? `card-${opts.handIndex}` : `card-${escape(card.id)}`}" aria-disabled="${!!opts.disabled}" ${opts.disabled && opts.handIndex === undefined ? 'disabled' : ''} aria-label="${escape(card.name)}, ${card.cost} energy. ${escape(cardRules(card))}${opts.disabled ? '. Currently unavailable.' : ''}"><span class="card-cost">${card.cost}</span><span class="card-art ${art ? 'tool-painted' : ''}" style="--card-color:${escape(card.color)}">${coherentNative128.requested ? `<span class="coherent-baseline-art">${art ? `<canvas data-tool-art="${art}" aria-hidden="true"></canvas>` : ''}${card.type === 'summon' ? creature(card.species, card.color) : icon(card.effect === 'block' ? 'shield' : card.effect === 'heal' ? 'heart' : card.effect === 'draw' ? 'book' : 'energy')}<span class="card-art-ring"></span></span><span class="coherent-native-art">${nativeArt}</span>` : `${art ? `<canvas data-tool-art="${art}" aria-hidden="true"></canvas>` : ''}${card.type === 'summon' ? creature(card.species, card.color) : icon(card.effect === 'block' ? 'shield' : card.effect === 'heal' ? 'heart' : card.effect === 'draw' ? 'book' : 'energy')}<span class="card-art-ring"></span>`}</span><span class="card-name">${escape(card.name)}</span><span class="card-kind">${card.type === 'summon' ? 'BINDING' : `TOOL${target === 'none' ? '' : ' · CHOOSE TARGET'}`}</span><span class="card-description">${escape(cardRules(card))}</span>${card.type === 'summon' ? `<span class="card-stats">${icon('battle')} ${card.attack} Attack <span>${icon('heart')} ${card.hp} Health</span></span>` : ''}${opts.reward ? `<span class="card-choose">Add to deck ${icon('arrow')}</span>` : opts.shop ? `<span class="card-choose">${icon('gold')} ${price} gold ${icon('arrow')}</span>` : ''}</button>`;
+ }
+ function renderRewards() {
+
+
+MAIN CARD CONTEXT
+    ? '<p class="first-binding-cue"><strong>Bind your first creature.</strong> Click or drag a BINDING card.</p>' : orderCue;
+  $('dock').innerHTML = `<div class="hand-area"><div class="hand-heading${openingCue ? ' opening-hand-heading' : ''}"><span class="eyebrow">AVAILABLE CARDS <span>${state.hand.length}</span></span>${openingCue}<div class="pile-buttons"><button data-ui="draw">Draw <strong>${state.draw.length}</strong></button><button data-ui="discard">Discard <strong>${state.discard.length}</strong></button></div></div><div class="hand-cards">${state.hand.map((id, index) => renderCard(CARDS[id], { handIndex: index, disabled: !playable.some(a => a.type === 'play' && a.index === index), selected: selected?.kind === 'card' && selected.index === index })).join('')}${!state.hand.length ? '<div class="empty-hand">No cards in hand.<br>Use remaining commands, then end your turn.</div>' : ''}</div></div><div class="turn-controls"><div class="energy-orb">${icon('energy')}<strong>${state.energy}</strong><span>energy</span></div><button class="button end-turn" data-action="endTurn" data-focus="end-turn">End turn ${icon('arrow')}<small>Enemy intents resolve · draw 5 · refill energy</small></button><span class="keyboard-hint" aria-label="${inputMode === 'controller' ? 'Controller' : 'Keyboard'} controls">${inputHints()}</span></div>`;
+  const hand = document.querySelector<HTMLElement>('#dock .hand-cards');
+  // Natural printed rules can make a later card taller than the first.
+  const height = hand ? Math.max(0, ...Array.from(hand.querySelectorAll<HTMLElement>('.game-card'), card => card.offsetHeight)) : 0;
+  if (hand && height) hand.style.setProperty('--tactile-card-height', `${height}px`);
+  updateTactileDropZone();
+}
+function inputHints(): string {
+  if (settlingCombat) return inputMode === 'controller'
+    ? '<span>Final impact resolving</span><span><kbd>Start</kbd> Pause</span>'
+    : '<span>Final impact resolving</span><span><kbd>Esc</kbd> Pause</span>';
+  if (selected) return inputMode === 'controller'
+    ? '<span><kbd>A</kbd> Choose · <kbd>B</kbd> Back</span><span><kbd>X</kbd> Inspect · <kbd>Y</kbd> End turn</span><span>D-pad Move · Start Pause</span>'
+    : '<span><kbd>Enter</kbd> Choose · <kbd>Esc</kbd> Cancel</span><span><kbd>T</kbd> Targets · Arrows Move</span><span><kbd>I</kbd> Inspect · <kbd>E</kbd> End turn</span>';
+  return inputMode === 'controller'
+    ? '<span><kbd>A</kbd> Choose · <kbd>B</kbd> Back</span><span><kbd>X</kbd> Inspect · <kbd>Y</kbd> End turn</span><span>D-pad Move · LB/RB Regions · Start Pause</span>'
+    : '<span><kbd>E</kbd> End turn · <kbd>Esc</kbd> Back</span><span><kbd>H</kbd> Hand · <kbd>B</kbd> Bindings · <kbd>T</kbd> Hostiles</span><span><kbd>I</kbd> Inspect · Arrows Move</span>';
+}
+
+function renderCard(card: CardDef, opts: { handIndex?: number; disabled?: boolean; selected?: boolean; reward?: boolean; shop?: boolean; inspect?: boolean } = {}): string {
+  const action = opts.handIndex !== undefined ? 'data-ui="play-card"' : opts.reward ? 'data-action="reward"' : opts.shop ? 'data-action="buy"' : 'data-ui="inspect"';
+  const price = SHOP_PRICES[card.type];
+  const target = cardTarget(card.id);
+  const art = toolArtFor(card.id);
+  const nativePortrait = card.type === 'summon' ? coherentNative128.cardPortrait(card.id) : '';
+  const nativeArt = nativePortrait ? `<img src="${escape(nativePortrait)}" width="128" height="128" alt="">` : pixelToolSymbol(card.type === 'summon' ? 'binding' : card.effect || '');
+  return `<button class="game-card ${card.type} ${opts.selected ? 'selected' : ''} ${opts.disabled ? 'unplayable' : ''} ${opts.handIndex === undefined ? 'large-card' : ''}" ${action} data-index="${opts.handIndex ?? ''}" data-card="${escape(card.id)}" data-focus="${opts.handIndex !== undefined ? `card-${opts.handIndex}` : `card-${escape(card.id)}`}" aria-disabled="${!!opts.disabled}" ${opts.disabled && opts.handIndex === undefined ? 'disabled' : ''} aria-label="${escape(card.name)}, ${card.cost} energy. ${escape(cardRules(card))}${opts.disabled ? '. Currently unavailable.' : ''}"><span class="card-cost">${card.cost}</span><span class="card-art ${art ? 'tool-painted' : ''}" style="--card-color:${escape(card.color)}">${coherentNative128.requested ? `<span class="coherent-baseline-art">${art ? `<canvas data-tool-art="${art}" aria-hidden="true"></canvas>` : ''}${card.type === 'summon' ? creature(card.species, card.color) : icon(card.effect === 'block' ? 'shield' : card.effect === 'heal' ? 'heart' : card.effect === 'draw' ? 'book' : 'energy')}<span class="card-art-ring"></span></span><span class="coherent-native-art">${nativeArt}</span>` : `${art ? `<canvas data-tool-art="${art}" aria-hidden="true"></canvas>` : ''}${card.type === 'summon' ? creature(card.species, card.color) : icon(card.effect === 'block' ? 'shield' : card.effect === 'heal' ? 'heart' : card.effect === 'draw' ? 'book' : 'energy')}<span class="card-art-ring"></span>`}</span><span class="card-name">${escape(card.name)}</span><span class="card-kind">${card.type === 'summon' ? 'BINDING' : `TOOL${target === 'none' ? '' : ' · CHOOSE TARGET'}`}</span><span class="card-description">${escape(cardRules(card))}</span>${card.type === 'summon' ? `<span class="card-stats">${icon('battle')} ${card.attack} Attack <span>${icon('heart')} ${card.hp} Health</span></span>` : ''}${opts.reward ? `<span class="card-choose">Add to deck ${icon('arrow')}</span>` : opts.shop ? `<span class="card-choose">${icon('gold')} ${price} gold ${icon('arrow')}</span>` : ''}</button>`;
+}
+function renderRewards() {
+  $('scene-ui').innerHTML = `<div class="page-panel reward-panel"><div class="page-intro"><span class="eyebrow">WARRANT CLOSED</span><h1>Take what keeps you alive.</h1><p>Claim one binding or tool. Refuse the reward to keep a tighter deck.</p></div><div class="reward-cards">${state.rewards.map(id => renderCard(CARDS[id], { reward: true })).join('')}</div>${relicsLine()}<button class="button secondary" data-action="reward" data-card="">Leave the salvage ${icon('arrow')}</button><span class="panel-footnote">Permanent addition. Temporary combat bonuses have ended.</span></div>`;
+}
+function renderCamp() {
+  const trainAvailable = actions().some(a => a.type === 'camp' && a.choice === 'train');
+  $('scene-ui').innerHTML = `<div class="page-panel"><div class="page-intro"><span class="eyebrow">FIELD SHELTER</span><h1>Prepare for the next warrant.</h1><p>There is time for treatment or training. Choose one.</p></div><div class="choice-grid"><button class="choice-card" data-action="camp" data-choice="rest">${icon('heart')}<h2>Dress your wounds</h2><p>Restore <strong>18 hunter health</strong>, up to your maximum.</p><span>${state.hp} → ${Math.min(state.maxHp, state.hp + 18)} health ${icon('arrow')}</span></button><button class="choice-card" data-ui="train" ${trainAvailable ? '' : 'disabled'}>${icon('book')}<h2>Refine a binding or tool</h2><p>Select a card from your deck. Read the exact improvement before committing.</p><span>${trainAvailable ? 'Choose an upgrade' : 'All cards are already improved'} ${icon('arrow')}</span></button></div></div>`;
+}
+function openTraining() {
+  const eligible = actions().filter((a): a is Extract<Action, { type: 'camp' }> => a.type === 'camp' && a.choice === 'train');
+  openDialog('Choose one permanent upgrade', `<p class="dialog-copy">Training ends your time in this shelter. Each entry is one real card in your deck; duplicates can be trained separately. Cancel to return without committing.</p><div class="upgrade-grid">${eligible.map(a => {
+    const index = (a as Extract<Action, { type: 'camp' }> & { index?: number }).index;
+    if (index === undefined) return '';
+    const card = CARDS[state.deck[index]], upgraded = CARDS[card.id + '+'];
+    return `<button class="upgrade-entry" data-action="camp" data-choice="train" data-index="${index}"><div class="upgrade-heading">${card.type === 'summon' ? creature(card.species, card.color) : icon('energy')}<span><strong>${escape(card.name)}</strong><small>Deck entry ${index + 1} · ${card.cost} energy</small></span>${icon('arrow')}</div><div class="upgrade-comparison">${card.type === 'summon' ? `<p><span>Attack</span><strong>${card.attack} → ${upgraded.attack}</strong></p><p><span>Health</span><strong>${card.hp} → ${upgraded.hp}</strong></p><small>${escape(card.text)}</small>` : `<p><span>Current</span><small>${escape(card.text)}</small></p><p><span>Improved</span><small>${escape(upgraded.text)}</small></p>`}</div><span class="upgrade-confirm">Train this card ${icon('check')}</span></button>`;
+  }).join('')}</div><button class="button secondary full-width" data-ui="close">Return to shelter</button>`, true);
+}
+
+function renderShop() {
+  const buys = actions().filter((a): a is Extract<Action, { type: 'buy' }> => a.type === 'buy');
+  const stock = state.rewards.length ? state.rewards : buys.map(a => a.card);
+  $('scene-ui').innerHTML = `<div class="page-panel shop-panel"><div class="page-intro"><span class="eyebrow">THE QUARTERMASTER</span><h1>Tools have a price.</h1><p>Buy what your plan needs. Leave the rest.</p></div><div class="reward-cards">${stock.map(id => renderCard(CARDS[id], { shop: true, disabled: !can({ type: 'buy', card: id }) })).join('')}</div><div class="shop-bottom"><button class="button secondary" data-ui="remove" ${actions().some(a => a.type === 'remove') ? '' : 'disabled'}>Remove a card <span>${icon('gold')}35</span></button><button class="button primary" data-action="leave">Return to the campaign ${icon('arrow')}</button></div><span class="panel-footnote">Bindings cost 55 gold · Tools cost 40 gold · Remove a card for 35 gold</span></div>`;
+}
+function renderEvent() {
+  const symbols: Record<string, string> = { offering: 'moon', forage: 'gold', purge: 'battle', bargain: 'heart', leave: 'shield' };
+  const recovery = Math.min(16, state.maxHp - state.hp);
+  const consequences: Record<string, string> = { offering: `${state.hp} → ${state.hp - 8} health`, forage: `${state.gold} → ${state.gold + 25} gold`, purge: `${state.deck.length} → ${state.deck.length - 1} cards · lose 4 health`, bargain: `${state.gold} → ${state.gold - 30} gold · +${recovery} health`, leave: 'Continue unchanged' };
+  const unavailable: Record<string, string> = {
+    offering: state.relics.includes('moon-charm') ? 'Wraithglass Shard already owned' : 'Requires at least 9 health',
+
+art.ts SOURCE DIFF
+--- 
++++ 
+@@ -125,180 +125,4 @@
+ }
+ 
+ /** Unselected static native128 reference trial; no pose/attack animation contract. */
+-export const COHERENT_NATIVE128 = {
+-  "manifest": "coherent-native128-manual-crop-view-manifest.json",
+-  "manifestSha256": "c2f718c7296f65a51852382c93d687b32fa1c74010fedc82ad2e82827269a05e",
+-  "palette": [
+-    "#11151d",
+-    "#23313b",
+-    "#3c515b",
+-    "#667e82",
+-    "#9aa8a1",
+-    "#c5c8ac",
+-    "#e7ddba",
+-    "#483931",
+-    "#735548",
+-    "#a47b55",
+-    "#d4ad6c",
+-    "#632f37",
+-    "#a5544a",
+-    "#367e82",
+-    "#72beb6"
+-  ],
+-  "sprites": [
+-    {
+-      "name": "cairn-hound-rear-three-quarter",
+-      "category": "body",
+-      "intended_view": "rear three-quarter ally",
+-      "filename": "cairn-hound-rear-three-quarter-manual-crop-native128-draft.png",
+-      "sha256": "fac6409c4218db7984c25c51abc9adb9aec870e1e20df52939171e700cb2829e",
+-      "native_dimensions": [
+-        128,
+-        128
+-      ],
+-      "native_bounds": [
+-        12,
+-        19,
+-        116,
+-        120
+-      ],
+-      "ground_anchor": [
+-        64,
+-        120
+-      ],
+-      "mirror": false
+-    },
+-    {
+-      "name": "ironjaw-reaver-front-three-quarter",
+-      "category": "body",
+-      "intended_view": "front three-quarter enemy",
+-      "filename": "ironjaw-reaver-front-three-quarter-manual-crop-native128-draft.png",
+-      "sha256": "90badaa9e35a71f849947a7c45970c19db8f5163eb36aa3370df89631e818f32",
+-      "native_dimensions": [
+-        128,
+-        128
+-      ],
+-      "native_bounds": [
+-        8,
+-        13,
+-        120,
+-        120
+-      ],
+-      "ground_anchor": [
+-        64,
+-        120
+-      ],
+-      "mirror": false
+-    },
+-    {
+-      "name": "gloam-revenant-front-three-quarter",
+-      "category": "body",
+-      "intended_view": "front three-quarter enemy",
+-      "filename": "gloam-revenant-front-three-quarter-manual-crop-native128-draft.png",
+-      "sha256": "6434bdf7ebd56dd67d2032a1d078164467ac4a1d44bf9037dd7f9e1a374b53e7",
+-      "native_dimensions": [
+-        128,
+-        128
+-      ],
+-      "native_bounds": [
+-        19,
+-        16,
+-        109,
+-        120
+-      ],
+-      "ground_anchor": [
+-        64,
+-        120
+-      ],
+-      "mirror": false
+-    },
+-    {
+-      "name": "marek-hunter-rear-three-quarter",
+-      "category": "body",
+-      "intended_view": "rear three-quarter hunter",
+-      "filename": "marek-hunter-rear-three-quarter-manual-crop-native128-draft.png",
+-      "sha256": "7c1f0d50e6db26b03d8eb17969b5858319463e60067cb4d9473abbe2a5adc2f9",
+-      "native_dimensions": [
+-        128,
+-        128
+-      ],
+-      "native_bounds": [
+-        10,
+-        14,
+-        118,
+-        120
+-      ],
+-      "ground_anchor": [
+-        64,
+-        120
+-      ],
+-      "mirror": false
+-    },
+-    {
+-      "name": "cairn-hound-front-portrait",
+-      "category": "portrait",
+-      "intended_view": "front head/chest",
+-      "filename": "cairn-hound-front-portrait-manual-crop-native128-draft.png",
+-      "sha256": "c53064c273e91b43eb49b8dba508b069af42d3d05b80644694e4591136ee1021",
+-      "native_dimensions": [
+-        128,
+-        128
+-      ],
+-      "native_bounds": [
+-        9,
+-        8,
+-        119,
+-        120
+-      ],
+-      "ground_anchor": [
+-        64,
+-        120
+-      ],
+-      "mirror": false
+-    },
+-    {
+-      "name": "marek-hunter-front-portrait",
+-      "category": "portrait",
+-      "intended_view": "front head/chest",
+-      "filename": "marek-hunter-front-portrait-manual-crop-native128-draft.png",
+-      "sha256": "a1ab99f2c559b02ac1bd4767327fe098908b7c703da085f8d5cddb7fc7977d1c",
+-      "native_dimensions": [
+-        128,
+-        128
+-      ],
+-      "native_bounds": [
+-        8,
+-        19,
+-        120,
+-        120
+-      ],
+-      "ground_anchor": [
+-        64,
+-        120
+-      ],
+-      "mirror": false
+-    },
+-    {
+-      "name": "ironjaw-reaver-fallen-grounded",
+-      "category": "body",
+-      "intended_view": "fallen enemy corpse, static",
+-      "filename": "ironjaw-reaver-fallen-grounded-native128-draft.png",
+-      "sha256": "68b7858fa43a285a6b1bbc5d7daf4bac55cb189ec051fa9d52353d91b77db2e2",
+-      "native_dimensions": [
+-        128,
+-        128
+-      ],
+-      "native_bounds": [
+-        8,
+-        61,
+-        119,
+-        120
+-      ],
+-      "ground_anchor": [
+-        64,
+-        120
+-      ],
+-      "mirror": false
+-    }
+-  ]
+-} as const;
++export const COHERENT_NATIVE128 = {"manifest":"coherent-native128-manual-crop-view-manifest.json","manifestSha256":"1e0699b76dc3543b5374df5ff8e33aa81254c6d05c94fe7483247d183308b8af","palette":["#11151d","#23313b","#3c515b","#667e82","#9aa8a1","#c5c8ac","#e7ddba","#483931","#735548","#a47b55","#d4ad6c","#632f37","#a5544a","#367e82","#72beb6"],"sprites":[{"name":"cairn-hound-rear-three-quarter","category":"body","intended_view":"rear three-quarter ally","filename":"cairn-hound-rear-three-quarter-manual-crop-native128-draft.png","sha256":"fac6409c4218db7984c25c51abc9adb9aec870e1e20df52939171e700cb2829e","native_dimensions":[128,128],"native_bounds":[12,19,116,120],"ground_anchor":[64,120],"mirror":false},{"name":"ironjaw-reaver-front-three-quarter","category":"body","intended_view":"front three-quarter enemy","filename":"ironjaw-reaver-front-three-quarter-manual-crop-native128-draft.png","sha256":"90badaa9e35a71f849947a7c45970c19db8f5163eb36aa3370df89631e818f32","native_dimensions":[128,128],"native_bounds":[8,13,120,120],"ground_anchor":[64,120],"mirror":false},{"name":"gloam-revenant-front-three-quarter","category":"body","intended_view":"front three-quarter enemy","filename":"gloam-revenant-front-three-quarter-manual-crop-native128-draft.png","sha256":"6434bdf7ebd56dd67d2032a1d078164467ac4a1d44bf9037dd7f9e1a374b53e7","native_dimensions":[128,128],"native_bounds":[19,16,109,120],"ground_anchor":[64,120],"mirror":false},{"name":"marek-hunter-rear-three-quarter","category":"body","intended_view":"rear three-quarter hunter","filename":"marek-hunter-rear-three-quarter-manual-crop-native128-draft.png","sha256":"7c1f0d50e6db26b03d8eb17969b5858319463e60067cb4d9473abbe2a5adc2f9","native_dimensions":[128,128],"native_bounds":[10,14,118,120],"ground_anchor":[64,120],"mirror":false},{"name":"cairn-hound-front-portrait","category":"portrait","intended_view":"front head/chest","filename":"cairn-hound-front-portrait-manual-crop-native128-draft.png","sha256":"c53064c273e91b43eb49b8dba508b069af42d3d05b80644694e4591136ee1021","native_dimensions":[128,128],"native_bounds":[9,8,119,120],"ground_anchor":[64,120],"mirror":false},{"name":"marek-hunter-front-portrait","category":"portrait","intended_view":"front head/chest","filename":"marek-hunter-front-portrait-manual-crop-native128-draft.png","sha256":"a1ab99f2c559b02ac1bd4767327fe098908b7c703da085f8d5cddb7fc7977d1c","native_dimensions":[128,128],"native_bounds":[8,19,120,120],"ground_anchor":[64,120],"mirror":false},{"name":"ironjaw-reaver-fallen-grounded","category":"body","intended_view":"fallen enemy corpse, static","filename":"ironjaw-reaver-fallen-grounded-native128-draft.png","sha256":"68b7858fa43a285a6b1bbc5d7daf4bac55cb189ec051fa9d52353d91b77db2e2","native_dimensions":[128,128],"native_bounds":[8,61,119,120],"ground_anchor":[64,120],"mirror":false},{"name":"ash-widow-correction-rear-three-quarter","category":"body","intended_view":"rear three-quarter requested; visible head/eight legs pending native visual review","filename":"ash-widow-correction-rear-three-quarter-manual-crop-native128-draft.png","sha256":"e02e10cb6b02404b87d22053321e3b0268fa6729c09f6d4b3df3bedc6eb9d462","native_dimensions":[128,128],"native_bounds":[8,43,120,120],"ground_anchor":[64,120],"mirror":false},{"name":"ash-widow-correction-front-portrait","category":"portrait","intended_view":"front portrait requested; eight legs/head identity pending native visual review","filename":"ash-widow-correction-front-portrait-manual-crop-native128-draft.png","sha256":"21bead977286b45053242fb8b37d225838e2d78b448e22d1b2a8373a61f72a8d","native_dimensions":[128,128],"native_bounds":[8,41,119,120],"ground_anchor":[64,120],"mirror":false},{"name":"fen-stalker-rear-three-quarter","category":"body","intended_view":"requested rear three-quarter amphibious ally; facing pending","filename":"fen-stalker-rear-three-quarter-manual-crop-native128-draft.png","sha256":"fffd1824d6872a022b45b2dfe56ff08061d774c59836e587db605cc7b96fa263","native_dimensions":[128,128],"native_bounds":[12,32,115,120],"ground_anchor":[64,120],"mirror":false},{"name":"fen-stalker-front-portrait","category":"portrait","intended_view":"front head/chest","filename":"fen-stalker-front-portrait-manual-crop-native128-draft.png","sha256":"a39d0f56f3c7f46278a99f5d80290fad9ab9ee9ddf93c93df2c9c311843bdb52","native_dimensions":[128,128],"native_bounds":[8,12,120,120],"ground_anchor":[64,120],"mirror":false},{"name":"briar-colossus-rear-three-quarter","category":"body","intended_view":"requested rear three-quarter bark/bone ally","filename":"briar-colossus-rear-three-quarter-manual-crop-native128-draft.png","sha256":"2a87f31ed0b7e9e6156a776100e994d7b467c522d36bffb7769e1fce895f5f4f","native_dimensions":[128,128],"native_bounds":[17,8,111,120],"ground_anchor":[64,120],"mirror":false},{"name":"briar-colossus-front-portrait","category":"portrait","intended_view":"front head/chest","filename":"briar-colossus-front-portrait-manual-crop-native128-draft.png","sha256":"4ff2356ad27ee3f23d227743c2d79b1fe16e083ec02f205448a953599ab48275","native_dimensions":[128,128],"native_bounds":[14,8,113,120],"ground_anchor":[64,120],"mirror":false}]} as const;
+
+{"ownRSS":13180,"manifest":{"status":"UNSELECTED_THIRTEEN_STATIC_NATIVE_ASSETS_PRIVATE_SCENE_PROPOSAL","master_sha256":{"existingSeven":"ed3c111848a8e9f322e4c9c8b4af1887c3ef9d5152db8041b2021ffe271a0868","correctedAsh":"e06d388962e38846ad74592e52b9d843682f2e5d1635dc2eb00c785a371fc160","fenBriar":"4a08d967ad5752e2ffa71f6370af4debd52dc75419d9ae7a40d8ca0c9f5fbbb4"},"palette":{"transparent_index":0,"opaque_colors":["#11151d","#23313b","#3c515b","#667e82","#9aa8a1","#c5c8ac","#e7ddba","#483931","#735548","#a47b55","#d4ad6c","#632f37","#a5544a","#367e82","#72beb6"],"input_path":null,"input_sha256":null},"dimensions":[128,128],"sprites":[{"name":"cairn-hound-rear-three-quarter","category":"body","intended_view":"rear three-quarter ally","filename":"cairn-hound-rear-three-quarter-manual-crop-native128-draft.png","sha256":"fac6409c4218db7984c25c51abc9adb9aec870e1e20df52939171e700cb2829e","native_dimensions":[128,128],"native_bounds":[12,19,116,120],"ground_anchor":[64,120],"mirror":false},{"name":"ironjaw-reaver-front-three-quarter","category":"body","intended_view":"front three-quarter enemy","filename":"ironjaw-reaver-front-three-quarter-manual-crop-native128-draft.png","sha256":"90badaa9e35a71f849947a7c45970c19db8f5163eb36aa3370df89631e818f32","native_dimensions":[128,128],"native_bounds":[8,13,120,120],"ground_anchor":[64,120],"mirror":false},{"name":"gloam-revenant-front-three-quarter","category":"body","intended_view":"front three-quarter enemy","filename":"gloam-revenant-front-three-quarter-manual-crop-native128-draft.png","sha256":"6434bdf7ebd56dd67d2032a1d078164467ac4a1d44bf9037dd7f9e1a374b53e7","native_dimensions":[128,128],"native_bounds":[19,16,109,120],"ground_anchor":[64,120],"mirror":false},{"name":"marek-hunter-rear-three-quarter","category":"body","intended_view":"rear three-quarter hunter","filename":"marek-hunter-rear-three-quarter-manual-crop-native128-draft.png","sha256":"7c1f0d50e6db26b03d8eb17969b5858319463e60067cb4d9473abbe2a5adc2f9","native_dimensions":[128,128],"native_bounds":[10,14,118,120],"ground_anchor":[64,120],"mirror":false},{"name":"cairn-hound-front-portrait","category":"portrait","intended_view":"front head/chest","filename":"cairn-hound-front-portrait-manual-crop-native128-draft.png","sha256":"c53064c273e91b43eb49b8dba508b069af42d3d05b80644694e4591136ee1021","native_dimensions":[128,128],"native_bounds":[9,8,119,120],"ground_anchor":[64,120],"mirror":false},{"name":"marek-hunter-front-portrait","category":"portrait","intended_view":"front head/chest","filename":"marek-hunter-front-portrait-manual-crop-native128-draft.png","sha256":"a1ab99f2c559b02ac1bd4767327fe098908b7c703da085f8d5cddb7fc7977d1c","native_dimensions":[128,128],"native_bounds":[8,19,120,120],"ground_anchor":[64,120],"mirror":false},{"name":"ironjaw-reaver-fallen-grounded","category":"body","intended_view":"fallen enemy corpse, static","filename":"ironjaw-reaver-fallen-grounded-native128-draft.png","sha256":"68b7858fa43a285a6b1bbc5d7daf4bac55cb189ec051fa9d52353d91b77db2e2","native_dimensions":[128,128],"native_bounds":[8,61,119,120],"ground_anchor":[64,120],"mirror":false},{"name":"ash-widow-correction-rear-three-quarter","category":"body","intended_view":"rear three-quarter requested; visible head/eight legs pending native visual review","filename":"ash-widow-correction-rear-three-quarter-manual-crop-native128-draft.png","sha256":"e02e10cb6b02404b87d22053321e3b0268fa6729c09f6d4b3df3bedc6eb9d462","native_dimensions":[128,128],"native_bounds":[8,43,120,120],"ground_anchor":[64,120],"mirror":false},{"name":"ash-widow-correction-front-portrait","category":"portrait","intended_view":"front portrait requested; eight legs/head identity pending native visual review","filename":"ash-widow-correction-front-portrait-manual-crop-native128-draft.png","sha256":"21bead977286b45053242fb8b37d225838e2d78b448e22d1b2a8373a61f72a8d","native_dimensions":[128,128],"native_bounds":[8,41,119,120],"ground_anchor":[64,120],"mirror":false},{"name":"fen-stalker-rear-three-quarter","category":"body","intended_view":"requested rear three-quarter amphibious ally; facing pending","filename":"fen-stalker-rear-three-quarter-manual-crop-native128-draft.png","sha256":"fffd1824d6872a022b45b2dfe56ff08061d774c59836e587db605cc7b96fa263","native_dimensions":[128,128],"native_bounds":[12,32,115,120],"ground_anchor":[64,120],"mirror":false},{"name":"fen-stalker-front-portrait","category":"portrait","intended_view":"front head/chest","filename":"fen-stalker-front-portrait-manual-crop-native128-draft.png","sha256":"a39d0f56f3c7f46278a99f5d80290fad9ab9ee9ddf93c93df2c9c311843bdb52","native_dimensions":[128,128],"native_bounds":[8,12,120,120],"ground_anchor":[64,120],"mirror":false},{"name":"briar-colossus-rear-three-quarter","category":"body","intended_view":"requested rear three-quarter bark/bone ally","filename":"briar-colossus-rear-three-quarter-manual-crop-native128-draft.png","sha256":"2a87f31ed0b7e9e6156a776100e994d7b467c522d36bffb7769e1fce895f5f4f","native_dimensions":[128,128],"native_bounds":[17,8,111,120],"ground_anchor":[64,120],"mirror":false},{"name":"briar-colossus-front-portrait","category":"portrait","intended_view":"front head/chest","filename":"briar-colossus-front-portrait-manual-crop-native128-draft.png","sha256":"4ff2356ad27ee3f23d227743c2d79b1fe16e083ec02f205448a953599ab48275","native_dimensions":[128,128],"native_bounds":[14,8,113,120],"ground_anchor":[64,120],"mirror":false}],"animation":null}}

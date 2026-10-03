@@ -1,0 +1,2120 @@
+{
+  "sourceHashes": {
+    "src/engine.ts": "21bafb33832ec2d3ee1ca4ead9486825510bd380b62e143a8736465f1ad4110b",
+    "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+    "scripts/solo-investigation-v0.3.ts": "e46bad1423bc8697fad42db29bffd9a3d1b207bfbe8e9ff56db533d5f3c6be41"
+  },
+  "cohort": "holdout",
+  "seedRange": [
+    16001,
+    16072
+  ],
+  "n": 72,
+  "progressionSummary": [
+    {
+      "difficulty": 0,
+      "treatment": "legal-buy-first",
+      "n": 72,
+      "wins": 62,
+      "defeats": 10,
+      "meanHp": 33.4,
+      "meanTurns": 31.01,
+      "meanRemovalSpend": 49.58,
+      "meanCreatureRemovals": 1.42,
+      "meanRemainingCreatures": 3.58,
+      "preBossDefeats": 0,
+      "bossDefeats": 10,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 23,
+          "defeats": 1,
+          "meanHp": 38.5,
+          "meanTurns": 30.33
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 15,
+          "defeats": 9,
+          "meanHp": 22.08,
+          "meanTurns": 30.5
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 39.63,
+          "meanTurns": 32.21
+        }
+      }
+    },
+    {
+      "difficulty": 0,
+      "treatment": "legal-remove-first",
+      "n": 72,
+      "wins": 56,
+      "defeats": 16,
+      "meanHp": 31.88,
+      "meanTurns": 30.31,
+      "meanRemovalSpend": 121.53,
+      "meanCreatureRemovals": 3.47,
+      "meanRemainingCreatures": 1.53,
+      "preBossDefeats": 2,
+      "bossDefeats": 14,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 21,
+          "defeats": 3,
+          "meanHp": 35.21,
+          "meanTurns": 27.5
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 13,
+          "defeats": 11,
+          "meanHp": 18.71,
+          "meanTurns": 30.25
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 22,
+          "defeats": 2,
+          "meanHp": 41.71,
+          "meanTurns": 33.17
+        }
+      }
+    },
+    {
+      "difficulty": 0,
+      "treatment": "proposal-removal-15",
+      "n": 72,
+      "wins": 64,
+      "defeats": 8,
+      "meanHp": 41.13,
+      "meanTurns": 26.57,
+      "meanRemovalSpend": 97.85,
+      "meanCreatureRemovals": 5,
+      "meanRemainingCreatures": 0,
+      "preBossDefeats": 5,
+      "bossDefeats": 3,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 22,
+          "defeats": 2,
+          "meanHp": 44.96,
+          "meanTurns": 24.96
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 22,
+          "defeats": 2,
+          "meanHp": 41.54,
+          "meanTurns": 26.5
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 20,
+          "defeats": 4,
+          "meanHp": 36.88,
+          "meanTurns": 28.25
+        }
+      }
+    },
+    {
+      "difficulty": 0,
+      "treatment": "counterfactual-ready-opening",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 58.74,
+      "meanTurns": 18.89,
+      "meanRemovalSpend": 35,
+      "meanCreatureRemovals": 0,
+      "meanRemainingCreatures": 0,
+      "preBossDefeats": 0,
+      "bossDefeats": 0,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 62,
+          "meanTurns": 19.13
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 53.83,
+          "meanTurns": 18.33
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 60.38,
+          "meanTurns": 19.21
+        }
+      }
+    },
+    {
+      "difficulty": 1,
+      "treatment": "legal-buy-first",
+      "n": 72,
+      "wins": 40,
+      "defeats": 32,
+      "meanHp": 25.22,
+      "meanTurns": 31.07,
+      "meanRemovalSpend": 50.07,
+      "meanCreatureRemovals": 1.43,
+      "meanRemainingCreatures": 3.57,
+      "preBossDefeats": 11,
+      "bossDefeats": 21,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 16,
+          "defeats": 8,
+          "meanHp": 32.08,
+          "meanTurns": 31.29
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 8,
+          "defeats": 16,
+          "meanHp": 12.96,
+          "meanTurns": 30.13
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 16,
+          "defeats": 8,
+          "meanHp": 30.63,
+          "meanTurns": 31.79
+        }
+      }
+    },
+    {
+      "difficulty": 1,
+      "treatment": "legal-remove-first",
+      "n": 72,
+      "wins": 32,
+      "defeats": 40,
+      "meanHp": 16.54,
+      "meanTurns": 26.85,
+      "meanRemovalSpend": 115.69,
+      "meanCreatureRemovals": 3.31,
+      "meanRemainingCreatures": 1.69,
+      "preBossDefeats": 24,
+      "bossDefeats": 16,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 16,
+          "defeats": 8,
+          "meanHp": 25.13,
+          "meanTurns": 28
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 3,
+          "defeats": 21,
+          "meanHp": 4.83,
+          "meanTurns": 25.63
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 13,
+          "defeats": 11,
+          "meanHp": 19.67,
+          "meanTurns": 26.92
+        }
+      }
+    },
+    {
+      "difficulty": 1,
+      "treatment": "proposal-removal-15",
+      "n": 72,
+      "wins": 53,
+      "defeats": 19,
+      "meanHp": 32.04,
+      "meanTurns": 27.61,
+      "meanRemovalSpend": 93.96,
+      "meanCreatureRemovals": 5,
+      "meanRemainingCreatures": 0,
+      "preBossDefeats": 11,
+      "bossDefeats": 8,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 20,
+          "defeats": 4,
+          "meanHp": 41.92,
+          "meanTurns": 25.63
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 14,
+          "defeats": 10,
+          "meanHp": 22.5,
+          "meanTurns": 28.08
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 19,
+          "defeats": 5,
+          "meanHp": 31.71,
+          "meanTurns": 29.13
+        }
+      }
+    },
+    {
+      "difficulty": 1,
+      "treatment": "counterfactual-ready-opening",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 54.01,
+      "meanTurns": 20.28,
+      "meanRemovalSpend": 35,
+      "meanCreatureRemovals": 0,
+      "meanRemainingCreatures": 0,
+      "preBossDefeats": 0,
+      "bossDefeats": 0,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 58.46,
+          "meanTurns": 20.17
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 52.04,
+          "meanTurns": 19.5
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 51.54,
+          "meanTurns": 21.17
+        }
+      }
+    },
+    {
+      "difficulty": 2,
+      "treatment": "legal-buy-first",
+      "n": 72,
+      "wins": 16,
+      "defeats": 56,
+      "meanHp": 7.63,
+      "meanTurns": 24.76,
+      "meanRemovalSpend": 46.67,
+      "meanCreatureRemovals": 1.33,
+      "meanRemainingCreatures": 3.67,
+      "preBossDefeats": 35,
+      "bossDefeats": 21,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 9,
+          "defeats": 15,
+          "meanHp": 15.17,
+          "meanTurns": 26.67
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 3,
+          "defeats": 21,
+          "meanHp": 2.83,
+          "meanTurns": 25.29
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 4,
+          "defeats": 20,
+          "meanHp": 4.88,
+          "meanTurns": 22.33
+        }
+      }
+    },
+    {
+      "difficulty": 2,
+      "treatment": "legal-remove-first",
+      "n": 72,
+      "wins": 16,
+      "defeats": 56,
+      "meanHp": 9,
+      "meanTurns": 22.22,
+      "meanRemovalSpend": 95.76,
+      "meanCreatureRemovals": 2.74,
+      "meanRemainingCreatures": 2.26,
+      "preBossDefeats": 45,
+      "bossDefeats": 11,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 8,
+          "defeats": 16,
+          "meanHp": 11.46,
+          "meanTurns": 22.88
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 2,
+          "defeats": 22,
+          "meanHp": 2.71,
+          "meanTurns": 21.92
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 6,
+          "defeats": 18,
+          "meanHp": 12.83,
+          "meanTurns": 21.88
+        }
+      }
+    },
+    {
+      "difficulty": 2,
+      "treatment": "proposal-removal-15",
+      "n": 72,
+      "wins": 45,
+      "defeats": 27,
+      "meanHp": 26.5,
+      "meanTurns": 28.96,
+      "meanRemovalSpend": 94.51,
+      "meanCreatureRemovals": 4.97,
+      "meanRemainingCreatures": 0.03,
+      "preBossDefeats": 15,
+      "bossDefeats": 12,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 20,
+          "defeats": 4,
+          "meanHp": 32.75,
+          "meanTurns": 31.71
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 9,
+          "defeats": 15,
+          "meanHp": 13.75,
+          "meanTurns": 26.54
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 16,
+          "defeats": 8,
+          "meanHp": 33,
+          "meanTurns": 28.63
+        }
+      }
+    },
+    {
+      "difficulty": 2,
+      "treatment": "counterfactual-ready-opening",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 54.15,
+      "meanTurns": 22.29,
+      "meanRemovalSpend": 35,
+      "meanCreatureRemovals": 0,
+      "meanRemainingCreatures": 0,
+      "preBossDefeats": 0,
+      "bossDefeats": 0,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 58.21,
+          "meanTurns": 21.83
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 50.79,
+          "meanTurns": 21.29
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 53.46,
+          "meanTurns": 23.75
+        }
+      }
+    }
+  ],
+  "battleSummary": [
+    {
+      "difficulty": 0,
+      "node": 1,
+      "hpStart": 45,
+      "treatment": "starter",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 30.93,
+      "meanTurns": 5.32
+    },
+    {
+      "difficulty": 0,
+      "node": 1,
+      "hpStart": 45,
+      "treatment": "remove-bindings",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 40.68,
+      "meanTurns": 2.85
+    },
+    {
+      "difficulty": 0,
+      "node": 1,
+      "hpStart": 45,
+      "treatment": "buy-packet",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 46.79,
+      "meanTurns": 2.64
+    },
+    {
+      "difficulty": 0,
+      "node": 1,
+      "hpStart": 45,
+      "treatment": "remove-and-buy",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 47.63,
+      "meanTurns": 2.18
+    },
+    {
+      "difficulty": 0,
+      "node": 1,
+      "hpStart": 65,
+      "treatment": "starter",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 50.67,
+      "meanTurns": 5.32
+    },
+    {
+      "difficulty": 0,
+      "node": 1,
+      "hpStart": 65,
+      "treatment": "remove-bindings",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 59.71,
+      "meanTurns": 2.85
+    },
+    {
+      "difficulty": 0,
+      "node": 1,
+      "hpStart": 65,
+      "treatment": "buy-packet",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 62.96,
+      "meanTurns": 2.58
+    },
+    {
+      "difficulty": 0,
+      "node": 1,
+      "hpStart": 65,
+      "treatment": "remove-and-buy",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 63.74,
+      "meanTurns": 2.13
+    },
+    {
+      "difficulty": 0,
+      "node": 4,
+      "hpStart": 45,
+      "treatment": "starter",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 24.6,
+      "meanTurns": 7.07
+    },
+    {
+      "difficulty": 0,
+      "node": 4,
+      "hpStart": 45,
+      "treatment": "remove-bindings",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 39.01,
+      "meanTurns": 3.64
+    },
+    {
+      "difficulty": 0,
+      "node": 4,
+      "hpStart": 45,
+      "treatment": "buy-packet",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 45,
+      "meanTurns": 3.75
+    },
+    {
+      "difficulty": 0,
+      "node": 4,
+      "hpStart": 45,
+      "treatment": "remove-and-buy",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 49.03,
+      "meanTurns": 3.24
+    },
+    {
+      "difficulty": 0,
+      "node": 4,
+      "hpStart": 65,
+      "treatment": "starter",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 44.6,
+      "meanTurns": 7.07
+    },
+    {
+      "difficulty": 0,
+      "node": 4,
+      "hpStart": 65,
+      "treatment": "remove-bindings",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 58.43,
+      "meanTurns": 3.64
+    },
+    {
+      "difficulty": 0,
+      "node": 4,
+      "hpStart": 65,
+      "treatment": "buy-packet",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 60.97,
+      "meanTurns": 3.58
+    },
+    {
+      "difficulty": 0,
+      "node": 4,
+      "hpStart": 65,
+      "treatment": "remove-and-buy",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 63.24,
+      "meanTurns": 2.99
+    },
+    {
+      "difficulty": 0,
+      "node": 8,
+      "hpStart": 45,
+      "treatment": "starter",
+      "n": 72,
+      "wins": 56,
+      "defeats": 16,
+      "meanHp": 13.43,
+      "meanTurns": 7.63
+    },
+    {
+      "difficulty": 0,
+      "node": 8,
+      "hpStart": 45,
+      "treatment": "remove-bindings",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 36.75,
+      "meanTurns": 4.18
+    },
+    {
+      "difficulty": 0,
+      "node": 8,
+      "hpStart": 45,
+      "treatment": "buy-packet",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 43.14,
+      "meanTurns": 4.28
+    },
+    {
+      "difficulty": 0,
+      "node": 8,
+      "hpStart": 45,
+      "treatment": "remove-and-buy",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 47.97,
+      "meanTurns": 3.42
+    },
+    {
+      "difficulty": 0,
+      "node": 8,
+      "hpStart": 65,
+      "treatment": "starter",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 33,
+      "meanTurns": 7.93
+    },
+    {
+      "difficulty": 0,
+      "node": 8,
+      "hpStart": 65,
+      "treatment": "remove-bindings",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 55.81,
+      "meanTurns": 4.18
+    },
+    {
+      "difficulty": 0,
+      "node": 8,
+      "hpStart": 65,
+      "treatment": "buy-packet",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 58.9,
+      "meanTurns": 4.18
+    },
+    {
+      "difficulty": 0,
+      "node": 8,
+      "hpStart": 65,
+      "treatment": "remove-and-buy",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 62.56,
+      "meanTurns": 3.21
+    },
+    {
+      "difficulty": 0,
+      "node": 10,
+      "hpStart": 45,
+      "treatment": "starter",
+      "n": 72,
+      "wins": 2,
+      "defeats": 70,
+      "meanHp": 0.14,
+      "meanTurns": 11.6,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 2,
+          "defeats": 22,
+          "meanHp": 0.42,
+          "meanTurns": 15.79
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 0,
+          "defeats": 24,
+          "meanHp": 0,
+          "meanTurns": 5.17
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 0,
+          "defeats": 24,
+          "meanHp": 0,
+          "meanTurns": 13.83
+        }
+      }
+    },
+    {
+      "difficulty": 0,
+      "node": 10,
+      "hpStart": 45,
+      "treatment": "remove-bindings",
+      "n": 72,
+      "wins": 48,
+      "defeats": 24,
+      "meanHp": 27.97,
+      "meanTurns": 9.57,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 44.38,
+          "meanTurns": 10.67
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 0,
+          "defeats": 24,
+          "meanHp": 0,
+          "meanTurns": 7.71
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 39.54,
+          "meanTurns": 10.33
+        }
+      }
+    },
+    {
+      "difficulty": 0,
+      "node": 10,
+      "hpStart": 45,
+      "treatment": "buy-packet",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 36.24,
+      "meanTurns": 12.19,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 39.96,
+          "meanTurns": 12.75
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 29.42,
+          "meanTurns": 12
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 39.33,
+          "meanTurns": 11.83
+        }
+      }
+    },
+    {
+      "difficulty": 0,
+      "node": 10,
+      "hpStart": 45,
+      "treatment": "remove-and-buy",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 53.24,
+      "meanTurns": 9.03,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 55.92,
+          "meanTurns": 9.38
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 46.79,
+          "meanTurns": 8.29
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 57,
+          "meanTurns": 9.42
+        }
+      }
+    },
+    {
+      "difficulty": 0,
+      "node": 10,
+      "hpStart": 65,
+      "treatment": "starter",
+      "n": 72,
+      "wins": 20,
+      "defeats": 52,
+      "meanHp": 3.47,
+      "meanTurns": 15.22,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 12,
+          "defeats": 12,
+          "meanHp": 6.96,
+          "meanTurns": 20.29
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 0,
+          "defeats": 24,
+          "meanHp": 0,
+          "meanTurns": 6.25
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 8,
+          "defeats": 16,
+          "meanHp": 3.46,
+          "meanTurns": 19.13
+        }
+      }
+    },
+    {
+      "difficulty": 0,
+      "node": 10,
+      "hpStart": 65,
+      "treatment": "remove-bindings",
+      "n": 72,
+      "wins": 53,
+      "defeats": 19,
+      "meanHp": 41.24,
+      "meanTurns": 10.26,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 62.96,
+          "meanTurns": 10.67
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 5,
+          "defeats": 19,
+          "meanHp": 1.21,
+          "meanTurns": 9.79
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 59.54,
+          "meanTurns": 10.33
+        }
+      }
+    },
+    {
+      "difficulty": 0,
+      "node": 10,
+      "hpStart": 65,
+      "treatment": "buy-packet",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 49.63,
+      "meanTurns": 11.85,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 51.21,
+          "meanTurns": 12.33
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 44.54,
+          "meanTurns": 12
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 53.13,
+          "meanTurns": 11.21
+        }
+      }
+    },
+    {
+      "difficulty": 0,
+      "node": 10,
+      "hpStart": 65,
+      "treatment": "remove-and-buy",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 60.68,
+      "meanTurns": 8.46,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 61.38,
+          "meanTurns": 8.92
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 59.42,
+          "meanTurns": 7.96
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 61.25,
+          "meanTurns": 8.5
+        }
+      }
+    },
+    {
+      "difficulty": 2,
+      "node": 1,
+      "hpStart": 45,
+      "treatment": "starter",
+      "n": 72,
+      "wins": 43,
+      "defeats": 29,
+      "meanHp": 20.13,
+      "meanTurns": 5.82
+    },
+    {
+      "difficulty": 2,
+      "node": 1,
+      "hpStart": 45,
+      "treatment": "remove-bindings",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 35.14,
+      "meanTurns": 3.67
+    },
+    {
+      "difficulty": 2,
+      "node": 1,
+      "hpStart": 45,
+      "treatment": "buy-packet",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 43.82,
+      "meanTurns": 3.25
+    },
+    {
+      "difficulty": 2,
+      "node": 1,
+      "hpStart": 45,
+      "treatment": "remove-and-buy",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 47.47,
+      "meanTurns": 2.68
+    },
+    {
+      "difficulty": 2,
+      "node": 1,
+      "hpStart": 65,
+      "treatment": "starter",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 38.46,
+      "meanTurns": 6.33
+    },
+    {
+      "difficulty": 2,
+      "node": 1,
+      "hpStart": 65,
+      "treatment": "remove-bindings",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 54.17,
+      "meanTurns": 3.67
+    },
+    {
+      "difficulty": 2,
+      "node": 1,
+      "hpStart": 65,
+      "treatment": "buy-packet",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 59.9,
+      "meanTurns": 3.18
+    },
+    {
+      "difficulty": 2,
+      "node": 1,
+      "hpStart": 65,
+      "treatment": "remove-and-buy",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 62.56,
+      "meanTurns": 2.47
+    },
+    {
+      "difficulty": 2,
+      "node": 4,
+      "hpStart": 45,
+      "treatment": "starter",
+      "n": 72,
+      "wins": 23,
+      "defeats": 49,
+      "meanHp": 6.11,
+      "meanTurns": 6.76
+    },
+    {
+      "difficulty": 2,
+      "node": 4,
+      "hpStart": 45,
+      "treatment": "remove-bindings",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 33.54,
+      "meanTurns": 4.58
+    },
+    {
+      "difficulty": 2,
+      "node": 4,
+      "hpStart": 45,
+      "treatment": "buy-packet",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 40.94,
+      "meanTurns": 4.38
+    },
+    {
+      "difficulty": 2,
+      "node": 4,
+      "hpStart": 45,
+      "treatment": "remove-and-buy",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 46.81,
+      "meanTurns": 3.43
+    },
+    {
+      "difficulty": 2,
+      "node": 4,
+      "hpStart": 65,
+      "treatment": "starter",
+      "n": 72,
+      "wins": 65,
+      "defeats": 7,
+      "meanHp": 19.5,
+      "meanTurns": 8.54
+    },
+    {
+      "difficulty": 2,
+      "node": 4,
+      "hpStart": 65,
+      "treatment": "remove-bindings",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 53.07,
+      "meanTurns": 4.58
+    },
+    {
+      "difficulty": 2,
+      "node": 4,
+      "hpStart": 65,
+      "treatment": "buy-packet",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 57.01,
+      "meanTurns": 4.24
+    },
+    {
+      "difficulty": 2,
+      "node": 4,
+      "hpStart": 65,
+      "treatment": "remove-and-buy",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 61.63,
+      "meanTurns": 3.22
+    },
+    {
+      "difficulty": 2,
+      "node": 8,
+      "hpStart": 45,
+      "treatment": "starter",
+      "n": 72,
+      "wins": 19,
+      "defeats": 53,
+      "meanHp": 3.78,
+      "meanTurns": 5.88
+    },
+    {
+      "difficulty": 2,
+      "node": 8,
+      "hpStart": 45,
+      "treatment": "remove-bindings",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 27.44,
+      "meanTurns": 5.06
+    },
+    {
+      "difficulty": 2,
+      "node": 8,
+      "hpStart": 45,
+      "treatment": "buy-packet",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 36.85,
+      "meanTurns": 4.99
+    },
+    {
+      "difficulty": 2,
+      "node": 8,
+      "hpStart": 45,
+      "treatment": "remove-and-buy",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 45.1,
+      "meanTurns": 3.88
+    },
+    {
+      "difficulty": 2,
+      "node": 8,
+      "hpStart": 65,
+      "treatment": "starter",
+      "n": 72,
+      "wins": 21,
+      "defeats": 51,
+      "meanHp": 9.14,
+      "meanTurns": 7.54
+    },
+    {
+      "difficulty": 2,
+      "node": 8,
+      "hpStart": 65,
+      "treatment": "remove-bindings",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 47.33,
+      "meanTurns": 5.06
+    },
+    {
+      "difficulty": 2,
+      "node": 8,
+      "hpStart": 65,
+      "treatment": "buy-packet",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 52.74,
+      "meanTurns": 4.82
+    },
+    {
+      "difficulty": 2,
+      "node": 8,
+      "hpStart": 65,
+      "treatment": "remove-and-buy",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 60.53,
+      "meanTurns": 3.65
+    },
+    {
+      "difficulty": 2,
+      "node": 10,
+      "hpStart": 45,
+      "treatment": "starter",
+      "n": 72,
+      "wins": 0,
+      "defeats": 72,
+      "meanHp": 0,
+      "meanTurns": 9.35,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 0,
+          "defeats": 24,
+          "meanHp": 0,
+          "meanTurns": 12.42
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 0,
+          "defeats": 24,
+          "meanHp": 0,
+          "meanTurns": 4.79
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 0,
+          "defeats": 24,
+          "meanHp": 0,
+          "meanTurns": 10.83
+        }
+      }
+    },
+    {
+      "difficulty": 2,
+      "node": 10,
+      "hpStart": 45,
+      "treatment": "remove-bindings",
+      "n": 72,
+      "wins": 48,
+      "defeats": 24,
+      "meanHp": 19.78,
+      "meanTurns": 9.92,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 33.13,
+          "meanTurns": 12.67
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 0,
+          "defeats": 24,
+          "meanHp": 0,
+          "meanTurns": 5
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 26.21,
+          "meanTurns": 12.08
+        }
+      }
+    },
+    {
+      "difficulty": 2,
+      "node": 10,
+      "hpStart": 45,
+      "treatment": "buy-packet",
+      "n": 72,
+      "wins": 56,
+      "defeats": 16,
+      "meanHp": 21.97,
+      "meanTurns": 13.72,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 22,
+          "defeats": 2,
+          "meanHp": 30.58,
+          "meanTurns": 14.54
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 10,
+          "defeats": 14,
+          "meanHp": 7.17,
+          "meanTurns": 12.29
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 28.17,
+          "meanTurns": 14.33
+        }
+      }
+    },
+    {
+      "difficulty": 2,
+      "node": 10,
+      "hpStart": 45,
+      "treatment": "remove-and-buy",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 47.86,
+      "meanTurns": 10.78,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 53.38,
+          "meanTurns": 11.21
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 39.33,
+          "meanTurns": 9.96
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 50.88,
+          "meanTurns": 11.17
+        }
+      }
+    },
+    {
+      "difficulty": 2,
+      "node": 10,
+      "hpStart": 65,
+      "treatment": "starter",
+      "n": 72,
+      "wins": 0,
+      "defeats": 72,
+      "meanHp": 0,
+      "meanTurns": 12.24,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 0,
+          "defeats": 24,
+          "meanHp": 0,
+          "meanTurns": 16.5
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 0,
+          "defeats": 24,
+          "meanHp": 0,
+          "meanTurns": 5
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 0,
+          "defeats": 24,
+          "meanHp": 0,
+          "meanTurns": 15.21
+        }
+      }
+    },
+    {
+      "difficulty": 2,
+      "node": 10,
+      "hpStart": 65,
+      "treatment": "remove-bindings",
+      "n": 72,
+      "wins": 48,
+      "defeats": 24,
+      "meanHp": 33.11,
+      "meanTurns": 10.25,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 53.13,
+          "meanTurns": 12.67
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 0,
+          "defeats": 24,
+          "meanHp": 0,
+          "meanTurns": 6
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 46.21,
+          "meanTurns": 12.08
+        }
+      }
+    },
+    {
+      "difficulty": 2,
+      "node": 10,
+      "hpStart": 65,
+      "treatment": "buy-packet",
+      "n": 72,
+      "wins": 66,
+      "defeats": 6,
+      "meanHp": 34.1,
+      "meanTurns": 14.21,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 41.5,
+          "meanTurns": 14.67
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 18,
+          "defeats": 6,
+          "meanHp": 21.58,
+          "meanTurns": 13.88
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 39.21,
+          "meanTurns": 14.08
+        }
+      }
+    },
+    {
+      "difficulty": 2,
+      "node": 10,
+      "hpStart": 65,
+      "treatment": "remove-and-buy",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 57.11,
+      "meanTurns": 10.47,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 58.92,
+          "meanTurns": 10.83
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 56,
+          "meanTurns": 10.08
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 56.42,
+          "meanTurns": 10.5
+        }
+      }
+    }
+  ],
+  "bossSummary": [
+    {
+      "boss": "ironjaw",
+      "treatment": "original-slot",
+      "n": 22,
+      "wins": 22,
+      "defeats": 0,
+      "meanHp": 46.05,
+      "meanTurns": 6
+    },
+    {
+      "boss": "ironjaw",
+      "treatment": "quarry-counter",
+      "n": 22,
+      "wins": 22,
+      "defeats": 0,
+      "meanHp": 44.32,
+      "meanTurns": 5.64
+    },
+    {
+      "boss": "ironjaw",
+      "treatment": "general-sustain",
+      "n": 22,
+      "wins": 22,
+      "defeats": 0,
+      "meanHp": 46.09,
+      "meanTurns": 5.95
+    },
+    {
+      "boss": "cantor",
+      "treatment": "original-slot",
+      "n": 14,
+      "wins": 14,
+      "defeats": 0,
+      "meanHp": 35.14,
+      "meanTurns": 6
+    },
+    {
+      "boss": "cantor",
+      "treatment": "quarry-counter",
+      "n": 14,
+      "wins": 14,
+      "defeats": 0,
+      "meanHp": 41.36,
+      "meanTurns": 6
+    },
+    {
+      "boss": "cantor",
+      "treatment": "general-sustain",
+      "n": 14,
+      "wins": 14,
+      "defeats": 0,
+      "meanHp": 37.86,
+      "meanTurns": 6
+    },
+    {
+      "boss": "cindermaw",
+      "treatment": "original-slot",
+      "n": 14,
+      "wins": 14,
+      "defeats": 0,
+      "meanHp": 39.79,
+      "meanTurns": 6.43
+    },
+    {
+      "boss": "cindermaw",
+      "treatment": "quarry-counter",
+      "n": 14,
+      "wins": 14,
+      "defeats": 0,
+      "meanHp": 41.14,
+      "meanTurns": 6.64
+    },
+    {
+      "boss": "cindermaw",
+      "treatment": "general-sustain",
+      "n": 14,
+      "wins": 14,
+      "defeats": 0,
+      "meanHp": 40.29,
+      "meanTurns": 6.5
+    }
+  ],
+  "preparationReached": 50,
+  "preparationNotReached": 22,
+  "pairedPreparation": [
+    {
+      "seed": 16001,
+      "boss": "cindermaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 14,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16002,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16004,
+      "boss": "cindermaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": -4,
+      "sustainHpDelta": -2,
+      "counterTurnDelta": 1
+    },
+    {
+      "seed": 16005,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 15,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16007,
+      "boss": "cindermaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 3,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16008,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": -27,
+      "sustainHpDelta": -15,
+      "counterTurnDelta": -2
+    },
+    {
+      "seed": 16010,
+      "boss": "cindermaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16011,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": -1,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16012,
+      "boss": "cantor",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": -12,
+      "counterTurnDelta": -1
+    },
+    {
+      "seed": 16013,
+      "boss": "cindermaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 3,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 1
+    },
+    {
+      "seed": 16014,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": -3
+    },
+    {
+      "seed": 16015,
+      "boss": "cantor",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16016,
+      "boss": "cindermaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16017,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16018,
+      "boss": "cantor",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 8,
+      "sustainHpDelta": 8,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16020,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16022,
+      "boss": "cindermaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 3,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16023,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16026,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16027,
+      "boss": "cantor",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 21,
+      "sustainHpDelta": 3,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16028,
+      "boss": "cindermaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 3,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16029,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": -7,
+      "sustainHpDelta": 3,
+      "counterTurnDelta": -1
+    },
+    {
+      "seed": 16031,
+      "boss": "cindermaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": -3,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16032,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": -14,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16033,
+      "boss": "cantor",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 3,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16035,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 2,
+      "sustainHpDelta": 6,
+      "counterTurnDelta": -1
+    },
+    {
+      "seed": 16036,
+      "boss": "cantor",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16038,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 3,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16039,
+      "boss": "cantor",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": -10,
+      "sustainHpDelta": -1,
+      "counterTurnDelta": -1
+    },
+    {
+      "seed": 16041,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 4,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16042,
+      "boss": "cantor",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 6,
+      "sustainHpDelta": 10,
+      "counterTurnDelta": 1
+    },
+    {
+      "seed": 16045,
+      "boss": "cantor",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 7,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16047,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 4,
+      "sustainHpDelta": 4,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16049,
+      "boss": "cindermaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16050,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16051,
+      "boss": "cantor",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 3,
+      "sustainHpDelta": 3,
+      "counterTurnDelta": 1
+    },
+    {
+      "seed": 16053,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": -10,
+      "sustainHpDelta": 3,
+      "counterTurnDelta": -1
+    },
+    {
+      "seed": 16054,
+      "boss": "cantor",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 3,
+      "counterTurnDelta": -1
+    },
+    {
+      "seed": 16056,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 3,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16060,
+      "boss": "cantor",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 3,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16061,
+      "boss": "cindermaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16062,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16063,
+      "boss": "cantor",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 33,
+      "sustainHpDelta": 15,
+      "counterTurnDelta": 1
+    },
+    {
+      "seed": 16064,
+      "boss": "cindermaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": -11,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 1
+    },
+    {
+      "seed": 16065,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": -13,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16066,
+      "boss": "cantor",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 19,
+      "sustainHpDelta": 3,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16067,
+      "boss": "cindermaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 22,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16068,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 3,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16070,
+      "boss": "cindermaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": -2,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 0
+    },
+    {
+      "seed": 16071,
+      "boss": "ironjaw",
+      "originalWon": true,
+      "counterWon": true,
+      "sustainWon": true,
+      "counterHpDelta": 0,
+      "sustainHpDelta": 0,
+      "counterTurnDelta": 0
+    }
+  ]
+}

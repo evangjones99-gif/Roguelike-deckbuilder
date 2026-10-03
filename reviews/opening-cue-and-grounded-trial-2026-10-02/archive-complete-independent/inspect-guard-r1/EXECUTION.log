@@ -1,0 +1,89 @@
+FILES [('READ-OBSERVATIONS.json', 401008), ('evidence-451347c174a3fe78e5f7b6ef22736b7cfbbd33b39fd04ea20556730bb3b15a8b.tar.gz', 7848992), ('README.md', 288), ('INDEX.json', 157256), ('RESULT.json', 588)]
+RESULT.json {"archiveSHA256":"451347c174a3fe78e5f7b6ef22736b7cfbbd33b39fd04ea20556730bb3b15a8b","archiveBytes":7848992,"logicalBodies":952,"newUniqueBodies":711,"fullUniqueOriginalByteRoundtrip":true,"planSHA256":"0998d948c57e2fb3d1e01f34e61028d5c80db299df308d3b1e83ab902d4281b7","indexSHA256":"64fe0a3ea9e523e6a63c9b7e60cd4ae3df8c88ef15cfba858a86187e21e98d58","readObservationsSHA256":"e3b4a36b6c2c01b98d3fef9b7fa19711b2577ffdef4b51c5899284298faac142","allOriginalPathsRetained":true,"noPublicationOrSelectionAuthority":true,"ownMaxRSSBytes":15855616,"elapsedBeforeFinalReceipt":0.5056470039999112}
+
+README.md Original bytes only; logical paths map to blobs/SHA256 in the new archive or exact ce0f/f912 capsules. Game media and installed dependencies remain external and pinned. No game/default/art selection authority. Originals, failed reviews, source drafts, and prior capsules remain in place.
+
+OBS list 1426 [{'originalPath': '/workspace/Roguelike-deckbuilder/reviews/coherent-native128-actual-trial-2026-10-02/evidence-ce0f8f40bcf0f0b22e5e4d93eef3d4660662826e617900aba09ac208c148dc13.tar.gz', 'scope': 'existing canonical capsule/index reference only', 'noAtimeRequested': True, 'permissionFallback': False}, {'originalPath': '/workspace/Roguelike-deckbuilder/reviews/coherent-native128-actual-trial-2026-10-02/INDEX.json', 'scope': 'existing canonical capsule/index reference only', 'noAtimeRequested': True, 'permissionFallback': False}]
+INDEXKEYS ['format', 'roots', 'rowColumns', 'rows', 'roles', 'newArchive', 'existingCapsules', 'externalDependencies', 'runtimeAuthorities', 'allOriginalPathsRetained', 'fullUniqueOriginalByteRoundtrip', 'selfContainedRelease']
+NEWARCHIVE {'path': '/workspace/scratch/wording-grounded-trials-checkpoint-output-root-r1/evidence-451347c174a3fe78e5f7b6ef22736b7cfbbd33b39fd04ea20556730bb3b15a8b.tar.gz', 'sha256': '451347c174a3fe78e5f7b6ef22736b7cfbbd33b39fd04ea20556730bb3b15a8b', 'bytes': 7848992}
+FREEZE ['stage', 'sourceDigest', 'inputs', 'outputsDigest', 'outputs', 'inputCount', 'outputCount', 'assemblySHA256', 'supportBodies', 'buildResourceClosure', 'qualification', 'actualBrowserRun', 'acceptedDefault', 'animationProved'] {'stage': '/workspace/scratch/opening-turn-payoff-wording-stage-r1', 'sourceDigest': '64c2a14ada2b24796535f9bb71d8a6acc534685365bcf4f5665b21bf18595353', 'inputs': 89, 'outputsDigest': '82e049c9fee16e4a56d80520a0feb19c54546dc86f83953f27d703d53fec7042', 'outputs': 56, 'inputCount': '89', 'outputCount': '56', 'assemblySHA256': '0217db7c9ca40cbcea9d3fd65d057d5d183e2f0986310d9ead79b126411a6606', 'supportBodies': 30, 'buildResourceClosure': 2, 'qualification': 'Frozen PNG/WAV leaf workflow mounts and shared node_modules; private JSON/code/directories. Not OS-r', 'actualBrowserRun': 'False', 'acceptedDefault': 'False', 'animationProved': 'False'}
+FREEZE_SAMPLE {'THIRD-PARTY.md': '59bea9fd6f5876e27e1e98cd759c9a8666c662ca88577c0adc7ede183310feaa', 'desktop/audio-lifecycle.cjs': 'b699b009cfd66160765e08fb502faa2b0fb9c64ac03820f71dc7ff989c65f2e6', 'desktop/icon.png': '0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82', 'desktop/main.cjs': 'dfe5dde98ba3c75365f20db28be970882177d2cc7b11c6ce0d38cbf639c292b8', 'index.html': '897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8', 'packa
+FREEZE ['stage', 'sourceDigest', 'inputs', 'outputsDigest', 'outputs', 'inputCount', 'outputCount', 'assemblySHA256', 'supportBodies', 'buildResourceClosure', 'qualification', 'actualBrowserRun', 'acceptedDefault', 'animationProved'] {'stage': '/workspace/scratch/coherent-native128-fallen-ground-stage-r1', 'sourceDigest': '7074ba03d79342e7e1aa5e0268fc21feee541bd5fb96b8a968e644852055384a', 'inputs': 98, 'outputsDigest': '67992a2596800f554f341382e221c6f3b9c7cd33c7f3ed69960d54c023fb0597', 'outputs': 64, 'inputCount': '98', 'outputCount': '64', 'assemblySHA256': '98948669b03c26cd42ed5e7c173af46e4cf5b51da2d0157be1c710c011e0055b', 'supportBodies': 30, 'buildResourceClosure': 2, 'qualification': 'Frozen binary media leaf workflow mounts/shared node_modules; private code/JSON/support/directories.', 'actualBrowserRun': 'False', 'acceptedDefault': 'False', 'animationProved': 'False'}
+FREEZE_SAMPLE {'THIRD-PARTY.md': '59bea9fd6f5876e27e1e98cd759c9a8666c662ca88577c0adc7ede183310feaa', 'desktop/audio-lifecycle.cjs': 'b699b009cfd66160765e08fb502faa2b0fb9c64ac03820f71dc7ff989c65f2e6', 'desktop/icon.png': '0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82', 'desktop/main.cjs': 'dfe5dde98ba3c75365f20db28be970882177d2cc7b11c6ce0d38cbf639c292b8', 'index.html': '897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8', 'packa
+FREEZE ['stage', 'sourceDigest', 'inputs', 'outputsDigest', 'outputs', 'inputCount', 'outputCount', 'version', 'controlledMounts', 'method', 'status'] {'stage': '/workspace/scratch/target-clear-default-stage-r1', 'sourceDigest': 'c4fa7d2b3201321ec84cc6fc3503f1d7a12feea2901deb4ce7551a665f83387a', 'inputs': 88, 'outputsDigest': '8bbaea72d9cb3b9757a2b8cb10ead190495ef61e6496e1ace0f942f635e00cf7', 'outputs': 56, 'inputCount': '88', 'outputCount': '56', 'version': '0.9.0', 'controlledMounts': 5, 'method': 'Installed tsc noEmit, candidate88 sourceDigest/VITE_BUILD_ID/credits/provenance; external Vite API c', 'status': 'Strict private default-on targetClearGhost candidate; fresh strict build complete, independent build'}
+FREEZE_SAMPLE {'THIRD-PARTY.md': '59bea9fd6f5876e27e1e98cd759c9a8666c662ca88577c0adc7ede183310feaa', 'desktop/audio-lifecycle.cjs': 'b699b009cfd66160765e08fb502faa2b0fb9c64ac03820f71dc7ff989c65f2e6', 'desktop/icon.png': '0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82', 'desktop/main.cjs': 'dfe5dde98ba3c75365f20db28be970882177d2cc7b11c6ce0d38cbf639c292b8', 'index.html': '897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8', 'packa
+ACTUALGUARD {
+  "exit_code": 0,
+  "failure": null,
+  "initial": {
+    "time_ns": 1790935051372474429,
+    "current": 15712325632,
+    "maximum": 17179869184,
+    "headroom": 1467543552,
+    "free": 132149248
+  },
+  "final": {
+    "time_ns": 1790935051976127881,
+    "current": 15720652800,
+    "maximum": 17179869184,
+    "headroom": 1459216384,
+    "free": 123711488
+  },
+  "samples": [
+    {
+      "time_ns": 1790935051373097650,
+      "current": 15712587776,
+      "maximum": 17179869184,
+      "headroom": 1467281408,
+      "free": 132145152,
+      "delta": 262144
+    },
+    {
+      "time_ns": 1790935051473677006,
+      "current": 15727452160,
+      "maximum": 17179869184,
+      "headroom": 1452417024,
+      "free": 131702784,
+      "delta": 15126528
+    },
+    {
+      "time_ns": 1790935051574006544,
+      "current": 15729520640,
+      "maximum": 17179869184,
+      "headroom": 1450348544,
+      "free": 129761280,
+      "delta": 17195008
+    },
+    {
+      "time_ns": 1790935051674319978,
+      "current": 15733084160,
+      "maximum": 17179869184,
+      "headroom": 1446785024,
+      "free": 126455808,
+      "delta": 20758528
+    },
+    {
+      "time_ns": 1790935051774660421,
+      "current": 15734980608,
+      "maximum": 17179869184,
+      "headroom": 1444888576,
+      "free": 124923904,
+      "delta": 22654976
+    },
+    {
+      "time_ns": 1790935051874991191,
+      "current": 15736750080,
+      "maximum": 17179869184,
+      "headroom": 1443119104,
+      "free": 124284928,
+      "delta": 24424448
+    }
+  ],
+  "memory_events_before": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "memory_events_after": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "scope": "observed cgroup delta, not exclusive process attribution; all child group processes closed"
+}
+
+TERMINAL_TAIL {"archiveSHA256":"451347c174a3fe78e5f7b6ef22736b7cfbbd33b39fd04ea20556730bb3b15a8b","archiveBytes":7848992,"logicalBodies":952,"newUniqueBodies":711,"fullUniqueOriginalByteRoundtrip":true,"planSHA256":"0998d948c57e2fb3d1e01f34e61028d5c80db299df308d3b1e83ab902d4281b7","indexSHA256":"64fe0a3ea9e523e6a63c9b7e60cd4ae3df8c88ef15cfba858a86187e21e98d58","readObservationsSHA256":"e3b4a36b6c2c01b98d3fef9b7fa19711b2577ffdef4b51c5899284298faac142","allOriginalPathsRetained":true,"noPublicationOrSelectionAuthority":true,"ownMaxRSSBytes":15855616,"elapsedBeforeFinalReceipt":0.5056470039999112,"terminalElapsedAfterAllWrites":0.507944636978209,"terminalLogicalOutputBytesAfterAllWrites":8408132,"terminalAllocatedOutputBytesAfterAllWrites":8421376,"terminalOwnMaxRSSBytesAfterAllWrites":15855616}
+
+RSS 10891264

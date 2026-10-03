@@ -1,0 +1,59 @@
+{
+  "verdict": "ACCEPT_EXACT_SOURCE_FOR_FIXED_READ_ONLY_CI_BYTE_TRANSFER_ONLY",
+  "technicalSourceAccepted": true,
+  "sourceSealSHA256": "55ed1038ea01a94aae86c39c72599c1d35092d1e36e74f8dd9d1871afab6ddcb",
+  "sourceRoot": "/workspace/scratch/opening-runtime-transfer-source-r2",
+  "workflowSHA256": "fd0115dbea71ba1ae7d42641ec6d518044fd99c77efa0520e7a8fd004d16ef7c",
+  "methodSHA256": "0fe6213ba13c8fbdd2a372101808f8b4002b174d6fbeda215f52986ee5fdcef3",
+  "sourceFamilyBytes": 97988,
+  "sourceFamilyCapBytes": 131072,
+  "offlineCases": 24,
+  "exactGitMetadataPins": 52,
+  "canonicalHistoricalSHA256Pins": 50,
+  "completeMethodAndWorkflowForwardInverse": true,
+  "exactUploadBodyAndReceiptPaths": 54,
+  "actualR2CIOrDownloadsVerified": false,
+  "archiveExtractionOrCoverageVerified": false,
+  "runtimeBuildBrowserDefaultArtGameplayFunAccepted": false,
+  "rootSoleRemoteWriter": true,
+  "priorWorkRetainedUnchanged": true,
+  "reviewHarnessFirstAttemptFailure": "KeyError name in static upload list harness; fixed to canonical path/container Git basename; no candidate mutation or main execution",
+  "qualification": "Source only; actual CI may fail and must be retained. Measure both actual ZIP sizes and independently verify all inner bytes/receipts before any downstream claim. Separate uploader limits/expiry do not imply runtime acceptance.",
+  "filesBeforeGate": [
+    {
+      "name": "HISTORICAL-CANONICAL-SHA256.json",
+      "bytes": 7117,
+      "sha256": "543e88f26ae50c206a381bdcb039a4da7ff00729eb76f2e77d27e4a1ac10707d"
+    },
+    {
+      "name": "PROOF.json",
+      "bytes": 11331,
+      "sha256": "b293df746af7ae28109fa2fe864ca73b65936c1e2fec0091e21950799eb445e3"
+    },
+    {
+      "name": "REVIEW.md",
+      "bytes": 5077,
+      "sha256": "2459a7d878f467ce99e852ece6d90f5d64254f477706e76bf1080bddf8a53edd"
+    },
+    {
+      "name": "SEAL-INVERSE-PROOF.json",
+      "bytes": 2576,
+      "sha256": "74bd743b9337232e449bda39f718ffed3bd5260e40a2fd32a0b30782cc4fc7cb"
+    },
+    {
+      "name": "offline_check.py",
+      "bytes": 6664,
+      "sha256": "9817a9c3700ee21c736100e5e841be5fa040db66c47eb356a40668148ecd371d"
+    },
+    {
+      "name": "seal_inverse_check.py",
+      "bytes": 4507,
+      "sha256": "c883a263341a4160dd540b081cf7f958bfd1b311a9e0a1ad3f0255ce8ddcd02e"
+    }
+  ],
+  "ownSourceCapBytes": 49152,
+  "ordinarySourceWorkBytes": 67108864,
+  "ordinarySourceReserveBytes": 536870912,
+  "utcNS": 1790965560419599566,
+  "ownBytesIncludingGate": 39743
+}

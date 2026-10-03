@@ -1,0 +1,5 @@
+{
+  "error": "AssertionError: Original adapter must reproduce command callbacks during synthetic visible blur",
+  "reason": "Harness mixed manual times20/40/60 with real RAF performance.now. Time went backwards, legitimately resetting the decoder. Use the same performance.now clock as RAF for all manual polls.",
+  "runtimeChange": false
+}

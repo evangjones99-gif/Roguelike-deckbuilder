@@ -1,0 +1,178 @@
+/** Unselected static native128 reference trial; no pose/attack animation contract. */
+export const COHERENT_NATIVE128 = {
+  "manifest": "coherent-native128-manual-crop-view-manifest.json",
+  "manifestSha256": "c2f718c7296f65a51852382c93d687b32fa1c74010fedc82ad2e82827269a05e",
+  "palette": [
+    "#11151d",
+    "#23313b",
+    "#3c515b",
+    "#667e82",
+    "#9aa8a1",
+    "#c5c8ac",
+    "#e7ddba",
+    "#483931",
+    "#735548",
+    "#a47b55",
+    "#d4ad6c",
+    "#632f37",
+    "#a5544a",
+    "#367e82",
+    "#72beb6"
+  ],
+  "sprites": [
+    {
+      "name": "cairn-hound-rear-three-quarter",
+      "category": "body",
+      "intended_view": "rear three-quarter ally",
+      "filename": "cairn-hound-rear-three-quarter-manual-crop-native128-draft.png",
+      "sha256": "fac6409c4218db7984c25c51abc9adb9aec870e1e20df52939171e700cb2829e",
+      "native_dimensions": [
+        128,
+        128
+      ],
+      "native_bounds": [
+        12,
+        19,
+        116,
+        120
+      ],
+      "ground_anchor": [
+        64,
+        120
+      ],
+      "mirror": false
+    },
+    {
+      "name": "ironjaw-reaver-front-three-quarter",
+      "category": "body",
+      "intended_view": "front three-quarter enemy",
+      "filename": "ironjaw-reaver-front-three-quarter-manual-crop-native128-draft.png",
+      "sha256": "90badaa9e35a71f849947a7c45970c19db8f5163eb36aa3370df89631e818f32",
+      "native_dimensions": [
+        128,
+        128
+      ],
+      "native_bounds": [
+        8,
+        13,
+        120,
+        120
+      ],
+      "ground_anchor": [
+        64,
+        120
+      ],
+      "mirror": false
+    },
+    {
+      "name": "gloam-revenant-front-three-quarter",
+      "category": "body",
+      "intended_view": "front three-quarter enemy",
+      "filename": "gloam-revenant-front-three-quarter-manual-crop-native128-draft.png",
+      "sha256": "6434bdf7ebd56dd67d2032a1d078164467ac4a1d44bf9037dd7f9e1a374b53e7",
+      "native_dimensions": [
+        128,
+        128
+      ],
+      "native_bounds": [
+        19,
+        16,
+        109,
+        120
+      ],
+      "ground_anchor": [
+        64,
+        120
+      ],
+      "mirror": false
+    },
+    {
+      "name": "marek-hunter-rear-three-quarter",
+      "category": "body",
+      "intended_view": "rear three-quarter hunter",
+      "filename": "marek-hunter-rear-three-quarter-manual-crop-native128-draft.png",
+      "sha256": "7c1f0d50e6db26b03d8eb17969b5858319463e60067cb4d9473abbe2a5adc2f9",
+      "native_dimensions": [
+        128,
+        128
+      ],
+      "native_bounds": [
+        10,
+        14,
+        118,
+        120
+      ],
+      "ground_anchor": [
+        64,
+        120
+      ],
+      "mirror": false
+    },
+    {
+      "name": "cairn-hound-front-portrait",
+      "category": "portrait",
+      "intended_view": "front head/chest",
+      "filename": "cairn-hound-front-portrait-manual-crop-native128-draft.png",
+      "sha256": "c53064c273e91b43eb49b8dba508b069af42d3d05b80644694e4591136ee1021",
+      "native_dimensions": [
+        128,
+        128
+      ],
+      "native_bounds": [
+        9,
+        8,
+        119,
+        120
+      ],
+      "ground_anchor": [
+        64,
+        120
+      ],
+      "mirror": false
+    },
+    {
+      "name": "marek-hunter-front-portrait",
+      "category": "portrait",
+      "intended_view": "front head/chest",
+      "filename": "marek-hunter-front-portrait-manual-crop-native128-draft.png",
+      "sha256": "a1ab99f2c559b02ac1bd4767327fe098908b7c703da085f8d5cddb7fc7977d1c",
+      "native_dimensions": [
+        128,
+        128
+      ],
+      "native_bounds": [
+        8,
+        19,
+        120,
+        120
+      ],
+      "ground_anchor": [
+        64,
+        120
+      ],
+      "mirror": false
+    },
+    {
+      "name": "ironjaw-reaver-fallen-grounded",
+      "category": "body",
+      "intended_view": "fallen enemy corpse, static",
+      "filename": "ironjaw-reaver-fallen-grounded-native128-draft.png",
+      "sha256": "68b7858fa43a285a6b1bbc5d7daf4bac55cb189ec051fa9d52353d91b77db2e2",
+      "native_dimensions": [
+        128,
+        128
+      ],
+      "native_bounds": [
+        8,
+        61,
+        119,
+        120
+      ],
+      "ground_anchor": [
+        64,
+        120
+      ],
+      "mirror": false
+    }
+  ]
+} as const;

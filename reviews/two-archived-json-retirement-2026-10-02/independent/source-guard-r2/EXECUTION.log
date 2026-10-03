@@ -1,0 +1,563 @@
+SOURCE retire-two-archived-json-copies-root-r1.py 8427 b6c0af4994ce1f8430457189918cd03f1f9e31b34d35693c252642fdc9e4f92c
+from pathlib import Path
+import os, sys, json, hashlib, stat, tarfile, subprocess, time
+R=Path('/workspace/Roguelike-deckbuilder');S=Path('/workspace/scratch')
+proposal,proposal_sha,gate,gate_sha,push,push_sha=sys.argv[1:]
+KEYS=['st_dev','st_ino','st_mode','st_nlink','st_uid','st_gid','st_size','st_blocks','st_atime_ns','st_mtime_ns','st_ctime_ns']
+def md(t):return {k:getattr(t,k) for k in KEYS}
+def digest(f):
+ h=hashlib.sha256()
+ for b in iter(lambda:f.read(65536),b''):h.update(b)
+ return h.hexdigest()
+def sha(p):
+ fd=os.open(p,os.O_RDONLY|os.O_NOFOLLOW|os.O_NOATIME)
+ with os.fdopen(fd,'rb') as f:return digest(f)
+def parentfd(p):
+ fd=os.open('/',os.O_PATH|os.O_DIRECTORY|os.O_NOFOLLOW)
+ try:
+  for part in p.parent.parts[1:]:
+   assert part not in ('','.', '..');q=os.open(part,os.O_PATH|os.O_DIRECTORY|os.O_NOFOLLOW,dir_fd=fd);os.close(fd);fd=q
+  return fd
+ except BaseException:os.close(fd);raise
+def syncfd(fd):
+ q=os.open('.',os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW,dir_fd=fd)
+ try:os.fsync(q)
+ finally:os.close(q)
+def save(p,j):
+ with p.open('x') as f:json.dump(j,f,indent=2);f.write('\n');f.flush();os.fsync(f.fileno())
+ fd=parentfd(p)
+ try:syncfd(fd)
+ finally:os.close(fd)
+def check(fd,name,expected,h):
+ before=md(os.stat(name,dir_fd=fd,follow_symlinks=False));assert before==expected and stat.S_ISREG(before['st_mode'])
+ f=os.open(name,os.O_RDONLY|os.O_NOFOLLOW|os.O_NOATIME,dir_fd=fd)
+ try:
+  assert md(os.fstat(f))==expected and not os.listxattr('/proc/self/fd/'+str(f))
+  with os.fdopen(os.dup(f),'rb') as stream:assert digest(stream)==h
+  assert md(os.fstat(f))==expected
+ finally:os.close(f)
+ assert md(os.stat(name,dir_fd=fd,follow_symlinks=False))==expected
+for p,h in [(proposal,proposal_sha),(gate,gate_sha),(push,push_sha)]:assert sha(p)==h
+e=json.loads(Path(proposal).read_text());g=json.loads(Path(gate).read_text());p=json.loads(Path(push).read_text())
+assert g['decision'].startswith('ACCEPT') and g['replacementBetter'] and g['oldLooseCopiesNoLongerNeeded']
+assert g['method']['sha256']==sha(Path(__file__)) and g['proposal']['sha256']==proposal_sha
+assert g['currentHold']['sha256']==sha(R/'AGENTS.md')
+assert p['confirmed'] and p['clean'] and p['gateSHA256']==gate_sha and p['methodSHA256']==sha(Path(__file__))
+assert (R/'.git/refs/heads/codex/lanternbound-production').read_text().strip()==p['commit']
+q=subprocess.run(['git','status','--porcelain'],cwd=R,text=True,capture_output=True,timeout=10);assert q.returncode==0 and not q.stdout
+published=R/'reviews/two-archived-json-retirement-2026-10-02'
+assert (published/'independent/GATE.json').read_bytes()==Path(gate).read_bytes()
+assert (published/'root-controls'/Path(__file__).name).read_bytes()==Path(__file__).read_bytes()
+initial_free=os.statvfs(R).f_bavail*os.statvfs(R).f_frsize;assert initial_free>=64*1048576
+cg=Path('/sys/fs/cgroup');assert int((cg/'memory.max').read_text())-int((cg/'memory.current').read_text())>=576*1048576
+selected=json.loads((S/'target-wait-default-promotion-root-r1/RESULT.json').read_text())
+assert g['selectedMap']['sha256']==sha(S/'target-wait-default-promotion-root-r1/RESULT.json')
+def selected_exact():
+ for rel,h in selected['canonicalInputs'].items():assert sha(R/rel)==h,rel
+ for rel,h in selected['canonicalOutputs'].items():assert sha(R/'dist'/rel)==h,rel
+selected_exact()
+protected=S/'retained-original-archives/preflight-bdf273-original-r4.zip';protected_before=md(os.stat(protected,follow_symlinks=False))
+assert (protected_before['st_dev'],protected_before['st_ino'],protected_before['st_size'],protected_before['st_nlink'])==(27,678628,1856041104,1)
+raw=e['rawFiles'];root=S/'settle-drag-comparison-actual-r1'
+assert len(raw)==2 and {Path(x['path']).name for x in raw}=={'VISUAL-RESULT.json','VISUAL-PROGRESS.json'}
+assert all(Path(x['path']).parent==root and x['fstat']['st_dev']==27 and x['fstat']['st_nlink']==1 for x in raw)
+capsule=e['capsule'];cp=Path(capsule['path'])
+assert cp==R/'reviews/opening-ready-and-rapid-drop-2026-10-01/evidence.tar.gz'
+assert capsule['sha256']=='27c7d4e2a117c5fa2625146a5ca78e7965705f8f809e44b6c2d7b9efb52817af'
+handles=[]
+try:
+ for x in [capsule,*raw]:
+  path=Path(x['path']);fd=parentfd(path);handles.append((x,path,fd));fresh=md(os.stat(path.name,dir_fd=fd,follow_symlinks=False))
+  assert all(fresh[k]==v for k,v in x['fstat'].items() if k!='st_atime_ns')
+  x['proposalMetadata']=x['fstat'].copy();x['currentMetadata']=fresh
+  check(fd,path.name,fresh,x['sha256'])
+ capsule_fd=os.open(cp.name,os.O_RDONLY|os.O_NOFOLLOW|os.O_NOATIME,dir_fd=handles[0][2])
+ try:
+  assert md(os.fstat(capsule_fd))==capsule['currentMetadata'];found={};manifest=None;count=0
+  with os.fdopen(os.dup(capsule_fd),'rb') as stream,tarfile.open(fileobj=stream,mode='r|gz') as tar:
+   for m in tar:
+    count+=1;assert count<=800
+    if m.name=='MANIFEST.json':
+     assert m.isfile() and m.size<1048576;v=tar.extractfile(m).read();assert hashlib.sha256(v).hexdigest()==e['manifestSHA256'];manifest=json.loads(v)
+    if m.name in {'blobs/'+x['sha256'] for x in raw}:
+     assert m.isfile() and m.name not in found;stream_body=tar.extractfile(m)
+     with stream_body:found[m.name]={'sha256':digest(stream_body),'bytes':m.size}
+  assert manifest is not None and len(found)==2
+  for x in raw:assert found['blobs/'+x['sha256']]=={'sha256':x['sha256'],'bytes':x['bytes']}
+  for mapping in e['exactLogicalMapping']:
+   assert mapping['originalPath'] in {x['path'] for x in raw} and mapping['blobMember']=='blobs/'+mapping['sha256']
+   entries=[entry for entry in manifest['entries'] if entry.get('originalPath')==mapping['originalPath']]
+   assert len(entries)==1 and entries[0]['path']==mapping['logicalPath']
+   assert (entries[0]['sha256'],entries[0]['bytes'])==(mapping['sha256'],mapping['bytes'])
+  assert len(e['exactLogicalMapping'])==2 and {x['originalPath'] for x in e['exactLogicalMapping']}=={x['path'] for x in raw}
+  assert md(os.fstat(capsule_fd))==capsule['currentMetadata']
+ finally:os.close(capsule_fd)
+ P=S/'two-archived-json-retirement-actual-root-r1';P.mkdir();ancestor=parentfd(P)
+ try:syncfd(ancestor)
+ finally:os.close(ancestor)
+ save(P/'BEFORE.json',{'rawFiles':raw,'capsule':capsule,'initialFree':initial_free})
+ save(P/'PRODUCER.json',{'decision':'RETIRE_ONLY_TWO_REPRODUCIBLE_LOOSE_JSON_COPIES','proposalSHA256':proposal_sha,'gateSHA256':gate_sha,'pushSHA256':push_sha,'commit':p['commit'],'methodSHA256':sha(Path(__file__)),'judgment':'Prefer the already published byte-exact compressed evidence successor; these two loose scratch encodings are no longer needed continuously. Preserve capsule, every original review, source, save/event/JPEG, manifest, and reconstruction helper.','losses':'Raw paths and original inode/time metadata lost. Historical hardcoded readers require reconstruction or new path-scoped reader. No metadata rollback or two-unlink atomicity; durable per-leaf prefix only.','oneAttempt':True,'noAutomaticRetry':True})
+ for x,path,fd in handles[1:]:
+  check(fd,path.name,x['currentMetadata'],x['sha256']);check(handles[0][2],cp.name,capsule['currentMetadata'],capsule['sha256'])
+  def journal(operation):
+   with (P/'JOURNAL.jsonl').open('a') as f:f.write(json.dumps({'utcNs':time.time_ns(),'operation':operation,'path':str(path),'sha256':x['sha256']})+'\n');f.flush();os.fsync(f.fileno())
+   packetfd=parentfd(P/'JOURNAL.jsonl')
+   try:syncfd(packetfd)
+   finally:os.close(packetfd)
+  journal('PRE_UNLINK');os.unlink(path.name,dir_fd=fd);syncfd(fd);journal('UNLINK_DURABLE')
+  try:os.stat(path.name,dir_fd=fd,follow_symlinks=False);raise AssertionError('retired path still exists')
+  except FileNotFoundError:pass
+ check(handles[0][2],cp.name,capsule['currentMetadata'],capsule['sha256']);selected_exact();assert md(os.stat(protected,follow_symlinks=False))==protected_before
+ final_free=os.statvfs(R).f_bavail*os.statvfs(R).f_frsize
+ save(P/'RESULT.json',{'normal':True,'retiredPaths':[x['path'] for x in raw],'preservedBodies':[x['sha256'] for x in raw],'capsuleSHA256':capsule['sha256'],'grossAllocationBytes':sum(x['fstat']['st_blocks']*512 for x in raw),'windowFreeBefore':initial_free,'windowFreeAfterBeforeResultWrite':final_free,'netWindowGainBytes':final_free-initial_free,'capsuleAndCurrent87_56Exact':True,'protectedOriginalStatExact':True,'noOtherAction':True})
+ print(json.dumps({'normal':True,'freeBeforeResultWrite':final_free,'netWindowGain':final_free-initial_free}))
+finally:
+ for x,path,fd in handles:os.close(fd)
+
+SOURCE publish-two-json-retirement-root-r1.py 5015 90c6412389722df52f209834918aa4689e097d2721cb282a6e2e5f6b42916a7e
+from pathlib import Path
+import os,json,hashlib,subprocess,time
+S=Path('/workspace/scratch');R=Path('/workspace/Roguelike-deckbuilder')
+D=R/'reviews/two-archived-json-retirement-2026-10-02';P=S/'two-json-retirement-push-root-r1'
+gate=S/'two-json-raw-retirement-independent-r1/GATE.json'
+method=S/'retire-two-archived-json-copies-root-r1.py'
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+g=json.loads(gate.read_text());assert g['decision'].startswith('ACCEPT') and g['replacementBetter'] and g['oldLooseCopiesNoLongerNeeded']
+assert g['method']['sha256']==sha(method) and g['publisher']['sha256']==sha(Path(__file__))
+assert not D.exists() and not P.exists();D.mkdir();P.mkdir();records={}
+def copy(a,b):
+ assert a.is_file() and not a.is_symlink() and not b.exists();b.parent.mkdir(parents=True,exist_ok=True)
+ fd=os.open(a,os.O_RDONLY|os.O_NOFOLLOW|os.O_NOATIME)
+ with os.fdopen(fd,'rb') as f:v=f.read()
+ b.write_bytes(v);h=hashlib.sha256(v).hexdigest();assert sha(b)==h
+ records[str(b.relative_to(D))]={'originalPath':str(a),'bytes':len(v),'sha256':h}
+for original,dest in [('settle-json-raw-retirement-proposal-r1','proposal'),('two-json-raw-retirement-independent-r1','independent'),('second-three-png-sharing-post-independent-r4','png-post'),('second-three-png-sharing-actual-guard-root-r4','png-action-guard'),('second-three-retained-png-sharing-actual-root-r4','png-action')]:
+ for p in sorted((S/original).rglob('*')):
+  if p.is_file():copy(p,D/dest/p.relative_to(S/original))
+for name in [method.name,Path(__file__).name]:copy(S/name,D/'root-controls'/name)
+assert sum(x['bytes'] for x in records.values())<=384*1024
+(D/'COPY-IDENTITIES.json').write_text(json.dumps(records,indent=2)+'\n')
+(D/'README.md').write_text('''# Reviewed physical copies, preserved evidence
+
+The second three-PNG transaction retained every image path and body and recovered8,462,336 bytes in its recorded finite window before the result write. Its independent post-check and exact transaction controls are copied here; original packets/reviews remain unchanged.
+
+The separate two-JSON proposal concerns only loose VISUAL-RESULT/PROGRESS scratch encodings from the rejected settleDrag comparison. They are different bodies. The published opening-ready-and-rapid-drop evidence capsule retains both exact blob bodies and logical names, with the original independent roundtrip review unchanged. This supplement records a fresh complete two-body roundtrip, mappings, current/historical consumer scope, and unexecuted fresh-path restoration source. Current callers create fresh outputs. Historical hardcoded readers require reconstruction or a new path-scoped reader; original raw paths and inode/time metadata would be lost. This is selective encoding retirement, not removal of unique findings, human feedback, art rights, source, captures, saves or events. Unknown future consumers/global open files are not disproved.
+
+This pre-action publication claims no JSON retirement. Root producer judgment, current confirmed clean push and fresh64MiB/64+512 admission are required before the one exact action. Durable per-leaf journal, complete archive/body rechecks and unchanged87/56 current build checks are required; interruption stops with evidence retained and no automatic retry. Native70 and strictbuild64 admissions remain unchanged. The R3 ghost is privately built and unselected; no visual improvement or human enjoyment is asserted here.
+''')
+def run(args):
+ q=subprocess.run(args,cwd=R,text=True,capture_output=True,timeout=55)
+ with (P/'COMMANDS.jsonl').open('a') as f:f.write(json.dumps({'args':args,'rc':q.returncode,'stdout':q.stdout,'stderr':q.stderr,'utcNs':time.time_ns()})+'\n');f.flush();os.fsync(f.fileno())
+ assert q.returncode==0,(args,q.stderr)
+ return q.stdout.rstrip('\n')
+assert run(['git','rev-parse','HEAD'])=='90d128934e5a86c66c4fa92d0eebb1906a3f2b37'
+owned=str(D.relative_to(R))
+for line in run(['git','status','--porcelain','--untracked-files=all']).splitlines():assert line[3:].startswith(owned+'/'),line
+run(['git','add','-f','--',owned]);run(['git','-c','gc.auto=0','commit','-m','Preserve reviewed exact archived JSON retirement proposal and PNG postcheck'])
+head=run(['git','rev-parse','HEAD']);run(['git','-c','gc.auto=0','push','origin','HEAD:codex/lanternbound-production']);remote=run(['git','ls-remote','origin','refs/heads/codex/lanternbound-production']).split()[0]
+assert remote==head and not run(['git','status','--porcelain'])
+with (P/'PUSH-CONFIRMED.json').open('x') as f:json.dump({'commit':head,'remote':remote,'confirmed':True,'clean':True,'gateSHA256':sha(gate),'methodSHA256':sha(method),'copiedBytes':sum(v['bytes'] for v in records.values()),'noJSONRetirement':True},f,indent=2);f.write('\n');f.flush();os.fsync(f.fileno())
+for directory in [P,S]:
+ fd=os.open(directory,os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW)
+ try:os.fsync(fd)
+ finally:os.close(fd)
+print(json.dumps({'commit':head,'confirmed':True,'clean':True,'free':os.statvfs(R).f_bavail*os.statvfs(R).f_frsize}))
+
+PROPOSAL 14036 2e5142f33be1d86f33415183fa1f2b72d70484ccc9b414e1f242bf024554488c
+{
+  "decision": "PREFER selective retirement of ONLY two redundant physical scratch JSON encodings after independent replacement/no-longer-needed review, producer judgment and fresh confirmed push. NO ACTION AUTHORITY.",
+  "rawFiles": [
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/VISUAL-RESULT.json",
+      "sha256": "b7713194f75462873cf59193251203f0cfebfd65c0f32b6732c2a1bac4354d74",
+      "bytes": 3013464,
+      "lstat": {
+        "st_dev": 27,
+        "st_ino": 685971,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 3013464,
+        "st_blocks": 5888,
+        "st_atime_ns": 1790896710795012204,
+        "st_mtime_ns": 1790896679487510052,
+        "st_ctime_ns": 1790896679487510052
+      },
+      "fstat": {
+        "st_dev": 27,
+        "st_ino": 685971,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 3013464,
+        "st_blocks": 5888,
+        "st_atime_ns": 1790896710795012204,
+        "st_mtime_ns": 1790896679487510052,
+        "st_ctime_ns": 1790896679487510052
+      },
+      "xattrs": {},
+      "nofollowHeldParents": true,
+      "O_NOATIME": true,
+      "duringReadMetadataExact": true
+    },
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1/VISUAL-PROGRESS.json",
+      "sha256": "76c5d89a05d73e0fb9e0c17559c900be4515668fbfd3ec9e919e9bc2adda34b2",
+      "bytes": 3013437,
+      "lstat": {
+        "st_dev": 27,
+        "st_ino": 685925,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 3013437,
+        "st_blocks": 5888,
+        "st_atime_ns": 1790897086396807756,
+        "st_mtime_ns": 1790896679283513385,
+        "st_ctime_ns": 1790896679283513385
+      },
+      "fstat": {
+        "st_dev": 27,
+        "st_ino": 685925,
+        "st_mode": 33152,
+        "st_nlink": 1,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 3013437,
+        "st_blocks": 5888,
+        "st_atime_ns": 1790897086396807756,
+        "st_mtime_ns": 1790896679283513385,
+        "st_ctime_ns": 1790896679283513385
+      },
+      "xattrs": {},
+      "nofollowHeldParents": true,
+      "O_NOATIME": true,
+      "duringReadMetadataExact": true
+    }
+  ],
+  "capsule": {
+    "path": "/workspace/Roguelike-deckbuilder/reviews/opening-ready-and-rapid-drop-2026-10-01/evidence.tar.gz",
+    "sha256": "27c7d4e2a117c5fa2625146a5ca78e7965705f8f809e44b6c2d7b9efb52817af",
+    "bytes": 3303630,
+    "lstat": {
+      "st_dev": 27,
+      "st_ino": 686026,
+      "st_mode": 33152,
+      "st_nlink": 1,
+      "st_uid": 1000,
+      "st_gid": 1000,
+      "st_size": 3303630,
+      "st_blocks": 6456,
+      "st_atime_ns": 1790897123232117632,
+      "st_mtime_ns": 1790897087048791776,
+      "st_ctime_ns": 1790897087048791776
+    },
+    "fstat": {
+      "st_dev": 27,
+      "st_ino": 686026,
+      "st_mode": 33152,
+      "st_nlink": 1,
+      "st_uid": 1000,
+      "st_gid": 1000,
+      "st_size": 3303630,
+      "st_blocks": 6456,
+      "st_atime_ns": 1790897123232117632,
+      "st_mtime_ns": 1790897087048791776,
+      "st_ctime_ns": 1790897087048791776
+    },
+    "xattrs": {},
+    "nofollowHeldParents": true,
+    "O_NOATIME": true,
+    "duringReadMetadataExact": true
+  },
+  "manifestSHA256": "005225286c6784598181a46bd0ad25cc99d4ee54b3c2394d58d5ea915b41155b",
+  "exactLogicalMapping": [
+    {
+      "originalPath": "/workspace/scratch/settle-drag-comparison-actual-r1/VISUAL-RESULT.json",
+      "logicalPath": "packets/settle-drag-comparison-actual-r1/VISUAL-RESULT.json",
+      "blobMember": "blobs/b7713194f75462873cf59193251203f0cfebfd65c0f32b6732c2a1bac4354d74",
+      "sha256": "b7713194f75462873cf59193251203f0cfebfd65c0f32b6732c2a1bac4354d74",
+      "bytes": 3013464
+    },
+    {
+      "originalPath": "/workspace/scratch/settle-drag-comparison-actual-r1/VISUAL-PROGRESS.json",
+      "logicalPath": "packets/settle-drag-comparison-actual-r1/VISUAL-PROGRESS.json",
+      "blobMember": "blobs/76c5d89a05d73e0fb9e0c17559c900be4515668fbfd3ec9e919e9bc2adda34b2",
+      "sha256": "76c5d89a05d73e0fb9e0c17559c900be4515668fbfd3ec9e919e9bc2adda34b2",
+      "bytes": 3013437
+    }
+  ],
+  "freshBlobRoundtrip": [
+    {
+      "member": "blobs/76c5d89a05d73e0fb9e0c17559c900be4515668fbfd3ec9e919e9bc2adda34b2",
+      "sha256": "76c5d89a05d73e0fb9e0c17559c900be4515668fbfd3ec9e919e9bc2adda34b2",
+      "bytes": 3013437,
+      "tarMode": 384,
+      "tarUID": 0,
+      "tarGID": 0,
+      "tarMtime": 0
+    },
+    {
+      "member": "blobs/b7713194f75462873cf59193251203f0cfebfd65c0f32b6732c2a1bac4354d74",
+      "sha256": "b7713194f75462873cf59193251203f0cfebfd65c0f32b6732c2a1bac4354d74",
+      "bytes": 3013464,
+      "tarMode": 384,
+      "tarUID": 0,
+      "tarGID": 0,
+      "tarMtime": 0
+    }
+  ],
+  "archiveMemberCount": 662,
+  "independentPreservationGate": {
+    "path": "/workspace/Roguelike-deckbuilder/reviews/opening-ready-and-rapid-drop-2026-10-01/independent-capsule-review/GATE.json",
+    "sha256": "361690dcef0b941930c3e9b48afc80a6f8882c5b19a7d5e0995007f0d7e0dda9",
+    "bytes": 2914,
+    "lstat": {
+      "st_dev": 27,
+      "st_ino": 686098,
+      "st_mode": 33152,
+      "st_nlink": 1,
+      "st_uid": 1000,
+      "st_gid": 1000,
+      "st_size": 2914,
+      "st_blocks": 8,
+      "st_atime_ns": 1790898102519930122,
+      "st_mtime_ns": 1790897394629783097,
+      "st_ctime_ns": 1790897530238105236
+    },
+    "fstat": {
+      "st_dev": 27,
+      "st_ino": 686098,
+      "st_mode": 33152,
+      "st_nlink": 1,
+      "st_uid": 1000,
+      "st_gid": 1000,
+      "st_size": 2914,
+      "st_blocks": 8,
+      "st_atime_ns": 1790898102519930122,
+      "st_mtime_ns": 1790897394629783097,
+      "st_ctime_ns": 1790897530238105236
+    },
+    "xattrs": {},
+    "nofollowHeldParents": true,
+    "O_NOATIME": true,
+    "duringReadMetadataExact": true
+  },
+  "independentPreservationReview": {
+    "path": "/workspace/Roguelike-deckbuilder/reviews/opening-ready-and-rapid-drop-2026-10-01/independent-capsule-review/REVIEW.md",
+    "sha256": "0214f0bf53f6d61d3691e78f03b0ac99d6c2bfc4e2df6166fc2f4b5f6433aa09",
+    "bytes": 1557,
+    "lstat": {
+      "st_dev": 27,
+      "st_ino": 686097,
+      "st_mode": 33152,
+      "st_nlink": 1,
+      "st_uid": 1000,
+      "st_gid": 1000,
+      "st_size": 1557,
+      "st_blocks": 8,
+      "st_atime_ns": 1790898102519930122,
+      "st_mtime_ns": 1790897362622354107,
+      "st_ctime_ns": 1790897530238036916
+    },
+    "fstat": {
+      "st_dev": 27,
+      "st_ino": 686097,
+      "st_mode": 33152,
+      "st_nlink": 1,
+      "st_uid": 1000,
+      "st_gid": 1000,
+      "st_size": 1557,
+      "st_blocks": 8,
+      "st_atime_ns": 1790898102519930122,
+      "st_mtime_ns": 1790897362622354107,
+      "st_ctime_ns": 1790897530238036916
+    },
+    "xattrs": {},
+    "nofollowHeldParents": true,
+    "O_NOATIME": true,
+    "duringReadMetadataExact": true
+  },
+  "originalGateFacts": {
+    "decision": "ACCEPT_EXACT_BOUNDED_EVIDENCE_CAPSULE_WITH_DECLARED_FOOTPRINT_DEVIATION",
+    "logicalBodies": 737,
+    "uniqueBlobs": 661,
+    "footprintDeviationPreserved": true,
+    "noRetirementAuthorityInGate": true
+  },
+  "preservedParentRights": [
+    {
+      "path": "/workspace/scratch/settle-drag-comparison-actual-r1",
+      "fstat": {
+        "st_dev": 27,
+        "st_ino": 685918,
+        "st_mode": 16832,
+        "st_nlink": 2,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 4096,
+        "st_blocks": 8,
+        "st_atime_ns": 1790896693435288617,
+        "st_mtime_ns": 1790896679699506590,
+        "st_ctime_ns": 1790896679699506590
+      },
+      "xattrs": {}
+    },
+    {
+      "path": "/workspace/Roguelike-deckbuilder/reviews/opening-ready-and-rapid-drop-2026-10-01",
+      "fstat": {
+        "st_dev": 27,
+        "st_ino": 686025,
+        "st_mode": 16832,
+        "st_nlink": 6,
+        "st_uid": 1000,
+        "st_gid": 1000,
+        "st_size": 4096,
+        "st_blocks": 8,
+        "st_atime_ns": 1790898055452764753,
+        "st_mtime_ns": 1790898055240768174,
+        "st_ctime_ns": 1790898055240768174
+      },
+      "xattrs": {}
+    }
+  ],
+  "consumerPins": [
+    {
+      "pin": {
+        "path": "/workspace/Roguelike-deckbuilder/reviews/opening-ready-and-rapid-drop-2026-10-01/SUMMARY.json",
+        "sha256": "4e9519fab7287aed4488e7ac35bb007625cdd7581a8209f5f6cce633158f74c8",
+        "bytes": 1451
+      },
+      "exactHistoricalRootMentioned": false,
+      "resultNameMentioned": false,
+      "progressNameMentioned": false,
+      "referenceLines": []
+    },
+    {
+      "pin": {
+        "path": "/workspace/Roguelike-deckbuilder/reviews/opening-ready-and-rapid-drop-2026-10-01/README.md",
+        "sha256": "4c4b310b04c799a1b89552109cd85b21c45191994200df3a570655e694afa7eb",
+        "bytes": 1729
+      },
+      "exactHistoricalRootMentioned": false,
+      "resultNameMentioned": false,
+      "progressNameMentioned": false,
+      "referenceLines": []
+    },
+    {
+      "pin": {
+        "path": "/workspace/scratch/settle-drag-caller-author-r2/driver-paired-r1.mjs",
+        "sha256": "958130fb586b12e5ee13666c0a992e497be1cd5ab44d42d7cf60bc8a089d5d70",
+        "bytes": 36368
+      },
+      "exactHistoricalRootMentioned": false,
+      "resultNameMentioned": true,
+      "progressNameMentioned": true,
+      "referenceLines": [
+        "function persist(){fs.writeFileSync(path.join(packet,'VISUAL-PROGRESS.json'),JSON.stringify(result,null,2)+'\\n');}",
+        " fs.writeFileSync(path.join(packet,'VISUAL-RESULT.json'),JSON.stringify(result,null,2)+'\\n');"
+      ]
+    },
+    {
+      "pin": {
+        "path": "/workspace/scratch/settle-drag-caller-author-r2/supervise-paired-r1.py",
+        "sha256": "bdfb9c7c22651cdc37b033de778308d0028261d51bee146c8c745a338defd48c",
+        "bytes": 8265
+      },
+      "exactHistoricalRootMentioned": false,
+      "resultNameMentioned": false,
+      "progressNameMentioned": false,
+      "referenceLines": []
+    },
+    {
+      "pin": {
+        "path": "/workspace/scratch/settle-drag-actual-gameplay-independent-r1/review_evidence.py",
+        "sha256": "367523da6ba62e15de92b7649b8e590eed7239141d099cb79f680371f07b1802",
+        "bytes": 8747
+      },
+      "exactHistoricalRootMentioned": true,
+      "resultNameMentioned": true,
+      "progressNameMentioned": false,
+      "referenceLines": [
+        "ROOT=Path(__file__).parent;ACT=Path('/workspace/scratch/settle-drag-comparison-actual-r1');CG=Path('/sys/fs/cgroup');BASE=int(os.environ['REVIEW_BASE']);EVENTS=(CG/'memory.events').read_text();START=time.monotonic();ROWS=[];PINS=[]",
+        " for line in stream(ACT/'VISUAL-RESULT.json'):",
+        "final=guard('final-before-proof');write('EVIDENCE.json',{'freeze':freezeMeta,'actualSupervisor':smallmeta,'cases':cases,'fullSaveComparisons':comparisons,'nativeTraceSummary':native,'inputPins':PINS,'allInputFDsClosed':True,'method':'Each full saved string verified from all raw checkpoints; pretty JSON contexts streamed independently, native JSONL streamed by row. No images/browser/state injection"
+      ]
+    },
+    {
+      "pin": {
+        "path": "/workspace/scratch/ready-default-300-caller-root-r1/driver.mjs",
+        "sha256": "badafdeae12140fd4ac3beb0e441a7dec37b5d3747a81e65c0d6272c946170c4",
+        "bytes": 8941
+      },
+      "exactHistoricalRootMentioned": false,
+      "resultNameMentioned": false,
+      "progressNameMentioned": false,
+      "referenceLines": []
+    },
+    {
+      "pin": {
+        "path": "/workspace/scratch/ready-default-300-caller-root-r1/supervise.py",
+        "sha256": "48b3935b60dbb348129c8ebe534e0e5724feac2680d4fc8d4516a42ad87bbab3",
+        "bytes": 8269
+      },
+      "exactHistoricalRootMentioned": false,
+      "resultNameMentioned": false,
+      "progressNameMentioned": false,
+      "referenceLines": []
+    },
+    {
+      "pin": {
+        "path": "/workspace/scratch/ready-default-first300-grant-root-r1.json",
+        "sha256": "336d5bf71760286bd3908570752d20e3678f19781cf6cb25caacedf594d3a549",
+        "bytes": 1990
+      },
+      "exactHistoricalRootMentioned": false,
+      "resultNameMentioned": false,
+      "progressNameMentioned": false,
+      "referenceLines": []
+    },
+    {
+      "pin": {
+        "path": "/workspace/scratch/target-clear-ghost-caller-author-r2/driver-paired-r1.mjs",
+        "sha256": "f8a09fa87bc7036858ffb62121ecf5e0575fd3b73c1130d441f7d44942f2499c",
+        "bytes": 43228
+      },
+      "exactHistoricalRootMentioned": false,
+      "resultNameMentioned": true,
+      "progressNameMentioned": true,
+      "referenceLines": [
+        "function persist(){fs.writeFileSync(path.join(packet,'VISUAL-PROGRESS.json'),JSON.stringify(result,null,2)+'\\n');}",
+        " fs.writeFileSync(path.join(packet,'VISUAL-RESULT.json'),JSON.stringify(result,null,2)+'\\n');"
+      ]
+    },
+    {
+      "pin": {
+        "path": "/workspace/scratch/target-clear-ghost-caller-author-r2/supervise-paired-r1.py",
+        "sha256": "5296e2bd603a9e74a2b284a2acd051c9cb94902505eb759a53861d3d71e5ecc4",
+        "bytes": 8265
+      },
+      "exactHistoricalRootMentioned": false,
+      "resultNameMentioned": false,
+      "progressNameMentioned": false,
+      "referenceLines": []
+    }
+  ],
+  "grossRawAllocationBytes": 6029312,
+  "rawLogicalBytes": 6026901,
+  "whySuccessorBetter": "The already published, independently roundtrip-reviewed capsule retains both distinct full bodies, exact logical/original mappings and surrounding provenance, raw saves/events/reviews. Its immutable content-addressed encoding is reproducible and avoids retaining another6.0MB loose allocation. It improves storage for the current opening work, not gameplay or archival semantics.",
+  "whyLooseCopiesNoLongerNeeded": "Closed historical actual/readers have preserved findings and all bodies in the capsule. The exact current300 caller neither reads nor names the historical packet root; generic same result/progress basenames are separate current packet outputs. Old reviewer source directly addresses this old root and therefore needs explicit reconstruction for a future rerun. Keeping bytes/methods/rights/provenance in the verified published capsule suffices under a documented reconstruction workflow; old physical scratch inode/time isolation is conditionally unnecessary. Independent reviewer may reject this judgment.",
+  "rawPathLoss": "Retirement removes BOTH original raw JSON directory entries; do not claim paths stay readable. Historical links and hardcoded old review inputs require reconstructing exact bodies to a fresh owned path and intentionally directing a new review to that reconstruction. No rewriting old reviews/reference claims.",
+  "metadataLoss": "Original raw inode identities/current kernel ctime disappear and old per-path atime/mtime cease to be live. Full original stat/xattrs/parent rights recorded here. Reconstructed copies receive fresh inode/time/ownership/mode; body SHA/length are exact. No mandatory metadata restoration or exact full-metadata rollback is claimed.",
+  "restoreProcedure": "Pin immutable capsule SHA/manifestSHA, stream MANIFEST to choose exact logical mapping, stream specified blob into an explicitly fresh destination with exclusive nofollow creation, verify full SHA/length, and preserve new restore receipts. Provided helper is source-only and unexecuted. No giant duplicate extraction or writes into original frozen packets now.",
+  "immutableWorkflow": "Keep capsule/GATE/review and this proposal immutable; never re-encode archive or mutate existing historical bodies. Future reproductions/reviews use fresh stages/outputs. Obtain independent review, producer judgment and current push before a separate finite two-path retirement method. Root reports current90d128 push; this source review does not invoke Git/remote or certify a later push.",
+  "preservationScope": "ONLY VISUAL-RESULT.json and VISUAL-PROGRESS.json loose encodings. All JPEGs, checkpoints/saves, NATIVE-POINTERS, lifecycle/resource/build/caller/review/failure bodies, source/art/rights/provenance, other archives and unique inputs remain untouched. This is no broad cleanup.",
+  "coverageLimits": "Scoped static source references, declared closed historical contexts and exact current caller pins; no global FD/mmap/queued/future-consumer inventory. Generic names do not prove historical consumption. Any live need for these original paths blocks retirement until resolved.",
+  "retainedMethodFailure": "reader-guard-r1 failed at supplied ghost caller short-name locator after raw/archive/mapping/GATE assertions; source/log/outer guard retained. Fresh r2 corrects only paired source names, compacts new receipt whitespace and rereads same finite inputs. No runtime retry or source/media mutation.",
+  "resourceQualification": "Normal64+512 source guard, ownRSS/RLIMIT_DATA24MiB; earlier tiny control discovery was outside this guard but all relied-on controls are fully reread here. No body extraction output, Node/imported app/Git/build/browser/native/action."
+}
+PROPOSAL_FILES [('FINAL-SEAL.json', 5186), ('PROPOSAL.json', 14036), ('seal-guard-r1', 4096), ('reader-guard-r2', 4096), ('propose-r2.py', 12270), ('RESOURCE.json', 3600), ('propose.py', 11905), ('restore_fresh.py', 2968), ('PROPOSAL.md', 2570), ('seal.py', 2500), ('reader-guard-r1', 4096)]
+OWN_RSS_KIB 9856

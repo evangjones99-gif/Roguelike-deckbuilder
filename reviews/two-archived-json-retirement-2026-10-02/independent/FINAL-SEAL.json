@@ -1,0 +1,29 @@
+{
+  "closed": true,
+  "allReviewerToolsGuardsAndFDsClosedOnCommandReturn": true,
+  "noActionPerformed": true,
+  "noGitNodeBrowserImagesOrRestore": true,
+  "review": {
+    "relativePath": "REVIEW.md",
+    "bytes": 4137,
+    "sha256": "3a2bea931f101a37fea025c969c78073bae3f3c2d5d57b61752c5b5cfa81504e"
+  },
+  "gate": {
+    "relativePath": "GATE.json",
+    "bytes": 4386,
+    "sha256": "9f045cc3007cb2eb4a17e338816d3da346a5f4672722c7f706867ef43e659678"
+  },
+  "manifest": {
+    "relativePath": "MANIFEST.json",
+    "bytes": 3949,
+    "sha256": "85f8a6189ee0e706f13b0c039607a8b3b8f27342f352d8120d8f74dea8917841"
+  },
+  "ownRSSKiB": {
+    "fullRoundtripReader": 13856,
+    "sourceSealer": 10624,
+    "unmeteredClosureWriter": 9728
+  },
+  "resourceQualification": "Guard64+512 on source reads/body roundtrip/seal; coordinated tiny independent build reader may overlap, cgroup observations shared not exclusive. Initial packet-parent bootstrap and bounded postguard display/closure are explicitly unmetered.",
+  "acceptedPacketCapBytes": 98304,
+  "condition": "New confirmed selective publication push and durable Root producer before one exact action; live original-path need would block. No JSON retirement authorized by this reviewer execution."
+}

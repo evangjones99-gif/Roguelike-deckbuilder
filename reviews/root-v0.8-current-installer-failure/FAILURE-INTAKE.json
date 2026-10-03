@@ -1,0 +1,78 @@
+{
+  "run": 36812402583,
+  "job": 110210120596,
+  "head": "c7d2302facc045185aa231dd48d87acf8c2bfa90",
+  "status": "failed",
+  "failedPhase": "actual installed ASAR fetch and native39-WAV offline decode",
+  "failure": "AssertionError [ERR_ASSERTION]: Native PCM metric differs: bind_seal-1.wav/meanSquare\n    at assertNativeDecodedSounds (file:///D:/a/Roguelike-deckbuilder/Roguelike-deckbuilder/scripts/windows-installer-current-validation.mjs:96:11)\n    at file:///D:/a/Roguelike-deckbuilder/Roguelike-deckbuilder/scripts/windows-installer-smoke.mjs:119:3",
+  "actualCompletedStepLabels": [
+    "actual silent per-user NSIS installation",
+    "actual installed executable binding and command",
+    "actual installed ASAR fetch and native39-WAV offline decode"
+  ],
+  "nativeDecodeRecords": 39,
+  "firstExpected": {
+    "source": "public/audio/bind_seal-1.wav",
+    "name": "bind_seal-1.wav",
+    "sha256": "8b0085d42be3e3d69545046349b5fe6b103ea36cb5805fa6deb64463e70d9783",
+    "bytes": 182444,
+    "frames": 45600,
+    "channels": 2,
+    "sampleRate": 48000,
+    "duration": 0.95,
+    "peak": 0.31622314453125,
+    "meanSquare": 0.00268652887099929
+  },
+  "firstDecoded": {
+    "name": "bind_seal-1.wav",
+    "url": "file:///C:/Users/runneradmin/AppData/Local/HollowpactInstallerQA/4378dd12b40b0ee0bc3bd9bb30a8658f/installation/resources/app.asar/dist/audio/bind_seal-1.wav",
+    "bytes": 182444,
+    "frames": 45600,
+    "channels": 2,
+    "sampleRate": 48000,
+    "duration": 0.95,
+    "peak": 0.31622314453125,
+    "meanSquare": 0.002686612244161578
+  },
+  "firstMeanSquareRelativeDifference": 3.1033786082719844e-05,
+  "originalEvidenceBytes": 910951,
+  "originalEvidenceSHA256": "99f13399bdef0b4c8eaacd26ce4165250e9dbdb1790b06899705ce1a690e2273",
+  "closedZipMembers": [
+    {
+      "path": "reviews/windows-installer/0.8.0/run-36812402583-1/installer-smoke.json",
+      "bytes": 56219,
+      "sha256": "1bb35a79c50ab31850367a0eb5ad082042f41f5c84c564f468013911d9873bd1"
+    },
+    {
+      "path": "reviews/windows-installer/0.8.0/run-36812402583-1/failure.png",
+      "bytes": 837512,
+      "sha256": "2dbdf24997f6ca9b25be7c9f1ef0132df20188653949f9f3334f4457b7a7f0e4"
+    },
+    {
+      "path": "build-installer/installer-transfer/manifest.json",
+      "bytes": 1930,
+      "sha256": "c2c9f8ea9cba8d4ba892bfb74a4f687f9ced0dbed6a1217f10b69f953bc29993"
+    },
+    {
+      "path": "build-installer/qa-config.json",
+      "bytes": 1138,
+      "sha256": "4de6b831b679c68eebf1228f518e75ea086321e243742cad21aef85493cd5bd5"
+    },
+    {
+      "path": "build-installer/qa-only.nsh",
+      "bytes": 3181,
+      "sha256": "87c4b2c4f2b3a9b2c6edda98f11cbb65402ebba7c5feb8600cc1527e244c429e"
+    },
+    {
+      "path": "build-installer/request.json",
+      "bytes": 1879,
+      "sha256": "04fd7da367015f5c1cc4a5dc2833aedafbc5a08caa976bc04084e80e23b7a014"
+    },
+    {
+      "path": "dist/build-provenance.json",
+      "bytes": 7846,
+      "sha256": "fc9104193f6621ac9e4ba3c166bc6d1c9fa793b4f8f982c83044feab34402641"
+    }
+  ],
+  "qualification": "Actual isolated silent install and installed binding/command were reached.39 decodes recorded, then PCM assertion fails; decode assertion, earned crypt/save-export/relaunch/uninstall gates NOT accepted. Remaining installation reported present. No0.9 Windows qualification or consumer install claim."
+}

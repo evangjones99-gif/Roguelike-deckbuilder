@@ -1,0 +1,9 @@
+# Independent failed R2 installer original-byte supplement
+
+**Accept byte-exact reconstruction of this failed candidate only. Native installer acceptance remains rejected.** This independently supplements the frozen run36802452392 preflight rejection; that report/manifest and raw evidence are unchanged.
+
+The reviewer read all five actual root-recovered wrappers and parts under /tmp/hollowpact-installer-r2-original. Each wrapper byte count and SHA256 exactly matches the independently fetched same-run GitHub artifact API record; its single expected numbered member has valid ZIP CRC, exact manifest length/SHA256 and exact equality to the retained root-extracted part. Numeric concatenation hashing and a separate streamed full-original hash both match121,167,172 bytes/SHA256 `37b7057ba4aa3d1ce1965e9fe388f0d5522ad358f1072bb2a6d7a2a10175d5a5`.
+
+Independent parsing of the reconstructed original's actual PE/resource bytes confirms an x86 NSIS bootstrap (machine0x14c, PE32), not an x64 bootstrap-header claim; it carries the separately configured x64 game payload. Its seven icon hashes and Hollowpact product/version strings equal the raw native preflight resource receipt byte-for-value. The certificate directory is0/0, supporting absence of an embedded certificate table. This does not replace the failed native Get-AuthenticodeSignature query with a successful native NotSigned result. No install operation, executable launch, payload extraction or game test ran in this supplement.
+
+The authoritative transport manifest remains nativeQAStatus=failed. Root's staging is in /tmp and is not durable preservation. Official durable storage, fresh R3 signature qualification, actual installation/gameplay/persistence/export/uninstallation and consumer/Steam/AAA/human-fun gates remain separate and unverified. The reviewer changed only this new compact exterior supplement, not original wrappers/parts/binary, previous reports or production files.

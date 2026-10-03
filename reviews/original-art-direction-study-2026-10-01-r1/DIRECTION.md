@@ -1,0 +1,5 @@
+Original design study; not a playable screenshot or selected shipping asset.
+
+Producer and independent visual reviewer favor painted depth: weathered materials, coherent cold light and restrained warm contact accents. Borrow clear silhouette/value grouping from the sharper panel. Neither panel meets finished game artwork acceptance. The paired poses/costumes differ, so this is a directional study, not a controlled pixel comparison. Actual creature-sheet animation, dense readability and rights gates remain open.
+
+Generation used the available image_gen tool with a new-image brief for original monster-binding hunter identities, ruined ossuary, painted realistic 2.5D versus sharper mature dark-fantasy treatment, tangible cards and legible live-UI space. Franchise designs, copied layouts, cute tavern tone and painted gameplay badges were discouraged. This is a summarized brief, not a recovered byte-exact generation prompt. Generator model and commercial-rights clearance are not established by this record. Original tool output remains at its original generated_images path.

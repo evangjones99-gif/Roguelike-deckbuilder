@@ -1,0 +1,199 @@
+{
+  "utcNs": 1790932244739739233,
+  "before": "6b3b9c47caab39a6106d366b3eeb449aa62c4ec1",
+  "head": "d144368d04b5af55abc7c81927417eb88ee47e16",
+  "remote": "d144368d04b5af55abc7c81927417eb88ee47e16",
+  "confirmedPush": true,
+  "clean": true,
+  "stagedFiles": 74,
+  "copyGatePath": "/workspace/scratch/opening-cue-checkpoint-publication-independent-r1/GATE.json",
+  "copyGateSHA256": "330024254d216b479e95886c539ba008525aff6478c5c829a0eab837f238ae14",
+  "rows": [
+    {
+      "argv": [
+        "git",
+        "-c",
+        "gc.auto=0",
+        "-c",
+        "pack.threads=1",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exitCode": 0,
+      "stdout": "6b3b9c47caab39a6106d366b3eeb449aa62c4ec1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "gc.auto=0",
+        "-c",
+        "pack.threads=1",
+        "symbolic-ref",
+        "--short",
+        "HEAD"
+      ],
+      "exitCode": 0,
+      "stdout": "codex/lanternbound-production\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "gc.auto=0",
+        "-c",
+        "pack.threads=1",
+        "status",
+        "--porcelain=v1",
+        "-z",
+        "--untracked-files=all"
+      ],
+      "exitCode": 0,
+      "stdout": " M AGENTS.md\u0000 M docs/CONTINUATION.md\u0000 M docs/FIRST-FIVE-MINUTES.md\u0000 M docs/PRODUCTION.md\u0000?? reviews/opening-turn-payoff-default-2026-10-02/PUBLICATION.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/README.md\u0000?? reviews/opening-turn-payoff-default-2026-10-02/ROOT-GRANT.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/ROOT-PUBLICATION-SOURCE.py\u0000?? reviews/opening-turn-payoff-default-2026-10-02/archive/INDEX.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/archive/READ-OBSERVATIONS.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/archive/README.md\u0000?? reviews/opening-turn-payoff-default-2026-10-02/archive/RESULT.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/archive/evidence-f9121c7b6416398241d1b5a160b4781f17a45dff4813260edaf4c3b6df1761af.tar.gz\u0000?? reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/COMPLETE-GUARD-R1/ADMISSION.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/COMPLETE-GUARD-R1/RESULT.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/DISCOVERY-QUALIFICATION.txt\u0000?? reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/FINAL-SEAL.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/GATE.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/PROOF.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/READER-IDENTITY.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/REVIEW.md\u0000?? reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/SEAL-GUARD-R1/ADMISSION.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/SEAL-GUARD-R1/RESULT.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/archive-phase.py\u0000?? reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/seal.py\u0000?? reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/verify-complete.py\u0000?? reviews/opening-turn-payoff-default-2026-10-02/previous-push/receipt.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/previous-push/source.py\u0000?? reviews/opening-turn-payoff-default-2026-10-02/root-archive-guard/ADMISSION.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/root-archive-guard/RESULT.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-author/AUTHOR-REFINEMENT-HISTORY.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-author/CAP-GRANT-HISTORY.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-author/CLOSURE.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-CLOSE-R1/ADMISSION.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-CLOSE-R1/RESULT.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R1/ADMISSION.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R1/RESULT.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R2/ADMISSION.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R2/RESULT.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R3/ADMISSION.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R3/RESULT.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-author/MANIFEST.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-author/PLAN.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-author/PROTOCOL.txt\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-author/SHA256SUMS\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-author/author-plan.py\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-author/close-source.py\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-author/preserve-checkpoint.py\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-author/refine-plan-source.py\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-independent/AUDIT-GUARD-R1/ADMISSION.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-independent/AUDIT-GUARD-R1/RESULT.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-independent/DISCOVERY-QUALIFICATION.txt\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-independent/FINAL-SEAL.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-independent/HOLD-UPDATE-QUALIFICATION.txt\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-independent/PROOF.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-independent/REVIEW.md\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-independent/SEAL-GUARD-R1/ADMISSION.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-independent/SEAL-GUARD-R1/RESULT.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-independent/SEAL-GUARD-R2/ADMISSION.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-independent/SEAL-GUARD-R2/RESULT.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-independent/SOURCE-GATE.json\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-independent/seal-r2.py\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-independent/seal.py\u0000?? reviews/opening-turn-payoff-default-2026-10-02/source-independent/verify.py\u0000",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "gc.auto=0",
+        "-c",
+        "pack.threads=1",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "gc.auto=0",
+        "-c",
+        "pack.threads=1",
+        "add",
+        "AGENTS.md",
+        "docs/CONTINUATION.md",
+        "docs/PRODUCTION.md",
+        "docs/FIRST-FIVE-MINUTES.md"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "gc.auto=0",
+        "-c",
+        "pack.threads=1",
+        "add",
+        "-f",
+        "reviews/opening-turn-payoff-default-2026-10-02"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "gc.auto=0",
+        "-c",
+        "pack.threads=1",
+        "diff",
+        "--cached",
+        "--name-only",
+        "-z"
+      ],
+      "exitCode": 0,
+      "stdout": "AGENTS.md\u0000docs/CONTINUATION.md\u0000docs/FIRST-FIVE-MINUTES.md\u0000docs/PRODUCTION.md\u0000reviews/opening-turn-payoff-default-2026-10-02/PUBLICATION.json\u0000reviews/opening-turn-payoff-default-2026-10-02/README.md\u0000reviews/opening-turn-payoff-default-2026-10-02/ROOT-GRANT.json\u0000reviews/opening-turn-payoff-default-2026-10-02/ROOT-PUBLICATION-SOURCE.py\u0000reviews/opening-turn-payoff-default-2026-10-02/archive/INDEX.json\u0000reviews/opening-turn-payoff-default-2026-10-02/archive/READ-OBSERVATIONS.json\u0000reviews/opening-turn-payoff-default-2026-10-02/archive/README.md\u0000reviews/opening-turn-payoff-default-2026-10-02/archive/RESULT.json\u0000reviews/opening-turn-payoff-default-2026-10-02/archive/evidence-f9121c7b6416398241d1b5a160b4781f17a45dff4813260edaf4c3b6df1761af.tar.gz\u0000reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/COMPLETE-GUARD-R1/ADMISSION.json\u0000reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/COMPLETE-GUARD-R1/EXECUTION.log\u0000reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/COMPLETE-GUARD-R1/RESULT.json\u0000reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/DISCOVERY-QUALIFICATION.txt\u0000reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/FINAL-SEAL.json\u0000reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/GATE.json\u0000reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/PROOF.json\u0000reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/READER-IDENTITY.json\u0000reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/REVIEW.md\u0000reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/SEAL-GUARD-R1/ADMISSION.json\u0000reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/SEAL-GUARD-R1/EXECUTION.log\u0000reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/SEAL-GUARD-R1/RESULT.json\u0000reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/archive-phase.py\u0000reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/seal.py\u0000reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/verify-complete.py\u0000reviews/opening-turn-payoff-default-2026-10-02/previous-push/receipt.json\u0000reviews/opening-turn-payoff-default-2026-10-02/previous-push/source.py\u0000reviews/opening-turn-payoff-default-2026-10-02/root-archive-guard/ADMISSION.json\u0000reviews/opening-turn-payoff-default-2026-10-02/root-archive-guard/EXECUTION.log\u0000reviews/opening-turn-payoff-default-2026-10-02/root-archive-guard/RESULT.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/AUTHOR-REFINEMENT-HISTORY.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/CAP-GRANT-HISTORY.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/CLOSURE.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-CLOSE-R1/ADMISSION.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-CLOSE-R1/EXECUTION.log\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-CLOSE-R1/RESULT.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R1/ADMISSION.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R1/EXECUTION.log\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R1/RESULT.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R2/ADMISSION.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R2/EXECUTION.log\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R2/RESULT.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R3/ADMISSION.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R3/EXECUTION.log\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R3/RESULT.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/MANIFEST.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/PLAN.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/PROTOCOL.txt\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/SHA256SUMS\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/author-plan.py\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/close-source.py\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/preserve-checkpoint.py\u0000reviews/opening-turn-payoff-default-2026-10-02/source-author/refine-plan-source.py\u0000reviews/opening-turn-payoff-default-2026-10-02/source-independent/AUDIT-GUARD-R1/ADMISSION.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-independent/AUDIT-GUARD-R1/EXECUTION.log\u0000reviews/opening-turn-payoff-default-2026-10-02/source-independent/AUDIT-GUARD-R1/RESULT.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-independent/DISCOVERY-QUALIFICATION.txt\u0000reviews/opening-turn-payoff-default-2026-10-02/source-independent/FINAL-SEAL.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-independent/HOLD-UPDATE-QUALIFICATION.txt\u0000reviews/opening-turn-payoff-default-2026-10-02/source-independent/PROOF.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-independent/REVIEW.md\u0000reviews/opening-turn-payoff-default-2026-10-02/source-independent/SEAL-GUARD-R1/ADMISSION.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-independent/SEAL-GUARD-R1/EXECUTION.log\u0000reviews/opening-turn-payoff-default-2026-10-02/source-independent/SEAL-GUARD-R1/RESULT.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-independent/SEAL-GUARD-R2/ADMISSION.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-independent/SEAL-GUARD-R2/EXECUTION.log\u0000reviews/opening-turn-payoff-default-2026-10-02/source-independent/SEAL-GUARD-R2/RESULT.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-independent/SOURCE-GATE.json\u0000reviews/opening-turn-payoff-default-2026-10-02/source-independent/seal-r2.py\u0000reviews/opening-turn-payoff-default-2026-10-02/source-independent/seal.py\u0000reviews/opening-turn-payoff-default-2026-10-02/source-independent/verify.py\u0000",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "gc.auto=0",
+        "-c",
+        "pack.threads=1",
+        "-c",
+        "commit.gpgsign=false",
+        "commit",
+        "-m",
+        "Preserve cue comparisons and verify opening successor builds"
+      ],
+      "exitCode": 0,
+      "stdout": "[codex/lanternbound-production d144368] Preserve cue comparisons and verify opening successor builds\n 74 files changed, 2601 insertions(+)\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/PUBLICATION.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/README.md\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/ROOT-GRANT.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/ROOT-PUBLICATION-SOURCE.py\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/archive/INDEX.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/archive/READ-OBSERVATIONS.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/archive/README.md\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/archive/RESULT.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/archive/evidence-f9121c7b6416398241d1b5a160b4781f17a45dff4813260edaf4c3b6df1761af.tar.gz\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/COMPLETE-GUARD-R1/ADMISSION.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/COMPLETE-GUARD-R1/EXECUTION.log\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/COMPLETE-GUARD-R1/RESULT.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/DISCOVERY-QUALIFICATION.txt\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/FINAL-SEAL.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/GATE.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/PROOF.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/READER-IDENTITY.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/REVIEW.md\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/SEAL-GUARD-R1/ADMISSION.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/SEAL-GUARD-R1/EXECUTION.log\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/SEAL-GUARD-R1/RESULT.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/archive-phase.py\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/seal.py\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/preservation-independent/verify-complete.py\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/previous-push/receipt.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/previous-push/source.py\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/root-archive-guard/ADMISSION.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/root-archive-guard/EXECUTION.log\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/root-archive-guard/RESULT.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/AUTHOR-REFINEMENT-HISTORY.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/CAP-GRANT-HISTORY.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/CLOSURE.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-CLOSE-R1/ADMISSION.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-CLOSE-R1/EXECUTION.log\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-CLOSE-R1/RESULT.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R1/ADMISSION.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R1/EXECUTION.log\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R1/RESULT.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R2/ADMISSION.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R2/EXECUTION.log\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R2/RESULT.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R3/ADMISSION.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R3/EXECUTION.log\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/GUARD-PLAN-R3/RESULT.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/MANIFEST.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/PLAN.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/PROTOCOL.txt\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/SHA256SUMS\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/author-plan.py\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/close-source.py\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/preserve-checkpoint.py\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-author/refine-plan-source.py\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-independent/AUDIT-GUARD-R1/ADMISSION.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-independent/AUDIT-GUARD-R1/EXECUTION.log\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-independent/AUDIT-GUARD-R1/RESULT.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-independent/DISCOVERY-QUALIFICATION.txt\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-independent/FINAL-SEAL.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-independent/HOLD-UPDATE-QUALIFICATION.txt\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-independent/PROOF.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-independent/REVIEW.md\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-independent/SEAL-GUARD-R1/ADMISSION.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-independent/SEAL-GUARD-R1/EXECUTION.log\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-independent/SEAL-GUARD-R1/RESULT.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-independent/SEAL-GUARD-R2/ADMISSION.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-independent/SEAL-GUARD-R2/EXECUTION.log\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-independent/SEAL-GUARD-R2/RESULT.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-independent/SOURCE-GATE.json\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-independent/seal-r2.py\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-independent/seal.py\n create mode 100644 reviews/opening-turn-payoff-default-2026-10-02/source-independent/verify.py\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "gc.auto=0",
+        "-c",
+        "pack.threads=1",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exitCode": 0,
+      "stdout": "d144368d04b5af55abc7c81927417eb88ee47e16\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "gc.auto=0",
+        "-c",
+        "pack.threads=1",
+        "push",
+        "origin",
+        "HEAD:refs/heads/codex/lanternbound-production"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "To https://github.com/evangjones99-gif/Roguelike-deckbuilder.git\n   6b3b9c4..d144368  HEAD -> codex/lanternbound-production\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "gc.auto=0",
+        "-c",
+        "pack.threads=1",
+        "ls-remote",
+        "--heads",
+        "origin",
+        "refs/heads/codex/lanternbound-production"
+      ],
+      "exitCode": 0,
+      "stdout": "d144368d04b5af55abc7c81927417eb88ee47e16\trefs/heads/codex/lanternbound-production\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "gc.auto=0",
+        "-c",
+        "pack.threads=1",
+        "status",
+        "--porcelain=v1",
+        "-z",
+        "--untracked-files=all"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "scope": "Evidence/docs only; selected runtime remains c4fa7d2b/8bbaea72. No cleanup, tag or candidate promotion."
+}

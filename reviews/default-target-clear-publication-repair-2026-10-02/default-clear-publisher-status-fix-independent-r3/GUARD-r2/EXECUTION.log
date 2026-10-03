@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/default-clear-publisher-status-fix-independent-r3/audit-r2.py", line 35, in <module>
+    status=git(['status','--porcelain','--untracked-files=all']);head=git(['rev-parse','HEAD']).rstrip('\r\n');assert head==plan['currentHEADAtSourcePreparation']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/default-clear-publisher-status-fix-independent-r3/audit-r2.py", line 34, in git
+    x=subprocess.run(['git','--no-optional-locks',*args],cwd=R,capture_output=True,text=True,timeout=10);assert x.returncode==0;return x.stdout
+                                                                                                                ^^^^^^^^^^^^^^^
+AssertionError

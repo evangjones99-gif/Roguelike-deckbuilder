@@ -1,0 +1,21 @@
+{
+  "initial": {
+    "time_ns": 1790947549373296294,
+    "current": 15786201088,
+    "maximum": 17179869184,
+    "headroom": 1393668096,
+    "free": 73637888
+  },
+  "work": 67108864,
+  "reserve": 536870912,
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/starter-family-native128-build-controls-source-author-r1/finalize.py",
+    "--evidence",
+    "/workspace/scratch/starter-family-native128-strict-build-root-r1/final-seal-r1"
+  ],
+  "stage": "/workspace/scratch/starter-family-native128-stage-r1",
+  "admitted": true,
+  "memory_events_before": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

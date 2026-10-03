@@ -1,0 +1,34 @@
+{
+  "status": "all archived bodies round-trip verified",
+  "archive": "EVIDENCE.tar.gz",
+  "bytes": 11243,
+  "sha256": "086144f6474115665bca41bc238131db3ac9e2cf0c5537578aabd50bb702b85b",
+  "files": [
+    {
+      "path": "/workspace/scratch/standard-sol-reviewed-retirement-preservation-independent-r1/CHECKS.json",
+      "member": "workspace/scratch/standard-sol-reviewed-retirement-preservation-independent-r1/CHECKS.json",
+      "bytes": 24229,
+      "sha256": "74cb2bb8fb55027c53860f369fb0170c82b61467788aced3a674d5244bc84b70"
+    },
+    {
+      "path": "/workspace/scratch/standard-sol-reviewed-retirement-preservation-independent-r1/FROZEN.json",
+      "member": "workspace/scratch/standard-sol-reviewed-retirement-preservation-independent-r1/FROZEN.json",
+      "bytes": 368,
+      "sha256": "4f6f2dfda4c167887e51ce86c906bea5febcc266cd0ad932eb84ad5e7efdc1aa"
+    },
+    {
+      "path": "/workspace/scratch/standard-sol-reviewed-retirement-preservation-independent-r1/PRESERVATION-GATE.json",
+      "member": "workspace/scratch/standard-sol-reviewed-retirement-preservation-independent-r1/PRESERVATION-GATE.json",
+      "bytes": 911,
+      "sha256": "4effa79f60d69101fd15e6963cb8d97fd6ab7873753ac286b89f64dc4cda89ca"
+    },
+    {
+      "path": "/workspace/scratch/standard-sol-reviewed-retirement-preservation-independent-r1/REVIEW.md",
+      "member": "workspace/scratch/standard-sol-reviewed-retirement-preservation-independent-r1/REVIEW.md",
+      "bytes": 6636,
+      "sha256": "d832aea7d0a2217097bda7936dc6d280651d93e53a90ad37af98790ffc35cd25"
+    }
+  ],
+  "originals_retained": true,
+  "scope": "Distinct independent preservation review accepts only the combined original ZIP/trace packets and immutable supplement. All157 declared members,144 unique original paths and13 intentional overlaps were exact; all23 coverage input receipts and the31-path trace ledger/frozen inventory are included. Original two packets alone were incomplete; the initial omission findings and reviewer PAX method correction remain recorded. This does not repeat archive retirement, fresh restore, gameplay review or crash testing."
+}

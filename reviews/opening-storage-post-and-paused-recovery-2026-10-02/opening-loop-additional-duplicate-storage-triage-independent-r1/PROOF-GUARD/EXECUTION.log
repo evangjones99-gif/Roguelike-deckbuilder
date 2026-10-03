@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/opening-loop-additional-duplicate-storage-triage-independent-r1/triage.py", line 61, in <module>
+    put('PROOF.json',{'pair':[a,b],'literalFullPairEquality':True,'indexes':[idxpin,oldidx],'completeMemberProof':gatepin,'memberProofInheritedNotNewlyDecoded':True,'logicalRows':952,'newUniqueBodies':711,'historicalNewArchiveRow':idx['newArchive'],'receipts':receipts,'consumerScan':{'roots':list(map(str,roots)),'files':files,'bytes':bytesread,'skipped':skipped,'matches':matches,'scope':'Fixed named roots; filename/SHA/path references only, no global consumer or FD claim.'},'cacheHintCandidates':cache,'ownMaxRSSBytes':rss})
+  File "/workspace/scratch/opening-loop-additional-duplicate-storage-triage-independent-r1/triage.py", line 9, in put
+    b=(json.dumps(j,indent=2)+'\n').encode();assert len(b)<32768
+                                                    ^^^^^^^^^^^^
+AssertionError

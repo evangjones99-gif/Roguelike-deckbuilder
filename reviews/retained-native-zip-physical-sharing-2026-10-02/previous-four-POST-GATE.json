@@ -1,0 +1,100 @@
+{
+  "decision": "ACCEPT independent POST exact four archived loose JSON retirements; no further action authority",
+  "beforeGate": {
+    "path": "/workspace/scratch/four-archived-raw-retirement-independent-r2/GATE.json",
+    "sha256": "650ccfad11abc9f6a10cf6aad63db0c68821d816f0ff53b323cbe179e9edcc56",
+    "bytes": 7648
+  },
+  "proposal": {
+    "path": "/workspace/scratch/four-archived-raw-retirement-source-author-r2/PROPOSAL.json",
+    "sha256": "02a099158000476c103d69959f67dda002e51a6242a20395a81e43560990d3fe",
+    "bytes": 65814
+  },
+  "confirmedPush": {
+    "path": "/workspace/scratch/four-archived-raw-retirement-push-root-r2/PUSH-CONFIRMED.json",
+    "sha256": "e78a3ddc4c68d7059cf894adec8c17430681d467c95f42a296a1a6b270f422f2",
+    "bytes": 1477
+  },
+  "producer": {
+    "path": "/workspace/scratch/four-archived-raw-retirement-producer-root-r2.json",
+    "sha256": "177e1045d7b4cbc641645a8a35e29924bf7d5a98058f7f27b6609eb199721511",
+    "bytes": 1365
+  },
+  "actionResult": {
+    "path": "/workspace/scratch/four-archived-json-retirement-actual-root-r2/RESULT.json",
+    "sha256": "da96a21598804c67e24077c25faf383400d76ff1b8d2c0e6a996338010e8484f",
+    "bytes": 1774
+  },
+  "proof": {
+    "path": "/workspace/scratch/four-raw-retirement-post-independent-r2/PROOF.json",
+    "sha256": "5f8a56b1d97b087dd2ad964ec50d48bd351618320eaf91e66e4e42072bda0f88",
+    "bytes": 15842
+  },
+  "review": {
+    "path": "/workspace/scratch/four-raw-retirement-post-independent-r2/REVIEW.md",
+    "sha256": "e2a6c428e9836b2dd90ee0941f5ae34890fac56436f2bcb74d0c85a18b072f60",
+    "bytes": 2036
+  },
+  "reader": {
+    "path": "/workspace/scratch/four-raw-retirement-post-independent-r2/verify-r2.py",
+    "sha256": "3b8c99784516caca2ed671c49b250dc6468c187f9456f12efc76a533d66779a8",
+    "bytes": 542
+  },
+  "preservedFailedReader": {
+    "path": "/workspace/scratch/four-raw-retirement-post-independent-r2/verify.py",
+    "sha256": "964c52a2015a48a5d97fd7346fdae994e24e71d7cf56ccf716b37308d66bd176",
+    "bytes": 11631
+  },
+  "sealer": {
+    "path": "/workspace/scratch/four-raw-retirement-post-independent-r2/seal.py",
+    "sha256": "c01cd5d87fd2a8b8f2ab11c150f860ce6993e68fb6549118be808e8bcaa05e8a",
+    "bytes": 4567
+  },
+  "proofGuard": {
+    "ADMISSION.json": {
+      "path": "/workspace/scratch/four-raw-retirement-post-independent-r2/PROOF-GUARD-r2/ADMISSION.json",
+      "sha256": "c10918118dbcec50e4681a17ff890f74731ea6bdf7408e5fa3013e00cf54894d",
+      "bytes": 482
+    },
+    "RESULT.json": {
+      "path": "/workspace/scratch/four-raw-retirement-post-independent-r2/PROOF-GUARD-r2/RESULT.json",
+      "sha256": "37364d0c4f35f3a6387d8b2b097dff5598e954c73c9bd658531ec4a2e4479d7b",
+      "bytes": 1041
+    },
+    "EXECUTION.log": {
+      "path": "/workspace/scratch/four-raw-retirement-post-independent-r2/PROOF-GUARD-r2/EXECUTION.log",
+      "sha256": "ab351b0f5b3c4a0c114fb73655ad6b589cea0c0bc4b9fe561f13d585537f1f47",
+      "bytes": 272
+    }
+  },
+  "exactFourOldPathsAbsent": [
+    "/workspace/scratch/target-wait-default-comparison-actual-r1/VISUAL-RESULT.json",
+    "/workspace/scratch/target-wait-default-comparison-actual-r1/VISUAL-PROGRESS.json",
+    "/workspace/scratch/target-clear-ghost-comparison-actual-r1/VISUAL-RESULT.json",
+    "/workspace/scratch/target-clear-ghost-comparison-actual-r1/VISUAL-PROGRESS.json"
+  ],
+  "fullCapsuleBlobs": [
+    209,
+    249
+  ],
+  "exactLogicalRows": [
+    226,
+    264
+  ],
+  "publishedSupportRoundtripBodies": 73,
+  "selectedFullCurrentBodies": 144,
+  "journalRows": 8,
+  "protectedZIPFullStatExact": true,
+  "protectedZIPBodyNeverOpened": true,
+  "capsuleMetadataAtimeDifferences": [],
+  "RootGuardsNormal": true,
+  "grossAllocationBytes": 2187264,
+  "historicalPreResultWindowGainBytes": 2134016,
+  "proofOwnRSSBytes": 12713984,
+  "limits": "Exact4 oldpaths absent; archive fullbody/logical coverage, not all unlisted original paths/metadata nor all excluded external dependency bodies. Historical hardcoded gameplay/preservation need NEW reconstruction/adapted readers/mappings. Original inode/time loss; durable per-leaf prefix not all4 atomicity/metadata rollback/automatic retry/globalFD or futureconsumer absence. Windowgain not exclusive attribution/final net/native admission.",
+  "nativeLimit": "Root reported73666560B below driver73924608B; no native admission or attempt from this review.",
+  "preservedFailure": "Original reader assumed python; exact actual launcher is python3. Tiny pinned correction reader normal; source/failed guard retained.",
+  "packetCapBytes": 49152,
+  "authority": "POST verification only; no additional retirement/restoration/Git/promotion/build/native authority.",
+  "sealOwnRSSBytes": 9961472
+}

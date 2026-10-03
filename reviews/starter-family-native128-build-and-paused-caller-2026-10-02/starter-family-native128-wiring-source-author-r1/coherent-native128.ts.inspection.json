@@ -1,0 +1,20 @@
+{
+  "path": "/workspace/scratch/native128-empty-intent-stage-r1/src/coherent-native128.ts",
+  "bytes": 19128,
+  "sha256": "dd6b1dc602e983b14fd003f8d537e26d460affcf7587e51d2106659af0f0009b",
+  "relevantLines": [
+    "export interface Native128Placement {",
+    "export interface Native128Sprite {",
+    "export function placeNative128(body: CssRect, feet: Point, ratio: number): Native128Placement | null {",
+    "export function drawNative128(ctx: CanvasRenderingContext2D, sprite: Native128Sprite,",
+    "placement: Native128Placement): boolean {",
+    "export function nativeLandmark(placement: Native128Placement, point: readonly [number, number],",
+    "export function createCoherentNative128(requested: boolean) {",
+    "unit(unit: Unit, side: 'ally' | 'enemy'): Native128Sprite | null {",
+    "hunter(): Native128Sprite | null { return ready ? { image: images[3], anchor: [64, 120] } : null; },",
+    "export type CoherentNative128 = ReturnType<typeof createCoherentNative128>;",
+    "export function native128Layout(width: number, height: number, ratio: number, input: ArenaLayoutConfig): BattlefieldLayout | null {",
+    "export function native128In(body: CssRect, ratio: number) {",
+    "const p = placeNative128(body, { x: body.left + body.width / 2, y: body.top + body.height * 120 / 128 }, ratio);"
+  ]
+}

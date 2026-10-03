@@ -1,0 +1,133 @@
+--- a/src/main.ts
++++ b/src/main.ts
+@@ -1,7 +1,7 @@
+ import './style.css';
+ import { HostAudio } from './audio-host';
+ import packageInfo from '../package.json';
+-import { applyActionWithEvents, createGame, CARDS, legalActions, validateState, recoverLegacySilenceSave, cardTarget, type GameState, type Action, type Unit, type CardDef } from './engine';
++import { applyActionWithEvents, createGame, CARDS, legalActions, validateState, recoverLegacySilenceSave, cardTarget, type GameState, type Action, type Unit, type CardDef, type TransitionEvent } from './engine';
+ import { createArena } from './arena';
+ import { encounterEnvironment } from './encounter-environment';
+ import { portraitFor, toolArtFor } from './art';
+@@ -240,7 +240,78 @@
+   render();
+   announceOutcome();
+ }
+-function holdFinalStrike(): boolean {
++// Keep the final field readable after canonical resolution has removed fallen actors
++// (and cleared surviving bindings on victory). These clones never enter a save.
++function finalStrikeRoster(previous: GameState, resolved: GameState, events: readonly TransitionEvent[]) {
++  const shown = {
++    allies: previous.allies.map(unit => ({ ...unit })),
++    enemies: previous.enemies.map(unit => ({ ...unit })),
++  };
++  const byUid = new Map([...shown.allies, ...shown.enemies].map(unit => [unit.uid, unit]));
++  const nonnegative = (value: number) => Number.isFinite(value) && value >= 0;
++  for (const event of events) {
++    if (event.type === 'summon' && event.target === event.unit.uid && !byUid.has(event.target)) {
++      const unit = { ...event.unit };
++      shown[event.side === 'ally' ? 'allies' : 'enemies'].push(unit);
++      byUid.set(unit.uid, unit);
++    }
++    const unit = byUid.get(event.target);
++    if (!unit) continue;
++    if ((event.type === 'hit' || event.type === 'heal') && nonnegative(event.afterHp)) {
++      unit.hp = Math.min(unit.maxHp, event.afterHp);
++      if (event.type === 'hit' && nonnegative(event.blocked)) unit.block = Math.max(0, unit.block - event.blocked);
++    } else if (event.type === 'death') unit.hp = 0;
++    else if (event.type === 'ward' && nonnegative(event.amount)) unit.block += event.amount;
++    else if (event.type === 'buff' && nonnegative(event.after)) unit.attack = event.after;
++  }
++  // Surviving canonical actors also include untraced turn resets, such as block.
++  // Absence alone never means death: victory deliberately clears the whole party.
++  for (const unit of [...resolved.allies, ...resolved.enemies]) {
++    const held = byUid.get(unit.uid);
++    if (held) Object.assign(held, unit);
++  }
++  return shown;
++}
++function updateFinalStrikeReadout(previous: GameState, events: readonly TransitionEvent[]) {
++  const shown = finalStrikeRoster(previous, state, events);
++  for (const side of ['allies', 'enemies'] as const) {
++    const panel = document.querySelector<HTMLElement>(side === 'allies' ? '.ally-roster' : '.enemy-roster');
++    // A binding's on-entry strike can end combat before its first ordinary UI render.
++    // Only that new roster needs construction; existing controls keep their nodes.
++    if (panel && shown[side].some(unit => !Array.from(panel.querySelectorAll<HTMLElement>('[data-unit]')).some(button => button.dataset.unit === unit.uid))) {
++      panel.outerHTML = roster(side, shown[side]);
++    }
++    for (const [index, unit] of shown[side].entries()) {
++      const button = Array.from(document.querySelectorAll<HTMLButtonElement>('.unit[data-unit]')).find(element => element.dataset.unit === unit.uid);
++      if (!button) continue;
++      const enemy = side === 'enemies';
++      const status = unit.hp <= 0 ? enemy ? 'Quarry down' : 'Binding lost' : enemy ? 'Still standing' : 'Survived';
++      const stats = button.querySelector<HTMLElement>('.unit-stats');
++      if (stats) stats.innerHTML = `${icon('heart')} ${unit.hp}<small>/${unit.maxHp}</small><span>${icon('battle')}${unit.attack}</span>${unit.hp > 0 && unit.block ? `<span class="block-small">${icon('shield')}${unit.block}</span>` : ''}`;
++      const health = button.querySelector<HTMLElement>('.health-track i');
++      if (health) health.style.width = `${unit.hp / unit.maxHp * 100}%`;
++      const label = button.querySelector<HTMLElement>('.unit-status');
++      if (label) label.textContent = status;
++      button.setAttribute('aria-label', `${unit.name}, ${enemy ? 'hostile' : 'binding'} ${index + 1}. ${unit.hp} of ${unit.maxHp} health, ${unit.attack} attack${unit.hp > 0 && unit.block ? `, ${unit.block} block` : ''}. ${status}. Final impact resolving.`);
++      button.setAttribute('aria-pressed', 'false');
++      button.classList.remove('ready', 'selected', 'valid-target');
++    }
++  }
++  const hunterHealth = document.querySelector<HTMLElement>('.hunter-health>div>span');
++  if (hunterHealth) hunterHealth.innerHTML = `${icon('heart')} ${state.hp}<small> / ${state.maxHp}</small>`;
++  const hunterTrack = document.querySelector<HTMLElement>('.hunter-health .health-track i');
++  if (hunterTrack) hunterTrack.style.width = `${state.hp / state.maxHp * 100}%`;
++  document.querySelector('.hunter-icon')?.setAttribute('aria-label', `Inspect Marek Voss. Hunter: ${state.hp} of ${state.maxHp} health.`);
++  const hunter = document.querySelector<HTMLElement>('.hunter-hud');
++  hunter?.classList.remove('valid-target');
++  const block = hunter?.querySelector<HTMLElement>('.block-count');
++  if (state.block > 0) {
++    const readout = `${icon('shield')}${state.block}<small>Block</small>`;
++    if (block) block.innerHTML = readout;
++    else hunter?.insertAdjacentHTML('beforeend', `<span class="block-count">${readout}</span>`);
++  } else block?.remove();
++}
++function holdFinalStrike(previous: GameState, events: readonly TransitionEvent[]): boolean {
+   if (!mayAnimateCombat() || !arena) return false;
+   let busy = 0;
+   try { busy = Math.max(0, Math.min(1200, Number((arena as ArenaPresentation).busyMs?.() || 0))); } catch { return false; }
+@@ -252,12 +323,12 @@
+   const hint = document.querySelector<HTMLElement>('.keyboard-hint');
+   if (hint) hint.innerHTML = inputHints();
+   // Rules and saves already reflect the result. The old field exists only for the final impact.
++  updateFinalStrikeReadout(previous, events);
+   document.querySelectorAll<HTMLButtonElement>('#scene-ui button, #dock button').forEach(button => { button.disabled = true; });
+   const guidance = document.querySelector<HTMLElement>('.battle-guidance>span');
+   if (guidance) guidance.textContent = state.phase === 'defeat' ? 'The pact breaks. The final impact is resolving.' : 'Contract cleared. Final strike resolving.';
+   const cancel = document.querySelector<HTMLElement>('.battle-guidance>button');
+   if (cancel) cancel.hidden = true;
+-  document.querySelectorAll<HTMLElement>('.unit .unit-status').forEach(status => { status.textContent = state.phase === 'defeat' ? 'Contract failed' : status.closest('.enemy') ? 'Quarry down' : 'Order complete'; });
+   const caption = document.querySelector<HTMLElement>('.arena-caption>small');
+   if (caption) caption.textContent = state.phase === 'defeat' ? 'PACT BROKEN' : 'WARRANT CLOSED';
+   const endButton = document.querySelector<HTMLElement>('[data-action="endTurn"]');
+@@ -286,7 +357,7 @@
+   try { arena?.playAction?.(action, previous, next, events); } catch { effectFailed = true; }
+   try { hostAudio.transition(previous, next, events, action, !effectFailed && !!arena && mayAnimateCombat()); } catch { /* Optional sound cannot block canonical gameplay. */ }
+   const terminalCombat = previous.phase === 'battle' && ['reward', 'victory', 'defeat'].includes(state.phase);
+-  if (terminalCombat && !effectFailed && holdFinalStrike()) return;
++  if (terminalCombat && !effectFailed && holdFinalStrike(previous, events)) return;
+   render();
+   if (terminalCombat) announceOutcome();
+   else $('announcer').textContent = `${state.log[state.log.length - 1] || 'Choice made.'} ${state.phase === 'battle' ? `${state.energy} energy left. Hunter health ${state.hp} of ${state.maxHp}.` : ''}`;
+@@ -492,8 +563,7 @@
+   output.closest('.battle-guidance')?.classList.toggle('danger-preview', !!result?.danger);
+   return !!action;
+ }
+-function roster(side: 'allies' | 'enemies'): string {
+-  const units = state[side];
++function roster(side: 'allies' | 'enemies', units: readonly Unit[] = state[side]): string {
+   const enemy = side === 'enemies';
+   const dense = units.length >= 3;
+   return `<section class="roster ${enemy ? 'enemy-roster' : 'ally-roster'} ${dense ? 'dense-roster' : ''}" aria-label="${enemy ? 'Enemies' : 'Bound creatures'}"><div class="roster-heading"><span class="eyebrow">${enemy ? 'HOSTILE CONTACTS' : 'YOUR BINDINGS'}</span><span>${units.length} / 6</span></div><div class="unit-grid">${Array.from({ length: 6 }, (_, i) => {
+@@ -564,7 +634,7 @@
+ 
+ function renderOutcome() {
+   const won = state.phase === 'victory';
+-  $('scene-ui').innerHTML = `<div class="page-panel outcome-panel"><span class="outcome-emblem">${icon(won ? 'lantern' : 'moon')}</span><div class="page-intro"><span class="eyebrow">${won ? 'FINAL WARRANT CLOSED' : 'CONTRACT FAILED'}</span><h1>${won ? 'The last mark is dead.' : 'The contract claimed its hunter.'}</h1><p>${won ? 'You survived ten contracts. The bindings held. Collect your pay.' : 'Read the combat record, rebuild your method, and take another warrant.'}</p></div><div class="recap"><div><strong>${state.stats.battles}</strong><span>Contracts faced</span></div><div><strong>${state.stats.cardsPlayed}</strong><span>Cards played</span></div><div><strong>${state.stats.damageDealt}</strong><span>Damage dealt</span></div><div><strong>${state.stats.turns}</strong><span>Turns taken</span></div></div>${relicsLine()}<div class="outcome-actions"><button class="button primary" data-ui="new">Take a new contract ${icon('arrow')}</button><button class="button secondary" data-ui="retry">Replay seed ${state.seed}</button></div><span class="panel-footnote">Difficulty: ${['Initiate', 'Hunter', 'Veteran'][state.difficulty]} · Final health: ${state.hp}/${state.maxHp} · Deck: ${state.deck.length} cards</span></div>`;
++  $('scene-ui').innerHTML = `<div class="page-panel outcome-panel"><span class="outcome-emblem">${icon(won ? 'lantern' : 'moon')}</span><div class="page-intro"><span class="eyebrow">${won ? 'FINAL WARRANT CLOSED' : 'CONTRACT FAILED'}</span><h1>${won ? 'The last mark is dead.' : 'The contract claimed its hunter.'}</h1><p>${won ? 'You survived the Black March. The bindings held. Collect your pay.' : 'Read the combat record, rebuild your method, and take another warrant.'}</p></div><div class="recap"><div><strong>${state.stats.battles}</strong><span>Battles fought</span></div><div><strong>${state.stats.cardsPlayed}</strong><span>Cards played</span></div><div><strong>${state.stats.damageDealt}</strong><span>Damage dealt</span></div><div><strong>${state.stats.turns}</strong><span>Turns taken</span></div></div>${relicsLine()}<div class="outcome-actions"><button class="button primary" data-ui="new">Take a new contract ${icon('arrow')}</button><button class="button secondary" data-ui="retry">Replay seed ${state.seed}</button></div><span class="panel-footnote">Difficulty: ${['Initiate', 'Hunter', 'Veteran'][state.difficulty]} · Final health: ${state.hp}/${state.maxHp} · Deck: ${state.deck.length} cards</span></div>`;
+ }
+ 
+ function openDialog(name: string, content: string, wide = false) {

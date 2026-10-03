@@ -1,0 +1,11 @@
+
+/* Collection choices grow with their printed rules; battle-hand cards keep their own geometry. */
+.game-card.large-card{height:auto;min-height:283px}
+.reward-cards{align-items:stretch}
+.large-card .card-name{white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere}
+.large-card .card-description{flex:1 0 auto}
+.large-card .card-stats,.large-card .card-choose{flex-shrink:0}
+@media(min-width:1600px){.game-card.large-card{min-height:326px}}
+@media(max-height:760px) and (min-width:1101px){.game-card.large-card{min-height:252px}}
+@media(max-width:760px){.game-card.large-card,.shop-panel .large-card{height:auto;min-height:253px}}
+.deck-grid .game-card.large-card{min-height:256px}

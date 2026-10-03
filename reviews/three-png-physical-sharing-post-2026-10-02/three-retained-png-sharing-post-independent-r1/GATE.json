@@ -1,0 +1,151 @@
+{
+  "decision": "ACCEPT_EXACT_THREE_PNG_POST_TRANSACTION_WITH_RECORDED_PHYSICAL_ISOLATION_LOSSES",
+  "actualControls": {
+    "BEFORE.json": {
+      "sha256": "97d46a2375a226e12589d82ca9cfa216266cef544b9fad66640fc16e6553dbfd",
+      "bytes": 4710
+    },
+    "JOURNAL.jsonl": {
+      "sha256": "a234beca52824c700eb921f2fe3d42483a13e103346b44c573e1fd94bcf94d77",
+      "bytes": 2391
+    },
+    "RESULT.json": {
+      "sha256": "1ff9174f8ee15ae462af3766fa9fbf89470308e8b4262a7a48b82b9eec68b6da",
+      "bytes": 3631
+    }
+  },
+  "beforeGate": {
+    "sha256": "65f9d3be496ab370c3c0a72aaf2f2f22724c318a0f2b6c78b4ac0414e9e80e02",
+    "bytes": 6343
+  },
+  "judgment": {
+    "sha256": "b0da23550ac07c326f36380a1cd3bad02e1f9b1f06bc369437c8f0f6328e95bd",
+    "bytes": 1758
+  },
+  "push": {
+    "sha256": "aacb9cd5983c53634822ec8f4033417d1bffd618dc7e710560bd484c71a97472",
+    "bytes": 359
+  },
+  "rootMethod": {
+    "sha256": "a084f117d41a95eb78c9b6739b507a1fb0ab0a4570ac50353f182f854bf7d0a0",
+    "bytes": 5631
+  },
+  "hold": {
+    "sha256": "f9bb313329762de931904873238474de8cfb209c30835856c5c83a7eaadbb463",
+    "bytes": 14487
+  },
+  "selectedMap": {
+    "sha256": "31a221091d2ffbc6d58dfc1385962c441df9789c66729ef64d20b95208a8fabd",
+    "bytes": 15350
+  },
+  "commit": "34f0a2a4c4b19191efd56277e57b25ba0cf3788e",
+  "knownAliases": [
+    {
+      "canonical": "/workspace/Roguelike-deckbuilder/public/art/abbey-courtyard.png",
+      "nlinkBefore": 4,
+      "nlinkAfter": 5,
+      "observedDistinctPhysicalEntries": 4,
+      "unresolvedEntries": 1,
+      "ctimeBefore": 1790898151006693818,
+      "ctimeAfter": 1790904436827253842,
+      "knownAliasBodiesMatch": true
+    },
+    {
+      "canonical": "/workspace/Roguelike-deckbuilder/public/art/tool-vignettes.png",
+      "nlinkBefore": 4,
+      "nlinkAfter": 5,
+      "observedDistinctPhysicalEntries": 4,
+      "unresolvedEntries": 1,
+      "ctimeBefore": 1790898151170193881,
+      "ctimeAfter": 1790904436833950851,
+      "knownAliasBodiesMatch": true
+    },
+    {
+      "canonical": "/workspace/Roguelike-deckbuilder/public/art/hunter-portrait.png",
+      "nlinkBefore": 4,
+      "nlinkAfter": 5,
+      "observedDistinctPhysicalEntries": 4,
+      "unresolvedEntries": 1,
+      "ctimeBefore": 1790898151105752250,
+      "ctimeAfter": 1790904436840131331,
+      "knownAliasBodiesMatch": true
+    }
+  ],
+  "journalExactNineEntriesAndPrefixOrder": true,
+  "grossAllocationBytes": 8499200,
+  "measuredWindow": {
+    "before": 67526656,
+    "afterBeforeResultWrite": 76009472,
+    "netGainBeforeResultWrite": 8482816,
+    "differenceFromGross": 16384,
+    "qualification": "Observed finite transaction window and before/journal allocation; not enduring free-space guarantee or exclusive global attribution. RESULT/independent report/push footprints follow."
+  },
+  "current87Inputs56OutputsExact": true,
+  "selectedSourceDigest": "1d5bf40a5f62c8ce3de1d087956e9190e98b3011cca1b1b7a5488fc8240bd4d3",
+  "selectedOutputsDigest": "30ddc549433f7b0b7611e41c0d4fd67e00a3aaa07dd61ba886cc43094f1e5464",
+  "historical66Source51BuildExact": true,
+  "protectedMetadataOnly": {
+    "st_dev": 27,
+    "st_ino": 678628,
+    "st_mode": 33152,
+    "st_nlink": 1,
+    "st_uid": 1000,
+    "st_gid": 1000,
+    "st_size": 1856041104,
+    "st_blocks": 3625096,
+    "st_atime_ns": 1790815508306217040,
+    "st_mtime_ns": 1790815567573263991,
+    "st_ctime_ns": 1790859776790106720
+  },
+  "rootActualGuard": {
+    "result": {
+      "sha256": "fc828b14e207715ee9377f5f7c7c56d7d09fba21ceaa318b689a630e8be313f4",
+      "bytes": 1235
+    },
+    "points": 5,
+    "liveRows": 3,
+    "maxAggregateDelta": 9244672,
+    "minHeadroom": 1458917376,
+    "eventsUnchanged": true,
+    "normalRc0": true,
+    "closureQualification": "Finite generic guard normal completion/child group closure assertion; no independent exhaustive PID/start ledger or unknown FD/mmap/backend/global attribution."
+  },
+  "onlyExactThreeScope": "Journal and current identities match named three; no broad filesystem mutation audit or new cleanup authority. All logical source/review/provenance/runtime bodies checked remain unchanged. Unknown aliases observe shared metadata effects; no universal hold claim. Original private nlink1 inode/ctime/time/write isolation gone by accepted judgment; byte/path rollback remains, original inode rollback impossible. Holds not OS isolation.",
+  "proof": {
+    "sha256": "ea93e6bdeff340f48f3718e551ac37bc3fe9527e209c7d027996aa8c67cc619a",
+    "bytes": 67796
+  },
+  "exactThreeCurrentInodesBodiesStatsXattrs": true,
+  "allTemporaryPathsAbsent": true,
+  "originalPrivateMetadataRetainedNotRestored": true,
+  "noNewActionOrRetirementAuthority": true,
+  "noReviewerFailures": true,
+  "reviewerGuard": {
+    "result": {
+      "sha256": "c49a0e8fd37bff0521aea6dcfb9769843a03e83c8798cfacd3a15ae5bd1f9996",
+      "bytes": 1235
+    },
+    "points": 5,
+    "minHeadroom": 1435578368,
+    "maxAggregateDelta": 40919040,
+    "eventsUnchanged": true,
+    "ownVmHWM": 10899456
+  },
+  "seal64Work512Reserve": {
+    "initial": {
+      "current": 15743569920,
+      "headroom": 1436299264,
+      "free": 75878400,
+      "utcNs": 1790904556217449460
+    },
+    "finalBeforeSmallSealWrites": {
+      "current": 15743827968,
+      "headroom": 1436041216,
+      "free": 75874304,
+      "utcNs": 1790904556218984660
+    },
+    "eventsUnchanged": true,
+    "ownVmHWM": 10276864
+  },
+  "CLOSED": "All finite reader/guard/FDs closed; direct sealer has no child. No further action or exhaustive global closure claim."
+}

@@ -1,0 +1,119 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  {
+    allies: [],
+    block: 0,
+    deck: [
+      'cairnhound',
+...
+    floor: 2,
++   gold: 65,
+-   gold: 90,
+    hand: [],
+    hp: 65,
+    log: [
+      'A scarred hunter. One final contract. No pact is harmless.',
+-     'Found 25 gold beneath the roots.'
+    ],
+    maxHp: 65,
+    nextUid: 1,
++   phase: 'event',
+-   phase: 'map',
+    relics: [
+      'moon-charm'
+    ],
+    rewards: [],
+    rng: 381027,
+    route: [
++     'event'
+-     'camp',
+-     'shop'
+    ],
+    schema: 2,
+    seed: 381027,
+    stats: {
+      battles: 0,
+
+    at file:///workspace/Roguelike-deckbuilder/reviews/root-v0.9-event-availability-author/browser-r1.mjs:15:506 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: {
+    schema: 2,
+    seed: 381027,
+    rng: 381027,
+    phase: 'event',
+    hp: 65,
+    maxHp: 65,
+    block: 0,
+    energy: 0,
+    gold: 65,
+    floor: 2,
+    turn: 0,
+    deck: [
+      'cairnhound',    'cairnhound',
+      'fenstalker',    'ashwidow',
+      'briarcolossus', 'scour',
+      'scour',         'ironward',
+      'ironward',      'sutures',
+      'sunder',        'survey'
+    ],
+    draw: [],
+    discard: [],
+    hand: [],
+    allies: [],
+    enemies: [],
+    rewards: [],
+    relics: [ 'moon-charm' ],
+    route: [ 'event' ],
+    log: [ 'A scarred hunter. One final contract. No pact is harmless.' ],
+    nextUid: 1,
+    difficulty: 1,
+    stats: { cardsPlayed: 0, damageDealt: 0, turns: 0, battles: 0 }
+  },
+  expected: {
+    schema: 2,
+    seed: 381027,
+    rng: 381027,
+    phase: 'map',
+    hp: 65,
+    maxHp: 65,
+    block: 0,
+    energy: 0,
+    gold: 90,
+    floor: 2,
+    turn: 0,
+    deck: [
+      'cairnhound',    'cairnhound',
+      'fenstalker',    'ashwidow',
+      'briarcolossus', 'scour',
+      'scour',         'ironward',
+      'ironward',      'sutures',
+      'sunder',        'survey'
+    ],
+    draw: [],
+    discard: [],
+    hand: [],
+    allies: [],
+    enemies: [],
+    rewards: [],
+    relics: [ 'moon-charm' ],
+    route: [ 'camp', 'shop' ],
+    log: [
+      'A scarred hunter. One final contract. No pact is harmless.',
+      'Found 25 gold beneath the roots.'
+    ],
+    nextUid: 1,
+    difficulty: 1,
+    stats: { cardsPlayed: 0, damageDealt: 0, turns: 0, battles: 0 }
+  },
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

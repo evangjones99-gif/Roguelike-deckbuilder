@@ -1,0 +1,23 @@
+{
+  "syntheticPad": true,
+  "physicalHardware": false,
+  "realChromiumVisibility": false,
+  "visibilityTestMode": "explicit Document.hidden emulation",
+  "errors": [],
+  "contentEditableHarnessRepair": "The second attempt assigned an invalid empty IDL property; use the valid empty contenteditable HTML attribute.",
+  "priorAttempt": {
+    "result": "failed harness assertion",
+    "reason": "First attempt assumed bringToFront hides other headless tabs; they remained visible and a foreground A press correctly activated."
+  },
+  "build": {
+    "version": "0.5.0",
+    "digest": "d6221bf764bad593b04981e87bead7ba6868b72cf361d70671af5c91aac39416"
+  },
+  "foregroundPollingWithMotionOff": 16,
+  "heldInputIgnoredOnResume": true,
+  "pollsStoppedInHidden": true,
+  "freshPressSelectsOnce": true,
+  "disposeStopsScheduledPolling": true,
+  "APIRefusalUsesSlowRetry": true,
+  "contentEditableNativeTypingPreserved": true
+}

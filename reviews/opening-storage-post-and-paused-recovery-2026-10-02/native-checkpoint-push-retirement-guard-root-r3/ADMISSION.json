@@ -1,0 +1,25 @@
+{
+  "initial": {
+    "time_ns": 1790947426128768830,
+    "current": 15785127936,
+    "maximum": 17179869184,
+    "headroom": 1394741248,
+    "free": 70217728
+  },
+  "work": 134217728,
+  "reserve": 536870912,
+  "command": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "140s",
+    "python3",
+    "-B",
+    "/workspace/scratch/native-checkpoint-push-and-reviewed-retirement-root-r3.py",
+    "/workspace/scratch/retirement-publication-independent-r1/GATE.json",
+    "af480c78e0780f5c090a7d3c6e9f79d2be81fb5b33b7596e18cdfe0cb075879b"
+  ],
+  "stage": "/workspace/Roguelike-deckbuilder",
+  "admitted": true,
+  "memory_events_before": "low 0\nhigh 0\nmax 290744\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

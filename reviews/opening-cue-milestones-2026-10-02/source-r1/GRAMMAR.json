@@ -1,0 +1,35 @@
+{
+  "nodeVersion": "v24.19.0",
+  "scope": "Node built-in TypeScript stripping and syntax-only parse. No imports executed, no typecheck or build.",
+  "results": [
+    {
+      "label": "parent",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--experimental-strip-types",
+        "--check",
+        "/workspace/scratch/starter-static-recovered-stage-r1/src/main.ts"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsedSeconds": 0.0284,
+      "childMaxRssKiBCumulative": 26748
+    },
+    {
+      "label": "candidate",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--experimental-strip-types",
+        "--check",
+        "/workspace/scratch/opening-cue-milestones-source-r1/src/main.ts"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsedSeconds": 0.0256,
+      "childMaxRssKiBCumulative": 26748
+    }
+  ],
+  "priorCheckAttempt": "/usr/bin/time was unavailable (exit127), so resource.getrusage records child peak RSS instead."
+}

@@ -1,0 +1,175 @@
+{
+  "scope": "Personally verified actual native bytes and author/CI evidence; reviewer executes on Linux, not Windows",
+  "version": "0.5.0",
+  "sourceCommit": "5d1b9ed735349f83fdd14dfb331004d23be30357",
+  "nativeMergeCommit": "eee00c2d2f30d5eae24d7d73566ab43f3a9f8d4f",
+  "nativeRun": "36782560136",
+  "wrappersVerified": 9,
+  "partsVerified": 8,
+  "archiveBytes": 183592465,
+  "archiveSHA256": "2343c5f16239c3f10c1248c44f279322e0bb579047098b379fc438cdb168e769",
+  "actualNativePackageFilesVerified": 72,
+  "artifacts": [
+    {
+      "platform": "Linux",
+      "asarSHA256": "15f5f6eebf3a41829e7dd8f268869fbd667996bddc1cb69d960e5bfdf04ae757",
+      "runtimeSourceDigest": "d6221bf764bad593b04981e87bead7ba6868b72cf361d70671af5c91aac39416",
+      "sourceEntries": 26,
+      "distFiles": 14,
+      "desktopFiles": 2,
+      "packageVersion": "0.5.0",
+      "licenseBytes": {
+        "electron": 1096,
+        "chromium": 20111209
+      }
+    },
+    {
+      "platform": "nativeWindows",
+      "asarSHA256": "15f5f6eebf3a41829e7dd8f268869fbd667996bddc1cb69d960e5bfdf04ae757",
+      "runtimeSourceDigest": "d6221bf764bad593b04981e87bead7ba6868b72cf361d70671af5c91aac39416",
+      "sourceEntries": 26,
+      "distFiles": 14,
+      "desktopFiles": 2,
+      "packageVersion": "0.5.0",
+      "licenseBytes": {
+        "electron": 1096,
+        "chromium": 20472830
+      }
+    }
+  ],
+  "executableSHA256": "d9421d46864f7be6eea4162db8f6f5f48aaa1c7787d38c7ba0abe0a0d9461d95",
+  "certificateDirectory": {
+    "offset": 0,
+    "size": 0
+  },
+  "resources": {
+    "icons": [
+      {
+        "id": 1,
+        "language": 1033,
+        "sha256": "9bc0d5bbacc0a7fee9f1d00506c489ab811924465542a9f984144f9b2d1bdcad"
+      },
+      {
+        "id": 2,
+        "language": 1033,
+        "sha256": "2ea62b7b2caed4aa81e149c5851aae4cc59cf918c660b61f60893a4f484f7d3e"
+      },
+      {
+        "id": 3,
+        "language": 1033,
+        "sha256": "6d487b6536f50a57b8fcbb376f0ce882aa39473e155d0ae4ba536e3eb17294ac"
+      },
+      {
+        "id": 4,
+        "language": 1033,
+        "sha256": "19c9a134aa214ed3500d05c873c3aa52d6527651ad6b5d867b0db582449aec14"
+      },
+      {
+        "id": 5,
+        "language": 1033,
+        "sha256": "8d35e37f5f4fb93469f8b987803cc525094a843018a2385b2ed3a45b726d8fc6"
+      },
+      {
+        "id": 6,
+        "language": 1033,
+        "sha256": "7cbc6f79d2e20816c72fa2174b4a50bc6a5371c78e1fa1787facc3c54d5daace"
+      },
+      {
+        "id": 7,
+        "language": 1033,
+        "sha256": "d233c60747efda27afd900d7c925ee2e59512ec751e111ae4cb1fb480275a3bb"
+      }
+    ],
+    "iconGroups": [
+      {
+        "id": 1,
+        "language": 1033,
+        "sizes": [
+          [
+            16,
+            16
+          ],
+          [
+            24,
+            24
+          ],
+          [
+            32,
+            32
+          ],
+          [
+            48,
+            48
+          ],
+          [
+            64,
+            64
+          ],
+          [
+            128,
+            128
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "fixed": {
+          "fileVersionMS": 5,
+          "fileVersionLS": 0,
+          "productVersionMS": 5,
+          "productVersionLS": 0,
+          "fileFlagsMask": 63,
+          "fileFlags": 0,
+          "fileOS": 262148,
+          "fileType": 1,
+          "fileSubtype": 0,
+          "fileDateMS": 0,
+          "fileDateLS": 0
+        },
+        "strings": [
+          {
+            "CompanyName": "Hollowpact contributors",
+            "FileDescription": "Hollowpact",
+            "FileVersion": "0.5.0",
+            "InternalName": "Hollowpact",
+            "LegalCopyright": "Copyright © 2026 Hollowpact contributors",
+            "OriginalFilename": "",
+            "ProductName": "Hollowpact",
+            "ProductVersion": "0.5.0.0",
+            "SquirrelAwareVersion": "1"
+          }
+        ]
+      }
+    ]
+  },
+  "nativeObservedSecurity": {
+    "sandbox": true,
+    "contextIsolation": true,
+    "nodeIntegration": false,
+    "launchSandboxDisabled": false
+  },
+  "nativeSyntheticFeedbackSHA256": "84e516d2b0614b3e73d7d62d70b4c3c1d3807f850c835ed3fbb9cd91a03b2af3",
+  "nativeSteps": [
+    "validate packaged provenance and executable resources",
+    "launch fresh packaged executable with sandbox enabled",
+    "decode packaged hunter portrait",
+    "set and persist sound, volume and reduced-motion preferences through controls",
+    "seed 121 first-run tutorial and battle through controls",
+    "reload and resume exact combat save",
+    "decode packaged warleader/tool sheets and render actual starter equipment paintings",
+    "export explicit synthetic negative feedback through native will-download",
+    "relaunch packaged executable and resume persistent profile"
+  ],
+  "nativeLimits": [
+    "Synthetic automated QA, not human feedback or a fun rating",
+    "One native Windows hosted-runner x64 configuration; no broad hardware or performance qualification",
+    "Test-only main-process download save-path hook bypasses the native chooser",
+    "Unsigned directory package; no installer, SmartScreen, Steam depot, update or Steam Deck test",
+    "No controller, audio listening, accessibility or full-campaign acceptance test"
+  ]
+}

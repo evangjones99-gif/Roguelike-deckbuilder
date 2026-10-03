@@ -1,0 +1,74 @@
+{
+  "decision": "ACCEPT_CONDITIONAL_EXACT_FIVE_PNG_PINNED_56M_RECOVERY_ADMISSION_ONLY",
+  "files": [
+    {
+      "path": "/workspace/scratch/five-png-recovery-admission-independent-r1/GATE.json",
+      "bytes": 7618,
+      "sha256": "dfd3fcb3d1282aef6273c3712e1d01d800462055a158bfbeb878e9693aa47f7d"
+    },
+    {
+      "path": "/workspace/scratch/five-png-recovery-admission-independent-r1/PROOF.json",
+      "bytes": 13197,
+      "sha256": "517bb22d2209484f0438719e61a423ddb44a2e07d2424aad62e60dbc686c9adc"
+    },
+    {
+      "path": "/workspace/scratch/five-png-recovery-admission-independent-r1/REVIEW.md",
+      "bytes": 5332,
+      "sha256": "48b0a17ff4d2ae7104258d6c0df36bd58114bf45685ff4af8bc0903dfb628a51"
+    },
+    {
+      "path": "/workspace/scratch/five-png-recovery-admission-independent-r1/SOURCE-FAILURE-r1.txt",
+      "bytes": 869,
+      "sha256": "49172edcea485cd65fc028d68cad0c1e6331ab6f547ddae093d55b353444fd40"
+    },
+    {
+      "path": "/workspace/scratch/five-png-recovery-admission-independent-r1/SOURCE-FAILURE-r2.txt",
+      "bytes": 1014,
+      "sha256": "66fb240f418fcabae37a2a1d144fbfc8d7341e9274debfe60a6375810a7063f3"
+    },
+    {
+      "path": "/workspace/scratch/five-png-recovery-admission-independent-r1/SOURCE-FAILURE-r3.txt",
+      "bytes": 1741,
+      "sha256": "e284eedfd1e774defe546cd8fdc03c48028821f35a7bd2a0bb794ff4ee747f6c"
+    },
+    {
+      "path": "/workspace/scratch/five-png-recovery-admission-independent-r1/seal-launcher.py",
+      "bytes": 318,
+      "sha256": "b8f51097c958aaec71adf58edd970a41878dcbf5baeb34dfb33104f51bc540e6"
+    },
+    {
+      "path": "/workspace/scratch/five-png-recovery-admission-independent-r1/seal.py",
+      "bytes": 6127,
+      "sha256": "b545dfca54a0e2f3d1b62307e934dd72d1c5034818fcc653bd470c34f8fe2621"
+    },
+    {
+      "path": "/workspace/scratch/five-png-recovery-admission-independent-r1/verify-launcher.py",
+      "bytes": 262,
+      "sha256": "44fbe39b1414bf86a36372230d1dcc743364b0a0e76ae0a686bf4e699907588d"
+    },
+    {
+      "path": "/workspace/scratch/five-png-recovery-admission-independent-r1/verify-r2.py",
+      "bytes": 7249,
+      "sha256": "8640a48e1e1cc9d6895dca20972340c473016920a14f87e0f8d67a371c61c0c1"
+    },
+    {
+      "path": "/workspace/scratch/five-png-recovery-admission-independent-r1/verify-r3.py",
+      "bytes": 7365,
+      "sha256": "f8d831a59a48b23ec81c6f950129b15041277482db0759e1d99aec0130793ba6"
+    },
+    {
+      "path": "/workspace/scratch/five-png-recovery-admission-independent-r1/verify.py",
+      "bytes": 7250,
+      "sha256": "521299bdc525dcb6c714adad45999beb1187bc1a02be755dd604d57e2c4d1f79"
+    }
+  ],
+  "packetBytesBeforeSeal": 58342,
+  "finalPacketCapBytes": 98304,
+  "conservativeAdditionalSealBytes": 4096,
+  "publisherOtherCopiedBodyBytes": 16774,
+  "publisherActualPayloadBeforeSeal": 75116,
+  "publisherConservativeCopiedBodyUpperBound": 115078,
+  "ownMaxRSSBytes": 9961472,
+  "resourceProfile": "Explicitly unmetered finite source/AST/diff/metadata/read/seal only; rejected resource attempts preserved separately, unchanged24MiB assertion in successful fresh child",
+  "closure": "Await sealer and its finite launcher exit0 before later work; no guard invoked by reviewer"
+}

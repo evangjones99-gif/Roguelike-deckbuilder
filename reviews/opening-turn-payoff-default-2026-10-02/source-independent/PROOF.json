@@ -1,0 +1,114 @@
+{
+  "status": "SOURCE_FULL_FINITE_AUDIT_PASS_NOT_ARCHIVE_EXECUTED",
+  "pins": {
+    "PLAN.json": "6b190d0efba84bf1b5c69fdfd3aa097bfd1bdd84ab65f2665f3df4a722524cce",
+    "preserve-checkpoint.py": "367ea7aeeb38186cc546c0bf52ee5e0e65e7705f9dda6d7ccf27c4097c441a69",
+    "MANIFEST.json": "5230066863357218bacd7e52e375b9fab4a08bd975c0329b959bf7e1de21792c",
+    "CLOSURE.json": "dc77f1a14a3bed45cd432fa236b005fdfee5c5d6750d75f163d4e2b0fa689854"
+  },
+  "logicalRows": 490,
+  "newUniqueBodies": 298,
+  "newUniqueBytes": 9934592,
+  "storage": {
+    "newBlob": 303,
+    "existingCapsule": 187
+  },
+  "roles": {
+    "original actual (all files including8 JPEG)": 66,
+    "original independent actual review including failures": 96,
+    "exact default source/build/caller proof and failed originals": 154,
+    "Root exact activation/grant": 2,
+    "default runtime code/support or exact capsule rollback reference": 131,
+    "exact complete runtime maps": 2,
+    "exact40-control authority manifest": 2,
+    "exact actual40 controls": 37
+  },
+  "existingIndexLogicalRows": 831,
+  "existingIndexUniqueBodies": 697,
+  "existingLogicalSamePathCount": 121,
+  "all187ReferenceSHAAndLengthBound": true,
+  "full490OriginalSHAAndLengthMatched": true,
+  "reviewAndActualCompleteTreeCounts": {
+    "/workspace/scratch/opening-turn-payoff-actual-comparison-root-r1": 33,
+    "/workspace/scratch/opening-turn-payoff-on-actual-comparison-root-r1": 33,
+    "/workspace/scratch/opening-turn-payoff-actual-technical-independent-r1": 10,
+    "/workspace/scratch/opening-turn-payoff-actual-gameplay-independent-r1": 20,
+    "/workspace/scratch/opening-turn-payoff-actual-visual-independent-r1": 9,
+    "/workspace/scratch/opening-turn-payoff-actual-visual-independent-r2": 17,
+    "/workspace/scratch/opening-turn-payoff-on-actual-technical-independent-r1": 13,
+    "/workspace/scratch/opening-turn-payoff-on-actual-gameplay-independent-r1": 12,
+    "/workspace/scratch/opening-turn-payoff-on-actual-visual-independent-r1": 15
+  },
+  "actualJPEGCount": 16,
+  "rawPairCount": 12,
+  "rawDomain": "complete UTF8 saved strings separately from opaque wrapper SHA",
+  "all40CallerBodies": 40,
+  "runtimeMaps": [
+    [
+      89,
+      56
+    ],
+    [
+      89,
+      56
+    ],
+    [
+      88,
+      56
+    ]
+  ],
+  "externalGameMediaIdentityRowsNoBodyRead": 303,
+  "gates": [
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-actual-technical-independent-r1/GATE.json",
+      "sha256": "0ac7e90647d034c77642c76029585c59d210754ad7723a16507481e51c1b576e",
+      "decision": "ACCEPT_EXACT_CUE_ACTUAL_TECHNICAL_IDENTITY_FULL_RAW_NATIVE_RELEASE_AND_OWNED_CLOSURE_ENGINEERING_ONLY"
+    },
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-actual-gameplay-independent-r1/GATE.json",
+      "sha256": "1745a7b40a9f319ab573982d907cfd494ffcd01352548b66b05e4f120f72b1dd",
+      "decision": "ACCEPT_NARROW_ACTUAL_SPENT_COMMAND_NEXT_CHOICE_CUE"
+    },
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-actual-visual-independent-r2/GATE.json",
+      "sha256": "457608682f36fdcb672c70f80bf830b7e2fd7d448fe5f5e865e7d542eb2fadc3",
+      "decision": "ACCEPT_NARROW_ACTUAL_OPTIN_OPENING_TURN_CUE_VISUAL_FIT"
+    },
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-on-actual-technical-independent-r1/GATE.json",
+      "sha256": "a3e5afeb9df3984bc9744a0583fab654c8e570d6ee8780fdcedbdd333cde1d65",
+      "decision": "ACCEPT_EXACT_DEFAULT_OPENING_CUE_ACTUAL_ENGINEERING_NARROW_SCOPE"
+    },
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-on-actual-gameplay-independent-r1/GATE.json",
+      "sha256": "687796097ca496d5506af6faf7f26f3cea08ffb742c3a0f5781164585366855d",
+      "decision": "ACCEPT_NARROW_ACTUAL_DEFAULT_ON_SPENT_COMMAND_NEXT_CHOICE_INFORMATION"
+    },
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-on-actual-visual-independent-r1/GATE.json",
+      "sha256": "da16104f55c57d367e6e0c5f0d34b2d500da89f0e0b25da5898f04f0f5466aa7",
+      "decision": "ACCEPT_DEFAULT_SPENT_COMMAND_CUE_NARROW_STATIC_INFORMATION_AND_FIT"
+    },
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-on-source-independent-r1/GATE.json",
+      "sha256": "713b5bc2c2144d9c6e75e41c69dda4daae704e96498fd161172b86a22325958c",
+      "decision": "ACCEPT_NARROW_DEFAULT_OPENING_CUE_SOURCE"
+    },
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-on-build-independent-r2/GATE.json",
+      "sha256": "c6a07426dddb783aba7a11262f6cc9d2ea5895b0e327591798518c3102c39b3d",
+      "decision": "ACCEPT_EXACT_DEFAULT_OPENING_CUE_STRICT_BUILD_IDENTITY"
+    },
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-on-actual-caller-source-independent-r2/GATE.json",
+      "sha256": "54ac2ac17e721546dfc39b60f7aa786f5957962b88ca0a0c9d7b82690571471d",
+      "decision": "ACCEPT_EXACT_DEFAULT_OPENING_CUE_FINAL_R2_CALLER_SOURCE_WITH_EXPLICIT_QUALIFICATIONS"
+    }
+  ],
+  "protectedZipStatAndXattrsUnchangedNoBodyRead": true,
+  "AGENTSSHA256": "121d70851473627d73099518d5dd6b38a74773405c057a08b5eb87596dce2616",
+  "ordinaryNOATIMEFallbackPaths": [],
+  "aliasBodiesResolvedCount": 1,
+  "ownMaxRSSKiB": 12260,
+  "qualification": "Source eligibility only. Existing TAR not body read; exact INDEX and earlier COMPLETE697-body gate retained. Future Root actual must full-hash references, copy/readback298, retain terminal stdout and undergo independent COMPLETE review. No runtime selection or cleanup."
+}

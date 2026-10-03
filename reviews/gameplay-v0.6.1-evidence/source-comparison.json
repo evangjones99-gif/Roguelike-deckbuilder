@@ -1,0 +1,51 @@
+{
+  "scope": "Independent27entry runtime source/digest verification and semantic version-only package comparison; not verification of future archive transaction or native builds",
+  "baselineDigest": "0ec0187f0a42eb519000646695980dd91e1e026e1cb925b96935ee3e8646acde",
+  "currentDigest": "8720a38701aa78ccae894ba4ca7cb8656cc3072d5b023cdd9cc3d9d2b3d4c22d",
+  "changedEntries": [
+    "package-lock.json",
+    "package.json"
+  ],
+  "allRemaining25RuntimeInputsByteIdentical": true,
+  "versionOnlyPackageChanges": {
+    "package.json": {
+      "oldBytesHashMatchesFinal0ec": true,
+      "onlyTopLevelAndRootPackageVersionChanged": true
+    },
+    "package-lock.json": {
+      "oldBytesHashMatchesFinal0ec": true,
+      "onlyTopLevelAndRootPackageVersionChanged": true
+    }
+  },
+  "failedReleaseReceiptRead": {
+    "status": "incomplete-not-a-release",
+    "sourceCommit": "26286ec6acb7d95ad28446962349fdf4d5cfa702",
+    "runtimeSourceDigest": "0ec0187f0a42eb519000646695980dd91e1e026e1cb925b96935ee3e8646acde",
+    "reason": "RangeError [ERR_FS_FILE_TOO_LARGE]: File size (2863760699) is greater than 2 GiB\nChoose a fresh version after repair. This directory is not a release.\n",
+    "retainedArtifacts": [
+      {
+        "file": "hollowpact-0.6.0-linux-x64.tar.gz",
+        "bytes": 143874341,
+        "sha256": "4595daca22ef5b7861e6dbcb9e0b2c6dfbd039c5f4183bbebbb19c05574b182c"
+      },
+      {
+        "file": "hollowpact-0.6.0-source.zip",
+        "bytes": 2863760699,
+        "sha256": "076fc29bccc706b85666c2e2b7a4e4d620a93784dcd84f6931d7ced50c4c722c"
+      },
+      {
+        "file": "hollowpact-0.6.0-web.zip",
+        "bytes": 18606714,
+        "sha256": "a2439cd631116afade15faa59e0077674e080c09681cbc153d0757b38ee66c79"
+      },
+      {
+        "file": "hollowpact-0.6.0-windows-x64.zip",
+        "bytes": 179127903,
+        "sha256": "1cfd0b8b6b6f417dbb789d43041ec1e318451dbef88bce2c5fcfd50dcdecece2"
+      }
+    ],
+    "recordedAt": "2026-09-30T23:31:05.514Z"
+  },
+  "failedMarkerExists": true,
+  "failedArchiveHashesNotRecomputedByThisReviewer": true
+}

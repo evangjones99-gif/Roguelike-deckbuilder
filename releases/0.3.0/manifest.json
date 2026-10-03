@@ -1,0 +1,36 @@
+{
+  "version": "0.3.0",
+  "status": "development-prerelease-known-defect",
+  "sourceCommit": "1be4f1117e962b2e6a4ee769588eba6027d58f7b",
+  "runtimeSourceDigest": "1ef47ce481c3f8722e624fe6df1540d2957462c20c8ba7213c77ed4583a7f258",
+  "createdAt": "2026-09-30T19:52:45.567Z",
+  "platforms": [
+    "web",
+    "linux-x64",
+    "windows-x64"
+  ],
+  "artifacts": {
+    "hollowpact-0.3.0-linux-x64.tar.gz": "703c91c19552249ff8ca5c6812f3227b2614523b1c9c943d53e82c4989cc53c5",
+    "hollowpact-0.3.0-source.zip": "cfa79a8b7029b893f3d0a6410a027528bf7ff84a34a4311a2d2f5369bf424766",
+    "hollowpact-0.3.0-web.zip": "d836c415f7c8402702154cc9018168f5b2233e81e719ca62b5fb42331e9b8c45",
+    "hollowpact-0.3.0-windows-x64.zip": "5c22736a068a724df125cab8c7dd317503867c32c37c97b093c0ee6c051372e0"
+  },
+  "steamPublished": false,
+  "reviews": "See reviews/ for independent findings and promotion decisions; this manifest does not certify commercial quality.",
+  "promotion": "Historical development preservation only; save reliability and polished/commercial/AAA gates fail.",
+  "knownIssues": [
+    {
+      "id": "silence-guard-save-label",
+      "severity": "campaign resume failure",
+      "inheritedFrom": "0.2.0",
+      "reproduction": "Initiate seed1989,119 legal actions; repeated Silence against Ironjaw guard grows label beyond validator bound",
+      "evidence": "reviews/solo-v0.3/silence-overflow-campaign.json.gz",
+      "nextAction": "Immediate v0.4 idempotent status label and strict save recovery/replay checks"
+    },
+    {
+      "id": "pose-crossfade-ghosting",
+      "severity": "visual craft",
+      "nextAction": "Compare sharper painted pose transitions with current blend; preserve sparse atlas baseline"
+    }
+  ]
+}

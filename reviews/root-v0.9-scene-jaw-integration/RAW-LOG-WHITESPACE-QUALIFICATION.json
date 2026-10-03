@@ -1,0 +1,4 @@
+{
+  "gitDiffCheck": "Raw retained partial browser logs contain original trailing spaces and one extra blank EOF; source/docs/package check passes separately. Raw evidence was not normalized. Initial shell did not abort on this evidence-whitespace warning before commit; no source-format pass is falsely attributed to that whole-diff invocation.",
+  "codeCheck": "git show --format= --check dfb1141 -- src package.json package-lock.json docs returned0."
+}

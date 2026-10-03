@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/starter-family-native128-wiring-source-author-r1/seal.py", line 21, in <module>
+    b=(json.dumps(seal,separators=(',',':'))+'\n').encode();total=sum(q.stat().st_size for q in p.rglob('*') if q.is_file());assert total+len(b)+2500<=131072
+                                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

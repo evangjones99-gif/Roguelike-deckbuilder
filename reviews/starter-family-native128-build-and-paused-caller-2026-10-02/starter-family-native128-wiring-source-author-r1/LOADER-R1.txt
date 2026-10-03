@@ -1,0 +1,58 @@
+export function createCoherentNative128(requested: boolean) {
+  let ready = false, disposed = false;
+  const images: HTMLImageElement[] = [], urls: string[] = [];
+  const abort = new AbortController();
+  const digest = async (bytes: ArrayBuffer) => Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes)), n => n.toString(16).padStart(2, '0')).join('');
+  async function load() {
+    try {
+      const response = await fetch(new URL(COHERENT_NATIVE128.manifest, BASE), { signal: abort.signal });
+      if (!response.ok) throw new Error('Native manifest unavailable');
+      const bytes = await response.arrayBuffer();
+      if (await digest(bytes) !== COHERENT_NATIVE128.manifestSha256) throw new Error('Native manifest identity');
+      const manifest = JSON.parse(new TextDecoder().decode(bytes));
+      if (COHERENT_NATIVE128.sprites.length !== 7) throw new Error('Native seven-image contract');
+      if (manifest.animation !== null || manifest.palette?.transparent_index !== 0
+          || JSON.stringify(manifest.palette.opaque_colors) !== JSON.stringify(COHERENT_NATIVE128.palette)
+          || JSON.stringify(manifest.dimensions) !== '[128,128]'
+          || JSON.stringify(manifest.sprites) !== JSON.stringify(COHERENT_NATIVE128.sprites)) throw new Error('Native manifest contract');
+      for (const row of COHERENT_NATIVE128.sprites) {
+        const imageResponse = await fetch(new URL(row.filename, BASE), { signal: abort.signal });
+        if (!imageResponse.ok) throw new Error('Native image unavailable');
+        const data = await imageResponse.arrayBuffer();
+        if (await digest(data) !== row.sha256) throw new Error('Native image identity');
+        if (disposed) return;
+        const url = URL.createObjectURL(new Blob([data], { type: 'image/png' })); urls.push(url);
+        const image = new Image(); image.src = url; await image.decode();
+        if (image.naturalWidth !== 128 || image.naturalHeight !== 128) throw new Error('Native image dimensions');
+        const probe = document.createElement('canvas'); probe.width = probe.height = 128;
+        const context = probe.getContext('2d', { willReadFrequently: true });
+        if (!context) throw new Error('Native pixel validation unavailable');
+        context.drawImage(image, 0, 0);
+        const pixels = context.getImageData(0, 0, 128, 128).data;
+        const allowed = new Set(COHERENT_NATIVE128.palette.map(hex => parseInt(hex.slice(1), 16)));
+        for (let i = 0; i < pixels.length; i += 4) {
+          if (pixels[i + 3] !== 0 && pixels[i + 3] !== 255) throw new Error('Native binary alpha');
+          if (pixels[i + 3] === 255 && !allowed.has((pixels[i] << 16) | (pixels[i + 1] << 8) | pixels[i + 2])) throw new Error('Native shared palette');
+        }
+        probe.width = probe.height = 0; images.push(image);
+      }
+      if (!disposed && images.length === 7) ready = true;
+    } catch { ready = false; /* Whole baseline; missing/invalid data is never mixed. */ }
+  }
+  if (requested) void load();
+  return {
+    requested, get ready() { return ready && !disposed; },
+    supports(state: GameState) {
+      return state.phase === 'battle' && state.allies.every(u => keyFor(u, 'ally') !== null)
+        && state.enemies.every(u => keyFor(u, 'enemy') !== null)
+        && state.hand.every(id => CARDS[id]?.type !== 'summon' || id === 'cairnhound' || id === 'cairnhound+');
+    },
+    unit(unit: Unit, side: 'ally' | 'enemy'): Native128Sprite | null {
+      const key = keyFor(unit, side); return ready && key !== null ? { image: images[key], anchor: [64, 120] } : null;
+    },
+    hunter(): Native128Sprite | null { return ready ? { image: images[3], anchor: [64, 120] } : null; },
+    portrait(kind: 'hound' | 'hunter') { return ready && !disposed ? images[kind === 'hound' ? 4 : 5].src : ''; },
+    palette: COHERENT_NATIVE128.palette,
+    dispose() { disposed = true; ready = false; abort.abort(); urls.forEach(url => URL.revokeObjectURL(url)); images.length = 0; },
+  };
+}

@@ -1,0 +1,21 @@
+✔ connection-held confirm requires neutral release, then a fresh edge (2.138409ms)
+✔ confirm does not repeat across selection focus changes or long holds (0.320713ms)
+✔ button value hysteresis does not chatter near the press threshold (0.270409ms)
+✔ axis enter/exit deadzones ignore jitter and require threshold on reversal (0.216899ms)
+✔ direction alone repeats after350ms, then100ms; reentry is immediate (0.458836ms)
+✔ simultaneous activation buttons produce a single prioritized intent (0.301094ms)
+✔ presentation gate suppresses confirm and requires release after reopening (0.160036ms)
+✔ safe pause may open while gated, but is not replayed into a modal (0.195588ms)
+✔ disconnect, hidden reset and pad-index changes neutralize held input (0.290588ms)
+✔ unsupported mapping, invalid timing and opposing dpad directions stay inert (0.229718ms)
+✔ nonfinite axes/buttons are ignored, and decoder never reads a device identity (0.187907ms)
+✔ decoding does not mutate borrowed browser snapshots (0.710756ms)
+✔ safe pause works after neutral presentation-lock frames, without arming gameplay (0.149701ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 116.161727

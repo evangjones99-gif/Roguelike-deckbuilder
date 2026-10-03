@@ -1,0 +1,54 @@
+{
+  "baselineArchive": "releases/0.3.0/hollowpact-0.3.0-web.zip",
+  "baselineHash": "d836c415f7c8402702154cc9018168f5b2233e81e719ca62b5fb42331e9b8c45",
+  "baselineManifest": {
+    "version": "0.3.0",
+    "status": "development-prerelease-known-defect",
+    "sourceCommit": "1be4f1117e962b2e6a4ee769588eba6027d58f7b",
+    "runtimeSourceDigest": "1ef47ce481c3f8722e624fe6df1540d2957462c20c8ba7213c77ed4583a7f258",
+    "createdAt": "2026-09-30T19:52:45.567Z",
+    "platforms": [
+      "web",
+      "linux-x64",
+      "windows-x64"
+    ],
+    "artifacts": {
+      "hollowpact-0.3.0-linux-x64.tar.gz": "703c91c19552249ff8ca5c6812f3227b2614523b1c9c943d53e82c4989cc53c5",
+      "hollowpact-0.3.0-source.zip": "cfa79a8b7029b893f3d0a6410a027528bf7ff84a34a4311a2d2f5369bf424766",
+      "hollowpact-0.3.0-web.zip": "d836c415f7c8402702154cc9018168f5b2233e81e719ca62b5fb42331e9b8c45",
+      "hollowpact-0.3.0-windows-x64.zip": "5c22736a068a724df125cab8c7dd317503867c32c37c97b093c0ee6c051372e0"
+    },
+    "steamPublished": false,
+    "reviews": "See reviews/ for independent findings and promotion decisions; this manifest does not certify commercial quality.",
+    "promotion": "Historical development preservation only; save reliability and polished/commercial/AAA gates fail.",
+    "knownIssues": [
+      {
+        "id": "silence-guard-save-label",
+        "severity": "campaign resume failure",
+        "inheritedFrom": "0.2.0",
+        "reproduction": "Initiate seed1989,119 legal actions; repeated Silence against Ironjaw guard grows label beyond validator bound",
+        "evidence": "reviews/solo-v0.3/silence-overflow-campaign.json.gz",
+        "nextAction": "Immediate v0.4 idempotent status label and strict save recovery/replay checks"
+      },
+      {
+        "id": "pose-crossfade-ghosting",
+        "severity": "visual craft",
+        "nextAction": "Compare sharper painted pose transitions with current blend; preserve sparse atlas baseline"
+      }
+    ]
+  },
+  "inspectedPrototypeHashes": {
+    "reviews/arena-v0.4-depth-prototype/README.md": "97a8f3b49864ede6c89a8c5a86e631d8a157bc6a931e51de60e7616dd53a83f4",
+    "reviews/arena-v0.4-depth-prototype/arena.ts": "72b0c5b3ad07fba159d879c406128584d6b36365765a8c5754f9d8432cdf4300",
+    "reviews/arena-v0.4-depth-prototype/art.ts": "6ea2291315ce1c7a99e5f5c130cfe58008a8887d35b38ad36be08df5c602474c",
+    "reviews/arena-v0.4-depth-prototype/comparison-harness.mjs": "b2513c06daa9e339279825df8e30cd30e18cd78f89e90c6dd62437bb53d4bd4a",
+    "reviews/arena-v0.4-depth-prototype/comparison.json": "1071219b1cd66f791a0eb5e282081495c994b03182e245d55b18230b3da04373",
+    "reviews/arena-v0.4-depth-prototype/idle-baseline.png": "43aa60e4cd3139b0ece642e6ba2cc2d81b6155c31d388870227b5a4bf37cca26",
+    "reviews/arena-v0.4-depth-prototype/idle-candidate.png": "31b67555678164b928d5b67c67f34cc4ad0dfb5ea8f576ccea5d7d071817524d",
+    "reviews/arena-v0.4-depth-prototype/attack-240-baseline.png": "692e322d4e038ae52dd2c542bcef0dd0f45dbb6bad8e848c6bd059b07ab3d181",
+    "reviews/arena-v0.4-depth-prototype/attack-240-candidate.png": "6aa54d3585fa7940bf5f9bab0aa7fbf7e234768d57ca3cb641f3ec4b4ffd9dbb",
+    "reviews/arena-v0.4-depth-prototype/full12-contact-baseline.png": "f148b71b698c16ba987ea77b90127d80d4a9e1bcf079443180aca5ab58a61fcd",
+    "reviews/arena-v0.4-depth-prototype/full12-contact-candidate.png": "380d0c33f1d804d3789efeb1ca45ff8d13c0785fd433ef01c41365ad1a40fc85"
+  },
+  "scope": "Immutable archive verification and independent review of author-provided paired prototype stills; no final v0.4 production inspection."
+}

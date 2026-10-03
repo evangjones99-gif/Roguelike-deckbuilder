@@ -1,0 +1,83 @@
+{
+  "status": "articulated procedural technical prototype; not production creature quality",
+  "blender": "4.3.2",
+  "units": "metres (concept scale)",
+  "vertices": 25065,
+  "triangles": 49328,
+  "bones": 28,
+  "materials": 7,
+  "skinWeightRange": [
+    0.9999998807907104,
+    1.0000001192092896
+  ],
+  "unweightedVertices": 0,
+  "animations": [
+    {
+      "name": "Idle_BreathAndWatch",
+      "frames": [
+        1.0,
+        49.0
+      ],
+      "fps": 24
+    },
+    {
+      "name": "Anticipation_Crouch",
+      "frames": [
+        1.0,
+        13.0
+      ],
+      "fps": 24
+    },
+    {
+      "name": "Lunge_CommandStrike",
+      "frames": [
+        1.0,
+        25.0
+      ],
+      "fps": 24
+    },
+    {
+      "name": "Hit_Recoil",
+      "frames": [
+        1.0,
+        17.0
+      ],
+      "fps": 24
+    },
+    {
+      "name": "Death_Collapse",
+      "frames": [
+        1.0,
+        41.0
+      ],
+      "fps": 24
+    }
+  ],
+  "renders": [
+    "hero-three-quarter.png",
+    "profile-left.png",
+    "rear-three-quarter.png",
+    "lunge-frame12.png",
+    "death-frame41.png",
+    "turntable-00.png",
+    "turntable-01.png",
+    "turntable-02.png",
+    "turntable-03.png",
+    "turntable-04.png",
+    "turntable-05.png",
+    "turntable-06.png",
+    "turntable-07.png",
+    "turntable-08.png",
+    "turntable-09.png",
+    "turntable-10.png",
+    "turntable-11.png"
+  ],
+  "reference": "public/art/companions-atlas.png, top-left tone/anatomy only",
+  "limitations": [
+    "Procedural assemblage lacks sculpted anatomical integration and reference-level fur/detail.",
+    "No inverse kinematics/contact constraints; approximate motion may slide feet or intersect floor.",
+    "Render noise/bump is procedural and is not baked into glTF PBR textures.",
+    "No retopology, UV bake, LODs, facial blend shapes, authored locomotion or engine integration.",
+    "Disjoint armor/tooth components are skinned rigidly; joint deformation needs artist review."
+  ]
+}

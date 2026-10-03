@@ -1,0 +1,774 @@
+{
+  "scope": "Independent actual repaired layout/hint geometry, motion-off identical validated full6+6fixture. Synthetic controller button toggles real host hint mode; no physical-device/FPS claim.",
+  "results": [
+    {
+      "width": 390,
+      "height": 844,
+      "provenance": {
+        "version": "0.6.0",
+        "sourceDigest": "1788250060f96dc0a1b8ff24092997f47643121a265d17fd6b95bbfc1b98811a",
+        "hashes": {
+          "THIRD-PARTY.md": "e8562cda5387e7bf560e460d86119ea9ea48e08243fef16fe3da12623b1bcf8d",
+          "desktop/icon.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+          "desktop/main.cjs": "1e54b1170ff4169285ff1757c0e768db2f144f7be919b4911a47394426cb75ae",
+          "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+          "package-lock.json": "973af171d21c940e8f762207c25db9936bab2b749d272f9899ff8b48ab16e0f3",
+          "package.json": "13ca889a9d4ba9bbf13bc12a6aa6b23ecbb221900cada9a36507dc05b1d02573",
+          "public/art/PROVENANCE.json": "5ba821b8b5f6d7b316389e72f7b8afd97304645789f3b0add7719dea6bf85ce5",
+          "public/art/abbey-courtyard.png": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+          "public/art/adversaries-atlas.png": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5",
+          "public/art/companions-atlas.png": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+          "public/art/hound-poses.png": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+          "public/art/hunter-portrait.png": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+          "public/art/pact-seal.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+          "public/art/tool-vignettes.png": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+          "public/art/warleader-poses.png": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b",
+          "scripts/build.mjs": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1",
+          "src/arena.ts": "2e2a5d65a58db91d09ef0e8746a98264fca129520a988ccbb3b5233569f32b79",
+          "src/art.ts": "379e6b60f78cafd20170bcbcc4168a490cd2663388131957ad9766df852430b7",
+          "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+          "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+          "src/input.ts": "b69d87d1a5a71a15d3b29cdfcdbb3f0b33e739f3aa5d8ba82d9cfb470bbdb415",
+          "src/main.ts": "e960143073febc783fea89cdc5f7ce65e70b4de402ad01dd7ef8950be699722f",
+          "src/style.css": "7489c4689cd3c3f6da9c79fdd62d2df788d67e420eacc8395709e9d5d3753483",
+          "src/tool-art.ts": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3",
+          "src/world-rng.ts": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+          "tsconfig.json": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c",
+          "vite.config.ts": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75"
+        },
+        "node": "v24.19.0"
+      },
+      "errors": [],
+      "badResponses": [],
+      "keyboard": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "documentWidth": 390,
+        "dock": {
+          "x": 0,
+          "y": 601,
+          "right": 390,
+          "bottom": 938,
+          "width": 390,
+          "height": 337
+        },
+        "hint": {
+          "visible": false,
+          "display": "none",
+          "text": "E End turn · Esc BackH Hand · B Bindings · T HostilesI Inspect · Arrows Move",
+          "aria": "Keyboard controls",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "right": 0,
+            "bottom": 0,
+            "width": 0,
+            "height": 0
+          },
+          "inDock": false,
+          "spanBounds": [
+            {
+              "text": "E End turn · Esc Back",
+              "box": {
+                "x": 0,
+                "y": 0,
+                "right": 0,
+                "bottom": 0,
+                "width": 0,
+                "height": 0
+              },
+              "inHint": true
+            },
+            {
+              "text": "H Hand · B Bindings · T Hostiles",
+              "box": {
+                "x": 0,
+                "y": 0,
+                "right": 0,
+                "bottom": 0,
+                "width": 0,
+                "height": 0
+              },
+              "inHint": true
+            },
+            {
+              "text": "I Inspect · Arrows Move",
+              "box": {
+                "x": 0,
+                "y": 0,
+                "right": 0,
+                "bottom": 0,
+                "width": 0,
+                "height": 0
+              },
+              "inHint": true
+            }
+          ]
+        },
+        "rosters": [
+          {
+            "box": {
+              "x": 10,
+              "y": -87,
+              "right": 380,
+              "bottom": 108,
+              "width": 370,
+              "height": 195
+            },
+            "client": 195,
+            "scroll": 198,
+            "rows": [
+              {
+                "uid": "a10",
+                "inRoster": true,
+                "intentFits": true,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "a11",
+                "inRoster": true,
+                "intentFits": true,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "a12",
+                "inRoster": true,
+                "intentFits": true,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "a13",
+                "inRoster": false,
+                "intentFits": true,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "a14",
+                "inRoster": false,
+                "intentFits": true,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "a15",
+                "inRoster": false,
+                "intentFits": true,
+                "intentFont": "11px"
+              }
+            ]
+          },
+          {
+            "box": {
+              "x": 10,
+              "y": 344,
+              "right": 380,
+              "bottom": 539,
+              "width": 370,
+              "height": 195
+            },
+            "client": 195,
+            "scroll": 206,
+            "rows": [
+              {
+                "uid": "e30",
+                "inRoster": true,
+                "intentFits": true,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "e31",
+                "inRoster": true,
+                "intentFits": true,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "e32",
+                "inRoster": true,
+                "intentFits": true,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "e33",
+                "inRoster": false,
+                "intentFits": false,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "e34",
+                "inRoster": false,
+                "intentFits": true,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "e35",
+                "inRoster": false,
+                "intentFits": false,
+                "intentFont": "11px"
+              }
+            ]
+          }
+        ],
+        "cards": [
+          {
+            "id": "scour",
+            "box": {
+              "x": 10,
+              "y": 643,
+              "right": 165,
+              "bottom": 844,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "scour+",
+            "box": {
+              "x": 173,
+              "y": 643,
+              "right": 328,
+              "bottom": 844,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "harpoon",
+            "box": {
+              "x": 336,
+              "y": 643,
+              "right": 491,
+              "bottom": 844,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "harpoon+",
+            "box": {
+              "x": 499,
+              "y": 643,
+              "right": 654,
+              "bottom": 844,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "ironward",
+            "box": {
+              "x": 662,
+              "y": 643,
+              "right": 817,
+              "bottom": 844,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "ironward+",
+            "box": {
+              "x": 825,
+              "y": 643,
+              "right": 980,
+              "bottom": 844,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "aegis",
+            "box": {
+              "x": 988,
+              "y": 643,
+              "right": 1143,
+              "bottom": 844,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "aegis+",
+            "box": {
+              "x": 1151,
+              "y": 643,
+              "right": 1306,
+              "bottom": 844,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "sutures",
+            "box": {
+              "x": 1314,
+              "y": 643,
+              "right": 1469,
+              "bottom": 844,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "sutures+",
+            "box": {
+              "x": 1477,
+              "y": 643,
+              "right": 1632,
+              "bottom": 844,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "edict",
+            "box": {
+              "x": 1640,
+              "y": 643,
+              "right": 1795,
+              "bottom": 844,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "edict+",
+            "box": {
+              "x": 1803,
+              "y": 643,
+              "right": 1958,
+              "bottom": 844,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          }
+        ]
+      },
+      "controller": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "documentWidth": 390,
+        "dock": {
+          "x": 0,
+          "y": 665,
+          "right": 390,
+          "bottom": 1002,
+          "width": 390,
+          "height": 337
+        },
+        "hint": {
+          "visible": false,
+          "display": "none",
+          "text": "A Choose · B BackX Inspect · Y End turnD-pad Move · LB/RB Regions",
+          "aria": "Controller controls",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "right": 0,
+            "bottom": 0,
+            "width": 0,
+            "height": 0
+          },
+          "inDock": false,
+          "spanBounds": [
+            {
+              "text": "A Choose · B Back",
+              "box": {
+                "x": 0,
+                "y": 0,
+                "right": 0,
+                "bottom": 0,
+                "width": 0,
+                "height": 0
+              },
+              "inHint": true
+            },
+            {
+              "text": "X Inspect · Y End turn",
+              "box": {
+                "x": 0,
+                "y": 0,
+                "right": 0,
+                "bottom": 0,
+                "width": 0,
+                "height": 0
+              },
+              "inHint": true
+            },
+            {
+              "text": "D-pad Move · LB/RB Regions",
+              "box": {
+                "x": 0,
+                "y": 0,
+                "right": 0,
+                "bottom": 0,
+                "width": 0,
+                "height": 0
+              },
+              "inHint": true
+            }
+          ]
+        },
+        "rosters": [
+          {
+            "box": {
+              "x": 10,
+              "y": -23,
+              "right": 380,
+              "bottom": 172,
+              "width": 370,
+              "height": 195
+            },
+            "client": 195,
+            "scroll": 198,
+            "rows": [
+              {
+                "uid": "a10",
+                "inRoster": true,
+                "intentFits": true,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "a11",
+                "inRoster": true,
+                "intentFits": true,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "a12",
+                "inRoster": true,
+                "intentFits": true,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "a13",
+                "inRoster": false,
+                "intentFits": true,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "a14",
+                "inRoster": false,
+                "intentFits": true,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "a15",
+                "inRoster": false,
+                "intentFits": true,
+                "intentFont": "11px"
+              }
+            ]
+          },
+          {
+            "box": {
+              "x": 10,
+              "y": 408,
+              "right": 380,
+              "bottom": 603,
+              "width": 370,
+              "height": 195
+            },
+            "client": 195,
+            "scroll": 206,
+            "rows": [
+              {
+                "uid": "e30",
+                "inRoster": true,
+                "intentFits": true,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "e31",
+                "inRoster": true,
+                "intentFits": true,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "e32",
+                "inRoster": true,
+                "intentFits": true,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "e33",
+                "inRoster": false,
+                "intentFits": false,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "e34",
+                "inRoster": false,
+                "intentFits": true,
+                "intentFont": "11px"
+              },
+              {
+                "uid": "e35",
+                "inRoster": false,
+                "intentFits": false,
+                "intentFont": "11px"
+              }
+            ]
+          }
+        ],
+        "cards": [
+          {
+            "id": "scour",
+            "box": {
+              "x": 10,
+              "y": 707,
+              "right": 165,
+              "bottom": 908,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "scour+",
+            "box": {
+              "x": 173,
+              "y": 704,
+              "right": 328,
+              "bottom": 905,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "harpoon",
+            "box": {
+              "x": 336,
+              "y": 707,
+              "right": 491,
+              "bottom": 908,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "harpoon+",
+            "box": {
+              "x": 499,
+              "y": 707,
+              "right": 654,
+              "bottom": 908,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "ironward",
+            "box": {
+              "x": 662,
+              "y": 707,
+              "right": 817,
+              "bottom": 908,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "ironward+",
+            "box": {
+              "x": 825,
+              "y": 707,
+              "right": 980,
+              "bottom": 908,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "aegis",
+            "box": {
+              "x": 988,
+              "y": 707,
+              "right": 1143,
+              "bottom": 908,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "aegis+",
+            "box": {
+              "x": 1151,
+              "y": 707,
+              "right": 1306,
+              "bottom": 908,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "sutures",
+            "box": {
+              "x": 1314,
+              "y": 707,
+              "right": 1469,
+              "bottom": 908,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "sutures+",
+            "box": {
+              "x": 1477,
+              "y": 707,
+              "right": 1632,
+              "bottom": 908,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "edict",
+            "box": {
+              "x": 1640,
+              "y": 707,
+              "right": 1795,
+              "bottom": 908,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          },
+          {
+            "id": "edict+",
+            "box": {
+              "x": 1803,
+              "y": 707,
+              "right": 1958,
+              "bottom": 908,
+              "width": 155,
+              "height": 201
+            },
+            "ready": true,
+            "rulesFont": "11px",
+            "rulesContained": true,
+            "costContained": true,
+            "nameContained": true
+          }
+        ]
+      },
+      "readOnly": true
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "method": "Validated constructed resolution fixture; first thrall kills sole binding, second must redirect to hunter. Pure-engine preparation only.",
+  "result": {
+    "state": {
+      "schema": 2,
+      "seed": 121,
+      "rng": 3283419617,
+      "phase": "battle",
+      "hp": 62,
+      "maxHp": 65,
+      "block": 0,
+      "energy": 5,
+      "gold": 65,
+      "floor": 1,
+      "turn": 2,
+      "deck": [
+        "cairnhound",
+        "ironward",
+        "ironward",
+        "scour",
+        "survey"
+      ],
+      "draw": [],
+      "discard": [],
+      "hand": [
+        "survey",
+        "scour",
+        "ironward",
+        "ironward",
+        "cairnhound"
+      ],
+      "allies": [],
+      "enemies": [
+        {
+          "uid": "e30",
+          "cardId": "thrall",
+          "name": "Bone Thrall",
+          "species": "thrall",
+          "hp": 7,
+          "attack": 3,
+          "color": "#b2ac95",
+          "passive": "Attacks the weakest bound creature, or the hunter if none remain.",
+          "maxHp": 7,
+          "block": 0,
+          "acted": false,
+          "intent": {
+            "target": "hunter",
+            "damage": 3,
+            "label": "Claw weakest creature"
+          }
+        },
+        {
+          "uid": "e31",
+          "cardId": "thrall",
+          "name": "Bone Thrall",
+          "species": "thrall",
+          "hp": 7,
+          "attack": 3,
+          "color": "#b2ac95",
+          "passive": "Attacks the weakest bound creature, or the hunter if none remain.",
+          "maxHp": 7,
+          "block": 0,
+          "acted": false,
+          "intent": {
+            "target": "hunter",
+            "damage": 3,
+            "label": "Claw weakest creature"
+          }
+        }
+      ],
+      "rewards": [],
+      "relics": [],
+      "route": [
+        "battle"
+      ],
+      "log": [
+        "A scarred hunter. One final contract. No pact is harmless.",
+        "The keep has teeth.",
+        "Bone Thrall: Attack weak binding.",
+        "Cairn Hound returns to the deck.",
+        "Bone Thrall: Attack weak binding.",
+        "Turn 2."
+      ],
+      "nextUid": 100,
+      "difficulty": 0,
+      "stats": {
+        "cardsPlayed": 0,
+        "damageDealt": 0,
+        "turns": 2,
+        "battles": 1
+      }
+    },
+    "events": [
+      {
+        "type": "hit",
+        "source": "e30",
+        "kind": "enemy",
+        "cardId": "thrall",
+        "target": "a10",
+        "damage": 3,
+        "blocked": 0,
+        "hpLost": 1,
+        "beforeHp": 1,
+        "afterHp": 0
+      },
+      {
+        "type": "death",
+        "source": "e30",
+        "target": "a10",
+        "cardId": "cairnhound"
+      },
+      {
+        "type": "hit",
+        "source": "e31",
+        "kind": "enemy",
+        "cardId": "thrall",
+        "target": "hunter",
+        "damage": 3,
+        "blocked": 0,
+        "hpLost": 3,
+        "beforeHp": 65,
+        "afterHp": 62
+      }
+    ]
+  }
+}

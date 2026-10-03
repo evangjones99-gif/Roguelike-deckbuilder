@@ -1,0 +1,539 @@
+{
+  "cohort": "holdout",
+  "n": 72,
+  "sourceHashes": {
+    "src/engine.ts": "21bafb33832ec2d3ee1ca4ead9486825510bd380b62e143a8736465f1ad4110b",
+    "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+    "scripts/solo-investigation-v0.3.ts": "4b4521194abd03ecca0b8e05b40525219f6426c8794bff41fb0f98b1454a76a4"
+  },
+  "progressionSummary": [
+    {
+      "difficulty": 0,
+      "treatment": "legal-buy-first",
+      "n": 72,
+      "wins": 62,
+      "defeats": 10,
+      "meanHp": 33.4,
+      "meanTurns": 31.01,
+      "meanRemovalSpend": 49.58,
+      "meanCreatureRemovals": 1.42,
+      "meanRemainingCreatures": 3.58,
+      "preBossDefeats": 0,
+      "bossDefeats": 10,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 23,
+          "defeats": 1,
+          "meanHp": 38.5,
+          "meanTurns": 30.33
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 15,
+          "defeats": 9,
+          "meanHp": 22.08,
+          "meanTurns": 30.5
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 39.63,
+          "meanTurns": 32.21
+        }
+      }
+    },
+    {
+      "difficulty": 0,
+      "treatment": "legal-remove-first",
+      "n": 72,
+      "wins": 56,
+      "defeats": 16,
+      "meanHp": 31.88,
+      "meanTurns": 30.31,
+      "meanRemovalSpend": 121.53,
+      "meanCreatureRemovals": 3.47,
+      "meanRemainingCreatures": 1.53,
+      "preBossDefeats": 2,
+      "bossDefeats": 14,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 21,
+          "defeats": 3,
+          "meanHp": 35.21,
+          "meanTurns": 27.5
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 13,
+          "defeats": 11,
+          "meanHp": 18.71,
+          "meanTurns": 30.25
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 22,
+          "defeats": 2,
+          "meanHp": 41.71,
+          "meanTurns": 33.17
+        }
+      }
+    },
+    {
+      "difficulty": 0,
+      "treatment": "proposal-removal-15",
+      "n": 72,
+      "wins": 64,
+      "defeats": 8,
+      "meanHp": 41.13,
+      "meanTurns": 26.57,
+      "meanRemovalSpend": 97.85,
+      "meanCreatureRemovals": 5,
+      "meanRemainingCreatures": 0,
+      "preBossDefeats": 5,
+      "bossDefeats": 3,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 22,
+          "defeats": 2,
+          "meanHp": 44.96,
+          "meanTurns": 24.96
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 22,
+          "defeats": 2,
+          "meanHp": 41.54,
+          "meanTurns": 26.5
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 20,
+          "defeats": 4,
+          "meanHp": 36.88,
+          "meanTurns": 28.25
+        }
+      }
+    },
+    {
+      "difficulty": 0,
+      "treatment": "counterfactual-ready-opening",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 58.74,
+      "meanTurns": 18.89,
+      "meanRemovalSpend": 35,
+      "meanCreatureRemovals": 0,
+      "meanRemainingCreatures": 0,
+      "preBossDefeats": 0,
+      "bossDefeats": 0,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 62,
+          "meanTurns": 19.13
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 53.83,
+          "meanTurns": 18.33
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 60.38,
+          "meanTurns": 19.21
+        }
+      }
+    },
+    {
+      "difficulty": 1,
+      "treatment": "legal-buy-first",
+      "n": 72,
+      "wins": 40,
+      "defeats": 32,
+      "meanHp": 25.22,
+      "meanTurns": 31.07,
+      "meanRemovalSpend": 50.07,
+      "meanCreatureRemovals": 1.43,
+      "meanRemainingCreatures": 3.57,
+      "preBossDefeats": 11,
+      "bossDefeats": 21,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 16,
+          "defeats": 8,
+          "meanHp": 32.08,
+          "meanTurns": 31.29
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 8,
+          "defeats": 16,
+          "meanHp": 12.96,
+          "meanTurns": 30.13
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 16,
+          "defeats": 8,
+          "meanHp": 30.63,
+          "meanTurns": 31.79
+        }
+      }
+    },
+    {
+      "difficulty": 1,
+      "treatment": "legal-remove-first",
+      "n": 72,
+      "wins": 32,
+      "defeats": 40,
+      "meanHp": 16.54,
+      "meanTurns": 26.85,
+      "meanRemovalSpend": 115.69,
+      "meanCreatureRemovals": 3.31,
+      "meanRemainingCreatures": 1.69,
+      "preBossDefeats": 24,
+      "bossDefeats": 16,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 16,
+          "defeats": 8,
+          "meanHp": 25.13,
+          "meanTurns": 28
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 3,
+          "defeats": 21,
+          "meanHp": 4.83,
+          "meanTurns": 25.63
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 13,
+          "defeats": 11,
+          "meanHp": 19.67,
+          "meanTurns": 26.92
+        }
+      }
+    },
+    {
+      "difficulty": 1,
+      "treatment": "proposal-removal-15",
+      "n": 72,
+      "wins": 53,
+      "defeats": 19,
+      "meanHp": 32.04,
+      "meanTurns": 27.61,
+      "meanRemovalSpend": 93.96,
+      "meanCreatureRemovals": 5,
+      "meanRemainingCreatures": 0,
+      "preBossDefeats": 11,
+      "bossDefeats": 8,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 20,
+          "defeats": 4,
+          "meanHp": 41.92,
+          "meanTurns": 25.63
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 14,
+          "defeats": 10,
+          "meanHp": 22.5,
+          "meanTurns": 28.08
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 19,
+          "defeats": 5,
+          "meanHp": 31.71,
+          "meanTurns": 29.13
+        }
+      }
+    },
+    {
+      "difficulty": 1,
+      "treatment": "counterfactual-ready-opening",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 54.01,
+      "meanTurns": 20.28,
+      "meanRemovalSpend": 35,
+      "meanCreatureRemovals": 0,
+      "meanRemainingCreatures": 0,
+      "preBossDefeats": 0,
+      "bossDefeats": 0,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 58.46,
+          "meanTurns": 20.17
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 52.04,
+          "meanTurns": 19.5
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 51.54,
+          "meanTurns": 21.17
+        }
+      }
+    },
+    {
+      "difficulty": 2,
+      "treatment": "legal-buy-first",
+      "n": 72,
+      "wins": 16,
+      "defeats": 56,
+      "meanHp": 7.63,
+      "meanTurns": 24.76,
+      "meanRemovalSpend": 46.67,
+      "meanCreatureRemovals": 1.33,
+      "meanRemainingCreatures": 3.67,
+      "preBossDefeats": 35,
+      "bossDefeats": 21,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 9,
+          "defeats": 15,
+          "meanHp": 15.17,
+          "meanTurns": 26.67
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 3,
+          "defeats": 21,
+          "meanHp": 2.83,
+          "meanTurns": 25.29
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 4,
+          "defeats": 20,
+          "meanHp": 4.88,
+          "meanTurns": 22.33
+        }
+      }
+    },
+    {
+      "difficulty": 2,
+      "treatment": "legal-remove-first",
+      "n": 72,
+      "wins": 16,
+      "defeats": 56,
+      "meanHp": 9,
+      "meanTurns": 22.22,
+      "meanRemovalSpend": 95.76,
+      "meanCreatureRemovals": 2.74,
+      "meanRemainingCreatures": 2.26,
+      "preBossDefeats": 45,
+      "bossDefeats": 11,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 8,
+          "defeats": 16,
+          "meanHp": 11.46,
+          "meanTurns": 22.88
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 2,
+          "defeats": 22,
+          "meanHp": 2.71,
+          "meanTurns": 21.92
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 6,
+          "defeats": 18,
+          "meanHp": 12.83,
+          "meanTurns": 21.88
+        }
+      }
+    },
+    {
+      "difficulty": 2,
+      "treatment": "proposal-removal-15",
+      "n": 72,
+      "wins": 45,
+      "defeats": 27,
+      "meanHp": 26.5,
+      "meanTurns": 28.96,
+      "meanRemovalSpend": 94.51,
+      "meanCreatureRemovals": 4.97,
+      "meanRemainingCreatures": 0.03,
+      "preBossDefeats": 15,
+      "bossDefeats": 12,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 20,
+          "defeats": 4,
+          "meanHp": 32.75,
+          "meanTurns": 31.71
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 9,
+          "defeats": 15,
+          "meanHp": 13.75,
+          "meanTurns": 26.54
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 16,
+          "defeats": 8,
+          "meanHp": 33,
+          "meanTurns": 28.63
+        }
+      }
+    },
+    {
+      "difficulty": 2,
+      "treatment": "counterfactual-ready-opening",
+      "n": 72,
+      "wins": 72,
+      "defeats": 0,
+      "meanHp": 54.15,
+      "meanTurns": 22.29,
+      "meanRemovalSpend": 35,
+      "meanCreatureRemovals": 0,
+      "meanRemainingCreatures": 0,
+      "preBossDefeats": 0,
+      "bossDefeats": 0,
+      "byQuarry": {
+        "ironjaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 58.21,
+          "meanTurns": 21.83
+        },
+        "cantor": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 50.79,
+          "meanTurns": 21.29
+        },
+        "cindermaw": {
+          "n": 24,
+          "wins": 24,
+          "defeats": 0,
+          "meanHp": 53.46,
+          "meanTurns": 23.75
+        }
+      }
+    }
+  ],
+  "bossSummary": [
+    {
+      "boss": "ironjaw",
+      "treatment": "original-slot",
+      "n": 22,
+      "wins": 22,
+      "defeats": 0,
+      "meanHp": 46.05,
+      "meanTurns": 6
+    },
+    {
+      "boss": "ironjaw",
+      "treatment": "quarry-counter",
+      "n": 22,
+      "wins": 22,
+      "defeats": 0,
+      "meanHp": 44.32,
+      "meanTurns": 5.64
+    },
+    {
+      "boss": "ironjaw",
+      "treatment": "general-sustain",
+      "n": 22,
+      "wins": 22,
+      "defeats": 0,
+      "meanHp": 46.09,
+      "meanTurns": 5.95
+    },
+    {
+      "boss": "cantor",
+      "treatment": "original-slot",
+      "n": 14,
+      "wins": 14,
+      "defeats": 0,
+      "meanHp": 35.14,
+      "meanTurns": 6
+    },
+    {
+      "boss": "cantor",
+      "treatment": "quarry-counter",
+      "n": 14,
+      "wins": 14,
+      "defeats": 0,
+      "meanHp": 41.36,
+      "meanTurns": 6
+    },
+    {
+      "boss": "cantor",
+      "treatment": "general-sustain",
+      "n": 14,
+      "wins": 14,
+      "defeats": 0,
+      "meanHp": 37.86,
+      "meanTurns": 6
+    },
+    {
+      "boss": "cindermaw",
+      "treatment": "original-slot",
+      "n": 14,
+      "wins": 14,
+      "defeats": 0,
+      "meanHp": 39.79,
+      "meanTurns": 6.43
+    },
+    {
+      "boss": "cindermaw",
+      "treatment": "quarry-counter",
+      "n": 14,
+      "wins": 14,
+      "defeats": 0,
+      "meanHp": 41.14,
+      "meanTurns": 6.64
+    },
+    {
+      "boss": "cindermaw",
+      "treatment": "general-sustain",
+      "n": 14,
+      "wins": 14,
+      "defeats": 0,
+      "meanHp": 40.29,
+      "meanTurns": 6.5
+    }
+  ],
+  "preparationReached": 50
+}

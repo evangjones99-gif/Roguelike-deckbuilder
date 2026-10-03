@@ -1,0 +1,679 @@
+HELPER """Future finite body capsule only. Never publishes, edits, deletes, or imports game code."""
+import errno,gzip,hashlib,io,json,os,pathlib,resource,stat,sys,tarfile,time
+def digest_path(path):
+ h=hashlib.sha256()
+ with pathlib.Path(path).open('rb') as f:
+  while b:=f.read(65536):h.update(b)
+ return h.hexdigest()
+def open_original(path):
+ flags=os.O_RDONLY|os.O_NOFOLLOW;fallback=False
+ try:fd=os.open(path,flags|getattr(os,'O_NOATIME',0))
+ except OSError as e:
+  if e.errno!=errno.EPERM:raise
+  fd=os.open(path,flags);fallback=True
+ f=os.fdopen(fd,'rb');assert stat.S_ISREG(os.fstat(fd).st_mode);return f,fallback
+class HashedReader:
+ def __init__(self,body,check):self.body=body;self.hash=hashlib.sha256();self.bytes=0;self.check=check
+ def read(self,n=-1):
+  assert 0<=n<=65536;self.check();b=self.body.read(n);self.hash.update(b);self.bytes+=len(b);return b
+def run(plan_path,expected_sha,out_path):
+ plan_bytes=pathlib.Path(plan_path).read_bytes();assert hashlib.sha256(plan_bytes).hexdigest()==expected_sha;plan=json.loads(plan_bytes);assert plan['status']=='FINAL_SOURCE_PLAN_REQUIRES_ROOT_ARCHIVE_GRANT';started=time.monotonic();out=pathlib.Path(out_path);out.mkdir(exist_ok=False);limit=plan['proposedArchive']['physicalOutputCapBytes'];observations=[]
+ def check():
+  assert time.monotonic()-started<=60,'Finite archive60s method ceiling exceeded';assert resource.getrusage(resource.RUSAGE_SELF).ru_maxrss<=24576,'Own24MiB source-method limit exceeded';assert sum(p.stat().st_size for p in out.iterdir() if p.is_file())<=limit,'Output cap exceeded; failed originals retained'
+ for x in [entry[k] for entry in plan['existingCapsules'] for k in ['archive','index']]:
+  body,fallback=open_original(x['path']);h=hashlib.sha256()
+  with body:
+   before=os.fstat(body.fileno())
+   while b:=body.read(65536):h.update(b);check()
+   after=os.fstat(body.fileno());assert (before.st_ino,before.st_size,before.st_mtime_ns)==(after.st_ino,after.st_size,after.st_mtime_ns)
+  assert h.hexdigest()==x['sha256'];observations.append({'originalPath':x['path'],'scope':'existing canonical capsule/index reference only','noAtimeRequested':True,'permissionFallback':fallback})
+ unique={}
+ for row in plan['rows']:
+  root,rel,h,size,role,storage=row
+  if storage=='newBlob':unique.setdefault(h,(pathlib.Path(plan['roots'][root])/rel,size))
+ partial=out/'evidence.partial.tar.gz'
+ with partial.open('xb') as compressed:
+  with gzip.GzipFile(fileobj=compressed,mode='wb',filename='',mtime=0,compresslevel=6) as zipped:
+   with tarfile.open(fileobj=zipped,mode='w|',bufsize=65536) as archive:
+    for h,(path,size) in sorted(unique.items()):
+     check();body,fallback=open_original(path)
+     with body:
+      before=os.fstat(body.fileno());assert before.st_size==size;reader=HashedReader(body,check);member=tarfile.TarInfo('blobs/'+h);member.size=size;member.mode=0o444;member.mtime=0;archive.addfile(member,reader);after=os.fstat(body.fileno());assert reader.bytes==size and reader.hash.hexdigest()==h;assert (before.st_dev,before.st_ino,before.st_size,before.st_mtime_ns)==(after.st_dev,after.st_ino,after.st_size,after.st_mtime_ns)
+     observations.append({'originalPath':str(path),'sha256':h,'bytes':size,'noAtimeRequested':True,'permissionFallback':fallback,'checkedInodeSizeMtimeStableAtimeQualified':True,'fullStatXattrPreservationClaimed':False})
+  compressed.flush();os.fsync(compressed.fileno())
+ seen=set()
+ with tarfile.open(partial,mode='r|gz',bufsize=65536) as archive:
+  for member in archive:
+   check();assert member.isfile() and member.name.startswith('blobs/');h=member.name[6:];assert h in unique and h not in seen and member.size==unique[h][1];body=archive.extractfile(member);actual=hashlib.sha256();n=0
+   original,fallback=open_original(unique[h][0])
+   with original:
+    before=os.fstat(original.fileno())
+    while b:=body.read(65536):check();assert original.read(len(b))==b,'Full original byte comparison failed';actual.update(b);n+=len(b)
+    assert original.read(1)==b'';after=os.fstat(original.fileno());assert (before.st_ino,before.st_size,before.st_mtime_ns)==(after.st_ino,after.st_size,after.st_mtime_ns)
+   assert n==member.size and actual.hexdigest()==h;seen.add(h);observations.append({'originalPath':str(unique[h][0]),'scope':'full decoded original-byte equality readback','noAtimeRequested':True,'permissionFallback':fallback})
+ assert seen==set(unique);archive_sha=digest_path(partial);check();archive=out/('evidence-'+archive_sha+'.tar.gz');partial.rename(archive)
+ index={'format':'original-path-sha256-blobs-v1','roots':plan['roots'],'rowColumns':plan['rowColumns'],'rows':plan['rows'],'roles':plan['roles'],'newArchive':{'path':str(archive),'sha256':archive_sha,'bytes':archive.stat().st_size},'existingCapsules':plan['existingCapsules'],'externalDependencies':plan['externalDependencies'],'runtimeAuthorities':plan['runtimeAuthorities'],'allOriginalPathsRetained':True,'fullUniqueOriginalByteRoundtrip':True,'selfContainedRelease':False}
+ (out/'INDEX.json').write_text(json.dumps(index,separators=(',',':'))+'\n');(out/'READ-OBSERVATIONS.json').write_text(json.dumps(observations,separators=(',',':'))+'\n')
+ (out/'README.md').write_text('Original bytes only; logical paths map to blobs/SHA256 in the new archive or exact ce0f/f912 capsules. Game media and installed dependencies remain external and pinned. No game/default/art selection authority. Originals, failed reviews, source drafts, and prior capsules remain in place.\n')
+ result={'archiveSHA256':archive_sha,'archiveBytes':archive.stat().st_size,'logicalBodies':len(plan['rows']),'newUniqueBodies':len(unique),'fullUniqueOriginalByteRoundtrip':True,'planSHA256':expected_sha,'indexSHA256':digest_path(out/'INDEX.json'),'readObservationsSHA256':digest_path(out/'READ-OBSERVATIONS.json'),'allOriginalPathsRetained':True,'noPublicationOrSelectionAuthority':True,'ownMaxRSSBytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,'elapsedBeforeFinalReceipt':time.monotonic()-started}
+ (out/'RESULT.json').write_text(json.dumps(result,separators=(',',':'))+'\n')
+ for p in out.iterdir():
+  if p.is_file():
+   fd=os.open(p,os.O_RDONLY|os.O_NOFOLLOW)
+   try:os.fsync(fd)
+   finally:os.close(fd)
+ check();result['terminalElapsedAfterAllWrites']=time.monotonic()-started;result['terminalLogicalOutputBytesAfterAllWrites']=sum(p.stat().st_size for p in out.iterdir() if p.is_file());result['terminalAllocatedOutputBytesAfterAllWrites']=sum(p.stat().st_blocks*512 for p in out.iterdir() if p.is_file());result['terminalOwnMaxRSSBytesAfterAllWrites']=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024;assert result['terminalAllocatedOutputBytesAfterAllWrites']<=limit;print(json.dumps(result,separators=(',',':')))
+if __name__=='__main__':
+ assert len(sys.argv)==4,'Usage: preserve-checkpoint.py PLAN EXPECTED_PLAN_SHA NEW_OUTPUT_DIRECTORY';run(*sys.argv[1:])
+
+INVERSE {
+  "predecessorPath": "/workspace/scratch/opening-turn-payoff-opening-checkpoint-source-author-r1/preserve-checkpoint.py",
+  "predecessorSHA256": "367ea7aeeb38186cc546c0bf52ee5e0e65e7705f9dda6d7ccf27c4097c441a69",
+  "methodSHA256": "5ee7a0a37946e3afcdf1d355cdfbc929ccf37b39edb1b4654e61e14250fb3f1a",
+  "exactFullInverse": true,
+  "changes": [
+    {
+      "before": "for x in [plan['existingCapsule']['archive'],plan['existingCapsule']['index']]:",
+      "after": "for x in [entry[k] for entry in plan['existingCapsules'] for k in ['archive','index']]:"
+    },
+    {
+      "before": "'existingCapsule':plan['existingCapsule']",
+      "after": "'existingCapsules':plan['existingCapsules']"
+    },
+    {
+      "before": "'statStableExceptAtimeQualified':True",
+      "after": "'checkedInodeSizeMtimeStableAtimeQualified':True,'fullStatXattrPreservationClaimed':False"
+    },
+    {
+      "before": "new archive or exact ce0f capsule.",
+      "after": "new archive or exact ce0f/f912 capsules."
+    }
+  ],
+  "archiveExecuted": false,
+  "bootstrap": "Tiny source-only derivation/AST/compile outside resource guard; no archive helper executed."
+}
+
+PROTOCOL Future Root only; this is not an execution grant:
+python /workspace/scratch/wording-grounded-trials-checkpoint-source-author-r1/preserve-checkpoint.py /workspace/scratch/wording-grounded-trials-checkpoint-source-author-r1/PLAN.json 0998d948c57e2fb3d1e01f34e61028d5c80db299df308d3b1e83ab902d4281b7 NEW_FRESH_OUTPUT_DIRECTORY
+Exact helper SHA5ee7a0a37946e3afcdf1d355cdfbc929ccf37b39edb1b4654e61e14250fb3f1a.
+Require independent SOURCE review, fresh Root grant/admission128+512/disk64/own24/60s and <=16MiB logical plus allocated outputs, then independent COMPLETE archive/logical/old-reference review. Root archive guard must preserve actual terminal stdout. Publish entire immutable SOURCE family, independent SOURCE review, actual output+grant+guard and COMPLETE review together; original capsules and their support remain required. No publisher, canonical source/dist change, cleanup, Git/tag, game-quality/default/animation/platform approval follows from this protocol. Metadata/code held through actual archive and independent preservation by Root agreement.
+
+PROOF {
+  "status": "SOURCE_ONLY_NO_ARCHIVE_EXECUTION",
+  "planSHA256": "0998d948c57e2fb3d1e01f34e61028d5c80db299df308d3b1e83ab902d4281b7",
+  "planBytes": 185794,
+  "helperSHA256": "5ee7a0a37946e3afcdf1d355cdfbc929ccf37b39edb1b4654e61e14250fb3f1a",
+  "exactFullHelperInverse": true,
+  "logicalRows": 952,
+  "newUniqueBodies": 711,
+  "newUniqueOriginalBytes": 14555377,
+  "gzipEstimateBytes": 7881645,
+  "storageOccurrences": {
+    "newBlob": 722,
+    "existingCapsule:ce0f": 227,
+    "existingCapsule:f912": 3
+  },
+  "scopeFolderCount": 57,
+  "twoActualJPEGCount": 16,
+  "sixRawPairsPerActual": true,
+  "both40ControlsPreserved": true,
+  "allOriginalGateDecisionsPreserved": [
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-wording-actual-gameplay-independent-r2/GATE.json",
+      "sha256": "cbfcbc0e082c17b663d3bb1fac3f7a415505e0aeb7ca664814ebea36e3cccc52",
+      "decision": "ACCEPT_NARROW_ACTUAL_WORDING_AND_SPENT_COMMAND_CONTEXT_IMPROVEMENT"
+    },
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-wording-actual-visual-independent-r1/GATE.json",
+      "sha256": "cae95281a0aef122085edb29e68b6e88ff7571d69333ad3c8fdd7162fc9f1e17",
+      "decision": "ACCEPT_ACTUAL_DEFAULT_REVISED_SPENT_COMMAND_WORDING_NARROW_STATIC_CLARITY_AND_FIT"
+    },
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-wording-actual-technical-independent-r1/GATE.json",
+      "sha256": "83eab5f5ed24dfe7d5bf7ae353ce44f20d716493b106175ef119aae79cc19e3e",
+      "decision": "ACCEPT_EXACT_NEW_WORDING_OPENING_CUE_ACTUAL_ENGINEERING_NARROW_SCOPE"
+    },
+    {
+      "path": "/workspace/scratch/coherent-native128-fallen-ground-actual-technical-independent-r1/GATE.json",
+      "sha256": "274b9a998c21806d2cce59fae67c064415dbe214a0302f2fe4f310b19cacb8ce",
+      "decision": "ACCEPT_NARROW_ACTUAL_PIXEL_ENGINEERING_WITH_FALSE_TRANSIENT_COVERAGE_AND_TERMINAL_STDOUT_GAP"
+    },
+    {
+      "path": "/workspace/scratch/coherent-native128-fallen-ground-actual-visual-independent-r1/GATE.json",
+      "sha256": "e25481e9e67146aef7afc13fca212ff3e06f8fe47446f06710a387ce4ca995a9",
+      "decision": "REJECT_ACTUAL_COURTYARD_FALLEN_PAYOFF_AND_DEFAULT_PROMOTION"
+    },
+    {
+      "path": "/workspace/scratch/coherent-native128-fallen-ground-gameplay-independent-r1/GATE.json",
+      "sha256": "406675d4793c3f679a73095d8367dc3d2894f2f88f390ebe76563df60b4b3332",
+      "decision": "ACCEPT_NARROW_GAMEPLAY_STATE_AND_PC_FIT_PRESERVATION_REJECT_SUSTAINED_DEFEAT_GROUNDING_AND_DEFAULT"
+    },
+    {
+      "path": "/workspace/scratch/native128-defeat-aftermath-source-independent-r1/GATE.json",
+      "sha256": "492084ab8e5adfccf9d17749ea55ed6d10aea8edd016c388f0f989571497cc05",
+      "decision": "REJECT_NATIVE_DEFEAT_AFTERMATH_SOURCE_RETENTION"
+    }
+  ],
+  "optionalNegativeInputAndExpiryPrototypeIncluded": true,
+  "allMetadataFrozenPriorPushed": true,
+  "ownRSSKiB": 15680,
+  "sourceFamilyCapBytes": 262144,
+  "archiveOrPublisherExecuted": false
+}
+
+SELECTEDPLAN {
+  "rowColumns": [
+    "rootIndex",
+    "relativeLeaf",
+    "sha256",
+    "originalBytes",
+    "roleIndex",
+    "storage"
+  ],
+  "existingCapsules": [
+    {
+      "id": "ce0f",
+      "archive": {
+        "path": "/workspace/Roguelike-deckbuilder/reviews/coherent-native128-actual-trial-2026-10-02/evidence-ce0f8f40bcf0f0b22e5e4d93eef3d4660662826e617900aba09ac208c148dc13.tar.gz",
+        "sha256": "ce0f8f40bcf0f0b22e5e4d93eef3d4660662826e617900aba09ac208c148dc13"
+      },
+      "index": {
+        "path": "/workspace/Roguelike-deckbuilder/reviews/coherent-native128-actual-trial-2026-10-02/INDEX.json",
+        "sha256": "115bbdb35d9cdff98503a3a5c63ced87e49a48d198194c9caa45268254bec0cf"
+      },
+      "completeGateSHA256": "11707477d92cc0a041f3dbbfd77d5ba6ef185a4d5df3bb181f2285d827dfeb05"
+    },
+    {
+      "id": "f912",
+      "archive": {
+        "path": "/workspace/Roguelike-deckbuilder/reviews/opening-turn-payoff-default-2026-10-02/archive/evidence-f9121c7b6416398241d1b5a160b4781f17a45dff4813260edaf4c3b6df1761af.tar.gz",
+        "sha256": "f9121c7b6416398241d1b5a160b4781f17a45dff4813260edaf4c3b6df1761af"
+      },
+      "index": {
+        "path": "/workspace/Roguelike-deckbuilder/reviews/opening-turn-payoff-default-2026-10-02/archive/INDEX.json",
+        "sha256": "fd6e057da394aa127766f434bd70c9b1045c17f92ab0e94fb70dd77ebb6a9ad2"
+      },
+      "completeGateSHA256": "940a3ec99f960aea7cbd5c9b942da6f595e0a4d45463ac963979eac03cfd425d"
+    }
+  ],
+  "runtimeAuthorities": [
+    {
+      "freezePath": "/workspace/scratch/opening-turn-payoff-wording-strict-build-root-r1/final-seal-r1/RUNTIME-FREEZE.json",
+      "freezeSHA256": "d6c225d5408c8e60433aed54655e922a44af224621fc8c48cb6aca8cd3c5883a",
+      "stage": "/workspace/scratch/opening-turn-payoff-wording-stage-r1",
+      "sourceDigest": "64c2a14ada2b24796535f9bb71d8a6acc534685365bcf4f5665b21bf18595353",
+      "outputsDigest": "82e049c9fee16e4a56d80520a0feb19c54546dc86f83953f27d703d53fec7042",
+      "inputCount": 89,
+      "outputCount": 56,
+      "selection": "candidate unselected"
+    },
+    {
+      "freezePath": "/workspace/scratch/coherent-native128-fallen-ground-strict-build-root-r1/final-seal-r1/RUNTIME-FREEZE.json",
+      "freezeSHA256": "3ccad515bd2fe63c7b4c77ab11fe3c2385b0d521a9e5a117f76bb4f7c102cbb6",
+      "stage": "/workspace/scratch/coherent-native128-fallen-ground-stage-r1",
+      "sourceDigest": "7074ba03d79342e7e1aa5e0268fc21feee541bd5fb96b8a968e644852055384a",
+      "outputsDigest": "67992a2596800f554f341382e221c6f3b9c7cd33c7f3ed69960d54c023fb0597",
+      "inputCount": 98,
+      "outputCount": 64,
+      "selection": "candidate unselected"
+    },
+    {
+      "freezePath": "/workspace/scratch/target-clear-default-build-author-r1/RUNTIME-FREEZE.json",
+      "freezeSHA256": "739f5e87f95f2ca2ad4e60f7b90ea00aa6384d74c1ae2fc8a4e60266e705ce62",
+      "stage": "/workspace/scratch/target-clear-default-stage-r1",
+      "sourceDigest": "c4fa7d2b3201321ec84cc6fc3503f1d7a12feea2901deb4ce7551a665f83387a",
+      "outputsDigest": "8bbaea72d9cb3b9757a2b8cb10ead190495ef61e6496e1ace0f942f635e00cf7",
+      "inputCount": 88,
+      "outputCount": 56,
+      "selection": "current selected c4 rollback"
+    }
+  ],
+  "actualComparisons": [
+    {
+      "originalRoot": "/workspace/scratch/opening-turn-payoff-wording-actual-comparison-root-r1",
+      "originalJPEGCount": 8,
+      "sixCompleteRawPairs": [
+        {
+          "label": "C0",
+          "rawSHA256": "c06f61c9e277f17043066f74e2e69ca0bf0a81018e8ab1a2b92ccb84de96bf9f",
+          "rawBytes": 1353
+        },
+        {
+          "label": "C1",
+          "rawSHA256": "729c3eefe9a879e945aa24f70726b33894af92ebf21a62a09980bed47f6c51af",
+          "rawBytes": 1571
+        },
+        {
+          "label": "C2",
+          "rawSHA256": "3df8c699f3d12f3a1792627e16bc39a05ee066e6256d0482a09c9992f7848d5d",
+          "rawBytes": 1608
+        },
+        {
+          "label": "C-cancelled",
+          "rawSHA256": "3df8c699f3d12f3a1792627e16bc39a05ee066e6256d0482a09c9992f7848d5d",
+          "rawBytes": 1608
+        },
+        {
+          "label": "C-released",
+          "rawSHA256": "3b951b13cfd30384d1f69e4e47b80a7123f7b27c6d424a95f155bcd62a549b9d",
+          "rawBytes": 1621
+        },
+        {
+          "label": "C-endTurn",
+          "rawSHA256": "1db7791e4883aa7e30b39ee2620f9b95b5348494ae10606bda5be87c33baeb2d",
+          "rawBytes": 1718
+        }
+      ],
+      "opaqueWrapperHashesAreSeparateDomain": true
+    },
+    {
+      "originalRoot": "/workspace/scratch/coherent-native128-fallen-ground-comparison-actual-r1",
+      "originalJPEGCount": 8,
+      "sixCompleteRawPairs": [
+        {
+          "label": "C0",
+          "rawSHA256": "c06f61c9e277f17043066f74e2e69ca0bf0a81018e8ab1a2b92ccb84de96bf9f",
+          "rawBytes": 1353
+        },
+        {
+          "label": "C1",
+          "rawSHA256": "729c3eefe9a879e945aa24f70726b33894af92ebf21a62a09980bed47f6c51af",
+          "rawBytes": 1571
+        },
+        {
+          "label": "C2",
+          "rawSHA256": "3df8c699f3d12f3a1792627e16bc39a05ee066e6256d0482a09c9992f7848d5d",
+          "rawBytes": 1608
+        },
+        {
+          "label": "C-firstDrop",
+          "rawSHA256": "3b951b13cfd30384d1f69e4e47b80a7123f7b27c6d424a95f155bcd62a549b9d",
+          "rawBytes": 1621
+        },
+        {
+          "label": "C-normalized",
+          "rawSHA256": "dde9e46fca417dde24358a25afabf8e7f5f571de12cfe64765f66be9e42e2220",
+          "rawBytes": 1303
+        },
+        {
+          "label": "C-secondOutcome",
+          "rawSHA256": "dde9e46fca417dde24358a25afabf8e7f5f571de12cfe64765f66be9e42e2220",
+          "rawBytes": 1303
+        }
+      ],
+      "opaqueWrapperHashesAreSeparateDomain": true
+    }
+  ],
+  "nestedLogicalGzipDomains": [
+    {
+      "root": "/workspace/scratch/coherent-native128-fallen-ground-comparison-actual-r1",
+      "logicalLeaf": "VISUAL-PROGRESS.json",
+      "storedLeaf": "VISUAL-PROGRESS.json.gz",
+      "encoding": "gzip",
+      "originalBytes": 6084246,
+      "originalSHA256": "53f4e8367129a100d079525b478a9ca6b31e65a62830e344a3ee12ed59943b3d",
+      "storedBytes": 423177,
+      "storedSHA256": "48ad0724f7fd3c5c0407d94df21366a73e4ac5d292a5db1db3e03ffae81f394d",
+      "fullOriginalByteReadbackVerified": true,
+      "sourcePhaseFullLogicalSHAAndLengthVerified": true
+    },
+    {
+      "root": "/workspace/scratch/coherent-native128-fallen-ground-comparison-actual-r1",
+      "logicalLeaf": "VISUAL-RESULT.json",
+      "storedLeaf": "VISUAL-RESULT.json.gz",
+      "encoding": "gzip",
+      "originalBytes": 6084884,
+      "originalSHA256": "3555c9fd1f765bea950a9432830db79657ff5fb5cc6ec4cde0258bc331be014e",
+      "storedBytes": 423497,
+      "storedSHA256": "2f9fbecc2642f112b66d1a4ecc67cdf7b080f06aa3e715eeb5a56b0130cf3f0f",
+      "fullOriginalByteReadbackVerified": true,
+      "sourcePhaseFullLogicalSHAAndLengthVerified": true
+    }
+  ],
+  "originalReviewGatesVerbatim": [
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-wording-actual-gameplay-independent-r2/GATE.json",
+      "sha256": "cbfcbc0e082c17b663d3bb1fac3f7a415505e0aeb7ca664814ebea36e3cccc52",
+      "decision": "ACCEPT_NARROW_ACTUAL_WORDING_AND_SPENT_COMMAND_CONTEXT_IMPROVEMENT"
+    },
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-wording-actual-visual-independent-r1/GATE.json",
+      "sha256": "cae95281a0aef122085edb29e68b6e88ff7571d69333ad3c8fdd7162fc9f1e17",
+      "decision": "ACCEPT_ACTUAL_DEFAULT_REVISED_SPENT_COMMAND_WORDING_NARROW_STATIC_CLARITY_AND_FIT"
+    },
+    {
+      "path": "/workspace/scratch/opening-turn-payoff-wording-actual-technical-independent-r1/GATE.json",
+      "sha256": "83eab5f5ed24dfe7d5bf7ae353ce44f20d716493b106175ef119aae79cc19e3e",
+      "decision": "ACCEPT_EXACT_NEW_WORDING_OPENING_CUE_ACTUAL_ENGINEERING_NARROW_SCOPE"
+    },
+    {
+      "path": "/workspace/scratch/coherent-native128-fallen-ground-actual-technical-independent-r1/GATE.json",
+      "sha256": "274b9a998c21806d2cce59fae67c064415dbe214a0302f2fe4f310b19cacb8ce",
+      "decision": "ACCEPT_NARROW_ACTUAL_PIXEL_ENGINEERING_WITH_FALSE_TRANSIENT_COVERAGE_AND_TERMINAL_STDOUT_GAP"
+    },
+    {
+      "path": "/workspace/scratch/coherent-native128-fallen-ground-actual-visual-independent-r1/GATE.json",
+      "sha256": "e25481e9e67146aef7afc13fca212ff3e06f8fe47446f06710a387ce4ca995a9",
+      "decision": "REJECT_ACTUAL_COURTYARD_FALLEN_PAYOFF_AND_DEFAULT_PROMOTION"
+    },
+    {
+      "path": "/workspace/scratch/coherent-native128-fallen-ground-gameplay-independent-r1/GATE.json",
+      "sha256": "406675d4793c3f679a73095d8367dc3d2894f2f88f390ebe76563df60b4b3332",
+      "decision": "ACCEPT_NARROW_GAMEPLAY_STATE_AND_PC_FIT_PRESERVATION_REJECT_SUSTAINED_DEFEAT_GROUNDING_AND_DEFAULT"
+    },
+    {
+      "path": "/workspace/scratch/native128-defeat-aftermath-source-independent-r1/GATE.json",
+      "sha256": "492084ab8e5adfccf9d17749ea55ed6d10aea8edd016c388f0f989571497cc05",
+      "decision": "REJECT_NATIVE_DEFEAT_AFTERMATH_SOURCE_RETENTION"
+    }
+  ],
+  "metadataSnapshot": {
+    "status": "Prior pushed d144 metadata; not claiming new actuals reflected",
+    "reportedConfirmedHead": "d144368d04b5af55abc7c81927417eb88ee47e16",
+    "docs": [
+      {
+        "path": "/workspace/Roguelike-deckbuilder/AGENTS.md",
+        "sha256": "19e35b29256309ef3fbded5d57ae4e3a582b07dfd0e18f7e8497341e0fe3378e",
+        "bytes": 22081,
+        "RootHoldThroughActualArchiveAndCompleteReview": true
+      },
+      {
+        "path": "/workspace/Roguelike-deckbuilder/docs/CONTINUATION.md",
+        "sha256": "1d070b850f9cb37e22a174fff9e74f4a12e1ed8a146d5c99819aa817de37db6c",
+        "bytes": 201751,
+        "RootHoldThroughActualArchiveAndCompleteReview": true
+      },
+      {
+        "path": "/workspace/Roguelike-deckbuilder/docs/PRODUCTION.md",
+        "sha256": "ecc5b4d321d19eec2e57adb4ec8f0562c5cc6a20b48d34dd78c6289f106456c2",
+        "bytes": 40237,
+        "RootHoldThroughActualArchiveAndCompleteReview": true
+      },
+      {
+        "path": "/workspace/Roguelike-deckbuilder/docs/FIRST-FIVE-MINUTES.md",
+        "sha256": "cc510c46581b800737dd2b991e048cc5153f0a19fba8cd5924ddddf76a062187",
+        "bytes": 7435,
+        "RootHoldThroughActualArchiveAndCompleteReview": true
+      }
+    ],
+    "mustRemainUnchangedThroughArchiveAndCompleteReview": true
+  },
+  "externalDependencies": {
+    "gameMediaColumns": [
+      "rootIndex",
+      "relativeLeaf",
+      "sha256",
+      "roleIndex"
+    ],
+    "gameMediaRows": [
+      [
+        145,
+        "icon.png",
+        "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+        14
+      ],
+      [
+        146,
+        "abbey-courtyard.png",
+        "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+        14
+      ],
+      [
+        146,
+        "adversaries-atlas.png",
+        "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5",
+        14
+      ],
+      [
+        146,
+        "bone-thrall-v09-r1.png",
+        "3697dd4cc89f1550e0688b34bb421939988c90ab78832ce83d53ddb81b372dfd",
+        14
+      ],
+      [
+        146,
+        "companions-atlas.png",
+        "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+        14
+      ],
+      [
+        146,
+        "hound-poses.png",
+        "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+        14
+      ],
+      [
+        146,
+        "hunter-marek-v07-r3.png",
+        "4492577d3bacc868e9b66da0abf25915bdeaf68bc8f5c31ae8a1d8db485f3c53",
+        14
+      ],
+      [
+        146,
+        "hunter-portrait.png",
+        "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+        14
+      ],
+      [
+        146,
+        "ossuary-crypt-v08-r2.png",
+        "ff9818614003e9432ee1868c2f60b336d0b5dfe63f5c01e380832f1e880c4b00",
+        14
+      ],
+      [
+        146,
+        "pact-seal.png",
+        "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+        14
+      ],
+      [
+        146,
+        "tool-vignettes.png",
+        "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+        14
+      ],
+      [
+        146,
+        "warleader-poses.png",
+        "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b",
+        14
+      ],
+      [
+        147,
+        "bind_seal-1.wav",
+        "8b0085d42be3e3d69545046349b5fe6b103ea36cb5805fa6deb64463e70d9783",
+        14
+      ],
+      [
+        147,
+        "bind_seal-2.wav",
+        "55078560550519dc0ba3b2c4c8d76ee72be94f4681a6375f6e0f4c5bf4218a26",
+        14
+      ],
+      [
+        147,
+        "bind_seal-3.wav",
+        "34e5d74e7a289717a7a5145dd7cce1ff94f77f6f2843aae5766a2a27b3f05dba",
+        14
+      ],
+      [
+        147,
+        "camp_settle-1.wav",
+        "2599245492ec5ded74090654e88f7aafba69e8fe8e4402038ae31d00c29c504c",
+        14
+      ],
+      [
+        147,
+        "camp_settle-2.wav",
+        "47ea7cf2ab1bd1cbdf5d4f1af50734c2ad0ee7e0b22011b381c5af0770825a90",
+        14
+      ],
+      [
+        147,
+        "camp_settle-3.wav",
+        "72dc7cddbe11cf82d220450a677a0465e544081a6ba48a16f7fe605ab4584947",
+        14
+      ],
+      [
+        147,
+        "dragon_bite-1.wav",
+        "bc6a5f675e26aac49fb67a36ae0e5ecfb84d66d72c6b36f8e960b44586c6fd5f",
+        14
+      ],
+      [
+        147,
+        "dragon_bite-2.wav",
+        "ab4cedbdb08f802c73ed6e6bee0209f4c6741fdb20792f18654cae053bb5ee19",
+        14
+      ],
+      [
+        147,
+        "dragon_bite-3.wav",
+        "ddf44e51d30a2fb307e0ae69455abb41ed43eac61f038d1e303ceac86a399653",
+        14
+      ],
+      [
+        147,
+        "dragon_breath-1.wav",
+        "617666747e860c5ace47d6a64eee6757b82f0cf1f884ee3f87400137b49517fe",
+        14
+      ],
+      [
+        147,
+        "dragon_breath-2.wav",
+        "5da689bc4a5e6bf6568b3d681574304e056719c1b837609897fcbd489384fd94",
+        14
+      ],
+      [
+        147,
+        "dragon_breath-3.wav",
+        "33993012d5833daca49a2642bad4399967fd65ca685dcbe60e246933414b8f56",
+        14
+      ],
+      [
+        147,
+        "hound_bite-1.wav",
+        "bdbeb02f109dff3fbd9d7dfa502c00f3e8ea53a441d6cb07aaa6ca0dc54b843d",
+        14
+      ],
+      [
+        147,
+        "hound_bite-2.wav",
+        "947e438df5cbd647573da7a86991767d1c5b6b09d519f2784593c8f17cc37715",
+        14
+      ],
+      [
+        147,
+        "hound_bite-3.wav",
+        "2544e1b1767154b4a976a1e04b7267ed1186c60f3ab8e32308d4d490084f5c3f",
+        14
+      ],
+      [
+        147,
+        "hunter_wound-1.wav",
+        "e9abd091201a2ca8c3a417c2571266ef9f05d85dde1120c3375ec979de5a2a90",
+        14
+      ],
+      [
+        147,
+        "hunter_wound-2.wav",
+        "25de0a4fdf7b768a219a2f9221671ed36f72f812afe27c8dabb9599551479f1b",
+        14
+      ],
+      [
+        147,
+        "hunter_wound-3.wav",
+        "9de18a01855243f6b01415f25398d9eb77dc66defd9cf7daa76036c7f93a7266",
+        14
+      ],
+      [
+        147,
+        "neutral_hit-1.wav",
+        "ee0f62318fb4154fe5d39bb3c56995154f8e0451668dd37be0c57f357f5128ff",
+        14
+      ],
+      [
+        147,
+        "neutral_hit-2.wav",
+        "1b378068b10eefbdb44b3762355d530f085cccaa75d26c58660007af2fe8f471",
+        14
+      ],
+      [
+        147,
+        "neutral_hit-3.wav",
+        "711ddc0b49ba5666db0b8292225a0a02efefed5a204d26c7c4f2a0be38826f98",
+        14
+      ],
+      [
+        147,
+        "scour_tool-1.wav",
+        "4218c65e41ba2c6845eda070493809cfe5132dc2ffa86bb51e9f83429738dcfc",
+        14
+      ],
+      [
+        147,
+        "scour_tool-2.wav",
+        "15bbace99c04cb185a4ddb4c244983b4f2941f8eda79b12ab7518f2701850121",
+        14
+      ],
+      [
+        147,
+        "scour_tool-3.wav",
+        "6ba61d67f83c11fda30b40962eced74457029bf53c97583ec69035af15c6d670",
+        14
+      ],
+      [
+        147,
+        "summon_arrival-1.wav",
+        "0a42eef1fd55409dc68c1dc3ac917148a310ebfb97078e8d74e992133b9bdb63",
+        14
+      ],
+      [
+        147,
+        "summon_arrival-2.wav",
+        "16106dea7e679a3b455c6cea80374b85c71f5babbcc6cf63258cdeb5f20d871b",
+        14
+      ],
+      [
+        147,
+        "summon_arrival-3.wav",
+        "068fe50e7d86761f71b3bb3459b263df6f1fcc958e767e64a9eb60f782a4e7f5",
+        14
+      ],
+      [
+        147,
+        "ui_back-1.wav",
+        "5c16ed5b7e4d9dfe7413a58f0ede66bfa92c3d4fb2ad1743429b54519e2624b1",
+        14
+      ],
+      [
+        147,
+        "ui_back-2.wav",
+        "62d612a3df5b500aa45b48796e4981479ea1ef881adc810263b4469718248749",
+        14
+      ],
+      [
+        147,
+        "ui_back-3.wav",
+        "3edef85d3583003e0cd4d1ac49b56948104b55c555db9d16497118a769e75ce5",
+        14
+      ],
+      [
+        147,
+        "ui_confirm-1.wav",
+        "94500eed8b648120071064bf3ef0ac7382e4a505f1b85f3e08a9db7a84dab25d",
+        14
+      ],
+      [
+        147,
+        "ui_confirm-2.wav",
+        "55946b44e3998d5900ae8b86edc2fc82af2d1a5be669bf2f3ceeb7143879408a",
+        14
+      ],
+      [
+        147,
+        "ui_confirm-3.wav",
+        "39b1cc1ee9f97f2a9c4118df5d3d64328390d7236ef72ce5f05
+ROW_SAMPLE [[0, 'A-cue-01-settled-spent-cue-request.jpg', '2df0b6c5a136255b3b3729fe9e5be9191b86dc89731bd82df66c81219220ffff', 206959, 0, 'newBlob'], [0, 'A-cue-02-held-cancel-request.jpg', '8f1aa60d7f8b993f3a051fc5ff24ac6638abb076ff5620c47cc4125ddbe1a8f9', 206492, 0, 'newBlob']]
+ROOT_SAMPLE ['/workspace/scratch/opening-turn-payoff-wording-actual-comparison-root-r1', '/workspace/scratch/opening-turn-payoff-wording-actual-gameplay-independent-r1/INSPECT-GUARD', '/workspace/scratch/opening-turn-payoff-wording-actual-gameplay-independent-r1/RAW-GUARD']
+OWN_RSS 11984896

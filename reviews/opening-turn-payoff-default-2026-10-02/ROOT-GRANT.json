@@ -1,0 +1,38 @@
+{
+  "rootArchiveAuthorized": true,
+  "sourceGate": {
+    "path": "/workspace/scratch/opening-turn-payoff-opening-checkpoint-source-independent-r1/SOURCE-GATE.json",
+    "sha256": "4bfbc6ee637d79b98831fcf0dfe72233e3fec55309695b137956753920e097aa"
+  },
+  "plan": {
+    "path": "/workspace/scratch/opening-turn-payoff-opening-checkpoint-source-author-r1/PLAN.json",
+    "sha256": "6b190d0efba84bf1b5c69fdfd3aa097bfd1bdd84ab65f2665f3df4a722524cce"
+  },
+  "method": {
+    "path": "/workspace/scratch/opening-turn-payoff-opening-checkpoint-source-author-r1/preserve-checkpoint.py",
+    "sha256": "367ea7aeeb38186cc546c0bf52ee5e0e65e7705f9dda6d7ccf27c4097c441a69"
+  },
+  "currentHold": {
+    "path": "/workspace/Roguelike-deckbuilder/AGENTS.md",
+    "sha256": "19e35b29256309ef3fbded5d57ae4e3a582b07dfd0e18f7e8497341e0fe3378e"
+  },
+  "output": "/workspace/scratch/opening-turn-payoff-opening-checkpoint-output-root-r1",
+  "headroomBytes": 1501741056,
+  "freeBytes": 161034240,
+  "budget": {
+    "workMiB": 128,
+    "reserveMiB": 512,
+    "diskMinimumMiB": 64,
+    "ownRSSMiB": 24,
+    "outputLogicalAndAllocatedMiB": 16,
+    "finiteMethodChecksSeconds": 60
+  },
+  "qualifications": [
+    "Actual helper metadata checks cover a subset, not all stat fields/xattrs.",
+    "O_NOATIME fallback and standard-read atime qualified; no time reset.",
+    "Terminal allocated/RSS/elapsed stdout must be retained because RESULT was written before terminal measurements.",
+    "Fresh Root guard/admission required; 17MiB is an estimate, not internal disk admission.",
+    "No gameplay/default/wording/platform/human enjoyment claim."
+  ],
+  "scope": "Fresh byte-preservation archive only; no original removal, game change or publication. Terminal stdout preserved; metadata checks subset. Tiny grant bootstrap unmetered."
+}

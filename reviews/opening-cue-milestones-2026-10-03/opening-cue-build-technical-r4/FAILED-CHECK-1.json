@@ -1,0 +1,7 @@
+{
+  "kind": "Independent review harness schema mismatch, not candidate failure",
+  "methodSHA256": "ac98cfc3399b5cb0a0ada72372f6068ae58700a63b62b797e7b1e11d8199dc61",
+  "exitCode": 1,
+  "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/opening-cue-build-technical-r4/verify.py\", line 33, in <module>\n    assert basegate['verdict']=='ACCEPT_SOURCE_ONLY' and basegate['sourceSealSHA256']==shared['sourceSealSHA256']\n                                                         ~~~~~~~~^^^^^^^^^^^^^^^^^^^^\nKeyError: 'sourceSealSHA256'\n",
+  "repair": "Read independent R9 gate actual sourceSeal object and individually pinned checker/checks/review instead of prior R8 schema fields. No source changes or runtime."
+}

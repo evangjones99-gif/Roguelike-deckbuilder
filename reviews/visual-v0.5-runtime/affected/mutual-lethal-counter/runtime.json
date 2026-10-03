@@ -1,0 +1,6017 @@
+{
+  "method": "Independent frozen-production actual UI controls, native RAF read-only draw/curve probes and completed-frame PNGs. Diagnostic fixture, no FPS claims. Action epoch is captured actual click; render clock may differ by a frame.",
+  "name": "mutual-lethal-counter",
+  "provenance": {
+    "version": "0.5.0",
+    "sourceDigest": "cdf4098ab5426281d75a22d4565b6d5b92667a42b9937e756a919a97227449af",
+    "hashes": {
+      "THIRD-PARTY.md": "e8562cda5387e7bf560e460d86119ea9ea48e08243fef16fe3da12623b1bcf8d",
+      "desktop/icon.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+      "desktop/main.cjs": "1e54b1170ff4169285ff1757c0e768db2f144f7be919b4911a47394426cb75ae",
+      "index.html": "897357d797f5bd82b62dd5fcc37f3be04700f5091cd5f8c430daecc5102bdfc8",
+      "package-lock.json": "e745e73679de5717b06c52797d3cee13f92ea39344f584e82e88e0aeaf6d8028",
+      "package.json": "c89fdd158dc0e6c1529712b71f4202a745ce8cf6061d70660f004bc4734ba0d0",
+      "public/art/PROVENANCE.json": "5ba821b8b5f6d7b316389e72f7b8afd97304645789f3b0add7719dea6bf85ce5",
+      "public/art/abbey-courtyard.png": "92230fee18818b49a813a50085ecb604b93f157173b994ffe53c520b726e99b3",
+      "public/art/adversaries-atlas.png": "5d0ad1963acce4a93e6456d73a840f34d104e2d5b33c82fb491cfcb873801ea5",
+      "public/art/companions-atlas.png": "1a59f11b0d3829921beeea823b6b148b9308f94d29cb4956c43d2bf9798290c5",
+      "public/art/hound-poses.png": "0f363fb1a22fc6e8ce730eabcc19af7ce61a1c7fdc71d8e52860b0114efe4968",
+      "public/art/hunter-portrait.png": "28d4bdc56c434590ade5c9d69d650c35e284713fb14f45f37bad54190ea4e988",
+      "public/art/pact-seal.png": "0af9de4ed28f8e6b5092e94575571c92f2748d9552d8175dc1928241dbb5ec82",
+      "public/art/tool-vignettes.png": "0f5ee14a3f868b9480aaad480d949337cf38ad8e2f258e58857e7cd18f93d0f4",
+      "public/art/warleader-poses.png": "3f8c88d72c4efafbba75e7dfa61ba10f04ec4fa11384008e2381edfbce02353b",
+      "scripts/build.mjs": "640ef4131f63ee5994d9f1c6a70827e2890f4b4d1aaa259392cf178c1cdb75c1",
+      "src/arena.ts": "01bd60015273988470a378e092398938f71f1ac07c4754e04d09e00efbbfcd94",
+      "src/art.ts": "379e6b60f78cafd20170bcbcc4168a490cd2663388131957ad9766df852430b7",
+      "src/content.ts": "2f45160b3e577a7cd44381cb361c4407661a68819ff827a24b8ab34ce15c4234",
+      "src/engine.ts": "bfc9e61299d73a344569e54e4b3f3348009f4075560dc2f0fb057f5d8a4d296b",
+      "src/main.ts": "8de5c8577fb6dace6bbdfcc94e239b3e05af7e2ca0f3521b83fc35ae3ac26286",
+      "src/style.css": "357345b6276e4a26515cb19964c416056c00efe64215241cdcb50883d1be49a2",
+      "src/tool-art.ts": "963fcebe2cab3c9d180cc0223317f8f8dfc2f7e0e623eddcc84c880bb244e8c3",
+      "src/world-rng.ts": "c4ea7b2bb7fc3fa3f0497111dae923566159d2b4143f01b646cb688d3223c1da",
+      "tsconfig.json": "e18d87875eb004486912eff8ad3ecaeb94d3a691734399c8c83af5d77774850c",
+      "vite.config.ts": "987a9929260cdb6341bcb7f737e9f25236d7cbf5a6675227a0bcd30060550f75"
+    },
+    "node": "v24.19.0"
+  },
+  "errors": [],
+  "badResponses": [],
+  "savedMatchesExpected": true,
+  "expectedEvents": [
+    {
+      "type": "hit",
+      "source": "a10",
+      "kind": "command",
+      "cardId": "cairnhound",
+      "target": "e30",
+      "damage": 7,
+      "blocked": 3,
+      "hpLost": 2,
+      "beforeHp": 2,
+      "afterHp": 0
+    },
+    {
+      "type": "death",
+      "source": "a10",
+      "target": "e30",
+      "cardId": "ironjaw"
+    },
+    {
+      "type": "hit",
+      "source": "e30",
+      "kind": "retaliation",
+      "cardId": "ironjaw",
+      "target": "a10",
+      "damage": 2,
+      "blocked": 0,
+      "hpLost": 2,
+      "beforeHp": 2,
+      "afterHp": 0
+    },
+    {
+      "type": "death",
+      "source": "e30",
+      "target": "a10",
+      "cardId": "cairnhound"
+    }
+  ],
+  "saved": {
+    "schema": 2,
+    "seed": 121,
+    "rng": 3617578011,
+    "phase": "reward",
+    "hp": 65,
+    "maxHp": 65,
+    "block": 0,
+    "energy": 0,
+    "gold": 90,
+    "floor": 1,
+    "turn": 2,
+    "deck": [
+      "cairnhound",
+      "gravehound",
+      "fenstalker",
+      "fenraker",
+      "briarcolossus",
+      "ossuarycolossus",
+      "cairnhound+",
+      "gravehound+",
+      "fenstalker+",
+      "fenraker+",
+      "briarcolossus+",
+      "cairnhound",
+      "cairnhound+",
+      "gravehound",
+      "gravehound+",
+      "fenstalker",
+      "fenstalker+",
+      "fenraker",
+      "fenraker+",
+      "briarcolossus",
+      "briarcolossus+",
+      "ossuarycolossus",
+      "ossuarycolossus+",
+      "ashwidow",
+      "ashwidow+",
+      "emberwidow",
+      "emberwidow+",
+      "scour",
+      "scour+",
+      "ironward",
+      "ironward+",
+      "sutures",
+      "sutures+",
+      "edict",
+      "edict+",
+      "witchfire",
+      "witchfire+",
+      "killcommand",
+      "killcommand+",
+      "gravetithe",
+      "gravetithe+",
+      "survey",
+      "survey+",
+      "bloodprice",
+      "bloodprice+",
+      "aegis",
+      "aegis+",
+      "harpoon",
+      "harpoon+",
+      "covenant",
+      "covenant+",
+      "sunder",
+      "sunder+",
+      "silence",
+      "silence+",
+      "resonance",
+      "resonance+",
+      "draught",
+      "draught+"
+    ],
+    "draw": [],
+    "discard": [],
+    "hand": [],
+    "allies": [],
+    "enemies": [],
+    "rewards": [
+      "ironward",
+      "draught",
+      "ashwidow"
+    ],
+    "relics": [],
+    "route": [
+      "battle"
+    ],
+    "log": [
+      "A scarred hunter. One final contract. No pact is harmless.",
+      "The keep has teeth.",
+      "Ironjaw Warlord retaliates against Cairn Hound.",
+      "Cairn Hound strikes Ironjaw Warlord.",
+      "Cairn Hound returns to the deck.",
+      "Contract complete. Choose one new card or travel light."
+    ],
+    "nextUid": 100,
+    "difficulty": 0,
+    "stats": {
+      "cardsPlayed": 0,
+      "damageDealt": 2,
+      "turns": 1,
+      "battles": 1
+    }
+  },
+  "probe": {
+    "frames": [
+      {
+        "time": 2306.4000000003725,
+        "elapsed": 1.300000000745058,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              0,
+              32,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -156.32198214285717,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0059081315994263,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              544,
+              96,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -133.75060416666668,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0047224760055542,
+              "e": 234.32000732421875,
+              "f": 243.75999450683594
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 2331.0999999996275,
+        "elapsed": 26,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              0,
+              32,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -156.32198214285717,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0058830976486206,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              544,
+              96,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -133.75060416666668,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0048047304153442,
+              "e": 229.76531982421875,
+              "f": 244.4090576171875
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 2336.5999999996275,
+        "elapsed": 31.5,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              0,
+              32,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -156.32198214285717,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0058552026748657,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              544,
+              96,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -133.75060416666668,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0048840045928955,
+              "e": 225.86329650878906,
+              "f": 244.96511840820312
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 2337.9000000003725,
+        "elapsed": 32.80000000074506,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              0,
+              32,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -156.32198214285717,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0058242082595825,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              544,
+              96,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -133.75060416666668,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1.004961371421814,
+              "e": 223.10906982421875,
+              "f": 245.35760498046875
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 2358.199999999255,
+        "elapsed": 53.09999999962747,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              0,
+              32,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -156.32198214285717,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0057902336120605,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              544,
+              96,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -133.75060416666668,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0050361156463623,
+              "e": 221.91090393066406,
+              "f": 245.52835083007812
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 2394.800000000745,
+        "elapsed": 89.70000000111759,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              0,
+              32,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -156.32198214285717,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1.005753517150879,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              544,
+              96,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -133.75060416666668,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0051079988479614,
+              "e": 222.4268798828125,
+              "f": 245.454833984375
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 2407.800000000745,
+        "elapsed": 102.70000000111759,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              0,
+              32,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -156.32198214285717,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0056712627410889,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              544,
+              96,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -133.75060416666668,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1.005244255065918,
+              "e": 228.08229064941406,
+              "f": 244.64891052246094
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 2442.4000000003725,
+        "elapsed": 137.30000000074506,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              0,
+              32,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -156.32198214285717,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1.005625605583191,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              544,
+              96,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -133.75060416666668,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0053086280822754,
+              "e": 232.45623779296875,
+              "f": 244.0255889892578
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 2469.199999999255,
+        "elapsed": 164.09999999962747,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              0,
+              32,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -156.32198214285717,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1.005525827407837,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              96,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -136.08346354166667,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0054292678833008,
+              "e": 341.4520568847656,
+              "f": 228.4931640625
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 2494.0999999996275,
+        "elapsed": 189,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              0,
+              32,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -156.32198214285717,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0054152011871338,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              96,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -136.08346354166667,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0055385828018188,
+              "e": 447.1600646972656,
+              "f": 213.4292755126953
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 2515.5,
+        "elapsed": 210.40000000037253,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              0,
+              32,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -156.32198214285717,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0053555965423584,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              96,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -136.08346354166667,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0055891275405884,
+              "e": 479.98016357421875,
+              "f": 208.75225830078125
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 2520,
+        "elapsed": 214.90000000037253,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              0,
+              32,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -156.32198214285717,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0052932500839233,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              96,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -136.08346354166667,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0056369304656982,
+              "e": 495.99224853515625,
+              "f": 206.470458984375
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 2538.4000000003725,
+        "elapsed": 233.30000000074506,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 591.3351440429688,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              96,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -136.08346354166667,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0056816339492798,
+              "e": 493.40521240234375,
+              "f": 206.83912658691406
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.73279999999997,
+            "radius": 9.48979591836733
+          }
+        ]
+      },
+      {
+        "time": 2601.199999999255,
+        "elapsed": 296.2000000011176,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 592.7906494140625,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              96,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -136.08346354166667,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1.0057235956192017,
+              "e": 486.7258605957031,
+              "f": 207.79095458984375
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.73279999999997,
+            "radius": 10.307755102040801
+          }
+        ]
+      },
+      {
+        "time": 2616.5999999996275,
+        "elapsed": 311.5,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.1246948242188,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 484.2283935546875,
+              "f": 208.54843139648438
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.7328,
+            "radius": 12.756734693877581
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787498,
+            "radius": 10.797551020408191
+          }
+        ]
+      },
+      {
+        "time": 2627.5,
+        "elapsed": 322.40000000037253,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 588.0339965820312,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 483.14996337890625,
+              "f": 208.54843139648438
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.7328,
+            "radius": 13.569795918367351
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.184536537875,
+            "radius": 11.610612244897993
+          }
+        ]
+      },
+      {
+        "time": 2637.0999999996275,
+        "elapsed": 332,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 588.090087890625,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.3909606933594,
+              "f": 208.54843139648438
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.7328,
+            "radius": 14.387755102040822
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.184536537875,
+            "radius": 12.428571428571432
+          }
+        ]
+      },
+      {
+        "time": 2657.5,
+        "elapsed": 352.40000000037253,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 588.9943237304688,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 479.9997863769531,
+              "f": 208.54843139648438
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.73279999999997,
+            "radius": 15.200816326530592
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787498,
+            "radius": 13.241632653061234
+          }
+        ]
+      },
+      {
+        "time": 2714.199999999255,
+        "elapsed": 409.09999999962747,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 590.5473022460938,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.2357482910156,
+              "f": 208.54843139648438
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.73279999999994,
+            "radius": 17.649795918367303
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787498,
+            "radius": 15.69061224489798
+          }
+        ]
+      },
+      {
+        "time": 2720,
+        "elapsed": 414.90000000037253,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 590.127685546875,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 482.0071105957031,
+              "f": 208.54843139648438
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.7328,
+            "radius": 18.472653061224477
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787498,
+            "radius": 16.513469387755087
+          }
+        ]
+      },
+      {
+        "time": 2741.300000000745,
+        "elapsed": 436.2000000011176,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8358764648438,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 482.1656188964844,
+              "f": 208.54843139648438
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.73280000000003,
+            "radius": 19.285714285714313
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787498,
+            "radius": 17.32653061224489
+          }
+        ]
+      },
+      {
+        "time": 2753.5,
+        "elapsed": 448.40000000037253,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.84893798828125,
+              "f": 208.54843139648438
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.73280000000003,
+            "radius": 20.103673469387786
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787498,
+            "radius": 18.144489795918396
+          }
+        ]
+      },
+      {
+        "time": 2793.699999999255,
+        "elapsed": 488.59999999962747,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.73279999999994,
+            "radius": 21.73469387755096
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787498,
+            "radius": 19.775510204081638
+          }
+        ]
+      },
+      {
+        "time": 2805.4000000003725,
+        "elapsed": 500.30000000074506,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.73279999999997,
+            "radius": 22.547755102040796
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787495,
+            "radius": 20.588571428571406
+          }
+        ]
+      },
+      {
+        "time": 2820.300000000745,
+        "elapsed": 515.2000000011176,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 1
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.73279999999997,
+            "radius": 23.36571428571427
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.184536537875,
+            "radius": 21.40653061224491
+          }
+        ]
+      },
+      {
+        "time": 2836.800000000745,
+        "elapsed": 531.7000000011176,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.983333333333334
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.7328,
+            "radius": 24.18367346938774
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787498,
+            "radius": 22.224489795918352
+          }
+        ]
+      },
+      {
+        "time": 2854.199999999255,
+        "elapsed": 549.0999999996275,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.9555000000000003
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 1
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.7328,
+            "radius": 25.00163265306121
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787498,
+            "radius": 23.04244897959182
+          }
+        ]
+      },
+      {
+        "time": 2892,
+        "elapsed": 586.9000000003725,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.9278333333333338
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.9945000000000005
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.73279999999997,
+            "radius": 25.814693877550983
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787498,
+            "radius": 23.855510204081625
+          }
+        ]
+      },
+      {
+        "time": 2897.9000000003725,
+        "elapsed": 592.8000000007451,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.9001666666666672
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.966833333333334
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.73280000000003,
+            "radius": 26.62775510204082
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787495,
+            "radius": 24.668571428571394
+          }
+        ]
+      },
+      {
+        "time": 2905.9000000003725,
+        "elapsed": 600.8000000007451,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.8721666666666666
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.9388333333333333
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.73279999999994,
+            "radius": 27.450612244897926
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787498,
+            "radius": 25.491428571428568
+          }
+        ]
+      },
+      {
+        "time": 2929.4000000003725,
+        "elapsed": 624.3000000007451,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.8445
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.9111666666666668
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.7328,
+            "radius": 28.26367346938776
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787498,
+            "radius": 26.30448979591837
+          }
+        ]
+      },
+      {
+        "time": 2937.5999999996275,
+        "elapsed": 632.5,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.8166666666666672
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.8833333333333339
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.73280000000003,
+            "radius": 29.081632653061234
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787498,
+            "radius": 27.12244897959181
+          }
+        ]
+      },
+      {
+        "time": 2954.300000000745,
+        "elapsed": 649.2000000011176,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.7889999999999999
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.8556666666666666
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.73280000000005,
+            "radius": 29.89469387755107
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787498,
+            "radius": 27.935510204081645
+          }
+        ]
+      },
+      {
+        "time": 2990.699999999255,
+        "elapsed": 685.5999999996275,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.761166666666667
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.8278333333333338
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.7328,
+            "radius": 30.712653061224476
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787498,
+            "radius": 28.753469387755086
+          }
+        ]
+      },
+      {
+        "time": 2998,
+        "elapsed": 692.9000000003725,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.7335000000000005
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.8001666666666671
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.73279999999997,
+            "radius": 31.525714285714244
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787498,
+            "radius": 29.566530612244886
+          }
+        ]
+      },
+      {
+        "time": 3003.300000000745,
+        "elapsed": 698.2000000011176,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.7056666666666669
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.7723333333333335
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#f3d3a4",
+            "x": 589.84,
+            "y": 134.73280000000003,
+            "radius": 32.34367346938778
+          },
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787498,
+            "radius": 30.38448979591836
+          }
+        ]
+      },
+      {
+        "time": 3020.300000000745,
+        "elapsed": 715.2000000011176,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.677833333333334
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.7445000000000007
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787495,
+            "radius": 31.202448979591797
+          }
+        ]
+      },
+      {
+        "time": 3037.5999999996275,
+        "elapsed": 732.5,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.6500000000000011
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.7166666666666679
+          }
+        ],
+        "impacts": [
+          {
+            "kind": "physical",
+            "color": "#c7d0d6",
+            "x": 481.41039960000006,
+            "y": 150.18453653787498,
+            "radius": 32.020408163265266
+          }
+        ]
+      },
+      {
+        "time": 3055.5,
+        "elapsed": 750.4000000003725,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.6221666666666675
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.6888333333333343
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3092.199999999255,
+        "elapsed": 787.0999999996275,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.5945000000000009
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.6611666666666677
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3097.199999999255,
+        "elapsed": 792.0999999996275,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.5666666666666681
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.6333333333333349
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3103.300000000745,
+        "elapsed": 798.2000000011176,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.5390000000000008
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.6056666666666675
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3125.0999999996275,
+        "elapsed": 820,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.5111666666666679
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.5778333333333346
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3139.800000000745,
+        "elapsed": 834.7000000011176,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.48333333333333506
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.5500000000000018
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3154.5,
+        "elapsed": 849.4000000003725,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.45550000000000146
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.5221666666666682
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3190.5,
+        "elapsed": 885.4000000003725,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.42783333333333495
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.4945000000000016
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3197.800000000745,
+        "elapsed": 892.7000000011176,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.400000000000002
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.4666666666666688
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3204.300000000745,
+        "elapsed": 899.2000000011176,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.3721666666666684
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.4388333333333352
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3227.9000000003725,
+        "elapsed": 922.8000000007451,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.3445000000000019
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.41116666666666857
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3251.199999999255,
+        "elapsed": 946.0999999996275,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.316666666666669
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.38333333333333575
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3253.300000000745,
+        "elapsed": 948.2000000011176,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.2890000000000017
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.35566666666666846
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3295.699999999255,
+        "elapsed": 990.5999999996275,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.23333333333333606
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.3000000000000027
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3303.300000000745,
+        "elapsed": 998.2000000011176,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.20566666666666866
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.2723333333333354
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3320.4000000003725,
+        "elapsed": 1015.3000000007451,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.17783333333333584
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.2445000000000026
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3336.9000000003725,
+        "elapsed": 1031.800000000745,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.15000000000000302
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.21666666666666967
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3355.699999999255,
+        "elapsed": 1050.5999999996275,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.12233333333333574
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.1890000000000024
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3370.5999999996275,
+        "elapsed": 1065.5,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.09450000000000292
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.16116666666666957
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3390.9000000003725,
+        "elapsed": 1085.800000000745,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.0668333333333363
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.13350000000000306
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3403.5,
+        "elapsed": 1098.4000000003725,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.0390000000000027
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.10566666666666946
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3420.199999999255,
+        "elapsed": 1115.0999999996275,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "warleader-poses.png",
+            "source": [
+              1024,
+              544,
+              512,
+              448
+            ],
+            "destination": [
+              -90.53942857142859,
+              -132.27244642857144,
+              181.07885714285717,
+              158.44400000000002
+            ],
+            "transform": {
+              "a": -1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 589.8400268554688,
+              "f": 196.6699981689453
+            },
+            "alpha": 0.011166666666669878
+          },
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.07783333333333664
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3436.9000000003725,
+        "elapsed": 1131.800000000745,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.05000000000000371
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3454.0999999996275,
+        "elapsed": 1149,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [
+          {
+            "url": "hound-poses.png",
+            "source": [
+              1056,
+              608,
+              448,
+              384
+            ],
+            "destination": [
+              -87.09341666666667,
+              -117.03177864583333,
+              174.18683333333334,
+              149.303
+            ],
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 481.410400390625,
+              "f": 208.54843139648438
+            },
+            "alpha": 0.022333333333336425
+          }
+        ],
+        "impacts": []
+      },
+      {
+        "time": 3470.9000000003725,
+        "elapsed": 1165.800000000745,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 808,
+          "cssHeight": 277
+        },
+        "actors": [],
+        "impacts": []
+      },
+      {
+        "time": 3514.9000000003725,
+        "elapsed": 1209.800000000745,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 1280,
+          "cssHeight": 571
+        },
+        "actors": [],
+        "impacts": []
+      },
+      {
+        "time": 3514.9000000003725,
+        "elapsed": 1209.800000000745,
+        "canvas": {
+          "width": 808,
+          "height": 277,
+          "cssWidth": 1280,
+          "cssHeight": 571
+        },
+        "actors": [],
+        "impacts": []
+      },
+      {
+        "time": 3530.199999999255,
+        "elapsed": 1225.0999999996275,
+        "canvas": {
+          "width": 1280,
+          "height": 571,
+          "cssWidth": 1280,
+          "cssHeight": 571
+        },
+        "actors": [],
+        "impacts": []
+      },
+      {
+        "time": 3536,
+        "elapsed": 1230.9000000003725,
+        "canvas": {
+          "width": 1280,
+          "height": 571,
+          "cssWidth": 1280,
+          "cssHeight": 571
+        },
+        "actors": [],
+        "impacts": []
+      },
+      {
+        "time": 3575.5,
+        "elapsed": 1270.4000000003725,
+        "canvas": {
+          "width": 1280,
+          "height": 571,
+          "cssWidth": 1280,
+          "cssHeight": 571
+        },
+        "actors": [],
+        "impacts": []
+      },
+      {
+        "time": 3591.800000000745,
+        "elapsed": 1286.7000000011176,
+        "canvas": {
+          "width": 1280,
+          "height": 571,
+          "cssWidth": 1280,
+          "cssHeight": 571
+        },
+        "actors": [],
+        "impacts": []
+      },
+      {
+        "time": 3603.300000000745,
+        "elapsed": 1298.2000000011176,
+        "canvas": {
+          "width": 1280,
+          "height": 571,
+          "cssWidth": 1280,
+          "cssHeight": 571
+        },
+        "actors": [],
+        "impacts": []
+      }
+    ],
+    "captures": [
+      {
+        "bucket": 100,
+        "frame": {
+          "time": 2407.800000000745,
+          "elapsed": 102.70000000111759,
+          "canvas": {
+            "width": 808,
+            "height": 277,
+            "cssWidth": 808,
+            "cssHeight": 277
+          },
+          "actors": [
+            {
+              "url": "warleader-poses.png",
+              "source": [
+                0,
+                32,
+                512,
+                448
+              ],
+              "destination": [
+                -90.53942857142859,
+                -156.32198214285717,
+                181.07885714285717,
+                158.44400000000002
+              ],
+              "transform": {
+                "a": -1,
+                "b": 0,
+                "c": 0,
+                "d": 1.0056712627410889,
+                "e": 589.8400268554688,
+                "f": 196.6699981689453
+              },
+              "alpha": 1
+            },
+            {
+              "url": "hound-poses.png",
+              "source": [
+                544,
+                96,
+                448,
+                384
+              ],
+              "destination": [
+                -87.09341666666667,
+                -133.75060416666668,
+                174.18683333333334,
+                149.303
+              ],
+              "transform": {
+                "a": 1,
+                "b": 0,
+                "c": 0,
+                "d": 1.005244255065918,
+                "e": 228.08229064941406,
+                "f": 244.64891052246094
+              },
+              "alpha": 1
+            }
+          ],
+          "impacts": []
+        }
+      },
+      {
+        "bucket": 180,
+        "frame": {
+          "time": 2494.0999999996275,
+          "elapsed": 189,
+          "canvas": {
+            "width": 808,
+            "height": 277,
+            "cssWidth": 808,
+            "cssHeight": 277
+          },
+          "actors": [
+            {
+              "url": "warleader-poses.png",
+              "source": [
+                0,
+                32,
+                512,
+                448
+              ],
+              "destination": [
+                -90.53942857142859,
+                -156.32198214285717,
+                181.07885714285717,
+                158.44400000000002
+              ],
+              "transform": {
+                "a": -1,
+                "b": 0,
+                "c": 0,
+                "d": 1.0054152011871338,
+                "e": 589.8400268554688,
+                "f": 196.6699981689453
+              },
+              "alpha": 1
+            },
+            {
+              "url": "hound-poses.png",
+              "source": [
+                1056,
+                96,
+                448,
+                384
+              ],
+              "destination": [
+                -87.09341666666667,
+                -136.08346354166667,
+                174.18683333333334,
+                149.303
+              ],
+              "transform": {
+                "a": 1,
+                "b": 0,
+                "c": 0,
+                "d": 1.0055385828018188,
+                "e": 447.1600646972656,
+                "f": 213.4292755126953
+              },
+              "alpha": 1
+            }
+          ],
+          "impacts": []
+        }
+      },
+      {
+        "bucket": 240,
+        "frame": {
+          "time": 2601.199999999255,
+          "elapsed": 296.2000000011176,
+          "canvas": {
+            "width": 808,
+            "height": 277,
+            "cssWidth": 808,
+            "cssHeight": 277
+          },
+          "actors": [
+            {
+              "url": "warleader-poses.png",
+              "source": [
+                1024,
+                544,
+                512,
+                448
+              ],
+              "destination": [
+                -90.53942857142859,
+                -132.27244642857144,
+                181.07885714285717,
+                158.44400000000002
+              ],
+              "transform": {
+                "a": -1,
+                "b": 0,
+                "c": 0,
+                "d": 1,
+                "e": 592.7906494140625,
+                "f": 196.6699981689453
+              },
+              "alpha": 1
+            },
+            {
+              "url": "hound-poses.png",
+              "source": [
+                1056,
+                96,
+                448,
+                384
+              ],
+              "destination": [
+                -87.09341666666667,
+                -136.08346354166667,
+                174.18683333333334,
+                149.303
+              ],
+              "transform": {
+                "a": 1,
+                "b": 0,
+                "c": 0,
+                "d": 1.0057235956192017,
+                "e": 486.7258605957031,
+                "f": 207.79095458984375
+              },
+              "alpha": 1
+            }
+          ],
+          "impacts": [
+            {
+              "kind": "physical",
+              "color": "#f3d3a4",
+              "x": 589.84,
+              "y": 134.73279999999997,
+              "radius": 10.307755102040801
+            }
+          ]
+        }
+      },
+      {
+        "bucket": 350,
+        "frame": {
+          "time": 2657.5,
+          "elapsed": 352.40000000037253,
+          "canvas": {
+            "width": 808,
+            "height": 277,
+            "cssWidth": 808,
+            "cssHeight": 277
+          },
+          "actors": [
+            {
+              "url": "warleader-poses.png",
+              "source": [
+                1024,
+                544,
+                512,
+                448
+              ],
+              "destination": [
+                -90.53942857142859,
+                -132.27244642857144,
+                181.07885714285717,
+                158.44400000000002
+              ],
+              "transform": {
+                "a": -1,
+                "b": 0,
+                "c": 0,
+                "d": 1,
+                "e": 588.9943237304688,
+                "f": 196.6699981689453
+              },
+              "alpha": 1
+            },
+            {
+              "url": "hound-poses.png",
+              "source": [
+                1056,
+                608,
+                448,
+                384
+              ],
+              "destination": [
+                -87.09341666666667,
+                -117.03177864583333,
+                174.18683333333334,
+                149.303
+              ],
+              "transform": {
+                "a": 1,
+                "b": 0,
+                "c": 0,
+                "d": 1,
+                "e": 479.9997863769531,
+                "f": 208.54843139648438
+              },
+              "alpha": 1
+            }
+          ],
+          "impacts": [
+            {
+              "kind": "physical",
+              "color": "#f3d3a4",
+              "x": 589.84,
+              "y": 134.73279999999997,
+              "radius": 15.200816326530592
+            },
+            {
+              "kind": "physical",
+              "color": "#c7d0d6",
+              "x": 481.41039960000006,
+              "y": 150.18453653787498,
+              "radius": 13.241632653061234
+            }
+          ]
+        }
+      },
+      {
+        "bucket": 600,
+        "frame": {
+          "time": 2905.9000000003725,
+          "elapsed": 600.8000000007451,
+          "canvas": {
+            "width": 808,
+            "height": 277,
+            "cssWidth": 808,
+            "cssHeight": 277
+          },
+          "actors": [
+            {
+              "url": "warleader-poses.png",
+              "source": [
+                1024,
+                544,
+                512,
+                448
+              ],
+              "destination": [
+                -90.53942857142859,
+                -132.27244642857144,
+                181.07885714285717,
+                158.44400000000002
+              ],
+              "transform": {
+                "a": -1,
+                "b": 0,
+                "c": 0,
+                "d": 1,
+                "e": 589.8400268554688,
+                "f": 196.6699981689453
+              },
+              "alpha": 0.8721666666666666
+            },
+            {
+              "url": "hound-poses.png",
+              "source": [
+                1056,
+                608,
+                448,
+                384
+              ],
+              "destination": [
+                -87.09341666666667,
+                -117.03177864583333,
+                174.18683333333334,
+                149.303
+              ],
+              "transform": {
+                "a": 1,
+                "b": 0,
+                "c": 0,
+                "d": 1,
+                "e": 481.410400390625,
+                "f": 208.54843139648438
+              },
+              "alpha": 0.9388333333333333
+            }
+          ],
+          "impacts": [
+            {
+              "kind": "physical",
+              "color": "#f3d3a4",
+              "x": 589.84,
+              "y": 134.73279999999994,
+              "radius": 27.450612244897926
+            },
+            {
+              "kind": "physical",
+              "color": "#c7d0d6",
+              "x": 481.41039960000006,
+              "y": 150.18453653787498,
+              "radius": 25.491428571428568
+            }
+          ]
+        }
+      },
+      {
+        "bucket": 900,
+        "frame": {
+          "time": 3227.9000000003725,
+          "elapsed": 922.8000000007451,
+          "canvas": {
+            "width": 808,
+            "height": 277,
+            "cssWidth": 808,
+            "cssHeight": 277
+          },
+          "actors": [
+            {
+              "url": "warleader-poses.png",
+              "source": [
+                1024,
+                544,
+                512,
+                448
+              ],
+              "destination": [
+                -90.53942857142859,
+                -132.27244642857144,
+                181.07885714285717,
+                158.44400000000002
+              ],
+              "transform": {
+                "a": -1,
+                "b": 0,
+                "c": 0,
+                "d": 1,
+                "e": 589.8400268554688,
+                "f": 196.6699981689453
+              },
+              "alpha": 0.3445000000000019
+            },
+            {
+              "url": "hound-poses.png",
+              "source": [
+                1056,
+                608,
+                448,
+                384
+              ],
+              "destination": [
+                -87.09341666666667,
+                -117.03177864583333,
+                174.18683333333334,
+                149.303
+              ],
+              "transform": {
+                "a": 1,
+                "b": 0,
+                "c": 0,
+                "d": 1,
+                "e": 481.410400390625,
+                "f": 208.54843139648438
+              },
+              "alpha": 0.41116666666666857
+            }
+          ],
+          "impacts": []
+        }
+      },
+      {
+        "bucket": 1150,
+        "frame": {
+          "time": 3470.9000000003725,
+          "elapsed": 1165.800000000745,
+          "canvas": {
+            "width": 808,
+            "height": 277,
+            "cssWidth": 808,
+            "cssHeight": 277
+          },
+          "actors": [],
+          "impacts": []
+        }
+      }
+    ],
+    "keys": [
+      {
+        "key": "0-32-512-448",
+        "elapsed": 3.400000000372529,
+        "actor": {
+          "url": "warleader-poses.png",
+          "source": [
+            0,
+            32,
+            512,
+            448
+          ],
+          "destination": [
+            -90.53942857142859,
+            -156.32198214285717,
+            181.07885714285717,
+            158.44400000000002
+          ],
+          "transform": {
+            "a": -1,
+            "b": 0,
+            "c": 0,
+            "d": 1.0059081315994263,
+            "e": 589.8400268554688,
+            "f": 196.6699981689453
+          },
+          "alpha": 1
+        }
+      },
+      {
+        "key": "1024-544-512-448",
+        "elapsed": 233.90000000037253,
+        "actor": {
+          "url": "warleader-poses.png",
+          "source": [
+            1024,
+            544,
+            512,
+            448
+          ],
+          "destination": [
+            -90.53942857142859,
+            -132.27244642857144,
+            181.07885714285717,
+            158.44400000000002
+          ],
+          "transform": {
+            "a": -1,
+            "b": 0,
+            "c": 0,
+            "d": 1,
+            "e": 591.3351440429688,
+            "f": 196.6699981689453
+          },
+          "alpha": 1
+        }
+      }
+    ]
+  },
+  "actorBounds": [
+    {
+      "elapsed": 1.300000000745058,
+      "url": "warleader-poses.png",
+      "source": [
+        0,
+        32,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 39.42444518370499,
+      "maxY": 198.8045531868445,
+      "offscreen": false
+    },
+    {
+      "elapsed": 26,
+      "url": "warleader-poses.png",
+      "source": [
+        0,
+        32,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 39.4283585405158,
+      "maxY": 198.80450006435385,
+      "offscreen": false
+    },
+    {
+      "elapsed": 31.5,
+      "url": "warleader-poses.png",
+      "source": [
+        0,
+        32,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 39.43271913810497,
+      "maxY": 198.8044408707214,
+      "offscreen": false
+    },
+    {
+      "elapsed": 32.80000000074506,
+      "url": "warleader-poses.png",
+      "source": [
+        0,
+        32,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 39.43756424653742,
+      "maxY": 198.80437510001872,
+      "offscreen": false
+    },
+    {
+      "elapsed": 53.09999999962747,
+      "url": "warleader-poses.png",
+      "source": [
+        0,
+        32,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 39.44287523078066,
+      "maxY": 198.80430300521,
+      "offscreen": false
+    },
+    {
+      "elapsed": 89.70000000111759,
+      "url": "warleader-poses.png",
+      "source": [
+        0,
+        32,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 39.44861482076982,
+      "maxY": 198.8042250922237,
+      "offscreen": false
+    },
+    {
+      "elapsed": 102.70000000111759,
+      "url": "warleader-poses.png",
+      "source": [
+        0,
+        32,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 39.46147299314819,
+      "maxY": 198.80405054689732,
+      "offscreen": false
+    },
+    {
+      "elapsed": 137.30000000074506,
+      "url": "warleader-poses.png",
+      "source": [
+        0,
+        32,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 39.46861021056981,
+      "maxY": 198.80395366159294,
+      "offscreen": false
+    },
+    {
+      "elapsed": 164.09999999962747,
+      "url": "warleader-poses.png",
+      "source": [
+        0,
+        32,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 39.48420773271576,
+      "maxY": 198.80374193052307,
+      "offscreen": false
+    },
+    {
+      "elapsed": 189,
+      "url": "warleader-poses.png",
+      "source": [
+        0,
+        32,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 39.50150104281303,
+      "maxY": 198.80350717970728,
+      "offscreen": false
+    },
+    {
+      "elapsed": 210.40000000037253,
+      "url": "warleader-poses.png",
+      "source": [
+        0,
+        32,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 39.510818559029246,
+      "maxY": 198.8033806975867,
+      "offscreen": false
+    },
+    {
+      "elapsed": 214.90000000037253,
+      "url": "warleader-poses.png",
+      "source": [
+        0,
+        32,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 39.52056468099141,
+      "maxY": 198.80324839728857,
+      "offscreen": false
+    },
+    {
+      "elapsed": 233.30000000074506,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 591.3351440429688,
+        "y": 196.6699981689453
+      },
+      "minX": 500.7957154715402,
+      "maxX": 681.8745726143974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 296.2000000011176,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 592.7906494140625,
+        "y": 196.6699981689453
+      },
+      "minX": 502.2512208426339,
+      "maxX": 683.3300779854911,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 311.5,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.1246948242188,
+        "y": 196.6699981689453
+      },
+      "minX": 498.5852662527902,
+      "maxX": 679.6641233956474,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 322.40000000037253,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 588.0339965820312,
+        "y": 196.6699981689453
+      },
+      "minX": 497.4945680106027,
+      "maxX": 678.5734251534599,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 332,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 588.090087890625,
+        "y": 196.6699981689453
+      },
+      "minX": 497.5506593191964,
+      "maxX": 678.6295164620536,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 352.40000000037253,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 588.9943237304688,
+        "y": 196.6699981689453
+      },
+      "minX": 498.4548951590402,
+      "maxX": 679.5337523018974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 409.09999999962747,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 590.5473022460938,
+        "y": 196.6699981689453
+      },
+      "minX": 500.0078736746652,
+      "maxX": 681.0867308175224,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 414.90000000037253,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 590.127685546875,
+        "y": 196.6699981689453
+      },
+      "minX": 499.5882569754464,
+      "maxX": 680.6671141183036,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 436.2000000011176,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8358764648438,
+        "y": 196.6699981689453
+      },
+      "minX": 499.2964478934152,
+      "maxX": 680.3753050362724,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 448.40000000037253,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 488.59999999962747,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 500.30000000074506,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 515.2000000011176,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 531.7000000011176,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 549.0999999996275,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 586.9000000003725,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 592.8000000007451,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 600.8000000007451,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 624.3000000007451,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 632.5,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 649.2000000011176,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 685.5999999996275,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 692.9000000003725,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 698.2000000011176,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 715.2000000011176,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 732.5,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 750.4000000003725,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 787.0999999996275,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 792.0999999996275,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 798.2000000011176,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 820,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 834.7000000011176,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 849.4000000003725,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 885.4000000003725,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 892.7000000011176,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 899.2000000011176,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 922.8000000007451,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 946.0999999996275,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 948.2000000011176,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 990.5999999996275,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 998.2000000011176,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 1015.3000000007451,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 1031.800000000745,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 1050.5999999996275,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 1065.5,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 1085.800000000745,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 1098.4000000003725,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    },
+    {
+      "elapsed": 1115.0999999996275,
+      "url": "warleader-poses.png",
+      "source": [
+        1024,
+        544,
+        512,
+        448
+      ],
+      "ground": {
+        "x": 589.8400268554688,
+        "y": 196.6699981689453
+      },
+      "minX": 499.3005982840402,
+      "maxX": 680.3794554268974,
+      "minY": 64.39755174037387,
+      "maxY": 222.8415517403739,
+      "offscreen": false
+    }
+  ]
+}

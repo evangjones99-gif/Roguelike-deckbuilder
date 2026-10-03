@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/opening-readonly-pack-cache-hint-source-independent-r1/review-source-r1.py", line 40, in <module>
+    body=(json.dumps(out,indent=2,sort_keys=True)+'\n').encode();assert len(body)<24000
+                                                                        ^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,16 @@
+
+Running 9 tests using 1 worker
+
+(node:370097) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/browser/game.spec.ts:88:1 › full rosters expose every intent and identify duplicate binding targets (3.6s)
+  ✓  2 tests/browser/game.spec.ts:120:1 › final strike saves outcome immediately, blocks stale commands and resumes canonical result (5.7s)
+  ✓  3 tests/browser/game.spec.ts:134:1 › reduced motion reaches salvage without a presentation hold (3.3s)
+  ✓  4 tests/browser/input-v0.6.spec.ts:88:1 › all twelve intents and complete hand rules fit wide short viewports (3.6s)
+  ✓  5 tests/browser/save-schema-v0.5.spec.ts:6:3 › generation 1 resumes unchanged and persists its own schema (4.1s)
+  ✓  6 tests/browser/save-schema-v0.5.spec.ts:6:3 › generation 2 resumes unchanged and persists its own schema (3.9s)
+  ✓  7 tests/browser/save-schema-v0.5.spec.ts:38:1 › unsupported generations retain exact raw data through title inspection (14.9s)
+  ✓  8 tests/browser/tool-art-v0.5.spec.ts:16:1 › illustrated equipment loads in hand and collection; crops resize without affecting the save (4.7s)
+  ✓  9 tests/browser/tool-art-v0.5.spec.ts:62:1 › missing illustration leaves the original symbol and working card controls (3.6s)
+
+  9 passed (49.0s)

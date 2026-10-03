@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/r3-two-raw-retirement-source-author-r1/consumer-supplement.py", line 6, in <module>
+    before=os.lstat(path);f=os.open(path,os.O_RDONLY|os.O_NOATIME|os.O_NOFOLLOW);assert before==os.fstat(f)
+           ^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/scratch/target-clear-default-caller-author-r1/SOURCE-CLOSURE.json'
