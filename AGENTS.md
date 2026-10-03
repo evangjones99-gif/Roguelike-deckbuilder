@@ -1,3 +1,9 @@
+## Test-phase memory admission reviewed; actual suites pending — 3 October2026
+
+At d2421b95, both complete provisioning/original builds passed. Native TypeScript inventory recorded114files. The original test suites exceeded384MiB sampled aggregate RSS and were terminated: partial passes/six cancellations per case, no whole-suite or output seal. Original two ZIPs/all78members and90retained files plus independent negative findings remain.
+
+Shared R9/cue method R4 pass SOURCE review; only test memory changes384→768MiB. Install/build384MiB, time/disk/log/proof/reserve/native count/original eight test bodies stay. Actual retries remain separate. Selected64c2a14a and held8bbaea72 are unchanged; cue993aa stays private/unselected. Read [test memory checkpoint](reviews/opening-ci-recovery-2026-10-03/test-memory-method-r1/README.md) and exact linked packets. One fresh hourly fallback stays active; old timer paused. All old work remains, with no cleanup/release/tag or asset promotion. Earlier text below is retained history.
+
 ## Native audit repair reviewed; actual cue build pending — 3 October2026
 
 Both daef3fd4 npm subprocesses passed, but complete provisioning failed the native inventory count; build/tests/output sealing were skipped. Exact original diagnostic ZIPs/all46members and independent negative review are retained. Shared R8 and cue build-method R3 pass SOURCE review with a deliberately changed selected-native count100→4096 and bounded diagnostics. Memory/disk/log/time/lifecycle/input-output counts remain unchanged. R7's source-budget failure remains failed and complete; new640KiB R8 preserves all raw evidence. Actual builds/comparison remain separate.

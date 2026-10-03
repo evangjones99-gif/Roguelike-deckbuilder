@@ -1,0 +1,7 @@
+{
+  "kind": "Independent review harness old packet path selector, not candidate failure",
+  "methodSHA256": "05d7575c5b2d975d7345996b7288b731812d69228ce88cacc219aa4d7679a3ea",
+  "exitCode": 1,
+  "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/opening-cue-build-technical-r4/verify.py\", line 122, in <module>\n    actual=load(pathlib.Path(next(path for path in fail['pins'] if path.endswith('/candidate/acquisition-progress.json'))))\n                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nStopIteration\n",
+  "repair": "Use exact new original C/members/acquisition-progress.json reference. All preceding source checks passed; no source changes or runtime."
+}
