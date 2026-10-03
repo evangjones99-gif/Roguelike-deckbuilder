@@ -1,0 +1,51 @@
+{
+  "BCPrivateBuildOrHumanFunApproved": false,
+  "actualPR1MergeCheckout": "1a9a2c91fbc0a1999744fb9243299cf30ecf88ca",
+  "all26ReceivedStepSummariesSuccess": true,
+  "artifactBodyDownloads": 0,
+  "artifactMetadataRows": 10,
+  "associatedHead": "764087166aa9655adfe33e25245c0bb93b14d166",
+  "capBytes": 196608,
+  "files": {
+    "API-METADATA.json": {
+      "bytes": 16036,
+      "sha256": "0fe6f86b3f9b07b4cf70f7abe87994a970c98722da92f2ef7ec2beff11e0646a"
+    },
+    "CHECKS.json": {
+      "bytes": 3238,
+      "sha256": "9eb92e9100d9403dc0006dd07cc9ee137fe8e4776f3eeb5cf0a433c727827ceb"
+    },
+    "LOCAL-CHECK-FAILURE.json": {
+      "bytes": 436,
+      "sha256": "e2faa423887edbc55eba5542b578ac8c69fe1ae1c801e5944d97c7b4fee52f3e"
+    },
+    "REVIEW.md": {
+      "bytes": 4755,
+      "sha256": "e0a282243c43714fb0e5b4e91bd1c65526849d858b5f1cc3d5e7cf491e400039"
+    },
+    "decoded-job.log": {
+      "bytes": 79889,
+      "sha256": "712474ae3d6ef6e48a7eb29ecbac99e194a2f73437bf62ff4146aea7529f193b"
+    },
+    "verify.py": {
+      "bytes": 4269,
+      "sha256": "24a49073bb0c88ea88056ebc72913a74fcfb66fb7c2e10ebe2f7aabb7ca24e98"
+    },
+    "windows-smoke.actual-merge.mjs": {
+      "bytes": 26576,
+      "sha256": "3f09a78f6111ad5518aebd544b4a4f8475fa22c4879242eb86d7dd8d0f49eef2"
+    }
+  },
+  "inclusiveBytes": 137125,
+  "inclusiveFileCount": 8,
+  "job": 111075708058,
+  "jobConclusion": "success",
+  "nativeReadinessOrReleaseApproved": false,
+  "run": 37079181727,
+  "runtimeSourceDigestPrinted": "64c2a14ada2b24796535f9bb71d8a6acc534685365bcf4f5665b21bf18595353",
+  "scope": "Received decoded log + exact primary metadata + exact tested smoke source, no original HTTP archive/package/artifact-body audit.",
+  "serializedPositionValueObserved": false,
+  "utc": "2026-10-02T23:58:16.974621+00:00",
+  "verdict": "ACTUAL_WINDOWS_ZERO_OFFSET_SMOKE_PASS_QUALIFIED",
+  "zeroOffsetAssertionPassSupportedByExactTestedSource": true
+}

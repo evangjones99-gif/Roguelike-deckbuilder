@@ -1,3 +1,9 @@
+## Native audit repair reviewed; actual cue build pending — 3 October2026
+
+Both daef3fd4 npm subprocesses passed, but complete provisioning failed the native inventory count; build/tests/output sealing were skipped. Exact original diagnostic ZIPs/all46members and independent negative review are retained. Shared R8 and cue build-method R3 pass SOURCE review with a deliberately changed selected-native count100→4096 and bounded diagnostics. Memory/disk/log/time/lifecycle/input-output counts remain unchanged. R7's source-budget failure remains failed and complete; new640KiB R8 preserves all raw evidence. Actual builds/comparison remain separate.
+
+Hosted Windows run37079181727 passed rules, packaged-executable smoke/archive/resource/transfer steps; artifact bodies are unreviewed and general readiness unestablished. Selected64c2a14a and held8bbaea72 remain unchanged; cue993aa368 stays private/unselected. Read [3 October exact checkpoint](../reviews/opening-ci-recovery-2026-10-03/README.md) and its literal packets. One fresh hourly fallback stays active, old timer paused. No cleanup, release/tag, or asset promotion occurs. Earlier text below is retained history.
+
 ## Fresh build supervision reviewed; cue comparison pending — 2 October2026
 
 Both Linux attempts at812668a3 failed during installation supervision before build and tests. Their original ZIPs, every member and the independent failure review remain retained. Shared method R6 and candidate method R2 pass exact independent SOURCE review with unchanged runtime limits; actual retries remain separate. R5's source-size failure remains failed. Windows zero-offset assertion repair76408716 starts a fresh native attempt, with no readiness inferred.

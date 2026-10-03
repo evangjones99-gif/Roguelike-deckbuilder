@@ -1,0 +1,89 @@
+{
+  "cases": [
+    {
+      "case": "threshold 0",
+      "failureType": null,
+      "hashCalls": 0,
+      "hashedBytes": 0,
+      "observedCount": 0,
+      "pass": true,
+      "requestedFiles": 0,
+      "status": "PASS_INVENTORY_BYTES_ONLY"
+    },
+    {
+      "case": "threshold 100",
+      "failureType": null,
+      "hashCalls": 100,
+      "hashedBytes": 1300,
+      "observedCount": 100,
+      "pass": true,
+      "requestedFiles": 100,
+      "status": "PASS_INVENTORY_BYTES_ONLY"
+    },
+    {
+      "case": "threshold 101",
+      "failureType": null,
+      "hashCalls": 101,
+      "hashedBytes": 1313,
+      "observedCount": 101,
+      "pass": true,
+      "requestedFiles": 101,
+      "status": "PASS_INVENTORY_BYTES_ONLY"
+    },
+    {
+      "case": "threshold 4096",
+      "failureType": null,
+      "hashCalls": 4096,
+      "hashedBytes": 53248,
+      "observedCount": 4096,
+      "pass": true,
+      "requestedFiles": 4096,
+      "status": "PASS_INVENTORY_BYTES_ONLY"
+    },
+    {
+      "case": "4097 refusal before hash",
+      "failureType": "ValueError",
+      "hashCalls": 4096,
+      "hashedBytes": 53248,
+      "observedCount": 4097,
+      "pass": true,
+      "requestedFiles": 4097,
+      "status": "FAILED"
+    },
+    {
+      "case": "partial hash permission failure",
+      "failureType": "PermissionError",
+      "hashCalls": 2,
+      "hashedBytes": 13,
+      "observedCount": 2,
+      "pass": true,
+      "requestedFiles": 3,
+      "status": "FAILED"
+    },
+    {
+      "case": "bounded long name prefixes/full hashes",
+      "failureType": null,
+      "hashCalls": 18,
+      "hashedBytes": 234,
+      "observedCount": 18,
+      "pass": true,
+      "requestedFiles": 18,
+      "status": "PASS_INVENTORY_BYTES_ONLY"
+    },
+    {
+      "case": "wrong package",
+      "enumeration": false,
+      "pass": true
+    },
+    {
+      "case": "wrong path",
+      "enumeration": false,
+      "pass": true
+    }
+  ],
+  "elapsedSeconds": 0.3042259869980626,
+  "exactHelperCases": 9,
+  "peakRSSBytes": 26701824,
+  "runnerSHA256": "2c393caa30d6b3559155c4677b9778671743f8ba73e100953e9a077bcdf64b31",
+  "scope": "Pure mocked-source helper only. No main/phase, installed package file count, native execution, package extraction, network, npm/build/test/browser or old-path writes. Empty helper inventory can pass byte inventory; unchanged provisioning still requires ELF native bodies."
+}
