@@ -55,6 +55,9 @@ type Settings = { mute: boolean; volume: number; motion: boolean };
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const escape = (s: string | number) => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 let state = createGame(Date.now() >>> 0);
+// Opening guidance belongs to this window's run, never to rules or saved data.
+// A loaded campaign may not retain the history of a binding that already fell.
+let openingMilestones: { binding: 'pending' | 'unknown' | 'done'; orderDone: boolean } = { binding: 'pending', orderDone: false };
 let tactileHand: TactileHandController | null = null;
 let canonicalRevision = 0n;
 let tactilePreviewActive = false;
@@ -117,6 +120,10 @@ try {
     }
   }
 } catch { saveNotice = 'Your save could not be read. A new campaign is still available.'; }
+if (savedRun) openingMilestones = {
+  binding: savedRun.allies.length ? 'done' : savedRun.stats.cardsPlayed === 0 ? 'pending' : 'unknown',
+  orderDone: savedRun.allies.some(unit => unit.acted),
+};
 
 const icons: Record<string, string> = {
   lantern: '<path d="M9 5V3h6v2M7 8h10l2 11H5L7 8ZM8 8V5h8v3M9 21h6M12 10v6M10 14h4"/>',
@@ -392,6 +399,12 @@ function dispatch(action: Action) {
   if (next.phase !== previous.phase || action.type === 'travel') clearToast();
   // Persist the canonical result before optional animation/audio runs.
   replaceCanonicalState(next);
+  // Only a committed result advances guidance; previews use the reducer too.
+  if (action.type === 'start') openingMilestones = { binding: 'pending', orderDone: false };
+  else if (previous.phase === 'battle' && previous.floor === 1) {
+    if (events.some(event => event.type === 'summon' && event.side === 'ally')) openingMilestones.binding = 'done';
+    if (action.type === 'attack') openingMilestones.orderDone = true;
+  }
   selected = null;
   selectionOrigin = null;
   save();
@@ -427,6 +440,7 @@ function start(seed: number, difficulty: number) {
   cancelPresentation();
   clearToast();
   replaceCanonicalState(createGame(seed, difficulty));
+  openingMilestones = { binding: 'pending', orderDone: false };
   if (state.phase === 'map' && state.route.length === 1) replaceCanonicalState(applyActionWithEvents(state, { type: 'travel', choice: state.route[0] }).state);
   title = false; selected = null; selectionOrigin = null; save(); render(); sound('summon');
   // Begin with a live fight; the full rules remain available through How to play.
@@ -790,10 +804,11 @@ function renderBattle() {
   if (!fallback) measureFieldReadouts();
   const available = actions();
   const playable = available.filter(a => a.type === 'play');
-  const firstBinding = state.floor === 1 && state.turn === 1 && state.allies.length === 0 && playable.some(action => action.type === 'play' && CARDS[state.hand[action.index]]?.type === 'summon');
+  const firstBinding = state.floor === 1 && openingMilestones.binding !== 'done' && state.allies.length === 0
+    && playable.some(action => action.type === 'play' && CARDS[state.hand[action.index]]?.type === 'summon');
   // Explain the first available Order without changing selection or rules.
-  const firstOrder = state.floor === 1 && state.turn === 1 && selected?.kind !== 'card'
-    && !state.allies.some(unit => unit.acted) && available.some(action => action.type === 'attack');
+  const firstOrder = state.floor === 1 && !openingMilestones.orderDone && selected?.kind !== 'card'
+    && available.some(action => action.type === 'attack');
   const orderCue = firstOrder ? selected?.kind === 'attack'
     ? '<p class="first-binding-cue"><strong>Choose a hostile.</strong> Your Order costs no energy.</p>'
     : '<p class="first-binding-cue"><strong>READY means one free Order.</strong> Select a binding, then a hostile.</p>' : '';
@@ -805,7 +820,7 @@ function renderBattle() {
     ? `<p class="first-binding-cue opening-turn-spent-cue"><strong>Commands spent.</strong> ${playable.length > 0
       ? 'Play a card, or End turn to let enemies act.' : 'Read enemy intents, then End turn.'}</p>` : '';
   const openingCue = firstBinding
-    ? '<p class="first-binding-cue"><strong>Bind your first creature.</strong> Click or drag a BINDING card.</p>' : orderCue || spentCue;
+    ? `<p class="first-binding-cue"><strong>${openingMilestones.binding === 'pending' ? 'Bind your first creature.' : 'Bind a creature.'}</strong> Click or drag a BINDING card.</p>` : orderCue || spentCue;
   $('dock').innerHTML = `<div class="hand-area"><div class="hand-heading${openingCue ? ' opening-hand-heading' : ''}"><span class="eyebrow">AVAILABLE CARDS <span>${state.hand.length}</span></span>${openingCue}<div class="pile-buttons"><button data-ui="draw">Draw <strong>${state.draw.length}</strong></button><button data-ui="discard">Discard <strong>${state.discard.length}</strong></button></div></div><div class="hand-cards">${state.hand.map((id, index) => renderCard(CARDS[id], { handIndex: index, disabled: !playable.some(a => a.type === 'play' && a.index === index), selected: selected?.kind === 'card' && selected.index === index })).join('')}${!state.hand.length ? '<div class="empty-hand">No cards in hand.<br>Use remaining commands, then end your turn.</div>' : ''}</div></div><div class="turn-controls"><div class="energy-orb">${icon('energy')}<strong>${state.energy}</strong><span>energy</span></div><button class="button end-turn" data-action="endTurn" data-focus="end-turn">End turn ${icon('arrow')}<small>Enemy intents resolve · draw 5 · refill energy</small></button><span class="keyboard-hint" aria-label="${inputMode === 'controller' ? 'Controller' : 'Keyboard'} controls">${inputHints()}</span></div>`;
   const hand = document.querySelector<HTMLElement>('#dock .hand-cards');
   // Natural printed rules can make a later card taller than the first.
