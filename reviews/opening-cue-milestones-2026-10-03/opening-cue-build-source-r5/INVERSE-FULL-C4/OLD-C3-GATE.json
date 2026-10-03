@@ -1,0 +1,78 @@
+{
+  "accepted": true,
+  "actualCBuildOutputOrCallerAuthorityApproved": false,
+  "all134Bodies57PinsFullInverseAndWorkflowVerified": true,
+  "allOtherResourceLifecycleInputOutputLimitsUnchanged": true,
+  "artDefaultGameplayFunNativeApproved": false,
+  "files": {
+    "CHECKS.json": {
+      "bytes": 36216,
+      "sha256": "7e2bf67dfbe6491eb26042f6f9cdd0a27db5743f3da72fce904e1b586b033c07"
+    },
+    "FAILED-PURE-NATIVE-CHECK-1.json": {
+      "bytes": 769,
+      "sha256": "6174521dafa42f44bccf9eb939fe8cff744a0e87d4ffe306543f601ddc8eef03"
+    },
+    "FAILED-PURE-NATIVE-CHECK-2.json": {
+      "bytes": 698,
+      "sha256": "00c4e63bdfd5e94155e391c2900060b9368d5176508e00c1f5bef6708a04f4a2"
+    },
+    "FAILED-PURE-NATIVE-METHOD-1.py": {
+      "bytes": 4434,
+      "sha256": "4e2a660794282b369229db97a934d3b22a96cec49858daac1e2acc24633253b8"
+    },
+    "FAILED-PURE-NATIVE-METHOD-2.py": {
+      "bytes": 4472,
+      "sha256": "f2da2a00c812ea3c7b7ad3bedc56d76641425ec22168215dec355fdf9496e858"
+    },
+    "PURE-NATIVE-CHECKS.json": {
+      "bytes": 2388,
+      "sha256": "afe7eb3019c0d93ab299878956323e9b89253d98b1dd74a199d6fae4b2c7b7cb"
+    },
+    "REVIEW.md": {
+      "bytes": 7767,
+      "sha256": "0da262aee35a3e13b6db3d9a52e39a4c9104c4427892265b155705b6272e8c79"
+    },
+    "pure-native-check.py": {
+      "bytes": 4502,
+      "sha256": "10bb9a9231e7f41f522952df1aacba12b407b34b894b62be4f3ab728dd25812b"
+    },
+    "verify.py": {
+      "bytes": 12777,
+      "sha256": "2c2f580437aeb9a9ce3913d1a45ff52ba58acfab7f35c72b1949b68681b923bc"
+    }
+  },
+  "inclusiveBytes": 77079,
+  "inclusiveFileCount": 10,
+  "manifestSHA256": "38718d084af1be614d7cb85c6f9798b03159dd68a2fff43cb02fa4d8a993e8fc",
+  "noActualMethodPhaseNpmBuildTestsBrowserMainNetwork": true,
+  "ordinaryWorkBytes": 67108864,
+  "ownDiskAllowanceBytes": 25165824,
+  "pointResourceSample": {
+    "currentSharedCgroupBytes": 510025728,
+    "freeDiskBytes": 31685001216,
+    "maximumBytes": 17179869184,
+    "qualification": "Point observation, not continuous/exclusive attribution; method ru_maxrss separate"
+  },
+  "priorActualProvisioningAndSourceCapFailuresRemainFailed": true,
+  "pureExactNativeHelperCases": 9,
+  "reserveBytes": 536870912,
+  "reviewCapBytes": 262144,
+  "reviewHarnessFailuresRetained": 2,
+  "role": "technical",
+  "runnerSHA256": "2c393caa30d6b3559155c4677b9778671743f8ba73e100953e9a077bcdf64b31",
+  "selectedNativeCountAllowanceChanged": {
+    "after": 4096,
+    "before": 100,
+    "scope": "Three exact fixed owned Linux x64 native packages only"
+  },
+  "sharedR8GateSHA256": "11b8facb99e9957da95a24835eb0a86ef73ff97e360be03ee6705b0d2c29739e",
+  "sourceCapBytes": 655360,
+  "sourceInclusiveBytes": 435065,
+  "sourceInclusiveFiles": 19,
+  "sourceRoot": "/workspace/scratch/opening-cue-build-source-r3",
+  "sourceSealSHA256": "74d23f566d5f4ed5d4d7af69a3391d968d0581d194ef7888d892861d748b85d6",
+  "utc": "2026-10-03T00:41:15.591148+00:00",
+  "verdict": "ACCEPT_C_ADAPTATION_SOURCE_ONLY",
+  "workflowSHA256": "bb001bd681e4123748425e4e6a22c9f2429eccbe7f3094a1d3b4fd7c0a229370"
+}

@@ -1,3 +1,9 @@
+## Original test fixtures restored in reviewed fresh methods — 3 October2026
+
+Both fbb617ef complete provisioning/builds passed. Original test commands now finish within768MiB, reporting107tests104pass3fail0cancelled; two missing archived JSON fixtures account for the failures. Original ZIPs/all78members/90retained files and negative findings remain. Shared R10/cue method R5 restore exact primary fixture bytes with full GitSHA1 pins, support30→32 and two more acquisition bodies; original tests/commands/rules/runtime hashes and all resource controls stay.
+
+Actual new suites/output seals remain separate. Selected64c2a14a/held8bbaea72 stay; cue993aa remains private/unselected. Read [fixture closure checkpoint](../reviews/opening-ci-recovery-2026-10-03/test-fixture-method-r1/README.md) and exact packets. One fresh hourly fallback is active, old timer paused. All old work remains, with no cleanup/release/tag/asset promotion. Earlier text below is retained history.
+
 ## Test-phase memory admission reviewed; actual suites pending — 3 October2026
 
 At d2421b95, both complete provisioning/original builds passed. Native TypeScript inventory recorded114files. The original test suites exceeded384MiB sampled aggregate RSS and were terminated: partial passes/six cancellations per case, no whole-suite or output seal. Original two ZIPs/all78members and90retained files plus independent negative findings remain.

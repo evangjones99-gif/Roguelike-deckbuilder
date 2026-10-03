@@ -1,0 +1,7 @@
+{
+  "kind": "Overstrict inherited static closure byte-equivalence assumption",
+  "methodSHA256": "037ec709084e32215fc3a80b0a68c08bf5949005534ffbca9a143e0c76ccfbc4",
+  "exitCode": 1,
+  "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/opening-cue-build-technical-r5/verify.py\", line 110, in <module>\n    for name,pin in closure['closureBodies'].items():assert all(local[name][k]==v for k,v in pin.items())\n                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "finding": "Inherited A static closure src/art.ts differs from retained C/B src/art.ts; already-existing candidate metadata literal, not C5 source mutation. Other25 closure bodies exact. Independently inspect complete difference and verify unchanged prefix plus valid terminal JSON data literal only before reusing closure imports/read edges. No art approval."
+}

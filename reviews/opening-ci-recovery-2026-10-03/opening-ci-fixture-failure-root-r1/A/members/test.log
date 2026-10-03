@@ -1,0 +1,175 @@
+
+> hollowpact@0.9.0 test
+> tsx --test tests/*.test.ts
+
+✔ omitted/zero timing preserves the old pure contact cues and canonical bytes (12.843481ms)
+✔ renderer allocation and queued lead shift the anchor without altering contact offsets (5.675806ms)
+✔ invalid timing and nonanimated/noncombat presentation remain immediate (1.124106ms)
+✔ arrival bind/impact groups and enemy-phase wound/stagger cues keep their relative contact times (5.467003ms)
+✔ actual player deadline includes an800ms anchor lead beyond its unchanged600ms offset cap (20.72989ms)
+✔ pending delayed decode cannot escape cancellation or native restoration epoch barriers (11.141777ms)
+✔ hidden and native inactive hosts never start a delayed batch (3.894802ms)
+✔ late cold assets still skip their shifted deadline rather than playing a stale impact (3.765329ms)
+✔ schema kind1: ironjaw guard and actual Silence retain 14 armor (15.776594ms)
+✔ schema kind1: raider guard and actual Silence retain 4 armor (1.543826ms)
+✔ schema kind1: cindermaw guard and actual Silence retain 10 armor (1.588471ms)
+✔ schema kind2: ironjaw guard and actual Silence retain 14 armor (3.59045ms)
+✔ schema kind2: raider guard and actual Silence retain 4 armor (1.929743ms)
+✔ schema kind2: cindermaw guard and actual Silence retain 10 armor (1.382013ms)
+✔ guard is absent in an attack phase after Silence (1.851536ms)
+✔ revenant single target: summary agrees with actual block admission (4.066093ms)
+✔ thrall single target: summary agrees with actual block admission (1.28556ms)
+✔ loaded revenant area damage uses block and hits every live target (1.540771ms)
+✔ marked Binding 2 dying first redirects a later bypass hit to hunter (1.361724ms)
+✔ raise plan respects post-phase timing and cap with 1 existing hostiles (1.802384ms)
+✔ raise plan respects post-phase timing and cap with 5 existing hostiles (0.892521ms)
+✔ raise plan respects post-phase timing and cap with 6 existing hostiles (1.008321ms)
+✔ fatal hunter phase suppresses planned reinforcements (0.579271ms)
+✔ structured loaded facts override misleading labels and formatter is pure (1.57751ms)
+✔ 24 original cards, four creature families and enhancement texts are complete (10.177322ms)
+✔ schema 2 saves reject historical schema, presentation menu and malformed inputs (1.076437ms)
+✔ serialized action replay is exact, pure, and deterministic through terminal state (251.982004ms)
+✔ invalid indices, targets, phase, budget and board size return original object (0.682414ms)
+✔ living creatures own one card copy outside piles; dead creatures rejoin discard (4.883755ms)
+✔ two identical source copies remain separate when one dies (0.610208ms)
+✔ Cairn Hound executes exposed targets but does not receive bonus against armor (3.215805ms)
+✔ Fen Stalker heals only when its command deals health damage (1.199588ms)
+✔ Briar Colossus grants hunter block after every command, even into armor (2.742253ms)
+✔ Ash Widow amplifies targeted damage, relic combines, Revenant resists it (0.752978ms)
+✔ Grave Resonance supports a spell-only opening and loses solo bonus after binding (0.425882ms)
+✔ ready permits a second command while ordinary commands are once per turn (1.028616ms)
+✔ Ironjaw armor retaliates through creature block; Sundering Hex prevents retaliation (2.859804ms)
+✔ retaliation deaths return exactly one source card and no duplicate draws (0.534937ms)
+✔ announced targets stay stable across bindings and commands; missing creature falls back to hunter (0.634805ms)
+✔ Revenant strikes ignore hunter armor and have explicit visible text (0.298783ms)
+✔ Cantor raises announced thralls after enemy resolution; no hidden immediate attacks (0.400514ms)
+✔ reinforcements respect six slots and cannot carry an unannounced extra enemy (0.377501ms)
+✔ Silence cancels necromancy; canceled attacks do not become armor; guard remains guard (0.862163ms)
+✔ killing the raising source before ending the turn prevents its reinforcements (0.482359ms)
+✔ Cindermaw guard/breath/strike cycle has readable damage windows and expires armor (0.437053ms)
+✔ boss is forecastable from run seed independently of earlier RNG consumption (1.557643ms)
+✔ elite formations offer four distinct questions and never guarantee all six relics (65.766043ms)
+✔ targeted camp upgrade changes precisely the selected duplicate entry (1.503381ms)
+✔ relic effects support summon endurance, command attack, solo economy and recovery (5.075906ms)
+✔ rewards, real shop costs and removals cannot be collected twice (2.00235ms)
+✔ crypt events provide paid recovery, card purge or bounded relic oath (0.538965ms)
+✔ temporary attack bonuses reset between contracts while permanent deck and HP persist (4.593339ms)
+✔ hunter self-damage defeat is immediate and terminal; terminal turn is counted (0.36128ms)
+✔ all three boss contracts can finish in a valid terminal collection state (105.674813ms)
+✔ save validation rejects prototype identities, forged passives and illegal reinforcement fields (2.075248ms)
+✔ every encounter must match its actual node; final combat allows only boss (21.009766ms)
+✔ 300 seeded legal-random runs validate every intermediate state across difficulties (2866.300916ms)
+{"acceptedObservedStates":769,"seeds":"7811..7818","difficulty":"seed%3","scope":"Actual legal random actions, no human fun inference"}
+✔ actual bind, ward, healing, control, rally and self-injury produce distinct observer cues (7.866771ms)
+✔ fully blocked actual hit braces; lethal actual trace falls at its executed impact only (1.808725ms)
+✔ observation never mutates canonical state, UID allocation, RNG, event snapshots or legal actions (222.138131ms)
+✔ unified hunter placement is deterministic and occupies no creature slot (0.385365ms)
+✔ command directs hunter without rewriting its real companion hit and timing boundaries stay bounded (1.035921ms)
+✔ all full R3 pose cells fit desktop/mobile with one shared foot plane and target identity stays canonical (1.845545ms)
+✔ connection-held confirm requires neutral release, then a fresh edge (3.583376ms)
+✔ confirm does not repeat across selection focus changes or long holds (0.591183ms)
+✔ button value hysteresis does not chatter near the press threshold (0.576305ms)
+✔ axis enter/exit deadzones ignore jitter and require threshold on reversal (0.457582ms)
+✔ direction alone repeats after350ms, then100ms; reentry is immediate (0.618143ms)
+✔ simultaneous activation buttons produce a single prioritized intent (0.278064ms)
+✔ presentation gate suppresses confirm and requires release after reopening (0.568741ms)
+✔ safe pause may open while gated, but is not replayed into a modal (1.04651ms)
+✔ disconnect, hidden reset and pad-index changes neutralize held input (0.423607ms)
+✔ unsupported mapping, invalid timing and opposing dpad directions stay inert (0.67981ms)
+✔ nonfinite axes/buttons are ignored, and decoder never reads a device identity (0.316024ms)
+✔ decoding does not mutate borrowed browser snapshots (2.937871ms)
+✔ safe pause works after neutral presentation-lock frames, without arming gameplay (0.280178ms)
+✔ initial unfocused document does not read controller; focus event needs neutral then a fresh press (1.525802ms)
+✔ visible-window blur stops reads and requires neutral release before any resumed controller action (0.792091ms)
+✔ blur cancels scheduled RAF; focus reschedules, and disposed adapters cannot resume (0.534636ms)
+✔ unavailable initial focus API retains event-based keyboard/controller fallback (0.916185ms)
+✔ events and ordinary reducer remain byte equivalent to archived v0.2 across seeded legal runs (5518.161862ms)
+✔ invalid actions produce no observations and preserve object identity (0.413999ms)
+✔ first lethal hunter strike suppresses every later enemy strike (0.752697ms)
+✔ a later strike resolves to hunter after its announced creature target dies (1.091124ms)
+✔ one executed area attack finishes its real targets even if hunter dies, then skips later enemies (0.66958ms)
+✔ fully blocked attacks are observed with zero health loss and real absorbed damage (0.260721ms)
+✔ piercing and self damage report zero block absorption despite existing wards (0.354377ms)
+✔ stalker recovery and retaliation remain distinct despite zero net creature HP change (1.383052ms)
+✔ retaliation death follows command hit and returns exactly one real card copy (0.397819ms)
+✔ spell area damage records resolved roster targets and each death in order (0.450387ms)
+✔ binding snapshots survive on-bind victory cleanup and cannot mutate returned state (0.322025ms)
+✔ necromancy emits summons from actual raising source without immediate enemy hits (0.496795ms)
+✔ healing and wards emit actual gains only, with guard source resolved explicitly (0.610639ms)
+✔ random legal replays preserve archived states across rewards, crypt, shop and control branches (437.980031ms)
+✔ Silence reports a truthful noninjury control event and redundant silence emits no second cue (0.457661ms)
+✔ Edict reports each real attack increase in roster order without invented injuries (0.578628ms)
+node:fs:484
+    return binding.readFileUtf8(path, stringToFlags(options.flag));
+                   ^
+
+Error: ENOENT: no such file or directory, open '/home/runner/work/_temp/empty-intent-fresh-37085756360-1/stage/reviews/solo-v0.3/silence-overflow-campaign.json'
+    at readFileSync (node:fs:484:20)
+    at <anonymous> (/home/runner/work/_temp/empty-intent-fresh-37085756360-1/stage/tests/save-validity-v0.4.test.ts:11:28)
+    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+    at async node:internal/modules/esm/loader:643:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/runner/work/_temp/empty-intent-fresh-37085756360-1/stage/reviews/solo-v0.3/silence-overflow-campaign.json'
+}
+
+Node.js v24.19.0
+✖ tests/save-validity-v0.4.test.ts (339.799939ms)
+✖ generation2 production hash matches frozen research vectors and browser comparison evidence (2.187308ms)
+✔ generation classification is explicit and old serialization has no new fields (7.612893ms)
+✔ actual v0.4 fixture provenance and kind1 continuation stay byte exact (1434.331966ms)
+✔ reachable card acquisition, draw history and shop sculpture cannot reroll common world nodes (307.046982ms)
+✔ reachable alternate route choices do not advance any shared world cursor (48.82185ms)
+✔ identity ranking is pure and invariant to catalogue ordering and owned exclusions (8.599151ms)
+✔ new-generation full serialized/event replays preserve stream positions and query purity (2146.844229ms)
+✔ explicit kind2 legal-random campaigns validate and serialize every accepted state (577.741976ms)
+✖ recovery rejects nonserializable programmatic extras and cannot switch generations (0.534576ms)
+✔ new-run Revenant cancellation says damage is canceled; legacy text remains byte exact (3.385751ms)
+ℹ tests 107
+ℹ suites 0
+ℹ pass 104
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7399.551553
+
+✖ failing tests:
+
+test at tests/save-validity-v0.4.test.ts:1:1
+✖ tests/save-validity-v0.4.test.ts (339.799939ms)
+  'test failed'
+
+test at tests/world-rng-v0.5.test.ts:35:1
+✖ generation2 production hash matches frozen research vectors and browser comparison evidence (2.187308ms)
+  Error: ENOENT: no such file or directory, open '/home/runner/work/_temp/empty-intent-fresh-37085756360-1/stage/reviews/world-rng-v0.5/golden-vectors-r1.json'
+      at readFileSync (node:fs:484:20)
+      at TestContext.<anonymous> (/home/runner/work/_temp/empty-intent-fresh-37085756360-1/stage/tests/world-rng-v0.5.test.ts:36:29)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/home/runner/work/_temp/empty-intent-fresh-37085756360-1/stage/reviews/world-rng-v0.5/golden-vectors-r1.json'
+  }
+
+test at tests/world-rng-v0.5.test.ts:208:1
+✖ recovery rejects nonserializable programmatic extras and cannot switch generations (0.534576ms)
+  Error: ENOENT: no such file or directory, open '/home/runner/work/_temp/empty-intent-fresh-37085756360-1/stage/reviews/solo-v0.3/silence-overflow-campaign.json'
+      at readFileSync (node:fs:484:20)
+      at TestContext.<anonymous> (/home/runner/work/_temp/empty-intent-fresh-37085756360-1/stage/tests/world-rng-v0.5.test.ts:209:30)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/home/runner/work/_temp/empty-intent-fresh-37085756360-1/stage/reviews/solo-v0.3/silence-overflow-campaign.json'
+  }

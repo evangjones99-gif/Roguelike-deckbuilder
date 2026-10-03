@@ -1,0 +1,109 @@
+{
+  "actualRuntimeOutputAuthority": null,
+  "blobPinCount": 59,
+  "files": {
+    "C4-DELTA-CHECKS.json": {
+      "bytes": 575,
+      "sha256": "bd07984ecdbdccea0fc52d66f93eab9910d91ed0225bd0ac47173cd4146df19a"
+    },
+    "CHECKS.json": {
+      "bytes": 55793,
+      "sha256": "1a3d9c113017ceff346a7a739c4b4d16fdf42f929abf1f374bd663ab2521353f"
+    },
+    "FAILED-CHECK-1.json": {
+      "bytes": 924,
+      "sha256": "07f4e91414bdeb2d90f7bb9aa0c0c213d6661c484a7d0dcb069262afa0498896"
+    },
+    "FAILED-CHECK-2.json": {
+      "bytes": 581,
+      "sha256": "a5bb08ff5bcfe88926aea670b7b1d8269e76ff42821fae6bf8ce1871176b2fdb"
+    },
+    "FAILED-CHECK-3.json": {
+      "bytes": 696,
+      "sha256": "cb924bd7679d787fbd657ae14eb53e85fb4c0058f0a72d723b27daa0047dd1d0"
+    },
+    "FAILED-VERIFY-1.py": {
+      "bytes": 14997,
+      "sha256": "037ec709084e32215fc3a80b0a68c08bf5949005534ffbca9a143e0c76ccfbc4"
+    },
+    "FAILED-VERIFY-2.py": {
+      "bytes": 15560,
+      "sha256": "e9ffdb08a15421a69f45e905d0b4d53c02beff6763adf94ee414e1475395d459"
+    },
+    "PRIMARY-FIXTURE-1.json": {
+      "bytes": 17880,
+      "sha256": "3b923c9b71735fdfe5bcf9d0cf068733267022c7957378b109bfdc4118ff78b6"
+    },
+    "PRIMARY-FIXTURE-2.json": {
+      "bytes": 2892,
+      "sha256": "92a51ef9ec6eb0174f64e19bac2d89ecba6b578b949eed22888ac9897bdc15aa"
+    },
+    "PRIMARY-FIXTURE-RECEIPT.json": {
+      "bytes": 1032,
+      "sha256": "c839a022cd11909717f0efba23e544c92cbe2059e263f56c18e68c3f2c98a699"
+    },
+    "REVIEW.md": {
+      "bytes": 3869,
+      "sha256": "e2fdb6a7ec234bcde24950204d2caf44f4db74d1ef35d792645a553c4ae2f004"
+    },
+    "verify.py": {
+      "bytes": 15560,
+      "sha256": "7c8573960e20ac7769443b5abfa1618b410478419e4e409ef0f137e0e0f15206"
+    }
+  },
+  "fullC4InverseBytes": 893061,
+  "fullC4InverseFiles": 39,
+  "inputCount": 136,
+  "installBuildWorkCapBytes": 402653184,
+  "manifest": {
+    "bytes": 10625,
+    "gitBlobSHA1": "a9aaf2fb13886bc8c634dc627c9e69f66dcc6f8c",
+    "sha256": "4752802de5310e0c26b9cd4fc89ff434ab77dfb69c378ddfae5abbd756b38ee6"
+  },
+  "methodSeconds": 0.27187814799981425,
+  "nativeFileCountAllowance": 4096,
+  "onlyAddedDataFixtures": 2,
+  "original8TestsAndCommandUnchanged": true,
+  "originalBlobPinCountRetained": 57,
+  "originalInputCountRetained": 134,
+  "ownDiskCapBytes": 25165824,
+  "ownInclusiveBytes": 134612,
+  "ownInclusiveFiles": 13,
+  "ownSourceCapBytes": 393216,
+  "ownWorkCapBytes": 67108864,
+  "preservedHarnessFailures": 3,
+  "priorActualSuiteStillFailed": true,
+  "qualification": "Source-only acceptance; independent read-only primary GitHub fixture fetch earlier, final audit no network or phase execution. No actual build/test/output/default/art/fun/platform approval.",
+  "reserveBytes": 536870912,
+  "runner": {
+    "bytes": 62948,
+    "gitBlobSHA1": "2210cc2cc130f19a19b9c9f7f016c451300658cc",
+    "sha256": "a73f5f130bb616117d13b27e8a8ec757378c959b07db1b16b001e4120d4a5127"
+  },
+  "selfPlusLargestSequentialChildRSSBytes": 50618368,
+  "sharedR10Gate": {
+    "bytes": 4157,
+    "gitBlobSHA1": "8b69cb374e0a970f4fc6d534a07e211e893f5657",
+    "sha256": "664f78f61f5669c4c2870ca629e228fa944087727384268b95aa66f68d671aee"
+  },
+  "sharedR10SealSHA256": "83188dc11eb1259cc961cf38e69cc7232040d08d6a7f209e5f817e599872f4bc",
+  "sourceCapBytes": 2097152,
+  "sourceInclusiveBytes": 1389438,
+  "sourceInclusiveFiles": 62,
+  "sourceRoot": "/workspace/scratch/opening-cue-build-source-r5",
+  "sourceSeal": {
+    "bytes": 8190,
+    "gitBlobSHA1": "8cf74edc3e8733b0475fd8bae3a861d84aaeaba9",
+    "sha256": "c31d3be32e55fd5ac8b7378719d6d6a3db8d101a9a3f05d2e0aab49efb3bcd8a"
+  },
+  "staticClosureQualification": "25 exact inherited bodies; art full unchanged prefix plus terminal JSON-only metadata difference, no new import/read edges. Known literal reads only.",
+  "testWorkCapBytes": 805306368,
+  "unchangedMainSHA256": "87a9bd7c2319522f77db7ea9e2edc306bb6124b019306dc220087f6b9b7762f4",
+  "unchangedSource104Digest": "993aa3681596c2488d4d394744e5beda2778ffcba3e1649736612304d20b50c5",
+  "verdict": "ACCEPT_C_ADAPTATION_SOURCE_ONLY",
+  "workflow": {
+    "bytes": 80746,
+    "gitBlobSHA1": "421179823cab739c3c63f79a475538b672fe6cbf",
+    "sha256": "96497484403374a3c48fc5db6e5de12448d7393f21f303976e19282c790c9583"
+  }
+}

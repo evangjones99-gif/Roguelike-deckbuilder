@@ -1,0 +1,125 @@
+{
+  "revision": 1,
+  "purpose": "Proposed v0.5 hash/identity-order portability research, not production integration",
+  "runtimeImported": false,
+  "algorithm": "UTF8 JSON tuple; FNV-1a-64 then SplitMix64 finalizer, hash version1",
+  "generationProposed": 2,
+  "sourceHash": "b7943cc0f72606ff9fea63aaee7132df2c54c2b7f8a89fb49476fbfc165455d8",
+  "nodeVersion": "v24.19.0",
+  "browserVersion": "151.0.7922.173",
+  "golden": [
+    {
+      "key": [
+        "hollowpact",
+        2,
+        0,
+        "encounter",
+        1,
+        "battle",
+        "normal.raider-thrall"
+      ],
+      "expected": "38227b714820819f",
+      "actual": "38227b714820819f"
+    },
+    {
+      "key": [
+        "hollowpact",
+        2,
+        1989,
+        "encounter",
+        1,
+        "battle",
+        "normal.raider-thrall"
+      ],
+      "expected": "665f451dd24bcd8a",
+      "actual": "665f451dd24bcd8a"
+    },
+    {
+      "key": [
+        "hollowpact",
+        2,
+        1989,
+        "reward",
+        1,
+        "battle",
+        "silence"
+      ],
+      "expected": "ff0dae33d92e09df",
+      "actual": "ff0dae33d92e09df"
+    },
+    {
+      "key": [
+        "hollowpact",
+        2,
+        1989,
+        "shop",
+        1,
+        "battle",
+        "silence"
+      ],
+      "expected": "573f69031537cc51",
+      "actual": "573f69031537cc51"
+    },
+    {
+      "key": [
+        "hollowpact",
+        2,
+        1989,
+        "relic",
+        4,
+        "elite",
+        "grave-coin"
+      ],
+      "expected": "7c178ff49c76723b",
+      "actual": "7c178ff49c76723b"
+    },
+    {
+      "key": [
+        "hollowpact",
+        2,
+        1989,
+        "battle-deck",
+        10,
+        "boss",
+        ""
+      ],
+      "expected": "82c62931bd899fc9",
+      "actual": "82c62931bd899fc9"
+    },
+    {
+      "key": [
+        "hollowpact",
+        2,
+        4294967295,
+        "battle-deck",
+        10,
+        "boss",
+        ""
+      ],
+      "expected": "d05bee1128f7ac8c",
+      "actual": "d05bee1128f7ac8c"
+    }
+  ],
+  "broaderTupleCount": 3604,
+  "broaderTupleDigest": "baf9a58889316f103d1de02a6aee1fed3159a3e682dac0822f60fbf29b2ad64e",
+  "nodeBrowserExact": true,
+  "observations": {
+    "sampleRanksUnique": true,
+    "catalogueReorderExact": true,
+    "ownedFilterPreservesRanks": true,
+    "forcedTieOrder": [
+      "A",
+      "Z",
+      "a",
+      "z"
+    ],
+    "serializedTupleReplayExact": true,
+    "unicodeAndDelimiterFixturesMatch": true
+  },
+  "limitations": [
+    "Both hosts run the same specified algorithm; this is portability evidence, not an independent hash proof.",
+    "Tuple combinations include unearned/unreachable node-purpose/content pairs and test no game progression.",
+    "A finite unique sample cannot establish absence of all possible 64-bit collisions.",
+    "No saved state, draw-stream continuation, generation migration or game-world schedule was tested."
+  ]
+}

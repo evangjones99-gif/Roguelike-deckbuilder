@@ -1,0 +1,83 @@
+{
+  "actualRuntimeOutputAuthority": null,
+  "blobPinCount": 57,
+  "candidateSourceDigest": "993aa3681596c2488d4d394744e5beda2778ffcba3e1649736612304d20b50c5",
+  "files": {
+    "CHECKS.json": {
+      "bytes": 44622,
+      "sha256": "00935eccca182f4efcdf29af0a1ee4b753a2c1edbe93a02b3aa278dfd1b261e8"
+    },
+    "FAILED-CHECK-1.json": {
+      "bytes": 739,
+      "sha256": "b43c2a570c357e9677ca18ca3c7b2ddec5345764749deb59707867868f44043d"
+    },
+    "FAILED-CHECK-2.json": {
+      "bytes": 755,
+      "sha256": "119ab3180dc6dafc242c415d8e4d69ef1a8861fb95325a60c9b93d1c0d804f51"
+    },
+    "FAILED-VERIFY-1.py": {
+      "bytes": 13649,
+      "sha256": "ac98cfc3399b5cb0a0ada72372f6068ae58700a63b62b797e7b1e11d8199dc61"
+    },
+    "FAILED-VERIFY-2.py": {
+      "bytes": 13738,
+      "sha256": "05d7575c5b2d975d7345996b7288b731812d69228ce88cacc219aa4d7679a3ea"
+    },
+    "REVIEW.md": {
+      "bytes": 3282,
+      "sha256": "8ae45981c45eb0a23950f8d18577aa38d888c337290f823c085b0d54b8904675"
+    },
+    "verify.py": {
+      "bytes": 13738,
+      "sha256": "ad9b8736eea3f3cf4334b8d39b5d4bc8c052f692ea22680e9c5de3c25caf3ab3"
+    }
+  },
+  "fullC3InverseBytes": 435065,
+  "fullC3InverseFiles": 19,
+  "inputCount": 134,
+  "mainSHA256": "87a9bd7c2319522f77db7ea9e2edc306bb6124b019306dc220087f6b9b7762f4",
+  "manifest": {
+    "bytes": 6835,
+    "gitBlobSHA1": "b555fa32fe6bee70aa1c976855073be78fb3daa4",
+    "sha256": "77c648fad01572624a62378b3976c3c9f88287549c7b92b7d665b0bbd90e8aed"
+  },
+  "methodSeconds": 0.27067284700024175,
+  "nativeFixturesNotRerun": true,
+  "onlyFunctionalChange": "test run_phase memory argument 384*MIB -> 768*MIB",
+  "ownDiskCapBytes": 25165824,
+  "ownInclusiveBytes": 93679,
+  "ownInclusiveFiles": 8,
+  "ownSourceCapBytes": 262144,
+  "ownWorkCapBytes": 67108864,
+  "preservedHarnessFailures": 2,
+  "priorActualTestsStillFailed": true,
+  "qualification": "Exact SOURCE acceptance only; no phase/native/runtime/install/build/test/browser/network execution, output authority, game/art/default/fun/platform approval.",
+  "reserveBytes": 536870912,
+  "runner": {
+    "bytes": 62613,
+    "gitBlobSHA1": "d47e90f86c4bfbfb200c7e8d1f60ca56ada8b154",
+    "sha256": "c0345015a5f59a12e3f1397d3599090db773cdaa02fa57eadb6ea62eb358dfcd"
+  },
+  "selfPlusLargestSequentialChildRSSBytes": 50094080,
+  "sharedR9Gate": {
+    "bytes": 2758,
+    "gitBlobSHA1": "e7d94bf55a32a9f2fab3ec9573cf823065f1b061",
+    "sha256": "261b4fa2043b241006c3bae6b18309a2137135bc08ea877dc523941135eab42a"
+  },
+  "sharedR9SealSHA256": "59cd0e4c7fb4caf8996650e78798c7ef57317cef3238747a2ed7aef5c18c18ed",
+  "sourceCapBytes": 1048576,
+  "sourceInclusiveBytes": 893061,
+  "sourceInclusiveFiles": 39,
+  "sourceRoot": "/workspace/scratch/opening-cue-build-source-r4",
+  "sourceSeal": {
+    "bytes": 4885,
+    "gitBlobSHA1": "b82c071390951099888c7094ef8bb2501707e264",
+    "sha256": "8581a39c88c3ce906678fad6392e14ea080dfeb4a338064e7983ea65f26d560c"
+  },
+  "verdict": "ACCEPT_C_ADAPTATION_SOURCE_ONLY",
+  "workflow": {
+    "bytes": 80412,
+    "gitBlobSHA1": "caf52853af492a183fa66069c86bfe007268550f",
+    "sha256": "0f70389ddf37798c6869502f4d800d5caf214dd79e22eeff96334c6df5bdf495"
+  }
+}
