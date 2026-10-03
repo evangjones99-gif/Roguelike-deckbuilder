@@ -813,7 +813,7 @@ function renderBattle() {
     ? '<p class="first-binding-cue"><strong>Choose a hostile.</strong> Your Order costs no energy.</p>'
     : '<p class="first-binding-cue"><strong>READY means one free Order.</strong> Select a binding, then a hostile.</p>' : '';
   const livingBindings = state.allies.filter(unit => unit.hp > 0);
-  const commandsSpent = openingTurnCue && state.phase === 'battle' && state.floor === 1 && state.turn === 1
+  const commandsSpent = openingTurnCue && state.phase === 'battle' && state.floor === 1
     && livingBindings.length > 0 && livingBindings.every(unit => unit.acted)
     && !selected && !settlingCombat && !$<HTMLDialogElement>('dialog').open;
   const spentCue = commandsSpent
